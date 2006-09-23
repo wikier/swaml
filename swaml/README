@@ -1,0 +1,34 @@
+
+SWAML - Semantic Web Archive or Mailing Lists
+
+SWAML is simple application written in Python to publish the
+mailing lists's archives into an RDF format.
+
+Our homepage is:
+        
+    http://swaml.berlios.de
+
+Development happens on BerliOS Forge:
+
+    http://developer.berlios.de/projects/swaml/
+
+
+REQUIREMENTS:
+^^^^^^^^^^^^^
+
+    - python >= 2.4
+
+
+FEATURES:
+^^^^^^^^^
+        
+    * FIXME
+
+
+PLANNED FEATURES:
+^^^^^^^^^^^^^^^^^
+
+FIXME
+        
+
+

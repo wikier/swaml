@@ -1,0 +1,18 @@
+                      Installing SWAML
+
+Short Answer:
+^^^^^^^^^^^^^
+
+FIXME
+
+Dependencies:
+	- python >= 2.4.0
+	- rdflib >= 2.2.0 (official release <http://rdflib.net/releases/>,
+			   non debian package)
+	- python-soappy
+
+
+Long Answer:
+^^^^^^^^^^^^
+
+FIXME

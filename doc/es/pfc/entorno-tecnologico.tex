@@ -1,0 +1,47 @@
+
+\chapter{Entorno tecnológico}
+
+\section{Lenguaje de programación}
+
+El problema planteado requiere de una lenguaje de programación que disponga
+de determinadas características:
+
+\begin{itemize}
+  \item Fácil despliegue: hay que procurar que SWAML se pueda desplegar en
+	todo tipo de máquinas, sin excesivos requisitos ni hardware ni software.
+  \item API para RDF: que disponga de una bliblioteca, a poder ser nativa, para
+	manejar RDF.
+  \item Biblioteca para ficheros mbox: sería interesante disponer de una biblioteca 
+	que abstraiga lo mayor posible al proyecto del manejo de ficheros
+	mbox\footnote{\url{http://rfc.net/rfc4155.html}} y mensajes de correo 
+	electrónico\footnote{\url{http://rfc.net/rfc2822.html}}.
+\end{itemize}
+
+Y todas esas razones encuentran en 
+Python\footnote{\url{http://www.python.org/}} una justificación:
+
+\begin{itemize}
+  \item Python es un lenguaje de script extremadamente eficiente. Su uso está 
+	muy extendido en todos los sistemas Unix actuales (GNU/Linux, familia 
+	BSD, Solaris, etc), aunque también está 
+	disponible\footnote{\url{http://www.python.org/download/}}
+	para la mayoria de sistemas operativos restantes 
+	(Windows\footnote{url{http://www.python.org/download/windows/}}, 
+	MacOs\footnote{\url{http://www.python.org/download/mac/}} y
+	otros\footnote{\url{http://www.python.org/download/other/}}.
+  \item Existen varias posibilidades para manejar RDF desde Python. Algunas son
+	bibliotecas nativas desarrolladas también en Python, y otras están
+	disponibles en forma de bindings a bibliotecas desarrolladas en otro 
+	lenguaje.
+	De todas las posibilidades, quizás RDFLib\footnote{\url{http://rdflib.net/}}
+	sea la que se encuentra en un estado de desarrollo más avanzado y maduro.
+	Además ofrece la posibilidad de \emph{colocar encima} otras bibliotecas,
+	como por ejemplo Sparta\footnote{\url{http://www.mnot.net/sw/sparta/}},
+	para utilizar determinados conceptos que no contempla RDFLib.
+  \item Con modulos como mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}
+	e email\footnote{\url{http://docs.python.org/lib/module-email.html}} esta
+	necesidad se ve claramente satisfecha.
+\end{itemize}
+
+Por tanto se concluyó que Python era una de las mejores opciones para resolver
+el problema planteado.

@@ -1,0 +1,119 @@
+\documentclass[spanish,a4paper,10pt]{report}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{times}
+\usepackage{babel}
+\usepackage{listings}
+\usepackage{verbatim}
+
+\pagestyle{headings}
+
+\input{macros.tex}
+
+\title{%
+	SWAML, Publicación de listas de correo en Web Semántica}
+\author{Sergio Fern\'andez L\'opez,
+	Diego Berrueta Mu\~noz,
+	Jos\'e Emilio Labra Gayo}
+\date{Agosto de 2006}
+
+\begin{document}
+
+\maketitle
+
+\bibliographystyle{plain}
+
+\chapter*{Resumen}
+
+Este documento contiene la documentación del proyecto titulado
+\emph{SWAML, publicación de listas de correo en Web Semántica}, 
+presentado por el autor para la obtenciónn del título de Ingeniero 
+Técnico en Informática por la Escuela Universitaria de Ingenieria 
+Técnica en Informática de Oviedo (Universidad de Oviedo).
+
+El objetivo del proyecto es publicar listas de correo en formatos
+con semántica (principalmente RDF), para investigar y completar
+determinada información que no es posible conseguir con los formatos
+de publicación actuales.
+
+La página web del proyecto es \url{http://swaml.berlios.de/}
+
+\section*{Palabras clave}
+
+Web Semántica, RDF, OWL, Python, listas de correo, mbox.
+
+\chapter*{Licencia}
+
+\section*{Documento}
+
+El contenido de este documento se encuentra protegido por la licencia 
+\emph{Creative Commons Reconocimiento 2.5} (anexo \ref{sec:license.cc}).
+
+\section*{Código fuente}
+
+El código fuente (disponible en el anexo \ref{sec:source}) se encuentra 
+licenciado bajo la licencia \emph{GNU General Public License (GPL)}, 
+versión 2 o superior (anexo \ref{sec:license.gpl}).
+
+\chapter*{Historial de este documento}
+
+\begin{tabular}{|l|l|l|}
+ \hline
+ \textbf{Fecha} & \textbf{Versión} & \textbf{Comentarios} \\\hline
+ Jul/2006 & 0.0.1 & Primer borrador \\\hline
+ Ago/2006 & 0.0.2 & Segundo borrador \\\hline
+\end{tabular}
+
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+% Indice posible:
+%  1. Memoria
+% 	- Introduccion
+%	- Descripción del problema
+%	- La Web Semántica
+%	- Decisiones tecnológicas
+%  2. Planificación
+%  3. Metodología (¿proceso unificado?)
+%	- Análisis
+%	- Diseño
+%	- Pruebas
+%  4. Conclusiones
+%  Anexo A: Propuesta inicial de Diego
+%  Anexo B: Manuales
+%  Anexo C: Ontología
+%  Anexo D: Código Fuente
+%  Anexo E: Licencias
+
+\input{introduccion.tex}
+
+\input{web-semantica.tex}
+
+\input{analisis.tex}
+
+\input{diseno.tex}
+
+\input{entorno-tecnologico.tex}
+
+\input{planificacion.tex}
+
+\input{metodologia.tex}
+
+\input{pruebas.tex}
+
+\input{conclusiones.tex}
+
+\input{manuales.tex}
+
+\input{anexos.tex}
+
+\bibliography{bibliografia}
+
+\end{document}
+

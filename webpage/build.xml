@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<project name="SWAML-Web" default="scp">
+
+	<property environment="env" />	
+	<property name="host" value="shell.berlios.de" />
+	<property name="path" value="/home/groups/swaml/htdocs/" />
+	<property name="user" value="wikier" />
+	
+	<target name="scp" description="upload web files" depends="clean">
+	   <exec executable="scp">
+		<arg value="index.php" />
+		<arg value="functions.php" />
+		<arg value="style.css" />
+		<arg value="doap.rdf" />
+		<arg value="${user}@${host}:${path}" />
+	  </exec>
+	</target>
+
+	<target name="clean" description="clean files">
+		<delete file="**/*~" /> 
+	</target>
+    
+</project>
+

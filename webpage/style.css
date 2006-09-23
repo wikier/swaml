@@ -129,14 +129,17 @@ li>p {
 }
 
 #footer {
+	text-align: right;
         margin-top: 0px;
         margin-left: 7%;
         margin-right: 7%;
         margin-bottom: 2%;
-        padding-left: 2em;
-        padding-right: 15px;
         padding-top: 0;
         padding-bottom: 0;
+}
+
+#footer a img {
+	padding-left: 1em;
 }
 
 
@@ -318,8 +321,16 @@ input, textarea {
 	padding: 10px;
 	text-align: center;
 	font-weight: bold;
+	width: auto;
+	margin-right: 210px;
 }
 
 tt {
 	font-size: 12px;
 }
+
+#icons a img {
+	float: right;
+        margin: 2px 0px 2px 10px;
+}
+

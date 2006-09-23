@@ -56,6 +56,12 @@
 
   <!-- Page content -->
   <div id="content">
+
+   <p id="icons">
+     <a href="http://www.w3.org/RDF/" title="Powered by RDF"><img src="images/rdf.gif" width="88" height="96" alt="RDF Resource Description Framework" /></a>
+     <a href="http://www.python.org/" title="Powered by Python"><img src="images/python.png" width="100" height="103" alt="Python" /></a>
+   </p>
+
    <p>
      <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> is  a research 
      project around the semantic web technologies to publish the mailing lists&acute;s archive into 
@@ -66,7 +72,7 @@
    </p>
 
    <p id="advertisement">
-     This project still is on phase of planning , not to be used without careful considerations.
+     This project is still on development phase, not to be used without careful considerations.
    </p>
 
    <h2 id ="news">
@@ -115,9 +121,10 @@
   </div>
 
   <div id="footer">
-     <a href="/doap.rdf" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a> &nbsp; 
-     <a href="http://validator.w3.org/check/referer"><img src="images/xhtml.png" alt="Valid XHTML" /></a> &nbsp;
-     <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/css.png" alt="Valid CSS" /></a> &nbsp;
+     <a href="/doap.rdf" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a>
+     <a href="http://validator.w3.org/check/referer"><img src="images/xhtml.png" alt="Valid XHTML" /></a>
+     <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/css.png" alt="Valid CSS" /></a>
+     <a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" border="0" alt="BerliOS Developer Logo"></a>
   </div>
 
  </body>

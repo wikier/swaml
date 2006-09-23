@@ -312,3 +312,14 @@ input, textarea {
 	float: right;
 	margin: 0 0 0 10em;
 }
+
+#advertisement {
+	border: 1px solid red; 
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+tt {
+	font-size: 12px;
+}

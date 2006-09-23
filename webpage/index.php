@@ -65,7 +65,7 @@
      for more details.
    </p>
 
-   <p style="border: 1px solid red; padding: 10px;">
+   <p id="advertisement">
      This project still is on phase of planning , not to be used without careful considerations.
    </p>
 
@@ -91,8 +91,12 @@
 
    <h2 id="files">Files</h2>
    <div class="wikitext">
-    <p>There are not files until the moment. While you can visit the <a href="/files">files section</a> 
-    or <a href="/wsvn">subversion repository web interface</a>.</p>
+    <p>There are not <a href="/files">files</a> until the moment.</p>
+    <p>While you can use the code at subversion:</p>
+    <ul>
+     <li>using the <a href="/wsvn">subversion repository web interface</a></li>
+     <li>or check out the latest version: <tt>svn checkout http://svn.berlios.de/svnroot/repos/swaml/trunk swaml</tt></li>
+    </ul>
    </div>
 
    <h2 id="contact">Contact</h2>

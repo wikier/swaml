@@ -334,3 +334,13 @@ tt {
         margin: 2px 0px 2px 10px;
 }
 
+p.svn {
+	font-family: monospace;
+	text-align: center;
+}
+
+p.svn a, p.svn a:active, p.svn a:hover, p.svn a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+

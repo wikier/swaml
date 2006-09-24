@@ -13,6 +13,7 @@
 		<arg value="functions.php" />
 		<arg value="style.css" />
 		<arg value="doap.rdf" />
+		<arg value=".htaccess" />
 		<arg value="${user}@${host}:${path}" />
 	  </exec>
 	</target>

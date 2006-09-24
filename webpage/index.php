@@ -91,18 +91,16 @@
    <div class="wikitext">
     <dl>
      <dt><a href="http://download.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
-     <dd>a document in Spanish with the initial idea that reason the development of this project</dd>
+     <dd>a document in spanish with the initial idea that reason the development of this project</dd>
     </dl>  
    </div>
 
    <h2 id="files">Files</h2>
    <div class="wikitext">
     <p>There are not <a href="/files">files</a> until the moment.</p>
-    <p>While you can use the code at subversion:</p>
-    <ul>
-     <li>using the <a href="/wsvn">subversion repository web interface</a></li>
-     <li>or check out the latest version: <tt>svn checkout http://svn.berlios.de/svnroot/repos/swaml/trunk swaml</tt></li>
-    </ul>
+    <p><!--If you would like to stay up to date with development -->While you can check out the latest version via the 
+    <a href="http://subversion.tigris.org/">subversion</a> version control system:</p>
+    <p class="svn">svn checkout <a href="/wsvn">http://svn.berlios.de/svnroot/repos/swaml/trunk</a> swaml</p>
    </div>
 
    <h2 id="contact">Contact</h2>

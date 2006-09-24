@@ -1,0 +1,4 @@
+
+RewriteEngine On
+RewriteRule ^swaml.owl /ns/swaml-0.1.owl
+RewriteRule ^0.1 /ns/swaml-0.1.owl [R]

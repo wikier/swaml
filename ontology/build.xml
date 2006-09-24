@@ -6,24 +6,27 @@
 	<property name="user" value="wikier" />
 	<property name="host" value="shell.berlios.de" />
 	<property name="path" value="/home/groups/swaml/htdocs/ns/" />
+	<property name="name" value="swaml" />
+	<property name="version" value="0.1" />
 	
 	<target name="scp" description="upload files to web server" depends="owl2html">
 	   <exec executable="scp">
-		<arg value="swaml.owl" />
-		<arg value="swaml.html" />
+		<arg value="${name}-${version}.owl" />
+		<arg value="${name}.html" />
+		<arg value=".htaccess" />
 		<arg value="${user}@${host}:${path}" />
 	  </exec>
 	</target>
 
 	<target name="owl2html" description="xslt transformation" depends="clean">
 		<!--
-		<xslt 	in="swaml.owl" 
-			out="swaml.html" 
+		<xslt 	in="${name}-${version}.owl" 
+			out="${name}.html" 
 			style="owl2html.xsl" /> 
 		-->
-		<exec executable="xsltproc" output="swaml.html"> 
+		<exec executable="xsltproc" output="${name}.html"> 
 			<arg value="owl2html.xsl" />
-			<arg value="swaml.owl" />
+			<arg value="${name}-${version}.owl" />
 		</exec>
 	</target>
 

@@ -75,6 +75,27 @@
      This project is still on development phase, not to be used without careful considerations.
    </p>
 
+   <p>
+     In the project are involved:
+   </p>
+   <ul>
+     <li><a href="http://www.wikier.org/">Sergio Fdez</a> (maintainer)</li>
+     <li><a href="http://www.berrueta.net/">Diego Berrueta</a></li>
+     <li><a href="http://www.di.uniovi.es/~labra/">Jose E. Labra</a></li>
+   </ul>
+
+   <p>
+     It has some <strong>features</strong>:
+   </p>
+   <ul>
+     <li>platform independent (written in <a href="http://www.python.org/">python</a>)</li>
+     <li>shell mode (to use manually or by cron script)
+     <li>serialize <acronym title="Resource Description Framework">RDF</acronym> to disk</li>
+     <li>enrichment using <acronym title="Friend of a Friend">FOAF</acronym>
+     <li><acronym title="Keyhole Markup Language">KML</acronym> support</li>
+     <li>free software (under GNU General Public License, <acronym title="GNU General Public License">GPL</acronym>)</li>
+   </ul>
+
    <h2 id ="news">
      <a href="/rss/news" type="application/rss+xml" title="read SWAML's news in your favourite feed reader"><img src="images/rss.png" width="28" height="28" alt="RSS" id="feed-icon" /></a>
      News

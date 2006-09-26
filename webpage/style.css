@@ -59,7 +59,7 @@ p {
 ul{
 	position: relative;
 	padding : 0px;
-	margin: 0.5em;
+	margin: 0 0 2em 4em;
 	font-family: Helvetica, Verdana, Arial, sans-serif;
 	font-size: 100%;
 	line-height: 120%;

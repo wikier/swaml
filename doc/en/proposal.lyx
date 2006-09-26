@@ -1,61 +1,71 @@
-#LyX 1.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 221
+#LyX 1.4.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 245
+\begin_document
+\begin_header
 \textclass article
 \language english
 \inputencoding auto
 \fontscheme default
 \graphics default
 \paperfontsize default
-\spacing single 
+\spacing single
 \papersize a4paper
-\paperpackage a4
-\use_geometry 0
-\use_amsmath 0
-\use_natbib 0
-\use_numerical_citations 0
+\use_geometry false
+\use_amsmath 1
+\cite_engine basic
+\use_bibtopic false
 \paperorientation portrait
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
 \defskip medskip
 \quotes_language english
-\quotes_times 2
 \papercolumns 2
 \papersides 1
 \paperpagestyle default
+\tracking_changes false
+\output_changes true
+\end_header
 
-\layout Title
+\begin_body
 
-Publicando listas de correo en la web semántica
-\layout Author
+\begin_layout Title
+Publish mail list in Semantic Web
+\end_layout
 
+\begin_layout Author
 Diego Berrueta <diego@berrueta.net>
-\layout Date
+\end_layout
 
-Junio 2005
-\layout Abstract
+\begin_layout Date
+June 2005
+\end_layout
 
-Los archivos de las listas de correo (es decir, los mensajes antiguos) son
- frecuentemente publicados en la web e indexados por los buscadores convencional
-es.
- La base de conocimientos que introducen en la web es enorme.
- Sin embargo, una gran cantidad de información se pierde durante la publicación,
- con el resultado de que los archivos publicados son incómodos de consultar
- y poco funcionales.
- Este artículo describe la aplicación de la web semántica para evitar la
- pérdida de información y habilitar la construcción de nuevas aplicaciones
- para explotar más convenientemente la información.
-\layout Section*
+\begin_layout Abstract
+The archives of mail lists (that is to say, the old messages) frequently
+ are published in the Web and indexed by the finders conventional it is.
+ The knowledge base that introduces in the Web is enormous.
+   Nevertheless, a great amount of information is lost during the publication,
+ with the result of which the published archives are uncomfortable to consult
+ and little functional.
+ This article describes the application of the semantic Web to avoid the
+ loss of information and to qualify the construction of new applications
+ to operate the information more properly.
+\end_layout
 
-Palabras clave
-\layout Standard
+\begin_layout Section*
+Keywords
+\end_layout
 
-Lista de correo, web semántica, archivos, RDF.
-\layout Section
+\begin_layout Standard
+Mail list, semantic web, files, RDF.
+\end_layout
 
-Introducción
-\layout Standard
+\begin_layout Section
+Introduction
+\end_layout
 
+\begin_layout Standard
 Las listas de correo son parte fundamental de la comunicación en Internet.
  Existen listas de correo dedicadas a cualquier tema de interés imaginable.
  Hoy en día, es común que las listas de correo publiquen sus archivos (los
@@ -64,8 +74,9 @@ Las listas de correo son parte fundamental de la comunicación en Internet.
  Gracias a esta publicación, es posible consultar los mensajes desde el
  navegador, sin necesidad de estar suscrito a las listas de correo, y también
  se puede localizar un mensaje usando Google u otro buscador.
-\layout Standard
+\end_layout
 
+\begin_layout Standard
 Estos archivos contienen una formidable base de conocimiento, especialmente
  en temas técnicos.
  Un uso muy común consiste en introducir un mensaje de error (de una aplicación)
@@ -74,49 +85,59 @@ Estos archivos contienen una formidable base de conocimiento, especialmente
  error y ha efectuado la consulta en una lista de correo pública.
  Con suerte, alguna de las respuestas al mensaje localizado contendrá la
  solución al problema, aportada por un experto suscrito a la lista de correo.
-\layout Section
+\end_layout
 
-
+\begin_layout Section
 \begin_inset LatexCommand \label{sec:Problemas}
 
-\end_inset 
+\end_inset
 
-Problemas
-\layout Standard
+Problems
+\end_layout
 
+\begin_layout Standard
 Por desgracia, consultar los archivos de una lista de correo en la web es
  más incómodo que hacerlo mediante un cliente de correo electrónico.
  Por poner sólo algunos ejemplos, el navegador no permite ejecutar ninguna
  de estas acciones:
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Mostrar el hilo de la conversación en forma de árbol.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Imprimir el hilo completo.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Mostrar una lista de los mensajes entre dos fechas arbitrarias.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Ocultar los mensajes que no tienen respuestas.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Mostrar sólo los mensajes de una cierta persona.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Buscar una cadena de texto sólo en los mensajes de un determinado hilo.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Descargar el hilo como un fichero, o cualquier otra forma de exportar la
  información para poder acceder a ella desde un cliente de correo electrónico
  o fuera de línea.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Responder a un mensaje usando un cliente de correo (o un webmail) y citando
  el mensaje original.
-\layout Standard
+\end_layout
 
+\begin_layout Standard
 Al indexar los archivos de las listas de correo, los buscadores se encuentran
  en ocasiones que los mensajes están replicados en varios servidores (mirrors).
  Al no tener forma de identificar los mensajes, la desgraciada consecuencia
@@ -124,16 +145,19 @@ Al indexar los archivos de las listas de correo, los buscadores se encuentran
  y sólo el usuario puede darse cuenta de que se trata de una repetición.
  Naturalmente, el comportamiento ideal sería que los mensajes aparecieran
  sólo una vez en los resultados del buscador.
-\layout Section
+\end_layout
 
-Origen de los problemas: pérdida de información
-\layout Standard
+\begin_layout Section
+Origin of the problems: loss of information
+\end_layout
 
+\begin_layout Standard
 En el origen de estos problemas se encuentra una pérdida de información
  que se produce al convertir los mensajes archivados a HTML para su publicación
  en la web.
-\layout Standard
+\end_layout
 
+\begin_layout Standard
 Los gestores más habituales de listas de correo (mailman, majordomo, sympa,
  etc.) generan un fichero en formato Mailbox (mbox) con los mensajes que
  han sido enviados a la lista.
@@ -148,32 +172,41 @@ Los gestores más habituales de listas de correo (mailman, majordomo, sympa,
  para el usuario, nunca para la máquina.
  En consecuencia, es imposible explotarla más allá de las formas previstas
  por el programa que ha generado los archivos.
-\layout Standard
+\end_layout
 
+\begin_layout Standard
 Entre la información que se pierde en la publicación, se encuentra:
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 El asunto del mensaje.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 El autor del mensaje.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 La fecha del mensaje.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 La referencia a la lista de correo en la que se publicó el mensaje.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 La referencia al mensaje anterior, si existe.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Las referencias (enlaces) a las posibles respuestas al mensaje.
-\layout Section
+\end_layout
 
-Propuesta para conservar la información
-\layout Standard
+\begin_layout Section
+Proposal to conserve the information
+\end_layout
 
+\begin_layout Standard
 Las tecnologías de la web semántica (y concretamente, RDF) son perfectamente
  capaces de publicar en la web toda la información señalada en la sección
  anterior.
@@ -182,138 +215,156 @@ Las tecnologías de la web semántica (y concretamente, RDF) son perfectamente
  Tan sólo debe considerarse un proceso de conversión que no desprecie la
  información, sino que la publique junto con los archivos en HTML.
  De esta forma, las listas de correo se introducirían en la web semántica.
-\layout Section
+\end_layout
 
-Aplicaciones
-\layout Standard
+\begin_layout Section
+Aplications
+\end_layout
 
+\begin_layout Standard
 Enriquecer semánticamente la publicación web de los archivos de las listas
  de correo abriría la puerta a nuevas aplicaciones:
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Eliminar la aparición repetida de los mismos mensajes en los resultados
  de los buscadores.
  Para lograrlo, los buscadores deberían procesar la información semántica
  para reconocer las copias (mirrors) de los archivos.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Implementar en los navegadores nuevas funcionalidades, como las apuntadas
  en la sección 
 \begin_inset LatexCommand \ref{sec:Problemas}
 
-\end_inset 
+\end_inset
 
 .
  Estas capacidades, que mejorarían sensiblemente la comodidad en la consulta
  de los archivos, podrían añadirse como extensiones o plug-ins de los navegadore
 s actuales.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Obtener información sobre los suscriptores de una lista de correo.
  Por ejemplo, conocer en qué otras listas de correo participa una persona.
  Esta aplicación es especialmente interesante en conexión con FOAF
 \begin_inset Foot
-collapsed false
+status open
 
-\layout Standard
-
+\begin_layout Standard
 http://www.foaf-project.org/
-\end_inset 
+\end_layout
+
+\end_inset
 
 .
  De este modo, se podría sacar una 
 \begin_inset Quotes eld
-\end_inset 
+\end_inset
 
 orla
 \begin_inset Quotes erd
-\end_inset 
+\end_inset
 
  con las fotos de los participantes en una lista de correo
 \begin_inset Foot
-collapsed false
+status open
 
-\layout Standard
-
+\begin_layout Standard
 Como hace GNOME, véase http://planet.gnome.org/heads/
-\end_inset 
+\end_layout
+
+\end_inset
 
 , o situarlos geográficamente en un mapa
 \begin_inset Foot
-collapsed false
+status open
 
-\layout Standard
-
+\begin_layout Standard
 Como hace Debian, véase http://www.debian.org/devel/developers.loc
-\end_inset 
+\end_layout
+
+\end_inset
 
 .
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Facilitar la internacionalización.
  Al hacer comprensibles las relaciones entre los mensajes por el software,
  el navegador proporcionaría las opciones de exploración (mensaje siguiente,
  mensaje anterior, etc.) en el idioma del usuario, independientemente del
  idioma en el que se encontrasen las páginas HTML.
-\layout Itemize
+\end_layout
 
+\begin_layout Itemize
 Mejorar la accesibilidad de la información.
  Las tecnologías de accesibilidad podrían informar sobre quién es el autor
  del mensaje o cuántas respuestas hay, usando la voz u otros medios.
-\layout Section
+\end_layout
 
-
+\begin_layout Section
 \begin_inset LatexCommand \label{sec:Trabajos-relacionados}
 
-\end_inset 
+\end_inset
 
-Trabajos relacionados
-\layout Standard
+Related works
+\end_layout
 
+\begin_layout Standard
 Existen algunos trabajos similares a esta propuesta.
-\layout Standard
+\end_layout
 
+\begin_layout Standard
 El proyecto DOAML
 \begin_inset Foot
-collapsed false
+status open
 
-\layout Standard
-
+\begin_layout Standard
 http://www.doaml.net/
-\end_inset 
+\end_layout
+
+\end_inset
 
  consiste en un vocabulario RDF para describir listas de correo.
  Como ejemplo, en la web del proyecto se encuentran las descripciones de
  las listas de correo del W3C.
  La información de este vocabulario limita sus referencias a los mensajes
  archivados a un enlace a la versión HTML de éstos.
-\layout Standard
+\end_layout
 
+\begin_layout Standard
 Por otro lado, EMiR
 \begin_inset Foot
-collapsed false
+status open
 
-\layout Standard
-
+\begin_layout Standard
 http://xmlns.filsa.org/emir/
-\end_inset 
+\end_layout
+
+\end_inset
 
 es un esquema RDF para describir mensajes de correo electrónico.
  En la misma línea se encuentra XMTP
 \begin_inset Foot
-collapsed false
+status open
 
-\layout Standard
-
+\begin_layout Standard
 http://www.openhealth.org/xmtp/
-\end_inset 
+\end_layout
+
+\end_inset
 
 .
-\layout Section
+\end_layout
 
-Conclusiones
-\layout Standard
+\begin_layout Section
+Conclusions
+\end_layout
 
+\begin_layout Standard
 Introducir los archivos de las listas de correo en la web semántica sólo
  requiere disponer de una aplicación de publicación que utilice la tecnología
  apropiada (RDF) como complemento al HTML.
@@ -321,32 +372,37 @@ Introducir los archivos de las listas de correo en la web semántica sólo
  podrían emplear la aplicación en sus listas, por lo que la implantación
  sería rápida
 \begin_inset Foot
-collapsed false
+status open
 
-\layout Standard
-
+\begin_layout Standard
 En realidad, cualquier suscriptor (no necesariamente el administrador) de
  una lista de correo podría publicar los archivos enriquecidos.
  Tan sólo debería disponer de todos los mensajes antiguos almacenados en
  su cliente de correo electrónico, y exportarlos al formato Mbox.
-\end_inset 
+\end_layout
+
+\end_inset
 
 .
  Además, al no requerirse la participación de un experto para el enriquecimiento
  de la información, resultaría posible enriquecer inmediatamente grandes
  volúmenes de información, incluso listas de correo que lleven muchos años
  en funcionamiento.
-\layout Standard
+\end_layout
 
+\begin_layout Standard
 El desarrollo de una aplicación de estas características requeriría, en
  primer lugar, la creación de un esquema de información, que muy bien podría
  ser una combinación de los ya existentes (véase la sección 
 \begin_inset LatexCommand \ref{sec:Trabajos-relacionados}
 
-\end_inset 
+\end_inset
 
 ); y en segundo lugar, el procesamiento de un fichero Mbox para extraer
  la información que contiene.
  Dado que existen aplicaciones de software libre que realizan la segunda
  tarea, lo más razonable parece ser adaptar alguna de ellas.
-\the_end
+\end_layout
+
+\end_body
+\end_document

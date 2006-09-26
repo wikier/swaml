@@ -76,7 +76,7 @@
    </p>
 
    <p>
-     In the project are involved:
+     In the project the're involved:
    </p>
    <ul>
      <li><a href="http://www.wikier.org/">Sergio Fdez</a> (maintainer)</li>
@@ -91,8 +91,9 @@
      <li>platform independent (written in <a href="http://www.python.org/">python</a>)</li>
      <li>shell mode (to use manually or by cron script)
      <li>serialize <acronym title="Resource Description Framework">RDF</acronym> to disk</li>
-     <li>enrichment using <acronym title="Friend of a Friend">FOAF</acronym>
-     <li><acronym title="Keyhole Markup Language">KML</acronym> support</li>
+     <li>reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended</li>
+     <li>enrichment using <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a>
+     <li><a href="http://earth.google.com/kml/kml_intro.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support</li>
      <li>free software (under GNU General Public License, <acronym title="GNU General Public License">GPL</acronym>)</li>
    </ul>
 

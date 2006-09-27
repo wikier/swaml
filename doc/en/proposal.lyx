@@ -30,7 +30,7 @@
 \begin_body
 
 \begin_layout Title
-Publish mail list in Semantic Web
+Publishing Mailing Lists on the Semantic Web
 \end_layout
 
 \begin_layout Author
@@ -42,15 +42,16 @@ June 2005
 \end_layout
 
 \begin_layout Abstract
-The archives of mail lists (that is to say, the old messages) frequently
- are published in the Web and indexed by the finders conventional it is.
- The knowledge base that introduces in the Web is enormous.
-   Nevertheless, a great amount of information is lost during the publication,
- with the result of which the published archives are uncomfortable to consult
- and little functional.
- This article describes the application of the semantic Web to avoid the
- loss of information and to qualify the construction of new applications
- to operate the information more properly.
+Mailing list archives (i.e., the mesages posted up-to-now) are often published
+ on the web and indexed by conventional search engines.
+ They store a vast knowledge capital.
+ However, the ability to automatically recognize and process the information
+ is mostly lost at publishing time.
+ As a result, the current mailing list archives are hard to query and have
+ a limited use.
+ This paper describes the application of the Semantic Web in order to avoid
+ the information loss and to allow new applications able to exploit this
+ information in a more convenient way.
 \end_layout
 
 \begin_layout Section*
@@ -58,7 +59,7 @@ Keywords
 \end_layout
 
 \begin_layout Standard
-Mail list, semantic web, files, RDF.
+Mailing list, Semantic Web, archives, RDF.
 \end_layout
 
 \begin_layout Section
@@ -66,25 +67,24 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Las listas de correo son parte fundamental de la comunicación en Internet.
- Existen listas de correo dedicadas a cualquier tema de interés imaginable.
- Hoy en día, es común que las listas de correo publiquen sus archivos (los
- mensajes antiguos) en forma de páginas web, lo que dispara su utilidad,
- especialmente en combinación con los buscadores actuales.
- Gracias a esta publicación, es posible consultar los mensajes desde el
- navegador, sin necesidad de estar suscrito a las listas de correo, y también
- se puede localizar un mensaje usando Google u otro buscador.
+Mailing lists are one of the best communication tools on the Internet.
+ They cover any possible topic.
+ Nowadays, mailing list archives (i.e., the previously posted messages) are
+ often published on the web, making them available for indexation by the
+ search bots.
+ Users can read the archives using their web browser, and no previous subscripti
+on is required.
+ We can also query the archives using general search engines like Google.
 \end_layout
 
 \begin_layout Standard
-Estos archivos contienen una formidable base de conocimiento, especialmente
- en temas técnicos.
- Un uso muy común consiste en introducir un mensaje de error (de una aplicación)
- en Google y obtener como resultado un mensaje archivado que aborda el problema,
- probablemente porque alguien se ha encontrado previamente con el mismo
- error y ha efectuado la consulta en una lista de correo pública.
- Con suerte, alguna de las respuestas al mensaje localizado contendrá la
- solución al problema, aportada por un experto suscrito a la lista de correo.
+These archives make a huge knowledge base, in particular for technical areas.
+ A common pattern usage is to type or paste an error message from a software
+ application into the Google search box.
+ In many cases, mailing lists posts are part of the search results, probably
+ because somebody has already asked for help in a mailing list.
+ If we are lucky, we can then browse to a reply post containing hints to
+ solve the problem.
 \end_layout
 
 \begin_layout Section
@@ -92,63 +92,62 @@ Estos archivos contienen una formidable base de conocimiento, especialmente
 
 \end_inset
 
-Problems
+Problems of the Current Model
 \end_layout
 
 \begin_layout Standard
-Por desgracia, consultar los archivos de una lista de correo en la web es
- más incómodo que hacerlo mediante un cliente de correo electrónico.
- Por poner sólo algunos ejemplos, el navegador no permite ejecutar ninguna
- de estas acciones:
+Unfortunately, browsing the list archives with a web browser is not as flexible
+ as doing the same thing with our favourite e-mail client.
+ For instance, there are some simple tasks that, in general, cannot be performed
+ with a web browser:
 \end_layout
 
 \begin_layout Itemize
-Mostrar el hilo de la conversación en forma de árbol.
+To show the conversation thread as a tree.
 \end_layout
 
 \begin_layout Itemize
-Imprimir el hilo completo.
+To print the whole thread.
 \end_layout
 
 \begin_layout Itemize
-Mostrar una lista de los mensajes entre dos fechas arbitrarias.
+To filter the messages in a given date range.
 \end_layout
 
 \begin_layout Itemize
-Ocultar los mensajes que no tienen respuestas.
+To hide the messages without replies.
 \end_layout
 
 \begin_layout Itemize
-Mostrar sólo los mensajes de una cierta persona.
+To show only the messages from a given author.
 \end_layout
 
 \begin_layout Itemize
-Buscar una cadena de texto sólo en los mensajes de un determinado hilo.
+To search a string just in one thread.
 \end_layout
 
 \begin_layout Itemize
-Descargar el hilo como un fichero, o cualquier otra forma de exportar la
- información para poder acceder a ella desde un cliente de correo electrónico
- o fuera de línea.
+To download a whole thread into a file for offline browsing.
 \end_layout
 
 \begin_layout Itemize
-Responder a un mensaje usando un cliente de correo (o un webmail) y citando
- el mensaje original.
+The reply to a message using an e-mail client (or a webmail), quoting parts
+ of the original one.
 \end_layout
 
 \begin_layout Standard
-Al indexar los archivos de las listas de correo, los buscadores se encuentran
- en ocasiones que los mensajes están replicados en varios servidores (mirrors).
- Al no tener forma de identificar los mensajes, la desgraciada consecuencia
- es que los mensajes aparecen varias veces en los resultados de las búsquedas,
- y sólo el usuario puede darse cuenta de que se trata de una repetición.
- Naturalmente, el comportamiento ideal sería que los mensajes aparecieran
- sólo una vez en los resultados del buscador.
+It is not uncommon for mailing list archives to be mirrored at different
+ sites.
+ Unfortunately, search bots are rarely aware, and it is very difficult to
+ detect duplicated messages.
+ As a consequence, sometimes the same message appears more than once in
+ the results page of the search engine.
+ This is annoying for users.
+ Obviosly, the ideal behaviour would be not to show any duplicate result.
 \end_layout
 
 \begin_layout Section
-Origin of the problems: loss of information
+The Source of the Problems: Information Loss
 \end_layout
 
 \begin_layout Standard
@@ -203,7 +202,7 @@ Las referencias (enlaces) a las posibles respuestas al mensaje.
 \end_layout
 
 \begin_layout Section
-Proposal to conserve the information
+Our Proposal
 \end_layout
 
 \begin_layout Standard
@@ -218,7 +217,7 @@ Las tecnologías de la web semántica (y concretamente, RDF) son perfectamente
 \end_layout
 
 \begin_layout Section
-Aplications
+Applications
 \end_layout
 
 \begin_layout Standard
@@ -310,7 +309,7 @@ Mejorar la accesibilidad de la información.
 
 \end_inset
 
-Related works
+Related Work
 \end_layout
 
 \begin_layout Standard

@@ -17,11 +17,8 @@ import sys, os, string, sha
 import rdflib
 from rdflib.sparql import sparqlGraph, GraphPattern
 from rdflib import Namespace, Literal
-from namespaces import SWAML, RDF, RDFS, FOAF, GEO
+from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
 from email.Header import decode_header
-import email.Utils
-
-
 
 class FoafUtils:
     """
@@ -195,62 +192,4 @@ class Charset:
             ret = orig   
                      
         return orig
-        
-    
-
-class DateUtils:
-    
-    def __init__(self, date):
-        self.date = email.Utils.parsedate(date)
-    
-    def getDay(self):
-        return self.date[2]
-    
-    def getStringDay(self):
-        day = self.getDay()
-        if (day < 10):
-            return ('0' + str(day))
-        else:
-            return str(day)
-        
-    def getMonth(self):
-        return self.date[1]
-    
-    def getStringMonth(self):
-        month = self.getMonth()
-        if (month < 10):
-            return ('0' + str(month))
-        else:
-            return str(month)
-    
-    def getShortStringMonth(self):
-        shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
-                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        return shortMonths[self.getMonth() - 1]
-        
-    def getLongStringMonth(self):
-        longMonths = ['January', 'February', 'March', 'April', 
-                       'May', 'June', 'July', 'August', 
-                       'September', 'October', 'November', 'December']
-        return longMonths[self.getMonth() - 1]  
-    
-    def getYear(self):
-        return self.date[0]
-    
-    def getStringYear(self):
-        return str(self.getYear())
-    
-    def getNumericFormat(self):
-        return [self.getYear(), self.getMonth(), self.getDay()]  
-    
-    def getStringFormat(self, format='iso'):  
-        year, month, day = self.getNumericFormat()
-        
-        if(format == 'normal'):
-            #normal format: day-month-year
-            return str(day) + '-' + str(month) + '-' + str(year)
-        else:
-            #iso: year-month-day
-            return str(year) + '-' + str(month) + '-' + str(day)
-            
         

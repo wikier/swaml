@@ -16,12 +16,13 @@
 # for more details.
 
 
-__author__ = 'Sergio Fdez <http://www.wikier.org/>'
+__author__       = 'Sergio Fdez <http://www.wikier.org/>'
 __contributors__ = ['Diego Berrueta <http://www.berrueta.net/>',
                     'Jose Emilio Labra <http://www.di.uniovi.es/~labra/>']
-__copyright__ = 'Copyright 2005-2006, Sergio Fdez'
-__license__ = 'GNU General Public License'
-__version__ = '0.0.1'
+__copyright__    = 'Copyright 2005-2006, Sergio Fdez'
+__license__      = 'GNU General Public License'
+__version__      = '0.0.1'
+__url__          = 'http://swaml.berlios.de/'
 
 
 import sys, string, getopt
@@ -114,6 +115,7 @@ Report bugs to: <http://swaml.berlios.de/bugs>
         """
         
         self.config = Configuration()
+        self.config.setAgent(__url__)
         self.parseArgs(argv)
         self.list = MailingList(self.config)
         messages = self.list.publish()

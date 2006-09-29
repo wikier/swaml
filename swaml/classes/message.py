@@ -18,7 +18,8 @@ import datetime, email, email.Errors
 from rdflib import Graph
 from rdflib import URIRef, Literal, Variable, BNode
 from rdflib import RDF
-from services import FoafUtils, Charset, DateUtils
+from services import FoafUtils, Charset
+from dateutils import MailDate, FileDate
 
 class Message:
     """Mail message abstraction"""
@@ -97,7 +98,7 @@ class Message:
         index = self.config.get('format')
         
         #message date
-        date = DateUtils(self.date)   
+        date = MailDate(self.date)   
              
          #replace vars
         index = index.replace('DD', date.getStringDay()) #day
@@ -191,31 +192,34 @@ class Message:
         store = Graph()
         
         #namespaces
-        from namespaces import SWAML, RDFS, FOAF
+        from namespaces import SWAML, SIOC, RDFS, FOAF, DC, DCTERMS
         store.bind('swaml', SWAML)
+        store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)
+        store.bind('dc', DC)
+        store.bind('dcterms', DCTERMS)
         
         #message node
         message = URIRef(self.getUri())
-        store.add((message, RDF.type, SWAML["Message"]))
+        store.add((message, RDF.type, SIOC["Post"]))
         
         try:
                  
-            #message date
-            store.add((message, SWAML['sentIn'],URIRef(self.config.get('url')+'index.rdf')))   
-            store.add((message, SWAML["from"], URIRef(self.getSender().getUri())))
-            store.add((message, SWAML['id'], Literal(self.getSwamlId())))                      
-            store.add((message, SWAML['subject'], Literal(self.getSubject()))) 
-            store.add((message, SWAML['date'], Literal(self.getDate())))  
+            store.add((message, SIOC['id'], Literal(self.getSwamlId())))
+            store.add((message, SIOC['link'], URIRef(self.getUri())))  
+            store.add((message, SIOC['has_container'],URIRef(self.config.get('url')+'index.rdf')))   
+            store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
+            store.add((message, SIOC['title'], Literal(self.getSubject()))) 
+            store.add((message, DCTERMS['created'], Literal(self.getDate())))  
             
             parent = self.getParent()
             if (parent != None):
-                store.add((message, SWAML['inReplyTo'], URIRef(parent)))  
+                store.add((message, SIOC['reply_of'], URIRef(parent)))  
                 
             if (len(self.childs) > 0):
                 for child in self.childs:
-                    store.add((message, SWAML['answer'], URIRef(child)))
+                    store.add((message, SIOC['has_reply'], URIRef(child)))
                 
             previous = self.getPreviousByDate()
             if (previous != None):
@@ -225,7 +229,7 @@ class Message:
             if (next != None):
                 store.add((message, SWAML['nextByDate'], URIRef(next)))                
                         
-            store.add((message, SWAML['body'], Literal(self.getBody())))      
+            store.add((message, SIOC['content'], Literal(self.getBody())))      
             
         except Exception, detail:
             print 'Error proccesing message ' + str(self.getId()) + ': ' + str(detail) 

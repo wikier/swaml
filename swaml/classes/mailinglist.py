@@ -15,11 +15,12 @@
 
 import sys, os, mailbox, rfc822, string, email, email.Errors, datetime, sha
 from mbox import Mbox
-from suscriptors import Suscriptors
+from subscribers import Subscribers
 from message import Message
 from index import Index
 from rdflib import Graph, URIRef, Literal, BNode, RDF
 import datetime
+from dateutils import FileDate
 
 class MailingList:
     
@@ -30,7 +31,7 @@ class MailingList:
         
         self.config = config
         self.lang = lang
-        self.suscriptors = Suscriptors(config)
+        self.subscribers = Subscribers(config)
         self.index = Index(self.config)
         
     def __createDir(self):
@@ -56,9 +57,9 @@ class MailingList:
             
             #index it
             self.index.add(msg)
-            self.suscriptors.add(msg)
-            suscriptor = self.suscriptors.get(msg.getFromMail())
-            msg.setSender(suscriptor)
+            self.subscribers.add(msg)
+            subscriber = self.subscribers.get(msg.getFromMail())
+            msg.setSender(subscriber)
             
             #parent message (refactor)
             inReplyTo = msg.getInReplyTo()
@@ -115,8 +116,8 @@ class MailingList:
                 
             self.__toRDF()
     
-            self.suscriptors.process()
-            self.suscriptors.export()
+            self.subscribers.process()
+            self.subscribers.export()
             
         except Exception, detail:
             print str(detail)
@@ -134,34 +135,36 @@ class MailingList:
         store = Graph()
         
         #namespaces
-        from namespaces import SWAML, RDFS, FOAF, DC
+        from namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
         store.bind('swaml', SWAML)
+        store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)
         store.bind('dc', DC)
+        store.bind('mvcb', MVCB)
 
         #root node
         list = URIRef(self.config.get('url')+'index.rdf')
-        store.add((list, RDF.type, SWAML['MailingList']))
+        store.add((list, RDF.type, SIOC['Forum']))
 
         #list information
-        store.add((list, DC['title'], Literal(u'title (FIXME)')))
-        store.add((list, DC['publisher'], Literal(u'SWAML')))
+        store.add((list, DC['title'], Literal(u'FIXME')))
         store.add((list, DC['description'], Literal(u'RDF files of a mailing list')))
-        store.add((list, DC['date'], Literal(str(datetime.date.today()))))
+        store.add((list, DC['date'], Literal(FileDate(self.config.get('mbox')).getStringFormat())))
+        store.add((list, MVCB['generatorAgent'], URIRef(self.config.getAgent())))
+        store.add((list, MVCB['errorReportsTo'], URIRef('http://swaml.berlios.de/bugs')))
         if (self.lang != None):
             store.add((list, DC['language'], Literal(self.lang)))
 
-        #suscriptors
-        #store.add((list, SWAML['suscriptors'], URIRef(self.config.get('url')+'suscriptors.rdf')))
-        suscriptors = self.suscriptors.getSuscriptorsUris()
-        for uri in suscriptors:
-            store.add((list, SWAML['hasSuscriptor'], URIRef(uri)))
+        #subscribers
+        subscribers = self.subscribers.getSubscribersUris()
+        for uri in subscribers:
+            store.add((list, SIOC['has_subscriber'], URIRef(uri)))
                   
         #and all messages uris
         uris = self.index.getMessagesUri()                        
         for uri in uris:
-            store.add((list, SWAML['sentMail'], URIRef(uri)))
+            store.add((list, SIOC['container_of'], URIRef(uri)))
                     
         #and dump to disk
         try:

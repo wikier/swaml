@@ -47,6 +47,10 @@ class Configuration:
         
         if (var in self.config.keys()):
             return self.config[var]
+        
+    def getAgent(self):
+        """Return the agent URL"""
+        return self.agent
 
     def set(self, var, value):
         """Method to set a configuration property"""
@@ -68,6 +72,10 @@ class Configuration:
             return True
         else:
             return False
+        
+    def setAgent(self, agent):
+        """Store the agent's url"""
+        self.agent = agent
 
 
     def show(self):

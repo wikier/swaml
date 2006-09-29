@@ -22,19 +22,19 @@ from rdflib import URIRef, Literal, Variable, BNode
 from rdflib import RDF
 from rdflib import plugin
 from rdflib.sparql import sparqlGraph, GraphPattern
-from namespaces import SWAML, RDF, RDFS, FOAF, GEO
+from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
 
 
-class Suscriptor:
+class Subscriber:
     """
-    Suscriptor abstraction
+    Subscriber abstraction
     """
     
     id = 0
     
     def __init__(self, name, mail, config):
         """
-        Suscriptor constructor
+        Subscriber constructor
         """
         self.__class__.id += 1
         self.id = self.__class__.id
@@ -48,31 +48,31 @@ class Suscriptor:
         
     def getName(self):
         """
-        Get suscriptor's name
+        Get subscriber's name
         """
         return self.name
     
     def getMail(self):
         """
-        Get suscriptor's mail address
+        Get subscriber's mail address
         """
         return self.mail 
     
     def getShaMail(self):
         """
-        Get uscriptor's sha sum of mail address
+        Get subscriber's sha sum of mail address
         """
         return FoafUtils().getShaMail(self.mail) 
     
     def getFoaf(self):
         """
-        Get uscriptor's FOAF
+        Get subscriber's FOAF
         """
         return self.foaf    
     
     def getSentMails(self):
         """
-        Get the array with suscriptor sent mails ids
+        Get the array with subscriber sent mails ids
         """        
         sent = []
         for one in self.mails:
@@ -94,7 +94,7 @@ class Suscriptor:
     
     def getId(self):
         """
-        Return suscriptor numeric id
+        Return subscriber numeric id
         """
         return self.id
     
@@ -106,13 +106,13 @@ class Suscriptor:
     
     def getUri(self):
         """
-        Return the suscriptor's URI
+        Return the subscriber's URI
         """
-        return self.config.get('url') + 'suscriptors.rdf#' + self.getStringId()
+        return self.config.get('url') + 'subscribers.rdf#' + self.getStringId()
     
     def setName(self, name):
         """
-        Set suscriptor's name
+        Set subscriber's name
         """
         if (len(name)>1 and name[0]=='"' and name[-1]=='"'):
             self.name = name[1:-1]
@@ -121,13 +121,13 @@ class Suscriptor:
     
     def setMail(self, mail):
         """
-        Set suscriptor's mail address
+        Set subscriber's mail address
         """
         self.mail = mail
         
     def setFoaf(self, foaf):
         """
-        Set suscriptor's FOAF
+        Set subscriber's FOAF
         """
         self.foaf = foaf     
         
@@ -145,15 +145,15 @@ class Suscriptor:
         
     def setPic(self, uri):
         """
-        Set suscriptor picture
+        Set subscriber picture
         """
         self.pic = uri
                 
         
 
-class Suscriptors:
+class Subscribers:
     """
-    Class to abstract the suscriptors management
+    Class to abstract the subscribers management
     """
     
     def __init__(self, config):
@@ -164,28 +164,28 @@ class Suscriptors:
         """
         
         self.config = config
-        self.suscriptors = {}
+        self.subscribers = {}
 
 
     def add(self, msg):
-        """Add a new suscriptor"""
+        """Add a new subscriber"""
         
         name = msg.getFromName()
         mail = msg.getFromMail()
         
-        if (not mail in self.suscriptors):
-            self.suscriptors[mail] = Suscriptor(name, mail, self.config)
+        if (not mail in self.subscribers):
+            self.subscribers[mail] = Subscriber(name, mail, self.config)
             
-        self.suscriptors[mail].addMail(msg)
+        self.subscribers[mail].addMail(msg)
         
     def get(self, mail):
-        if (mail in self.suscriptors):
-            return self.suscriptors[mail]
+        if (mail in self.subscribers):
+            return self.subscribers[mail]
         else:
             return None
 
     def __toRDF(self):
-        """Dump to RDF file all suscriptors"""
+        """Dump to RDF file all subscribers"""
         
         if not (os.path.exists(self.config.get('dir'))):
             os.mkdir(self.config.get('dir'))
@@ -195,25 +195,26 @@ class Suscriptors:
         
         #namespaces
         store.bind('swaml', SWAML)
+        store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)
 
         #a Node for each subcriber
-        for mail, suscriptor in self.suscriptors.items():
-            person = URIRef(suscriptor.getStringId())
-            store.add((person, RDF.type, FOAF["Suscriptor"]))
+        for mail, subscriber in self.subscribers.items():
+            person = URIRef(subscriber.getStringId())
+            store.add((person, RDF.type, SIOC['User']))
             
             try:
-                name = suscriptor.getName()
+                name = subscriber.getName()
                 if (len(name) > 0):
-                    store.add((person, FOAF["name"], Literal(name) ))            
-                store.add((person, FOAF["mbox_sha1sum"], Literal(suscriptor.getShaMail())))
-                foafResource = suscriptor.getFoaf()
+                    store.add((person, SIOC['name'], Literal(name) ))            
+                store.add((person, SIOC['email_sha1sum'], Literal(subscriber.getShaMail())))
+                foafResource = subscriber.getFoaf()
                 if (foafResource != None):
-                    store.add((person, RDFS["seeAlso"], URIRef(foafResource)))
+                    store.add((person, RDFS['seeAlso'], URIRef(foafResource)))
                     
                     #coordinates
-                    lat, lon = suscriptor.getGeo()
+                    lat, lon = subscriber.getGeo()
                     if (lat != None and lon != None): 
                         store.bind('geo', GEO)                       
                         geo = BNode()
@@ -223,30 +224,30 @@ class Suscriptors:
                         store.add((geo, GEO['long'], Literal(lon)))
                         
                     #depiction
-                    pic = suscriptor.getPic()
+                    pic = subscriber.getPic()
                     if (pic != None):
                         store.add((person, FOAF['depiction'], URIRef(pic)))
                         
             except UnicodeDecodeError, detail:
-                print 'Error proccesing suscriptor ' + suscriptor.getName() + ': ' + str(detail)
+                print 'Error proccesing subscriber ' + subscriber.getName() + ': ' + str(detail)
             
-            sentMails = suscriptor.getSentMails()
+            sentMails = subscriber.getSentMails()
             if (len(sentMails)>0):
                 for uri in sentMails:
-                    store.add((person, SWAML['author'], URIRef(uri)))
+                    store.add((person, SIOC['creator_of'], URIRef(uri)))
                     
         #and dump to disk
         try:
-            rdf_file = open(self.config.get('dir') + 'suscriptors.rdf', 'w+')
+            rdf_file = open(self.config.get('dir') + 'subscribers.rdf', 'w+')
             rdf_file.write(store.serialize(format="pretty-xml"))
             rdf_file.flush()
             rdf_file.close()
         except IOError, detail:
-            print 'Error exporting suscriptors to RDF: ' + str(detail)
+            print 'Error exporting subscribers to RDF: ' + str(detail)
         
     def __toKML(self):
         """
-        Public suscriptors' geography information,
+        Public subscribers' geography information,
         if it's available in his foaf files,
         into KML file
         """
@@ -254,16 +255,16 @@ class Suscriptors:
         from kml import KML
         kml = KML()
         
-        for mail, suscriptor in self.suscriptors.items():
-            lat, lon = suscriptor.getGeo()
-            pic = suscriptor.getPic()
+        for mail, subscriber in self.subscribers.items():
+            lat, lon = subscriber.getGeo()
+            pic = subscriber.getPic()
             if ((lat != None) and (lon != None)): 
-                kml.addPlace(lat, lon, name=suscriptor.getName(), description=pic)
+                kml.addPlace(lat, lon, name=subscriber.getName(), description=pic)
                 
             
         #and dump to disk
         try:
-            kml_file = open(self.config.get('dir') + 'suscriptors.kml', 'w+')
+            kml_file = open(self.config.get('dir') + 'subscribers.kml', 'w+')
             kml.write(kml_file)
             kml_file.flush()
             kml_file.close()
@@ -275,49 +276,49 @@ class Suscriptors:
 
     def process(self):
         """
-        Process suscriptor to obtain more semantic information
+        Process subscribers to obtain more semantic information
         """
         
         foafserv = FoafUtils()
         
-        for mail, suscriptor in self.suscriptors.items():
-            self.__copileFoafInfo(suscriptor, foafserv) #get foaf information
-            self.__compact(suscriptor, foafserv) #compact suscriptors list
+        for mail, subscriber in self.subscribers.items():
+            self.__copileFoafInfo(subscriber, foafserv) #get foaf information
+            self.__compact(subscriber, foafserv) #compact subscribers list
             #more ideas?
 
-    def __copileFoafInfo(self, suscriptor, foafserv):
+    def __copileFoafInfo(self, subscriber, foafserv):
         """
-        Compile suscriptors' information from
+        Compile subscribers' information from
         his FOAFs
         """  
-        mail = suscriptor.getMail()
+        mail = subscriber.getMail()
         foaf = foafserv.getFoaf(mail)
         if (foaf != None):
-            suscriptor.setFoaf(foaf)
+            subscriber.setFoaf(foaf)
             
             #coordinates
             lat, lon = foafserv.getGeoPosition(foaf, mail)
             if (lat != None and lon != None):
-                suscriptor.setGeo(lat, lon)
+                subscriber.setGeo(lat, lon)
                 
             pic = foafserv.getPic(foaf, mail)
             if (pic != None):
-                suscriptor.setPic(pic)
+                subscriber.setPic(pic)
                 
                 
 
-    def __compact(self, suscriptor, foafserv):
+    def __compact(self, subscriber, foafserv):
         """
-        Compact mailing list suscriptors
+        Compact mailing list subscribers
         according his foaf information
         """
         
-        #diego's idea: look on foaf if the suscriptor uses more than one address
+        #diego's idea: look on foaf if the subscriber uses more than one address
         pass
     
     def export(self):
         """
-        Export suscriptor information into multiple
+        Export subscribers information into multiple
         formats (RDF and KML)
         """
         
@@ -326,11 +327,11 @@ class Suscriptors:
         if (self.config.get('kml')):
             self.__toKML()
             
-    def getSuscriptorsUris(self):
+    def getSubscribersUris(self):
         uris = []
         
-        for mail, suscriptor in self.suscriptors.items():
-            uris.append(suscriptor.getUri())
+        for mail, subscriber in self.subscribers.items():
+            uris.append(subscriber.getUri())
             
         return uris
                            

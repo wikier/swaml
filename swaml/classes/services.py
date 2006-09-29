@@ -38,7 +38,7 @@ class FoafUtils:
         @return: the FOAF URI of this email owner
         @rtype: string
         
-        @todo customize foaf service
+        @todo: customize FOAF service
         """
         
         mail_sha1sum = self.getShaMail(mail)

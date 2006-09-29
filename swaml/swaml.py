@@ -33,7 +33,7 @@ class SWAML:
     """
     Main class of SWAML project
     
-    @autor: Sergio Fdez
+    @author: Sergio Fdez
     @license: GPL
     """
 

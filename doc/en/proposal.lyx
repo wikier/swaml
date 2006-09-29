@@ -42,7 +42,7 @@ June 2005
 \end_layout
 
 \begin_layout Abstract
-Mailing list archives (i.e., the mesages posted up-to-now) are often published
+Mailing list archives (i.e., the messages posted up-to-now) are often published
  on the web and indexed by conventional search engines.
  They store a vast knowledge capital.
  However, the ability to automatically recognize and process the information
@@ -97,7 +97,7 @@ Problems of the Current Model
 
 \begin_layout Standard
 Unfortunately, browsing the list archives with a web browser is not as flexible
- as doing the same thing with our favourite e-mail client.
+ as doing the same thing with our favorite e-mail client.
  For instance, there are some simple tasks that, in general, cannot be performed
  with a web browser:
 \end_layout
@@ -143,7 +143,7 @@ It is not uncommon for mailing list archives to be mirrored at different
  As a consequence, sometimes the same message appears more than once in
  the results page of the search engine.
  This is annoying for users.
- Obviosly, the ideal behaviour would be not to show any duplicate result.
+ Obviously, the ideal behavior would be not to show any duplicate result.
 \end_layout
 
 \begin_layout Section
@@ -151,54 +151,49 @@ The Source of the Problems: Information Loss
 \end_layout
 
 \begin_layout Standard
-En el origen de estos problemas se encuentra una pérdida de información
- que se produce al convertir los mensajes archivados a HTML para su publicación
- en la web.
+The origin of these problems can be traced to the information loss that
+ happens when e-mail messages are transformed to HTML for the web.
 \end_layout
 
 \begin_layout Standard
-Los gestores más habituales de listas de correo (mailman, majordomo, sympa,
- etc.) generan un fichero en formato Mailbox (mbox) con los mensajes que
- han sido enviados a la lista.
- Otros programas independientes, como hypermail, monharc, pipermail..., se
- especializan en convertir el fichero Mailbox en un conjunto de páginas
- web estáticas.
- Los programas más sofisticados son capaces de generar índices complejos
- de los archivos (por fecha, por autor, por hilo...), con múltiples referencias
- cruzadas entre los mensajes en forma de hipervínculos (mensaje anterior,
- mensaje siguiente, etc.).
- Pero incluso en el mejor de los casos, esta información sólo es comprensible
- para el usuario, nunca para la máquina.
- En consecuencia, es imposible explotarla más allá de las formas previstas
- por el programa que ha generado los archivos.
+Some of the most popular mailing list managers (such as Mailman or Majordomo)
+ store the messages into a file in Mailbox (mbox) format.
+ Later, other independent applications read this file and create static
+ HTML webpages, usually one page for each message.
+ In addition, they can generate complex indexes by date, author or thread,
+ and cross-references to the previous and next messages.
+ But even it the best case, this information is of use only for humans,
+ but not recognizable as such by machines.
+ As a consequence, any possibility of further automatic processing is almost
+ lost.
 \end_layout
 
 \begin_layout Standard
-Entre la información que se pierde en la publicación, se encuentra:
+Some of the information pieces lost in this process are:
 \end_layout
 
 \begin_layout Itemize
-El asunto del mensaje.
+The message subject.
 \end_layout
 
 \begin_layout Itemize
-El autor del mensaje.
+The name and address of the author.
 \end_layout
 
 \begin_layout Itemize
-La fecha del mensaje.
+The date of the message.
 \end_layout
 
 \begin_layout Itemize
-La referencia a la lista de correo en la que se publicó el mensaje.
+The reference to the mailing list in which the message was published.
 \end_layout
 
 \begin_layout Itemize
-La referencia al mensaje anterior, si existe.
+The reference to the previous message, it it exists.
 \end_layout
 
 \begin_layout Itemize
-Las referencias (enlaces) a las posibles respuestas al mensaje.
+The references to the replies by other users.
 \end_layout
 
 \begin_layout Section
@@ -206,14 +201,14 @@ Our Proposal
 \end_layout
 
 \begin_layout Standard
-Las tecnologías de la web semántica (y concretamente, RDF) son perfectamente
- capaces de publicar en la web toda la información señalada en la sección
- anterior.
- Dado que la información ya existe en el origen, no es necesario ningún
- procedimiento manual para enriquecerla.
- Tan sólo debe considerarse un proceso de conversión que no desprecie la
- información, sino que la publique junto con los archivos en HTML.
- De esta forma, las listas de correo se introducirían en la web semántica.
+The technology of the Semantic Web, in particular, the RDF framework, is
+ perfectly suited for preserving all the information described above.
+ As all this information is already available in the original format (the
+ Mailbox file), a minimal amount of additional processing is required (just
+ some work for generating cross-references and indexes).
+ The only requirement is that the transformation process must publish this
+ information in RDF beside the HTML version.
+ With little effort, the mailing lists can be aware of the Semantic Web.
 \end_layout
 
 \begin_layout Section
@@ -221,34 +216,34 @@ Applications
 \end_layout
 
 \begin_layout Standard
-Enriquecer semánticamente la publicación web de los archivos de las listas
- de correo abriría la puerta a nuevas aplicaciones:
+The enrichment of the mailing list archives with machine-processable data
+ opens the door to a number of new applications:
 \end_layout
 
 \begin_layout Itemize
-Eliminar la aparición repetida de los mismos mensajes en los resultados
- de los buscadores.
- Para lograrlo, los buscadores deberían procesar la información semántica
- para reconocer las copias (mirrors) de los archivos.
+Avoiding duplicated results with the same mailing list message becomes possible
+ for search engines.
+ In order to achieve this, the engines (or their crawlers) should recognize
+ the mirrors of the web archives.
 \end_layout
 
 \begin_layout Itemize
-Implementar en los navegadores nuevas funcionalidades, como las apuntadas
- en la sección 
+New features, such as those pointed in Section 
 \begin_inset LatexCommand \ref{sec:Problemas}
 
 \end_inset
 
-.
- Estas capacidades, que mejorarían sensiblemente la comodidad en la consulta
- de los archivos, podrían añadirse como extensiones o plug-ins de los navegadore
-s actuales.
+, can be implemented in the web browsers.
+ These new features, probably in the form of plug-ins or extensions to current
+ web browsers, would enhance user's experience when reading the mailing
+ list archives through the web.
 \end_layout
 
 \begin_layout Itemize
-Obtener información sobre los suscriptores de una lista de correo.
- Por ejemplo, conocer en qué otras listas de correo participa una persona.
- Esta aplicación es especialmente interesante en conexión con FOAF
+Specialized software agents could gather more information about mailing
+ list subscribers, like a compilation of all the mailing lists in which
+ a given user has posted messages.
+ Linking the information with FOAF 
 \begin_inset Foot
 status open
 
@@ -258,31 +253,23 @@ http://www.foaf-project.org/
 
 \end_inset
 
-.
- De este modo, se podría sacar una 
-\begin_inset Quotes eld
-\end_inset
-
-orla
-\begin_inset Quotes erd
-\end_inset
-
- con las fotos de los participantes en una lista de correo
+ would make possible to retrieve the photographs of all the posters in a
+ given mailing lists (like it is now done -by hand- in some blog aggregators
 \begin_inset Foot
 status open
 
 \begin_layout Standard
-Como hace GNOME, véase http://planet.gnome.org/heads/
+See GNOME Planet, http://planet.gnome.org/heads/
 \end_layout
 
 \end_inset
 
-, o situarlos geográficamente en un mapa
+), or plot their position on a map
 \begin_inset Foot
 status open
 
 \begin_layout Standard
-Como hace Debian, véase http://www.debian.org/devel/developers.loc
+Similar to the Debian Developer map at http://www.debian.org/devel/developers.loc
 \end_layout
 
 \end_inset
@@ -291,17 +278,13 @@ Como hace Debian, véase http://www.debian.org/devel/developers.loc
 \end_layout
 
 \begin_layout Itemize
-Facilitar la internacionalización.
- Al hacer comprensibles las relaciones entre los mensajes por el software,
- el navegador proporcionaría las opciones de exploración (mensaje siguiente,
- mensaje anterior, etc.) en el idioma del usuario, independientemente del
- idioma en el que se encontrasen las páginas HTML.
+Easier localization of the user's interface, without being dependent on
+ the language in which the HTML archives are published on.
 \end_layout
 
 \begin_layout Itemize
-Mejorar la accesibilidad de la información.
- Las tecnologías de accesibilidad podrían informar sobre quién es el autor
- del mensaje o cuántas respuestas hay, usando la voz u otros medios.
+Improved accessibility for disabled people, by means of alternative presentation
+s of the information (for instance, voice synthesizers).
 \end_layout
 
 \begin_layout Section
@@ -313,11 +296,11 @@ Related Work
 \end_layout
 
 \begin_layout Standard
-Existen algunos trabajos similares a esta propuesta.
+There exist some similar approaches.
 \end_layout
 
 \begin_layout Standard
-El proyecto DOAML
+The DOAML vocabulary 
 \begin_inset Foot
 status open
 
@@ -327,15 +310,15 @@ http://www.doaml.net/
 
 \end_inset
 
- consiste en un vocabulario RDF para describir listas de correo.
- Como ejemplo, en la web del proyecto se encuentran las descripciones de
- las listas de correo del W3C.
- La información de este vocabulario limita sus referencias a los mensajes
- archivados a un enlace a la versión HTML de éstos.
+ is a RDF vocabulary designed to describe mailing lists.
+ The project homepage includes some examples using the W3C mailing lists.
+ Nevertheless, the expressiveness is not enough.
+ For instance, references to past posts are just links to their HTML version.
 \end_layout
 
 \begin_layout Standard
-Por otro lado, EMiR
+There are also RDF schemes to describe mail messages (without being specific
+ for mailing lists), namely EMiR
 \begin_inset Foot
 status open
 
@@ -345,8 +328,7 @@ http://xmlns.filsa.org/emir/
 
 \end_inset
 
-es un esquema RDF para describir mensajes de correo electrónico.
- En la misma línea se encuentra XMTP
+ and XMTP
 \begin_inset Foot
 status open
 
@@ -364,43 +346,43 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-Introducir los archivos de las listas de correo en la web semántica sólo
- requiere disponer de una aplicación de publicación que utilice la tecnología
- apropiada (RDF) como complemento al HTML.
- Con un mínimo esfuerzo, los administradores de todas las listas de correo
- podrían emplear la aplicación en sus listas, por lo que la implantación
- sería rápida
+The mailing list archives can enter the Semantic Web just by using a suited
+ application to retain as much information as possible using the proper
+ language (RDF), as a complement to the HTML version.
+ Deployment of such application would require little effort by mailing list
+ administrators, so adoption could be fast.
 \begin_inset Foot
 status open
 
 \begin_layout Standard
-En realidad, cualquier suscriptor (no necesariamente el administrador) de
- una lista de correo podría publicar los archivos enriquecidos.
- Tan sólo debería disponer de todos los mensajes antiguos almacenados en
- su cliente de correo electrónico, y exportarlos al formato Mbox.
+Actually, any subscriber (not just the administrator) would be able to use
+ such application.
+ The only requirement is to have access to all the prior posts, probably
+ already stored in his own e-mail client.
 \end_layout
 
 \end_inset
 
 .
- Además, al no requerirse la participación de un experto para el enriquecimiento
- de la información, resultaría posible enriquecer inmediatamente grandes
- volúmenes de información, incluso listas de correo que lleven muchos años
- en funcionamiento.
+ It is not required the enrichment of any data by an expert, so huge volumes
+ of information can be easily and quickly processed.
+ This is an important factor because some mailing lists have a high activity
+ and many years of existence.
 \end_layout
 
 \begin_layout Standard
-El desarrollo de una aplicación de estas características requeriría, en
- primer lugar, la creación de un esquema de información, que muy bien podría
- ser una combinación de los ya existentes (véase la sección 
+Development of such application requires, first of all, the definition of
+ an information scheme, probably a combination of the existing ones (see
+ Section 
 \begin_inset LatexCommand \ref{sec:Trabajos-relacionados}
 
 \end_inset
 
-); y en segundo lugar, el procesamiento de un fichero Mbox para extraer
- la información que contiene.
- Dado que existen aplicaciones de software libre que realizan la segunda
- tarea, lo más razonable parece ser adaptar alguna de ellas.
+).
+ Secondly, Mailbox files must be processed in order to extract the already-exist
+ent information.
+ This second step can take as a starting point some of the current free
+ software tools that generate HTML from a Mailbox.
 \end_layout
 
 \end_body

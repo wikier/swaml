@@ -63,12 +63,11 @@
    </p>
 
    <p>
-     <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> is  a research 
-     project around the semantic web technologies to publish the mailing lists&acute;s archive into 
-     an <acronym title="Resource Description Framework">RDF</acronym> format, developed 
-     at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). You can
-     visit the <a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a>
-     for more details.
+     <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>, pronounced <em>[sw&aelig;ml]</em>,
+     is  a research project around the semantic web technologies to publish the mailing lists&acute;s 
+     archive into an <acronym title="Resource Description Framework">RDF</acronym> format, developed at 
+     <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). You can visit the 
+     <a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> for more details.
    </p>
 
    <p id="advertisement">

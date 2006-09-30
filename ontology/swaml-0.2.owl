@@ -50,7 +50,4 @@
     <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.2#nextByDate" />
   </owl:ObjectProperty>
 
-  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
-  </owl:Class>
-
 </rdf:RDF>

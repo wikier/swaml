@@ -49,9 +49,9 @@ Mailing list archives (i.e., the messages posted up-to-now) are often published
  is mostly lost at publishing time.
  As a result, the current mailing list archives are hard to query and have
  a limited use.
- This paper describes the application of the Semantic Web in order to avoid
- the information loss and to allow new applications able to exploit this
- information in a more convenient way.
+ This paper describes the use of the Semantic Web technology in order to
+ avoid the information loss and to allow new applications able to exploit
+ this information in a more convenient way.
 \end_layout
 
 \begin_layout Section*
@@ -97,7 +97,7 @@ Problems of the Current Model
 
 \begin_layout Standard
 Unfortunately, browsing the list archives with a web browser is not as flexible
- as doing the same thing with our favorite e-mail client.
+ as doing it with our favorite e-mail client.
  For instance, there are some simple tasks that, in general, cannot be performed
  with a web browser:
 \end_layout
@@ -131,15 +131,15 @@ To download a whole thread into a file for offline browsing.
 \end_layout
 
 \begin_layout Itemize
-The reply to a message using an e-mail client (or a webmail), quoting parts
+To reply to a message using an e-mail client (or a webmail), quoting parts
  of the original one.
 \end_layout
 
 \begin_layout Standard
 It is not uncommon for mailing list archives to be mirrored at different
  sites.
- Unfortunately, search bots are rarely aware, and it is very difficult to
- detect duplicated messages.
+ Unfortunately, search bots are rarely aware of mirrors, and it is very
+ difficult to detect duplicated messages.
  As a consequence, sometimes the same message appears more than once in
  the results page of the search engine.
  This is annoying for users.
@@ -189,7 +189,7 @@ The reference to the mailing list in which the message was published.
 \end_layout
 
 \begin_layout Itemize
-The reference to the previous message, it it exists.
+The reference to the previous message, if it exists.
 \end_layout
 
 \begin_layout Itemize
@@ -221,14 +221,15 @@ The enrichment of the mailing list archives with machine-processable data
 \end_layout
 
 \begin_layout Itemize
-Avoiding duplicated results with the same mailing list message becomes possible
- for search engines.
- In order to achieve this, the engines (or their crawlers) should recognize
- the mirrors of the web archives.
+Search engines may avoid showing duplicated results with the same mailing
+ list message.
+ In order to achieve this, their crawlers should recognize the mirrors of
+ the web archives.
 \end_layout
 
 \begin_layout Itemize
-New features, such as those pointed in Section 
+New features, such as those pointed in Section\InsetSpace ~
+
 \begin_inset LatexCommand \ref{sec:Problemas}
 
 \end_inset
@@ -254,7 +255,8 @@ http://www.foaf-project.org/
 \end_inset
 
  would make possible to retrieve the photographs of all the posters in a
- given mailing lists (like it is now done -by hand- in some blog aggregators
+ given mailing lists (like it is currently done -by hand- in some blog aggregato
+rs
 \begin_inset Foot
 status open
 
@@ -284,7 +286,7 @@ Easier localization of the user's interface, without being dependent on
 
 \begin_layout Itemize
 Improved accessibility for disabled people, by means of alternative presentation
-s of the information (for instance, voice synthesizers).
+s of the information (for instance, text-to-speech).
 \end_layout
 
 \begin_layout Section
@@ -350,7 +352,7 @@ The mailing list archives can enter the Semantic Web just by using a suited
  application to retain as much information as possible using the proper
  language (RDF), as a complement to the HTML version.
  Deployment of such application would require little effort by mailing list
- administrators, so adoption could be fast.
+ administrators, so adoption could be fast
 \begin_inset Foot
 status open
 
@@ -364,8 +366,8 @@ Actually, any subscriber (not just the administrator) would be able to use
 \end_inset
 
 .
- It is not required the enrichment of any data by an expert, so huge volumes
- of information can be easily and quickly processed.
+ It is not required any data enrichment by an expert, so huge volumes of
+ information can be easily and quickly processed.
  This is an important factor because some mailing lists have a high activity
  and many years of existence.
 \end_layout

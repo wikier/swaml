@@ -30,6 +30,6 @@ RewriteRule ^bug/([0-9]+) https://developer.berlios.de/bugs/?func=detailbug&grou
 RewriteRule feature/([0-9]+) http://developer.berlios.de/feature/?func=detailfeature&group_id=4806&feature_id=$1 [R]
 
 #Mime types
-AddType text/xml rdf
+AddType application/rdf+xml .rdf
 AddType application/x-xpinstall .xpi
 

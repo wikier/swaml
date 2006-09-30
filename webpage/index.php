@@ -111,8 +111,11 @@
    <h2 id="doc">Documentation</h2>
    <div class="wikitext">
     <dl>
-     <dt><a href="http://download.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
-     <dd>a document in spanish with the initial idea that reason the development of this project</dd>
+     <dt><a href="http://prdownload.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
+     <dd>original document in spanish with the idea that motivated this project</dd>
+
+     <dt><a href="http://prdownload.berlios.de/swaml/proposal.pdf">proposal.pdf</a>:</dt>
+     <dd>translation with the idea that motivated this project</dd>
     </dl>  
    </div>
 

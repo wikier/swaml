@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE owl [
+  <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY ns "http://swaml.berlios.de/ns/0.2#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY sioc "http://rdfs.org/sioc/ns#">
+]>
+
+<rdf:RDF
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:ns="http://swaml.berlios.de/ns/0.2#"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xmlns:sioc="http://rdfs.org/sioc/ns#"
+ xml:base="http://swaml.berlios.de/ns/0.2"
+>
+
+  <owl:Ontology rdf:about="http://swaml.berlios.de/ns/0.2">
+    <rdfs:label>SWAML Ontology</rdfs:label>
+    <rdfs:comment>Semantic Web Archive of Mailing List Ontology</rdfs:comment>
+    <owl:versionInfo>0.2</owl:versionInfo>
+  </owl:Ontology>
+
+  <owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.2#nextByDate">
+    <rdfs:comment>Next message posted in a mailing list by date</rdfs:comment>
+    <rdfs:label>nextByDate</rdfs:label>
+    <rdfs:domain>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.2#previousByDate" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.2#previousByDate">
+    <rdfs:comment>Previous message posted in a mailign list by date</rdfs:comment>
+    <rdfs:label>previousByDate</rdfs:label>
+    <rdfs:domain>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.2#nextByDate" />
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+  </owl:Class>
+
+</rdf:RDF>

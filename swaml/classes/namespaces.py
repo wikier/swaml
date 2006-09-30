@@ -2,7 +2,7 @@
 
 from rdflib import Namespace
 
-SWAML = Namespace(u'http://swaml.berlios.de/ns/0.1#')
+SWAML = Namespace(u'http://swaml.berlios.de/ns/0.2#')
 SIOC = Namespace(u'http://rdfs.org/sioc/ns#')
 RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = Namespace(u'http://www.w3.org/2000/01/rdf-schema#')

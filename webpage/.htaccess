@@ -5,6 +5,7 @@ RewriteEngine On
 # Ontology
 RewriteRule ^ns/swaml.owl /ns/swaml-0.1.owl
 RewriteRule ^ns/0.1 /ns/swaml-0.1.owl
+RewriteRule ^ns/0.2 /ns/swaml-0.2.owl
 
 # RSS
 RewriteRule ^rss/news http://developer.berlios.de/export/rss20_bsnews.php?group_id=4806 [R]

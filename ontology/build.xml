@@ -7,13 +7,12 @@
 	<property name="host" value="shell.berlios.de" />
 	<property name="path" value="/home/groups/swaml/htdocs/ns/" />
 	<property name="name" value="swaml" />
-	<property name="version" value="0.1" />
+	<property name="version" value="0.2" />
 	
 	<target name="scp" description="upload files to web server" depends="owl2html">
 	   <exec executable="scp">
 		<arg value="${name}-${version}.owl" />
-		<arg value="${name}.html" />
-		<arg value=".htaccess" />
+		<arg value="${name}-${version}.html" />
 		<arg value="${user}@${host}:${path}" />
 	  </exec>
 	</target>
@@ -21,10 +20,10 @@
 	<target name="owl2html" description="xslt transformation" depends="clean">
 		<!--
 		<xslt 	in="${name}-${version}.owl" 
-			out="${name}.html" 
+			out="${name}-${version}.html" 
 			style="owl2html.xsl" /> 
 		-->
-		<exec executable="xsltproc" output="${name}.html"> 
+		<exec executable="xsltproc" output="${name}-${version}.html"> 
 			<arg value="owl2html.xsl" />
 			<arg value="${name}-${version}.owl" />
 		</exec>
@@ -32,7 +31,7 @@
 
 	<target name="clean" description="clean files">
 		<delete file="*~" /> 
-		<delete file="swaml.html" /> 
+		<delete file="${name}-${version}.html" /> 
 	</target>
     
 </project>

@@ -89,11 +89,12 @@
    <ul>
      <li>platform independent (written in <a href="http://www.python.org/">python</a>)</li>
      <li>shell mode (to use manually or by cron script)
+     <li>compatible with <a href="http://rfc.net/rfc4155.html"><acronym title="Request For Comments">RFC</acronym> 4155</a>
      <li>serialize <acronym title="Resource Description Framework">RDF</acronym> to disk</li>
-     <li>reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended</li>
+     <li>reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended, mainly <a href="http://sioc-project.org/"><acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym></a></li>
      <li>enrichment using <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a>
      <li><a href="http://earth.google.com/kml/kml_intro.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support</li>
-     <li>free software (under GNU General Public License, <acronym title="GNU General Public License">GPL</acronym>)</li>
+     <li>free software (under <acronym title="GNU is Not Unix">GNU</acronym> General Public License, <a href="http://www.gnu.org/licenses/gpl.html"><acronym title="GNU General Public License">GPL</acronym></a>)</li>
    </ul>
 
    <h2 id ="news">

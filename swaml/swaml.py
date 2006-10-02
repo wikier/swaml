@@ -23,6 +23,7 @@ __copyright__    = 'Copyright 2005-2006, Sergio Fdez'
 __license__      = 'GNU General Public License'
 __version__      = '0.0.1'
 __url__          = 'http://swaml.berlios.de/'
+__agent__        = 'http://swaml.berlios.de/doap.rdf'
 
 
 import sys, string, getopt
@@ -115,7 +116,7 @@ Report bugs to: <http://swaml.berlios.de/bugs>
         """
         
         self.config = Configuration()
-        self.config.setAgent(__url__)
+        self.config.setAgent(__agent__)
         self.parseArgs(argv)
         self.list = MailingList(self.config)
         messages = self.list.publish()

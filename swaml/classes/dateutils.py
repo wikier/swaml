@@ -64,14 +64,16 @@ class DateUtil:
         return [self.getYear(), self.getMonth(), self.getDay()]  
     
     def getStringFormat(self, format='iso'):  
-        year, month, day = self.getNumericFormat()
+        year = self.getStringYear()
+        month = self.getStringMonth()
+        day = self.getStringDay()
         
         if(format == 'normal'):
             #normal format: day-month-year
-            return str(day) + '-' + str(month) + '-' + str(year)
+            return day + '-' + month + '-' + year
         else:
             #iso: year-month-day
-            return str(year) + '-' + str(month) + '-' + str(day)
+            return year + '-' + month + '-' + day
             
         
 

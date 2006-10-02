@@ -240,7 +240,7 @@ class Subscribers:
         #and dump to disk
         try:
             rdf_file = open(self.config.get('dir') + 'subscribers.rdf', 'w+')
-            rdf_file.write(store.serialize(format="pretty-xml"))
+            store.serialize(destination=rdf_file, format="pretty-xml")
             rdf_file.flush()
             rdf_file.close()
         except IOError, detail:

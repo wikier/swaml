@@ -19,39 +19,34 @@ class Index:
     
     def __init__(self, config):
         self.config = config
-        self.items = {}
+        self.items = []
         self.translateIndex = {}
         
     def add(self, new):
-        id = new.getMessageId() #FIXME, bug #8295
-        swamlId = new.getSwamlId()
+        #store message
+        self.items.append(new)
         
-        #store mesage
-        if (swamlId in self.items):
-            print 'Error adding new index item: ' + swamlId + ' is duplicated'
-        else:
-            self.items[swamlId] = new
-            
         #and translation
+        id = new.getMessageId() #FIXME, bug #8295   
         if (id in self.translateIndex):
             print 'Duplicated message id: ' + id + ' (see more on bug #8295)'
         #deliberately only we maintain the reference with the most 
         # recent message with this id (bug #8295)
-        self.translateIndex[id] = swamlId
+        self.translateIndex[id] = len(self.items)
             
     def get(self, id):
         """
-        Get message who has this ID
+        Get message who has an ID
         """
-        swamlId = self.__getTranslation(id)
-        return self.getMessage(swamlId)
         
-    def getMessage(self, id):
+        return self.getMessage(self.__getTranslation(id))
+        
+    def getMessage(self, n):
         """
-        Get message who has this SWAML ID
+        Get a message
         """
-        if (id in self.items):
-            return self.items[id]
+        if (n != None and n <= len(self.items)):
+            return self.items[n-1]
         else:
             return None
         
@@ -64,7 +59,7 @@ class Index:
     def getMessagesUri(self):
         uris = []
         
-        for id, msg in self.items.items():
+        for msg in self.items:
             uris.append(msg.getUri())
             
         return uris

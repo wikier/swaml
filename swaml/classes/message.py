@@ -51,7 +51,7 @@ class Message:
         self.parent = None
         self.childs = []
             
-        self.swamlId = self.__calculateId()
+        self.__calculateId()
         self.nextByDate = None
         self.previousByDate = None
         
@@ -244,10 +244,14 @@ class Message:
             print 'IOError saving message ' + str(self.getId()) + ': ' + str(detail)
             
     def __calculateId(self):
-        #TODO: obtain a better SWAML ID
-        parted_id = self.messageId.split('.')
-        msg_id = parted_id[len(parted_id)-1] + '-' + self.date + '-swaml-' + str(self.id)
-        return sha.new(msg_id).hexdigest()            
+        """
+        Calculate SWAML ID
+
+        @todo: obtain a better SWAML ID
+        """
+        
+        #id: hashcode of 'MessageId - Date + ID'
+        self.swamlId = sha.new(self.messageId + '-' + self.date + '-swaml-' + str(self.id)).hexdigest()            
         
 
         

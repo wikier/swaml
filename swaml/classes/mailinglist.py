@@ -102,15 +102,15 @@ class MailingList:
             while(message != None):
                 messages += 1
                 id = message['Message-Id']
-                msg = self.index.get(id)
+                msg = self.index.getMessage(messages)
                 
-                if (msg != None):
+                if (msg != None and msg.getMessageId() == id):
                     msg.setBody('FIXME')
                     msg.toRDF()
                     #msg.toHTML()
                     #self.index.delete(id)
                 else:
-                    print id
+                    print 'Someone was wrong with message ' + str(messages) + ' with ID ' + id + ' ('+msg.getMessageId()+')'
 
                 message = mbox.nextMessage()
                 

@@ -164,6 +164,7 @@ class Subscribers:
         """
         
         self.config = config
+        self.baseUri = self.config.get('url') + 'subscribers.rdf'
         self.subscribers = {}
 
 
@@ -201,7 +202,7 @@ class Subscribers:
 
         #a Node for each subcriber
         for mail, subscriber in self.subscribers.items():
-            person = URIRef(subscriber.getStringId())
+            person = URIRef(self.baseUri + '#' + subscriber.getStringId())
             store.add((person, RDF.type, SIOC['User']))
             
             try:

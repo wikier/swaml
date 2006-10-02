@@ -109,6 +109,23 @@
     ?>
    </div>
 
+   <h2 id="files">Files</h2>
+   <div class="wikitext">
+    <p>There are some <a href="/files">files</a> until the moment:</p>
+    <dl>
+     <dt>
+      	<a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
+     </dt>
+     <dd>
+	First release of project.
+     <dd>
+    </dl>
+
+    <p>If you would like to stay up to date with development you can check out the latest version via the 
+    <a href="http://subversion.tigris.org/">subversion</a> version control system:</p>
+    <p class="svn">svn checkout <a href="/wsvn">http://svn.berlios.de/svnroot/repos/swaml/trunk</a> swaml</p>
+   </div>
+
    <h2 id="doc">Documentation</h2>
    <div class="wikitext">
     <dl>
@@ -118,14 +135,6 @@
      <dt><a href="http://prdownload.berlios.de/swaml/proposal.pdf">proposal.pdf</a>:</dt>
      <dd>translation with the idea that motivated this project</dd>
     </dl>  
-   </div>
-
-   <h2 id="files">Files</h2>
-   <div class="wikitext">
-    <p>There are not <a href="/files">files</a> until the moment.</p>
-    <p><!--If you would like to stay up to date with development -->While you can check out the latest version via the 
-    <a href="http://subversion.tigris.org/">subversion</a> version control system:</p>
-    <p class="svn">svn checkout <a href="/wsvn">http://svn.berlios.de/svnroot/repos/swaml/trunk</a> swaml</p>
    </div>
 
    <h2 id="contact">Contact</h2>

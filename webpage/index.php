@@ -57,11 +57,6 @@
   <!-- Page content -->
   <div id="content">
 
-   <p id="icons">
-     <a href="http://www.w3.org/RDF/" title="Powered by RDF"><img src="images/rdf.gif" width="88" height="96" alt="RDF Resource Description Framework" /></a>
-     <a href="http://www.python.org/" title="Powered by Python"><img src="images/python.png" width="100" height="103" alt="Python" /></a>
-   </p>
-
    <p>
      <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>, pronounced <em>[sw&aelig;ml]</em>,
      is  a research project around the semantic web technologies to publish the mailing lists&acute;s 
@@ -70,8 +65,19 @@
      <a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> for more details.
    </p>
 
+   <img src="images/swaml.png" width="400" height="336" alt="SWAML process description" id="process" />
+
    <p id="advertisement">
      This project is still on development phase, not to be used without careful considerations.
+   </p>
+
+   <p>
+     <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> reads a collection of email messages 
+     stored in a mailbox (from a mailing list compatible with <acronym title="Request For Comments">RFC</acronym> 
+     4155) and generates an <acronym title="Resource Description Framework">RDF</acronym> description. It is 
+     written in Python using <acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym> as 
+     the main ontology to represent in <acronym title="Resource Description Framework">RDF</acronym> a mailing 
+     list.     	
    </p>
 
    <p>
@@ -88,11 +94,11 @@
    </p>
    <ul>
      <li>platform independent (written in <a href="http://www.python.org/">python</a>)</li>
-     <li>shell mode (to use manually or by cron script)
-     <li>compatible with <a href="http://rfc.net/rfc4155.html"><acronym title="Request For Comments">RFC</acronym> 4155</a>
+     <li>shell mode (to use manually or by cron script)</li>
+     <li>compatible with <a href="http://rfc.net/rfc4155.html"><acronym title="Request For Comments">RFC</acronym> 4155</a></li>
      <li>serialize <acronym title="Resource Description Framework">RDF</acronym> to disk</li>
      <li>reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended, mainly <a href="http://sioc-project.org/"><acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym></a></li>
-     <li>enrichment using <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a>
+     <li>enrichment using <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a></li>
      <li><a href="http://earth.google.com/kml/kml_intro.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support</li>
      <li>free software (under <acronym title="GNU is Not Unix">GNU</acronym> General Public License, <a href="http://www.gnu.org/licenses/gpl.html"><acronym title="GNU General Public License">GPL</acronym></a>)</li>
    </ul>
@@ -118,7 +124,7 @@
      </dt>
      <dd>
 	First release of project.
-     <dd>
+     </dd>
     </dl>
 
     <p>If you would like to stay up to date with development you can check out the latest version via the 
@@ -156,7 +162,7 @@
      <a href="/doap.rdf" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a>
      <a href="http://validator.w3.org/check/referer"><img src="images/xhtml.png" alt="Valid XHTML" /></a>
      <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/css.png" alt="Valid CSS" /></a>
-     <a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" border="0" alt="BerliOS Developer Logo"></a>
+     <a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" border="0" alt="BerliOS Developer Logo" /></a>
   </div>
 
  </body>

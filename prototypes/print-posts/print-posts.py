@@ -56,8 +56,8 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         mailingListUri = sys.argv[1]
     else:
-        # default value
-        mailingListUri = 'http://localhost/~berrueta/swaml-hispalinux/index.rdf'
+        print 'you must to indicate a mailing list URI'
+        sys.exit()
 
     graph = loadMailingList(mailingListUri)
     loadAdditionalData(graph, mailingListUri)

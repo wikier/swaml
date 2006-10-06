@@ -1,0 +1,243 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<!DOCTYPE glade-interface SYSTEM "http://gazpacho.sicem.biz/gazpacho-0.1.dtd">
+<glade-interface>
+    <widget class="GtkUIManager" id="uimanager">
+        <child>
+            <widget class="GtkActionGroup" id="DefaultActions">
+                <child>
+                    <widget class="GtkAction" id="Copy">
+                        <property name="name">Copy</property>
+                        <property name="tooltip" translatable="yes">Copy selected object into the clipboard</property>
+                        <property name="stock_id">gtk-copy</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Cut">
+                        <property name="name">Cut</property>
+                        <property name="tooltip" translatable="yes">Cut selected object into the clipboard</property>
+                        <property name="stock_id">gtk-cut</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="EditMenu">
+                        <property name="name">EditMenu</property>
+                        <property name="label" translatable="yes">_Edit</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="FileMenu">
+                        <property name="name">FileMenu</property>
+                        <property name="label" translatable="yes">_File</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="New">
+                        <property name="name">New</property>
+                        <property name="tooltip" translatable="yes">Create a new file</property>
+                        <property name="stock_id">gtk-new</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Open">
+                        <property name="name">Open</property>
+                        <property name="tooltip" translatable="yes">Open a file</property>
+                        <property name="stock_id">gtk-open</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Paste">
+                        <property name="name">Paste</property>
+                        <property name="tooltip" translatable="yes">Paste object from the Clipboard</property>
+                        <property name="stock_id">gtk-paste</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Quit">
+                        <property name="name">Quit</property>
+                        <property name="tooltip" translatable="yes">Quit the program</property>
+                        <property name="stock_id">gtk-quit</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Save">
+                        <property name="name">Save</property>
+                        <property name="is_important">True</property>
+                        <property name="tooltip" translatable="yes">Save a file</property>
+                        <property name="stock_id">gtk-save</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="SaveAs">
+                        <property name="name">SaveAs</property>
+                        <property name="tooltip" translatable="yes">Save with a different name</property>
+                        <property name="stock_id">gtk-save-as</property>
+                    </widget>
+                </child>
+            </widget>
+        </child>
+        <ui id="initial-state"><![CDATA[<ui>
+<menubar action="menubar1" name="menubar1">
+  <menu action="FileMenu" name="FileMenu">
+    <menuitem action="New" name="New"/>
+    <menuitem action="Open" name="Open"/>
+    <menuitem action="Save" name="Save"/>
+    <menuitem action="SaveAs" name="SaveAs"/>
+    <separator/>
+    <menuitem action="Quit" name="Quit"/>
+  </menu>
+  <menu action="EditMenu" name="EditMenu">
+    <menuitem action="Copy" name="Copy"/>
+    <menuitem action="Cut" name="Cut"/>
+    <menuitem action="Paste" name="Paste"/>
+  </menu>
+</menubar>
+</ui>]]></ui>
+    </widget>
+    <widget class="GtkWindow" id="gsr">
+        <property name="allow_grow">False</property>
+        <property name="default_height">400</property>
+        <property name="default_width">600</property>
+        <property name="resizable">False</property>
+        <property name="window_position">center-on-parent</property>
+        <signal handler="destroy" name="destroy"/>
+        <child>
+            <widget class="GtkVBox" id="vbox1">
+                <property name="visible">True</property>
+                <child>
+                    <widget constructor="initial-state" class="GtkMenuBar" id="menubar1">
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkHBox" id="hbox1">
+                        <property name="visible">True</property>
+                        <child>
+                            <widget class="GtkLabel" id="urlLabel">
+                                <property name="label" context="yes" translatable="yes">URL:</property>
+                                <property name="visible">True</property>
+                                <property name="xalign">0.0</property>
+                                <property name="xpad">20</property>
+                            </widget>
+                            <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkEntry" id="urlInput">
+                                <property name="is_focus">True</property>
+                                <property name="visible">True</property>
+                            </widget>
+                            <packing>
+                                <property name="position">1</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkButton" id="goButton">
+                                <property name="is_focus">True</property>
+                                <property name="label">gtk-jump-to</property>
+                                <property name="use_stock">True</property>
+                                <property name="visible">True</property>
+                                <signal handler="goButtonClicked" name="clicked"/>
+                            </widget>
+                            <packing>
+                                <property name="expand">False</property>
+                                <property name="position">2</property>
+                            </packing>
+                        </child>
+                    </widget>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="position">1</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkHBox" id="hbox2">
+                        <property name="visible">True</property>
+                        <child>
+                            <widget class="GtkVBox" id="vbox2">
+                                <property name="visible">True</property>
+                                <child>
+                                    <widget class="GtkTreeView" id="treeview1">
+                                        <property name="is_focus">True</property>
+                                        <property name="search_column">0</property>
+                                        <property name="visible">True</property>
+                                    </widget>
+                                </child>
+                                <child>
+                                    <widget class="GtkTable" id="table1">
+                                        <property name="n_columns">2</property>
+                                        <property name="n_rows">2</property>
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <widget class="GtkLabel" id="fromLabel">
+                                                <property name="label" context="yes" translatable="yes">From: </property>
+                                                <property name="visible">True</property>
+                                                <property name="xalign">0.0</property>
+                                            </widget>
+                                        </child>
+                                        <child>
+                                            <widget class="GtkLabel" id="toLabel">
+                                                <property name="label" context="yes" translatable="yes">To: </property>
+                                                <property name="visible">True</property>
+                                                <property name="xalign">0.0</property>
+                                            </widget>
+                                            <packing>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <placeholder/>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <placeholder/>
+                                            <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                            </packing>
+                                        </child>
+                                    </widget>
+                                    <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">False</property>
+                                        <property name="position">1</property>
+                                    </packing>
+                                </child>
+                            </widget>
+                        </child>
+                        <child>
+                            <placeholder/>
+                            <packing>
+                                <property name="position">1</property>
+                            </packing>
+                        </child>
+                    </widget>
+                    <packing>
+                        <property name="position">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkStatusbar" id="statusbar1">
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">3</property>
+                    </packing>
+                </child>
+            </widget>
+        </child>
+    </widget>
+</glade-interface>

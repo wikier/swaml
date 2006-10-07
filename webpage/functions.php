@@ -20,6 +20,31 @@ class SWAML {
 		return($ret);
 	}
 
+	function acronyms_replace($text) {
+
+		$acronyms = array(	'SWAML', 'RDF', 'URL', 'URI', 'OWL', 'SIOC', 'RFC');
+		$titles   = array(	'Semantic Web Archive of Mailing Lists',
+					'Resource Description Framework',
+					'Uniform Resource Locator',
+					'Uniform Resource Identifier',
+					'Ontology Web Languaje',
+					'Semantically-Interlinked Online Communities',
+					'Request for Comments'
+				);
+
+		for ($i=0; $i<count($acronyms); $i++) {
+			$acronym = $acronyms[$i];
+			$title = $titles[$i];
+			$text = str_replace(
+					' '.$acronym.' ',
+					' <acronym title="'.$title.'">'.$acronym.'</acronym> ',
+					$text);
+		}
+		
+		return $text;
+
+	}
+
 	function parse_rss() {
 
 		$months = array("Jan" => "01",
@@ -51,7 +76,9 @@ class SWAML {
 	    		foreach ($items as $item) {
 	      			$title = $item[title];
 	      			$link  = $item[link];
-	      			$description = $this->make_clickable($item[description]);
+				$description = $item[description];
+				$description = $this->acronyms_replace($description);
+	      			$description = $this->make_clickable($description);
 	      			$pubDate  = $item[pubdate];
 	      			$date = explode(" ", $pubDate);
 	      			$ret .= '<dt>['.$date[1].'-'.$months[$date[2]].'-'.$date[3].'] ';

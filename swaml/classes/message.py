@@ -41,7 +41,7 @@ class Message:
             self.to = msg['To']    
         except:
             #some mails have not a 'to' field
-            self.to = self.config.get('defaultTo')   
+            self.to = self.config.get('to')   
             
         try:
             self.inReplyTo = msg['In-Reply-To']    

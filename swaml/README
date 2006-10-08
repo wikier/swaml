@@ -1,8 +1,15 @@
 
 SWAML - Semantic Web Archive or Mailing Lists
+*********************************************
 
-SWAML is simple application written in Python to publish the
-mailing lists's archives into an RDF format.
+SWAML, pronounced [swæml], is a research project around the 
+semantic web technologies to publish the mailing lists´s archive 
+into an RDF format, developed at University of Oviedo (Spain). 
+
+SWAML reads a collection of email messages stored in a mailbox 
+(from a mailing list compatible with RFC 4155) and generates an 
+RDF description. It is written in Python using SIOC as the main 
+ontology to represent in RDF a mailing list.
 
 Our homepage is:
         
@@ -16,19 +23,29 @@ Development happens on BerliOS Forge:
 REQUIREMENTS:
 ^^^^^^^^^^^^^
 
-    - python >= 2.4
+	- python >= 2.4.0
+	- rdflib >= 2.2.0 	(official releases at http://rdflib.net/releases/)
+			   			(advertisement: rdflib != librdf)
 
 
 FEATURES:
 ^^^^^^^^^
         
-    * FIXME
+    * platform independent (written in python)
+	* shell mode (to use manually or by cron script)
+	* compatible with RFC 4155
+	* serialize RDF to disk
+	* reusability of ontologies already extended, mainly SIOC
+	* enrichment using FOAF
+	* KML support
+	* free software (under GNU General Public License, GPL)
 
 
 PLANNED FEATURES:
 ^^^^^^^^^^^^^^^^^
 
-FIXME
+	* visor client
+	* serialize to any RDFdb (sesame for example)
         
 
 

@@ -16,6 +16,8 @@
 # for more details.
 
 import string
+from ConfigParser import ConfigParser
+
 
 class Configuration:
     """Class to encapsulate SWAML's configuration"""
@@ -24,16 +26,55 @@ class Configuration:
         """Constructor method"""
         
         #default values
-        self.config = {            
+        self.config = { 
+            'title' : None,
+            'description' : None,
+            'verbose' : False,         
             'dir' : 'archive/',
             'url' : 'http://localhost/swaml/',
             'mbox' : 'mbox',
             'format' : 'YYYY-MMM/messageID.rdf',
-            'defaultTo' : 'foo@bar.com',
+            'to' : 'foo@bar.com',
             'kml' : True,
             'foaf' : True
-            }        
+            }       
+             
         self.antispam = ' AT '
+        
+    def parse(self, argv):
+        """
+        Getting params of default input
+        
+        @param argv: arguments values array
+        @return: parse ok
+        @rtype: boolean
+        @todo: process one o more lists
+        """
+        
+        if (len(argv) == 0):
+            self.usage
+        else:
+            path = argv[0]
+            config = ConfigParser()
+            
+            try:
+                config.read(path)
+            except:
+                print 'Error parsing config file'
+                
+            section = 'SWAML'    
+            
+            if (config.has_section(section)):
+                for option in config.options(section):
+                    if not self.set(option, config.get(section, option)):
+                        print 'unknow option in ' + path
+                        return False
+            
+            else:
+                print 'No SWAML section founded'
+                return False
+            
+            return True
 
 
     def getAntiSpam(self):
@@ -79,7 +120,7 @@ class Configuration:
 
 
     def show(self):
-        """[Deprecated] Show al configure options"""
+        """[Deprecated] Show all configure options"""
         
         for var in self.config.keys():
             print var + ': ' + str(self.config[var])

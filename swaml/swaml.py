@@ -21,7 +21,7 @@ __contributors__ = ['Diego Berrueta <http://www.berrueta.net/>',
                     'Jose Emilio Labra <http://www.di.uniovi.es/~labra/>']
 __copyright__    = 'Copyright 2005-2006, Sergio Fdez'
 __license__      = 'GNU General Public License'
-__version__      = '0.0.1'
+__version__      = '0.0.2'
 __url__          = 'http://swaml.berlios.de/'
 __agent__        = 'http://swaml.berlios.de/doap.rdf'
 
@@ -41,29 +41,13 @@ class SWAML:
     def parseArgs(self, argv):
         """
         Getting params of default input
+        
+        @param argv: arguments values array
         """
-
-        try:
-            opts, args = getopt.getopt(argv, "d:u:m:f:k:h", ["dir=","url=","mbox=","format=","kml=","help"])
-        except getopt.GetoptError:
+        
+        if not self.config.parse(argv):
             self.usage()
-
-        for opt, arg in opts:
-            if opt in ("-h", "--help"):
-                self.usage()
-            elif opt in ("-d", "--dir") and arg:
-                self.config.set("dir", arg)
-            elif opt in ("-u", "--url") and arg:
-                self.config.set("url", arg)
-            elif opt in ("-m", "--mbox") and arg:
-                self.config.set("mbox", arg)
-            elif opt in ("-f", "--format") and arg:
-                self.config.set("format", arg)
-            elif opt in ("-k", "--kml") and arg:
-                self.config.set("kml", arg)                                      
-            else:
-                self.usage()
-                
+            
         #self.config.show()
 
 
@@ -75,33 +59,16 @@ class SWAML:
         """
         
         print """
-Usage: swaml.py [OPTIONS]
+Usage: swaml.py configfile [options]
         
 'swaml' transform the archives of a mailing list (in mbox format) into a semantic web friendly format (RDF in XML).
 
+   'configfile'      : path to a configuration file compatible with RFC822.
+
 Options:
-
-   -d DIR, --dir=DIR            : use DIR to publish the RDF files; 'archive/' is used by default.
-
-   -u URL, --url=URL            : base URL to browse archives.
-
-   -m MBOX, --mbox=MBOX         : open MBOX file, 'mbox' by default value.
-
-   -f FORMAT, --format=FORMAT   : path pattern to store the messages. FORMAT is an string that can contain following keys:
-
-                                   	'DD': number of day that message was sent
-                                   	'MM': number of month that message was sent
-                                   	'MMM': short month string that message was sent
-                                   	'MMMM': long month string that message was sent
-                                   	'YYYY': year that message was sent
-                                   	'ID': message numeric id
-
-                                  The string 'YYYY-MMM/messageID.rdf' is used by default, but you can compose the string
-                                  as you want (for example something like 'YYYY/MM/DD/ID.rdf').
-   
-   -k {yes/no}, --kml={yes/no]  : flag to activate export KML support.                                 
-
-   -h, --help                   : print this help message and exit.
+   -v, --verbose     : turn on verbose mode.
+   -V, --version     : show version.
+   -h, --help        : print this help message and exit.
 
 Report bugs to: <http://swaml.berlios.de/bugs>
 
@@ -115,7 +82,14 @@ Report bugs to: <http://swaml.berlios.de/bugs>
         @param argv: values of inline arguments
         """
         
-        self.config = Configuration()
+        self.config = Configuration()        
+        
+        for arg in argv:
+            if arg == "-h" or arg == "--help":
+                self.usage()
+            elif arg == "-v" or arg == "--verbose":
+                self.config.set('verbose', True)
+                
         self.config.setAgent(__agent__)
         self.parseArgs(argv)
         self.list = MailingList(self.config)

@@ -3,13 +3,15 @@
 Short Answer:
 ^^^^^^^^^^^^^
 
-Version stand alone: unzip the tarball an use it.
+Version stand alone: unzip the tarball an use it:
+
+	python2.4 swaml.py --help
+
 
 Dependencies:
 	- python >= 2.4.0
-	- rdflib >= 2.2.0 (official release <http://rdflib.net/releases/>,
-			   non debian package)
-	- python-soappy
+	- rdflib >= 2.2.0 	(official releases at <http://rdflib.net/releases/>)
+			   			(advertisement: rdflib != librdf)
 
 
 Long Answer:

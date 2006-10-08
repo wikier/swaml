@@ -134,6 +134,10 @@
 
    <h2 id="doc">Documentation</h2>
    <div class="wikitext">
+    <p>
+     Also the <a href="doc/">online documentation for developers</a>, it's available to download
+     another documents about the project:
+    </p>
     <dl>
      <dt><a href="http://prdownload.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
      <dd>original document in spanish with the idea that motivated this project</dd>

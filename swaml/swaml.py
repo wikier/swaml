@@ -26,7 +26,7 @@ __url__          = 'http://swaml.berlios.de/'
 __agent__        = 'http://swaml.berlios.de/doap.rdf'
 
 
-import sys, string, getopt
+import sys, string
 from classes.configuration import Configuration
 from classes.mailinglist import MailingList
 
@@ -105,5 +105,5 @@ if __name__ == '__main__':
         print 'Received Ctrl+C or another break signal. Exiting...'
 
                                                                             
-del sys, string, getopt
+del sys, string
 

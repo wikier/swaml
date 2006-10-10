@@ -83,7 +83,7 @@
         <property name="resizable">False</property>
         <property name="title" context="yes" translatable="yes">Gtk Swaml Reader</property>
         <property name="type_hint">dialog</property>
-        <property name="window_position">center-on-parent</property>
+        <property name="window_position">center</property>
         <signal handler="destroy" name="destroy"/>
         <child>
             <widget class="GtkVBox" id="vbox1">
@@ -111,8 +111,10 @@
                         <child>
                             <widget class="GtkEntry" id="urlInput">
                                 <property name="is_focus">True</property>
+                                <property name="text" context="yes" translatable="yes">http://</property>
                                 <property name="visible">True</property>
                                 <property name="width_request">800</property>
+                                <signal handler="goButtonClicked" name="activate"/>
                             </widget>
                             <packing>
                                 <property name="position">1</property>
@@ -297,7 +299,7 @@
                     </packing>
                 </child>
                 <child>
-                    <widget class="GtkStatusbar" id="statusbar1">
+                    <widget class="GtkStatusbar" id="gsrStatusbar">
                         <property name="visible">True</property>
                     </widget>
                     <packing>

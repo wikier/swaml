@@ -242,12 +242,10 @@
                                             <widget class="GtkSpinButton" id="fromYearSpin">
                                                 <property name="adjustment">1990 1990 2010 1 10 0</property>
                                                 <property name="editable">False</property>
-                                                <property name="numeric">True</property>
-                                                <property name="snap_to_ticks">True</property>
+                                                <property name="is_focus">True</property>
                                                 <property name="text" context="yes" translatable="yes">1990</property>
                                                 <property name="visible">True</property>
                                                 <property name="width_chars">4</property>
-                                                <property name="wrap">True</property>
                                             </widget>
                                             <packing>
                                                 <property name="left_attach">3</property>

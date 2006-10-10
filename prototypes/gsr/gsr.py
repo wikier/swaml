@@ -77,7 +77,7 @@ class GSR:
 		posts = self.cache.query()
 		
 		#create view and model
-		self.treeView = self.widgets.get_widget('postsTree')
+		self.treeView = widgets.get_widget('postsTree')
 		self.treeStore = gtk.TreeStore(str)
 		self.treeView.set_model(self.treeStore)
 		
@@ -94,6 +94,8 @@ class GSR:
 		treeColumn.add_attribute(cell, 'text', 0)
 		treeColumn.set_sort_column_id(0)
 		
+		self.messageBar('loaded ' + url)
+		
 	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
@@ -101,16 +103,15 @@ class GSR:
 	def main(self):
 		gtk.main()
 
-	def __init__(self, widgets):
-		self.widgets = widgets
+	def __init__(self):
 		
 		#statusbar
-		self.statusbar = self.widgets.get_widget('gsrStatusbar')
+		self.statusbar = widgets.get_widget('gsrStatusbar')
 		self.messageBar('ready')
 	
 		#main window
-		self.window = self.widgets.get_widget('gsr')
-		self.window.set_title('GSR')
+		self.window = widgets.get_widget('gsr')
+		self.window.set_icon_from_file('rdf.ico')
 		self.window.show()
 		
 		
@@ -118,7 +119,7 @@ class GSR:
 widgets = ObjectBuilder('gsr.glade')
 callbacks = Callbacks()
 widgets.signal_autoconnect(Callbacks.__dict__)
-gsr = GSR(widgets)	
+gsr = GSR()	
 
 if __name__ == '__main__':
 	try:

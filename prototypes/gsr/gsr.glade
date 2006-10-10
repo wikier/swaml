@@ -80,8 +80,9 @@
         <property name="allow_grow">False</property>
         <property name="default_height">400</property>
         <property name="default_width">600</property>
+        <property name="icon_name" context="yes" translatable="yes"></property>
         <property name="resizable">False</property>
-        <property name="title" context="yes" translatable="yes">Gtk Swaml Reader</property>
+        <property name="title" context="yes" translatable="yes">GSR - Gtk Swaml Reader</property>
         <property name="type_hint">dialog</property>
         <property name="window_position">center</property>
         <signal handler="destroy" name="destroy"/>

@@ -22,46 +22,105 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 from gazpacho.loader.loader import ObjectBuilder
+import rdflib
+from rdflib import sparql, Namespace
 
-widgets = ObjectBuilder('gsr.glade')
 
 class Callbacks:
 
 	def destroy(self):
 		print 'Exiting...'
 		gtk.main_quit()
+		return gtk.FALSE
 
 	def goButtonClicked(self):
-		print widgets.get_widget('urlInput').get_text()
+		url = widgets.get_widget('urlInput').get_text()
+		if (url != ""):
+			gsr.messageBar( 'query on ' + url)
+			gsr.drawTree(url)
+			
+	def selectRow(self):
+		 gsr.showMessage()
+	
 
-	def __init__(selfs):
-		pass
+class Cache:
 
-callbacks = Callbacks()
-widgets.signal_autoconnect(Callbacks.__dict__)
+	def query(self):
+		self.graph = rdflib.Graph()
+		try:
+			self.graph.parse(self.url)
+		except:
+			gsr.messageBar('unknow problem parsing RDF at ' + self.url)
+
+		RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+		SIOC = rdflib.Namespace(u'http://rdfs.org/sioc/ns#')
+
+		sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
+		select = ("?postUri")
+		where  = sparql.GraphPattern([("?x", RDF["type"], SIOC["Forum"]), ("?x", SIOC["container_of"], "?postUri")])
+		self.posts  = sparqlGr.query(select, where)
+		return self.posts
+
+	def __init__(self, url):
+		self.url = url
+		
 
 class GSR:
 
-	def drawTree(self):
-		#http://www.pygtk.org/pygtk2tutorial-es/examples/basictreeview.py
-		pass
+	def showMessage(self):
+		selection = self.treeView.get_selection()
+		(model, iter) = selection.get_selected()
+		print model, iter
+
+	def drawTree(self, url):
+		self.cache = Cache(url)
+		posts = self.cache.query()
+		
+		#create view and model
+		self.treeView = self.widgets.get_widget('postsTree')
+		self.treeStore = gtk.TreeStore(str)
+		self.treeView.set_model(self.treeStore)
+		
+		#append items
+		parent = None
+		for uri in posts:
+			new = self.treeStore.append(None, [str(uri)])
+			
+		#and show it
+		treeColumn = gtk.TreeViewColumn('Posts')
+		self.treeView.append_column(treeColumn)
+		cell = gtk.CellRendererText()
+		treeColumn.pack_start(cell, True)
+		treeColumn.add_attribute(cell, 'text', 0)
+		treeColumn.set_sort_column_id(0)
+		
+	
+	def messageBar(self, text):
+		self.statusbar.push(0, text)
 
 	def main(self):
-		self.drawTree()
 		gtk.main()
 
 	def __init__(self, widgets):
 		self.widgets = widgets
+		
+		#statusbar
+		self.statusbar = self.widgets.get_widget('gsrStatusbar')
+		self.messageBar('ready')
 	
 		#main window
 		self.window = self.widgets.get_widget('gsr')
 		self.window.set_title('GSR')
 		self.window.show()
-
+		
+		
+		
+widgets = ObjectBuilder('gsr.glade')
+callbacks = Callbacks()
+widgets.signal_autoconnect(Callbacks.__dict__)
+gsr = GSR(widgets)	
 
 if __name__ == '__main__':
-
-	gsr = GSR(widgets)	
 	try:
 		gsr.main()
 	except KeyboardInterrupt:

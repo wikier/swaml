@@ -40,8 +40,8 @@ class Callbacks:
 			gsr.messageBar( 'query on ' + url)
 			gsr.drawTree(url)
 			
-	def selectRow(self):
-		 gsr.showMessage()
+	def selectRow(self, path, column):
+		 gsr.showPost()
 	
 
 class Cache:
@@ -55,17 +55,21 @@ class Cache:
 	
 			sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
 			select = ('?post', '?postTitle', '?userName', '?parent')			
-			where  = sparql.GraphPattern([('?post',	RDF['type'],			SIOC['Post']),
-										  ('?post',	SIOC['title'],			'?postTitle'),
-										  ('?post',	SIOC['has_creator'],	'?user'),
-										  ('?user', SIOC['name'], 			'?userName')])
-			opt    = sparql.GraphPattern([('?post',	SIOC['reply_of'],		'?parent')])
+			where  = sparql.GraphPattern([('?post',	RDF['type'],		SIOC['Post']),
+										  ('?post',	SIOC['title'],		'?postTitle'),
+										  ('?post',	SIOC['has_creator'],'?user'),
+										  ('?user', SIOC['name'], 		'?userName')])
+			opt    = sparql.GraphPattern([('?post',	SIOC['reply_of'],	'?parent')])
 			posts  = sparqlGr.query(select, where, opt)
 			return posts			
 		except Exception, details:
 			gsr.messageBar('unknow problem parsing RDF at ' + self.uri)
 			print 'parsing exception:', str(details)
 			return None
+		
+	def getPost(self, uri):
+		#FIXME
+		return uri
 	
 	def loadMailingList(self, uri):
 	    graph = rdflib.Graph()
@@ -97,10 +101,11 @@ class Cache:
 
 class GSR:
 
-	def showMessage(self):
+	def showPost(self):
 		selection = self.treeView.get_selection()
 		(model, iter) = selection.get_selected()
-		print model, iter
+		uri = model.get_value(iter, 0)
+		self.write(self.cache.getPost(uri))
 
 	def drawTree(self, url):
 		self.cache = Cache(url)
@@ -110,21 +115,21 @@ class GSR:
 		
 			#create view and model
 			self.treeView = widgets.get_widget('postsTree')
-			self.treeStore = gtk.TreeStore(str)
+			self.treeStore = gtk.TreeStore(str, str)
 			self.treeView.set_model(self.treeStore)
 			
 			#append items
 			parent = None
 			for (post, title, creator, parent) in posts:
 				#bug: it ins't order by date, then the tree is bad builded
-				self.treeTranslator[post] = self.treeStore.append(self.__getParent(parent), [str(title)])
+				self.treeTranslator[post] = self.treeStore.append(self.__getParent(parent), [str(post), str(title)])
 				
 			#and show it
 			treeColumn = gtk.TreeViewColumn('Posts')
 			self.treeView.append_column(treeColumn)
 			cell = gtk.CellRendererText()
 			treeColumn.pack_start(cell, True)
-			treeColumn.add_attribute(cell, 'text', 0)
+			treeColumn.add_attribute(cell, 'text', 1)
 			treeColumn.set_sort_column_id(0)
 			
 			self.messageBar('loaded ' + url)
@@ -141,6 +146,10 @@ class GSR:
 	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
+		
+	def write(self, text):
+		buffer = self.text.get_buffer()
+		buffer.set_text(text + ' (FIXME)')
 
 	def main(self):
 		gtk.main()
@@ -149,7 +158,8 @@ class GSR:
 		
 		self.treeTranslator = {}
 		
-		#statusbar
+		#widgets
+		self.text = widgets.get_widget('swamlViewer')
 		self.statusbar = widgets.get_widget('gsrStatusbar')
 		self.messageBar('ready')
 	

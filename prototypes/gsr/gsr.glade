@@ -77,11 +77,9 @@
         </child>
     </widget>
     <widget class="GtkWindow" id="gsr">
-        <property name="allow_grow">False</property>
-        <property name="default_height">400</property>
-        <property name="default_width">600</property>
+        <property name="default_height">1</property>
+        <property name="default_width">1</property>
         <property name="icon_name" context="yes" translatable="yes"></property>
-        <property name="resizable">False</property>
         <property name="title" context="yes" translatable="yes">GSR - Gtk Swaml Reader</property>
         <property name="type_hint">dialog</property>
         <property name="window_position">center</property>
@@ -114,7 +112,7 @@
                                 <property name="is_focus">True</property>
                                 <property name="text" context="yes" translatable="yes">http://</property>
                                 <property name="visible">True</property>
-                                <property name="width_request">800</property>
+                                <property name="width_request">700</property>
                                 <signal handler="goButtonClicked" name="activate"/>
                             </widget>
                             <packing>
@@ -153,12 +151,13 @@
                                             <widget class="GtkTreeView" id="postsTree">
                                                 <property name="enable_search">False</property>
                                                 <property name="headers_visible">False</property>
-                                                <property name="height_request">500</property>
+                                                <property name="height_request">400</property>
                                                 <property name="is_focus">True</property>
                                                 <property name="rules_hint">True</property>
                                                 <property name="search_column">0</property>
                                                 <property name="visible">True</property>
                                                 <property name="width_request">300</property>
+                                                <signal handler="selectRow" name="row-activated"/>
                                             </widget>
                                         </child>
                                     </widget>
@@ -207,7 +206,7 @@
                                             <widget class="GtkSpinButton" id="toDaySpin">
                                                 <property name="adjustment">1 1 31 1 10 0</property>
                                                 <property name="editable">False</property>
-                                                <property name="text" context="yes" translatable="yes">1</property>
+                                                <property name="text" context="yes" translatable="yes">31</property>
                                                 <property name="visible">True</property>
                                                 <property name="width_chars">2</property>
                                             </widget>
@@ -235,7 +234,7 @@
                                             <widget class="GtkSpinButton" id="toMonthSpin">
                                                 <property name="adjustment">1 1 12 1 10 0</property>
                                                 <property name="editable">False</property>
-                                                <property name="text" context="yes" translatable="yes">1</property>
+                                                <property name="text" context="yes" translatable="yes">12</property>
                                                 <property name="visible">True</property>
                                                 <property name="width_chars">2</property>
                                             </widget>
@@ -265,7 +264,7 @@
                                                 <property name="adjustment">1990 1990 2010 1 10 0</property>
                                                 <property name="editable">False</property>
                                                 <property name="is_focus">True</property>
-                                                <property name="text" context="yes" translatable="yes">1990</property>
+                                                <property name="text" context="yes" translatable="yes">2010</property>
                                                 <property name="visible">True</property>
                                                 <property name="width_chars">4</property>
                                             </widget>

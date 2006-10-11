@@ -54,8 +54,9 @@ class Cache:
 			print 'Total triples loaded:', len(self.graph)
 	
 			sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
-			select = ('?post', '?postTitle', '?userName')			
-			where  = sparql.GraphPattern([('?post',	RDF['type'],			SIOC['Post'])])
+			select = ('?post', '?id', '?postTitle', '?userName')			
+			where  = sparql.GraphPattern([('?post',	RDF['type'],			SIOC['Post']),
+										  ('?post',	SIOC['id'],				'?id')])
 			opt    = sparql.GraphPattern([('?post',	SIOC['title'],			'?postTitle'),
 										  ('?post',	SIOC['has_creator'],	'?user'),
 										  ('?user', SIOC['name'], 			'?userName')])
@@ -72,7 +73,6 @@ class Cache:
 	    graph.parse(uri)
 	    print 'OK, loaded', len(graph), 'triples'
 	    return graph
-	
 	
 	def loadAdditionalData(self, uri):
 	
@@ -115,8 +115,8 @@ class GSR:
 			
 			#append items
 			parent = None
-			for (post, title, creator) in posts:
-				new = self.treeStore.append(None, [str(title)])
+			for (post, id, title, creator) in posts:
+				self.treeTranslator[id] = self.treeStore.append(self.__getParent(id), [str(title)])
 				
 			#and show it
 			treeColumn = gtk.TreeViewColumn('Posts')
@@ -131,6 +131,12 @@ class GSR:
 		else:
 			
 			self.messageBar('none posts founded at ' + url)
+			
+	def __getParent(self, id):
+		if (id in self.treeTranslator):
+			return self.treeTranslator[id]
+		else:
+			return None
 	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
@@ -139,6 +145,8 @@ class GSR:
 		gtk.main()
 
 	def __init__(self):
+		
+		self.treeTranslator = {}
 		
 		#statusbar
 		self.statusbar = widgets.get_widget('gsrStatusbar')

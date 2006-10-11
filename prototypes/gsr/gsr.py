@@ -151,7 +151,9 @@ class GSR:
 		buffer = self.text.get_buffer()
 		buffer.set_text(text + ' (FIXME)')
 
-	def main(self):
+	def main(self, uri=None):
+		if (uri != None):
+			self.input.set_text(uri)
 		gtk.main()
 
 	def __init__(self):
@@ -160,6 +162,7 @@ class GSR:
 		
 		#widgets
 		self.text = widgets.get_widget('swamlViewer')
+		self.input = widgets.get_widget('urlInput')
 		self.statusbar = widgets.get_widget('gsrStatusbar')
 		self.messageBar('ready')
 	
@@ -181,7 +184,10 @@ gsr = GSR()
 
 if __name__ == '__main__':
 	try:
-		gsr.main()
+		if (len(sys.argv)>1):
+			gsr.main(sys.argv[1])
+		else:
+			gsr.main()
 	except KeyboardInterrupt:
 		print 'Received Ctrl+C or another break signal. Exiting...'
 		sys.exit()

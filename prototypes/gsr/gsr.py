@@ -3,7 +3,7 @@
 # GSR <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2006 Sergio Fdez
+# Copyright (C) 2006 Sergio Fdez, Diego Berrueta
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -16,6 +16,7 @@
 # for more details.
 
 __author__ = 'Sergio Fdez <http://www.wikier.org/>'
+__author__ = 'Diego Berrueta <http://www.berrueta.net/>'
 
 import sys
 import pygtk
@@ -35,7 +36,7 @@ class Callbacks:
 
 	def goButtonClicked(self):
 		url = widgets.get_widget('urlInput').get_text()
-		if (url != ""):
+		if (url != ''):
 			gsr.messageBar( 'query on ' + url)
 			gsr.drawTree(url)
 			
@@ -46,23 +47,52 @@ class Callbacks:
 class Cache:
 
 	def query(self):
-		self.graph = rdflib.Graph()
 		try:
-			self.graph.parse(self.url)
-		except:
-			gsr.messageBar('unknow problem parsing RDF at ' + self.url)
+			self.graph = self.loadMailingList(self.uri)
+			self.loadAdditionalData(self.uri)
+			
+			print 'Total triples loaded:', len(self.graph)
+	
+			sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
+			select = ('?post', '?postTitle', '?userName')			
+			where  = sparql.GraphPattern([('?post',	RDF['type'],			SIOC['Post'])])
+			opt    = sparql.GraphPattern([('?post',	SIOC['title'],			'?postTitle'),
+										  ('?post',	SIOC['has_creator'],	'?user'),
+										  ('?user', SIOC['name'], 			'?userName')])
+			posts  = sparqlGr.query(select, where, opt)
+			return posts			
+		except Exception, details:
+			gsr.messageBar('unknow problem parsing RDF at ' + self.uri)
+			print 'parsing exception:', str(details)
+			return None
+	
+	def loadMailingList(self, uri):
+	    graph = rdflib.Graph()
+	    print 'Getting mailing list data (', uri, ')...',
+	    graph.parse(uri)
+	    print 'OK, loaded', len(graph), 'triples'
+	    return graph
+	
+	
+	def loadAdditionalData(self, uri):
+	
+	    for post in self.graph.objects(uri, SIOC['container_of']):
+	        if not self.hasValueForPredicate(post, SIOC['title']):
+	            print 'Resolving reference to get additional data (', post, ')...',
+	            self.graph.parse(post)
+	            print 'OK, now', len(self.graph), 'triples'
+	
+	    for user in self.graph.objects(uri, SIOC['has_subscriber']):
+	        if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
+	            print 'Resolving reference to get additional data (', user, ')...',
+	            self.graph.parse(user)
+	            print 'OK, now', len(self.graph), 'triples'	
 
-		RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
-		SIOC = rdflib.Namespace(u'http://rdfs.org/sioc/ns#')
+	def hasValueForPredicate(self, subject, predicate):
+	    return (len([x for x in self.graph.objects(subject, predicate)]) > 0)	          
 
-		sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
-		select = ("?postUri")
-		where  = sparql.GraphPattern([("?x", RDF["type"], SIOC["Forum"]), ("?x", SIOC["container_of"], "?postUri")])
-		self.posts  = sparqlGr.query(select, where)
-		return self.posts
-
-	def __init__(self, url):
-		self.url = url
+	def __init__(self, uri):
+		self.uri = uri
 		
 
 class GSR:
@@ -76,26 +106,31 @@ class GSR:
 		self.cache = Cache(url)
 		posts = self.cache.query()
 		
-		#create view and model
-		self.treeView = widgets.get_widget('postsTree')
-		self.treeStore = gtk.TreeStore(str)
-		self.treeView.set_model(self.treeStore)
+		if (posts!=None and len(posts)>0):
 		
-		#append items
-		parent = None
-		for uri in posts:
-			new = self.treeStore.append(None, [str(uri)])
+			#create view and model
+			self.treeView = widgets.get_widget('postsTree')
+			self.treeStore = gtk.TreeStore(str)
+			self.treeView.set_model(self.treeStore)
 			
-		#and show it
-		treeColumn = gtk.TreeViewColumn('Posts')
-		self.treeView.append_column(treeColumn)
-		cell = gtk.CellRendererText()
-		treeColumn.pack_start(cell, True)
-		treeColumn.add_attribute(cell, 'text', 0)
-		treeColumn.set_sort_column_id(0)
-		
-		self.messageBar('loaded ' + url)
-		
+			#append items
+			parent = None
+			for (post, title, creator) in posts:
+				new = self.treeStore.append(None, [str(title)])
+				
+			#and show it
+			treeColumn = gtk.TreeViewColumn('Posts')
+			self.treeView.append_column(treeColumn)
+			cell = gtk.CellRendererText()
+			treeColumn.pack_start(cell, True)
+			treeColumn.add_attribute(cell, 'text', 0)
+			treeColumn.set_sort_column_id(0)
+			
+			self.messageBar('loaded ' + url)
+			
+		else:
+			
+			self.messageBar('none posts founded at ' + url)
 	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
@@ -115,6 +150,8 @@ class GSR:
 		self.window.show()
 		
 		
+RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+SIOC = Namespace(u'http://rdfs.org/sioc/ns#')
 		
 widgets = ObjectBuilder('gsr.glade')
 callbacks = Callbacks()

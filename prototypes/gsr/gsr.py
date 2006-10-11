@@ -54,12 +54,12 @@ class Cache:
 			print 'Total triples loaded:', len(self.graph)
 	
 			sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
-			select = ('?post', '?id', '?postTitle', '?userName')			
+			select = ('?post', '?postTitle', '?userName', '?parent')			
 			where  = sparql.GraphPattern([('?post',	RDF['type'],			SIOC['Post']),
-										  ('?post',	SIOC['id'],				'?id')])
-			opt    = sparql.GraphPattern([('?post',	SIOC['title'],			'?postTitle'),
+										  ('?post',	SIOC['title'],			'?postTitle'),
 										  ('?post',	SIOC['has_creator'],	'?user'),
 										  ('?user', SIOC['name'], 			'?userName')])
+			opt    = sparql.GraphPattern([('?post',	SIOC['reply_of'],		'?parent')])
 			posts  = sparqlGr.query(select, where, opt)
 			return posts			
 		except Exception, details:
@@ -115,8 +115,9 @@ class GSR:
 			
 			#append items
 			parent = None
-			for (post, id, title, creator) in posts:
-				self.treeTranslator[id] = self.treeStore.append(self.__getParent(id), [str(title)])
+			for (post, title, creator, parent) in posts:
+				#bug: it ins't order by date, then the tree is bad builded
+				self.treeTranslator[post] = self.treeStore.append(self.__getParent(parent), [str(title)])
 				
 			#and show it
 			treeColumn = gtk.TreeViewColumn('Posts')
@@ -132,9 +133,9 @@ class GSR:
 			
 			self.messageBar('none posts founded at ' + url)
 			
-	def __getParent(self, id):
-		if (id in self.treeTranslator):
-			return self.treeTranslator[id]
+	def __getParent(self, uri):
+		if (uri in self.treeTranslator):
+			return self.treeTranslator[uri]
 		else:
 			return None
 	
@@ -157,10 +158,12 @@ class GSR:
 		self.window.set_icon_from_file('rdf.ico')
 		self.window.show()
 		
-		
+
+#RDFlib namespaces
 RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 SIOC = Namespace(u'http://rdfs.org/sioc/ns#')
 		
+#and all necessary for PyGTK
 widgets = ObjectBuilder('gsr.glade')
 callbacks = Callbacks()
 widgets.signal_autoconnect(Callbacks.__dict__)

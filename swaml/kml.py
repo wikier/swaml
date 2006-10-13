@@ -126,6 +126,8 @@ Report bugs to: <http://swaml.berlios.de/bugs>
                 self.process(input, output)
             else:
                 print input, 'is not a valid path'
+        else:
+            self.usage()
 
 
 if __name__ == '__main__':

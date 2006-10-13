@@ -67,12 +67,14 @@ class FoafUtils:
         #
         #                -  Ping the Semantic Web.com <http://pingthesemanticweb.com/>
         
-        foafs = {    '119222cf3a2893a375cc4f884a0138155c771415' : 'http://www.wikier.org/foaf.rdf',
+        foafs = {    'd0fd987214f56f70b4c47fb96795f348691f93ab' : 'http://www.wikier.org/foaf.rdf',
+                     '119222cf3a2893a375cc4f884a0138155c771415' : 'http://www.wikier.org/foaf.rdf',
                      '98a99390f2fe9395041bddc41e933f50e59a5ecb' : 'http://www.asturlinux.org/~berrueta/foaf.rdf',
                      '8114083efd55b6d18cae51f1591dd9906080ae89' : 'http://di002.edv.uniovi.es/~labra/labraFoaf.rdf',
                      '84d076726727b596b08198e26ef37e4817353e97' : 'http://frade.no-ip.info:2080/~ivan/foaf.rdf',
-                     'bd6566af7b3bfa28f917aa545bf4174661817d79' : 'http://www.asturlinux.org/~jsmanrique/foaf.rdf',
-                     '97d9756f1281858d0e9e4489003073e4986546ce' : 'http://xtrasgu.asturlinux.org/descargas/foaf.rdf'
+                     '3665f4f2370ddd6358da4062f3293f6dc7f39b7c' : 'http://eikeon.com/foaf.rdf',
+                     '56e6f2903933a611708ebac456d45e454ddb8838' : 'http://captsolo.net/semweb/foaf-captsolo.rdf',
+                     '9a6b7eefc08fd755d51dd9321aecfcc87992e9a2' : 'http://www.johnbreslin.com/foaf/foaf.rdf'
                 }
                 
         if (mail_sha1sum in foafs):

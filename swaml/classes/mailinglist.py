@@ -148,8 +148,12 @@ class MailingList:
         store.add((list, RDF.type, SIOC['Forum']))
 
         #list information
-        #store.add((list, DC['title'], Literal(u'FIXME')))
-        #store.add((list, DC['description'], Literal(u'RDF files of a mailing list')))
+        title = self.config.get('title')
+        if (len(title) > 0):
+            store.add((list, DC['title'], Literal(title)))
+        description = self.config.get('description')
+        if (len(description) > 0):
+            store.add((list, DC['description'], Literal(description)))
         store.add((list, DC['date'], Literal(FileDate(self.config.get('mbox')).getStringFormat())))
         store.add((list, MVCB['generatorAgent'], URIRef(self.config.getAgent())))
         store.add((list, MVCB['errorReportsTo'], URIRef('http://swaml.berlios.de/bugs')))

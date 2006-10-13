@@ -27,8 +27,8 @@ class Configuration:
         
         #default values
         self.config = { 
-            'title' : None,
-            'description' : None,
+            'title' : '',
+            'description' : '',
             'verbose' : False,         
             'dir' : 'archive/',
             'url' : 'http://localhost/swaml/',

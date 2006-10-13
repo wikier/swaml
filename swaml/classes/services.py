@@ -48,8 +48,8 @@ class FoafUtils:
         """
         Services to obtain FOAF URI from an email sha1sum
         
-        @param mail: an email address sha1sum
-        @type mail: string
+        @param mail_sha1sum: an email address sha1sum
+        @type mail_sha1sum: string
         @return: the FOAF URI of this email owner
         @rtype: string
         

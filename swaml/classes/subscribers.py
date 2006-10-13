@@ -210,24 +210,26 @@ class Subscribers:
                 if (len(name) > 0):
                     store.add((person, SIOC['name'], Literal(name) ))            
                 store.add((person, SIOC['email_sha1sum'], Literal(subscriber.getShaMail())))
-                foafResource = subscriber.getFoaf()
-                if (foafResource != None):
-                    store.add((person, RDFS['seeAlso'], URIRef(foafResource)))
-                    
-                    #coordinates
-                    lat, lon = subscriber.getGeo()
-                    if (lat != None and lon != None): 
-                        store.bind('geo', GEO)                       
-                        geo = BNode()
-                        store.add((person, FOAF['based_near'], geo))
-                        store.add((geo, RDF.type, GEO['Point']))		
-                        store.add((geo, GEO['lat'], Literal(lat)))
-                        store.add((geo, GEO['long'], Literal(lon)))
+                
+                if (self.config.get('foaf')):
+                    foafResource = subscriber.getFoaf()
+                    if (foafResource != None):
+                        store.add((person, RDFS['seeAlso'], URIRef(foafResource)))
                         
-                    #depiction
-                    pic = subscriber.getPic()
-                    if (pic != None):
-                        store.add((person, FOAF['depiction'], URIRef(pic)))
+                        #coordinates
+                        lat, lon = subscriber.getGeo()
+                        if (lat != None and lon != None): 
+                            store.bind('geo', GEO)                       
+                            geo = BNode()
+                            store.add((person, FOAF['based_near'], geo))
+                            store.add((geo, RDF.type, GEO['Point']))		
+                            store.add((geo, GEO['lat'], Literal(lat)))
+                            store.add((geo, GEO['long'], Literal(lon)))
+                            
+                        #depiction
+                        pic = subscriber.getPic()
+                        if (pic != None):
+                            store.add((person, FOAF['depiction'], URIRef(pic)))
                         
             except UnicodeDecodeError, detail:
                 print 'Error proccesing subscriber ' + subscriber.getName() + ': ' + str(detail)
@@ -298,11 +300,11 @@ class Subscribers:
             subscriber.setFoaf(foaf)
             
             #coordinates
-            lat, lon = foafserv.getGeoPosition(foaf, mail)
+            lat, lon = foafserv.getGeoPosition(foaf, foafserv.getShaMail(mail))
             if (lat != None and lon != None):
                 subscriber.setGeo(lat, lon)
                 
-            pic = foafserv.getPic(foaf, mail)
+            pic = foafserv.getPic(foaf, foafserv.getShaMail(mail))
             if (pic != None):
                 subscriber.setPic(pic)
                 

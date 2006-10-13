@@ -42,6 +42,19 @@ class FoafUtils:
         """
         
         mail_sha1sum = self.getShaMail(mail)
+        return self.getFoafFromSha(mail_sha1sum)
+        
+    def getFoafFromSha(self, mail_sha1sum):
+        """
+        Services to obtain FOAF URI from an email sha1sum
+        
+        @param mail: an email address sha1sum
+        @type mail: string
+        @return: the FOAF URI of this email owner
+        @rtype: string
+        
+        @todo: customize FOAF service
+        """
         
         # TODO: customize this with a real service
         #
@@ -65,7 +78,7 @@ class FoafUtils:
         if (mail_sha1sum in foafs):
             return foafs[mail_sha1sum]
         else:
-            return None
+            return None        
         
     def __getGraph(self, foaf):
         """
@@ -86,7 +99,7 @@ class FoafUtils:
         
         return self.__graph
         
-    def getGeoPosition(self, foaf, mail):
+    def getGeoPosition(self, foaf, sha1mail):
         """
         Obtain geography information from foaf
         """
@@ -97,7 +110,7 @@ class FoafUtils:
         
             select = ('?lat', '?long')
             where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
-                                    ('?x', FOAF['mbox_sha1sum'], self.getShaMail(mail)),
+                                    ('?x', FOAF['mbox_sha1sum'], sha1mail),
                                     ('?x', FOAF['based_near'], '?y'),
                                     ('?y', GEO['lat'], '?lat'),
                                     ('?y', GEO['long'], '?long')    
@@ -110,7 +123,7 @@ class FoafUtils:
         
         return [None, None]
     
-    def getPic(self, foaf, mail):
+    def getPic(self, foaf, sha1mail):
         """
         Get picture from FOAF
         """
@@ -120,7 +133,7 @@ class FoafUtils:
         
             select = ('?pic')
             where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
-                                    ('?x', FOAF['mbox_sha1sum'], self.getShaMail(mail)),
+                                    ('?x', FOAF['mbox_sha1sum'], sha1mail),
                                     ('?x', FOAF['depiction'], '?pic')   
                                   ])
         

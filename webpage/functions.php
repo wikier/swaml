@@ -76,14 +76,16 @@ class SWAML {
 	    		foreach ($items as $item) {
 	      			$title = $item[title];
 	      			$link  = $item[link];
-				$description = $item[description];
-				$description = $this->acronyms_replace($description);
-	      			$description = $this->make_clickable($description);
-	      			$pubDate  = $item[pubdate];
-	      			$date = explode(" ", $pubDate);
-	      			$ret .= '<dt>['.$date[1].'-'.$months[$date[2]].'-'.$date[3].'] ';
-              			$ret .= '<a href="'.$link.'"><strong>'.$title.'</strong></a></dt>';
-	      			$ret .= '<dd>'.$description.'</dd>';
+	      			if ($link!='http://developer.berlios.de/forum/forum.php?forum_id=22514') {
+				 $description = $item[description];
+				 $description = $this->acronyms_replace($description);
+	      			 $description = $this->make_clickable($description);
+	      			 $pubDate  = $item[pubdate];
+	      			 $date = explode(" ", $pubDate);
+	      			 $ret .= '<dt>['.$date[1].'-'.$months[$date[2]].'-'.$date[3].'] ';
+              			 $ret .= '<a href="'.$link.'"><strong>'.$title.'</strong></a></dt>';
+	      			 $ret .= '<dd>'.$description.'</dd>';
+	      			}
 	    		}
 
 	    		$ret .= '</dl>';

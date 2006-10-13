@@ -63,6 +63,7 @@ class SwamlFoafEnricher:
             n = 0
             
             graph.bind('foaf', FOAF)
+            graph.bind('sioc', SIOC)
             graph.bind('geo', GEO)
             
             for (user, email_sha1sum) in users:
@@ -80,7 +81,7 @@ class SwamlFoafEnricher:
                 
                     pic = foafserv.getPic(foaf, email_sha1sum)
                     if (pic != None):
-                        graph.add((user, FOAF['depiction'], URIRef(pic)))
+                        graph.add((user, SIOC['avatar'], URIRef(pic)))
 
                     
             #and dump to disk

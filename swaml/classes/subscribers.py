@@ -229,7 +229,7 @@ class Subscribers:
                         #depiction
                         pic = subscriber.getPic()
                         if (pic != None):
-                            store.add((person, FOAF['depiction'], URIRef(pic)))
+                            store.add((person, SIOC['avatar'], URIRef(pic)))
                         
             except UnicodeDecodeError, detail:
                 print 'Error proccesing subscriber ' + subscriber.getName() + ': ' + str(detail)

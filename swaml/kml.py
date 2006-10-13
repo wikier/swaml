@@ -59,7 +59,7 @@ class SwamlKmlExporter:
              ('?x', FOAF['based_near'], "?y"),
              ('?y', GEO['long'], '?lon'),
              ('?y', GEO['lat'], '?lat')])
-        opt = sparql.GraphPattern([('?x', FOAF['depiction'], "?pic")])
+        opt = sparql.GraphPattern([('?x', SIOC['avatar'], "?pic")])
         users = sparqlGr.query(select, where, opt)
         
         n = len(users)

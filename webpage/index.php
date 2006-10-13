@@ -38,8 +38,8 @@
    <div id="navbuttons">
     <a href="/" class="wiki">Home</a> &nbsp;|&nbsp;
     <a href="#news" class="wiki">News</a> &nbsp;|&nbsp;
-    <a href="#doc" class="wiki">Documentation</a> &nbsp;|&nbsp;
     <a href="#files" class="download">Files</a> &nbsp;|&nbsp;
+    <a href="#doc" class="wiki">Documentation</a> &nbsp;|&nbsp;
     <a href="/wiki" class="wiki">Wiki</a> &nbsp;|&nbsp;
     <a href="#contact" class="wiki">Contact</a>
    </div>
@@ -120,10 +120,13 @@
     <p>There are some <a href="/files">files</a> until the moment:</p>
     <dl>
      <dt>
-      	<a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
+      	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>
      </dt>
      <dd>
-	First release of project.
+	<a href="http://prdownload.berlios.de/swaml/swaml-0.0.2.tar.gz">swaml-0.0.2.tar.gz</a>
+     </dd>
+     <dd>
+	<a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
      </dd>
     </dl>
 

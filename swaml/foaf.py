@@ -44,61 +44,78 @@ class SwamlFoafEnricher:
         graph.parse(path)
         return graph
     
+    def enriched(self, graph):
+        
+        sparqlGr = sparql.sparqlGraph.SPARQLGraph(graph)
+        select = ('?foaf')
+        where = sparql.GraphPattern(
+                                     [('?user', RDF['type'], SIOC['User']),
+                                      ('?user', RDFS['seeAlso'], '?foaf')])
+        foafs = sparqlGr.query(select, where)
+        
+        return (len(foafs) > 0)
+    
     def process(self, input, output=None):
-        if (output == None):
-            output = '.'.join(input.split('.')[:-1]) + '.foaf.enrichment.rdf'
         
         graph = self.parse(input)
         
-        #sparql query
-        sparqlGr = sparql.sparqlGraph.SPARQLGraph(graph)
-        select = ('?user', '?email_sha1sum')
-        where = sparql.GraphPattern(
-            [('?user', RDF['type'], SIOC['User']),
-             ('?user', SIOC['email_sha1sum'], '?email_sha1sum')])
-        users = sparqlGr.query(select, where)
-        
-        if (len(users) > 0):
-            foafserv = FoafUtils()
-            n = 0
+        if not self.enriched(graph):
             
-            graph.bind('foaf', FOAF)
-            graph.bind('sioc', SIOC)
-            graph.bind('geo', GEO)
-            graph.bind('rdfs', RDFS)
+            if (output == None):
+                output = '.'.join(input.split('.')[:-1]) + '.foaf.enrichment.rdf'
             
-            for (user, email_sha1sum) in users:
-                foaf = foafserv.getFoafFromSha(email_sha1sum)
-                if (foaf != None):
-                    n += 1
-                    
-                    graph.add((user, RDFS['seeAlso'], URIRef(foaf)))
-                    
-                    lat, lon = foafserv.getGeoPosition(foaf, email_sha1sum)
-                    if (lat != None and lon != None):                        
-                        geo = BNode()
-                        graph.add((user, FOAF['based_near'], geo))
-                        graph.add((geo, RDF.type, GEO['Point']))        
-                        graph.add((geo, GEO['lat'], Literal(lat)))
-                        graph.add((geo, GEO['long'], Literal(lon)))
+            #sparql query
+            sparqlGr = sparql.sparqlGraph.SPARQLGraph(graph)
+            select = ('?user', '?email_sha1sum')
+            where = sparql.GraphPattern(
+                [('?user', RDF['type'], SIOC['User']),
+                 ('?user', SIOC['email_sha1sum'], '?email_sha1sum')])
+            users = sparqlGr.query(select, where)
+            
+            if (len(users) > 0):
+                foafserv = FoafUtils()
+                n = 0
                 
-                    pic = foafserv.getPic(foaf, email_sha1sum)
-                    if (pic != None):
-                        graph.add((user, SIOC['avatar'], URIRef(pic)))
-
+                graph.bind('foaf', FOAF)
+                graph.bind('sioc', SIOC)
+                graph.bind('geo', GEO)
+                graph.bind('rdfs', RDFS)
+                
+                for (user, email_sha1sum) in users:
+                    foaf = foafserv.getFoafFromSha(email_sha1sum)
+                    if (foaf != None):
+                        n += 1
+                        
+                        graph.add((user, RDFS['seeAlso'], URIRef(foaf)))
+                        
+                        lat, lon = foafserv.getGeoPosition(foaf, email_sha1sum)
+                        if (lat != None and lon != None):                        
+                            geo = BNode()
+                            graph.add((user, FOAF['based_near'], geo))
+                            graph.add((geo, RDF.type, GEO['Point']))        
+                            graph.add((geo, GEO['lat'], Literal(lat)))
+                            graph.add((geo, GEO['long'], Literal(lon)))
                     
-            #and dump to disk
-            try:
-                rdf_file = open(output, 'w+')
-                graph.serialize(destination=rdf_file, format="pretty-xml")
-                rdf_file.flush()
-                rdf_file.close()
-                print 'new subscriber RDF file created in', output, 'enriched with', n, 'FOAF files'
-            except IOError, detail:
-                print 'Error exporting subscriber to RDF: ' + str(detail)
+                        pic = foafserv.getPic(foaf, email_sha1sum)
+                        if (pic != None):
+                            graph.add((user, SIOC['avatar'], URIRef(pic)))
+    
+                        
+                #and dump to disk
+                try:
+                    rdf_file = open(output, 'w+')
+                    graph.serialize(destination=rdf_file, format="pretty-xml")
+                    rdf_file.flush()
+                    rdf_file.close()
+                    print 'new subscriber RDF file created in', output, 'enriched with', n, 'FOAF files'
+                except IOError, detail:
+                    print 'Error exporting subscriber to RDF: ' + str(detail)
+                    
+            else:
+                print 'Nobody with FOAF description available in', input
                 
         else:
-            print 'Nobody with FOAF description available in', input
+            print input, 'is already enriched with FOAF'
         
 
     def usage(self):

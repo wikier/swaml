@@ -63,6 +63,11 @@ class DateUtil:
     def getNumericFormat(self):
         return [self.getYear(), self.getMonth(), self.getDay()]  
     
+    def getInteger(self):
+        return (self.date[0]*10000000000 + self.date[1]*100000000 + 
+                self.date[2]*1000000 + self.date[3]*10000 + 
+                self.date[4]*100 + self.date[5])
+    
     def getStringFormat(self, format='iso'):  
         year = self.getStringYear()
         month = self.getStringMonth()

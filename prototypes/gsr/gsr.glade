@@ -204,7 +204,7 @@
                                         </child>
                                         <child>
                                             <widget class="GtkSpinButton" id="toDaySpin">
-                                                <property name="adjustment">1 1 31 1 10 0</property>
+                                                <property name="adjustment">31 1 31 1 10 0</property>
                                                 <property name="editable">False</property>
                                                 <property name="text" context="yes" translatable="yes">31</property>
                                                 <property name="visible">True</property>
@@ -232,7 +232,7 @@
                                         </child>
                                         <child>
                                             <widget class="GtkSpinButton" id="toMonthSpin">
-                                                <property name="adjustment">1 1 12 1 10 0</property>
+                                                <property name="adjustment">12 1 12 1 10 0</property>
                                                 <property name="editable">False</property>
                                                 <property name="text" context="yes" translatable="yes">12</property>
                                                 <property name="visible">True</property>
@@ -261,7 +261,7 @@
                                         </child>
                                         <child>
                                             <widget class="GtkSpinButton" id="toYearSpin">
-                                                <property name="adjustment">1990 1990 2010 1 10 0</property>
+                                                <property name="adjustment">2010 1990 2010 1 10 0</property>
                                                 <property name="editable">False</property>
                                                 <property name="is_focus">True</property>
                                                 <property name="text" context="yes" translatable="yes">2010</property>

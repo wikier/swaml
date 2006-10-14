@@ -25,6 +25,7 @@ import gtk
 from gazpacho.loader.loader import ObjectBuilder
 import rdflib
 from rdflib import sparql, Namespace
+from dates import MailDate
 
 
 class Callbacks:
@@ -46,6 +47,27 @@ class Callbacks:
 
 class Cache:
 
+	def orderByDate(self, graph):
+		#SPARQL in RDFLib doesn't support 'ORDER BY' queries
+		#then we'll implement a rustic support to order by dates
+		#state: testing
+		
+		#extract dates in integer long format
+		dict = {}
+		dates = []
+		for (post, title, date, creator, parent) in graph:
+			intDate = MailDate(date).getInteger()
+			dates.append(intDate)
+			dict[intDate] = (post, title, date, creator, parent)
+			
+		#and we put ordered into a new list
+		dates.sort()
+		ordered = [] 
+		for date in dates:
+			ordered.append(dict[date])
+			
+		return ordered
+
 	def query(self):
 		try:
 			self.graph = self.loadMailingList(self.uri)
@@ -54,14 +76,15 @@ class Cache:
 			print 'Total triples loaded:', len(self.graph)
 	
 			sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
-			select = ('?post', '?postTitle', '?userName', '?parent')			
+			select = ('?post', '?postTitle', '?date', '?userName', '?parent')			
 			where  = sparql.GraphPattern([('?post',	RDF['type'],		SIOC['Post']),
 										  ('?post',	SIOC['title'],		'?postTitle'),
+										  ('?post', DCTERMS['created'],	'?date'),
 										  ('?post',	SIOC['has_creator'],'?user'),
 										  ('?user', SIOC['name'], 		'?userName')])
 			opt    = sparql.GraphPattern([('?post',	SIOC['reply_of'],	'?parent')])
 			posts  = sparqlGr.query(select, where, opt)
-			return posts			
+			return self.orderByDate(posts)
 		except Exception, details:
 			gsr.messageBar('unknow problem parsing RDF at ' + self.uri)
 			print 'parsing exception:', str(details)
@@ -120,10 +143,9 @@ class GSR:
 			
 			#append items
 			parent = None
-			for (post, title, creator, parent) in posts:
-				#bug: it ins't order by date, then the tree is bad builded
+			for (post, title, date, creator, parent) in posts:
 				self.treeTranslator[post] = self.treeStore.append(self.__getParent(parent), [str(post), str(title)])
-				
+
 			#and show it
 			treeColumn = gtk.TreeViewColumn('Posts')
 			self.treeView.append_column(treeColumn)
@@ -175,6 +197,7 @@ class GSR:
 #RDFlib namespaces
 RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 SIOC = Namespace(u'http://rdfs.org/sioc/ns#')
+DCTERMS = Namespace(u'http://purl.org/dc/terms/')
 		
 #and all necessary for PyGTK
 widgets = ObjectBuilder('gsr.glade')

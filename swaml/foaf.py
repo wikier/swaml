@@ -28,7 +28,7 @@ __agent__        = 'http://swaml.berlios.de/doap.rdf'
 import sys, os, string
 import rdflib
 from rdflib import sparql, BNode, Literal, URIRef
-from classes.namespaces import SWAML, SIOC, RDF, FOAF, GEO
+from classes.namespaces import SWAML, SIOC, RDF, FOAF, GEO, RDFS
 from classes.services import FoafUtils
 
 class SwamlFoafEnricher:
@@ -65,11 +65,14 @@ class SwamlFoafEnricher:
             graph.bind('foaf', FOAF)
             graph.bind('sioc', SIOC)
             graph.bind('geo', GEO)
+            graph.bind('rdfs', RDFS)
             
             for (user, email_sha1sum) in users:
                 foaf = foafserv.getFoafFromSha(email_sha1sum)
                 if (foaf != None):
-                    n = n + 1
+                    n += 1
+                    
+                    graph.add((user, RDFS['seeAlso'], URIRef(foaf)))
                     
                     lat, lon = foafserv.getGeoPosition(foaf, email_sha1sum)
                     if (lat != None and lon != None):                        

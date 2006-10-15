@@ -13,10 +13,10 @@ uninstall:
 gendoc:
 	rm -rf $(DOCDIR)
 	mkdir -p $(DOCDIR)
-	epydoc -n $(NAME) -o $(DOCDIR) --html swaml.py classes/
+	epydoc -n $(NAME) -o $(DOCDIR) --html swaml.py foaf.py kml.py classes/
 
 pubdoc:	gendoc
-	scp -r $(DOCDIR) $(USER)@shell.berlios.de:/home/groups/swaml/htdocs/$(DOCDIR)
+	scp -r $(DOCDIR)/* $(USER)@shell.berlios.de:/home/groups/swaml/htdocs/$(DOCDIR)/
 
 test:
 	echo $(NAME) test

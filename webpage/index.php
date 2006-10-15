@@ -130,6 +130,9 @@
      </dd>
     </dl>
 
+    <p>You can see <a href="/demo">demo</a> of which 
+    <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> makes.</p>
+
     <p>If you would like to stay up to date with development you can check out the latest version via the 
     <a href="http://subversion.tigris.org/">subversion</a> version control system:</p>
     <p class="svn">svn checkout <a href="/wsvn">http://svn.berlios.de/svnroot/repos/swaml/trunk</a> swaml</p>

@@ -105,7 +105,7 @@ class MailingList:
                 msg = self.index.getMessage(messages)
                 
                 if (msg != None and msg.getMessageId() == id):
-                    msg.setBody('FIXME')
+                    msg.setBody(message.fp.read())
                     msg.toRDF()
                     #msg.toHTML()
                     #self.index.delete(id)

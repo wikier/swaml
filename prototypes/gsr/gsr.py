@@ -47,7 +47,7 @@ class Callbacks:
 
 class Cache:
 
-	def orderByDate(self, graph):
+	def orderByDate(self, graph, min=None, max=None):
 		#SPARQL in RDFLib doesn't support 'ORDER BY' queries
 		#then we'll implement a rustic support to order by dates
 		#state: testing
@@ -64,11 +64,15 @@ class Cache:
 		dates.sort()
 		ordered = [] 
 		for date in dates:
-			ordered.append(dict[date])
+			if (min!=None and max!=None):
+				if (date>=min and date<=max):
+					ordered.append(dict[date])
+			else:
+				ordered.append(dict[date])
 			
 		return ordered
 
-	def query(self):
+	def query(self, min=None, max=None):
 		try:
 			self.graph = self.loadMailingList(self.uri)
 			self.loadAdditionalData(self.uri)
@@ -84,7 +88,7 @@ class Cache:
 										  ('?user', SIOC['name'], 		'?userName')])
 			opt    = sparql.GraphPattern([('?post',	SIOC['reply_of'],	'?parent')])
 			posts  = sparqlGr.query(select, where, opt)
-			return self.orderByDate(posts)
+			return self.orderByDate(posts, min, max)
 		except Exception, details:
 			gsr.messageBar('unknow problem parsing RDF at ' + self.uri)
 			print 'parsing exception:', str(details)
@@ -129,10 +133,31 @@ class GSR:
 		(model, iter) = selection.get_selected()
 		uri = model.get_value(iter, 0)
 		self.write(self.cache.getPost(uri))
+		
+	def getSpinValues(self):
+		
+		#min date
+		fromDay = widgets.get_widget('fromDaySpin')
+		fromMonth = widgets.get_widget('fromMonthSpin')
+		fromYear = widgets.get_widget('fromYearSpin')
+		min  = fromYear.get_value_as_int() * 10000000000
+		min += fromMonth.get_value_as_int()* 100000000
+		min += fromDay.get_value_as_int()  * 1000000
+
+		#max date
+		toDay = widgets.get_widget('toDaySpin')
+		toMonth = widgets.get_widget('toMonthSpin')
+		toYear = widgets.get_widget('toYearSpin')
+		max  = toYear.get_value_as_int() * 10000000000
+		max += toMonth.get_value_as_int()* 100000000
+		max += toDay.get_value_as_int()  * 1000000
+		
+		return min, max	
 
 	def drawTree(self, url):
 		self.cache = Cache(url)
-		posts = self.cache.query()
+		min, max = self.getSpinValues()
+		posts = self.cache.query(min, max)
 		
 		if (posts!=None and len(posts)>0):
 		
@@ -145,6 +170,7 @@ class GSR:
 			parent = None
 			for (post, title, date, creator, parent) in posts:
 				self.treeTranslator[post] = self.treeStore.append(self.__getParent(parent), [str(post), str(title)])
+				print 'drawing post', post, 'on tree'
 
 			#and show it
 			treeColumn = gtk.TreeViewColumn('Posts')

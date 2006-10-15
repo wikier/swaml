@@ -96,7 +96,7 @@
                         <child>
                             <widget class="GtkLabel" id="urlLabel">
                                 <property name="ellipsize">middle</property>
-                                <property name="label" context="yes" translatable="yes">URL:</property>
+                                <property name="label" context="yes" translatable="yes">URI:</property>
                                 <property name="mnemonic_widget">urlInput</property>
                                 <property name="visible">True</property>
                                 <property name="xalign">0.0</property>

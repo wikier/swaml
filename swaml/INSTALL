@@ -11,7 +11,7 @@ Version stand alone: unzip the tarball an use it:
 Dependencies:
 	- python >= 2.4.0
 	- rdflib >= 2.3.0 	(official releases at <http://rdflib.net/releases/>)
-			   			(advertisement: rdflib != librdf)
+			   			(warning: rdflib != librdf)
 
 
 Long Answer:

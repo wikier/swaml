@@ -60,7 +60,7 @@
    <p>
      <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>, pronounced <em>[sw&aelig;ml]</em>,
      is  a research project around the semantic web technologies to publish the mailing lists&acute;s 
-     archive into an <acronym title="Resource Description Framework">RDF</acronym> format, developed at 
+     archive into a <acronym title="Resource Description Framework">RDF</acronym> format, developed at 
      <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). You can visit the 
      <a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> for more details.
    </p>
@@ -74,7 +74,7 @@
    <p>
      <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> reads a collection of email messages 
      stored in a mailbox (from a mailing list compatible with <acronym title="Request For Comments">RFC</acronym> 
-     4155) and generates an <acronym title="Resource Description Framework">RDF</acronym> description. It is 
+     4155) and generates a <acronym title="Resource Description Framework">RDF</acronym> description. It is 
      written in Python using <acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym> as 
      the main ontology to represent in <acronym title="Resource Description Framework">RDF</acronym> a mailing 
      list.     	

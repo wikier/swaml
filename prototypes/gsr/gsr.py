@@ -226,12 +226,16 @@ class GSR:
 	    table = buffer.get_tag_table()
 	    table.add(tag)
 
-	def write(self, uri, author='', listName=None, listUri='', title='', date='', content=''):
+	def write(self, uri, author='', listName=None, listUri='', title='', date='', content='sakdsa sahdsa sahdjsah dasdjkashjd  sajdjsa  sajdsajd asd jsakjd as sajdas sa dsajdsaj sajd sad asjdjas das dasdjsajd sa dsajd asl dajsdj asdj asjdaskjd as das'):
 		PANGO_SCALE = 1024
 		buffer = self.text.get_buffer()
+		
+		#tags
 		self.insertBufferTag(buffer, 'bold', 'weight', pango.WEIGHT_BOLD)
 		self.insertBufferTag(buffer, 'monospace', 'family', 'monospace')
+		self.insertBufferTag(buffer, 'justify', 'justification', gtk.JUSTIFY_RIGHT)
 		
+		#post content
 		iter = buffer.get_iter_at_offset (0)
 		buffer.insert_with_tags_by_name(iter, 'Post URI: \t', 'bold')
 		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
@@ -259,7 +263,7 @@ class GSR:
 		buffer.insert(iter, date)
 		buffer.insert(iter, '\n\n')
 		
-		buffer.insert(iter, content)		
+		buffer.insert_with_tags_by_name(iter, content, 'justify')
 
 	def main(self, uri=None):
 		if (uri != None):

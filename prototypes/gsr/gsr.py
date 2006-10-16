@@ -22,6 +22,7 @@ import sys
 import pygtk
 pygtk.require('2.0')
 import gtk
+import gtkhtml2
 from gazpacho.loader.loader import ObjectBuilder
 import rdflib
 from rdflib import sparql, Namespace
@@ -156,6 +157,9 @@ class GSR:
 		if (self.cache == None):
 			self.cache = Cache(uri)
 		else:
+			self.treeTranslator = {}
+			for column in self.treeView.get_columns():
+				self.treeView.remove_column(column)
 			if (uri != self.cache.uri):
 				self.cache = Cache(uri)
 		min, max = self.getSpinValues()
@@ -165,9 +169,6 @@ class GSR:
 		
 			#create view and model
 			self.treeView = widgets.get_widget('postsTree')
-			self.treeTranslator = {}
-			for column in self.treeView.get_columns():
-				self.treeView.remove_column(column)
 			self.treeStore = gtk.TreeStore(str, str)
 			self.treeView.set_model(self.treeStore)
 			
@@ -200,16 +201,32 @@ class GSR:
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
 
+	def text2html(self, text):
+		html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+		html += '<html xmlns="http://www.w3.org/1999/xhtml"><head>'
+		html += '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">'
+		html += '</head><body>'
+		html += text
+		html += '</body></html>'
+		return html		
+
 	def write(self, text):
 		data = '<html><head><title>GSR</title></head><body>' + text + '</body></html>'
-		self.moz.render_data(data, long(len(data)), 'file:///', 'text/html')
+		document = gtkhtml2.Document()
+		document.clear()
+		document.open_stream('text/html')
+		document.write_stream(self.text2html(text))
+		document.close_stream()
+		self.browser.set_document(document)
 		
-	def createGecko(self):
-		import gtkmozembed # http://sourceforge.net/projects/pygtkmoz
-		self.contentBox = widgets.get_widget('contentBox')
-		self.moz = gtkmozembed.MozEmbed()
-		self.contentBox.pack_end(self.moz, False, False, 0)
-		self.moz.show()
+	def createBrowser(self):
+		scrollBrowser = widgets.get_widget('scrollBrowser')
+		try:	
+			self.browser = gtkhtml2.View()
+			scrollBrowser.add(self.browser) #what's going wrong?
+			self.browser.show()
+		except Exception, details:
+			print str(details)
 
 	def main(self, uri=None):
 		if (uri != None):
@@ -224,7 +241,7 @@ class GSR:
 		#widgets
 		self.text = widgets.get_widget('swamlViewer')
 		self.input = widgets.get_widget('urlInput')
-		self.createGecko()
+		self.createBrowser()
 		self.statusbar = widgets.get_widget('gsrStatusbar')
 		self.messageBar('ready')
 	

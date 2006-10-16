@@ -139,7 +139,7 @@
                     </packing>
                 </child>
                 <child>
-                    <widget class="GtkHBox" id="hbox2">
+                    <widget class="GtkHBox" id="contentBox">
                         <property name="visible">True</property>
                         <child>
                             <widget class="GtkVBox" id="vbox2">
@@ -288,12 +288,7 @@
                             </packing>
                         </child>
                         <child>
-                            <widget class="GtkTextView" id="swamlViewer">
-                                <property name="border_width">1</property>
-                                <property name="editable">False</property>
-                                <property name="is_focus">True</property>
-                                <property name="visible">True</property>
-                            </widget>
+                            <placeholder/>
                             <packing>
                                 <property name="position">1</property>
                             </packing>

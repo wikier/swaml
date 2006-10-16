@@ -42,7 +42,7 @@ class Callbacks:
 			gsr.drawTree(url)
 			
 	def selectRow(self, path, column):
-		 gsr.showPost()
+		gsr.showPost()
 	
 
 class Cache:
@@ -196,10 +196,17 @@ class GSR:
 	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
-		
+
 	def write(self, text):
-		buffer = self.text.get_buffer()
-		buffer.set_text(text + ' (FIXME)')
+		data = '<html><head><title>GSR</title></head><body>' + text + '</body></html>'
+		self.moz.render_data(data, long(len(data)), 'file:///', 'text/html')
+		
+	def createGecko(self):
+		import gtkmozembed # http://sourceforge.net/projects/pygtkmoz
+		self.contentBox = widgets.get_widget('contentBox')
+		self.moz = gtkmozembed.MozEmbed()
+		self.contentBox.pack_end(self.moz, False, False, 0)
+		self.moz.show()
 
 	def main(self, uri=None):
 		if (uri != None):
@@ -213,6 +220,7 @@ class GSR:
 		#widgets
 		self.text = widgets.get_widget('swamlViewer')
 		self.input = widgets.get_widget('urlInput')
+		self.createGecko()
 		self.statusbar = widgets.get_widget('gsrStatusbar')
 		self.messageBar('ready')
 	

@@ -21,8 +21,7 @@ __author__ = 'Diego Berrueta <http://www.berrueta.net/>'
 import sys
 import pygtk
 pygtk.require('2.0')
-import gtk
-import gtkhtml2
+import gtk, pango
 from gazpacho.loader.loader import ObjectBuilder
 import rdflib
 from rdflib import sparql, Namespace
@@ -221,9 +220,46 @@ class GSR:
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
 
-	def write(self, text):
+	def insertBufferTag(self, buffer, name, property, value):
+	    tag = gtk.TextTag(name)
+	    tag.set_property(property, value)
+	    table = buffer.get_tag_table()
+	    table.add(tag)
+
+	def write(self, uri, author='', listName=None, listUri='', title='', date='', content=''):
+		PANGO_SCALE = 1024
 		buffer = self.text.get_buffer()
-		buffer.set_text(text + ' (FIXME)')
+		self.insertBufferTag(buffer, 'bold', 'weight', pango.WEIGHT_BOLD)
+		self.insertBufferTag(buffer, 'monospace', 'family', 'monospace')
+		
+		iter = buffer.get_iter_at_offset (0)
+		buffer.insert_with_tags_by_name(iter, 'Post URI: \t', 'bold')
+		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'From: \t', 'bold')
+		buffer.insert(iter, author)
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'To: \t', 'bold')
+		if (listName != None):
+			buffer.insert(iter, listName)
+			buffer.insert(iter, ' (')
+			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
+			buffer.insert(iter, ')')
+		else:
+			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'Subject: \t', 'bold')
+		buffer.insert(iter, title)	
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'Date: \t', 'bold')
+		buffer.insert(iter, date)
+		buffer.insert(iter, '\n\n')
+		
+		buffer.insert(iter, content)		
 
 	def main(self, uri=None):
 		if (uri != None):

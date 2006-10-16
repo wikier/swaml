@@ -42,6 +42,9 @@ class Callbacks:
 			gsr.messageBar( 'query on ' + url)
 			gsr.drawTree(url)
 			
+	def searchButtonClicked(self):
+		pass
+			
 	def selectRow(self, path, column):
 		gsr.showPost()
 	
@@ -127,6 +130,25 @@ class Cache:
 
 class GSR:
 
+	def reset(self):
+		#tree
+		self.treeTranslator = {}
+		for column in self.treeView.get_columns():
+			self.treeView.remove_column(column)
+
+		#search form
+		widgets.get_widget('searchInput').set_text('')
+		widgets.get_widget('fromDaySpin').set_value(1.0)
+		widgets.get_widget('fromMonthSpin').set_value(1.0)
+		widgets.get_widget('fromYearSpin').set_value(1995.0)
+		widgets.get_widget('toDaySpin').set_value(31.0)
+		widgets.get_widget('toMonthSpin').set_value(12.0)
+		widgets.get_widget('toYearSpin').set_value(2010.0)
+		
+		
+		#text
+		self.text.get_buffer().set_text('')
+
 	def showPost(self):
 		selection = self.treeView.get_selection()
 		(model, iter) = selection.get_selected()
@@ -154,12 +176,11 @@ class GSR:
 		return min, max	
 
 	def drawTree(self, uri):
+		self.reset()
+		
 		if (self.cache == None):
 			self.cache = Cache(uri)
-		else:
-			self.treeTranslator = {}
-			for column in self.treeView.get_columns():
-				self.treeView.remove_column(column)
+		else:			
 			if (uri != self.cache.uri):
 				self.cache = Cache(uri)
 		min, max = self.getSpinValues()
@@ -167,8 +188,7 @@ class GSR:
 		
 		if (posts!=None and len(posts)>0):
 		
-			#create view and model
-			self.treeView = widgets.get_widget('postsTree')
+			#create tree
 			self.treeStore = gtk.TreeStore(str, str)
 			self.treeView.set_model(self.treeStore)
 			
@@ -201,32 +221,9 @@ class GSR:
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
 
-	def text2html(self, text):
-		html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-		html += '<html xmlns="http://www.w3.org/1999/xhtml"><head>'
-		html += '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">'
-		html += '</head><body>'
-		html += text
-		html += '</body></html>'
-		return html		
-
 	def write(self, text):
-		data = '<html><head><title>GSR</title></head><body>' + text + '</body></html>'
-		document = gtkhtml2.Document()
-		document.clear()
-		document.open_stream('text/html')
-		document.write_stream(self.text2html(text))
-		document.close_stream()
-		self.browser.set_document(document)
-		
-	def createBrowser(self):
-		scrollBrowser = widgets.get_widget('scrollBrowser')
-		try:	
-			self.browser = gtkhtml2.View()
-			scrollBrowser.add(self.browser) #what's going wrong?
-			self.browser.show()
-		except Exception, details:
-			print str(details)
+		buffer = self.text.get_buffer()
+		buffer.set_text(text + ' (FIXME)')
 
 	def main(self, uri=None):
 		if (uri != None):
@@ -239,9 +236,9 @@ class GSR:
 		self.treeTranslator = {}
 		
 		#widgets
-		self.text = widgets.get_widget('swamlViewer')
+		self.treeView = widgets.get_widget('postsTree')
+		self.text = widgets.get_widget('gsrTextView')
 		self.input = widgets.get_widget('urlInput')
-		self.createBrowser()
 		self.statusbar = widgets.get_widget('gsrStatusbar')
 		self.messageBar('ready')
 	

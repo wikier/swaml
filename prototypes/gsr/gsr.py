@@ -73,12 +73,7 @@ class Cache:
 		return ordered
 
 	def query(self, min=None, max=None):
-		try:
-			self.graph = self.loadMailingList(self.uri)
-			self.loadAdditionalData(self.uri)
-			
-			print 'Total triples loaded:', len(self.graph)
-	
+		try:	
 			sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
 			select = ('?post', '?postTitle', '?date', '?userName', '?parent')			
 			where  = sparql.GraphPattern([('?post',	RDF['type'],		SIOC['Post']),
@@ -124,6 +119,9 @@ class Cache:
 
 	def __init__(self, uri):
 		self.uri = uri
+		self.graph = self.loadMailingList(self.uri)
+		self.loadAdditionalData(self.uri)
+		print 'Total triples loaded:', len(self.graph)		
 		
 
 class GSR:
@@ -154,8 +152,12 @@ class GSR:
 		
 		return min, max	
 
-	def drawTree(self, url):
-		self.cache = Cache(url)
+	def drawTree(self, uri):
+		if (self.cache == None):
+			self.cache = Cache(uri)
+		else:
+			if (uri != self.cache.uri):
+				self.cache = Cache(uri)
 		min, max = self.getSpinValues()
 		posts = self.cache.query(min, max)
 		
@@ -182,11 +184,11 @@ class GSR:
 			treeColumn.add_attribute(cell, 'text', 1)
 			treeColumn.set_sort_column_id(0)
 			
-			self.messageBar('loaded ' + url)
+			self.messageBar('loaded ' + uri)
 			
 		else:
 			
-			self.messageBar('none posts founded at ' + url)
+			self.messageBar('none posts founded at ' + uri)
 			
 	def __getParent(self, uri):
 		if (uri in self.treeTranslator):
@@ -215,6 +217,7 @@ class GSR:
 
 	def __init__(self):
 		
+		self.cache = None
 		self.treeTranslator = {}
 		
 		#widgets

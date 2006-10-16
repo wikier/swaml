@@ -165,6 +165,7 @@ class GSR:
 		
 			#create view and model
 			self.treeView = widgets.get_widget('postsTree')
+			self.treeTranslator = {}
 			for column in self.treeView.get_columns():
 				self.treeView.remove_column(column)
 			self.treeStore = gtk.TreeStore(str, str)

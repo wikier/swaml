@@ -226,7 +226,7 @@ class GSR:
 	    table = buffer.get_tag_table()
 	    table.add(tag)
 
-	def write(self, uri, author='', listName=None, listUri='', title='', date='', content='sakdsa sahdsa sahdjsah dasdjkashjd  sajdjsa  sajdsajd asd jsakjd as sajdas sa dsajdsaj sajd sad asjdjas das dasdjsajd sa dsajd asl dajsdj asdj asjdaskjd as das'):
+	def write(self, uri, author='', listName=None, listUri='', title='', date='', content=''):
 		PANGO_SCALE = 1024
 		buffer = self.text.get_buffer()
 		

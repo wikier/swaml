@@ -92,9 +92,19 @@ class Cache:
 			print 'parsing exception:', str(details)
 			return None
 		
+	def getPostAuthor(self, post):
+		authorUri = self.getValueForPredicate(post, SIOC['has_creator'])
+		author = self.getValueForPredicate(authorUri, SIOC['name'])
+		return author, authorUri
+		
 	def getPost(self, uri):
-		#FIXME
-		return uri
+		author, authorUri = self.getPostAuthor(uri)
+		listUri = self.getValueForPredicate(uri, SIOC['has_container'])
+		listName = self.getValueForPredicate(listUri, DC['title'])
+		title = self.getValueForPredicate(uri, SIOC['title'])
+		date = self.getValueForPredicate(uri, DCTERMS['created'])
+		content = self.getValueForPredicate(uri, SIOC['content'])
+		return author, authorUri, listName, listUri, title, date, content
 	
 	def loadMailingList(self, uri):
 	    graph = rdflib.Graph()
@@ -118,7 +128,14 @@ class Cache:
 	            print 'OK, now', len(self.graph), 'triples'	
 
 	def hasValueForPredicate(self, subject, predicate):
-	    return (len([x for x in self.graph.objects(subject, predicate)]) > 0)	          
+	    return (len([x for x in self.graph.objects(subject, predicate)]) > 0)	    
+	   
+	def getValueForPredicate(self, subject, predicate):
+	    value = [x for x in self.graph.objects(subject, predicate)]
+	    if (len(value) > 0):
+	    	return value[0]
+	    else:
+	    	return None
 
 	def __init__(self, uri):
 		self.uri = uri
@@ -144,7 +161,6 @@ class GSR:
 		widgets.get_widget('toMonthSpin').set_value(12.0)
 		widgets.get_widget('toYearSpin').set_value(2010.0)
 		
-		
 		#text
 		self.text.get_buffer().set_text('')
 
@@ -152,7 +168,49 @@ class GSR:
 		selection = self.treeView.get_selection()
 		(model, iter) = selection.get_selected()
 		uri = model.get_value(iter, 0)
-		self.write(self.cache.getPost(uri))
+		author, authorUri, listName, listUri, title, date, content = self.cache.getPost(uri)
+		self.messageBar('loaded post ' + uri)
+		self.writePost(uri, author, authorUri, listName, listUri, title, date, content)
+		
+	def writePost(self, uri, author=None, authorUri='', listName=None, listUri='', title='', date='', content=''):
+		PANGO_SCALE = 1024
+		buffer = self.text.get_buffer()
+		buffer.set_text('')
+		iter = buffer.get_iter_at_offset(0)
+		
+		buffer.insert_with_tags_by_name(iter, 'Post URI: \t', 'bold')
+		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'From: \t', 'bold')
+		if (author == None):
+			buffer.insert_with_tags_by_name(iter, authorUri, 'monospace')
+		else:
+			buffer.insert(iter, author)
+			buffer.insert(iter, '  <')
+			buffer.insert_with_tags_by_name(iter, authorUri, 'monospace')
+			buffer.insert(iter, '>')
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'To: \t\t', 'bold')
+		if (listName == None):
+			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
+		else:
+			buffer.insert(iter, listName)
+			buffer.insert(iter, '  <')
+			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
+			buffer.insert(iter, '>')
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'Subject: \t', 'bold')
+		buffer.insert(iter, title)	
+		buffer.insert(iter, '\n')
+		
+		buffer.insert_with_tags_by_name(iter, 'Date: \t', 'bold')
+		buffer.insert(iter, date)
+		buffer.insert(iter, '\n\n')
+		
+		buffer.insert_with_tags_by_name(iter, content, 'wrap_mode')
 		
 	def getSpinValues(self):
 		
@@ -226,45 +284,6 @@ class GSR:
 	    table = buffer.get_tag_table()
 	    table.add(tag)
 
-	def write(self, uri, author='', listName=None, listUri='', title='', date='', content=''):
-		PANGO_SCALE = 1024
-		buffer = self.text.get_buffer()
-		
-		#tags
-		self.insertBufferTag(buffer, 'bold', 'weight', pango.WEIGHT_BOLD)
-		self.insertBufferTag(buffer, 'monospace', 'family', 'monospace')
-		self.insertBufferTag(buffer, 'justify', 'justification', gtk.JUSTIFY_RIGHT)
-		
-		#post content
-		iter = buffer.get_iter_at_offset (0)
-		buffer.insert_with_tags_by_name(iter, 'Post URI: \t', 'bold')
-		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
-		buffer.insert(iter, '\n')
-		
-		buffer.insert_with_tags_by_name(iter, 'From: \t', 'bold')
-		buffer.insert(iter, author)
-		buffer.insert(iter, '\n')
-		
-		buffer.insert_with_tags_by_name(iter, 'To: \t', 'bold')
-		if (listName != None):
-			buffer.insert(iter, listName)
-			buffer.insert(iter, ' (')
-			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
-			buffer.insert(iter, ')')
-		else:
-			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
-		buffer.insert(iter, '\n')
-		
-		buffer.insert_with_tags_by_name(iter, 'Subject: \t', 'bold')
-		buffer.insert(iter, title)	
-		buffer.insert(iter, '\n')
-		
-		buffer.insert_with_tags_by_name(iter, 'Date: \t', 'bold')
-		buffer.insert(iter, date)
-		buffer.insert(iter, '\n\n')
-		
-		buffer.insert_with_tags_by_name(iter, content, 'justify')
-
 	def main(self, uri=None):
 		if (uri != None):
 			self.input.set_text(uri)
@@ -277,7 +296,13 @@ class GSR:
 		
 		#widgets
 		self.treeView = widgets.get_widget('postsTree')
+		
 		self.text = widgets.get_widget('gsrTextView')
+		buffer = self.text.get_buffer()
+		self.insertBufferTag(buffer, 'bold', 'weight', pango.WEIGHT_BOLD)
+		self.insertBufferTag(buffer, 'monospace', 'family', 'monospace')
+		self.insertBufferTag(buffer, 'wrap_mode', 'wrap_mode', gtk.WRAP_WORD)
+		
 		self.input = widgets.get_widget('urlInput')
 		self.statusbar = widgets.get_widget('gsrStatusbar')
 		self.messageBar('ready')
@@ -288,9 +313,11 @@ class GSR:
 		self.window.show()
 		
 
+
 #RDFlib namespaces
 RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 SIOC = Namespace(u'http://rdfs.org/sioc/ns#')
+DC = Namespace(u'http://purl.org/dc/elements/1.1/')
 DCTERMS = Namespace(u'http://purl.org/dc/terms/')
 		
 #and all necessary for PyGTK

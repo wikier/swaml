@@ -292,7 +292,7 @@
                                                                 <property name="adjustment">1995 1995 2010 1 10 0</property>
                                                                 <property name="editable">False</property>
                                                                 <property name="is_focus">True</property>
-                                                                <property name="text" context="yes" translatable="yes">1990</property>
+                                                                <property name="text" context="yes" translatable="yes">1995</property>
                                                                 <property name="visible">True</property>
                                                                 <property name="width_chars">4</property>
                                                             </widget>
@@ -354,7 +354,13 @@
                                 <property name="vscrollbar_policy">automatic</property>
                                 <child>
                                     <widget class="GtkTextView" id="gsrTextView">
+                                        <property name="editable">False</property>
+                                        <property name="indent">6</property>
+                                        <property name="is_focus">True</property>
+                                        <property name="left_margin">6</property>
+                                        <property name="right_margin">6</property>
                                         <property name="visible">True</property>
+                                        <property name="wrap_mode">word</property>
                                     </widget>
                                 </child>
                             </widget>

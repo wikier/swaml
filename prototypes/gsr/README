@@ -1,0 +1,23 @@
+
+GSR (Gtk Swaml Reader)
+**********************
+
+Read a mail list exported with SWAML in a GTK rich inteface.
+
+Usage:
+------
+
+	python gsr.py [list-uri]
+	
+Requirements:
+-------------
+
+	- python >= 2.4.0
+	- rdflib >= 2.2.0 	(Official releases at http://rdflib.net/releases/. Warning: rdflib != librdf)
+	- gtk+ >= 2.6.0
+	- pygtk >= 2.6.0
+	- gazpacho >= 0.6.6
+	- kiwi >= 1.9.6
+
+These libraries works in GNU/Linux and Windows at least.
+

@@ -38,13 +38,15 @@ class Callbacks:
 	def goButtonClicked(self):
 		uri = widgets.get_widget('urlInput').get_text()
 		if (uri != ''):
-			gsr.reset()
+			gsr.clear()
+			gsr.clearSearchForm()
 			gsr.messageBar( 'query on ' + uri)
 			gsr.drawTree(gsr.getPosts(uri))
 			
 	def searchButtonClicked(self):
 		uri = gsr.getUri()
 		if (uri != None):
+			gsr.clear()
 			gsr.text.get_buffer().set_text('')
 			text = widgets.get_widget('searchInput').get_text()
 			min, max = gsr.getSpinValues()
@@ -179,23 +181,23 @@ class Cache:
 
 class GSR:
 
-	def reset(self):
+	def clear(self):
 		#tree
 		self.treeTranslator = {}
 		for column in self.treeView.get_columns():
 			self.treeView.remove_column(column)
-
-		#search form
+		
+		#text
+		self.text.get_buffer().set_text('')
+		
+	def clearSearchForm(self):
 		widgets.get_widget('searchInput').set_text('')
 		widgets.get_widget('fromDaySpin').set_value(1.0)
 		widgets.get_widget('fromMonthSpin').set_value(1.0)
 		widgets.get_widget('fromYearSpin').set_value(1995.0)
 		widgets.get_widget('toDaySpin').set_value(31.0)
 		widgets.get_widget('toMonthSpin').set_value(12.0)
-		widgets.get_widget('toYearSpin').set_value(2010.0)
-		
-		#text
-		self.text.get_buffer().set_text('')
+		widgets.get_widget('toYearSpin').set_value(2010.0)		
 
 	def showPost(self):
 		selection = self.treeView.get_selection()

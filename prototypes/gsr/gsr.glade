@@ -325,7 +325,9 @@
                                                 <child>
                                                     <widget class="GtkButton" id="searchButton">
                                                         <property name="border_width">6</property>
-                                                        <property name="label" context="yes" translatable="yes">Search</property>
+                                                        <property name="is_focus">True</property>
+                                                        <property name="label">gtk-find</property>
+                                                        <property name="use_stock">True</property>
                                                         <property name="visible">True</property>
                                                     </widget>
                                                     <packing>

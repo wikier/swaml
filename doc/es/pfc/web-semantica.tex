@@ -97,9 +97,10 @@ tienen.
 
 \subsubsection{Unicode}
 
-Unicode\footnote{\url{http://www.unicode.org/}} es una iniciativa para conseguir 
-una representación informática de los caracteres de forma que pueda ser representada
-y manipulada de forma universal. 
+Unicode\footnote{\url{http://www.unicode.org/}} es una iniciativa de un consorcio de 
+empresas dedicadas a la internacionalización para conseguir una representación 
+informática de los caracteres en todos los idiomas de forma que pueda ser representados
+y manipulados de forma universal. 
 
 Aunque existen varias codificaciónes distintas, 
 UTF-8\footnote{\url{http://www.ietf.org/rfc/rfc3629.txt}} es la codificación 
@@ -114,9 +115,10 @@ Unicode es el recurso primario de representación de caracteres en la Web Semánti
 Acronimo del inglés Uniform Resource Identifier, identificador uniforme de recursos.
 Mecanismo que la Web Semántica utiliza para identificar recursos. 
 
-Un concepto más general que las URL's (Uniform Resource Locator, localizador uniforme 
-de recurso); de hecho una URL es un tipo de URI que se usa para nombrar y localizar 
-recursos en la World Wide Web.
+Un concepto que mezcla URL\footnote{Uniform Resource Locator, localizador uniforme de recurso} 
+y URN\footnote{Uniform Resource Name, nombre uniforme de recurso} para cumplir una doble 
+funcionalidad: servir como protocolo de acceso e identificar de manera única los recursos 
+en la World Wide Web.
 
 \subsection{XML}
 
@@ -138,6 +140,9 @@ Glade, XAML, etc), protocolos (Jabber), etc.
 
 Pero XML, a pesar de ser un lenguaje estructurado que es muy fácil de procesar, 
 aún carece de la semántica necesaria.
+
+Se utilizan espacios de nombres (namespace), identificados por URI's, para mezclar en 
+un documento etiquetas pertenecientes a diferentes vocabularios
 
 \subsection{RDF}
 
@@ -174,11 +179,11 @@ grafo del estilo de:
 \end{figure}
 
 
-RDF se puede serializar con dos sintáxis: en XML o en N3 (notación de tripletas).
-El mismo grafo se podría serializar con las dos sintáxis, conteniendo ambos 
+RDF se puede serializar con tres sintáxis: en XML, N3 (notación de tripletas)
+o Turtle. El mismo grafo se podría serializar con las dos sintáxis, conteniendo ambos 
 idéntica información semántica:
 
-\begin{figure} [h]
+\begin{figure}
 \begin{verbatim}
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -193,13 +198,23 @@ idéntica información semántica:
 	\label{fig:ejemplo.rdfxml}
 \end{figure}
 
-\begin{figure} [h]
+\begin{figure}
 \begin{verbatim}
 	@prefix dc <http://http://purl.org/dc/elements/1.1/>
 	<http://www.wikier.org> dc:creator "Sergio Fdez"
 \end{verbatim}
 	\caption{Ejemplo de grafo RDF serializado en N3}
 	\label{fig:ejemplo.rdfn3}
+\end{figure}
+
+\begin{figure}
+\begin{verbatim}
+	@prefix dc <http://http://purl.org/dc/elements/1.1/>
+	<http://www.wikier.org> 
+		dc:creator "Sergio Fdez"
+\end{verbatim}
+	\caption{Ejemplo de grafo RDF serializado en Turtle}
+	\label{fig:ejemplo.rdfturtle}
 \end{figure}
 
 \subsection{RDFS}
@@ -213,7 +228,8 @@ forma primitiva y limitada de describir ontologías en RDF, también llamado
 Del acrónimo en inglés \emph{Ontology Web Languaje}, 
 OWL\footnote{\url{http://www.w3.org/TR/owl-features/}} es la recomendación 
 oficial de W3C\footnote{\url{http://www.w3.org/}} para publicar ontologías en 
-la Web.
+la Web. Se trata de un lenguaje de gran expresividad para describir conceptos 
+y relaciones entre conceptos, con un compromiso entre expresividad y tratabilidad
 
 Tiene en DAML+OIL\footnote{\url{http://www.daml.org/2001/03/daml+oil-index}}, 
 otros dos lenguajes de ontologías, sus antecesores inmediatos.
@@ -318,9 +334,16 @@ recursos online.
 \subsubsection{RSS}
 
 Desarrollado en el seno de Netscape, RSS es el formato de sindicación de noticias
-más extendido en la actualidad. Con un complicado historial de versiones incompatibles
-entre sí (sólo la versión 1.0 de RSS sean
+más extendido en la actualidad. Con un complicado historial de versiones\ref{fig:rssEvolution} 
+incompatibles entre sí (sólo la versión 1.0 de RSS sean
 RDF, el resto de versiones 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{images/rssEvolution.png}
+	\caption{Evolucion de RSS}
+	\label{fig:rssEvolution}
+\end{figure}
 
 \subsubsection{FOAF}
 
@@ -399,6 +422,10 @@ similar a FOAF pero para describir proyectos de software libre.
 	\caption{Fichero DOAP de SWAML}
 	\label{fig:ejemplo.doap}
 \end{figure}
+
+\subsubsection{EARL}
+
+FIXME
 
 \subsection{Otras aplicaciones de RDF}
 

@@ -36,13 +36,19 @@ class Callbacks:
 		return gtk.FALSE
 
 	def goButtonClicked(self):
-		url = widgets.get_widget('urlInput').get_text()
-		if (url != ''):
-			gsr.messageBar( 'query on ' + url)
-			gsr.drawTree(url)
+		uri = widgets.get_widget('urlInput').get_text()
+		if (uri != ''):
+			gsr.reset()
+			gsr.messageBar( 'query on ' + uri)
+			gsr.drawTree(gsr.getPosts(uri))
 			
 	def searchButtonClicked(self):
-		pass
+		uri = gsr.getUri()
+		if (uri != None):
+			gsr.text.get_buffer().set_text('')
+			text = widgets.get_widget('searchInput').get_text()
+			min, max = gsr.getSpinValues()
+			gsr.drawTree(gsr.getPosts(uri, min, max, text))
 			
 	def selectRow(self, path, column):
 		gsr.showPost()
@@ -50,7 +56,7 @@ class Callbacks:
 
 class Cache:
 
-	def orderByDate(self, graph, min=None, max=None):
+	def orderByDate(self, posts):
 		#SPARQL in RDFLib doesn't support 'ORDER BY' queries
 		#then we'll implement a rustic support to order by dates
 		#state: testing
@@ -58,35 +64,62 @@ class Cache:
 		#extract dates in integer long format
 		dict = {}
 		dates = []
-		for (post, title, date, creator, parent) in graph:
+		for (post, title, date, creator, content, parent) in posts:
 			intDate = MailDate(date).getInteger()
 			dates.append(intDate)
-			dict[intDate] = (post, title, date, creator, parent)
+			dict[intDate] = (post, title, date, creator, content, parent)
 			
 		#and we put ordered into a new list
 		dates.sort()
 		ordered = [] 
 		for date in dates:
-			if (min!=None and max!=None):
-				if (date>=min and date<=max):
-					ordered.append(dict[date])
-			else:
-				ordered.append(dict[date])
+			ordered.append(dict[date])
 			
 		return ordered
+			
+	def filterPosts(self, posts, min=None, max=None, text=None):
+		
+		filtered = []
+		
+		for (post, title, date, creator, content, parent) in posts:
+			
+			intDate = MailDate(date).getInteger()
+			
+			#exist if date is bigger
+			if (max!=None and intDate>max):
+				break
+			
+			#continue if is smaller
+			if  (min!=None and intDate<min):
+				continue
+			
+			#and then filter by text
+			if (text == None):
+				filtered.append((post, title, date, creator, content, parent))
+			else:
+				if (self.__like(title,text) or self.__like(content,text)):
+					filtered.append((post, title, date, creator, content, parent))
+			
+		return filtered
 
-	def query(self, min=None, max=None):
+	def __like(self, text, pattern):
+		text = text.lower()
+		pattern = pattern.lower()
+		return (text.find(pattern) != -1)
+
+	def query(self):
 		try:	
 			sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
-			select = ('?post', '?postTitle', '?date', '?userName', '?parent')			
+			select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')			
 			where  = sparql.GraphPattern([('?post',	RDF['type'],		SIOC['Post']),
 										  ('?post',	SIOC['title'],		'?postTitle'),
 										  ('?post', DCTERMS['created'],	'?date'),
+										  ('?post',	SIOC['content'],	'?content'),
 										  ('?post',	SIOC['has_creator'],'?user'),
 										  ('?user', SIOC['name'], 		'?userName')])
 			opt    = sparql.GraphPattern([('?post',	SIOC['reply_of'],	'?parent')])
 			posts  = sparqlGr.query(select, where, opt)
-			return self.orderByDate(posts, min, max)
+			return self.orderByDate(posts)
 		except Exception, details:
 			gsr.messageBar('unknow problem parsing RDF at ' + self.uri)
 			print 'parsing exception:', str(details)
@@ -177,6 +210,7 @@ class GSR:
 		buffer = self.text.get_buffer()
 		buffer.set_text('')
 		iter = buffer.get_iter_at_offset(0)
+		buffer.insert(iter, '\n')
 		
 		buffer.insert_with_tags_by_name(iter, 'Post URI: \t', 'bold')
 		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
@@ -212,6 +246,8 @@ class GSR:
 		
 		buffer.insert_with_tags_by_name(iter, content, 'wrap_mode')
 		
+		buffer.insert(iter, '\n')
+		
 	def getSpinValues(self):
 		
 		#min date
@@ -231,17 +267,23 @@ class GSR:
 		max += toDay.get_value_as_int()  * 1000000
 		
 		return min, max	
-
-	def drawTree(self, uri):
-		self.reset()
-		
+	
+	def getPosts(self, uri, min=None, max=None, text=None):
 		if (self.cache == None):
 			self.cache = Cache(uri)
 		else:			
 			if (uri != self.cache.uri):
 				self.cache = Cache(uri)
 		min, max = self.getSpinValues()
-		posts = self.cache.query(min, max)
+		
+		posts = self.cache.query()
+		
+		if (min!=None or max!=None or text!=None):
+			posts = self.cache.filterPosts(posts, min, max, text)
+			
+		return posts
+
+	def drawTree(self, posts):
 		
 		if (posts!=None and len(posts)>0):
 		
@@ -251,7 +293,7 @@ class GSR:
 			
 			#append items
 			parent = None
-			for (post, title, date, creator, parent) in posts:
+			for (post, title, date, creator, content, parent) in posts:
 				self.treeTranslator[post] = self.treeStore.append(self.__getParent(parent), [str(post), str(title)])
 				print 'drawing post', post, 'on tree'
 
@@ -263,11 +305,11 @@ class GSR:
 			treeColumn.add_attribute(cell, 'text', 1)
 			treeColumn.set_sort_column_id(0)
 			
-			self.messageBar('loaded ' + uri)
+			self.messageBar('loaded ' + self.cache.uri)
 			
 		else:
 			
-			self.messageBar('none posts founded at ' + uri)
+			self.messageBar('none posts founded at ' + self.cache.uri)
 			
 	def __getParent(self, uri):
 		if (uri in self.treeTranslator):
@@ -283,6 +325,12 @@ class GSR:
 	    tag.set_property(property, value)
 	    table = buffer.get_tag_table()
 	    table.add(tag)
+	    
+	def getUri(self):
+		if (self.cache == None):
+			return None
+		else:
+			return self.cache.uri
 
 	def main(self, uri=None):
 		if (uri != None):

@@ -107,7 +107,7 @@ class Cache:
 	def __like(self, text, pattern):
 		text = text.lower()
 		pattern = pattern.lower()
-		return (text.find(pattern) != -1)
+		return (pattern in text)
 
 	def query(self):
 		try:	

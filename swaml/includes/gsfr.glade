@@ -1,0 +1,394 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<!DOCTYPE glade-interface SYSTEM "http://gazpacho.sicem.biz/gazpacho-0.1.dtd">
+<glade-interface>
+    <widget class="GtkUIManager" id="uimanager">
+        <child>
+            <widget class="GtkActionGroup" id="DefaultActions">
+                <child>
+                    <widget class="GtkAction" id="Copy">
+                        <property name="name">Copy</property>
+                        <property name="tooltip" translatable="yes">Copy selected object into the clipboard</property>
+                        <property name="stock_id">gtk-copy</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Cut">
+                        <property name="name">Cut</property>
+                        <property name="tooltip" translatable="yes">Cut selected object into the clipboard</property>
+                        <property name="stock_id">gtk-cut</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="EditMenu">
+                        <property name="name">EditMenu</property>
+                        <property name="label" translatable="yes">_Edit</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="FileMenu">
+                        <property name="name">FileMenu</property>
+                        <property name="label" translatable="yes">_File</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="New">
+                        <property name="name">New</property>
+                        <property name="tooltip" translatable="yes">Create a new file</property>
+                        <property name="stock_id">gtk-new</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Open">
+                        <property name="name">Open</property>
+                        <property name="tooltip" translatable="yes">Open a file</property>
+                        <property name="stock_id">gtk-open</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Paste">
+                        <property name="name">Paste</property>
+                        <property name="tooltip" translatable="yes">Paste object from the Clipboard</property>
+                        <property name="stock_id">gtk-paste</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Quit">
+                        <property name="name">Quit</property>
+                        <property name="tooltip" translatable="yes">Quit the program</property>
+                        <property name="stock_id">gtk-quit</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="Save">
+                        <property name="name">Save</property>
+                        <property name="is_important">True</property>
+                        <property name="tooltip" translatable="yes">Save a file</property>
+                        <property name="stock_id">gtk-save</property>
+                    </widget>
+                </child>
+                <child>
+                    <widget class="GtkAction" id="SaveAs">
+                        <property name="name">SaveAs</property>
+                        <property name="tooltip" translatable="yes">Save with a different name</property>
+                        <property name="stock_id">gtk-save-as</property>
+                    </widget>
+                </child>
+            </widget>
+        </child>
+    </widget>
+    <widget class="GtkWindow" id="gsfr">
+        <property name="border_width">6</property>
+        <property name="default_height">1</property>
+        <property name="default_width">1</property>
+        <property name="icon_name" context="yes" translatable="yes"></property>
+        <property name="title" context="yes" translatable="yes">GSFR - Gtk Sioc Forums Reader</property>
+        <property name="type_hint">dialog</property>
+        <property name="window_position">center</property>
+        <signal handler="destroy" name="destroy"/>
+        <child>
+            <widget class="GtkVBox" id="vbox1">
+                <property name="spacing">6</property>
+                <property name="visible">True</property>
+                <child>
+                    <widget class="GtkHBox" id="hbox1">
+                        <property name="border_width">6</property>
+                        <property name="spacing">6</property>
+                        <property name="visible">True</property>
+                        <child>
+                            <widget class="GtkLabel" id="urlLabel">
+                                <property name="ellipsize">middle</property>
+                                <property name="label" context="yes" translatable="yes">URI:</property>
+                                <property name="mnemonic_widget">urlInput</property>
+                                <property name="visible">True</property>
+                                <property name="xalign">0.0</property>
+                                <property name="xpad">20</property>
+                            </widget>
+                            <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkEntry" id="urlInput">
+                                <property name="is_focus">True</property>
+                                <property name="text" context="yes" translatable="yes">http://</property>
+                                <property name="visible">True</property>
+                                <property name="width_request">700</property>
+                                <signal handler="goButtonClicked" name="activate"/>
+                            </widget>
+                            <packing>
+                                <property name="position">1</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkButton" id="goButton">
+                                <property name="is_focus">True</property>
+                                <property name="label">gtk-jump-to</property>
+                                <property name="use_stock">True</property>
+                                <property name="visible">True</property>
+                                <property name="width_request">100</property>
+                                <signal handler="goButtonClicked" name="clicked"/>
+                            </widget>
+                            <packing>
+                                <property name="expand">False</property>
+                                <property name="position">2</property>
+                            </packing>
+                        </child>
+                    </widget>
+                    <packing>
+                        <property name="expand">False</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkHBox" id="contentBox">
+                        <property name="visible">True</property>
+                        <child>
+                            <widget class="GtkVBox" id="vbox2">
+                                <property name="border_width">6</property>
+                                <property name="visible">True</property>
+                                <child>
+                                    <widget class="GtkScrolledWindow" id="scrolledwindow1">
+                                        <property name="hscrollbar_policy">automatic</property>
+                                        <property name="visible">True</property>
+                                        <property name="vscrollbar_policy">automatic</property>
+                                        <child>
+                                            <widget class="GtkTreeView" id="postsTree">
+                                                <property name="enable_search">False</property>
+                                                <property name="headers_visible">False</property>
+                                                <property name="height_request">400</property>
+                                                <property name="is_focus">True</property>
+                                                <property name="rules_hint">True</property>
+                                                <property name="search_column">0</property>
+                                                <property name="visible">True</property>
+                                                <property name="width_request">0</property>
+                                                <signal handler="selectRow" name="row-activated"/>
+                                            </widget>
+                                        </child>
+                                    </widget>
+                                </child>
+                                <child>
+                                    <widget class="GtkFrame" id="searchFrame">
+                                        <property name="border_width">6</property>
+                                        <property name="label" context="yes" translatable="yes">Search</property>
+                                        <property name="shadow">etched-out</property>
+                                        <property name="shadow_type">etched-out</property>
+                                        <property name="visible">True</property>
+                                        <child>
+                                            <widget class="GtkVBox" id="vbox3">
+                                                <property name="visible">True</property>
+                                                <child>
+                                                    <widget class="GtkHBox" id="hbox2">
+                                                        <property name="border_width">6</property>
+                                                        <property name="visible">True</property>
+                                                        <child>
+                                                            <widget class="GtkLabel" id="searchLabel">
+                                                                <property name="label" context="yes" translatable="yes">Text:</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="xalign">0.0</property>
+                                                                <property name="xpad">6</property>
+                                                            </widget>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkEntry" id="searchInput">
+                                                                <property name="is_focus">True</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="width_request">250</property>
+                                                                <signal handler="searchButtonClicked" name="activate"/>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="position">1</property>
+                                                            </packing>
+                                                        </child>
+                                                    </widget>
+                                                </child>
+                                                <child>
+                                                    <widget class="GtkTable" id="searchTable">
+                                                        <property name="border_width">6</property>
+                                                        <property name="column_spacing">6</property>
+                                                        <property name="n_columns">4</property>
+                                                        <property name="n_rows">2</property>
+                                                        <property name="row_spacing">6</property>
+                                                        <property name="visible">True</property>
+                                                        <child>
+                                                            <widget class="GtkLabel" id="fromLabel">
+                                                                <property name="label" context="yes" translatable="yes">From: </property>
+                                                                <property name="visible">True</property>
+                                                                <property name="xalign">0.0</property>
+                                                                <property name="xpad">1</property>
+                                                            </widget>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkLabel" id="toLabel">
+                                                                <property name="label" context="yes" translatable="yes">To: </property>
+                                                                <property name="visible">True</property>
+                                                                <property name="xalign">0.0</property>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="bottom_attach">2</property>
+                                                                <property name="top_attach">1</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkSpinButton" id="fromDaySpin">
+                                                                <property name="adjustment">1 1 100 1 10 0</property>
+                                                                <property name="editable">False</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="numeric">True</property>
+                                                                <property name="text" context="yes" translatable="yes">1</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="width_chars">2</property>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="left_attach">1</property>
+                                                                <property name="right_attach">2</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkSpinButton" id="toDaySpin">
+                                                                <property name="adjustment">31 1 31 1 10 0</property>
+                                                                <property name="editable">False</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="text" context="yes" translatable="yes">31</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="width_chars">2</property>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="bottom_attach">2</property>
+                                                                <property name="left_attach">1</property>
+                                                                <property name="right_attach">2</property>
+                                                                <property name="top_attach">1</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkSpinButton" id="fromMonthSpin">
+                                                                <property name="adjustment">1 1 12 1 10 0</property>
+                                                                <property name="editable">False</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="text" context="yes" translatable="yes">1</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="width_chars">2</property>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="left_attach">2</property>
+                                                                <property name="right_attach">3</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkSpinButton" id="toMonthSpin">
+                                                                <property name="adjustment">12 1 12 1 10 0</property>
+                                                                <property name="editable">False</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="text" context="yes" translatable="yes">12</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="width_chars">2</property>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="bottom_attach">2</property>
+                                                                <property name="left_attach">2</property>
+                                                                <property name="right_attach">3</property>
+                                                                <property name="top_attach">1</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkSpinButton" id="fromYearSpin">
+                                                                <property name="adjustment">1995 1995 2010 1 10 0</property>
+                                                                <property name="editable">False</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="text" context="yes" translatable="yes">1995</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="width_chars">4</property>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="left_attach">3</property>
+                                                                <property name="right_attach">4</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <widget class="GtkSpinButton" id="toYearSpin">
+                                                                <property name="adjustment">2010 1995 2010 1 10 0</property>
+                                                                <property name="editable">False</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="text" context="yes" translatable="yes">2010</property>
+                                                                <property name="visible">True</property>
+                                                                <property name="width_chars">4</property>
+                                                            </widget>
+                                                            <packing>
+                                                                <property name="bottom_attach">2</property>
+                                                                <property name="left_attach">3</property>
+                                                                <property name="right_attach">4</property>
+                                                                <property name="top_attach">1</property>
+                                                            </packing>
+                                                        </child>
+                                                    </widget>
+                                                    <packing>
+                                                        <property name="position">1</property>
+                                                    </packing>
+                                                </child>
+                                                <child>
+                                                    <widget class="GtkButton" id="searchButton">
+                                                        <property name="border_width">6</property>
+                                                        <property name="is_focus">True</property>
+                                                        <property name="label">gtk-find</property>
+                                                        <property name="use_stock">True</property>
+                                                        <property name="visible">True</property>
+                                                        <signal handler="searchButtonClicked" name="clicked"/>
+                                                    </widget>
+                                                    <packing>
+                                                        <property name="position">2</property>
+                                                    </packing>
+                                                </child>
+                                            </widget>
+                                        </child>
+                                    </widget>
+                                    <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">False</property>
+                                        <property name="position">1</property>
+                                    </packing>
+                                </child>
+                            </widget>
+                            <packing>
+                                <property name="expand">False</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkScrolledWindow" id="scrolledwindow2">
+                                <property name="border_width">6</property>
+                                <property name="hscrollbar_policy">never</property>
+                                <property name="visible">True</property>
+                                <property name="vscrollbar_policy">automatic</property>
+                                <child>
+                                    <widget class="GtkTextView" id="gsfrTextView">
+                                        <property name="editable">False</property>
+                                        <property name="indent">6</property>
+                                        <property name="is_focus">True</property>
+                                        <property name="left_margin">6</property>
+                                        <property name="right_margin">6</property>
+                                        <property name="visible">True</property>
+                                        <property name="wrap_mode">word</property>
+                                    </widget>
+                                </child>
+                            </widget>
+                            <packing>
+                                <property name="position">1</property>
+                            </packing>
+                        </child>
+                    </widget>
+                    <packing>
+                        <property name="position">1</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkStatusbar" id="gsfrStatusbar">
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">2</property>
+                    </packing>
+                </child>
+            </widget>
+        </child>
+    </widget>
+</glade-interface>

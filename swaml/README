@@ -23,9 +23,17 @@ Development happens on BerliOS Forge:
 REQUIREMENTS:
 ^^^^^^^^^^^^^
 
+To use swaml.py, foaf.py and kml.py scripts you only need:
+
 	- python >= 2.4.0
-	- rdflib >= 2.2.0 	(official releases at http://rdflib.net/releases/)
-			   			(warning: rdflib != librdf)
+	- rdflib >= 2.2.0	(Official releases at http://rdflib.net/releases/. Warning: rdflib != librdf)
+			   			
+Ant to use gsfr.py script you also need: 
+     
+	- gtk+ >= 2.6.0
+	- pygtk >= 2.6.0
+	- gazpacho >= 0.6.6
+			   			
 
 
 FEATURES:
@@ -38,14 +46,13 @@ FEATURES:
 	* reusability of ontologies already extended, mainly SIOC
 	* enrichment using FOAF
 	* KML support
+	* rich visor in GTK
 	* free software (under GNU General Public License, GPL)
 
 
 PLANNED FEATURES:
 ^^^^^^^^^^^^^^^^^
 
-	* visor client
 	* serialize to any RDFdb (sesame for example)
         
-
-
+        

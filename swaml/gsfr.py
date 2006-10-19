@@ -360,12 +360,38 @@ class GSFR:
 		self.window.set_icon_from_file('includes/rdf.ico')
 		self.window.show()
 		
+
+#global vars and functions
+
+def usage():
+	"""
+	Gtk Sioc Forums Reader
+	"""
+		
+	print """
+Usage: gsfr.py [forum-uri]
+        
+read a forum published in SIOC vocabulary
+
+   forum-uri :	forum's uri
+
+Options:
+   -h, --help           : print this help message and exit.
+
+Report bugs to: <http://swaml.berlios.de/bugs>
+
+"""
+	sys.exit()
+
+for arg in sys.argv:
+	if arg == "-h" or arg == "--help":
+		usage()
 		
 #and all necessary for PyGTK
 widgets = ObjectBuilder('includes/gsfr.glade')
 callbacks = Callbacks()
-widgets.signal_autoconnect(Callbacks.__dict__)
-gsfr = GSFR()	
+widgets.signal_autoconnect(Callbacks.__dict__)	
+gsfr = GSFR()
 
 if __name__ == '__main__':
 	try:

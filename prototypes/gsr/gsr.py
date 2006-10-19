@@ -218,7 +218,7 @@ class GSR:
 		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'From: \t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'From: \t\t', 'bold')
 		if (author == None):
 			buffer.insert_with_tags_by_name(iter, authorUri, 'monospace')
 		else:
@@ -228,7 +228,7 @@ class GSR:
 			buffer.insert(iter, '>')
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'To: \t\t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'To: \t\t\t', 'bold')
 		if (listName == None):
 			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
 		else:
@@ -238,11 +238,11 @@ class GSR:
 			buffer.insert(iter, '>')
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'Subject: \t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'Subject: \t\t', 'bold')
 		buffer.insert(iter, title)	
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'Date: \t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'Date: \t\t', 'bold')
 		buffer.insert(iter, date)
 		buffer.insert(iter, '\n\n')
 		

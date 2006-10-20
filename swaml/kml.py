@@ -17,14 +17,6 @@
 
 """Software to export SWAML's subscribers into KML"""
 
-__author__       = 'Sergio Fdez <http://www.wikier.org/>'
-__copyright__    = 'Copyright 2006, Sergio Fdez'
-__license__      = 'GNU General Public License'
-__version__      = '0.0.2'
-__url__          = 'http://swaml.berlios.de/'
-__agent__        = 'http://swaml.berlios.de/doap.rdf'
-
-
 import sys, os, string
 import rdflib
 from rdflib import sparql

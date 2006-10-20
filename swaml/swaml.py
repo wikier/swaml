@@ -15,16 +15,7 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-
-__author__       = 'Sergio Fdez <http://www.wikier.org/>'
-__contributors__ = ['Diego Berrueta <http://www.berrueta.net/>',
-                    'Jose Emilio Labra <http://www.di.uniovi.es/~labra/>']
-__copyright__    = 'Copyright 2005-2006, Sergio Fdez'
-__license__      = 'GNU General Public License'
-__version__      = '0.0.3'
-__url__          = 'http://swaml.berlios.de/'
-__agent__        = 'http://swaml.berlios.de/doap.rdf'
-
+"""Semantic Web Archive of Mailing Lists"""
 
 import sys, string
 from classes.configuration import Configuration
@@ -90,7 +81,7 @@ Report bugs to: <http://swaml.berlios.de/bugs>
             elif arg == "-v" or arg == "--verbose":
                 self.config.set('verbose', True)
                 
-        self.config.setAgent(__agent__)
+        self.config.setAgent('http://swaml.berlios.de/doap.rdf')
         self.parseArgs(argv)
         self.list = MailingList(self.config)
         messages = self.list.publish()

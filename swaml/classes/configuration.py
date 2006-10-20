@@ -52,7 +52,7 @@ class Configuration:
         """
         
         if (len(argv) == 0):
-            self.usage
+            return False
         else:
             path = argv[0]
             config = ConfigParser()

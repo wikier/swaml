@@ -13,6 +13,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Mail message abstraction"""
+
 import sys, os, string, sha
 import datetime, email, email.Errors
 from rdflib import Graph

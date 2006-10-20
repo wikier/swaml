@@ -15,6 +15,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Code to work over a mailbox file"""
+
 import os, sys,string, mailbox
 
 class Mbox:

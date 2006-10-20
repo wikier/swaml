@@ -13,6 +13,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Abstraction of a mailing list"""
+
 import sys, os, mailbox, rfc822, string, email, email.Errors, datetime, sha
 from mbox import Mbox
 from subscribers import Subscribers

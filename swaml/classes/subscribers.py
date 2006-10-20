@@ -13,6 +13,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Subscribers management"""
+
 import sys, os, string
 from services import FoafUtils
 from message import Message

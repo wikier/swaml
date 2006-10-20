@@ -13,6 +13,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Indexing messages"""
+
 import sys, os, string, sha
 
 class Index:

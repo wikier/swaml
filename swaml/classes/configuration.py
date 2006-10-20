@@ -15,6 +15,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Configuration related code"""
+
 import string
 from ConfigParser import ConfigParser
 

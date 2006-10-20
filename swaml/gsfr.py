@@ -15,6 +15,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Gtk Sioc Forums Reader"""
+
 import sys
 import pygtk
 pygtk.require('2.0')

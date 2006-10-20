@@ -13,6 +13,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""Utils functions to work with dates"""
+
 import sys, os, string
 import email.Utils
 import time

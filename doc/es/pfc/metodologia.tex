@@ -1,33 +1,40 @@
 
 \chapter{Metodología}
 
-Las circunstacias profesionales del alumno en el periodo que se realizó el
-proyecto hicieron que se tomaran de forma natural muchos de los métodos de
-las metodologías ágiles, de manera que permitiera un óptimo y flexible reparto 
-de tiempos entre todas las tareas a desarrollar a lo largo del proyecto.
+La metodología utilizada para la elaboración de este proyecto ha sido 
+\emph{RUP}\footnote{\url{http://www-306.ibm.com/software/awdtools/rup/}}
+(Rational Unified Process, Proceso Racional Unificado) de IBM.
 
-Así se terminó utilizando de manera natural muchas de las normas de este tipo
-de métodos:
+La razón principal fue la genericidad que brinda para el proceso de desarrollo
+software, adaptandose perfectamente a desarrollos basados en programación 
+orientada a objetos.
+
+Ayudo a implementar determinadas buenas prácticas en Ingeniería del Software:
 
 \begin{itemize}
-  \item Simplicidad: desde el primer momentos se buscó hacer el proyecto de la 
-	manera más sencilla posible.
-  \item Desarrollo iterativo e incremental: una vez se fue teniendo las 
-	funcionalidades principales, construyendo alrededor de los casos de uso
-	principales pequeñas utilidades para enriquecer la aplicación.
-  \item Propiedad del código compartida: desde las primeras lineas, todo el 
-	código ha estado publicado en el 
-	Subversion\footnote{\url{http://subversion.tigris.org/}}  del proyecto, 
-	al alcance en cualquier momento de las tres personas involucradas en el 
-	proyecto.
-  \item Refactorización del código: de manera frecuente partes del código del 
-	proyecto han sido sometidas a técnicas de refactorización para mejorar 
-	partes que no había sido codificadas de la mejor de las maneras.
-  \item Pruebas unitarias (FIXME: mentira, pero es una tarea que tengo que abordar 
-	con PyUnit)
-  \item Frecuente interacción del equipo de programación con el cliente o usuario:
-	en este caso la figura del cliente ha tenido la forma del co-director del
-	proyecto (Diego Berrueta), con el que se han mantenido frecuentes encuentros
-	para tratar aspectos concretos del proyecto.
+  \item Desarrollo iterativo
+  \item Administración de requisitos
+  \item Uso de arquitectura basada en componentes
+  \item Control de cambios
+  \item Verificación de la calidad del software
 \end{itemize}
+
+Por tanto todo el proceso de desarrollo se dividió en ciclos, teniendo un 
+producto final al final de cada ciclo, dividiendo cada ciclo en fases que 
+finalizan con un hito importante.
+
+Los ciclos utilizados fueron:
+
+\begin{itemize}
+  \item Inicio: se hizo un plan de fases, identificando los principales 
+	casos de uso y riesgos.
+  \item Elaboración: se hizo un plan de proyecto, completandose los casos 
+	de uso para eliminar los riesgos.
+  \item Construcción: se concentro en la elaboración de un producto totalmente 
+	operativo y eficiente, asicomo en un pequeño manual de usuario.
+  \item Transición: se implemento el producto en el cliente y se publicaron
+	varias versiones funcionales. Como consecuencia de esta publicación
+	surgieron nuevos requisitos a ser analizados.
+\end{itemize}
+
 

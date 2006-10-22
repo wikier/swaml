@@ -1,5 +1,5 @@
 
-\chapter{La Web Semántica}
+\section{La Web Semántica}
 
 En 1989 Tim Berners-Lee realizó para el CERN un modelo de gestión de la 
 información basado en un sistema distribuido de hipertexto\footnote{\url{http://www.w3.org/Proposal}}. 
@@ -32,7 +32,7 @@ esos datos, obviando quizás la parte más importante:
 	con los datos que disponemos.»}
 \end{quote}
 
-\section{Evolución de la Web}
+\subsection{Evolución de la Web}
 
 La Web es un recurso muy especial y particular, con unas características muy 
 especiales que deben tenerse en cuenta: no centralizada, información dinámica,
@@ -57,7 +57,7 @@ A pesar de todas estas pequeñas revoluciones, todavia seguimos en una web
 muchas tareas que con la Web Semántica, y todas sus tecnologías, al menos
 serán un poco más fácil de hacer.
 
-\section{Estructura de la Web Semántica}
+\subsection{Estructura de la Web Semántica}
 
 La Web Semántica se encuentra estructurada en capas (la llamada \emph{tarta de 
 la Web Semántica}), de forma que se pudiera trabajar en cada uno de estos
@@ -91,11 +91,11 @@ Veáse que las reglas pasan a estar a mismo nivel que las ontologías, y no por
 encima como se pensaba en los primeros diseños, por la íntima relación que ambas
 tienen.
 
-\section{Elementos}
+\subsection{Elementos}
 
-\subsection{Elementos básicos}
+\subsubsection{Elementos básicos}
 
-\subsubsection{Unicode}
+\paragraph{Unicode}
 
 Unicode\footnote{\url{http://www.unicode.org/}} es una iniciativa de un consorcio de 
 empresas dedicadas a la internacionalización para conseguir una representación 
@@ -110,7 +110,7 @@ se pueden representar en UTF-8).
 
 Unicode es el recurso primario de representación de caracteres en la Web Semántica.
 
-\subsubsection{URI}
+\paragraph{URI}
 
 Acronimo del inglés Uniform Resource Identifier, identificador uniforme de recursos.
 Mecanismo que la Web Semántica utiliza para identificar recursos. 
@@ -120,7 +120,7 @@ y URN\footnote{Uniform Resource Name, nombre uniforme de recurso} para cumplir u
 funcionalidad: servir como protocolo de acceso e identificar de manera única los recursos 
 en la World Wide Web.
 
-\subsection{XML}
+\subsubsection{XML}
 
 XML\footnote{\url{http://www.w3.org/XML/}} (eXtensible Markup Language, Lenguaje 
 de marcado extensible) es un formato de marcado estructurado para la representación 
@@ -144,7 +144,7 @@ aún carece de la semántica necesaria.
 Se utilizan espacios de nombres (namespace), identificados por URI's, para mezclar en 
 un documento etiquetas pertenecientes a diferentes vocabularios
 
-\subsection{RDF}
+\subsubsection{RDF}
 
 Acrónimo del inglés \emph{Resource Description Framework} (marco de descripción 
 de recursos), RDF\footnote{\url{http://www.w3.org/RDF/}} es una especificación del 
@@ -217,13 +217,13 @@ idéntica información semántica:
 	\label{fig:ejemplo.rdfturtle}
 \end{figure}
 
-\subsection{RDFS}
+\subsubsection{RDFS}
 
 RDFS\footnote{\url{http://www.w3.org/TR/rdf-schema/}} (RDF Schema) es una
 forma primitiva y limitada de describir ontologías en RDF, también llamado
 «\emph{vocabulario RDF}».
 
-\subsection{OWL}
+\subsubsection{OWL}
 
 Del acrónimo en inglés \emph{Ontology Web Languaje}, 
 OWL\footnote{\url{http://www.w3.org/TR/owl-features/}} es la recomendación 
@@ -276,7 +276,7 @@ Hay que tener en cuenta que existe cierto solapamiento entre la expresividad de
 OWL y la de RDFs (RDF-Schema), desvirtuando en cierta manera la visión original
 por capas.
 
-\subsection{SPARQL}
+\subsubsection{SPARQL}
 
 SPARQL\footnote{\url{http://www.w3.org/TR/rdf-sparql-query/}} es un nuevo lenguaje 
 de consulta sobre la base del conocimiento en OWL/RDF. Actualmente se trata del
@@ -315,9 +315,9 @@ en Lisp,etc. Además de estar soportado por alguno de los razonadores más conocid
 como Pellet\footnote{\url{http://www.mindswap.org/2003/pellet/}} o 
 KAON2\footnote{\url{http://kaon2.semanticweb.org/}}.
 
-\section{Aplicaciones prácticas}
+\subsection{Aplicaciones prácticas}
 
-\subsection{Vocabularios RDF}
+\subsubsection{Vocabularios RDF}
 
 Existen multitud de vocabularios RDF para fines muy concretos, desde describir
 personas, hasta eventos. Estos vocabularios suelen ser fácilmente extensibles y 
@@ -325,13 +325,13 @@ reutilizables entre si.
 
 Existen multitud de ejemplos:
 
-\subsubsection{Dublin Core\label{sec:dc}}
+\paragraph{Dublin Core\label{sec:dc}}
 
 Dublin Core\footnote{\url{http://dublincore.org/}}, también conocido por sus siglas DC,
 es un vocabulario RDF para la descripción de múltiples propiedades de todo tipo de 
 recursos online.
 
-\subsubsection{RSS}
+\paragraph{RSS}
 
 Desarrollado en el seno de Netscape, RSS es el formato de sindicación de noticias
 más extendido en la actualidad. Con un complicado historial de versiones\ref{fig:rssEvolution} 
@@ -345,7 +345,7 @@ RDF, el resto de versiones
 	\label{fig:rssEvolution}
 \end{figure}
 
-\subsubsection{FOAF}
+\paragraph{FOAF}
 
 FOAF\footnote{\url{http://www.foaf-project.org/}}, acrónimo de Friend-of-a-Friend, 
 se trata de un vocabulario RDF para describir semánticamente información personal.
@@ -375,7 +375,7 @@ Pudiendo describir relaciones (amigos, compañeros de trabajo, etc), interéses,
 proyectos y demás recursos de uso personal, de forma que se forme un grafo 
 uniendo todos ellos.
 
-\subsubsection{DOAP}
+\paragraph{DOAP}
 
 Description-of-a-Project\footnote{\url{http://usefulinc.com/doap}} es una idea 
 similar a FOAF pero para describir proyectos de software libre.
@@ -423,23 +423,23 @@ similar a FOAF pero para describir proyectos de software libre.
 	\label{fig:ejemplo.doap}
 \end{figure}
 
-\subsubsection{EARL}
+\paragraph{EARL}
 
 FIXME
 
-\subsection{Otras aplicaciones de RDF}
+\subsubsection{Otras aplicaciones de RDF}
 
-\subsubsection{Mozilla}
+\paragraph{Mozilla}
 
 FIXME
 
-\section{Libros de interés}
+\subsection{Libros de interés}
 
 Aunque no existen buenas publicaciones en castellano, hay dos libros en inglés que
 es imprescindible ojear: \emph{A Semantic Web primer}\cite{SemanticWebPrimer} y
 \emph{Practical RDF}\cite{OreillyPracticalRDF}.
 
-\section{Futuro}
+\subsection{Futuro}
 
 Hacia donde irá la Web Semántica es algo que sólo se sabrá con el tiempo, y quizás
 en un plazo no más allá de 5 o 10 años. 
@@ -450,4 +450,3 @@ de todos los problemas de la humanidad; generando unas espectativas falsas que h
 hecho mucho daño a la comunidad científica.
 
 Lo que si sabemos es que la Web Semántica será una Web mucho más \emph{útil}.
-

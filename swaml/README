@@ -28,7 +28,7 @@ To use swaml.py, foaf.py and kml.py scripts you only need:
 	- python >= 2.4.0
 	- rdflib >= 2.2.0	(Official releases at http://rdflib.net/releases/. Warning: rdflib != librdf)
 			   			
-Ant to use gsfr.py script you also need: 
+Ant to use buxon.py script you also need: 
      
 	- gtk+ >= 2.6.0
 	- pygtk >= 2.6.0

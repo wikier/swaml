@@ -15,7 +15,7 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-"""Gtk Sioc Forums Reader"""
+"""Buxon, a sioc:Forum visor"""
 
 import sys
 import pygtk
@@ -38,22 +38,22 @@ class Callbacks:
 	def goButtonClicked(self):
 		uri = widgets.get_widget('urlInput').get_text()
 		if (uri != ''):
-			gsfr.clear()
-			gsfr.clearSearchForm()
-			gsfr.messageBar( 'query on ' + uri)
-			gsfr.drawTree(gsfr.getPosts(uri))
+			buxon.clear()
+			buxon.clearSearchForm()
+			buxon.messageBar( 'query on ' + uri)
+			buxon.drawTree(buxon.getPosts(uri))
 			
 	def searchButtonClicked(self):
-		uri = gsfr.getUri()
+		uri = buxon.getUri()
 		if (uri != None):
-			gsfr.clear()
-			gsfr.text.get_buffer().set_text('')
+			buxon.clear()
+			buxon.text.get_buffer().set_text('')
 			text = widgets.get_widget('searchInput').get_text()
-			min, max = gsfr.getSpinValues()
-			gsfr.drawTree(gsfr.getPosts(uri, min, max, text))
+			min, max = buxon.getSpinValues()
+			buxon.drawTree(buxon.getPosts(uri, min, max, text))
 			
 	def selectRow(self, path, column):
-		gsfr.showPost()
+		buxon.showPost()
 	
 
 class Cache:
@@ -123,7 +123,7 @@ class Cache:
 			posts  = sparqlGr.query(select, where, opt)
 			return self.orderByDate(posts)
 		except Exception, details:
-			gsfr.messageBar('unknow problem parsing RDF at ' + self.uri)
+			buxon.messageBar('unknow problem parsing RDF at ' + self.uri)
 			print 'parsing exception:', str(details)
 			return None
 		
@@ -179,7 +179,7 @@ class Cache:
 		print 'Total triples loaded:', len(self.graph)		
 		
 
-class GSFR:
+class Buxon:
 
 	def clear(self):
 		#tree
@@ -347,18 +347,18 @@ class GSFR:
 		#widgets
 		self.treeView = widgets.get_widget('postsTree')
 		
-		self.text = widgets.get_widget('gsfrTextView')
+		self.text = widgets.get_widget('buxonTextView')
 		buffer = self.text.get_buffer()
 		self.insertBufferTag(buffer, 'bold', 'weight', pango.WEIGHT_BOLD)
 		self.insertBufferTag(buffer, 'monospace', 'family', 'monospace')
 		self.insertBufferTag(buffer, 'wrap_mode', 'wrap_mode', gtk.WRAP_WORD)
 		
 		self.input = widgets.get_widget('urlInput')
-		self.statusbar = widgets.get_widget('gsfrStatusbar')
+		self.statusbar = widgets.get_widget('buxonStatusbar')
 		self.messageBar('ready')
 	
 		#main window
-		self.window = widgets.get_widget('gsfr')
+		self.window = widgets.get_widget('buxon')
 		self.window.set_icon_from_file('includes/rdf.ico')
 		self.window.show()
 		
@@ -371,7 +371,7 @@ def usage():
 	"""
 		
 	print """
-Usage: gsfr.py [forum-uri]
+Usage: buxon.py [forum-uri]
         
 read a forum published in SIOC vocabulary
 
@@ -390,17 +390,17 @@ for arg in sys.argv:
 		usage()
 		
 #and all necessary for PyGTK
-widgets = ObjectBuilder('includes/gsfr.glade')
+widgets = ObjectBuilder('includes/buxon.glade')
 callbacks = Callbacks()
 widgets.signal_autoconnect(Callbacks.__dict__)	
-gsfr = GSFR()
+buxon = Buxon()
 
 if __name__ == '__main__':
 	try:
 		if (len(sys.argv)>1):
-			gsfr.main(sys.argv[1])
+			buxon.main(sys.argv[1])
 		else:
-			gsfr.main()
+			buxon.main()
 	except KeyboardInterrupt:
 		print 'Received Ctrl+C or another break signal. Exiting...'
 		sys.exit()

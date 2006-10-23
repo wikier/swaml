@@ -18,7 +18,7 @@
 import sys, os, string, sha
 import datetime, email, email.Errors
 from rdflib import Graph
-from rdflib import URIRef, Literal, Variable, BNode
+from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from services import FoafUtils, Charset
 from dateutils import MailDate, FileDate

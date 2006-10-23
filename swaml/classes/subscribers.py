@@ -20,7 +20,7 @@ from services import FoafUtils
 from message import Message
 import rdflib
 from rdflib import Graph
-from rdflib import URIRef, Literal, Variable, BNode
+from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from rdflib import plugin
 from rdflib.sparql import sparqlGraph, GraphPattern

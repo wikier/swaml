@@ -214,7 +214,7 @@ class Buxon:
 		iter = buffer.get_iter_at_offset(0)
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'Post URI: \t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'Post URI: \t\t', 'bold')
 		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
 		buffer.insert(iter, '\n')
 		

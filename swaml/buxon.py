@@ -24,6 +24,7 @@ import gtk, pango
 from gazpacho.loader.loader import ObjectBuilder
 import rdflib
 from rdflib import sparql, Namespace
+from classes.calendarwindow import CalendarWindow
 from classes.namespaces import SIOC, RDF, DC, DCTERMS
 from classes.dateutils import MailDate
 
@@ -49,11 +50,17 @@ class Callbacks:
 			buxon.clear()
 			buxon.text.get_buffer().set_text('')
 			text = widgets.get_widget('searchInput').get_text()
-			min, max = buxon.getSpinValues()
+			min, max = buxon.getDates()
 			buxon.drawTree(buxon.getPosts(uri, min, max, text))
 			
 	def selectRow(self, path, column):
 		buxon.showPost()
+		
+	def fromButtonClicked(self):
+		CalendarWindow(widgets.get_widget('fromEntry'))
+	
+	def toButtonClicked(self):
+		CalendarWindow(widgets.get_widget('toEntry'))
 	
 
 class Cache:
@@ -192,12 +199,8 @@ class Buxon:
 		
 	def clearSearchForm(self):
 		widgets.get_widget('searchInput').set_text('')
-		widgets.get_widget('fromDaySpin').set_value(1.0)
-		widgets.get_widget('fromMonthSpin').set_value(1.0)
-		widgets.get_widget('fromYearSpin').set_value(1995.0)
-		widgets.get_widget('toDaySpin').set_value(31.0)
-		widgets.get_widget('toMonthSpin').set_value(12.0)
-		widgets.get_widget('toYearSpin').set_value(2010.0)		
+		widgets.get_widget('fromEntry').set_text('01/01/1995')
+		widgets.get_widget('toEntry').set_text('31/31/2010')		
 
 	def showPost(self):
 		selection = self.treeView.get_selection()
@@ -250,23 +253,19 @@ class Buxon:
 		
 		buffer.insert(iter, '\n')
 		
-	def getSpinValues(self):
+	def getDates(self):
 		
 		#min date
-		fromDay = widgets.get_widget('fromDaySpin')
-		fromMonth = widgets.get_widget('fromMonthSpin')
-		fromYear = widgets.get_widget('fromYearSpin')
-		min  = fromYear.get_value_as_int() * 10000000000
-		min += fromMonth.get_value_as_int()* 100000000
-		min += fromDay.get_value_as_int()  * 1000000
-
+		fromDate = widgets.get_widget('fromEntry').get_text().split('/')
+		min  = float(fromDate[2]) * 10000000000
+		min += float(fromDate[1]) * 100000000
+		min += float(fromDate[0]) * 1000000
+		
 		#max date
-		toDay = widgets.get_widget('toDaySpin')
-		toMonth = widgets.get_widget('toMonthSpin')
-		toYear = widgets.get_widget('toYearSpin')
-		max  = toYear.get_value_as_int() * 10000000000
-		max += toMonth.get_value_as_int()* 100000000
-		max += toDay.get_value_as_int()  * 1000000
+		toDate = widgets.get_widget('toEntry').get_text().split('/')
+		max  = float(toDate[2]) * 10000000000
+		max += float(toDate[1]) * 100000000
+		max += float(toDate[0]) * 1000000		
 		
 		return min, max	
 	
@@ -276,7 +275,7 @@ class Buxon:
 		else:			
 			if (uri != self.cache.uri):
 				self.cache = Cache(uri)
-		min, max = self.getSpinValues()
+		min, max = self.getDates()
 		
 		posts = self.cache.query()
 		

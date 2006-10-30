@@ -202,121 +202,61 @@
                                                     </widget>
                                                 </child>
                                                 <child>
-                                                    <widget class="GtkTable" id="searchTable">
+                                                    <widget class="GtkHBox" id="hbox3">
                                                         <property name="border_width">6</property>
-                                                        <property name="column_spacing">6</property>
-                                                        <property name="n_columns">4</property>
-                                                        <property name="n_rows">2</property>
-                                                        <property name="row_spacing">6</property>
+                                                        <property name="spacing">6</property>
                                                         <property name="visible">True</property>
                                                         <child>
-                                                            <widget class="GtkLabel" id="fromLabel">
-                                                                <property name="label" context="yes" translatable="yes">From: </property>
+                                                            <widget class="GtkEntry" id="fromEntry">
+                                                                <property name="editable">False</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="max_length">10</property>
+                                                                <property name="text" context="yes" translatable="yes">01/01/1995</property>
                                                                 <property name="visible">True</property>
-                                                                <property name="xalign">0.0</property>
-                                                                <property name="xpad">1</property>
+                                                                <property name="width_chars">10</property>
                                                             </widget>
                                                         </child>
                                                         <child>
-                                                            <widget class="GtkLabel" id="toLabel">
-                                                                <property name="label" context="yes" translatable="yes">To: </property>
+                                                            <widget class="GtkToggleButton" id="fromCalendarButton">
+                                                                <property name="border_width">2</property>
+                                                                <property name="is_focus">True</property>
+                                                                <property name="label" context="yes" translatable="yes">from</property>
                                                                 <property name="visible">True</property>
-                                                                <property name="xalign">0.0</property>
+                                                                <signal handler="fromButtonClicked" name="clicked"/>
                                                             </widget>
                                                             <packing>
-                                                                <property name="bottom_attach">2</property>
-                                                                <property name="top_attach">1</property>
+                                                                <property name="position">1</property>
                                                             </packing>
                                                         </child>
                                                         <child>
-                                                            <widget class="GtkSpinButton" id="fromDaySpin">
-                                                                <property name="adjustment">1 1 100 1 10 0</property>
-                                                                <property name="editable">False</property>
-                                                                <property name="is_focus">True</property>
-                                                                <property name="numeric">True</property>
-                                                                <property name="text" context="yes" translatable="yes">1</property>
+                                                            <widget class="GtkVSeparator" id="vseparator1">
                                                                 <property name="visible">True</property>
-                                                                <property name="width_chars">2</property>
                                                             </widget>
                                                             <packing>
-                                                                <property name="left_attach">1</property>
-                                                                <property name="right_attach">2</property>
+                                                                <property name="position">2</property>
                                                             </packing>
                                                         </child>
                                                         <child>
-                                                            <widget class="GtkSpinButton" id="toDaySpin">
-                                                                <property name="adjustment">31 1 31 1 10 0</property>
+                                                            <widget class="GtkEntry" id="toEntry">
                                                                 <property name="editable">False</property>
-                                                                <property name="is_focus">True</property>
-                                                                <property name="text" context="yes" translatable="yes">31</property>
+                                                                <property name="text" context="yes" translatable="yes">31/31/2010</property>
                                                                 <property name="visible">True</property>
-                                                                <property name="width_chars">2</property>
+                                                                <property name="width_chars">10</property>
                                                             </widget>
                                                             <packing>
-                                                                <property name="bottom_attach">2</property>
-                                                                <property name="left_attach">1</property>
-                                                                <property name="right_attach">2</property>
-                                                                <property name="top_attach">1</property>
+                                                                <property name="position">3</property>
                                                             </packing>
                                                         </child>
                                                         <child>
-                                                            <widget class="GtkSpinButton" id="fromMonthSpin">
-                                                                <property name="adjustment">1 1 12 1 10 0</property>
-                                                                <property name="editable">False</property>
-                                                                <property name="is_focus">True</property>
-                                                                <property name="text" context="yes" translatable="yes">1</property>
+                                                            <widget class="GtkToggleButton" id="toCalendarButton">
+                                                                <property name="active">True</property>
+                                                                <property name="border_width">2</property>
+                                                                <property name="label" context="yes" translatable="yes">to</property>
                                                                 <property name="visible">True</property>
-                                                                <property name="width_chars">2</property>
+                                                                <signal handler="toButtonClicked" name="clicked"/>
                                                             </widget>
                                                             <packing>
-                                                                <property name="left_attach">2</property>
-                                                                <property name="right_attach">3</property>
-                                                            </packing>
-                                                        </child>
-                                                        <child>
-                                                            <widget class="GtkSpinButton" id="toMonthSpin">
-                                                                <property name="adjustment">12 1 12 1 10 0</property>
-                                                                <property name="editable">False</property>
-                                                                <property name="is_focus">True</property>
-                                                                <property name="text" context="yes" translatable="yes">12</property>
-                                                                <property name="visible">True</property>
-                                                                <property name="width_chars">2</property>
-                                                            </widget>
-                                                            <packing>
-                                                                <property name="bottom_attach">2</property>
-                                                                <property name="left_attach">2</property>
-                                                                <property name="right_attach">3</property>
-                                                                <property name="top_attach">1</property>
-                                                            </packing>
-                                                        </child>
-                                                        <child>
-                                                            <widget class="GtkSpinButton" id="fromYearSpin">
-                                                                <property name="adjustment">1995 1995 2010 1 10 0</property>
-                                                                <property name="editable">False</property>
-                                                                <property name="is_focus">True</property>
-                                                                <property name="text" context="yes" translatable="yes">1995</property>
-                                                                <property name="visible">True</property>
-                                                                <property name="width_chars">4</property>
-                                                            </widget>
-                                                            <packing>
-                                                                <property name="left_attach">3</property>
-                                                                <property name="right_attach">4</property>
-                                                            </packing>
-                                                        </child>
-                                                        <child>
-                                                            <widget class="GtkSpinButton" id="toYearSpin">
-                                                                <property name="adjustment">2010 1995 2010 1 10 0</property>
-                                                                <property name="editable">False</property>
-                                                                <property name="is_focus">True</property>
-                                                                <property name="text" context="yes" translatable="yes">2010</property>
-                                                                <property name="visible">True</property>
-                                                                <property name="width_chars">4</property>
-                                                            </widget>
-                                                            <packing>
-                                                                <property name="bottom_attach">2</property>
-                                                                <property name="left_attach">3</property>
-                                                                <property name="right_attach">4</property>
-                                                                <property name="top_attach">1</property>
+                                                                <property name="position">4</property>
                                                             </packing>
                                                         </child>
                                                     </widget>

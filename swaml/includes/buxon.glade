@@ -220,9 +220,33 @@
                                                             <widget class="GtkToggleButton" id="fromCalendarButton">
                                                                 <property name="border_width">2</property>
                                                                 <property name="is_focus">True</property>
-                                                                <property name="label" context="yes" translatable="yes">from</property>
                                                                 <property name="visible">True</property>
                                                                 <signal handler="fromButtonClicked" name="clicked"/>
+                                                                <child>
+                                                                    <widget class="GtkAlignment" id="alignment5">
+                                                                        <property name="visible">True</property>
+                                                                        <child>
+                                                                            <widget class="GtkHBox" id="hbox4">
+                                                                                <property name="visible">True</property>
+                                                                                <child>
+                                                                                    <widget class="GtkImage" id="image1">
+                                                                                        <property name="file">calendar.png</property>
+                                                                                        <property name="visible">True</property>
+                                                                                    </widget>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <widget class="GtkLabel" id="label1">
+                                                                                        <property name="label" context="yes" translatable="yes">From</property>
+                                                                                        <property name="visible">True</property>
+                                                                                    </widget>
+                                                                                    <packing>
+                                                                                        <property name="position">1</property>
+                                                                                    </packing>
+                                                                                </child>
+                                                                            </widget>
+                                                                        </child>
+                                                                    </widget>
+                                                                </child>
                                                             </widget>
                                                             <packing>
                                                                 <property name="position">1</property>
@@ -251,9 +275,33 @@
                                                             <widget class="GtkToggleButton" id="toCalendarButton">
                                                                 <property name="active">True</property>
                                                                 <property name="border_width">2</property>
-                                                                <property name="label" context="yes" translatable="yes">to</property>
                                                                 <property name="visible">True</property>
                                                                 <signal handler="toButtonClicked" name="clicked"/>
+                                                                <child>
+                                                                    <widget class="GtkAlignment" id="alignment4">
+                                                                        <property name="visible">True</property>
+                                                                        <child>
+                                                                            <widget class="GtkHBox" id="hbox4">
+                                                                                <property name="visible">True</property>
+                                                                                <child>
+                                                                                    <widget class="GtkImage" id="image1">
+                                                                                        <property name="file">calendar.png</property>
+                                                                                        <property name="visible">True</property>
+                                                                                    </widget>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <widget class="GtkLabel" id="label1">
+                                                                                        <property name="label" context="yes" translatable="yes">To</property>
+                                                                                        <property name="visible">True</property>
+                                                                                    </widget>
+                                                                                    <packing>
+                                                                                        <property name="position">1</property>
+                                                                                    </packing>
+                                                                                </child>
+                                                                            </widget>
+                                                                        </child>
+                                                                    </widget>
+                                                                </child>
                                                             </widget>
                                                             <packing>
                                                                 <property name="position">4</property>

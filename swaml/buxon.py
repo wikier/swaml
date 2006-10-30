@@ -24,6 +24,7 @@ import gtk, pango
 from gazpacho.loader.loader import ObjectBuilder
 import rdflib
 from rdflib import sparql, Namespace
+from classes.loadprogressbar import LoadProgressBar
 from classes.calendarwindow import CalendarWindow
 from classes.namespaces import SIOC, RDF, DC, DCTERMS
 from classes.dateutils import MailDate
@@ -153,6 +154,7 @@ class Cache:
 	    print 'Getting mailing list data (', uri, ')...',
 	    graph.parse(uri)
 	    print 'OK, loaded', len(graph), 'triples'
+	    self.pb.progress()
 	    return graph
 	
 	def loadAdditionalData(self):
@@ -162,12 +164,18 @@ class Cache:
 	            print 'Resolving reference to get additional data (', post, ')...',
 	            self.graph.parse(post)
 	            print 'OK, now', len(self.graph), 'triples'
+	            self.pb.progress()
+	            while gtk.events_pending():
+            		gtk.main_iteration()
 	
 	    for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
 	        if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
 	            print 'Resolving reference to get additional data (', user, ')...',
 	            self.graph.parse(user)
 	            print 'OK, now', len(self.graph), 'triples'	
+	            self.pb.progress()
+	            while gtk.events_pending():
+            		gtk.main_iteration()
 
 	def hasValueForPredicate(self, subject, predicate):
 	    return (len([x for x in self.graph.objects(subject, predicate)]) > 0)	    
@@ -182,6 +190,7 @@ class Cache:
 	def __init__(self, uri):
 		self.uri = uri
 		self.bad = False
+		self.pb = LoadProgressBar()
 		
 		try:
 			self.graph = self.loadMailingList(self.uri)
@@ -191,6 +200,9 @@ class Cache:
 			return
 		
 		self.loadAdditionalData()
+		
+		self.pb.destroy()
+		
 		print 'Total triples loaded:', len(self.graph)
 		
 
@@ -225,11 +237,11 @@ class Buxon:
 		iter = buffer.get_iter_at_offset(0)
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'Post URI: \t\t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'Post URI: \t', 'bold')
 		buffer.insert_with_tags_by_name(iter, uri, 'monospace')
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'From: \t\t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'From: \t', 'bold')
 		if (author == None):
 			buffer.insert_with_tags_by_name(iter, authorUri, 'monospace')
 		else:
@@ -239,7 +251,7 @@ class Buxon:
 			buffer.insert(iter, '>')
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'To: \t\t\t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'To: \t\t', 'bold')
 		if (listName == None):
 			buffer.insert_with_tags_by_name(iter, listUri, 'monospace')
 		else:
@@ -249,11 +261,11 @@ class Buxon:
 			buffer.insert(iter, '>')
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'Subject: \t\t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'Subject: \t', 'bold')
 		buffer.insert(iter, title)	
 		buffer.insert(iter, '\n')
 		
-		buffer.insert_with_tags_by_name(iter, 'Date: \t\t', 'bold')
+		buffer.insert_with_tags_by_name(iter, 'Date: \t', 'bold')
 		buffer.insert(iter, date)
 		buffer.insert(iter, '\n\n')
 		

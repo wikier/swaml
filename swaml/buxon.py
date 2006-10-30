@@ -155,15 +155,15 @@ class Cache:
 	    print 'OK, loaded', len(graph), 'triples'
 	    return graph
 	
-	def loadAdditionalData(self, uri):
+	def loadAdditionalData(self):
 	
-	    for post in self.graph.objects(uri, SIOC['container_of']):
+	    for post in self.graph.objects(self.uri, SIOC['container_of']):
 	        if not self.hasValueForPredicate(post, SIOC['title']):
 	            print 'Resolving reference to get additional data (', post, ')...',
 	            self.graph.parse(post)
 	            print 'OK, now', len(self.graph), 'triples'
 	
-	    for user in self.graph.objects(uri, SIOC['has_subscriber']):
+	    for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
 	        if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
 	            print 'Resolving reference to get additional data (', user, ')...',
 	            self.graph.parse(user)

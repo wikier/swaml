@@ -181,9 +181,17 @@ class Cache:
 
 	def __init__(self, uri):
 		self.uri = uri
-		self.graph = self.loadMailingList(self.uri)
-		self.loadAdditionalData(self.uri)
-		print 'Total triples loaded:', len(self.graph)		
+		self.bad = False
+		
+		try:
+			self.graph = self.loadMailingList(self.uri)
+		except Exception, details:
+			print '\nAn exception ocurred parsing ' + uri + ': ' + str(details)
+			self.bad = True
+			return
+		
+		self.loadAdditionalData()
+		print 'Total triples loaded:', len(self.graph)
 		
 
 class Buxon:
@@ -273,16 +281,19 @@ class Buxon:
 		if (self.cache == None):
 			self.cache = Cache(uri)
 		else:			
-			if (uri != self.cache.uri):
+			if (uri!=self.cache.uri or self.cache.bad):
 				self.cache = Cache(uri)
 		min, max = self.getDates()
 		
-		posts = self.cache.query()
-		
-		if (min!=None or max!=None or text!=None):
-			posts = self.cache.filterPosts(posts, min, max, text)
+		if (not self.cache.bad):
+			posts = self.cache.query()
 			
-		return posts
+			if (min!=None or max!=None or text!=None):
+				posts = self.cache.filterPosts(posts, min, max, text)
+				
+			return posts
+		else:
+			return None
 
 	def drawTree(self, posts):
 		

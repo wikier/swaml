@@ -112,10 +112,15 @@ class Cache:
 			
 		return filtered
 
-	def __like(self, text, pattern):
+	def __like(self, text, query):
 		text = text.lower()
-		pattern = pattern.lower()
-		return (pattern in text)
+		query = query.lower().split(' ')
+		
+		for one in query:
+			if not one in text:
+				return False
+		
+		return True
 
 	def query(self):
 		try:	

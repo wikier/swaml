@@ -41,6 +41,8 @@ class CalendarWindow:
         self.window = gtk.Window(gtk.WINDOW_POPUP)
         self.window.connect('destroy', self.destroy)    
         self.window.set_position(gtk.WIN_POS_MOUSE)
+	self.window.set_modal(True)
+        self.window.set_resizable(False)
         
         self.calendar = gtk.Calendar()
         self.calendar.connect('day_selected_double_click', self.selectDay)

@@ -217,7 +217,7 @@
                                                             </widget>
                                                         </child>
                                                         <child>
-                                                            <widget class="GtkToggleButton" id="fromCalendarButton">
+                                                            <widget class="GtkButton" id="fromCalendarButton">
                                                                 <property name="border_width">2</property>
                                                                 <property name="is_focus">True</property>
                                                                 <property name="visible">True</property>
@@ -272,7 +272,7 @@
                                                             </packing>
                                                         </child>
                                                         <child>
-                                                            <widget class="GtkToggleButton" id="toCalendarButton">
+                                                            <widget class="GtkButton" id="toCalendarButton">
                                                                 <property name="active">True</property>
                                                                 <property name="border_width">2</property>
                                                                 <property name="visible">True</property>

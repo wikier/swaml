@@ -1,6 +1,8 @@
 
+2006-11-01	0.0.3	- Buxon, a sioc:Forum visor in GTK
+
 2006-10-13	0.0.2	- New configuration method based in INI files
-					- New scripts to add FOAF and KML independent support of 
-					  main script
+			- New scripts to add FOAF and KML independent support of 
+			  main script
 
 2006-10-02	0.0.1	- First release

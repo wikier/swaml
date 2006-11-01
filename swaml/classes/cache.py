@@ -15,12 +15,12 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-"""a cache service for sioc:Forum's"""
+"""a cache service for sioc:Forum"""
 
 import rdflib
 from rdflib import sparql, Namespace
-from classes.namespaces import SIOC, RDF, DC, DCTERMS
-from classes.dateutils import MailDate
+from namespaces import SIOC, RDF, DC, DCTERMS
+from dateutils import MailDate
 import gtk
 
 class Cache:

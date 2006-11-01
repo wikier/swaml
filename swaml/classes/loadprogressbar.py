@@ -22,7 +22,7 @@ import gtk, pygtk, gobject
 
 class LoadProgressBar:
 
-    def destroy(self):
+    def destroy(self, widget=None):
         self.window.destroy()
         
     def progress(self):

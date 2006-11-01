@@ -159,7 +159,8 @@ class Cache:
 	    print 'Getting mailing list data (', uri, ')...',
 	    graph.parse(uri)
 	    print 'OK, loaded', len(graph), 'triples'
-	    self.pb.progress()
+	    if (self.pb != None):
+	    	self.pb.progress()
 	    return graph
 	
 	def loadAdditionalData(self):
@@ -169,7 +170,8 @@ class Cache:
 	            print 'Resolving reference to get additional data (', post, ')...',
 	            self.graph.parse(post)
 	            print 'OK, now', len(self.graph), 'triples'
-	            self.pb.progress()
+	            if (self.pb != None):
+	            	self.pb.progress()
 	            while gtk.events_pending():
             		gtk.main_iteration()
 	
@@ -178,7 +180,8 @@ class Cache:
 	            print 'Resolving reference to get additional data (', user, ')...',
 	            self.graph.parse(user)
 	            print 'OK, now', len(self.graph), 'triples'	
-	            self.pb.progress()
+	            if (self.pb != None):
+	            	self.pb.progress()
 	            while gtk.events_pending():
             		gtk.main_iteration()
 
@@ -192,10 +195,11 @@ class Cache:
 	    else:
 	    	return None
 
-	def __init__(self, uri):
+	def __init__(self, uri, pb=None):
 		self.uri = uri
 		self.bad = False
-		self.pb = LoadProgressBar()
+		self.pb = pb
+		
 		
 		try:
 			self.graph = self.loadMailingList(self.uri)
@@ -206,7 +210,8 @@ class Cache:
 		
 		self.loadAdditionalData()
 		
-		self.pb.destroy()
+		if (self.pb != None):
+			self.pb.destroy()
 		
 		print 'Total triples loaded:', len(self.graph)
 		
@@ -296,10 +301,15 @@ class Buxon:
 	
 	def getPosts(self, uri, min=None, max=None, text=None):
 		if (self.cache == None):
-			self.cache = Cache(uri)
+			pb = LoadProgressBar()
+			self.cache = Cache(uri, pb)
+			pb.destroy()
 		else:			
 			if (uri!=self.cache.uri or self.cache.bad):
-				self.cache = Cache(uri)
+				pb = LoadProgressBar()
+				self.cache = Cache(uri, pb)
+				pb.destroy()
+				
 		min, max = self.getDates()
 		
 		if (not self.cache.bad):

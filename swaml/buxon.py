@@ -205,6 +205,9 @@ class Buxon:
 		else:
 			return None
 	
+	def alert(self, text):
+		pass
+	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
 
@@ -275,18 +278,24 @@ for arg in sys.argv:
 	if arg == "-h" or arg == "--help":
 		usage()
 		
-#and all necessary for PyGTK
-widgets = ObjectBuilder('includes/buxon.glade')
-callbacks = Callbacks()
-widgets.signal_autoconnect(Callbacks.__dict__)	
-buxon = Buxon()
+#global vars
+widgets = None
+callbacks = None
+buxon = None
 
 if __name__ == '__main__':
 	try:
+		
+		widgets = ObjectBuilder('includes/buxon.glade')
+		callbacks = Callbacks()
+		widgets.signal_autoconnect(Callbacks.__dict__)	
+		buxon = Buxon()
+		
 		if (len(sys.argv)>1):
 			buxon.main(sys.argv[1])
 		else:
 			buxon.main()
+			
 	except KeyboardInterrupt:
 		print 'Received Ctrl+C or another break signal. Exiting...'
 		sys.exit()

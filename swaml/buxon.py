@@ -64,6 +64,9 @@ class Callbacks:
 	def toButtonClicked(self):
 		CalendarWindow(widgets.get_widget('toEntry'))
 		
+	def alertButtonClicked(self):
+		buxon.alertWindow.destroy()
+		
 
 class Buxon:
 
@@ -169,6 +172,7 @@ class Buxon:
 				
 			return posts
 		else:
+			self.alert('An exception ocurred parsing this URI')
 			return None
 
 	def drawTree(self, posts):
@@ -206,7 +210,33 @@ class Buxon:
 			return None
 	
 	def alert(self, text):
-		pass
+		self.alertWindow = gtk.Window(gtk.WINDOW_POPUP)
+		self.alertWindow.set_position(gtk.WIN_POS_CENTER_ALWAYS)
+		self.alertWindow.set_modal(True)
+		self.alertWindow.set_resizable(False)
+		self.alertWindow.set_border_width(0)
+		
+		vbox = gtk.VBox(False, 5)
+		vbox.set_border_width(10)
+		self.alertWindow.add(vbox)
+		vbox.show()
+				
+		align1 = gtk.Alignment(0.5, 0.5, 0, 0)
+		vbox.pack_start(align1, False, False, 5)
+		align1.show()
+		label = gtk.Label(text)
+		align1.add(label)
+		label.show()
+		
+		align2 = gtk.Alignment(0.5, 0.5, 0, 0)
+		vbox.pack_start(align2, False, False, 5)
+		align2.show()		
+		button = gtk.Button('OK')
+		button.connect('clicked', destroyAlert, 'cool button')
+		align2.add(button)
+		button.show()
+		
+		self.alertWindow.show()
 	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
@@ -254,17 +284,20 @@ class Buxon:
 
 #global vars and functions
 
+def destroyAlert(widget=None, other=None):
+	buxon.alertWindow.destroy()
+
 def usage():
 	"""
 	Gtk Sioc Forums Reader
 	"""
 		
 	print """
-Usage: buxon.py [forum-uri]
+Usage: buxon.py [uri]
         
 read a forum published in SIOC vocabulary
 
-   forum-uri :	forum's uri
+   uri :	forum's uri
 
 Options:
    -h, --help           : print this help message and exit.
@@ -273,12 +306,11 @@ Report bugs to: <http://swaml.berlios.de/bugs>
 
 """
 	sys.exit()
-
-for arg in sys.argv:
-	if arg == "-h" or arg == "--help":
-		usage()
+	
+if ('-h' in sys.argv or '--help' in sys.argv):
+	usage()
 		
-#global vars
+
 widgets = None
 callbacks = None
 buxon = None

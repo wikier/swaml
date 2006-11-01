@@ -114,6 +114,7 @@
 	$swaml = new SWAML();
 	echo $swaml->parse_rss();
     ?>
+	<p style="text-align:right;"><a href="/news">read more news...</a></p>
    </div>
 
    <h2 id="files">Files</h2>

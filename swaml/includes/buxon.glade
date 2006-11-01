@@ -273,7 +273,6 @@
                                                         </child>
                                                         <child>
                                                             <widget class="GtkButton" id="toCalendarButton">
-                                                                <property name="active">True</property>
                                                                 <property name="border_width">2</property>
                                                                 <property name="visible">True</property>
                                                                 <signal handler="toButtonClicked" name="clicked"/>

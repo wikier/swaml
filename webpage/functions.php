@@ -76,7 +76,7 @@ class SWAML {
 	    		foreach ($items as $item) {
 	      			$title = $item[title];
 	      			$link  = $item[link];
-	      			$parted = split('=', $link);
+	      			$parted = explode('=', $link);
 	      			if ($parted[1]!=22514 && $parted[1]!=22842 && $parted[1]!=22843) {
 	      			 $description = $item[description];
 	      			 $description = $this->acronyms_replace($description);

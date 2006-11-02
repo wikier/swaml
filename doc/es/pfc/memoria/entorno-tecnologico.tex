@@ -9,41 +9,120 @@ de determinadas características:
 \begin{itemize}
   \item Fácil despliegue: hay que procurar que SWAML se pueda desplegar en
 	todo tipo de máquinas, sin excesivos requisitos ni hardware ni software.
-  \item API para RDF: que disponga de una bliblioteca, a poder ser nativa, para
-	manejar RDF.
+	Es importante que SWAML pueda ser invocado por los distintos programadores
+	de tarea de que disponen los sistemas operativos (cron y similares).
+  \item API para RDF: que disponga de una madura bliblioteca, a poder ser nativa, 
+	para manejar RDF (creación de grafos, parseo desde disco/URI, serializado
+	a disco y/o bases de datos, consultas SPARQL, etc).
   \item Biblioteca para ficheros mbox: sería interesante disponer de una biblioteca 
 	que abstraiga lo mayor posible al proyecto del manejo de ficheros
 	mbox\footnote{\url{http://rfc.net/rfc4155.html}} y mensajes de correo 
 	electrónico\footnote{\url{http://rfc.net/rfc2822.html}}.
 \end{itemize}
 
-Y todas esas razones encuentran en 
-Python\footnote{\url{http://www.python.org/}} una justificación:
+Por tanto el cumplimiento de estas tres necesidades principales era lo primero
+a valorar entre todos lenguajes de programación candidatos a convertirse en el
+lenguaje utilizado para implementar SWAML. Fueron varios los candidatos:
+
+\paragraph{Java}\footnote{\url{http://java.sun.com/}} es un lenguaje de programación,
+desarrollado por Sun Microsystems, orientado a objetos muy popular desde hace varios
+años. Java no se compila a código nativo, sino que una JVM (Java Virtual Machine) 
+ejecuta el bytecode previamente compilado.
+
+En la actualidad se disponen de multitud de implementaciones de la máquina virtual
+de Java, desde las propietarias (Sun, IBM, HP, etc) hasta las libres (Harmony, GIJ, 
+Kafee, IKVM.NET, etc).
+
+Sobre el problema que nos atañe:
 
 \begin{itemize}
-  \item Python es un lenguaje de script extremadamente eficiente. Su uso está 
-	muy extendido en todos los sistemas Unix actuales (GNU/Linux, familia 
-	BSD, Solaris, etc), aunque también está 
-	disponible\footnote{\url{http://www.python.org/download/}}
-	para la mayoria de sistemas operativos restantes 
-	(Windows\footnote{url{http://www.python.org/download/windows/}}, 
-	MacOs\footnote{\url{http://www.python.org/download/mac/}} y
-	otros\footnote{\url{http://www.python.org/download/other/}}.
+  \item FIXME
+  \item Dispone de forma nativa (desarrollado tambien en Java) de la biblioteca para
+	manejar RDF más madura actualmente: Jena\footnote{\url{http://jena.sourceforge.net/}}.
+	El famework Jena incluye paquetes para múltiples propósitos dentro de la web
+	semántica: API para RDF y OWL, persistencia, serializado y soporte para consultas
+	SPARQL.
+  \item FIXME
+\end{itemize}
+
+Quizás la única (y mayor) pega se encuentre en los términos de licencia de las 
+mejores implementaciones de la máquina virtual de Java, lo que complicaria de una
+manera importante un futura distribución de SWAML de manera totalmente libre.
+
+
+\paragraph{Python}\footnote{\url{http://www.python.org/}} es un lenguaje de script 
+extremadamente eficiente. Su uso está muy extendido en todos los sistemas Unix 
+actuales (GNU/Linux, familia BSD, Solaris, etc), aunque también está disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
+operativos actuales (Windows, MacOS y demás).
+
+Se trata de un lenguaje de script mucho más moderno que otros lenguajes hermanos 
+tipo bash o perl. Python va más alla, disponiendo en un lenguaje de script 
+interpretado y con tipado dinámico de toda la potencia de los lenguajes orientados 
+a objetos más modernos.
+
+Respecto a los tres requisitos que nos interesan:
+
+\begin{itemize}
+  \item Al tratarse de un lenguaje de script basta dsiponer de un interprete 
+	instalado en el sistema para poderlo ejecutar. Además esta caracteristica
+	simplifica enormemente la forma de invocarlo desde un programador de
+	tareas.
   \item Existen varias posibilidades para manejar RDF desde Python. Algunas son
 	bibliotecas nativas desarrolladas también en Python, y otras están
 	disponibles en forma de bindings a bibliotecas desarrolladas en otro 
 	lenguaje.
 	De todas las posibilidades, quizás RDFLib\footnote{\url{http://rdflib.net/}}
-	sea la que se encuentra en un estado de desarrollo más avanzado y maduro.
+	sea la que se encuentra en un estado de desarrollo más avanzado y maduro 
+	(persistencia, serialización, consultas SPARQL, etc).
 	Además ofrece la posibilidad de \emph{colocar encima} otras bibliotecas,
 	como por ejemplo Sparta\footnote{\url{http://www.mnot.net/sw/sparta/}},
 	para utilizar determinados conceptos que no contempla RDFLib.
-  \item Con modulos como mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}
-	e email\footnote{\url{http://docs.python.org/lib/module-email.html}} esta
-	necesidad se ve claramente satisfecha.
+  \item Python dispone una extensa y completa biblioteca estandar, además de contar
+	con multitud de bibliotecas para los más variopintos propósitos. Con modulos 
+	como mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}
+	e email\footnote{\url{http://docs.python.org/lib/module-email.html}}, el
+	problema de acceso primario a los datos (mailbox unix) que SWAML deberá
+	consumir se verá resuelto de manera muy eficiente a un nivel de abstracción
+	bastante alto.
 \end{itemize}
 
-Por tanto se concluyó que Python era una de las mejores opciones para resolver
-el problema planteado.
+Además es un lenguaje totalmente libre, desde su especificación hasta varias
+de sus implementaciones, incluido el interprete oficial.
+
+Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, el sistema de gestión
+de listas de correo más popular hoy en día, también esta escrito en Python, lo que 
+facilitaria en gran medida una supuesta integración de SWAML en Mailman.
+
+
+\paragraph{C\#} es un lenguaje de programación desarrollado por Microsoft, y posteriormente 
+estandarizado por el ECMA\footnote{\url{http://www.ecma-international.org/publications/standards/Ecma-334.htm}},
+como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.com/net/}}.
+
+\begin{itemize}
+  \item Los requerimientos de recursos no parecen que sea la mejor opción para una tarea
+	de estas características.
+  \item Se dispone de SemWeb\footnote{\url{http://razor.occams.info/code/semweb/}}, una
+	biblioteca que un inmaduro soporte para RDF y SPARQL. También existen los bindings 
+	de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, aunque ofrencen también
+	un pobre rendimiento.
+  \item FIXME
+\end{itemize}
+
+Dispone además de varias implementaciones libres, como 
+Mono\footnote{\url{http://www.mono-project.com/}} o DotGNU\footnote{{http://dotgnu.org/}}.
+Pero, al igual que en el caso de Java, hoy por hoy la implementación más completa es la
+desarollada por Microsoft. Usar por tanto su framework no sólo complicaria los términos
+de distribución de SWAM, sino que encima coartarían su funcionamiento a las plataformas
+soportadas actualmente por ese framework (Microsoft Windows).
+
+FIXME (preguntarle a rodrigo)
+
+
+\paragraph{Perl} FIXME
+
+
+Una vez estudiadas y evaluadas todas estas alternativas, se lelgó a la conclusión
+de que Python era el lenguaje que mejor se adaptaba a los requisitos del proyecto.
 
 FIXME
+

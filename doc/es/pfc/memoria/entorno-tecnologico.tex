@@ -1,7 +1,7 @@
 
 \section{Entorno tecnológico}
 
-\subsection{Lenguaje de programación}
+\subsection*{Lenguaje de programación}
 
 El problema planteado requiere de una lenguaje de programación que disponga
 de determinadas características:
@@ -22,12 +22,28 @@ de determinadas características:
 
 Por tanto el cumplimiento de estas tres necesidades principales era lo primero
 a valorar entre todos lenguajes de programación candidatos a convertirse en el
-lenguaje utilizado para implementar SWAML. Fueron varios los candidatos:
+lenguaje utilizado para implementar SWAML. 
 
-\paragraph{Java}\footnote{\url{http://java.sun.com/}} es un lenguaje de programación,
-desarrollado por Sun Microsystems, orientado a objetos muy popular desde hace varios
-años. Java no se compila a código nativo, sino que una JVM (Java Virtual Machine) 
-ejecuta el bytecode previamente compilado.
+Pero tambien se iba a tener en cuenta otras cualidades más generales al problema,
+como por ejemplo:
+
+\begin{itemize}
+  \item Aspectos concretos de la OOP (object-oriented programming, programación 
+	orientada a objetos) que cubra.
+  \item Sencillez de desarrollo y posterior estudio del código.
+  \item Portabilidad de la solución generada.
+  \item Posibilidad de usarse compiladores/intérpretes libres.
+  \item FIXME
+\end{itemize}
+
+Despues de revisar los lenguajes dsiponibles, fueron varios los candidatos para
+someterlos a un estudio más profundo:
+
+\paragraph{Java}: Java\footnote{\url{http://java.sun.com/}}
+es un lenguaje de programación, desarrollado por Sun Microsystems, orientado a 
+objetos muy popular desde hace varios años. Java no se compila a código nativo, 
+sino que una JVM (Java Virtual Machine, máquina virtual de Java) ejecuta el 
+bytecode previamente compilado.
 
 En la actualidad se disponen de multitud de implementaciones de la máquina virtual
 de Java, desde las propietarias (Sun, IBM, HP, etc) hasta las libres (Harmony, GIJ, 
@@ -36,7 +52,10 @@ Kafee, IKVM.NET, etc).
 Sobre el problema que nos atañe:
 
 \begin{itemize}
-  \item FIXME
+  \item Actualmente las JVM existentes cubren un amplio abanico de arquitecturas y 
+	sistemas operativos. Aunque Java esté más pensado para su uso en otro tipo
+	de entornos (J2EE por ejemplo), puede invocarse perfectamente en modo en
+	linea.
   \item Dispone de forma nativa (desarrollado tambien en Java) de la biblioteca para
 	manejar RDF más madura actualmente: Jena\footnote{\url{http://jena.sourceforge.net/}}.
 	El famework Jena incluye paquetes para múltiples propósitos dentro de la web
@@ -47,12 +66,13 @@ Sobre el problema que nos atañe:
 
 Quizás la única (y mayor) pega se encuentre en los términos de licencia de las 
 mejores implementaciones de la máquina virtual de Java, lo que complicaria de una
-manera importante un futura distribución de SWAML de manera totalmente libre.
+manera importante un futura distribución de SWAML de manera totalmente libre,
+pues tendría como dependencias paquetes no libres.
 
 
-\paragraph{Python}\footnote{\url{http://www.python.org/}} es un lenguaje de script 
-extremadamente eficiente. Su uso está muy extendido en todos los sistemas Unix 
-actuales (GNU/Linux, familia BSD, Solaris, etc), aunque también está disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
+\paragraph{Python}: Python\footnote{\url{http://www.python.org/}} es un lenguaje de 
+script extremadamente eficiente. Su uso está muy extendido en todos los sistemas 
+Unix actuales (GNU/Linux, familia BSD, Solaris, etc), aunque también está disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
 operativos actuales (Windows, MacOS y demás).
 
 Se trata de un lenguaje de script mucho más moderno que otros lenguajes hermanos 
@@ -94,8 +114,8 @@ de listas de correo más popular hoy en día, también esta escrito en Python, lo q
 facilitaria en gran medida una supuesta integración de SWAML en Mailman.
 
 
-\paragraph{C\#} es un lenguaje de programación desarrollado por Microsoft, y posteriormente 
-estandarizado por el ECMA\footnote{\url{http://www.ecma-international.org/publications/standards/Ecma-334.htm}},
+\paragraph{C\#}: C\#\footnote{\url{http://msdn2.microsoft.com/en-us/vcsharp/aa336809.aspx}} 
+es un lenguaje de programación desarrollado por Microsoft, y posteriormente estandarizado por el ECMA\footnote{\url{http://www.ecma-international.org/publications/standards/Ecma-334.htm}},
 como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.com/net/}}.
 
 \begin{itemize}
@@ -105,7 +125,9 @@ como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.
 	biblioteca que un inmaduro soporte para RDF y SPARQL. También existen los bindings 
 	de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, aunque ofrencen también
 	un pobre rendimiento.
-  \item FIXME
+  \item Por ahora no parece existir ninguna biblioteca que ayude en el parseo de los mailboxes 
+	de Unix, aunque no parece complicado su desarrollo dada la cantidad de modulos para 
+	manejar formatos de correo.
 \end{itemize}
 
 Dispone además de varias implementaciones libres, como 
@@ -115,24 +137,34 @@ desarollada por Microsoft. Usar por tanto su framework no sólo complicaria los t
 de distribución de SWAM, sino que encima coartarían su funcionamiento a las plataformas
 soportadas actualmente por ese framework (Microsoft Windows).
 
-FIXME (preguntarle a rodrigo)
 
-
-\paragraph{Perl} 
+\paragraph{Perl}: Perl\footnote{\url{http://www.perl.org/}} es un lenguaje de script de 
+gran tradición. Soporta paradignas de programación imperativo (estructurados y orientados 
+a objetos) y lógico funcionale.
 
 \begin{itemize}
-  \item FIXME
+  \item Está especialmente extendido en sistemas Unix y, en menor medida, en sistemas
+	operativos Windows. Sus requerimientos sonn realmente bajos y, dada su naturaleza
+	de script, está especialmente pensado para invocarse en linea.
   \item Con RDFStore\footnote{http://rdfstore.sourceforge.net/} se dispone de un API bastante
-	bueno para manejar RDF desde Perl. También existe una implementación\footnote{\url{http://www.w3.org/1999/02/26-modules/}} 
+	bueno para manejar RDF desde Perl. También existe una
+	implementación\footnote{\url{http://www.w3.org/1999/02/26-modules/}} 
 	desarrollada por el W3C para manejar RDF desde Perl. Aunque ni es una implementación
 	demasiado completa ni es un proyecto mantenido en la actualidad.
-  \item FIXME
+  \item En CPAN\footnote{\url{http://www.cpan.org/}} hay disponibles multitud de bibliotecas
+	y módulos útiles para hacer desarrollos en Perl. Entre ellas está
+	MessageParser\footnote{\url{http://search.cpan.org/~dcoppit/Mail-Mbox-MessageParser-1.4005/lib/Mail/Mbox/MessageParser.pm}},
+	que podría ser una perfecta candidata para resolver en Perl este problema.
 \end{itemize}
 
-En su contra juega su sintáxis excesivamente criptica.
+En su contra juega su sintáxis excesivamente críptica, que hacen muy complicada
+la lectura y/o reescritura del código.
 
-\paragraph{Conclusión:} Una vez estudiadas y evaluadas todas estas alternativas, se lelgó a la conclusión
-de que Python era el lenguaje que mejor se adaptaba a los requisitos del proyecto.
 
-FIXME
+\paragraph{Conclusión:} Una vez estudiadas y evaluadas cuidadosamente todas estas 
+alternativas, se llegó a la conclusión de que Python era el lenguaje que mejor se 
+adaptaba a los requisitos del proyecto. Tanto por cumplir los tres requisitos 
+no funcionales principales buscados, como por ser un lenguaje moderno y flexible 
+que permitirá manejar de una forma muy cómoda todos las estructuras de datos que se
+necesitarán.
 

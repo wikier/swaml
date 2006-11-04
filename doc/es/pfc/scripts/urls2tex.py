@@ -30,11 +30,11 @@ def getFiles(base, listFiles, ext=None):
 	
 def parseUrls(source):
 	urls = []
-	pattern = re.compile('\\url{http://[a-zA-Z\/\.]*}')
+	pattern = re.compile('\\url{http://.*}') # [a-zA-Z\/\.]*, mejor regexp?
 	for line in open(source):
 		results = pattern.finditer(line)
 		for result in results:
-			url = result.string[result.start()+4:result.end()-1]
+			url = result.string[result.start()+4:result.end()-2]
 			urls.append(url)
 
 	return urls

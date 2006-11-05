@@ -30,7 +30,6 @@ from classes.calendarwindow import CalendarWindow
 from classes.namespaces import SIOC, RDF, DC, DCTERMS
 
 
-
 class Callbacks:
 
 	def destroy(self):
@@ -187,7 +186,7 @@ class Buxon:
 			parent = None
 			for (post, title, date, creator, content, parent) in posts:
 				self.treeTranslator[post] = self.treeStore.append(self.__getParent(parent), [str(post), str(title)])
-				print 'drawing post', post, 'on tree'
+				#print 'drawing post', post, 'on tree'
 
 			#and show it
 			treeColumn = gtk.TreeViewColumn('Posts')

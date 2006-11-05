@@ -36,16 +36,28 @@ class CalendarWindow:
         year, month, day = self.calendar.get_date()
         return str(day) + '/' + str(month+1) + '/' + str(year)
     
+    def setInitialDate(self):
+        date = self.entry.get_text().split('/')
+        day = int(date[0])
+        month = int(date[1])
+        year = int(date[2])
+        
+        if (self.calendar != None):
+            self.calendar.select_month(month-1, year)
+            self.calendar.select_day(day)
+    
     def __init__(self, entry):
         self.entry = entry
+        
         self.window = gtk.Window(gtk.WINDOW_POPUP)
         self.window.connect('destroy', self.destroy)    
         self.window.set_position(gtk.WIN_POS_MOUSE)
-	self.window.set_modal(True)
+        self.window.set_modal(True)
         self.window.set_resizable(False)
         
         self.calendar = gtk.Calendar()
         self.calendar.connect('day_selected_double_click', self.selectDay)
+        self.setInitialDate()
         self.window.add(self.calendar)
         self.calendar.show()
         

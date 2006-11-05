@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python2.4
+# -*- coding: utf8 -*-
 #
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists

@@ -263,7 +263,7 @@
                                                         <child>
                                                             <widget class="GtkEntry" id="toEntry">
                                                                 <property name="editable">False</property>
-                                                                <property name="text" context="yes" translatable="yes">31/31/2010</property>
+                                                                <property name="text" context="yes" translatable="yes">31/12/2010</property>
                                                                 <property name="visible">True</property>
                                                                 <property name="width_chars">10</property>
                                                             </widget>

@@ -1,4 +1,0 @@
-
-  -	A_fuzzy_semantics_for_semantic_web_languages.pdf - 
-	url: http://ftp.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-173/paper2.pdf#search=%22%20Fuzzy%20Semantics%20for%20Semantic%20Web%20Languages%22
-	from ivan herman's blog: http://www.ivan-herman.net/WebLog/WorkRelated/SemanticWeb/fuzzy.html

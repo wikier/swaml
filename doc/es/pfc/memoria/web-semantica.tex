@@ -132,17 +132,20 @@ con el objetivo que fuera fácilmente procesable por una máquina y legible por un
 humano. 
 
 Basandose en una definición abstracta (XML Schema), permite extender su gramática 
-de una forma muy fácil y sencilla de procesar (XSL/XSLT, XPath, etc).
+de una forma muy fácil y sencilla de procesar (XSL/XSLT, XPath, XPoint, etc).
 
 Es usado en múltiples tecnológías hoy en día, sobre todo en la web (XHTML, XForms, 
 SVG, etc), aunque también para documentación (DocBook), interfaces de usuario (XUL,
-Glade, XAML, etc), protocolos (Jabber), etc.
+Glade, XAML, etc), protocolos (Jabber), etc. Se utilizan espacios de nombres (namespace), 
+identificados por URI's, para mezclar en un documento etiquetas pertenecientes a 
+diferentes vocabularios.
 
 Pero XML, a pesar de ser un lenguaje estructurado que es muy fácil de procesar, 
-aún carece de la semántica necesaria.
+aún carece de la semántica necesaria. 
 
-Se utilizan espacios de nombres (namespace), identificados por URI's, para mezclar en 
-un documento etiquetas pertenecientes a diferentes vocabularios
+Sobre XML existe mucha bibliografia relacionada, siendo recomenable empezar por
+\emph{XML Imprescindible}\cite{XMLNutshell}, un excelente libro que hace un amplio
+recorrido por XML y todas sus tecnologías.
 
 \subsubsection{RDF}
 
@@ -275,6 +278,9 @@ figura \ref{fig:owlVariantsExtended}\footnote{Gráfico extraido de Ontotext,
 Hay que tener en cuenta que existe cierto solapamiento entre la expresividad de
 OWL y la de RDFs (RDF-Schema), desvirtuando en cierta manera la visión original
 por capas.
+
+Para más información puede consultarse el último libro publicado de OWL\cite{OWL} 
+que yo he encontrado.
 
 \subsubsection{SPARQL}
 
@@ -435,9 +441,10 @@ FIXME
 
 \subsection{Libros de interés}
 
-Aunque no existen buenas publicaciones en castellano, hay dos libros en inglés que
-es imprescindible ojear: \emph{A Semantic Web primer}\cite{SemanticWebPrimer} y
-\emph{Practical RDF}\cite{OreillyPracticalRDF}.
+Aunque no existen buenas publicaciones en castellano, hay varios libros en inglés 
+que es imprescindible ojear: \emph{A Semantic Web primer}\cite{SemanticWebPrimer},
+\emph{Practical RDF}\cite{OreillyPracticalRDF} o 
+\emph{Explorer's Guide to the Semantic Web}\cite{ExplorerSemanticWeb}.
 
 \subsection{Futuro}
 

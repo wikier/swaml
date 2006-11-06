@@ -1,5 +1,7 @@
 #!/usr/bin/env python2.4
+# -*- coding: utf8 -*-
 #
+# Script to make a TeX list of URL's written in another TeX files
 # Copyright (C) 2006 Sergio Fdez, Ivan Frade
 #
 # This program is free software; you can redistribute it and/or modify

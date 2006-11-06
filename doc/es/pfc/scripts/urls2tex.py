@@ -30,12 +30,12 @@ def getFiles(base, listFiles, ext=None):
 	
 def parseUrls(source):
 	urls = []
-	pattern = re.compile('\\url{http://.*}') # [a-zA-Z\/\.]*, mejor regexp?
+	pattern = re.compile('\\url{http://[^+]*?}')
 	try:
 		for line in open(source):
 			results = pattern.finditer(line)
 			for result in results:
-				url = result.string[result.start()+4:result.end()-2]
+				url = result.string[result.start()+4:result.end()-1]
 				urls.append(url)
 	except IOError, details:
 		print 'Problem reading from ' + source + ': ' + str(details)

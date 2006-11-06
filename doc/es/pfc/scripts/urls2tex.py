@@ -12,6 +12,61 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+import HTMLParser
+import urllib
+
+try:
+	import tidy
+	tidy_loaded = True
+except ImportError:
+	tidy_loaded = False
+	print "Unable to load tidy"
+
+class html(HTMLParser.HTMLParser):
+
+    def __init__(self):
+        HTMLParser.HTMLParser.__init__(self)
+        self._title = ""
+        self.inTitle = False
+
+    def handle_starttag(self, tag, attrs):
+				if ( tag == "title" ):
+						self.inTitle = True
+
+    def handle_endtag(self, tag):
+        pass
+
+    def handle_data(self, data):
+        if self.inTitle:
+            self._title = data
+        self.inTitle = False
+
+    def get_title(self):
+        return self._title.strip()
+
+options = dict(output_xhtml=1, 
+                add_xml_decl=1, 
+                indent=1, 
+                tidy_mark=0,
+				quote_nbsp=1,
+				quote_ampersand=1,
+				escape_cdata=1)
+
+def getTitleFromURL(url):
+	f = urllib.urlopen(url)
+	s = f.read()
+	if tidy_loaded:
+		s =str(tidy.parseString(s, **options))
+	
+	myparser =html()
+	try:
+		myparser.feed(s)
+		return myparser.get_title()
+	except HTMLParser.HTMLParseError:
+		return ''
+			
+
+
 import os, sys, re
 
 def getFiles(base, listFiles, ext=None):
@@ -60,7 +115,8 @@ if __name__ == '__main__':
 			base = sys.argv[1]
 			urls = getUrls(base)
 			for url in urls:
-				print ' - ' + url
+				title = getTitleFromURL(url)
+				print ' - ' + title + '\n\t<' + url + '>'
 		else:
 			sys.exit()
                         

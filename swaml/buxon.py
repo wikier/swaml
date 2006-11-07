@@ -167,10 +167,13 @@ class Buxon:
 		if (not self.cache.bad):
 			posts = self.cache.query()
 			
-			if (min!=None or max!=None or text!=None):
-				posts = self.cache.filterPosts(posts, min, max, text)
-				
-			return posts
+			if (posts == None):
+				self.messageBar('unknow problem parsing RDF at ' + self.uri)
+				return None
+			else:
+				if (min!=None or max!=None or text!=None):
+					posts = self.cache.filterPosts(posts, min, max, text)
+				return posts
 		else:
 			self.alert('An exception ocurred parsing this URI')
 			return None

@@ -96,7 +96,6 @@ class Cache:
             posts  = sparqlGr.query(select, where, opt)
             return self.orderByDate(posts)
         except Exception, details:
-            buxon.messageBar('unknow problem parsing RDF at ' + self.uri)
             print 'parsing exception:', str(details)
             return None
         

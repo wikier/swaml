@@ -9,9 +9,15 @@ Version stand alone: unzip the tarball an use it:
 
 
 Dependencies:
+
+  To use SWAML core functionalities:
 	- python >= 2.4.0
-	- rdflib = 2.3.0 	(official releases at <http://rdflib.net/releases/>)
-			   			(warning: rdflib != librdf)
+	- rdflib = 2.3.0 	(official releases at <http://rdflib.net/releases/>, warning: rdflib != librdf)
+
+  And to use Buxon:
+        - gtk+ >= 2.6.0
+        - pygtk >= 2.6.0
+        - gazpacho >= 0.6.6
 
 
 Long Answer:

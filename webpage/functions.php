@@ -10,7 +10,7 @@ class SWAML {
 		$ret = " " . $text;
 
 		// matches a "http://yyyy"
-		$ret = preg_replace("#([\n ])(http)://([a-z0-9\-\.,\?!%\*_\#:;~\\&$@\/=\+]+)#i", "\\1<a href=\"\\2://\\3\">\\2://\\3</a>", $ret);
+		$ret = preg_replace("#([\n ])(http|https)://([a-z0-9\-\.,\?!%\*_\#:;~\\&$@\/=\+]+)#i", "\\1<a href=\"\\2://\\3\">\\2://\\3</a>", $ret);
 
 		// matches a "www.xxxx.yyyy[/zzzz]"
 		$ret = preg_replace("#([\n ])www\.([a-z0-9\-]+)\.([a-z0-9\-.\~]+)((?:/[a-z0-9\-\.,\?!%\*_\#:;~\\&$@\/=\+]*)?)#i", "\\1<a href=\"http://www.\\2.\\3\\4\">www.\\2.\\3\\4</a>", $ret);

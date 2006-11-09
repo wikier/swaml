@@ -32,6 +32,7 @@ class Configuration:
         self.config = { 
             'title' : '',
             'description' : '',
+            'host' : '',
             'verbose' : False,         
             'dir' : 'archive/',
             'url' : 'http://localhost/swaml/',

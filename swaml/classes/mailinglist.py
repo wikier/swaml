@@ -24,6 +24,7 @@ from subscribers import Subscribers
 from message import Message
 from index import Index
 from rdflib import Graph, URIRef, Literal, BNode, RDF
+from namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
 import datetime
 from dateutils import FileDate
 
@@ -133,6 +134,16 @@ class MailingList:
 
         return messages
     
+    def __getUri(self):
+        return self.config.get('url')+'index.rdf'
+    
+    def __addSite(self, graph, url):
+        #TODO: write a new class
+        site = URIRef(url)
+        graph.add((site, RDF.type, SIOC['Site']))
+        graph.add((site, SIOC['host_of'], URIRef(self.__getUri())))
+        
+    
     def __toRDF(self):
         """Dump mailing list to RDF file"""
 
@@ -140,7 +151,6 @@ class MailingList:
         store = Graph()
         
         #namespaces
-        from namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
         store.bind('swaml', SWAML)
         store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
@@ -148,17 +158,27 @@ class MailingList:
         store.bind('dc', DC)
         store.bind('mvcb', MVCB)
 
-        #root node
-        list = URIRef(self.config.get('url')+'index.rdf')
+        #fisrt the host graph
+        host = self.config.get('host')
+        if (len(host) > 0):
+            self.__addSite(store, host)
+
+        #and then the mailing list
+        list = URIRef(self.__getUri())
         store.add((list, RDF.type, SIOC['Forum']))
 
         #list information
         title = self.config.get('title')
         if (len(title) > 0):
             store.add((list, DC['title'], Literal(title)))
+            
         description = self.config.get('description')
         if (len(description) > 0):
             store.add((list, DC['description'], Literal(description)))
+            
+        if (len(host) > 0):
+            store.add((list, SIOC['has_host'], URIRef(host)))
+        
         store.add((list, DC['date'], Literal(FileDate(self.config.get('mbox')).getStringFormat())))
         store.add((list, MVCB['generatorAgent'], URIRef(self.config.getAgent())))
         store.add((list, MVCB['errorReportsTo'], URIRef('http://swaml.berlios.de/bugs')))

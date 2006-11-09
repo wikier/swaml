@@ -264,8 +264,8 @@ Una perpectiva sencilla sería mostrada por la figura \ref{fig:owlVariants}.
 
 Aunque el panorama no es tan sencillo, y para diferenciar cada una de ellas no
 se puede hacer fijandose sólo en la complejidad, sino también en la parte de la 
-lógica que abarcan. Quedando un panorama aún más confuso, como se puede ver en la
-figura \ref{fig:owlVariantsExtended}\footnote{Gráfico extraido de Ontotext, 
+lógica que abarcan. Quedando un panorama aún más confuso, como se puede ver en 
+la figura \ref{fig:owlVariantsExtended}\footnote{Gráfico extraido de Ontotext, 
 \url{http://www.ontotext.com/inference/rdfs_rules_owl.html#owl_fragments}}.
 
 \begin{figure}[ht]
@@ -284,14 +284,17 @@ que yo he encontrado.
 
 \subsubsection{SPARQL}
 
-SPARQL\footnote{\url{http://www.w3.org/TR/rdf-sparql-query/}} es un nuevo lenguaje 
-de consulta sobre la base del conocimiento en OWL/RDF. Actualmente se trata del
-candidato a recomendación del W3C por parte del 
+SPARQL\footnote{\url{http://www.w3.org/TR/rdf-sparql-query/}} es un nuevo lenguaje,
+uno de tantos\cite{ComparisonRDFQuery}, de consulta sobre la base del conocimiento 
+en OWL/RDF con un compromiso en su justa medida entre semántica y 
+complejidad\cite{SemanticsComplexitySPARQL}. Actualmente se trata del candidato a 
+recomendación del W3C por parte del 
 DAWG\footnote{\url{http://www.w3.org/2001/sw/DataAccess/}} (RDF Data Access Working 
 Group).
 
 Posee una sintáxis similar a la otros lenguajes de consulta relacionales, como
-podría ser SQL.
+podría ser SQL. De hecho sus algebras comparten\cite{RelationalAlgebraSPARQL} 
+determinados puntos. 
 
 \begin{figure}[ht]
 	\begin{verbatim}

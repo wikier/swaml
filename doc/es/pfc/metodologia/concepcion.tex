@@ -1,7 +1,77 @@
 
-\section{Entorno tecnológico}
+\section{Concepción}
 
-\subsection*{Lenguaje de programación}
+FIXME
+
+\subsection{Visón}
+
+FIXME
+
+\subsection{Especificación de requisitos}
+
+FIXME
+
+\subsubsection{Datos de entrada}
+
+La fuente de información será una lista de correo en formato
+mbox\footnote{\url{http://rfc.net/rfc4155.html}}, un formato estandarizado
+que utilizan la mayoria de los sistemas de gestión de listas de correo
+(Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, 
+Majordomo\footnote{\url{http://www.greatcircle.com/majordomo/}},
+LISTSERV, Listproc y SmartList entre otros).
+
+El formato mbox no es más que un fichero de texto plano en el que se van
+almacenando consecutivamente los correos que van llegando a la lista. Se 
+almacenan tal cual son enviados a la lista, con su cabeceras originales 
+completas y en la codificación del cliente de correo del usuario.
+
+Por tanto es fácil adivinar dos problemas evidentes de este formato:
+
+\paragraph{Identificacores}
+
+FIXME
+
+Cada correo dispone de un identificador (cabecera \texttt{Message-Id}). Cuando
+alguien responde un mensaje, el cliente de correo colocará en el nuevo una 
+cabecera (\texttt{In-Reply-To}) con este ID para referirse explicitamente al 
+mensaje que se está respondiendo.
+
+Este el mecanismo especificado en el RFC\footnote{\url{http://rfc.net/rfc2822.html}} 
+para las gestión de hilos de conversación por medio de correo electrónico. Y es
+mecanismo que utilizado para representar las conversaciones en forma de árbol, 
+tanto en clientes de correo (Evolution, Thunderbird, Outlook, etc) como en sistemas 
+convecionales de publicación de listas de correo.
+
+Dicho identificador tiene una forma similar a \texttt{<3C94C55A3B6A@smtp.isp.com>}.
+
+Pero ese ID no es único, sino que es asignado por el propio servidor
+SMTP\footnote{\url{http://es.wikipedia.org/wiki/SMTP}} (Simple Mail Transfer Protocol) 
+de forma arbitraria a la hora de enviar el correo.
+
+Por tanto no debería poder usarse, al menos garantizando un rigurosidad extrema
+a la hora de identificar cada uno de los mensajes y sus respuestas.
+
+Podría usarse algoritmos eurísticos con el asunto del mensaje, aunque tampoco nos
+garantizarían una fiabilidad absoluta al poder cambiarse el asunto en cualquier
+mensaje del hilo.
+
+Pero si existe una aproximación al problema que consigue una efectividad bastante
+alta según se ha podido comprobar. Consiste en asumir que cuando hay una respuesta
+a un mensaje, existe una alta probabilidad que se esté respondiendo a último de los 
+mensajes enviados con ID repetido.
+
+\paragraph{Codificación}
+
+FIXME
+
+(cada uno de su padre y de su madre, y almacenados en la codificación del
+servidor)
+
+\subsubsection{Datos de salida}
+
+FIXME(HTML, XML, RDF, etc...)
+
+\subsubsection{Lenguaje de programación}
 
 El problema planteado requiere de una lenguaje de programación que disponga
 de determinadas características:
@@ -176,3 +246,14 @@ que hay disponibles (\emph{Learning Python}\cite{LearningPython},
 \emph{Dive into Python}\cite{DivePython} o \emph{Python Pocket Reference}\cite{PythonPocket},
 por ejemplo).
 
+\subsection{Especificación de casos de uso}
+
+FIXME
+
+\subsection{Especificaciones secundarias}
+
+FIXME
+
+\subsection{Plan del proyecto}
+
+gantt, personas y materiales, FIXME

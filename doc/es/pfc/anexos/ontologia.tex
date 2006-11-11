@@ -1,20 +1,372 @@
 
 \chapter{Ontología}
 
-Se ha desarrollado, teniendo muy en cuenta las buenas prácticas que recomienda el W3C para publicar vocabularios
-RDF\footnote{http://www.w3.org/TR/swbp-vocab-pub/}, una sencilla ontología que formalizara las representación 
-de una lista de correo que SWAML publica en RDF. 
+Se ha desarrollado, teniendo muy en cuenta las buenas prácticas que recomienda 
+el W3C para publicar vocabularios RDF\footnote{http://www.w3.org/TR/swbp-vocab-pub/}, 
+una sencilla ontología que formalizara las representación de una lista de correo 
+que SWAML publica en RDF. 
 
-La URI para la ontología es \url{http://swaml.berlios.de/ns/swaml.owl}, siendo además esa URI la URL donde se 
-encuentra la ontología en OWL DL desarrollada.
+\section*{Version 0.1}
 
-La ontología define tres clases para representar una lista de correo:
+La primera versión de la ontología modelaba una lista de correo con clases propias,
+apoyandose únicamente en algunas clases y propiedades de 
+FOAF\footnote{\url{http://www.foaf-project.org/}} y 
+Dublin Core\footnote{\url{http://dublincore.org/}}.
+
+La ontología definía tres clases para representar una lista de correo, relacionadas
+como se puede ver en la figura \ref{fig:swamlOWL}:
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/swaml-owl.png}
 	\caption{Representación gráfica de las clases descritas en la ontología de SWAML}
-	\label{fig:evoWeb}
+	\label{fig:swamlOWL}
 \end{figure}
 
-FIXME(incluir swaml-*.owl)
+Esta versión 0.1 estaba desarrollada en OWL DL, disponiendo evidentemente
+de una URI: \url{http://swaml.berlios.de/ns/01}.
+
+\newpage
+
+\begin{verbatim}
+<?xml version="1.0"?>
+
+<!DOCTYPE owl [
+	<!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+	<!ENTITY dc "http://purl.org/dc/elements/1.1/">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY swaml "http://swaml.berlios.de/ns/0.1#">
+]>
+
+<rdf:RDF
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:swaml="http://swaml.berlios.de/ns/0.1#"
+	xml:base="http://swaml.berlios.de/ns/0.1"
+>
+
+<owl:Ontology rdf:about="http://swaml.berlios.de/ns/0.1">
+  <rdfs:comment>Ontology to describe mail lists</rdfs:comment>
+  <owl:versionInfo>0.1</owl:versionInfo>
+  <rdfs:label>SWAML Ontology</rdfs:label>
+</owl:Ontology>
+
+<owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#MailingList">
+  <rdfs:comment>A mailing list</rdfs:comment>
+  <rdfs:label>Mailing List</rdfs:label>
+  <owl:disjointWith>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </owl:disjointWith>
+  <owl:disjointWith>
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+    </owl:Class>
+  </owl:disjointWith>
+</owl:Class>
+<owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+  <rdfs:label>Message</rdfs:label>
+  <rdfs:comment>A mailing list message</rdfs:comment>
+  <owl:disjointWith>
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+    </owl:Class>
+  </owl:disjointWith>
+</owl:Class>
+<owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Suscriptor">
+  <rdfs:subClassOf>
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+    </owl:Class>
+  </rdfs:subClassOf>
+  <rdfs:label>Suscriptor</rdfs:label>
+  <rdfs:comment>A mailing list suscriptor</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+</owl:Class>
+<owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#author">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Suscriptor">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#from" />
+  <rdfs:label>author</rdfs:label>
+  <rdfs:comment>A person is the author of a message</rdfs:comment>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#from">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Suscriptor">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#author" />
+  <rdfs:label>from</rdfs:label>
+  <rdfs:comment>A message was sent by a person</rdfs:comment>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#hasSuscriptor">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#MailingList">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Suscriptor">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#suscriptorOf" />
+  <rdfs:label>hasSuscriptor</rdfs:label>
+  <rdfs:comment>A mailing list has a suscriptor</rdfs:comment>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#nextByDate">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#previousByDate" />
+  <rdfs:comment>Next message sent in mailing list</rdfs:comment>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#previousByDate">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#nextByDate" />
+  <rdfs:comment>Previous message by date in mailign list</rdfs:comment>
+  <rdfs:label>previousByDate</rdfs:label>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#sentIn">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#MailingList">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#sentMail" />
+  <rdfs:comment>Message sent it in a mailing list</rdfs:comment>
+  <rdfs:label>sentIn</rdfs:label>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#sentMail">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#MailingList">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#sentIn" />
+  <rdfs:comment>a mailing list have a sent mail</rdfs:comment>
+  <rdfs:label>sentMail</rdfs:label>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.1#suscriptorOf">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Suscriptor">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#MailingList">
+    </owl:Class>
+  </rdfs:range>
+  <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.1#hasSuscriptor" />
+  <rdfs:label>suscriptorOf</rdfs:label>
+  <rdfs:comment>Suscriptor of a mailing list</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="http://swaml.berlios.de/ns/0.1#body">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdfs:range>
+  <rdfs:comment>Message body</rdfs:comment>
+  <rdfs:label>body</rdfs:label>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://swaml.berlios.de/ns/0.1#date">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+</rdfs:range>
+  <rdfs:comment>Message date</rdfs:comment>
+  <rdfs:label>date</rdfs:label>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://swaml.berlios.de/ns/0.1#id">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdfs:range>
+  <rdfs:label>id</rdfs:label>
+  <rdfs:comment>Message unique id</rdfs:comment>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://swaml.berlios.de/ns/0.1#post">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+</rdfs:domain>
+  <rdfs:range>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdfs:range>
+  <rdfs:comment>Mailign list post address. Many people prefer to use swaml:post_sha1sum</rdfs:comment>
+  <rdfs:label>post</rdfs:label>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://swaml.berlios.de/ns/0.1#post_sha1sum">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdfs:range>
+  <rdfs:comment>
+   Applying the SHA1 mathematical functional to a 'mailto:' identifier (URI) for the mailing
+  </rdfs:comment>
+  <rdfs:label>post_sha1sum</rdfs:label>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://swaml.berlios.de/ns/0.1#subject">
+  <rdfs:domain>
+    <owl:Class rdf:about="http://swaml.berlios.de/ns/0.1#Message">
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range>
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdfs:range>
+  <rdfs:label>subject</rdfs:label>
+  <rdfs:comment>Message subject</rdfs:comment>
+</owl:DatatypeProperty>
+
+</rdf:RDF>
+\end{verbatim}
+
+No me extiendo más en la documentación de esta versión de la ontología, pues
+fue sólo una forma de aprender OWL que pronto fue sustituida por una siguiente
+versión, mucho más homogenea y madura como explicaré a continuación.
+
+
+\section*{Version 0.2}
+
+No tardé mucho en darme cuenta que esta primera versión de la ontología inclumplia
+ciertoz principioz de la web sematica. El más importante de ellos que modelaba
+cosas ya modeladas en otras ontologías más maduras y extendidas.
+
+Es así como el proyecto giró hacia SIOC\footnote{\url{http://sioc-project.org/}}
+(Semantically-Interlinked Online Communities). SIOC es una ontología desarrollada 
+por el equipo de web semántica de 
+DERI Galway\footnote{\url{http://www.deri.ie/}} para describir semánticamente 
+comunidades online.
+
+Se trata de una ontología perfectamente documentada\footnote{http://rdfs.org/sioc/spec/},
+que en el momento en que se escribe este documento se encuentra inmersa en el 
+proceso \emph{submission} al W3C.
+
+SIOC define, entre otras, algunas clases realmente interesantes para SWAML:
+
+\begin{itemize}
+  \item \texttt{sioc:Forum}, una clase que modela foros, incluyendo listas de corrreo
+	como la definida con \texttt{swaml:MailingList}.
+  \item \texttt{sioc:Post} sería equivalente a \texttt{swaml:Message}.
+  \item Y \texttt{sioc:User} lo sería con \texttt{swaml:Suscriptor}.
+\end{itemize}
+
+Por tanto se habia encontrado una ontología completa, madura, con una gran 
+comunidad detrás y libre de pantentes sobre la que construir SWAML.
+
+De todas las propiedades modeladas en la primera versión de nuestra ontología,
+sólo dos no se encontraban modeladas en SIOC: \texttt{swaml:nextByDate} y
+\texttt{swaml:previousByDate}. 
+
+Por tanto, y anticipandonos a una futura revisión de SIOC en la que se prevee 
+incluir subclases de \texttt{sioc:Forum},fue necesario añadirselas, con 
+\texttt{sioc:Post} como \texttt{rdfs:domain} y \texttt{rdfs:range}, a una nueva 
+revisión de la ontología de SWAML.
+
+Esta nueva versión paso a tener \url{http://swaml.berlios.de/ns/0.2} como
+URI.
+
+\newpage
+
+\begin{verbatim}
+<?xml version="1.0"?>
+<!DOCTYPE owl [
+  <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY ns "http://swaml.berlios.de/ns/0.2#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY sioc "http://rdfs.org/sioc/ns#">
+]>
+
+<rdf:RDF
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:ns="http://swaml.berlios.de/ns/0.2#"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xmlns:sioc="http://rdfs.org/sioc/ns#"
+ xml:base="http://swaml.berlios.de/ns/0.2"
+>
+
+  <owl:Ontology rdf:about="http://swaml.berlios.de/ns/0.2">
+    <rdfs:label>SWAML Ontology</rdfs:label>
+    <rdfs:comment>Semantic Web Archive of Mailing List Ontology</rdfs:comment>
+    <owl:versionInfo>0.2</owl:versionInfo>
+  </owl:Ontology>
+
+  <owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.2#nextByDate">
+    <rdfs:comment>Next message posted in a mailing list by date</rdfs:comment>
+    <rdfs:label>nextByDate</rdfs:label>
+    <rdfs:domain>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.2#previousByDate" />
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.2#previousByDate">
+    <rdfs:comment>Previous message posted in a mailign list by date</rdfs:comment>
+    <rdfs:label>previousByDate</rdfs:label>
+    <rdfs:domain>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="http://swaml.berlios.de/ns/0.2#nextByDate" />
+  </owl:ObjectProperty>
+
+</rdf:RDF>
+\end{verbatim}
+

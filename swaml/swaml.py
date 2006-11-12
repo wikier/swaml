@@ -19,10 +19,11 @@
 """Semantic Web Archive of Mailing Lists"""
 
 import sys, string
+from classes.ui import CommandLineUI
 from classes.configuration import Configuration
 from classes.mailinglist import MailingList
 
-class SWAML:
+class SWAML(CommandLineUI):
     """
     Main class of SWAML project
     
@@ -42,37 +43,13 @@ class SWAML:
             
         #self.config.show()
 
-
-    def usage(self):
-        """
-        Print help to use SWAML
-        
-        @todo: locate better name for format vars
-        """
-        
-        print """
-Usage: swaml.py configfile [options]
-        
-'swaml' transform the archives of a mailing list (in mbox format) into a semantic web friendly format (RDF in XML).
-
-   'configfile'      : path to a configuration file compatible with RFC822.
-
-Options:
-   -v, --verbose     : turn on verbose mode.
-   -V, --version     : show version.
-   -h, --help        : print this help message and exit.
-
-Report bugs to: <http://swaml.berlios.de/bugs>
-
-"""
-        sys.exit()
-        
-
     def __init__(self, argv):
         """
         main method
         @param argv: values of inline arguments
         """
+        
+        CommandLineUI.__init__(self, 'swaml')
         
         self.config = Configuration()        
         

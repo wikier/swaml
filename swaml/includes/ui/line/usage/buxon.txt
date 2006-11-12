@@ -1,0 +1,12 @@
+
+Usage: buxon.py [uri]
+        
+read a Forum published in SIOC vocabulary
+
+   uri :	forum's uri
+
+Options:
+   -h, --help           : print this help message and exit.
+
+Report bugs to: <http://swaml.berlios.de/bugs>
+

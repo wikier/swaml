@@ -23,6 +23,7 @@ import pygtk
 pygtk.require('2.0')
 import gtk, pango
 from gazpacho.loader.loader import ObjectBuilder
+from classes.ui import GtkUI
 import rdflib
 from rdflib import sparql, Namespace
 from classes.cache import Cache
@@ -69,7 +70,7 @@ class Callbacks:
 		buxon.alertWindow.destroy()
 		
 
-class Buxon:
+class Buxon(GtkUI):
 
 	def clear(self):
 		#tree
@@ -213,35 +214,6 @@ class Buxon:
 		else:
 			return None
 	
-	def alert(self, text):
-		self.alertWindow = gtk.Window(gtk.WINDOW_POPUP)
-		self.alertWindow.set_position(gtk.WIN_POS_CENTER_ALWAYS)
-		self.alertWindow.set_modal(True)
-		self.alertWindow.set_resizable(False)
-		self.alertWindow.set_border_width(0)
-		
-		vbox = gtk.VBox(False, 5)
-		vbox.set_border_width(10)
-		self.alertWindow.add(vbox)
-		vbox.show()
-				
-		align1 = gtk.Alignment(0.5, 0.5, 0, 0)
-		vbox.pack_start(align1, False, False, 5)
-		align1.show()
-		label = gtk.Label(text)
-		align1.add(label)
-		label.show()
-		
-		align2 = gtk.Alignment(0.5, 0.5, 0, 0)
-		vbox.pack_start(align2, False, False, 5)
-		align2.show()		
-		button = gtk.Button('OK')
-		button.connect('clicked', destroyAlert, 'cool button')
-		align2.add(button)
-		button.show()
-		
-		self.alertWindow.show()
-	
 	def messageBar(self, text):
 		self.statusbar.push(0, text)
 
@@ -258,18 +230,10 @@ class Buxon:
 			return self.cache.uri
 		
 	def destroy(self):
-		self.cache.dump()
+		if (self.cache != None):
+			self.cache.dump()
 
 	def main(self, uri=None):
-		if (uri != None):
-			self.input.set_text(uri)
-		gtk.main()
-
-	def __init__(self):
-		
-		self.cache = None
-		self.treeTranslator = {}
-		
 		#widgets
 		self.treeView = widgets.get_widget('postsTree')
 		
@@ -286,38 +250,22 @@ class Buxon:
 		#main window
 		self.window = widgets.get_widget('buxon')
 		self.window.set_icon_from_file('includes/rdf.ico')
-		self.window.show()
+		self.window.show()		
+		
+		if (uri != None):
+			self.input.set_text(uri)
+			
+		gtk.main()
+
+	def __init__(self):
+		
+		GtkUI.__init__(self, 'buxon')
+		
+		self.cache = None
+		self.treeTranslator = {}
 		
 
-#global vars and functions
-
-def destroyAlert(widget=None, other=None):
-	buxon.alertWindow.destroy()
-
-def usage():
-	"""
-	Gtk Sioc Forums Reader
-	"""
-		
-	print """
-Usage: buxon.py [uri]
-        
-read a forum published in SIOC vocabulary
-
-   uri :	forum's uri
-
-Options:
-   -h, --help           : print this help message and exit.
-
-Report bugs to: <http://swaml.berlios.de/bugs>
-
-"""
-	sys.exit()
-	
-if ('-h' in sys.argv or '--help' in sys.argv):
-	usage()
-		
-
+#global vars
 widgets = None
 callbacks = None
 buxon = None
@@ -329,6 +277,9 @@ if __name__ == '__main__':
 		callbacks = Callbacks()
 		widgets.signal_autoconnect(Callbacks.__dict__)	
 		buxon = Buxon()
+		
+		if ('-h' in sys.argv or '--help' in sys.argv):
+			buxon.usage()
 		
 		if (len(sys.argv)>1):
 			buxon.main(sys.argv[1])

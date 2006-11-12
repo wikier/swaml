@@ -3,128 +3,128 @@
 
 Diego Berrueta (Agosto 2005)
 
-Las listas de correo son parte fundamental de la comunicaciÛn en Internet.
+Las listas de correo son parte fundamental de la comunicaci√≥n en Internet.
 Existen listas de correo dedicadas a cualquier tema de inter\'es imaginable.
-Hoy en dÌa, es com˙n que las listas de correo publiquen sus archivos (los
-mensajes antiguos) en forma de p·ginas web, lo que dispara su utilidad,
-especialmente en combinaciÛn con los buscadores actuales. Gracias a esta 
-publicaciÛn, es posible consultar los mensajes desde el navegador, sin 
-necesidad de estar suscrito a las listas de correo, y tambiÈn se puede 
+Hoy en d√≠a, es com√∫n que las listas de correo publiquen sus archivos (los
+mensajes antiguos) en forma de p√°ginas web, lo que dispara su utilidad,
+especialmente en combinaci√≥n con los buscadores actuales. Gracias a esta 
+publicaci√≥n, es posible consultar los mensajes desde el navegador, sin 
+necesidad de estar suscrito a las listas de correo, y tambi√©n se puede 
 localizar un mensaje usando Google u otro buscador.
 
 Estos archivos contienen una formidable base de conocimiento, especialmente
-en temas tÈcnicos. Un uso muy com˙n consiste en introducir un mensaje de error 
-(de una aplicaciÛn) en Google\footnote{\url{http://www.google.es/}} y obtener 
+en temas t√©cnicos. Un uso muy com√∫n consiste en introducir un mensaje de error 
+(de una aplicaci√≥n) en Google\footnote{\url{http://www.google.es/}} y obtener 
 como resultado un mensaje archivado que aborda el problema, probablemente 
 porque alguien se ha encontrado previamente con el mismo error y ha efectuado 
-la consulta en una lista de correo pÛblica. Con suerte, alguna de las respuestas 
-al mensaje localizado contendr· la soluciÛn al problema, aportada por un experto 
+la consulta en una lista de correo p√≥blica. Con suerte, alguna de las respuestas 
+al mensaje localizado contendr√° la soluci√≥n al problema, aportada por un experto 
 suscrito a la lista de correo.
 
 \section*{Problemas}
 
 Por desgracia, consultar los archivos de una lista de correo en la web es
-m·s incÛmodo que hacerlo mediante un cliente de correo electrÛnico.
-Por poner sÛlo algunos ejemplos, el navegador no permite ejecutar ninguna
+m√°s inc√≥modo que hacerlo mediante un cliente de correo electr√≥nico.
+Por poner s√≥lo algunos ejemplos, el navegador no permite ejecutar ninguna
 de estas acciones:
 
 \begin{itemize}
- \item Mostrar el hilo de la conversaciÛn en forma de ·rbol.
+ \item Mostrar el hilo de la conversaci√≥n en forma de √°rbol.
  \item Imprimir el hilo completo.
  \item Mostrar una lista de los mensajes entre dos fechas arbitrarias.
  \item Ocultar los mensajes que no tienen respuestas.
- \item Mostrar sÛlo los mensajes de una cierta persona.
- \item Buscar una cadena de texto sÛlo en los mensajes de un determinado hilo.
+ \item Mostrar s√≥lo los mensajes de una cierta persona.
+ \item Buscar una cadena de texto s√≥lo en los mensajes de un determinado hilo.
  \item Descargar el hilo como un fichero, o cualquier otra forma de exportar la
- informaciÛn para poder acceder a ella desde un cliente de correo electrÛnico
- o fuera de lÌnea.
+ informaci√≥n para poder acceder a ella desde un cliente de correo electr√≥nico
+ o fuera de l√≠nea.
  \item Responder a un mensaje usando un cliente de correo (o un webmail) y 
  citando el mensaje original.
 \end{itemize}
 
 Al indexar los archivos de las listas de correo, los buscadores se encuentran
-en ocasiones que los mensajes est·n replicados en varios servidores (mirrors).
+en ocasiones que los mensajes est√°n replicados en varios servidores (mirrors).
 Al no tener forma de identificar los mensajes, la desgraciada consecuencia
-es que los mensajes aparecen varias veces en los resultados de las b˙squedas,
-y sÛlo el usuario puede darse cuenta de que se trata de una repeticiÛn.
-Naturalmente, el comportamiento ideal serÌa que los mensajes aparecieran
-sÛlo una vez en los resultados del buscador.
+es que los mensajes aparecen varias veces en los resultados de las b√∫squedas,
+y s√≥lo el usuario puede darse cuenta de que se trata de una repetici√≥n.
+Naturalmente, el comportamiento ideal ser√≠a que los mensajes aparecieran
+s√≥lo una vez en los resultados del buscador.
 
-\section*{Origen de los problemas: pÈrdida de informaciÛn}
+\section*{Origen de los problemas: p√©rdida de informaci√≥n}
 
-En el origen de estos problemas se encuentra una pÈrdida de informaciÛn
-que se produce al convertir los mensajes archivados a HTML para su publicaciÛn
+En el origen de estos problemas se encuentra una p√©rdida de informaci√≥n
+que se produce al convertir los mensajes archivados a HTML para su publicaci√≥n
 en la web.
 
-Los gestores m·s habituales de listas de correo (mailman, majordomo, sympa,
+Los gestores m√°s habituales de listas de correo (mailman, majordomo, sympa,
 etc.) generan un fichero en formato Mailbox (mbox) con los mensajes que
 han sido enviados a la lista.
 
 Otros programas independientes, como hypermail, monharc, pipermail..., se
-especializan en convertir el fichero Mailbox en un conjunto de p·ginas
-web est·ticas.
+especializan en convertir el fichero Mailbox en un conjunto de p√°ginas
+web est√°ticas.
 
-Los programas m·s sofisticados son capaces de generar Ìndices complejos
-de los archivos (por fecha, por autor, por hilo...), con m˙ltiples referencias
-cruzadas entre los mensajes en forma de hipervÌnculos (mensaje anterior,
+Los programas m√°s sofisticados son capaces de generar √≠ndices complejos
+de los archivos (por fecha, por autor, por hilo...), con m√∫ltiples referencias
+cruzadas entre los mensajes en forma de hiperv√≠nculos (mensaje anterior,
 mensaje siguiente, etc.).
 
-Pero incluso en el mejor de los casos, esta informaciÛn sÛlo es comprensible
-para el usuario, nunca para la m·quina.
+Pero incluso en el mejor de los casos, esta informaci√≥n s√≥lo es comprensible
+para el usuario, nunca para la m√°quina.
 
-En consecuencia, es imposible explotarla m·s all· de las formas previstas
+En consecuencia, es imposible explotarla m√°s all√° de las formas previstas
 por el programa que ha generado los archivos.
 
-Entre la informaciÛn que se pierde en la publicaciÛn, se encuentra:
+Entre la informaci√≥n que se pierde en la publicaci√≥n, se encuentra:
 
 \begin{itemize}
  \item El asunto del mensaje.
  \item El autor del mensaje.
  \item La fecha del mensaje.
- \item La referencia a la lista de correo en la que se publicÛ el mensaje.
+ \item La referencia a la lista de correo en la que se public√≥ el mensaje.
  \item La referencia al mensaje anterior, si existe.
  \item Las referencias (enlaces) a las posibles respuestas al mensaje.
 \end{itemize}
 
-\section*{Propuesta para conservar la informaciÛn}
+\section*{Propuesta para conservar la informaci√≥n}
 
-Las tecnologÌas de la web sem·ntica (y concretamente, RDF) son perfectamente
-capaces de publicar en la web toda la informaciÛn seÒalada en la secciÛn
-anterior. Dado que la informaciÛn ya existe en el origen, no es necesario 
-ning˙n procedimiento manual para enriquecerla. Tan sÛlo debe considerarse un 
-proceso de conversiÛn que no desprecie la informaciÛn, sino que la publique 
+Las tecnolog√≠as de la web sem√°ntica (y concretamente, RDF) son perfectamente
+capaces de publicar en la web toda la informaci√≥n se√±alada en la secci√≥n
+anterior. Dado que la informaci√≥n ya existe en el origen, no es necesario 
+ning√∫n procedimiento manual para enriquecerla. Tan s√≥lo debe considerarse un 
+proceso de conversi√≥n que no desprecie la informaci√≥n, sino que la publique 
 junto con los archivos en HTML. De esta forma, las listas de correo se 
-introducirÌan en la web sem·ntica.
+introducir√≠an en la web sem√°ntica.
 
 \section*{Aplicaciones}
 
-Enriquecer sem·nticamente la publicaciÛn web de los archivos de las listas
-de correo abrirÌa la puerta a nuevas aplicaciones:
+Enriquecer sem√°nticamente la publicaci√≥n web de los archivos de las listas
+de correo abrir√≠a la puerta a nuevas aplicaciones:
 
 \begin{itemize}
-  \item Eliminar la apariciÛn repetida de los mismos mensajes en los resultados
- 	de los buscadores. Para lograrlo, los buscadores deberÌan procesar la 
-	informaciÛn sem·ntica para reconocer las copias (mirrors) de los archivos.
+  \item Eliminar la aparici√≥n repetida de los mismos mensajes en los resultados
+ 	de los buscadores. Para lograrlo, los buscadores deber√≠an procesar la 
+	informaci√≥n sem√°ntica para reconocer las copias (mirrors) de los archivos.
   \item Implementar en los navegadores nuevas funcionalidades para resolver alguno
-	de los problemas antes seÒalados. Estas capacidades, que mejorarÌan 
-	sensiblemente la comodidad en la consulta de los archivos, podrÌan aÒadirse 
+	de los problemas antes se√±alados. Estas capacidades, que mejorar√≠an 
+	sensiblemente la comodidad en la consulta de los archivos, podr√≠an a√±adirse 
 	como extensiones o plug-ins de los navegadores actuales.
-  \item Obtener informaciÛn sobre los suscriptores de una lista de correo. Por 
-	ejemplo, conocer en quÈ otras listas de correo participa una persona. 
-	Esta aplicaciÛn es especialmente interesante en conexiÛn con 
+  \item Obtener informaci√≥n sobre los suscriptores de una lista de correo. Por 
+	ejemplo, conocer en qu√© otras listas de correo participa una persona. 
+	Esta aplicaci√≥n es especialmente interesante en conexi√≥n con 
 	FOAF\footnote{\url{http://www.foaf-project.org/}.} De este modo, se 
-	podrÌa sacar una \emph{orla} con las fotos de los participantes en una 
-	lista de correo \footnote{Como hace GNOME, vÈase 
-	\url{http://planet.gnome.org/heads/}}, o situarlos geogr·ficamente en un 
+	podr√≠a sacar una \emph{orla} con las fotos de los participantes en una 
+	lista de correo \footnote{Como hace GNOME, v√©ase 
+	\url{http://planet.gnome.org/heads/}}, o situarlos geogr√°ficamente en un 
 	mapa \footnote{Como hace Debian, 
-	vÈase \url{http://www.debian.org/devel/developers.loc}}
-  \item Facilitar la internacionalizaciÛn. Al hacer comprensibles las relaciones entre 
-	los mensajes por el software, el navegador proporcionarÌa las opciones de 
-	exploraciÛn (mensaje siguiente, mensaje anterior, etc.) en el idioma del 
-	usuario, independientemente del idioma en el que se encontrasen las p·ginas 
+	v√©ase \url{http://www.debian.org/devel/developers.loc}}
+  \item Facilitar la internacionalizaci√≥n. Al hacer comprensibles las relaciones entre 
+	los mensajes por el software, el navegador proporcionar√≠a las opciones de 
+	exploraci√≥n (mensaje siguiente, mensaje anterior, etc.) en el idioma del 
+	usuario, independientemente del idioma en el que se encontrasen las p√°ginas 
 	HTML.
-  \item Mejorar la accesibilidad de la informaciÛn. Las tecnologÌas de accesibilidad 
-	podrÌan informar sobre quiÈn es el autor del mensaje o cu·ntas respuestas hay, 
+  \item Mejorar la accesibilidad de la informaci√≥n. Las tecnolog√≠as de accesibilidad 
+	podr√≠an informar sobre qui√©n es el autor del mensaje o cu√°ntas respuestas hay, 
 	usando la voz u otros medios.
 \end{itemize}
 
@@ -136,31 +136,31 @@ Existen algunos trabajos similares a esta propuesta:
   \item El proyecto DOAML\footnote{\url{http://www.doaml.net/}} consiste en un 
 	vocabulario RDF para describir listas de correo. Como ejemplo, en 
 	la web del proyecto se encuentran las descripciones de las listas 
-	de correo del W3C. La informaciÛn de este vocabulario limita sus 
-	referencias a los mensajes archivados a un enlace a la versiÛn HTML 
-	de Èstos.
+	de correo del W3C. La informaci√≥n de este vocabulario limita sus 
+	referencias a los mensajes archivados a un enlace a la versi√≥n HTML 
+	de √©stos.
   \item Por otro lado, EMiR\footnote{\url{http://xmlns.filsa.org/emir/}} es un 
-	esquema RDF para describir mensajes de correo electrÛnico. 
-  \item En la misma lÌnea se encuentra XMTP\footnote{\url{http://www.openhealth.org/xmtp/}}.
+	esquema RDF para describir mensajes de correo electr√≥nico. 
+  \item En la misma l√≠nea se encuentra XMTP\footnote{\url{http://www.openhealth.org/xmtp/}}.
 \end{itemize}
 
 \section*{Conclusiones}
 
-Introducir los archivos de las listas de correo en la web sem·ntica sÛlo
-requiere disponer de una aplicaciÛn de publicaciÛn que utilice la tecnologÌa
+Introducir los archivos de las listas de correo en la web sem√°ntica s√≥lo
+requiere disponer de una aplicaci√≥n de publicaci√≥n que utilice la tecnolog√≠a
 apropiada (RDF) como complemento al HTML.
 
-Con un mÌnimo esfuerzo, los administradores de todas las listas de correo
-podrÌan emplear la aplicaciÛn en sus listas, por lo que la implantaciÛn
-serÌa r·pida\footnote{En realidad, cualquier suscriptor (no necesariamente 
-el administrador) de una lista de correo podrÌa publicar los archivos enriquecidos.
-Tan sÛlo deberÌa disponer de todos los mensajes antiguos almacenados en su 
-cliente de correo electrÛnico, y exportarlos al formato Mbox.}. Adem·s, al 
-no requerirse la participaciÛn de un experto para el enriquecimiento de la 
-informaciÛn, resultarÌa posible enriquecer inmediatamente grandes vol˙menes 
-de informaciÛn, incluso listas de correo que lleven muchos aÒos en funcionamiento.
+Con un m√≠nimo esfuerzo, los administradores de todas las listas de correo
+podr√≠an emplear la aplicaci√≥n en sus listas, por lo que la implantaci√≥n
+ser√≠a r√°pida\footnote{En realidad, cualquier suscriptor (no necesariamente 
+el administrador) de una lista de correo podr√≠a publicar los archivos enriquecidos.
+Tan s√≥lo deber√≠a disponer de todos los mensajes antiguos almacenados en su 
+cliente de correo electr√≥nico, y exportarlos al formato Mbox.}. Adem√°s, al 
+no requerirse la participaci√≥n de un experto para el enriquecimiento de la 
+informaci√≥n, resultar√≠a posible enriquecer inmediatamente grandes vol√∫menes 
+de informaci√≥n, incluso listas de correo que lleven muchos a√±os en funcionamiento.
 
-El desarrollo de una aplicaciÛn de estas caracterÌsticas requerirÌa, en
-primer lugar, la creaciÛn de un esquema de informaciÛn, que muy bien podrÌa
-ser una combinaciÛn de los ya existentes; y en segundo lugar, el procesamiento 
-de un fichero Mbox para extraer la informaciÛn que contiene.
+El desarrollo de una aplicaci√≥n de estas caracter√≠sticas requerir√≠a, en
+primer lugar, la creaci√≥n de un esquema de informaci√≥n, que muy bien podr√≠a
+ser una combinaci√≥n de los ya existentes; y en segundo lugar, el procesamiento 
+de un fichero Mbox para extraer la informaci√≥n que contiene.

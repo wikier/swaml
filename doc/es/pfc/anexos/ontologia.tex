@@ -1,29 +1,29 @@
 
-\chapter{OntologÌa}
+\chapter{Ontolog√≠a}
 
-Se ha desarrollado, teniendo muy en cuenta las buenas pr·cticas que recomienda 
+Se ha desarrollado, teniendo muy en cuenta las buenas pr√°cticas que recomienda 
 el W3C para publicar vocabularios RDF\footnote{http://www.w3.org/TR/swbp-vocab-pub/}, 
-una sencilla ontologÌa que formalizara las representaciÛn de una lista de correo 
+una sencilla ontolog√≠a que formalizara las representaci√≥n de una lista de correo 
 que SWAML publica en RDF. 
 
 \section*{Version 0.1}
 
-La primera versiÛn de la ontologÌa modelaba una lista de correo con clases propias,
-apoyandose ˙nicamente en algunas clases y propiedades de 
+La primera versi√≥n de la ontolog√≠a modelaba una lista de correo con clases propias,
+apoyandose √∫nicamente en algunas clases y propiedades de 
 FOAF\footnote{\url{http://www.foaf-project.org/}} y 
 Dublin Core\footnote{\url{http://dublincore.org/}}.
 
-La ontologÌa definÌa tres clases para representar una lista de correo, relacionadas
+La ontolog√≠a defin√≠a tres clases para representar una lista de correo, relacionadas
 como se puede ver en la figura \ref{fig:swamlOWL}:
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/swaml-owl.png}
-	\caption{RepresentaciÛn gr·fica de las clases descritas en la ontologÌa de SWAML}
+	\caption{Representaci√≥n gr√°fica de las clases descritas en la ontolog√≠a de SWAML}
 	\label{fig:swamlOWL}
 \end{figure}
 
-Esta versiÛn 0.1 estaba desarrollada en OWL DL, disponiendo evidentemente
+Esta versi√≥n 0.1 estaba desarrollada en OWL DL, disponiendo evidentemente
 de una URI: \url{http://swaml.berlios.de/ns/01}.
 
 \newpage
@@ -267,24 +267,24 @@ de una URI: \url{http://swaml.berlios.de/ns/01}.
 </rdf:RDF>
 \end{verbatim}
 
-No me extiendo m·s en la documentaciÛn de esta versiÛn de la ontologÌa, pues
-fue sÛlo una forma de aprender OWL que pronto fue sustituida por una siguiente
-versiÛn, mucho m·s homogenea y madura como explicarÈ a continuaciÛn.
+No me extiendo m√°s en la documentaci√≥n de esta versi√≥n de la ontolog√≠a, pues
+fue s√≥lo una forma de aprender OWL que pronto fue sustituida por una siguiente
+versi√≥n, mucho m√°s homogenea y madura como explicar√© a continuaci√≥n.
 
 
 \section*{Version 0.2}
 
-No tardÈ mucho en darme cuenta que esta primera versiÛn de la ontologÌa inclumplia
-ciertoz principioz de la web sematica. El m·s importante de ellos que modelaba
-cosas ya modeladas en otras ontologÌas m·s maduras y extendidas.
+No tard√© mucho en darme cuenta que esta primera versi√≥n de la ontolog√≠a inclumplia
+ciertoz principioz de la web sematica. El m√°s importante de ellos que modelaba
+cosas ya modeladas en otras ontolog√≠as m√°s maduras y extendidas.
 
-Es asÌ como el proyecto girÛ hacia SIOC\footnote{\url{http://sioc-project.org/}}
-(Semantically-Interlinked Online Communities). SIOC es una ontologÌa desarrollada 
-por el equipo de web sem·ntica de 
-DERI Galway\footnote{\url{http://www.deri.ie/}} para describir sem·nticamente 
+Es as√≠ como el proyecto gir√≥ hacia SIOC\footnote{\url{http://sioc-project.org/}}
+(Semantically-Interlinked Online Communities). SIOC es una ontolog√≠a desarrollada 
+por el equipo de web sem√°ntica de 
+DERI Galway\footnote{\url{http://www.deri.ie/}} para describir sem√°nticamente 
 comunidades online.
 
-Se trata de una ontologÌa perfectamente documentada\footnote{http://rdfs.org/sioc/spec/},
+Se trata de una ontolog√≠a perfectamente documentada\footnote{http://rdfs.org/sioc/spec/},
 que en el momento en que se escribe este documento se encuentra inmersa en el 
 proceso \emph{submission} al W3C.
 
@@ -293,23 +293,23 @@ SIOC define, entre otras, algunas clases realmente interesantes para SWAML:
 \begin{itemize}
   \item \texttt{sioc:Forum}, una clase que modela foros, incluyendo listas de corrreo
 	como la definida con \texttt{swaml:MailingList}.
-  \item \texttt{sioc:Post} serÌa equivalente a \texttt{swaml:Message}.
-  \item Y \texttt{sioc:User} lo serÌa con \texttt{swaml:Suscriptor}.
+  \item \texttt{sioc:Post} ser√≠a equivalente a \texttt{swaml:Message}.
+  \item Y \texttt{sioc:User} lo ser√≠a con \texttt{swaml:Suscriptor}.
 \end{itemize}
 
-Por tanto se habia encontrado una ontologÌa completa, madura, con una gran 
-comunidad detr·s y libre de pantentes sobre la que construir SWAML.
+Por tanto se habia encontrado una ontolog√≠a completa, madura, con una gran 
+comunidad detr√°s y libre de pantentes sobre la que construir SWAML.
 
-De todas las propiedades modeladas en la primera versiÛn de nuestra ontologÌa,
-sÛlo dos no se encontraban modeladas en SIOC: \texttt{swaml:nextByDate} y
+De todas las propiedades modeladas en la primera versi√≥n de nuestra ontolog√≠a,
+s√≥lo dos no se encontraban modeladas en SIOC: \texttt{swaml:nextByDate} y
 \texttt{swaml:previousByDate}. 
 
-Por tanto, y anticipandonos a una futura revisiÛn de SIOC en la que se prevee 
-incluir subclases de \texttt{sioc:Forum},fue necesario aÒadirselas, con 
+Por tanto, y anticipandonos a una futura revisi√≥n de SIOC en la que se prevee 
+incluir subclases de \texttt{sioc:Forum},fue necesario a√±adirselas, con 
 \texttt{sioc:Post} como \texttt{rdfs:domain} y \texttt{rdfs:range}, a una nueva 
-revisiÛn de la ontologÌa de SWAML.
+revisi√≥n de la ontolog√≠a de SWAML.
 
-Esta nueva versiÛn paso a tener \url{http://swaml.berlios.de/ns/0.2} como
+Esta nueva versi√≥n paso a tener \url{http://swaml.berlios.de/ns/0.2} como
 URI.
 
 \newpage

@@ -1,252 +1,252 @@
 
-\section{ConcepciÛn}
+\section{Concepci√≥n}
 
 FIXME
 
-\subsection{VisÛn}
+\subsection{Vis√≥n}
 
 FIXME
 
-\subsection{EspecificaciÛn de requisitos}
+\subsection{Especificaci√≥n de requisitos}
 
 FIXME
 
 \subsubsection{Datos de entrada}
 
-La fuente de informaciÛn ser· una lista de correo en formato
+La fuente de informaci√≥n ser√° una lista de correo en formato
 mbox\footnote{\url{http://rfc.net/rfc4155.html}}, un formato estandarizado
-que utilizan la mayoria de los sistemas de gestiÛn de listas de correo
+que utilizan la mayoria de los sistemas de gesti√≥n de listas de correo
 (Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, 
 Majordomo\footnote{\url{http://www.greatcircle.com/majordomo/}},
 LISTSERV, Listproc y SmartList entre otros).
 
-El formato mbox no es m·s que un fichero de texto plano en el que se van
+El formato mbox no es m√°s que un fichero de texto plano en el que se van
 almacenando consecutivamente los correos que van llegando a la lista. Se 
 almacenan tal cual son enviados a la lista, con su cabeceras originales 
-completas y en la codificaciÛn del cliente de correo del usuario.
+completas y en la codificaci√≥n del cliente de correo del usuario.
 
-Por tanto es f·cil adivinar dos problemas evidentes de este formato:
+Por tanto es f√°cil adivinar dos problemas evidentes de este formato:
 
 \paragraph{Identificacores}
 
 FIXME
 
 Cada correo dispone de un identificador (cabecera \texttt{Message-Id}). Cuando
-alguien responde un mensaje, el cliente de correo colocar· en el nuevo una 
+alguien responde un mensaje, el cliente de correo colocar√° en el nuevo una 
 cabecera (\texttt{In-Reply-To}) con este ID para referirse explicitamente al 
-mensaje que se est· respondiendo.
+mensaje que se est√° respondiendo.
 
 Este el mecanismo especificado en el RFC\footnote{\url{http://rfc.net/rfc2822.html}} 
-para las gestiÛn de hilos de conversaciÛn por medio de correo electrÛnico. Y es
-mecanismo que utilizado para representar las conversaciones en forma de ·rbol, 
+para las gesti√≥n de hilos de conversaci√≥n por medio de correo electr√≥nico. Y es
+mecanismo que utilizado para representar las conversaciones en forma de √°rbol, 
 tanto en clientes de correo (Evolution, Thunderbird, Outlook, etc) como en sistemas 
-convecionales de publicaciÛn de listas de correo.
+convecionales de publicaci√≥n de listas de correo.
 
 Dicho identificador tiene una forma similar a \texttt{<3C94C55A3B6A@smtp.isp.com>}.
 
-Pero ese ID no es ˙nico, sino que es asignado por el propio servidor
+Pero ese ID no es √∫nico, sino que es asignado por el propio servidor
 SMTP\footnote{\url{http://es.wikipedia.org/wiki/SMTP}} (Simple Mail Transfer Protocol) 
 de forma arbitraria a la hora de enviar el correo.
 
-Por tanto no deberÌa poder usarse, al menos garantizando un rigurosidad extrema
+Por tanto no deber√≠a poder usarse, al menos garantizando un rigurosidad extrema
 a la hora de identificar cada uno de los mensajes y sus respuestas.
 
-PodrÌa usarse algoritmos eurÌsticos con el asunto del mensaje, aunque tampoco nos
-garantizarÌan una fiabilidad absoluta al poder cambiarse el asunto en cualquier
+Podr√≠a usarse algoritmos eur√≠sticos con el asunto del mensaje, aunque tampoco nos
+garantizar√≠an una fiabilidad absoluta al poder cambiarse el asunto en cualquier
 mensaje del hilo.
 
-Pero si existe una aproximaciÛn al problema que consigue una efectividad bastante
-alta seg˙n se ha podido comprobar. Consiste en asumir que cuando hay una respuesta
-a un mensaje, existe una alta probabilidad que se estÈ respondiendo a ˙ltimo de los 
+Pero si existe una aproximaci√≥n al problema que consigue una efectividad bastante
+alta seg√∫n se ha podido comprobar. Consiste en asumir que cuando hay una respuesta
+a un mensaje, existe una alta probabilidad que se est√© respondiendo a √∫ltimo de los 
 mensajes enviados con ID repetido.
 
-\paragraph{CodificaciÛn}
+\paragraph{Codificaci√≥n}
 
 FIXME
 
-(cada uno de su padre y de su madre, y almacenados en la codificaciÛn del
+(cada uno de su padre y de su madre, y almacenados en la codificaci√≥n del
 servidor)
 
 \subsubsection{Datos de salida}
 
 FIXME(HTML, XML, RDF, etc...)
 
-\subsubsection{Lenguaje de programaciÛn}
+\subsubsection{Lenguaje de programaci√≥n}
 
-El problema planteado requiere de una lenguaje de programaciÛn que disponga
-de determinadas caracterÌsticas:
+El problema planteado requiere de una lenguaje de programaci√≥n que disponga
+de determinadas caracter√≠sticas:
 
 \begin{itemize}
-  \item F·cil despliegue: hay que procurar que SWAML se pueda desplegar en
-	todo tipo de m·quinas, sin excesivos requisitos ni hardware ni software.
+  \item F√°cil despliegue: hay que procurar que SWAML se pueda desplegar en
+	todo tipo de m√°quinas, sin excesivos requisitos ni hardware ni software.
 	Es importante que SWAML pueda ser invocado por los distintos programadores
 	de tarea de que disponen los sistemas operativos (cron y similares).
   \item API para RDF: que disponga de una madura bliblioteca, a poder ser nativa, 
-	para manejar RDF (creaciÛn de grafos, parseo desde disco/URI, serializado
+	para manejar RDF (creaci√≥n de grafos, parseo desde disco/URI, serializado
 	a disco y/o bases de datos, consultas SPARQL, etc).
-  \item Biblioteca para ficheros mbox: serÌa interesante disponer de una biblioteca 
+  \item Biblioteca para ficheros mbox: ser√≠a interesante disponer de una biblioteca 
 	que abstraiga lo mayor posible al proyecto del manejo de ficheros
 	mbox\footnote{\url{http://rfc.net/rfc4155.html}} y mensajes de correo 
-	electrÛnico\footnote{\url{http://rfc.net/rfc2822.html}}.
+	electr√≥nico\footnote{\url{http://rfc.net/rfc2822.html}}.
 \end{itemize}
 
 Por tanto el cumplimiento de estas tres necesidades principales era lo primero
-a valorar entre todos lenguajes de programaciÛn candidatos a convertirse en el
+a valorar entre todos lenguajes de programaci√≥n candidatos a convertirse en el
 lenguaje utilizado para implementar SWAML. 
 
-Pero tambien se iba a tener en cuenta otras cualidades m·s generales al problema,
+Pero tambien se iba a tener en cuenta otras cualidades m√°s generales al problema,
 como por ejemplo:
 
 \begin{itemize}
-  \item Aspectos concretos de la OOP (object-oriented programming, programaciÛn 
+  \item Aspectos concretos de la OOP (object-oriented programming, programaci√≥n 
 	orientada a objetos) que cubra.
-  \item Sencillez de desarrollo y posterior estudio del cÛdigo.
-  \item Portabilidad de la soluciÛn generada.
-  \item Posibilidad de usarse compiladores/intÈrpretes libres.
+  \item Sencillez de desarrollo y posterior estudio del c√≥digo.
+  \item Portabilidad de la soluci√≥n generada.
+  \item Posibilidad de usarse compiladores/int√©rpretes libres.
   \item FIXME
 \end{itemize}
 
 Despues de revisar los lenguajes dsiponibles, fueron varios los candidatos para
-someterlos a un estudio m·s profundo:
+someterlos a un estudio m√°s profundo:
 
 \paragraph{Java}: Java\footnote{\url{http://java.sun.com/}}
-es un lenguaje de programaciÛn, desarrollado por Sun Microsystems, orientado a 
-objetos muy popular desde hace varios aÒos. Java no se compila a cÛdigo nativo, 
-sino que una JVM (Java Virtual Machine, m·quina virtual de Java) ejecuta el 
+es un lenguaje de programaci√≥n, desarrollado por Sun Microsystems, orientado a 
+objetos muy popular desde hace varios a√±os. Java no se compila a c√≥digo nativo, 
+sino que una JVM (Java Virtual Machine, m√°quina virtual de Java) ejecuta el 
 bytecode previamente compilado.
 
-En la actualidad se disponen de multitud de implementaciones de la m·quina virtual
+En la actualidad se disponen de multitud de implementaciones de la m√°quina virtual
 de Java, desde las propietarias (Sun, IBM, HP, etc) hasta las libres (Harmony, GIJ, 
 Kafee, IKVM.NET, etc).
 
-Sobre el problema que nos ataÒe:
+Sobre el problema que nos ata√±e:
 
 \begin{itemize}
   \item Actualmente las JVM existentes cubren un amplio abanico de arquitecturas y 
-	sistemas operativos. Aunque Java estÈ m·s pensado para su uso en otro tipo
+	sistemas operativos. Aunque Java est√© m√°s pensado para su uso en otro tipo
 	de entornos (J2EE por ejemplo), puede invocarse perfectamente en modo en
 	linea.
   \item Dispone de forma nativa (desarrollado tambien en Java) de la biblioteca para
-	manejar RDF m·s madura actualmente: Jena\footnote{\url{http://jena.sourceforge.net/}}.
-	El famework Jena incluye paquetes para m˙ltiples propÛsitos dentro de la web
-	sem·ntica: API para RDF y OWL, persistencia, serializado y soporte para consultas
+	manejar RDF m√°s madura actualmente: Jena\footnote{\url{http://jena.sourceforge.net/}}.
+	El famework Jena incluye paquetes para m√∫ltiples prop√≥sitos dentro de la web
+	sem√°ntica: API para RDF y OWL, persistencia, serializado y soporte para consultas
 	SPARQL.
   \item FIXME
 \end{itemize}
 
-Quiz·s la ˙nica (y mayor) pega se encuentre en los tÈrminos de licencia de las 
-mejores implementaciones de la m·quina virtual de Java, lo que complicaria de una
-manera importante un futura distribuciÛn de SWAML de manera totalmente libre,
-pues tendrÌa como dependencias paquetes no libres.
+Quiz√°s la √∫nica (y mayor) pega se encuentre en los t√©rminos de licencia de las 
+mejores implementaciones de la m√°quina virtual de Java, lo que complicaria de una
+manera importante un futura distribuci√≥n de SWAML de manera totalmente libre,
+pues tendr√≠a como dependencias paquetes no libres.
 
 
 \paragraph{Python}: Python\footnote{\url{http://www.python.org/}} es un lenguaje de 
-script extremadamente eficiente. Su uso est· muy extendido en todos los sistemas 
-Unix actuales (GNU/Linux, familia BSD, Solaris, etc), aunque tambiÈn est· disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
-operativos actuales (Windows, MacOS y dem·s).
+script extremadamente eficiente. Su uso est√° muy extendido en todos los sistemas 
+Unix actuales (GNU/Linux, familia BSD, Solaris, etc), aunque tambi√©n est√° disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
+operativos actuales (Windows, MacOS y dem√°s).
 
-Se trata de un lenguaje de script mucho m·s moderno que otros lenguajes hermanos 
-tipo bash o perl. Python va m·s alla, disponiendo en un lenguaje de script 
-interpretado y con tipado din·mico de toda la potencia de los lenguajes orientados 
-a objetos m·s modernos.
+Se trata de un lenguaje de script mucho m√°s moderno que otros lenguajes hermanos 
+tipo bash o perl. Python va m√°s alla, disponiendo en un lenguaje de script 
+interpretado y con tipado din√°mico de toda la potencia de los lenguajes orientados 
+a objetos m√°s modernos.
 
 Respecto a los tres requisitos que nos interesan:
 
 \begin{itemize}
   \item Al tratarse de un lenguaje de script basta dsiponer de un interprete 
-	instalado en el sistema para poderlo ejecutar. Adem·s esta caracteristica
+	instalado en el sistema para poderlo ejecutar. Adem√°s esta caracteristica
 	simplifica enormemente la forma de invocarlo desde un programador de
 	tareas.
   \item Existen varias posibilidades para manejar RDF desde Python. Algunas son
-	bibliotecas nativas desarrolladas tambiÈn en Python, y otras est·n
+	bibliotecas nativas desarrolladas tambi√©n en Python, y otras est√°n
 	disponibles en forma de bindings a bibliotecas desarrolladas en otro 
 	lenguaje.
-	De todas las posibilidades, quiz·s RDFLib\footnote{\url{http://rdflib.net/}}
-	sea la que se encuentra en un estado de desarrollo m·s avanzado y maduro 
-	(persistencia, serializaciÛn, consultas SPARQL, etc).
-	Adem·s ofrece la posibilidad de \emph{colocar encima} otras bibliotecas,
+	De todas las posibilidades, quiz√°s RDFLib\footnote{\url{http://rdflib.net/}}
+	sea la que se encuentra en un estado de desarrollo m√°s avanzado y maduro 
+	(persistencia, serializaci√≥n, consultas SPARQL, etc).
+	Adem√°s ofrece la posibilidad de \emph{colocar encima} otras bibliotecas,
 	como por ejemplo Sparta\footnote{\url{http://www.mnot.net/sw/sparta/}},
 	para utilizar determinados conceptos que no contempla RDFLib.
-  \item Python dispone una extensa y completa biblioteca estandar, adem·s de contar
-	con multitud de bibliotecas para los m·s variopintos propÛsitos. Con modulos 
+  \item Python dispone una extensa y completa biblioteca estandar, adem√°s de contar
+	con multitud de bibliotecas para los m√°s variopintos prop√≥sitos. Con modulos 
 	como mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}
 	e email\footnote{\url{http://docs.python.org/lib/module-email.html}}, el
-	problema de acceso primario a los datos (mailbox unix) que SWAML deber·
-	consumir se ver· resuelto de manera muy eficiente a un nivel de abstracciÛn
+	problema de acceso primario a los datos (mailbox unix) que SWAML deber√°
+	consumir se ver√° resuelto de manera muy eficiente a un nivel de abstracci√≥n
 	bastante alto.
 \end{itemize}
 
-Adem·s es un lenguaje totalmente libre, desde su especificaciÛn hasta varias
+Adem√°s es un lenguaje totalmente libre, desde su especificaci√≥n hasta varias
 de sus implementaciones, incluido el interprete oficial.
 
-Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, el sistema de gestiÛn
-de listas de correo m·s popular hoy en dÌa, tambiÈn esta escrito en Python, lo que 
-facilitaria en gran medida una supuesta integraciÛn de SWAML en Mailman.
+Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, el sistema de gesti√≥n
+de listas de correo m√°s popular hoy en d√≠a, tambi√©n esta escrito en Python, lo que 
+facilitaria en gran medida una supuesta integraci√≥n de SWAML en Mailman.
 
 
 \paragraph{C\#}: C\#\footnote{\url{http://msdn2.microsoft.com/en-us/vcsharp/aa336809.aspx}} 
-es un lenguaje de programaciÛn desarrollado por Microsoft, y posteriormente estandarizado por el ECMA\footnote{\url{http://www.ecma-international.org/publications/standards/Ecma-334.htm}},
+es un lenguaje de programaci√≥n desarrollado por Microsoft, y posteriormente estandarizado por el ECMA\footnote{\url{http://www.ecma-international.org/publications/standards/Ecma-334.htm}},
 como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.com/net/}}.
 
 \begin{itemize}
-  \item Los requerimientos de recursos no parecen que sea la mejor opciÛn para una tarea
-	de estas caracterÌsticas.
+  \item Los requerimientos de recursos no parecen que sea la mejor opci√≥n para una tarea
+	de estas caracter√≠sticas.
   \item Se dispone de SemWeb\footnote{\url{http://razor.occams.info/code/semweb/}}, una
-	biblioteca que un inmaduro soporte para RDF y SPARQL. TambiÈn existen los bindings 
-	de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, aunque ofrencen tambiÈn
+	biblioteca que un inmaduro soporte para RDF y SPARQL. Tambi√©n existen los bindings 
+	de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, aunque ofrencen tambi√©n
 	un pobre rendimiento.
   \item Por ahora no parece existir ninguna biblioteca que ayude en el parseo de los mailboxes 
 	de Unix, aunque no parece complicado su desarrollo dada la cantidad de modulos para 
 	manejar formatos de correo.
 \end{itemize}
 
-Dispone adem·s de varias implementaciones libres, como 
+Dispone adem√°s de varias implementaciones libres, como 
 Mono\footnote{\url{http://www.mono-project.com/}} o DotGNU\footnote{\url{http://dotgnu.org/}}.
-Pero, al igual que en el caso de Java, hoy por hoy la implementaciÛn m·s completa es la
-desarollada por Microsoft. Usar por tanto su framework no sÛlo complicaria los tÈrminos
-de distribuciÛn de SWAM, sino que encima coartarÌan su funcionamiento a las plataformas
+Pero, al igual que en el caso de Java, hoy por hoy la implementaci√≥n m√°s completa es la
+desarollada por Microsoft. Usar por tanto su framework no s√≥lo complicaria los t√©rminos
+de distribuci√≥n de SWAM, sino que encima coartar√≠an su funcionamiento a las plataformas
 soportadas actualmente por ese framework (Microsoft Windows).
 
 
 \paragraph{Perl}: Perl\footnote{\url{http://www.perl.org/}} es un lenguaje de script de 
-gran tradiciÛn. Soporta paradignas de programaciÛn imperativo (estructurados y orientados 
-a objetos) y lÛgico funcionale.
+gran tradici√≥n. Soporta paradignas de programaci√≥n imperativo (estructurados y orientados 
+a objetos) y l√≥gico funcionale.
 
 \begin{itemize}
-  \item Est· especialmente extendido en sistemas Unix y, en menor medida, en sistemas
+  \item Est√° especialmente extendido en sistemas Unix y, en menor medida, en sistemas
 	operativos Windows. Sus requerimientos sonn realmente bajos y, dada su naturaleza
-	de script, est· especialmente pensado para invocarse en linea.
+	de script, est√° especialmente pensado para invocarse en linea.
   \item Con RDFStore\footnote{http://rdfstore.sourceforge.net/} se dispone de un API bastante
-	bueno para manejar RDF desde Perl. TambiÈn existe una
-	implementaciÛn\footnote{\url{http://www.w3.org/1999/02/26-modules/}} 
-	desarrollada por el W3C para manejar RDF desde Perl. Aunque ni es una implementaciÛn
+	bueno para manejar RDF desde Perl. Tambi√©n existe una
+	implementaci√≥n\footnote{\url{http://www.w3.org/1999/02/26-modules/}} 
+	desarrollada por el W3C para manejar RDF desde Perl. Aunque ni es una implementaci√≥n
 	demasiado completa ni es un proyecto mantenido en la actualidad.
   \item En CPAN\footnote{\url{http://www.cpan.org/}} hay disponibles multitud de bibliotecas
-	y mÛdulos ˙tiles para hacer desarrollos en Perl. Entre ellas est·
+	y m√≥dulos √∫tiles para hacer desarrollos en Perl. Entre ellas est√°
 	MessageParser\footnote{\url{http://search.cpan.org/~dcoppit/Mail-Mbox-MessageParser-1.4005/lib/Mail/Mbox/MessageParser.pm}},
-	que podrÌa ser una perfecta candidata para resolver en Perl este problema.
+	que podr√≠a ser una perfecta candidata para resolver en Perl este problema.
 \end{itemize}
 
-En su contra juega su sint·xis excesivamente crÌptica, que hacen muy complicada
-la lectura y/o reescritura del cÛdigo.
+En su contra juega su sint√°xis excesivamente cr√≠ptica, que hacen muy complicada
+la lectura y/o reescritura del c√≥digo.
 
 \newpage
 
-\paragraph{ConclusiÛn:} Una vez estudiadas y evaluadas cuidadosamente todas estas 
-alternativas, se llegÛ a la conclusiÛn de que Python era el lenguaje que mejor se 
+\paragraph{Conclusi√≥n:} Una vez estudiadas y evaluadas cuidadosamente todas estas 
+alternativas, se lleg√≥ a la conclusi√≥n de que Python era el lenguaje que mejor se 
 adaptaba a los requisitos del proyecto. Tanto por cumplir los tres requisitos 
 no funcionales principales buscados, como por ser un lenguaje moderno y flexible 
-que permitir· manejar de una forma muy cÛmoda todos las estructuras de datos que se
-necesitar·n.
+que permitir√° manejar de una forma muy c√≥moda todos las estructuras de datos que se
+necesitar√°n.
 
-La documentaciÛn es variada, desde la propia p·gina Web oficial del 
+La documentaci√≥n es variada, desde la propia p√°gina Web oficial del 
 lenguaje\footnote{\url{http://www.python.org/}} hasta la gran cantidad de libros
 que hay disponibles (\emph{Learning Python}\cite{LearningPython},
 \emph{Python Essential Reference}\cite{PythonEssential}, 
 \emph{Dive into Python}\cite{DivePython} o \emph{Python Pocket Reference}\cite{PythonPocket},
 por ejemplo).
 
-\subsection{EspecificaciÛn de casos de uso}
+\subsection{Especificaci√≥n de casos de uso}
 
 FIXME
 

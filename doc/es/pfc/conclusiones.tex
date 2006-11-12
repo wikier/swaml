@@ -3,19 +3,19 @@
 
 FIXME
 
-\section{Conclusiones sobre la aportación de SWAML}
+\section{Conclusiones sobre la aportaciÃ³n de SWAML}
 
 FIXME
 
 \section{Trabajo relacionado}
 
-FIXME(¿la idea de swaml a que más podría aplicarse?)
+FIXME(Â¿la idea de swaml a que mÃ¡s podrÃ­a aplicarse?)
 
 \section{Conclusiones sobre el software utilizado}
 
 Ha sido mucha la diversidad de software (complidores, bibliotecas y herramientas)
-utilizado para la realización de este proyecto. Nótese que todo él se ha podido
-desarrollar utilizando únicamente \emph{software libre}.
+utilizado para la realizaciÃ³n de este proyecto. NÃ³tese que todo Ã©l se ha podido
+desarrollar utilizando Ãºnicamente \emph{software libre}.
 
 \subsection{Python}
 
@@ -23,7 +23,7 @@ FIXME
 
 \subsection{Bibliotecas\label{sec:conclu:bib}}
 
-FIXME(¿más?)
+FIXME(Â¿mÃ¡s?)
 
 \subsubsection{RDFLib}
 
@@ -63,44 +63,44 @@ FIXME
 
 \subsubsection{SWOOP}
 
-Existen varios editores libres para ontologías OWL:
+Existen varios editores libres para ontologÃ­as OWL:
 
 \begin{itemize}
-  \item Protégé\footnote{\url{http://protege.stanford.edu/plugins/owl/}}
+  \item ProtÃ©gÃ©\footnote{\url{http://protege.stanford.edu/plugins/owl/}}
   \item SWeDE\footnote{\url{http://owl-eclipse.projects.semwebcentral.org/}}
   \item SWOOP\footnote{\url{http://www.mindswap.org/2004/SWOOP/}}
 \end{itemize}
 
-Los dos primeros no son más que plug-ins para dar soporte a OWL en dos 
+Los dos primeros no son mÃ¡s que plug-ins para dar soporte a OWL en dos 
 frameworks. Y el tercero es un editor pensado y desarrollado explicitamente
 para trabajar con OWL.
 
-Después de las pruebas realizadas, SWOOP resultó ser una herramienta más sencilla,
+DespuÃ©s de las pruebas realizadas, SWOOP resultÃ³ ser una herramienta mÃ¡s sencilla,
 comoda de usar y potente que las otras dos.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=11cm]{images/swoop.png}
-	\caption{SWOOP editando la ontología de SWAML en OWL DL}
+	\caption{SWOOP editando la ontologÃ­a de SWAML en OWL DL}
 	\label{fig:evoWeb}
 \end{figure}
 
-Alguna de las caracteristicas más interesantes de SWOOP son:
+Alguna de las caracteristicas mÃ¡s interesantes de SWOOP son:
 
 \begin{itemize}
   \item Interfaz de usuario hypermedia similar a la de un navegador convencional, 
-	con elementos (pestañas, marcadores, etc) que hacen la interfaz más 
+	con elementos (pestaÃ±as, marcadores, etc) que hacen la interfaz mÃ¡s 
 	amigable.
-  \item Soporte de depuración de la ontología.
+  \item Soporte de depuraciÃ³n de la ontologÃ­a.
   \item Cliente para hacer razonamientos sencillos con Pellet.
   \item FIXME
 \end{itemize}
 
-Un problema común en todas estas herramientas de alto nivel para trabajar con
-grafos RDF es el serializado del grafo a sintáxis XML. No por su corrección,
-que la herramienta lo hace perfectamente, sino por su orden: es muy difícil
+Un problema comÃºn en todas estas herramientas de alto nivel para trabajar con
+grafos RDF es el serializado del grafo a sintÃ¡xis XML. No por su correcciÃ³n,
+que la herramienta lo hace perfectamente, sino por su orden: es muy difÃ­cil
 que al serializar queden todos los nodos en el mismo orden. Por tanto es muy
-difícil conocer las diferencias entre distintas versiones con las herramientas
+difÃ­cil conocer las diferencias entre distintas versiones con las herramientas
 convencionales (principalmente \texttt{diff}).
 
 \subsubsection{phpWiki}
@@ -121,27 +121,27 @@ FIXME(KML)
 
 El trabajo realizado hasta ahora con SWAML no ha hecho sino empezar, abriendo las 
 puertas hacia una linea de desarrollo que puede significar un foco importante
-en cuanto a la publicación en formatos semánticos de todo el conocimiento contenido
+en cuanto a la publicaciÃ³n en formatos semÃ¡nticos de todo el conocimiento contenido
 en esas miles de listas de correo existentes por lo largo y ancho de la internet
 actual.
 
 Aunque puede que no se incluyan todas las existentes, estas on algunas de las lineas
-que seria interesante el proyecto abarcara algún día:
+que seria interesante el proyecto abarcara algÃºn dÃ­a:
 
-\subsection*{Integración con Mailman}
+\subsection*{IntegraciÃ³n con Mailman}
 
 FIXME
 
 \subsection*{API para DIG}
 
-Sería interesante disponer de una API en Python para utilizar razonadores DL que implementen 
+SerÃ­a interesante disponer de una API en Python para utilizar razonadores DL que implementen 
 el protocolo DIG\footnote{\url{http://dig.cs.manchester.ac.uk/}}. 
 
 Existen ya API's similares en Java (dentro del framework
 Jena\footnote{\url{http://jena.sourceforge.net/how-to/dig-reasoner.html}} o incluso en Haskell 
 (implementada dentro del proyecto WESO\footnote{\url{http://weso.sourceforge.net/}}. Por eso 
-sería interesante implementar el protocolo DIG en Python, y no sería una tarea
-en la que nos encontraríamos en solitario\cite{PythonOWL}.
+serÃ­a interesante implementar el protocolo DIG en Python, y no serÃ­a una tarea
+en la que nos encontrarÃ­amos en solitario\cite{PythonOWL}.
 
 FIXME
 

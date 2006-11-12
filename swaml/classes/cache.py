@@ -122,31 +122,27 @@ class Cache:
             self.pb.progress()
         return graph
     
+    def __loadData(self, uri):
+        print 'Resolving reference to get additional data (', uri, ')...',
+        self.graph.parse(uri)
+        
+        if (self.pb != None):
+            self.pb.progress()
+            while gtk.events_pending():
+                gtk.main_iteration()
+                
+        print 'OK, now', len(self.graph), 'triples'        
+    
     def loadAdditionalData(self):
     
         for post in self.graph.objects(self.uri, SIOC['container_of']):
-            if not self.hasValueForPredicate(post, SIOC['title']):
-                print 'Resolving reference to get additional data (', post, ')...',
-                self.graph.parse(post)
-                
-                if (self.pb != None):
-                    self.pb.progress()
-                    while gtk.events_pending():
-                        gtk.main_iteration()
-                        
-                print 'OK, now', len(self.graph), 'triples'
+            if not self.hasValueForPredicate(post, SIOC['id']):
+                self.__loadData(post)
+
     
         for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
             if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
-                print 'Resolving reference to get additional data (', user, ')...',
-                self.graph.parse(user)
-                   
-                if (self.pb != None):
-                    self.pb.progress()
-                    while gtk.events_pending():
-                        gtk.main_iteration()
-                        
-                print 'OK, now', len(self.graph), 'triples' 
+                self.__loadData(user)
 
     def hasValueForPredicate(self, subject, predicate):
         return (len([x for x in self.graph.objects(subject, predicate)]) > 0)        

@@ -20,7 +20,7 @@
 
 import rdflib
 from rdflib import sparql, Namespace
-from namespaces import SIOC, RDF, DC, DCTERMS
+from namespaces import SIOC, RDF, RDFS, DC, DCTERMS
 from dateutils import MailDate
 import gtk
 
@@ -86,15 +86,32 @@ class Cache:
         try:    
             sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')            
-            where  = sparql.GraphPattern([('?post',    RDF['type'],        SIOC['Post']),
-                                          ('?post',    SIOC['title'],        '?postTitle'),
-                                          ('?post', DCTERMS['created'],    '?date'),
-                                          ('?post',    SIOC['content'],    '?content'),
-                                          ('?post',    SIOC['has_creator'],'?user'),
-                                          ('?user', SIOC['name'],         '?userName')])
-            opt    = sparql.GraphPattern([('?post',    SIOC['reply_of'],    '?parent')])
+            where  = sparql.GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
+                                          ('?post',    SIOC['title'],          '?postTitle'),
+                                          ('?post',    DCTERMS['created'],     '?date'),
+                                          ('?post',    SIOC['content'],        '?content'),
+                                          ('?post',    SIOC['has_creator'],    '?user'),
+                                          ('?user',    SIOC['name'],           '?userName')])
+            opt    = sparql.GraphPattern([('?post',    SIOC['reply_of'],       '?parent')])
             posts  = sparqlGr.query(select, where, opt)
             return self.orderByDate(posts)
+        except Exception, details:
+            print 'parsing exception:', str(details)
+            return None
+        
+    def __listPosts(self):
+        try:    
+            sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
+            select = ('?post', '?title')            
+            where  = sparql.GraphPattern([('?post', RDF['type'],   SIOC['Post'])])
+            opt    = sparql.GraphPattern([('?post', SIOC['title'], '?title')])
+            posts  = sparqlGr.query(select, where)
+            
+            print len(posts), 'posts'
+            
+            for post, title in posts:
+                print post, title
+                
         except Exception, details:
             print 'parsing exception:', str(details)
             return None
@@ -131,14 +148,18 @@ class Cache:
             while gtk.events_pending():
                 gtk.main_iteration()
                 
-        print 'OK, now', len(self.graph), 'triples'        
+        print 'OK, now', len(self.graph), 'triples'     
     
     def loadAdditionalData(self):
     
         for post in self.graph.objects(self.uri, SIOC['container_of']):
             if not self.hasValueForPredicate(post, SIOC['id']):
                 self.__loadData(post)
-
+                
+            #patch to load additional data generated with SIOC PHP API
+            postSeeAlso = self.getValueForPredicate(post, RDFS['seeAlso'])
+            if (postSeeAlso != None):
+                self.__loadData(postSeeAlso)
     
         for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
             if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
@@ -168,6 +189,8 @@ class Cache:
             return
         
         self.loadAdditionalData()
+        
+        #self.__listPosts()
         
         if (self.pb != None):
             self.pb.destroy()

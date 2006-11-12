@@ -174,6 +174,15 @@ class Cache:
             return value[0]
         else:
             return None
+        
+    def dump(self, path='cache.rdf'):
+        try:
+            file = open(path, 'w+')
+            self.graph.serialize(destination=file, format="pretty-xml")
+            file.flush()
+            file.close()
+        except IOError, detail:
+            print 'Error dumping cache: ' + str(detail)
 
     def __init__(self, uri, pb=None):
         self.uri = uri

@@ -35,6 +35,7 @@ class Callbacks:
 
 	def destroy(self):
 		print 'Exiting...'
+		buxon.destroy()
 		gtk.main_quit()
 		return gtk.FALSE
 
@@ -255,6 +256,9 @@ class Buxon:
 			return None
 		else:
 			return self.cache.uri
+		
+	def destroy(self):
+		self.cache.dump()
 
 	def main(self, uri=None):
 		if (uri != None):

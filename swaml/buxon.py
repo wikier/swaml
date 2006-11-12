@@ -249,7 +249,7 @@ class Buxon(GtkUI):
 	
 		#main window
 		self.window = widgets.get_widget('buxon')
-		self.window.set_icon_from_file('includes/rdf.ico')
+		self.window.set_icon_from_file('includes/images/rdf.ico')
 		self.window.show()		
 		
 		if (uri != None):
@@ -273,7 +273,7 @@ buxon = None
 if __name__ == '__main__':
 	try:
 		
-		widgets = ObjectBuilder('includes/buxon.glade')
+		widgets = ObjectBuilder('includes/ui/graphical/buxon.glade')
 		callbacks = Callbacks()
 		widgets.signal_autoconnect(Callbacks.__dict__)	
 		buxon = Buxon()

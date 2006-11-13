@@ -87,7 +87,7 @@ class Cache:
             sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')            
             where  = sparql.GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
-                                          ('?post',    SIOC['title'],          '?postTitle'),
+                                          ('?post',    DC['title'],          '?postTitle'),
                                           ('?post',    DCTERMS['created'],     '?date'),
                                           ('?post',    SIOC['content'],        '?content'),
                                           ('?post',    SIOC['has_creator'],    '?user'),
@@ -103,11 +103,11 @@ class Cache:
         try:    
             sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?title')            
-            where  = sparql.GraphPattern([('?post', RDF['type'],   SIOC['Post'])])
-            opt    = sparql.GraphPattern([('?post', SIOC['title'], '?title')])
+            where  = sparql.GraphPattern([('?post', RDF['type'],   SIOC['Post']),
+                                          ('?post', DC['title'], '?title')])
             posts  = sparqlGr.query(select, where)
             
-            print len(posts), 'posts'
+            print len(posts), 'posts:'
             
             for post, title in posts:
                 print post, title
@@ -125,7 +125,7 @@ class Cache:
         author, authorUri = self.getPostAuthor(uri)
         listUri = self.getValueForPredicate(uri, SIOC['has_container'])
         listName = self.getValueForPredicate(listUri, DC['title'])
-        title = self.getValueForPredicate(uri, SIOC['title'])
+        title = self.getValueForPredicate(uri, DC['title'])
         date = self.getValueForPredicate(uri, DCTERMS['created'])
         content = self.getValueForPredicate(uri, SIOC['content'])
         return author, authorUri, listName, listUri, title, date, content
@@ -154,12 +154,11 @@ class Cache:
     
         for post in self.graph.objects(self.uri, SIOC['container_of']):
             if not self.hasValueForPredicate(post, SIOC['id']):
-                self.__loadData(post)
-                
-            #patch to load additional data generated with SIOC PHP API
-            postSeeAlso = self.getValueForPredicate(post, RDFS['seeAlso'])
-            if (postSeeAlso != None):
-                self.__loadData(postSeeAlso)
+                postSeeAlso = self.getValueForPredicate(post, RDFS['seeAlso'])
+                if (postSeeAlso == None):
+                    self.__loadData(post)
+                else:
+                    self.__loadData(postSeeAlso)
     
         for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
             if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):

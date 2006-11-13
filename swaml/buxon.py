@@ -46,6 +46,7 @@ class Callbacks:
 			buxon.clear()
 			buxon.clearSearchForm()
 			buxon.messageBar( 'query on ' + uri)
+			buxon.uri = uri
 			buxon.drawTree(buxon.getPosts(uri))
 			
 	def searchButtonClicked(self):

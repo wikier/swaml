@@ -215,7 +215,7 @@ class Message:
             store.add((message, SIOC['link'], URIRef(self.getUri())))  
             store.add((message, SIOC['has_container'],URIRef(self.config.get('url')+'index.rdf')))   
             store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
-            store.add((message, SIOC['title'], Literal(self.getSubject()))) 
+            store.add((message, DC['title'], Literal(self.getSubject()))) 
             store.add((message, DCTERMS['created'], Literal(self.getDate())))  
             
             parent = self.getParent()

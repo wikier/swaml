@@ -43,7 +43,6 @@ class LoadProgressBar:
         self.window.set_resizable(False)
 
         self.window.connect('destroy', self.destroy)
-        self.window.set_icon_from_file('includes/images/rdf.ico')
         self.window.set_border_width(0)
 
         vbox = gtk.VBox(False, 5)

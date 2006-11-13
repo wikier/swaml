@@ -87,7 +87,7 @@ class Cache:
             sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')            
             where  = sparql.GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
-                                          ('?post',    DC['title'],          '?postTitle'),
+                                          ('?post',    DC['title'],            '?postTitle'),
                                           ('?post',    DCTERMS['created'],     '?date'),
                                           ('?post',    SIOC['content'],        '?content'),
                                           ('?post',    SIOC['has_creator'],    '?user'),

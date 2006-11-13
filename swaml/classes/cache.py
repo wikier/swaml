@@ -110,7 +110,11 @@ class Cache:
             print len(posts), 'posts:'
             
             for post, title in posts:
-                print post, title
+                print post, 
+                try:
+                    print title
+                except:
+                    print '(bad formed title)'
                 
         except Exception, details:
             print 'parsing exception:', str(details)
@@ -199,7 +203,7 @@ class Cache:
         
         self.loadAdditionalData()
         
-        #self.__listPosts()
+        self.__listPosts()
         
         if (self.pb != None):
             self.pb.destroy()

@@ -231,7 +231,7 @@ class Buxon(GtkUI):
 		
 	def destroy(self):
 		if (self.cache != None):
-			self.cache.dump()
+			self.cache.dump(self.base + 'buxon.cache')
 
 	def main(self, uri=None):
 		#widgets
@@ -249,7 +249,7 @@ class Buxon(GtkUI):
 	
 		#main window
 		self.window = widgets.get_widget('buxon')
-		self.window.set_icon_from_file('includes/images/rdf.ico')
+		self.window.set_icon_from_file(self.base + 'includes/images/rdf.ico')
 		self.window.show()		
 		
 		if (uri != None):
@@ -257,10 +257,11 @@ class Buxon(GtkUI):
 			
 		gtk.main()
 
-	def __init__(self):
+	def __init__(self, base):
 		
 		GtkUI.__init__(self, 'buxon')
 		
+		self.base = base
 		self.cache = None
 		self.treeTranslator = {}
 		
@@ -272,11 +273,12 @@ buxon = None
 
 if __name__ == '__main__':
 	try:
-		
-		widgets = ObjectBuilder('includes/ui/graphical/buxon.glade')
+		path = __file__.split('/')
+		base = '/'.join(path[:-1]) + '/'
+		widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
 		callbacks = Callbacks()
 		widgets.signal_autoconnect(Callbacks.__dict__)	
-		buxon = Buxon()
+		buxon = Buxon(base)
 		
 		if ('-h' in sys.argv or '--help' in sys.argv):
 			buxon.usage()

@@ -11,11 +11,7 @@ IMAGES= images/swaml-owl.png
 all:	clean $(NAME).pdf
 
 $(NAME).pdf: $(IMAGES)	
-	pdflatex $(NAME).tex
-	bibtex $(NAME)
-	pdflatex $(NAME).tex
-	bibtex $(NAME)
-	pdflatex $(NAME).tex
+	rubber --pdf $(NAME).tex
 
 %.png:  %.dia
 	dia -t png $?

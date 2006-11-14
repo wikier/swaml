@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI xmlns:UML="http://schema.omg.org/spec/UML/1.3" verified="false" timestamp="2006-11-05T23:00:24" xmi.version="1.2" >
+<XMI xmlns:UML="http://schema.omg.org/spec/UML/1.3" verified="false" timestamp="2006-11-14T22:55:55" xmi.version="1.2" >
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://uml.sf.net</XMI.exporter>
@@ -12,6 +12,7 @@
   <UML:Model isSpecification="false" isLeaf="false" isRoot="false" xmi.id="m1" isAbstract="false" name="UML Model" >
    <UML:Namespace.ownedElement>
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
+    <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="3" isRoot="false" isAbstract="false" name="datatype" />
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="34" isRoot="false" isAbstract="false" name="constructor" />
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="35" isRoot="false" isAbstract="false" name="friend" />
@@ -35,7 +36,11 @@
         <UML:DataType stereotype="3" isSpecification="false" isLeaf="false" visibility="public" namespace="8" xmi.id="10" isRoot="false" isAbstract="false" name="string" />
        </UML:Namespace.ownedElement>
       </UML:Package>
-      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="11" isRoot="false" isAbstract="false" name="SWAML" />
+      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="11" isRoot="false" isAbstract="false" name="SWAML" >
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="147" />
+       </UML:GeneralizableElement.generalization>
+      </UML:Class>
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="12" isRoot="false" isAbstract="false" name="MailingList" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="13" isRoot="false" isAbstract="false" name="Configuration" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="14" isRoot="false" isAbstract="false" name="Template" />
@@ -61,6 +66,17 @@
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="128" isRoot="false" isAbstract="false" name="FileDate" >
        <UML:GeneralizableElement.generalization>
         <UML:Generalization xmi.idref="135" />
+       </UML:GeneralizableElement.generalization>
+      </UML:Class>
+      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="138" isRoot="false" isAbstract="false" name="UI" />
+      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="139" isRoot="false" isAbstract="false" name="CommandLineUI" >
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="141" />
+       </UML:GeneralizableElement.generalization>
+      </UML:Class>
+      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="140" isRoot="false" isAbstract="false" name="GtkUI" >
+       <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="144" />
        </UML:GeneralizableElement.generalization>
       </UML:Class>
       <UML:Association isSpecification="false" visibility="public" namespace="1" xmi.id="16" name="" >
@@ -295,6 +311,9 @@
       <UML:Generalization isSpecification="false" child="105" visibility="public" namespace="1" xmi.id="129" parent="127" discriminator="" name="" />
       <UML:Generalization isSpecification="false" child="127" visibility="public" namespace="1" xmi.id="132" parent="105" discriminator="" name="" />
       <UML:Generalization isSpecification="false" child="128" visibility="public" namespace="1" xmi.id="135" parent="105" discriminator="" name="" />
+      <UML:Generalization isSpecification="false" child="139" visibility="public" namespace="1" xmi.id="141" parent="138" discriminator="" name="" />
+      <UML:Generalization isSpecification="false" child="140" visibility="public" namespace="1" xmi.id="144" parent="138" discriminator="" name="" />
+      <UML:Generalization isSpecification="false" child="11" visibility="public" namespace="1" xmi.id="147" parent="139" discriminator="" name="" />
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello" >
       <diagrams>
@@ -318,6 +337,9 @@
          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="269" y="205" linewidth="none" posttext="" role="700" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="126" text="1" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
          <classwidget usesdiagramfillcolour="1" width="76" showattsigs="601" usesdiagramusefillcolour="1" x="575" y="298" showopsigs="601" linewidth="none" fillcolour="none" height="52" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="127" showoperations="1" showpackage="0" showscope="1" font="helvetica,12,-1,0,75,0,0,0,0,0" linecolor="none" />
          <classwidget usesdiagramfillcolour="1" width="73" showattsigs="601" usesdiagramusefillcolour="1" x="685" y="297" showopsigs="601" linewidth="none" fillcolour="none" height="52" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="128" showoperations="1" showpackage="0" showscope="1" font="helvetica,12,-1,0,75,0,0,0,0,0" linecolor="none" />
+         <classwidget usesdiagramfillcolour="1" width="27" showattsigs="601" usesdiagramusefillcolour="1" x="477" y="0" showopsigs="601" linewidth="none" fillcolour="none" height="52" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="138" showoperations="1" showpackage="0" showscope="1" font="helvetica,12,-1,0,75,0,0,0,0,0" linecolor="none" />
+         <classwidget usesdiagramfillcolour="1" width="139" showattsigs="601" usesdiagramusefillcolour="1" x="274" y="26" showopsigs="601" linewidth="none" fillcolour="none" height="52" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="139" showoperations="1" showpackage="0" showscope="1" font="helvetica,12,-1,0,75,0,0,0,0,0" linecolor="none" />
+         <classwidget usesdiagramfillcolour="1" width="53" showattsigs="601" usesdiagramusefillcolour="1" x="571" y="25" showopsigs="601" linewidth="none" fillcolour="none" height="52" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="140" showoperations="1" showpackage="0" showscope="1" font="helvetica,12,-1,0,75,0,0,0,0,0" linecolor="none" />
         </widgets>
         <messages/>
         <associations>
@@ -338,7 +360,7 @@
            <startpoint startx="241" starty="211" />
            <endpoint endx="131" endy="268" />
           </linepath>
-          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="104" y="232" linewidth="none" posttext="" role="702" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="161" text="1" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
+          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="104" y="232" linewidth="none" posttext="" role="702" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="42" text="1" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
          </assocwidget>
          <assocwidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" linewidth="none" widgetbid="29" widgetaid="12" xmi.id="30" linecolor="none" >
           <linepath>
@@ -358,16 +380,16 @@
            <endpoint endx="438" endy="428" />
            <point x="438" y="332" />
           </linepath>
-          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="407" y="223" linewidth="none" posttext="" role="701" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="162" text="1" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
-          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="410" y="395" linewidth="none" posttext="" role="702" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="163" text="*" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
+          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="407" y="223" linewidth="none" posttext="" role="701" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="43" text="1" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
+          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="410" y="395" linewidth="none" posttext="" role="702" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="44" text="*" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
          </assocwidget>
          <assocwidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" linewidth="none" widgetbid="37" widgetaid="29" xmi.id="89" linecolor="none" >
           <linepath>
            <startpoint startx="290" starty="314" />
            <endpoint endx="289" endy="431" />
           </linepath>
-          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="259" y="318" linewidth="none" posttext="" role="701" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="164" text="1" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
-          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="259" y="399" linewidth="none" posttext="" role="702" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="165" text="*" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
+          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="259" y="318" linewidth="none" posttext="" role="701" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="45" text="1" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
+          <floatingtext usesdiagramfillcolour="1" width="32" usesdiagramusefillcolour="1" x="259" y="399" linewidth="none" posttext="" role="702" fillcolour="none" height="32" usefillcolor="1" pretext="" isinstance="0" xmi.id="46" text="*" font="helvetica,12,-1,0,50,0,0,0,0,0" linecolor="none" />
          </assocwidget>
          <assocwidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" linewidth="none" widgetbid="29" widgetaid="96" xmi.id="97" linecolor="none" >
           <linepath>
@@ -418,6 +440,24 @@
            <endpoint endx="668" endy="228" />
           </linepath>
          </assocwidget>
+         <assocwidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" linewidth="none" widgetbid="138" widgetaid="139" xmi.id="141" linecolor="none" >
+          <linepath>
+           <startpoint startx="413" starty="52" />
+           <endpoint endx="477" endy="26" />
+          </linepath>
+         </assocwidget>
+         <assocwidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" linewidth="none" widgetbid="138" widgetaid="140" xmi.id="144" linecolor="none" >
+          <linepath>
+           <startpoint startx="571" starty="51" />
+           <endpoint endx="504" endy="26" />
+          </linepath>
+         </assocwidget>
+         <assocwidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" linewidth="none" widgetbid="139" widgetaid="11" xmi.id="147" linecolor="none" >
+          <linepath>
+           <startpoint startx="190" starty="81" />
+           <endpoint endx="274" endy="52" />
+          </linepath>
+         </assocwidget>
         </associations>
        </diagram>
       </diagrams>
@@ -439,15 +479,17 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello" >
-  <docsettings viewid="1" documentation="" uniqueid="137" />
+  <docsettings viewid="1" documentation="" uniqueid="149" />
   <listview>
    <listitem open="1" type="800" label="Views" >
     <listitem open="1" type="801" id="1" >
      <listitem open="1" type="813" id="104" />
+     <listitem open="1" type="813" id="139" />
      <listitem open="1" type="813" id="13" />
      <listitem open="1" type="813" id="105" />
      <listitem open="1" type="813" id="128" />
      <listitem open="1" type="813" id="100" />
+     <listitem open="1" type="813" id="140" />
      <listitem open="1" type="813" id="71" />
      <listitem open="1" type="813" id="96" />
      <listitem open="1" type="813" id="127" />
@@ -458,6 +500,7 @@
      <listitem open="1" type="813" id="37" />
      <listitem open="1" type="813" id="29" />
      <listitem open="1" type="813" id="14" />
+     <listitem open="1" type="813" id="138" />
      <listitem open="0" type="830" id="8" >
       <listitem open="1" type="829" id="5" />
       <listitem open="0" type="829" id="8" />

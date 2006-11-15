@@ -1,0 +1,239 @@
+
+\subsection{Especificación de requisitos}
+
+FIXME
+
+\subsubsection{Datos de entrada}
+
+La fuente de información será una lista de correo en formato
+mbox\footnote{\url{http://rfc.net/rfc4155.html}}, un formato estandarizado
+que utilizan la mayoria de los sistemas de gestión de listas de correo
+(Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, 
+Majordomo\footnote{\url{http://www.greatcircle.com/majordomo/}},
+LISTSERV, Listproc y SmartList entre otros).
+
+El formato mbox no es más que un fichero de texto plano en el que se van
+almacenando consecutivamente los correos que van llegando a la lista. Se 
+almacenan tal cual son enviados a la lista, con su cabeceras originales 
+completas y en la codificación del cliente de correo del usuario.
+
+Por tanto es fácil adivinar dos problemas evidentes de este formato:
+
+\paragraph{Identificacores}
+
+FIXME
+
+Cada correo dispone de un identificador (cabecera \texttt{Message-Id}). Cuando
+alguien responde un mensaje, el cliente de correo colocará en el nuevo una 
+cabecera (\texttt{In-Reply-To}) con este ID para referirse explicitamente al 
+mensaje que se está respondiendo.
+
+Este el mecanismo especificado en el RFC\footnote{\url{http://rfc.net/rfc2822.html}} 
+para las gestión de hilos de conversación por medio de correo electrónico. Y es
+mecanismo que utilizado para representar las conversaciones en forma de árbol, 
+tanto en clientes de correo (Evolution, Thunderbird, Outlook, etc) como en sistemas 
+convecionales de publicación de listas de correo.
+
+Dicho identificador tiene una forma similar a \texttt{<3C94C55A3B6A@smtp.isp.com>}.
+
+Pero ese ID no es único, sino que es asignado por el propio servidor
+SMTP\footnote{\url{http://es.wikipedia.org/wiki/SMTP}} (Simple Mail Transfer Protocol) 
+de forma arbitraria a la hora de enviar el correo.
+
+Por tanto no debería poder usarse, al menos garantizando un rigurosidad extrema
+a la hora de identificar cada uno de los mensajes y sus respuestas.
+
+Podría usarse algoritmos eurísticos con el asunto del mensaje, aunque tampoco nos
+garantizarían una fiabilidad absoluta al poder cambiarse el asunto en cualquier
+mensaje del hilo.
+
+Pero si existe una aproximación al problema que consigue una efectividad bastante
+alta según se ha podido comprobar. Consiste en asumir que cuando hay una respuesta
+a un mensaje, existe una alta probabilidad que se esté respondiendo a último de los 
+mensajes enviados con ID repetido.
+
+\paragraph{Codificación}
+
+FIXME
+
+(cada uno de su padre y de su madre, y almacenados en la codificación del
+servidor)
+
+\subsubsection{Datos de salida}
+
+FIXME(HTML, XML, RDF, etc...)
+
+\subsubsection{Lenguaje de programación}
+
+El problema planteado requiere de una lenguaje de programación que disponga
+de determinadas características:
+
+\begin{itemize}
+  \item Fácil despliegue: hay que procurar que SWAML se pueda desplegar en
+	todo tipo de máquinas, sin excesivos requisitos ni hardware ni software.
+	Es importante que SWAML pueda ser invocado por los distintos programadores
+	de tarea de que disponen los sistemas operativos (cron y similares).
+  \item API para RDF: que disponga de una madura bliblioteca, a poder ser nativa, 
+	para manejar RDF (creación de grafos, parseo desde disco/URI, serializado
+	a disco y/o bases de datos, consultas SPARQL, etc).
+  \item Biblioteca para ficheros mbox: sería interesante disponer de una biblioteca 
+	que abstraiga lo mayor posible al proyecto del manejo de ficheros
+	mbox\footnote{\url{http://rfc.net/rfc4155.html}} y mensajes de correo 
+	electrónico\footnote{\url{http://rfc.net/rfc2822.html}}.
+\end{itemize}
+
+Por tanto el cumplimiento de estas tres necesidades principales era lo primero
+a valorar entre todos lenguajes de programación candidatos a convertirse en el
+lenguaje utilizado para implementar SWAML. 
+
+Pero tambien se iba a tener en cuenta otras cualidades más generales al problema,
+como por ejemplo:
+
+\begin{itemize}
+  \item Aspectos concretos de la OOP (object-oriented programming, programación 
+	orientada a objetos) que cubra.
+  \item Sencillez de desarrollo y posterior estudio del código.
+  \item Portabilidad de la solución generada.
+  \item Posibilidad de usarse compiladores/intérpretes libres.
+  \item FIXME
+\end{itemize}
+
+Despues de revisar los lenguajes dsiponibles, fueron varios los candidatos para
+someterlos a un estudio más profundo:
+
+\paragraph{Java}: Java\footnote{\url{http://java.sun.com/}}
+es un lenguaje de programación, desarrollado por Sun Microsystems, orientado a 
+objetos muy popular desde hace varios años. Java no se compila a código nativo, 
+sino que una JVM (Java Virtual Machine, máquina virtual de Java) ejecuta el 
+bytecode previamente compilado.
+
+En la actualidad se disponen de multitud de implementaciones de la máquina virtual
+de Java, desde las propietarias (Sun, IBM, HP, etc) hasta las libres (Harmony, GIJ, 
+Kafee, IKVM.NET, etc).
+
+Sobre el problema que nos atañe:
+
+\begin{itemize}
+  \item Actualmente las JVM existentes cubren un amplio abanico de arquitecturas y 
+	sistemas operativos. Aunque Java esté más pensado para su uso en otro tipo
+	de entornos (J2EE por ejemplo), puede invocarse perfectamente en modo en
+	linea.
+  \item Dispone de forma nativa (desarrollado tambien en Java) de la biblioteca para
+	manejar RDF más madura actualmente: Jena\footnote{\url{http://jena.sourceforge.net/}}.
+	El famework Jena incluye paquetes para múltiples propósitos dentro de la web
+	semántica: API para RDF y OWL, persistencia, serializado y soporte para consultas
+	SPARQL.
+  \item FIXME
+\end{itemize}
+
+Quizás la única (y mayor) pega se encuentre en los términos de licencia de las 
+mejores implementaciones de la máquina virtual de Java, lo que complicaria de una
+manera importante un futura distribución de SWAML de manera totalmente libre,
+pues tendría como dependencias paquetes no libres.
+
+
+\paragraph{Python}: Python\footnote{\url{http://www.python.org/}} es un lenguaje de 
+script extremadamente eficiente. Su uso está muy extendido en todos los sistemas 
+Unix actuales (GNU/Linux, familia BSD, Solaris, etc), aunque también está disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
+operativos actuales (Windows, MacOS y demás).
+
+Se trata de un lenguaje de script mucho más moderno que otros lenguajes hermanos 
+tipo bash o perl. Python va más alla, disponiendo en un lenguaje de script 
+interpretado y con tipado dinámico de toda la potencia de los lenguajes orientados 
+a objetos más modernos.
+
+Respecto a los tres requisitos que nos interesan:
+
+\begin{itemize}
+  \item Al tratarse de un lenguaje de script basta dsiponer de un interprete 
+	instalado en el sistema para poderlo ejecutar. Además esta caracteristica
+	simplifica enormemente la forma de invocarlo desde un programador de
+	tareas.
+  \item Existen varias posibilidades para manejar RDF desde Python. Algunas son
+	bibliotecas nativas desarrolladas también en Python, y otras están
+	disponibles en forma de bindings a bibliotecas desarrolladas en otro 
+	lenguaje.
+	De todas las posibilidades, quizás RDFLib\footnote{\url{http://rdflib.net/}}
+	sea la que se encuentra en un estado de desarrollo más avanzado y maduro 
+	(persistencia, serialización, consultas SPARQL, etc).
+	Además ofrece la posibilidad de \emph{colocar encima} otras bibliotecas,
+	como por ejemplo Sparta\footnote{\url{http://www.mnot.net/sw/sparta/}},
+	para utilizar determinados conceptos que no contempla RDFLib.
+  \item Python dispone una extensa y completa biblioteca estandar, además de contar
+	con multitud de bibliotecas para los más variopintos propósitos. Con modulos 
+	como mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}
+	e email\footnote{\url{http://docs.python.org/lib/module-email.html}}, el
+	problema de acceso primario a los datos (mailbox unix) que SWAML deberá
+	consumir se verá resuelto de manera muy eficiente a un nivel de abstracción
+	bastante alto.
+\end{itemize}
+
+Además es un lenguaje totalmente libre, desde su especificación hasta varias
+de sus implementaciones, incluido el interprete oficial.
+
+Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, el sistema de gestión
+de listas de correo más popular hoy en día, también esta escrito en Python, lo que 
+facilitaria en gran medida una supuesta integración de SWAML en Mailman.
+
+
+\paragraph{C\#}: C\#\footnote{\url{http://msdn2.microsoft.com/en-us/vcsharp/aa336809.aspx}} 
+es un lenguaje de programación desarrollado por Microsoft, y posteriormente estandarizado por el ECMA\footnote{\url{http://www.ecma-international.org/publications/standards/Ecma-334.htm}},
+como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.com/net/}}.
+
+\begin{itemize}
+  \item Los requerimientos de recursos no parecen que sea la mejor opción para una tarea
+	de estas características.
+  \item Se dispone de SemWeb\footnote{\url{http://razor.occams.info/code/semweb/}}, una
+	biblioteca que un inmaduro soporte para RDF y SPARQL. También existen los bindings 
+	de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, aunque ofrencen también
+	un pobre rendimiento.
+  \item Por ahora no parece existir ninguna biblioteca que ayude en el parseo de los mailboxes 
+	de Unix, aunque no parece complicado su desarrollo dada la cantidad de modulos para 
+	manejar formatos de correo.
+\end{itemize}
+
+Dispone además de varias implementaciones libres, como 
+Mono\footnote{\url{http://www.mono-project.com/}} o DotGNU\footnote{\url{http://dotgnu.org/}}.
+Pero, al igual que en el caso de Java, hoy por hoy la implementación más completa es la
+desarollada por Microsoft. Usar por tanto su framework no sólo complicaria los términos
+de distribución de SWAM, sino que encima coartarían su funcionamiento a las plataformas
+soportadas actualmente por ese framework (Microsoft Windows).
+
+
+\paragraph{Perl}: Perl\footnote{\url{http://www.perl.org/}} es un lenguaje de script de 
+gran tradición. Soporta paradignas de programación imperativo (estructurados y orientados 
+a objetos) y lógico funcionale.
+
+\begin{itemize}
+  \item Está especialmente extendido en sistemas Unix y, en menor medida, en sistemas
+	operativos Windows. Sus requerimientos sonn realmente bajos y, dada su naturaleza
+	de script, está especialmente pensado para invocarse en linea.
+  \item Con RDFStore\footnote{http://rdfstore.sourceforge.net/} se dispone de un API bastante
+	bueno para manejar RDF desde Perl. También existe una
+	implementación\footnote{\url{http://www.w3.org/1999/02/26-modules/}} 
+	desarrollada por el W3C para manejar RDF desde Perl. Aunque ni es una implementación
+	demasiado completa ni es un proyecto mantenido en la actualidad.
+  \item En CPAN\footnote{\url{http://www.cpan.org/}} hay disponibles multitud de bibliotecas
+	y módulos útiles para hacer desarrollos en Perl. Entre ellas está
+	MessageParser\footnote{\url{http://search.cpan.org/~dcoppit/Mail-Mbox-MessageParser-1.4005/lib/Mail/Mbox/MessageParser.pm}},
+	que podría ser una perfecta candidata para resolver en Perl este problema.
+\end{itemize}
+
+En su contra juega su sintáxis excesivamente críptica, que hacen muy complicada
+la lectura y/o reescritura del código.
+
+\newpage
+
+\paragraph{Conclusión:} Una vez estudiadas y evaluadas cuidadosamente todas estas 
+alternativas, se llegó a la conclusión de que Python era el lenguaje que mejor se 
+adaptaba a los requisitos del proyecto. Tanto por cumplir los tres requisitos 
+no funcionales principales buscados, como por ser un lenguaje moderno y flexible 
+que permitirá manejar de una forma muy cómoda todos las estructuras de datos que se
+necesitarán.
+
+La documentación es variada, desde la propia página Web oficial del 
+lenguaje\footnote{\url{http://www.python.org/}} hasta la gran cantidad de libros
+que hay disponibles (\emph{Learning Python}\cite{LearningPython},
+\emph{Python Essential Reference}\cite{PythonEssential}, 
+\emph{Dive into Python}\cite{DivePython} o \emph{Python Pocket Reference}\cite{PythonPocket},
+por ejemplo).

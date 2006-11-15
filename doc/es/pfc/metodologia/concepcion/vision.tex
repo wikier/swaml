@@ -1,0 +1,126 @@
+
+\subsection{Visión}
+
+Como ya se comentó en los objetivos recogidos en el capítulo destinado a
+la memoria del proyecto, se tiene como objetivo principal la publicación 
+de los archivos antigüos de listas de correo en un formato rico 
+semánticamente.
+
+De esta manera esta inmensa base de conocimiento podrá ser procesada a 
+posteriori por aplicaciones ya existente o nuevas aplicaciones que 
+\emph{exploten} dicho entiquecimiento semántico. Esta ya es un área de 
+actuación sólo contemplada parcialmente en el proyecto.
+
+\subsubsection{Situación actual}
+
+Dado que que no existe en la actualidad ninguna solución software que
+resuelva el problema, la herramienta cubriría una serie de necesidades
+aún sin explotar, que seguramente habrán un nuevo camino a nuevos 
+desarrollos en este campo.
+
+\subsubsection{Descripción del problema}
+
+Se pretende solucionar un problema principalmente:
+
+\begin{itemize}
+  \item \textbf{El problema de} exportar semánticamente los archivos 
+	de una lista de correo.
+  \item \textbf{Afecta a} los usuarios que habitualmente utilizan los 
+	archivos de estas listas de correo como completa fuente de 
+	información.
+  \item \textbf{Lo que implica} es obtener de mbox todos los mensajes 
+	y sus relaciones, para poder publicarlas sin apenas pérdida de
+	información.
+  \item \textbf{Una solución adecuada haría que} fueran muchos más
+	explotables estos datos, permitiendo por ejemplo busquedas
+	mucho más completas y fiables.
+\end{itemize}
+
+\subsubsection{Descripción de los usuarios}
+
+El software tendrá dos tipos de usarios muy claramente identificados:
+
+\begin{enumerate}
+  \item \textbf{Usuario administrador:} será la persona encargada de
+	instalar el software y parametrizarlo para que realice su
+	función según sus necesidades particulares. Evidentemente debe
+	ser un usuario avanzado con conocimientos básicos de administración
+	de sistemas.
+  \item \textbf{Usuarios convencionales:} los usuarios que \emph{consuman},
+	bien con alguna aplicación genérica u otroa cualquiera hecha a medida,
+	el conocimiento generado para cubrir una necesidad concreta. No
+	tendrían, en principio, que necesitar tener ningún conocmiento 
+	sobre la materia, ni siquiera fuertes conocmientos informáticos.
+\end{enumerate}
+
+\subsubsection{Resumen de capacidades}
+
+A continuación se identifican las capacidades del producto en términos de 
+beneficios para el usuario y la caracteristica que lo proporciona:
+
+\begin{itemize}
+  \item \textbf{Recomponer la lista de correo:} se podrá recomponer, filtrando 
+	previamente por múltiples parámetros como fecha o tema, los hilos de una 
+	lista de correo sin necesidar de estar suscrito a ella
+  \item \textbf{Obtener más información de los suscriptores:} apoyandose por 
+	ejemplo en FOAF, se podrán conocer muchos detalles de los suscriptores 
+	que la lista de correo no contiene en su formato original.
+  \item \textbf{Mejora de la accesibilidad:} intrinsicamente al describir muy 
+	ricamente el contenido, le será muy fácil interpretar correctamente 
+	la información a los agente de usuario para personas que sufren algún 
+	tipo de discapacidad.
+  \item FIXME
+\end{itemize}
+
+\subsubsection{Calidad exigida al producto}
+
+Se definen unos rangos de calidad respecto a eficiencia, robustez, 
+tolerancia a fallos, facilidad de manejo y características similares 
+del sistema software a desarrollar.
+
+\begin{itemize}
+  \item \textbf{Disponibilidad:} el software generará una base del 
+	conocimiento que debe estar accesible de forma continua.
+  \item \textbf{Escalibilidad:} la arquitectura general del sistema 
+	será lo suficientemente flexible para soportar un amplio
+	rango en los datos que pueda manejar, siendo extremadamente
+	recomendable contemplar optimizaciones de generación de los 
+	datos de forma incremental.
+  \item \textbf{Mantenimiento:} evidentemente tanto la solución software 
+	como en los datos generados se ha de tener muy en cuenta su
+	mantenibilidad.
+\end{itemize}
+
+\subsubsection{Otros requisitos del sistema}
+
+\paragraph{Requisitos del sistema:} el software no debera necesitar de
+unos requerimientos hardware elevados, siendo capaz de ejecutarse en
+un procesador de por lo menos 300Mhz con un mínimo de 32Mb de memoria 
+RAM. 
+
+Los requisitos concretos (procesador de 32 o 64 bits, sistema operativo, 
+etc) vendrán determinados por las inherentes restricciones del entorno de 
+ejecución escogido para el proyecto.
+
+\paragraph{Requisitos de documentación:} la documentación aportada deberá
+contener manuales para un completo uso del software entregado.
+
+Al menos los siguientes tres documentos:
+
+\begin{itemize}
+  \item \textbf{Manual técnico} en el que se recoja toda la información que 
+	fuera necesaria si un futuro se desea extender parte o la totalidad 
+	del software por parte de personas totalmente ajenas al equipo de 
+	desarrollo original.
+  \item \textbf{Manual de despliegue} describiendo detalladamente todos los 
+	requisitos previos y los pasos concretos que se deben seguir para la 
+	correcta instalación del software.
+  \item \textbf{Manual de usuario} que recoja ayuda detallada en un lenguaje
+	no técnico para la correcta utilización del software.
+\end{itemize}
+
+Todos los documentos deberán, además de ser entregados impresos en papel a la
+hora de entrega del resto de componentes del proyecto, estar disponibles en
+formato imprimible (como por ejemplo PDF) en el sitio web público del proyecto.
+
+

@@ -47,9 +47,12 @@ class SWAML(CommandLineUI):
         """
         main method
         @param argv: values of inline arguments
+        @param base: base dir
         """
         
-        CommandLineUI.__init__(self, 'swaml')
+        path = __file__.split('/')
+        base = '/'.join(path[:-1]) + '/'
+        CommandLineUI.__init__(self, 'swaml', base)
         
         self.config = Configuration()        
         
@@ -68,7 +71,7 @@ class SWAML(CommandLineUI):
 
 
 if __name__ == '__main__':
-    try:
+    try:       
         SWAML(sys.argv[1:])
     except KeyboardInterrupt:
         print 'Received Ctrl+C or another break signal. Exiting...'

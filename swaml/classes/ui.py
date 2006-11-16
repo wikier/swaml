@@ -28,8 +28,9 @@ class UI:
     def usage(self):
         pass
     
-    def __init__(self, id=None):
+    def __init__(self, id=None, base='./'):
         self.id = id
+        self.base = base
     
     
 class CommandLineUI(UI):
@@ -46,9 +47,8 @@ class CommandLineUI(UI):
         sys.exit()
         
     
-    def __init__(self, id=None):
-        UI.__init__(self, id)
-        self.base = 'includes/ui/line/'
+    def __init__(self, id=None, base='./'):
+        UI.__init__(self, id, base+'includes/ui/line/')
 
     
 class GtkUI(UI):
@@ -96,8 +96,8 @@ class GtkUI(UI):
     def destroyAlert(self, widget=None, other=None):
         self.alertWindow.destroy() 
     
-    def __init__(self, id=None):
-        UI.__init__(self, id)
-        self.lineBase = 'includes/ui/line/'
-        self.graphicalBase = 'includes/ui/graphical/'
+    def __init__(self, id=None, base='./'):
+        UI.__init__(self, id, base)
+        self.lineBase = self.base + 'includes/ui/line/'
+        self.graphicalBase = self.base + 'includes/ui/graphical/'
     

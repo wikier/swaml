@@ -24,8 +24,8 @@ SWAML_PATH = '/home/sergio/otrosproyectos/swaml/svn/trunk/swaml/'
 sys.path.append(SWAML_PATH)
 
 try:
-        from swaml import SWAML
-        sys.exit(SWAML(sys.argv[1:]))
+	from swaml import SWAML
+	sys.exit(SWAML(sys.argv[1:]))
 except ImportError:
-        print 'SWAML cannot be found; please, ensure that it is installed correctly.'
-        sys.exit(1)
+	print 'SWAML cannot be found; please, ensure that it is installed correctly.'
+	sys.exit(1)

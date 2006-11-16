@@ -21,14 +21,14 @@ Development happens on BerliOS Forge:
 
 
 REQUIREMENTS:
-^^^^^^^^^^^^^
+-------------
 
-To use swaml.py, foaf.py and kml.py scripts you only need:
+To use 'swaml', foaf.py and kml.py scripts you only need:
 
 	- python >= 2.4.0
-	- rdflib = 2.3.0	(Official releases at http://rdflib.net/releases/. Warning: rdflib != librdf)
+	- rdflib = 2.3.1	(Official releases at http://rdflib.net/releases/. Warning: rdflib != librdf)
 			   			
-Ant to use buxon.py script you also need: 
+Ant to use 'buxon' script you also need: 
      
 	- gtk+ >= 2.6.0
 	- pygtk >= 2.6.0
@@ -37,7 +37,7 @@ Ant to use buxon.py script you also need:
 
 
 FEATURES:
-^^^^^^^^^
+---------
         
     * platform independent (written in python)
 	* shell mode (to use manually or by cron script)
@@ -51,8 +51,9 @@ FEATURES:
 
 
 PLANNED FEATURES:
-^^^^^^^^^^^^^^^^^
+-----------------
 
 	* serialize to any RDFdb (sesame for example)
-        
+	* incremental exportations
+  
         

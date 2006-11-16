@@ -5,10 +5,20 @@ DESTDIR =
 DOCDIR=doc
 
 install:
+	cp setup/swaml $(DESTDIR)/usr/bin/swaml
+	chmod 755 $(DESTDIR)/usr/bin/swaml
+	cp setup/buxon $(DESTDIR)/usr/bin/buxon
+	chmod 755 $(DESTDIR)/usr/bin/buxon
+	mkdir -p $(DESTDIR)/usr/local/swaml/
+	cp -r __init__.py swaml.py buxon.py foaf.py kml.py classes includes $(DESTDIR)/usr/local/swaml/
 	mkdir -p $(DESTDIR)/etc/swaml
+	cp -r config $(DESTDIR)/etc/swaml/
 
 uninstall:
-	echo unavailable
+	rm -f $(DESTDIR)/usr/bin/swaml
+	rm -f $(DESTDIR)/usr/bin/buxon
+	rm -rf $(DESTDIR)/usr/local/swaml
+	#rm -rf $(DESTDIR)/etc/swaml
 
 gendoc:
 	rm -rf $(DOCDIR)

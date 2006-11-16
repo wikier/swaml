@@ -1,0 +1,31 @@
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+#
+# SWAML <http://swaml.berlios.de/>
+# Semantic Web Archive of Mailing Lists
+#
+# This is just a wrapper script for the main Python program.
+# This script is part of SWAML, which is covered by the GPL license.
+#
+# Copyright (C) 2006 Sergio Fdez
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2, or (at your option) any later
+# version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTIBILITY
+# or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# for more details.
+
+import sys
+
+sys.path.append('/home/sergio/otrosproyectos/swaml/svn/trunk/swaml/')
+
+try:
+        from swaml import SWAML
+        sys.exit(SWAML(sys.argv[1:]))
+except ImportError:
+        print 'SWAML cannot be found; please, make sure that it is installed correctly.'
+        sys.exit(1)

@@ -3,6 +3,7 @@ XXXX-YY-ZZ	0.0.4	- Minor bugs fixed
 			- SIOC generator independence in Buxon
 			- Cache dump added
 			- New inheritance scheme for classes with any type of UI
+			- Added make file rules to install
 
 2006-11-01	0.0.3	- Buxon, a sioc:Forum visor written in PyGTK, added
 

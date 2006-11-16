@@ -3,12 +3,10 @@
 
 En 1989 Tim Berners-Lee realizó para el CERN un modelo de gestión de la 
 información basado en un sistema distribuido de hipertexto\footnote{\url{http://www.w3.org/Proposal}}. 
-Fue el origen de lenguaje de marcado HTML y la semila de la Web actual
-que recientemente ha cumplido 15 años\footnote{\url{http://www.sun.com/aboutsun/media/features/www15.html}}.
+Fue el origen de lenguaje de marcado HTML y la semila de la Web actual.
 
-No tardó mucho en darse cuenta que ese modelo no era suficiente para 
-manejar grandes volúmenes de información, pues resultaría muy dificil 
-encontrarla y usarla eficientemente. Así el propio Tim Berners-Lee 
+Era evidente que resultaría muy dificil encontrarla y usarla eficientemente. 
+Así el propio Tim Berners-Lee 
 expondría\footnote{\url{http://www.scientificamerican.com/article.cfm?articleID=00048144-10D2-1C70-84A9809EC588EF21&catID=2}}
 en 2001 su visión\footnote{Cita extraida de las transparencias de José Emilio 
 Labra Gayo para el curso de verano sobre Web Semántica de la Universidad de 
@@ -39,13 +37,11 @@ especiales que deben tenerse en cuenta: no centralizada, información dinámica,
 mucha cantidad de información y está abierta a todo el mundo.
 
 En los últimos años la Web ha experimentado una notable evolución, como puede 
-verse en la figura \ref{fig:evoWeb}\footnote{Extraida de una presentación 
-(\url{http://www.w3c.es/Presentaciones/2005/1018-WebSemanticaREBIUN-MA/}) de 
-Martín Álvarez Espinar, de la Oficina Española del W3C}, que le ha llevado a 
-convertirse no sólo en un almacen de contenido estático, sino también en un 
-repositorio universal de conocimiento y servicios.
+verse en la figura \ref{fig:evoWeb}\footnote{FIXME: buscar fuente original, preguntar a martin}, 
+que le ha llevado a convertirse no sólo en un almacen de contenido estático, 
+sino también en un repositorio universal de conocimiento y servicios.
 
-\begin{figure}[ht]
+\begin{figure}[tp]
 	\centering
 	\includegraphics[width=12cm]{images/web-evolution.png}
 	\caption{Evolución de la Web}
@@ -68,7 +64,7 @@ Algunas parte del diseño aún se estan discutiendo en los distintos grupos de
 trabajo, aunque en la figura \ref{fig:swStack} encontramos el diseño que toma
 más forma después de los últimos años de trabajo:
 
-\begin{figure}[ht]
+\begin{figure}[tp]
 	\centering
 	\includegraphics[width=10cm]{images/semantic-web-stack.png}
 	\caption{Pila de la web semántica}
@@ -172,7 +168,7 @@ recursos.
 Un ejemplo sencillo: \textit{Sergio Fdez es el creador de http://www.wikier.org/}. 
 Usando Dublin Core (sección \ref{sec:dc}) podría quedar la siguiente tripleta: 
 \texttt{(http://www.wikier.org/, dc:creator, "Sergio Fdez")}. Dando lugar a un 
-grafo del estilo de:
+grafo del estilo del que se puede ver en la figura~\ref{fig:rdfTripletExample}.
 
 \begin{figure}[ht]
 	\centering
@@ -183,10 +179,10 @@ grafo del estilo de:
 
 
 RDF se puede serializar con tres sintáxis: en XML, N3 (notación de tripletas)
-o Turtle. El mismo grafo se podría serializar con las dos sintáxis, conteniendo ambos 
-idéntica información semántica:
+o Turtle. El mismo grafo se podría serializar con las tres sintáxis, conteniendo 
+todas ellas idéntica información semántica:
 
-\begin{figure}
+\begin{figure}[tp]
 \begin{verbatim}
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -201,7 +197,7 @@ idéntica información semántica:
 	\label{fig:ejemplo.rdfxml}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[tp]
 \begin{verbatim}
 	@prefix dc <http://http://purl.org/dc/elements/1.1/>
 	<http://www.wikier.org> dc:creator "Sergio Fdez"
@@ -210,7 +206,7 @@ idéntica información semántica:
 	\label{fig:ejemplo.rdfn3}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[tp]
 \begin{verbatim}
 	@prefix dc <http://http://purl.org/dc/elements/1.1/>
 	<http://www.wikier.org> 
@@ -222,20 +218,25 @@ idéntica información semántica:
 
 \subsubsection{RDFS}
 
-RDFS\footnote{\url{http://www.w3.org/TR/rdf-schema/}} (RDF Schema) es una
-forma primitiva y limitada de describir ontologías en RDF, también llamado
-«\emph{vocabulario RDF}».
+RDFS\cite{RDFS} (RDF Schema) es una forma primitiva y limitada de describir 
+ontologías en RDF, también llamado «\emph{vocabulario RDF}». Provee los elementos
+básicos para la definición de ontologias (clases, subclases, propiedades, etc).
+
+Aunque OWL, del que hablaremos a continuación, es mucho más expresivo, aún muchas
+ontologias se encuentras definidas con RDFS, por ejemplo FOAF.
 
 \subsubsection{OWL}
 
-Del acrónimo en inglés \emph{Ontology Web Languaje}, 
-OWL\footnote{\url{http://www.w3.org/TR/owl-features/}} es la recomendación 
+Acrónimo resultante de \emph{retorcer} el nombre de 
+\emph{Web Ontology Languaje}, OWL\cite{OWL} es la recomendación 
 oficial de W3C\footnote{\url{http://www.w3.org/}} para publicar ontologías en 
 la Web. Se trata de un lenguaje de gran expresividad para describir conceptos 
 y relaciones entre conceptos, con un compromiso entre expresividad y tratabilidad
 
-Tiene en DAML+OIL\footnote{\url{http://www.daml.org/2001/03/daml+oil-index}}, 
-otros dos lenguajes de ontologías, sus antecesores inmediatos.
+Es la versión revisada y mejorada de juntar dos lenguajes más viejos para la 
+definición de ontologías como son DAML\footnote{\url{http://www.daml.org/}} y 
+OIL\footnote{\url{http://www.ontoknowledge.org/oil/}} (lo llamado
+DAML+OIL\footnote{\url{http://www.daml.org/2001/03/daml+oil-index}}).
 
 La versión actual de OWL (1.0) tiene principalmente tres variantes según su
 complejidad:
@@ -244,18 +245,14 @@ complejidad:
   \item OWL Full, intimamente ligado a la lógica de RDF, pero que puede resultar
 	no computable.
   \item OWL DL, un subconjunto del anterior basado en la lógica descriptiva 
-	\begin{displaymath}
-		{SHOIN} (D)
-	\end{displaymath}
-  \item OWL Lite, subconjunto de OWL DL que se basa en la lógica menos descriptiva
-	\begin{displaymath}
- 		{SHIF} (D)
-	\end{displaymath}
+	${SHOIN} (D)$.
+  \item OWL Lite, subconjunto de OWL DL que se basa en la lógica descriptiva 
+	de menor expresividad ${SHIF} (D)$.
 \end{itemize}
 
 Una perpectiva sencilla sería mostrada por la figura \ref{fig:owlVariants}.
 
-\begin{figure}[ht]
+\begin{figure}[tp]
 	\centering
 	\includegraphics[width=12cm]{images/owl-variants.png}
 	\caption{Perspectiva completa de OWL}
@@ -268,7 +265,7 @@ lógica que abarcan. Quedando un panorama aún más confuso, como se puede ver e
 la figura \ref{fig:owlVariantsExtended}\footnote{Gráfico extraido de Ontotext, 
 \url{http://www.ontotext.com/inference/rdfs_rules_owl.html#owl_fragments}}.
 
-\begin{figure}[ht]
+\begin{figure}[tp]
 	\centering
 	\includegraphics[width=10cm]{images/owl-dialects.png}
 	\caption{Variantes de OWL ampliado}
@@ -279,16 +276,18 @@ Hay que tener en cuenta que existe cierto solapamiento entre la expresividad de
 OWL y la de RDFs (RDF-Schema), desvirtuando en cierta manera la visión original
 por capas.
 
-Para más información puede consultarse el último libro publicado de OWL\cite{OWL} 
-que yo he encontrado.
+Para más información puede consultarse el último libro publicado de 
+OWL\cite{OWLBook}.
 
 \subsubsection{SPARQL}
 
-SPARQL\footnote{\url{http://www.w3.org/TR/rdf-sparql-query/}} es un nuevo lenguaje,
-uno de tantos\cite{ComparisonRDFQuery}, de consulta sobre la base del conocimiento 
-en OWL/RDF con un compromiso en su justa medida entre semántica y 
-complejidad\cite{SemanticsComplexitySPARQL}. Actualmente se trata del candidato a 
-recomendación del W3C por parte del 
+SPARQL\footnote{\url{http://www.w3.org/TR/rdf-sparql-query/}} es un nuevo lenguaje
+de consulta sobre la base del conocimiento en OWL/RDF. No es el único\cite{ComparisonRDFQuery},
+aunque si el más completo y la apuesta oficial del W3C en este área, debido a que es
+un lenguaje con un compromiso en su justa medida entre semántica y 
+complejidad\cite{SemanticsComplexitySPARQL}. 
+
+Actualmente se trata del candidato a recomendación del W3C por parte del 
 DAWG\footnote{\url{http://www.w3.org/2001/sw/DataAccess/}} (RDF Data Access Working 
 Group).
 
@@ -296,7 +295,7 @@ Posee una sintáxis similar a la otros lenguajes de consulta relacionales, como
 podría ser SQL. De hecho sus algebras comparten\cite{RelationalAlgebraSPARQL} 
 determinados puntos. 
 
-\begin{figure}[ht]
+\begin{figure}[tp]
 	\begin{verbatim}
 		PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 		PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -343,11 +342,12 @@ recursos online.
 \paragraph{RSS}
 
 Desarrollado en el seno de Netscape, RSS es el formato de sindicación de noticias
-más extendido en la actualidad. Con un complicado historial de versiones\ref{fig:rssEvolution} 
-incompatibles entre sí (sólo la versión 1.0 de RSS sean
-RDF, el resto de versiones 
+más extendido en la actualidad. Con un complicado historial, como se puede ver en la
+figura~\ref{fig:rssEvolution}, de versiones incompatibles entre sí; de hecho sólo 
+la versión 1.0 de RSS es RDF, el resto de versiones han introducido ciertos aspectos
+incompatibles.
 
-\begin{figure}[ht]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=10cm]{images/rssEvolution.png}
 	\caption{Evolucion de RSS}
@@ -361,7 +361,7 @@ se trata de un vocabulario RDF para describir semánticamente información perso
 muy extendido (en 2004 se estimaba\cite{Li2005} que existian alrededor de 1,2 millones 
 de documentos FOAF) dentro del ámbito de la web semántica.
 
-\begin{figure} [ht]
+\begin{figure} [tp]
 \begin{verbatim}
 	<rdf:RDF
 		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -382,7 +382,7 @@ de documentos FOAF) dentro del ámbito de la web semántica.
 	\label{fig:ejemplo.foaf}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[tp]
  	\centering
 	\includegraphics[width=7cm]{images/patron-foaf.png}
 	\caption{Patrón de documentos FOAF}
@@ -396,9 +396,9 @@ uniendo todos ellos. El patrón\ref{fig:patternFOAF} siempre se repite.
 \paragraph{DOAP}
 
 Description-of-a-Project\footnote{\url{http://usefulinc.com/doap}} es una idea 
-similar a FOAF pero para describir proyectos de software libre.
+similar a FOAF pero para describir todo tipo de proyectos.
 
-\begin{figure}[ht]
+\begin{figure}[p]
 \begin{verbatim}
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
@@ -464,12 +464,11 @@ que es imprescindible ojear: \emph{A Semantic Web primer}\cite{SemanticWebPrimer
 Hacia donde irá la Web Semántica es algo que sólo se sabrá con el tiempo, y quizás
 en un plazo no más allá de 5 o 10 años. Por ahora es muy pronto para aventurar nada,
 aunque si bien es cierto que el estado de adopción de la Web Semántica, en palabras
-del propio Ivan Herman\footnote{\url{http://www.w3.org/2006/Talks/1109-Athens-IH/}},
-crece a un ritmo imparable.
+del propio Ivan Herman\footnote{\url{http://www.w3.org/2006/Talks/1109-Athens-IH/}}
+(lider de la actividad de web semántica del W3C), crece a un ritmo imparable.
 
-Históricamente todos los campos relacionados con la IA (inteligencia artificial) 
-han sido áreas de investigación vendidas en exceso como la panacea de la solución 
-de todos los problemas de la humanidad; generando unas espectativas falsas que han 
-hecho mucho daño a la comunidad científica.
+Históricamente han existido áreas de investigación vendidas en exceso como la 
+panacea de la solución de todos los problemas de la humanidad; generando unas 
+espectativas falsas que han hecho mucho daño a la comunidad científica.
 
 Lo que si sabemos es que la Web Semántica será una Web mucho más \emph{útil}.

@@ -24,7 +24,7 @@ src:
 
 clean:
 	rm -f $(IMAGES)
-	rm -f *.aux *.log *.dvi *.toc *.pdf *.bbl *.blg *.lof
+	rm -f *.aux *.log *.dvi *.toc *.pdf *.bbl *.blg *.lof *.bak
 	rm -f `find . -name "*.backup"`
 	rm -f `find . -name "*~"`
 

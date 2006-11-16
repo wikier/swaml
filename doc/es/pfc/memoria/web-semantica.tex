@@ -357,7 +357,9 @@ RDF, el resto de versiones
 \paragraph{FOAF}
 
 FOAF\footnote{\url{http://www.foaf-project.org/}}, acrónimo de Friend-of-a-Friend, 
-se trata de un vocabulario RDF para describir semánticamente información personal.
+se trata de un vocabulario RDF para describir semánticamente información personal
+muy extendido (en 2004 se estimaba\cite{Li2005} que existian alrededor de 1,2 millones 
+de documentos FOAF) dentro del ámbito de la web semántica.
 
 \begin{figure} [ht]
 \begin{verbatim}
@@ -380,9 +382,16 @@ se trata de un vocabulario RDF para describir semánticamente información perso
 	\label{fig:ejemplo.foaf}
 \end{figure}
 
+\begin{figure}
+ 	\centering
+	\includegraphics[width=7cm]{images/patron-foaf.png}
+	\caption{Patrón de documentos FOAF}
+	\label{fig:patternFOAF}
+\end{figure}
+
 Pudiendo describir relaciones (amigos, compañeros de trabajo, etc), interéses,
 proyectos y demás recursos de uso personal, de forma que se forme un grafo 
-uniendo todos ellos.
+uniendo todos ellos. El patrón\ref{fig:patternFOAF} siempre se repite.
 
 \paragraph{DOAP}
 

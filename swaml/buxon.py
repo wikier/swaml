@@ -258,13 +258,13 @@ class Buxon(GtkUI):
 			
 		gtk.main()
 
-	def __init__(self, base):
+	def __init__(self, base='./'):
 		
 		GtkUI.__init__(self, 'buxon')
 		
 		self.base = base
 		self.cache = None
-		self.treeTranslator = {}
+		self.treeTranslator = {}	
 		
 
 #global vars
@@ -272,23 +272,36 @@ widgets = None
 callbacks = None
 buxon = None
 
-if __name__ == '__main__':
-	try:
-		path = __file__.split('/')
-		base = '/'.join(path[:-1]) + '/'
-		widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
-		callbacks = Callbacks()
-		widgets.signal_autoconnect(Callbacks.__dict__)	
-		buxon = Buxon(base)
-		
-		if ('-h' in sys.argv or '--help' in sys.argv):
-			buxon.usage()
-		
-		if (len(sys.argv)>1):
-			buxon.main(sys.argv[1])
-		else:
-			buxon.main()
+class BuxonMain:
+	
+	def __init__(self, argv):
+		try:
+			path = __file__.split('/')
+			base = '/'.join(path[:-1]) + '/'
 			
-	except KeyboardInterrupt:
-		print 'Received Ctrl+C or another break signal. Exiting...'
-		sys.exit()
+			global widgets
+			global callbacks
+			global buxon
+			
+			widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
+			callbacks = Callbacks()
+			widgets.signal_autoconnect(Callbacks.__dict__)
+			
+			buxon = Buxon(base)
+			
+			if ('-h' in argv or '--help' in argv):
+				buxon.usage()
+			
+			if (len(argv)>0):
+				buxon.main(argv[0])
+			else:
+				buxon.main()
+				
+		except KeyboardInterrupt:
+			print 'Received Ctrl+C or another break signal. Exiting...'
+			sys.exit()
+		
+		
+if __name__ == '__main__':
+	BuxonMain(sys.argv[1:])
+

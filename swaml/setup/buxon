@@ -20,7 +20,7 @@
 
 import sys
 
-SWAML_PATH = '/home/sergio/otrosproyectos/swaml/svn/trunk/swaml/'
+SWAML_PATH = '/usr/local/swaml/'
 sys.path.append(SWAML_PATH)
 
 try:

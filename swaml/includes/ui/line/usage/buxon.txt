@@ -1,7 +1,7 @@
 
-Usage: buxon.py [uri]
+Usage: buxon [uri]
         
-read a Forum published in SIOC vocabulary
+Read a Forum published in SIOC vocabulary.
 
    uri :	forum's uri
 

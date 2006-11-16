@@ -1,7 +1,8 @@
 
-Usage: swaml.py configfile [options]
+Usage: swaml configfile [options]
         
-'swaml' transform the archives of a mailing list (in mbox format) into a semantic web friendly format (RDF in XML).
+'swaml' transform the archives of a mailing list (in mbox format) into a 
+semantic web friendly format (RDF in XML).
 
    'configfile'      : path to a configuration file compatible with RFC822.
 

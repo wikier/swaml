@@ -1,7 +1,21 @@
 
 \subsection{Especificación de requisitos}
 
-FIXME
+Debido a la naturaleza del problema a resolver la \textbf{introspección}
+ha sido la técnica usada para realizar la captura de requisitos software.
+
+Esta técnica recomienda que sea el propio ingeniero de requisitos quien 
+se ponga en el lugar del cliente y trate de imaginar como desearía él el 
+sistema. Y en base a estas suposiciones comenzar a recomendar al cliente 
+sobre la funcionalidad que debería presentar el sistema. El problema radica 
+en  que un ingeniero no es un tipo normal de cliente, posee un conocimiento 
+técnico mas elevado por lo que se podrían recomendar cosas que el cliente 
+no necesite.
+
+Pero además circunstancialmente también se hizo uso de la técnica conocida
+como las \textbf{entrevistas}, principalmente discusiones. Como adaptación
+a las circunstancias concretas fueron ambos co-directores del proyecto 
+quienes ejercieron la función del cliente.
 
 \subsubsection{Datos de entrada}
 
@@ -61,7 +75,7 @@ servidor)
 
 \subsubsection{Datos de salida}
 
-FIXME(HTML, XML, RDF, etc...)
+FIXME(HTML, XML, RDF, KML, etc...)
 
 \subsubsection{Lenguaje de programación}
 
@@ -101,7 +115,7 @@ como por ejemplo:
 Despues de revisar los lenguajes dsiponibles, fueron varios los candidatos para
 someterlos a un estudio más profundo:
 
-\paragraph{Java}: Java\footnote{\url{http://java.sun.com/}}
+\paragraph{Java:}Java\footnote{\url{http://java.sun.com/}}
 es un lenguaje de programación, desarrollado por Sun Microsystems, orientado a 
 objetos muy popular desde hace varios años. Java no se compila a código nativo, 
 sino que una JVM (Java Virtual Machine, máquina virtual de Java) ejecuta el 
@@ -132,7 +146,7 @@ manera importante un futura distribución de SWAML de manera totalmente libre,
 pues tendría como dependencias paquetes no libres.
 
 
-\paragraph{Python}: Python\footnote{\url{http://www.python.org/}} es un lenguaje de 
+\paragraph{Python:}Python\footnote{\url{http://www.python.org/}} es un lenguaje de 
 script extremadamente eficiente. Su uso está muy extendido en todos los sistemas 
 Unix actuales (GNU/Linux, familia BSD, Solaris, etc), aunque también está disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
 operativos actuales (Windows, MacOS y demás).
@@ -176,7 +190,7 @@ de listas de correo más popular hoy en día, también esta escrito en Python, l
 facilitaria en gran medida una supuesta integración de SWAML en Mailman.
 
 
-\paragraph{C\#}: C\#\footnote{\url{http://msdn2.microsoft.com/en-us/vcsharp/aa336809.aspx}} 
+\paragraph{C\#:}C\#\footnote{\url{http://msdn2.microsoft.com/en-us/vcsharp/aa336809.aspx}} 
 es un lenguaje de programación desarrollado por Microsoft, y posteriormente estandarizado por el ECMA\footnote{\url{http://www.ecma-international.org/publications/standards/Ecma-334.htm}},
 como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.com/net/}}.
 
@@ -200,7 +214,7 @@ de distribución de SWAM, sino que encima coartarían su funcionamiento a las pl
 soportadas actualmente por ese framework (Microsoft Windows).
 
 
-\paragraph{Perl}: Perl\footnote{\url{http://www.perl.org/}} es un lenguaje de script de 
+\paragraph{Perl:}Perl\footnote{\url{http://www.perl.org/}} es un lenguaje de script de 
 gran tradición. Soporta paradignas de programación imperativo (estructurados y orientados 
 a objetos) y lógico funcionale.
 
@@ -208,8 +222,8 @@ a objetos) y lógico funcionale.
   \item Está especialmente extendido en sistemas Unix y, en menor medida, en sistemas
 	operativos Windows. Sus requerimientos sonn realmente bajos y, dada su naturaleza
 	de script, está especialmente pensado para invocarse en linea.
-  \item Con RDFStore\footnote{http://rdfstore.sourceforge.net/} se dispone de un API bastante
-	bueno para manejar RDF desde Perl. También existe una
+  \item Con RDFStore\footnote{\url{http://rdfstore.sourceforge.net/}} se dispone de un 
+	API bastante bueno para manejar RDF desde Perl. También existe una
 	implementación\footnote{\url{http://www.w3.org/1999/02/26-modules/}} 
 	desarrollada por el W3C para manejar RDF desde Perl. Aunque ni es una implementación
 	demasiado completa ni es un proyecto mantenido en la actualidad.
@@ -224,7 +238,7 @@ la lectura y/o reescritura del código.
 
 \newpage
 
-\paragraph{Conclusión:} Una vez estudiadas y evaluadas cuidadosamente todas estas 
+\paragraph{Conclusión:}Una vez estudiadas y evaluadas cuidadosamente todas estas 
 alternativas, se llegó a la conclusión de que Python era el lenguaje que mejor se 
 adaptaba a los requisitos del proyecto. Tanto por cumplir los tres requisitos 
 no funcionales principales buscados, como por ser un lenguaje moderno y flexible 

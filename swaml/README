@@ -39,7 +39,7 @@ Ant to use 'buxon' script you also need:
 FEATURES:
 ---------
         
-    * platform independent (written in python)
+	* platform independent (written in python)
 	* shell mode (to use manually or by cron script)
 	* compatible with RFC 4155
 	* serialize RDF to disk
@@ -53,6 +53,7 @@ FEATURES:
 PLANNED FEATURES:
 -----------------
 
+	* (X)HTML output
 	* serialize to any RDFdb (sesame for example)
 	* incremental exportations
   

@@ -33,14 +33,12 @@ completas y en la codificación del cliente de correo del usuario.
 
 Por tanto es fácil adivinar dos problemas evidentes de este formato:
 
-\paragraph{Identificacores}
+\paragraph{Identificadores}cada correo dispone de un identificador (cabecera 
+\texttt{Message-Id}), pero este identificador nadie asegura que sea único.
 
-FIXME
-
-Cada correo dispone de un identificador (cabecera \texttt{Message-Id}). Cuando
-alguien responde un mensaje, el cliente de correo colocará en el nuevo una 
-cabecera (\texttt{In-Reply-To}) con este ID para referirse explicitamente al 
-mensaje que se está respondiendo.
+Cuando alguien responde un determinado mensaje, el cliente de correo colocará 
+en la respuesta una cabecera (\texttt{In-Reply-To}) con este ID para referirse 
+explicitamente al mensaje que se está respondiendo.
 
 Este el mecanismo especificado en el RFC\footnote{\url{http://rfc.net/rfc2822.html}} 
 para las gestión de hilos de conversación por medio de correo electrónico. Y es
@@ -52,7 +50,7 @@ Dicho identificador tiene una forma similar a \texttt{<3C94C55A3B6A@smtp.isp.com
 
 Pero ese ID no es único, sino que es asignado por el propio servidor
 SMTP\footnote{\url{http://es.wikipedia.org/wiki/SMTP}} (Simple Mail Transfer Protocol) 
-de forma arbitraria a la hora de enviar el correo.
+del usuario de forma arbitraria a la hora de enviar el correo.
 
 Por tanto no debería poder usarse, al menos garantizando un rigurosidad extrema
 a la hora de identificar cada uno de los mensajes y sus respuestas.
@@ -64,18 +62,41 @@ mensaje del hilo.
 Pero si existe una aproximación al problema que consigue una efectividad bastante
 alta según se ha podido comprobar. Consiste en asumir que cuando hay una respuesta
 a un mensaje, existe una alta probabilidad que se esté respondiendo a último de los 
-mensajes enviados con ID repetido.
+mensajes enviados con ID repetido. Empíricamente se ha demostrado que este 
+probabilidad supera el 95\%.
 
-\paragraph{Codificación}
+\paragraph{Codificación} un viejo problema de la informática a la hora de 
+interactuar entre varios sistemas. Actualmente dos codificaciones, ISO y 
+Unicode, son las más utilizadas y extendidas.
 
-FIXME
-
-(cada uno de su padre y de su madre, y almacenados en la codificación del
-servidor)
+El problema radica en la heterogeneidad de codificaciones que utilizen los
+usuarios. Los sistema de listas de correo no suelen antender a la codificación
+de los correos que reciben, y los \emph{vuelcan} todos al mbox codificado 
+en al codificación que use el sistema servidor. Ello provoca en muchos casos
+una corrupción de algunas cadenas, siendo tremendamente difícil recomponerlas
+de nuevo a la hora de procesarlas.
 
 \subsubsection{Datos de salida}
 
-FIXME(HTML, XML, RDF, KML, etc...)
+Como el fin principal del proyecto es publicar las listas de correo en un
+formato semánticamente rico, es evidente que el formato principal de salida
+será \textbf{RDF}.
+
+Pero también se pueden contemplar otros formatos de salida complementarios:
+
+\begin{itemize}
+  \item \textbf{(X)HTML}: para su visualización en navegadores convencionales.
+	Evidentemente ambos (RDF y HTML) deberán enlazarse mutuamente.
+  \item \textbf{KML}: el formato KML 2.0\footnote{\url{http://earth.google.com/kml/kml_intro.html}}
+	(Keyhole Markup Language) es una gramática XML para describir determinadas
+	características geográficas (puntos, lineas, imágenes, polígonos, etc)
+	que luego pueden ser \emph{explotados} desde 
+	Google Maps\footnote{\url{http://maps.google.es/}} o
+	Google Earth\footnote{\url{http://earth.google.com/}}. Por tanto
+	puede ser muy interrsante exportar los suscriptores de la lista de
+	correo, para así automáticamente poder utilizar esta información
+	desde las herramientas que ya existen.
+\end{itemize}
 
 \subsubsection{Lenguaje de programación}
 
@@ -83,24 +104,24 @@ El problema planteado requiere de una lenguaje de programación que disponga
 de determinadas características:
 
 \begin{itemize}
-  \item Fácil despliegue: hay que procurar que SWAML se pueda desplegar en
-	todo tipo de máquinas, sin excesivos requisitos ni hardware ni software.
+  \item \textbf{Fácil despliegue:} hay que procurar que SWAML se pueda desplegar 
+	en todo tipo de máquinas, sin excesivos requisitos ni hardware ni software.
 	Es importante que SWAML pueda ser invocado por los distintos programadores
 	de tarea de que disponen los sistemas operativos (cron y similares).
-  \item API para RDF: que disponga de una madura bliblioteca, a poder ser nativa, 
-	para manejar RDF (creación de grafos, parseo desde disco/URI, serializado
-	a disco y/o bases de datos, consultas SPARQL, etc).
-  \item Biblioteca para ficheros mbox: sería interesante disponer de una biblioteca 
-	que abstraiga lo mayor posible al proyecto del manejo de ficheros
+  \item \textbf{API para RDF:} que disponga de una madura bliblioteca, a poder ser 
+	nativa, para manejar RDF (creación de grafos, parseo desde disco/URI, 
+	serializado a disco y/o bases de datos, consultas SPARQL, etc).
+  \item \textbf{Biblioteca para ficheros mbox}: sería interesante disponer de una 
+	biblioteca que abstraiga lo mayor posible al proyecto del manejo de ficheros
 	mbox\footnote{\url{http://rfc.net/rfc4155.html}} y mensajes de correo 
 	electrónico\footnote{\url{http://rfc.net/rfc2822.html}}.
 \end{itemize}
 
-Por tanto el cumplimiento de estas tres necesidades principales era lo primero
-a valorar entre todos lenguajes de programación candidatos a convertirse en el
-lenguaje utilizado para implementar SWAML. 
+Por tanto el cumplimiento de estas tres necesidades principales debe ser lo 
+primero a valorar entre todos lenguajes de programación candidatos a convertirse 
+en el lenguaje utilizado para implementar SWAML. 
 
-Pero tambien se iba a tener en cuenta otras cualidades más generales al problema,
+Pero tambien se ha de tener en cuenta otras cualidades más generales al problema,
 como por ejemplo:
 
 \begin{itemize}
@@ -115,14 +136,14 @@ como por ejemplo:
 Despues de revisar los lenguajes dsiponibles, fueron varios los candidatos para
 someterlos a un estudio más profundo:
 
-\paragraph{Java:}Java\footnote{\url{http://java.sun.com/}}
-es un lenguaje de programación, desarrollado por Sun Microsystems, orientado a 
-objetos muy popular desde hace varios años. Java no se compila a código nativo, 
-sino que una JVM (Java Virtual Machine, máquina virtual de Java) ejecuta el 
-bytecode previamente compilado.
+\paragraph{Java:}Java\footnote{\url{http://java.sun.com/}} es un lenguaje de 
+programación, desarrollado por Sun Microsystems, orientado a objetos muy popular 
+desde hace varios años. Java no se compila a código nativo, sino que una JVM 
+(Java Virtual Machine, máquina virtual de Java) ejecuta el bytecode previamente 
+compilado.
 
 En la actualidad se disponen de multitud de implementaciones de la máquina virtual
-de Java, desde las propietarias (Sun, IBM, HP, etc) hasta las libres (Harmony, GIJ, 
+de Java, desde las propietarias (IBM, HP, etc) hasta las libres (Sun, Harmony, GIJ, 
 Kafee, IKVM.NET, etc).
 
 Sobre el problema que nos atañe:
@@ -131,20 +152,29 @@ Sobre el problema que nos atañe:
   \item Actualmente las JVM existentes cubren un amplio abanico de arquitecturas y 
 	sistemas operativos. Aunque Java esté más pensado para su uso en otro tipo
 	de entornos (J2EE por ejemplo), puede invocarse perfectamente en modo en
-	linea.
+	linea y resolver problemas de procesamientos por lotes como el que nos
+	atañe.
   \item Dispone de forma nativa (desarrollado tambien en Java) de la biblioteca para
 	manejar RDF más madura actualmente: Jena\footnote{\url{http://jena.sourceforge.net/}}.
 	El famework Jena incluye paquetes para múltiples propósitos dentro de la web
 	semántica: API para RDF y OWL, persistencia, serializado y soporte para consultas
 	SPARQL.
-  \item FIXME
+  \item Con JavaMail\footnote{\url{http://java.sun.com/products/javamail/}} \+
+	jmbox\footnote{\url{http://jmbox.dev.java.net/}} se conseguiria un nivel
+	de abstracción del problema suficiente para centrarse en el desarrollo
+	de las otras capas.
 \end{itemize}
 
-Quizás la única (y mayor) pega se encuentre en los términos de licencia de las 
-mejores implementaciones de la máquina virtual de Java, lo que complicaria de una
-manera importante un futura distribución de SWAML de manera totalmente libre,
-pues tendría como dependencias paquetes no libres.
+En las fechas en que se desarrollo esta especificación de requisitos la máquina virtual
+de Java de Sun, la más completa y eficiente actualmente, no era libre. Por tanto en 
+aquellas fechas tubo que que ser tomado como un punto negativo, pues complicaría de 
+una manera importante un futura distribución de SWAML de manera totalmente libre,
+por tener como dependencias paquetes no libres.
 
+Pero la noticia de la liberación de Java por parte de Sun\footnote{\url{http://www.sun.com/2006-1113/feature/story.jsp}} ha obligado a la
+revisión de este documento. Sin bien las conclusiones de este documento se ven 
+desvirtuadas (que Java no fuese libre en esas fechas fue un argumento de peso para
+descartarlo como lenguaje), al menos recoger en estas lineas dicha noticia.
 
 \paragraph{Python:}Python\footnote{\url{http://www.python.org/}} es un lenguaje de 
 script extremadamente eficiente. Su uso está muy extendido en todos los sistemas 

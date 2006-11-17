@@ -109,7 +109,9 @@ Unicode es el recurso primario de representación de caracteres en la Web Semán
 \paragraph{URI}
 
 Acronimo del inglés Uniform Resource Identifier, identificador uniforme de recursos.
-Mecanismo que la Web Semántica utiliza para identificar recursos. 
+Mecanismo que la Web Semántica utiliza para identificar recursos. Se trata de una
+especialización del IRI (Internationalized Resource Identifier) limitada al rango
+de caracteres ASCII.
 
 Un concepto que mezcla URL\footnote{Uniform Resource Locator, localizador uniforme de recurso} 
 y URN\footnote{Uniform Resource Name, nombre uniforme de recurso} para cumplir una doble 
@@ -223,7 +225,7 @@ ontologías en RDF, también llamado «\emph{vocabulario RDF}». Provee los elem
 básicos para la definición de ontologias (clases, subclases, propiedades, etc).
 
 Aunque OWL, del que hablaremos a continuación, es mucho más expresivo, aún muchas
-ontologias se encuentras definidas con RDFS, por ejemplo FOAF.
+ontologias se encuentras definidas con RDFS.
 
 \subsubsection{OWL}
 
@@ -295,7 +297,7 @@ Posee una sintáxis similar a la otros lenguajes de consulta relacionales, como
 podría ser SQL. De hecho sus algebras comparten\cite{RelationalAlgebraSPARQL} 
 determinados puntos. 
 
-\begin{figure}[tp]
+\begin{figure}[ht]
 	\begin{verbatim}
 		PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 		PREFIX dc: <http://purl.org/dc/elements/1.1/>

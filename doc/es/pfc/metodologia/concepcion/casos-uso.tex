@@ -64,102 +64,106 @@ enumerar:
  \item Consultar la información extra generada
 \end{itemize}
 
+Para pasar a describirlos más detalladamente:
 
-\paragraph{Parametrizar el sistema}
+\begin{itemize}
 
-\subparagraph{Descripción}Este caso de uso representa la labor que
-el usuario administrador debe realizar para configurar correctamente 
-el sistema.
+  \item \textbf{Parametrizar el sistema:}
+ 	\begin{itemize}
+ 	  \item \textbf{Descripción:} Este caso de uso representa la labor 
+		que el usuario administrador debe realizar para configurar 
+		correctamente el sistema.
+ 	  \item \textbf{Flujo de eventos:} El caso de uso comienza cuando el
+		usuario administrador comienza a editar una configuración, 
+		bien manualmente o mediante el asistente que acompaña al 
+		software.
+	  \item \textbf{Precondiciones:} Es necesario disponer de un mailbox
+		a exportar.
+	  \item \textbf{Postcondiciones:} Ninguna detectada.
+	\end{itemize}
 
-\subparagraph{Flujo de eventos}El caso de uso comienza cuando el
-usuario administrador comienza a editar una configuración, bien
-manualmente o mediante el asistente que acompaña al software.
+  \item \textbf{Iniciar la publicación:}
+ 	\begin{itemize}
+ 	  \item \textbf{Descripción:} Representa la acción de publicación 
+		propiamente dicha.
+ 	  \item \textbf{Flujo de eventos:} El proceso es un proceso por 
+		lotes que a partir de una configuración genera una serie 
+		de ficheros RDF. Internamente se divide en varios procesos:
+		\begin{enumerate}
+		 \item \emph{Parsear} el mailbox
+		 \item Revisar la consistencia de todas las relaciones entre los distintos mensajes
+		 \item Enriquecer la información
+		 \item Exportar cada uno de estos mensajes en RDF
+		 \item Exportar los suscriptores en RDF
+		 \item Exportar los suscriptores en KML si fuese requerido
+		 \item Exportar todos los indices
+		\end{enumerate}
+	  \item \textbf{Precondiciones:} Disponer de una configuración correcta.
+	  \item \textbf{Postcondiciones:} El directorio destino de la exportación
+		debe poder \emph{consumirse} mediante otro servicio, como un 
+		servidor \texttt{HTTP} (Apache o similar).
+	\end{itemize}
 
-\subparagraph{Precondiciones}Es necesario disponer de un mailbox
-a exportar.
+  \item \textbf{Enriquecer los datos:}
+ 	\begin{itemize}
+ 	  \item \textbf{Descripción:} Representa la interacción del 
+		sistema con otras bases del conocimiento externas, 
+		principalmente los FOAF de los suscriptores a la lista 
+		de correo, para enriquecer la información en determinados 
+		aspectos.
+ 	  \item \textbf{Flujo de eventos:} Se tratar de un proceso que se 
+		repite iterativamente con cada uno de los suscriptores:
+		\begin{enumerate}
+		 \item Buscar su FOAF
+		 \item Si lo tiene:
+		 \begin{enumerate}
+		  \item	Enlazar al suscriptor con su FOAF
+		  \item Consultar sus coordenadas geográficas
+		  \item Consultar su foto
+		 \end{enumerate}
+		 \item Si no lo tiene continuar con el siguiente suscriptor
+		\end{enumerate}
+	  \item \textbf{Precondiciones:} Disponer de la lista de suscriptores 
+		cargada en memoria.
+	  \item \textbf{Postcondiciones:} Ninguna detectada.
+	\end{itemize}
 
-\subparagraph{Postcondiciones}Ninguna.
+  \item \textbf{Consular los archivos generados:}
+ 	\begin{itemize}
+ 	  \item \textbf{Descripción:} Representa la interacción del 
+		usuario con los datos generados. Desde una simple consulta 
+		manual a los ficheros RDF generados, hasta realizar consultas 
+		de una forma más sofisticada.
+ 	  \item \textbf{Flujo de eventos:} Con la información obtenida se 
+		repetirá siempre el mismo flujo:
+		\begin{enumerate}
+		 \item consultar
+		 \item leer
+		 \item comprender
+		 \item y/o desechar
+		\end{enumerate}
+	  \item \textbf{Precondiciones:} Disponer de la lista exportada a RDF.
+	  \item \textbf{Postcondiciones:} Ninguna concreta.
+	\end{itemize}
 
+  \item \textbf{Consultar la información extra generada:}
+ 	\begin{itemize}
+ 	  \item \textbf{Descripción:} Este caso de uso representa la consulta 
+		por parte del usuario de la información extra generada, por el 
+		ejemplo los suscriptores en formato KML.
+ 	  \item \textbf{Flujo de eventos:}
+		\begin{enumerate}
+		 \item consultar
+		 \item explotar
+		\end{enumerate}
+	  \item \textbf{Precondiciones:} Disponer de la información geográfica 
+		de los suscriptores.
+	  \item \textbf{Postcondiciones:} Explotación de estos datos, por ejemplo
+		visualizandolos\footnote{\url{http://maps.google.es/maps?q=http://swaml.berlios.de/demo/subscribers.kml}}
+		con Google Maps\footnote{\url{http://maps.google.es/}}.
+	\end{itemize}
 
-\paragraph{Iniciar la publicación}
+\end{itemize}
 
-\subparagraph{Descripción}Representa la acción de publicación propiamente
-dicha.
-
-\subparagraph{Flujo de eventos}El proceso es un proceso por lotes que
-a partir de una configuración genera una serie de ficheros RDF. Internamente
-se divide en varios procesos:
-\begin{enumerate}
- \item \emph{Parsear} el mailbox
- \item Revisar la consistencia de todas las relaciones entre los distintos mensajes
- \item Enriquecer la información
- \item Exportar cada uno de estos mensajes en RDF
- \item Exportar los suscriptores en RDF
- \item Exportar los suscriptores en KML si fuese requerido
- \item Exportar todos los indices
-\end{enumerate}
-
-\subparagraph{Precondiciones}Disponer de una configuración correcta.
-
-\subparagraph{Postcondiciones}El directorio destino de la exportación
-debe poder \emph{consumirse} mediante otro servicio, como un servidor
-\texttt{HTTP} (Apache o similar).
-
-
-\paragraph{Enriquecer los datos}
-
-\subparagraph{Descripción}Representa la interacción del sistema con
-otras bases del conocimiento externas, principalmente los FOAF de los
-suscriptores a la lista de correo, para enriquecer la información en
-determinados aspectos.
-
-\subparagraph{Flujo de eventos}Se tratar de un proceso que se repite
-iterativamente con cada uno de los suscriptores:
-\begin{enumerate}
- \item Buscar su FOAF
- \item Si lo tiene:
- \begin{enumerate}
-  \item	Enlazar al suscriptor con su FOAF
-  \item Consultar sus coordenadas geográficas
-  \item Consultar su foto
- \end{enumerate}
- \item Si no lo tiene continuar con el siguiente suscriptor
-\end{enumerate}
-
-
-\subparagraph{Precondiciones}Disponer de la lista de suscriptores en
-memoria.
-
-\subparagraph{Postcondiciones}Ninguna.
-
-
-\paragraph{Consular los archivos generados}
-
-\subparagraph{Descripción}Representa la interacción del usuario con los
-datos generados. Desde una simple consulta manual a los ficheros RDF
-generados, hasta realizar consultas de una forma más sofisticada.
-
-\subparagraph{Flujo de eventos}Consultar, leer, comprender y/o desechar 
-la información obtenida.
-
-\subparagraph{Precondiciones}Disponer de la lista exportada a RDF.
-
-\subparagraph{Postcondiciones}Ninguna concreta.
-
-
-\paragraph{Consultar la información extra generada}
-
-\subparagraph{Descripción}Este caso de uso representa la consulta por
-parte del usuario de la información extra generada, por el ejemplo los
-suscriptores en formato KML.
-
-\subparagraph{Flujo de eventos}Consultar y explotar.
-
-\subparagraph{Precondiciones}Disponer de la información geográfica de
-los suscriptores.
-
-\subparagraph{Postcondiciones}Explotación de estos datos, por ejemplo
-visualizandolos\footnote{\url{http://maps.google.es/maps?q=http://swaml.berlios.de/demo/subscribers.kml}} 
-con Google Maps\footnote{\url{http://maps.google.es/}}.
 
 

@@ -20,11 +20,16 @@ quienes ejercieron la función del cliente.
 \subsubsection{Datos de entrada}
 
 La fuente de información será una lista de correo en formato
-mbox\footnote{\url{http://rfc.net/rfc4155.html}}, un formato estandarizado
-que utilizan la mayoria de los sistemas de gestión de listas de correo
-(Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, 
-Majordomo\footnote{\url{http://www.greatcircle.com/majordomo/}},
-LISTSERV, Listproc y SmartList entre otros).
+mbox\cite{Hall2005}, un formato estandarizado que utilizan la mayoria 
+de los sistemas de gestión de listas de correo, entre otros:
+
+\begin{itemize}
+ \item Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}
+ \item Majordomo\footnote{\url{http://www.greatcircle.com/majordomo/}}
+ \item LISTSERV
+ \item Listproc
+ \item SmartList
+\end{itemize}
 
 El formato mbox no es más que un fichero de texto plano en el que se van
 almacenando consecutivamente los correos que van llegando a la lista. Se 
@@ -33,48 +38,57 @@ completas y en la codificación del cliente de correo del usuario.
 
 Por tanto es fácil adivinar dos problemas evidentes de este formato:
 
-\paragraph{Identificadores}cada correo dispone de un identificador (cabecera 
-\texttt{Message-Id}), pero este identificador nadie asegura que sea único.
+\begin{itemize}
 
-Cuando alguien responde un determinado mensaje, el cliente de correo colocará 
-en la respuesta una cabecera (\texttt{In-Reply-To}) con este ID para referirse 
-explicitamente al mensaje que se está respondiendo.
+  \item \textbf{Identificadores:} cada correo dispone de un identificador 
+	(cabecera \texttt{Message-Id}), pero este identificador nadie 
+	asegura que sea único.
 
-Este el mecanismo especificado en el RFC\footnote{\url{http://rfc.net/rfc2822.html}} 
-para las gestión de hilos de conversación por medio de correo electrónico. Y es
-mecanismo que utilizado para representar las conversaciones en forma de árbol, 
-tanto en clientes de correo (Evolution, Thunderbird, Outlook, etc) como en sistemas 
-convecionales de publicación de listas de correo.
+	Cuando alguien responde un determinado mensaje, el cliente de correo 
+	colocará en la respuesta una cabecera (\texttt{In-Reply-To}) con este 
+	\texttt{ID} para referirse explicitamente al mensaje que se está 
+	respondiendo.
 
-Dicho identificador tiene una forma similar a \texttt{<3C94C55A3B6A@smtp.isp.com>}.
+	Este es el mecanismo especificado en el RFC\cite{Resnick2001} para 
+	la gestión de hilos de conversación por medio de correo electrónico. 
+	Y el mecanismo que es utilizado para representar los hilos de 
+	conversaciones en forma de árbol, tanto en clientes de correo (Evolution, 
+	Thunderbird, Outlook, etc) como en alguno de los sistemas convecionales 
+	de publicación de listas de correo nombrados anteriormente.
 
-Pero ese ID no es único, sino que es asignado por el propio servidor
-SMTP\footnote{\url{http://es.wikipedia.org/wiki/SMTP}} (Simple Mail Transfer Protocol) 
-del usuario de forma arbitraria a la hora de enviar el correo.
+	Dicho identificador tiene una forma similar a 
+	\texttt{<3C94C55A3B6A@smtp.isp.com>}.
 
-Por tanto no debería poder usarse, al menos garantizando un rigurosidad extrema
-a la hora de identificar cada uno de los mensajes y sus respuestas.
+	Pero ese ID no es único, sino que es asignado por el propio servidor
+	SMTP\footnote{\url{http://es.wikipedia.org/wiki/SMTP}} (Simple Mail 
+	Transfer Protocol) del usuario de forma arbitraria a la hora de enviar 
+	el correo.
 
-Podría usarse algoritmos eurísticos con el asunto del mensaje, aunque tampoco nos
-garantizarían una fiabilidad absoluta al poder cambiarse el asunto en cualquier
-mensaje del hilo.
+	Por tanto no debería poder usarse, al menos garantizando un rigurosidad 
+	extrema a la hora de identificar cada uno de los mensajes y sus respuestas.
 
-Pero si existe una aproximación al problema que consigue una efectividad bastante
-alta según se ha podido comprobar. Consiste en asumir que cuando hay una respuesta
-a un mensaje, existe una alta probabilidad que se esté respondiendo a último de los 
-mensajes enviados con ID repetido. Empíricamente se ha demostrado que este 
-probabilidad supera el 95\%.
+	Podrían usarse algoritmos heurísticos más sofisticados con el asunto del 
+	mensaje, aunque tampoco nos garantizarían una fiabilidad absoluta al 
+	poder cambiarse el asunto en cualquier mensaje del hilo.
 
-\paragraph{Codificación} un viejo problema de la informática a la hora de 
-interactuar entre varios sistemas. Actualmente dos codificaciones, ISO y 
-Unicode, son las más utilizadas y extendidas.
+	Pero si existe una aproximación al problema que consigue una efectividad 
+	bastante alta según se ha podido comprobar. Consiste en asumir que cuando 
+	hay una respuesta a un mensaje, existe una alta probabilidad que se esté 
+	respondiendo a último de los mensajes enviados con ID repetido. Empíricamente 
+	se ha demostrado que este probabilidad supera el 95\%.
 
-El problema radica en la heterogeneidad de codificaciones que utilizen los
-usuarios. Los sistema de listas de correo no suelen antender a la codificación
-de los correos que reciben, y los \emph{vuelcan} todos al mbox codificado 
-en al codificación que use el sistema servidor. Ello provoca en muchos casos
-una corrupción de algunas cadenas, siendo tremendamente difícil recomponerlas
-de nuevo a la hora de procesarlas.
+  \item \textbf{Codificación:} un viejo problema de la informática a la hora de 
+	interactuar entre varios sistemas. Actualmente dos codificaciones, ISO 
+	y Unicode, son las más utilizadas y extendidas.
+
+	El problema radica en la heterogeneidad de codificaciones que utilizen 
+	los usuarios. Los sistema de listas de correo no suelen antender a la 
+	codificación de los correos que reciben, y los \emph{vuelcan} todos al 
+	mbox codificado en al codificación que use el sistema servidor. Ello 
+	provoca en muchos casos una corrupción de algunas cadenas, siendo 
+	tremendamente difícil recomponerlas de nuevo a la hora de procesarlas.
+
+\end{itemize}
 
 \subsubsection{Datos de salida}
 
@@ -107,14 +121,14 @@ de determinadas características:
   \item \textbf{Fácil despliegue:} hay que procurar que SWAML se pueda desplegar 
 	en todo tipo de máquinas, sin excesivos requisitos ni hardware ni software.
 	Es importante que SWAML pueda ser invocado por los distintos programadores
-	de tarea de que disponen los sistemas operativos (cron y similares).
+	de tarea de que disponen los sistemas operativos (cron y similares), pues
+	SWAML no será un proceso interactivo sino un proceso por lotes.
   \item \textbf{API para RDF:} que disponga de una madura bliblioteca, a poder ser 
 	nativa, para manejar RDF (creación de grafos, parseo desde disco/URI, 
 	serializado a disco y/o bases de datos, consultas SPARQL, etc).
   \item \textbf{Biblioteca para ficheros mbox}: sería interesante disponer de una 
 	biblioteca que abstraiga lo mayor posible al proyecto del manejo de ficheros
-	mbox\footnote{\url{http://rfc.net/rfc4155.html}} y mensajes de correo 
-	electrónico\footnote{\url{http://rfc.net/rfc2822.html}}.
+	mbox\cite{Hall2005} y mensajes de correo electrónico\cite{Resnick2001}.
 \end{itemize}
 
 Por tanto el cumplimiento de estas tres necesidades principales debe ser lo 
@@ -159,7 +173,7 @@ Sobre el problema que nos atañe:
 	El famework Jena incluye paquetes para múltiples propósitos dentro de la web
 	semántica: API para RDF y OWL, persistencia, serializado y soporte para consultas
 	SPARQL.
-  \item Con JavaMail\footnote{\url{http://java.sun.com/products/javamail/}} \+
+  \item Con JavaMail\footnote{\url{http://java.sun.com/products/javamail/}} y
 	jmbox\footnote{\url{http://jmbox.dev.java.net/}} se conseguiria un nivel
 	de abstracción del problema suficiente para centrarse en el desarrollo
 	de las otras capas.
@@ -205,8 +219,8 @@ Respecto a los tres requisitos que nos interesan:
 	para utilizar determinados conceptos que no contempla RDFLib.
   \item Python dispone una extensa y completa biblioteca estandar, además de contar
 	con multitud de bibliotecas para los más variopintos propósitos. Con modulos 
-	como mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}
-	e email\footnote{\url{http://docs.python.org/lib/module-email.html}}, el
+	como email\footnote{\url{http://docs.python.org/lib/module-email.html}} y
+	mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}, el
 	problema de acceso primario a los datos (mailbox unix) que SWAML deberá
 	consumir se verá resuelto de manera muy eficiente a un nivel de abstracción
 	bastante alto.
@@ -216,8 +230,8 @@ Además es un lenguaje totalmente libre, desde su especificación hasta varias
 de sus implementaciones, incluido el interprete oficial.
 
 Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, el sistema de gestión
-de listas de correo más popular hoy en día, también esta escrito en Python, lo que 
-facilitaria en gran medida una supuesta integración de SWAML en Mailman.
+de listas de correo más popular hoy en día, también está escrito en Python, lo que 
+facilitaria en gran medida una posible integración de SWAML en Mailman.
 
 
 \paragraph{C\#:}C\#\footnote{\url{http://msdn2.microsoft.com/en-us/vcsharp/aa336809.aspx}} 
@@ -228,20 +242,20 @@ como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.
   \item Los requerimientos de recursos no parecen que sea la mejor opción para una tarea
 	de estas características.
   \item Se dispone de SemWeb\footnote{\url{http://razor.occams.info/code/semweb/}}, una
-	biblioteca que un inmaduro soporte para RDF y SPARQL. También existen los bindings 
-	de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, aunque ofrencen también
-	un pobre rendimiento.
+	biblioteca con un inmaduro soporte para RDF y SPARQL. También están disponibles los 
+	bindings a C\# de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, 
+	aunque estos ofrencen un pobre rendimiento.
   \item Por ahora no parece existir ninguna biblioteca que ayude en el parseo de los mailboxes 
 	de Unix, aunque no parece complicado su desarrollo dada la cantidad de modulos para 
-	manejar formatos de correo.
+	manejar formatos de correo de que dispone la plataforma.
 \end{itemize}
 
 Dispone además de varias implementaciones libres, como 
 Mono\footnote{\url{http://www.mono-project.com/}} o DotGNU\footnote{\url{http://dotgnu.org/}}.
-Pero, al igual que en el caso de Java, hoy por hoy la implementación más completa es la
-desarollada por Microsoft. Usar por tanto su framework no sólo complicaria los términos
-de distribución de SWAM, sino que encima coartarían su funcionamiento a las plataformas
-soportadas actualmente por ese framework (Microsoft Windows).
+Pero hoy por hoy la implementación más completa es la desarollada por Microsoft. Usar por 
+tanto su framework no sólo complicaria los términos de distribución de SWAML, sino que 
+encima coartarían su funcionamiento a las plataformas soportadas actualmente por ese 
+framework (únicamente Microsoft Windows).
 
 
 \paragraph{Perl:}Perl\footnote{\url{http://www.perl.org/}} es un lenguaje de script de 
@@ -265,6 +279,8 @@ a objetos) y lógico funcionale.
 
 En su contra juega su sintáxis excesivamente críptica, que hacen muy complicada
 la lectura y/o reescritura del código.
+
+\paragraph{Ruby}FIXME
 
 \newpage
 

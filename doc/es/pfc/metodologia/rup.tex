@@ -9,7 +9,7 @@ La razón principal fue la genericidad que brinda para el proceso de desarrollo
 software, adaptandose perfectamente a desarrollos basados en programación 
 orientada a objetos.
 
-Ayudo a implementar determinadas buenas prácticas en Ingeniería del Software:
+Ayudó a implementar determinadas buenas prácticas en Ingeniería del Software:
 
 \begin{itemize}
   \item Desarrollo iterativo
@@ -20,7 +20,9 @@ Ayudo a implementar determinadas buenas prácticas en Ingeniería del Software:
 \end{itemize}
 
 Por tanto todo el proceso de desarrollo se dividió en ciclos, teniendo un 
-producto final al final de cada ciclo, dividiendo cada ciclo en fases que 
+producto final al final de cada ciclo, dividiendo cada ciclo en fases
+(figura~\ref{fig:RUP}\footnote{Imagen extraido del artículo
+\url{http://www.javahispano.org/articles.article.action?id=76}} que 
 finalizan con un hito importante.
 
 \begin{figure}[ht]
@@ -39,7 +41,7 @@ Los fases seguidas fueron:
 	de uso para eliminar los riesgos.
   \item Construcción: se concentro en la elaboración de un producto totalmente 
 	operativo y eficiente, asicomo en un pequeño manual de usuario.
-  \item Transición: se implemento el producto en el cliente y se publicaron
+  \item Transición: se implementó el producto en el cliente y se publicaron
 	varias versiones funcionales. Como consecuencia de esta publicación
 	surgieron nuevos requisitos a ser analizados.
 \end{enumerate}
@@ -58,16 +60,18 @@ Para cada fase RUP define nueve actividades a realizar:
  \item Gestión del entorno
 \end{enumerate}
 
-Además de un flujo de trabajo entre ellas:
+Además de un flujo de trabajo entre ellas es como se puede ver en la 
+figura~\ref{fig:RUPWorkflow}\footnote{Imagen extraido del artículo
+\url{http://www.javahispano.org/articles.article.action?id=76}}:
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=9cm]{images/workflow-rup.png}
 	\caption{Flujos de trabajo de RUP}
-	\label{fig:RUP}
+	\label{fig:RUPWorkflow}
 \end{figure}
 
-En RUP de utiliza UML\footnote{\url{http://www.omg.org/uml/}} como herramienta principal
+En RUP se utiliza UML\footnote{\url{http://www.omg.org/uml/}} como herramienta principal
 para la documentación de toda la arquitectura del sistema. La bibliografia es amplia,
 disponiendo de veteranos títulos como 
 \emph{The Unified Modeling Language Reference Manual}\cite{UMLReference} o 
@@ -77,9 +81,10 @@ rápidamente esas consultas puntuales de la especificación.
 
 RUP puede englobarse dentro de lo que algunos llaman \emph{procesos pesados},
 estando quizás muy orientado para proyecto de algo más de envergadura que SWAML.
-Es por ello que debido a las caracteristicas del proyecto, tamaño y personas 
-involucradas, se ha adaptado RUP utilizando sólo los documentos y procesos de 
-diseños necesarios.
+Aunque algunos autores\cite{Larman2004} ya incluyen RUP dentro de los llamados 
+\emph{procesos ágiles}. Aún así, debido a las caracteristicas del proyecto, 
+(tamaño y personas involucradas) ha sido necesario hacer una pequeña adaptación 
+de RUP utilizando sólo los documentos y procesos de diseños necesarios.
 
 Este método es de sobra conocido y esta perfectamente documentado (en libros como
 \emph{The Rational Unified Process}\cite{RUPIntro} y

@@ -19,9 +19,9 @@ quienes ejercieron la función del cliente.
 
 \subsubsection{Datos de entrada}
 
-La fuente de información será una lista de correo en formato
-mbox\cite{Hall2005}, un formato estandarizado que utilizan la mayoria 
-de los sistemas de gestión de listas de correo, entre otros:
+La fuente de información será una lista de correo en formato mbox 
+(RFC4155\cite{Hall2005}), un formato estandarizado que utilizan la 
+mayoria de los sistemas de gestión de listas de correo, entre otros:
 
 \begin{itemize}
  \item Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}
@@ -49,7 +49,7 @@ Por tanto es fácil adivinar dos problemas evidentes de este formato:
 	\texttt{ID} para referirse explicitamente al mensaje que se está 
 	respondiendo.
 
-	Este es el mecanismo especificado en el RFC\cite{Resnick2001} para 
+	Este es el mecanismo especificado en el RFC2822\cite{Resnick2001} para 
 	la gestión de hilos de conversación por medio de correo electrónico. 
 	Y el mecanismo que es utilizado para representar los hilos de 
 	conversaciones en forma de árbol, tanto en clientes de correo (Evolution, 
@@ -280,7 +280,24 @@ a objetos) y lógico funcionale.
 En su contra juega su sintáxis excesivamente críptica, que hacen muy complicada
 la lectura y/o reescritura del código.
 
-\paragraph{Ruby}FIXME
+\paragraph{Ruby:}Ruby\footnote{\url{http://www.ruby-lang.org/}} es un lenguaje de 
+programación interpretado orientado a objetos con quince años de historia, que 
+recientemente se ha hecho más popular por la aparición del framework web 
+Ruby on Rails\footnote{\url{http://www.rubyonrails.org/}}. Con una sintaxis muy
+parecida a Perl con detalles de Smalltalk.
+
+\begin{itemize}
+  \item Sus dos principales interpretes, Ruby y JRuby, están disponibles para la
+	mayoria de plataformas actuales. Sus requerimientos son realmente bajos y
+	sus rendimiento notable en las últimas versiones.
+  \item RubyRDF\footnote{\url{http://www.w3.org/2001/12/rubyrdf/intro.html}} y 
+	Rena\footnote{\url{http://raa.ruby-lang.org/project/rena/}} están aún
+	realmente verdes, y los bindings de Redland\footnote{\url{http://librdf.org/docs/ruby.html}} 
+	ofrencen un rendimiento bastante pobre.
+  \item RubyMail\footnote{\url{http://www.lickey.com/rubymail/}} podría servir,
+	aunque parece que la biblioteca se encuentra abandona en los últimos años. 
+	Algo parecido ocurre con mbox\footnote{\url{http://raa.ruby-lang.org/project/mbox/}}.
+\end{itemize}
 
 \newpage
 

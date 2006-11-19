@@ -6,7 +6,7 @@ NAME = swaml
 
 PDFVIEWER = evince
 
-IMAGES= images/swaml-owl.png
+IMAGES= images/swaml-owl.png images/sad.png
 
 all:	clean $(NAME).pdf
 

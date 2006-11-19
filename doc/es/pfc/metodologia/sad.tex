@@ -1,0 +1,48 @@
+
+\section{Análisis y diseño (SAD)}
+
+La arquitectura del software no es algo unidimensional, sino que esta formado 
+por múltiples vistas, como se puede ver en la figura~\ref{fig:sad}, con el 
+fin de detallar la funcionalidad, organización y topología del sistema.
+
+\begin{figure}[hp]
+	\centering
+	\includegraphics[width=10cm]{images/sad.png}
+	\caption{Vista de la arquitectura software}
+	\label{fig:sad}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Vista de casos de uso:} amplia la representación gráfica 
+	de los escenarios descritos durante la especificaciones de casos 
+	de uso, definiendo así el comportamiento del sistema en términos 
+	funcionales.
+  \item \textbf{Vista lógica:} se muestran los requisitos funcionales 
+	del sistema. La arquitectura lógica se captura en diagramas de clases 
+	que contienen clases y relaciones, para representar las abstracciones 
+	clave del sistema en desarrollo.
+  \item \textbf{Vista de proceso:} muestra las interacciones en tiempo real de
+	los distintos componentes del sistema software, teniendo en cuenta
+	requisitos no tenido en cuenta en otras fases: el rendimiento, la 
+	fiabilidad, escalabilidad, integridad, organización del sistema y 
+	sincronización. 
+  \item \textbf{Vista de implementación:} descompone el sistema software en
+	\emph{paquetes}, teniendo en cuenta aspectos como la organización del 
+	software, la reutilización, modularidad, facilidad de desarrollo y 
+	restricciones impuestas por los lenguajes de programación y las 
+	herramientas usadas en el desarrollo
+  \item \textbf{Vista de distribucion:} muestra la topologia de la arquitectura
+	de manera que sea más comprensible por el equipo de desarrollo.
+\end{itemize}
+
+\input{metodologia/sad/vista-casos-uso.tex}
+
+\input{metodologia/sad/vista-logica.tex}
+
+\input{metodologia/sad/vista-procesos.tex}
+
+\input{metodologia/sad/vista-implemetacion.tex}
+
+\input{metodologia/sad/vista-distribucion.tex}
+
+

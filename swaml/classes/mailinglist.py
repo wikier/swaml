@@ -122,7 +122,9 @@ class MailingList:
                 
             self.__toRDF()
     
-            self.subscribers.process()
+            if (self.config.get('foaf')):
+                self.subscribers.process()
+            
             self.subscribers.export()
             
         except Exception, detail:

@@ -204,9 +204,13 @@ class Subscribers:
         store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)
+        
+        count = 0
 
         #a Node for each subcriber
         for mail, subscriber in self.subscribers.items():
+            count += 1
+            
             person = URIRef(self.baseUri + '#' + subscriber.getStringId())
             store.add((person, RDF.type, SIOC['User']))
             
@@ -250,6 +254,7 @@ class Subscribers:
             store.serialize(destination=rdf_file, format="pretty-xml")
             rdf_file.flush()
             rdf_file.close()
+            print count, 'subscribers exported in RDF'
         except IOError, detail:
             print 'Error exporting subscribers to RDF: ' + str(detail)
         
@@ -263,10 +268,13 @@ class Subscribers:
         from kml import KML
         kml = KML()
         
+        count = 0
+        
         for mail, subscriber in self.subscribers.items():
             lat, lon = subscriber.getGeo()
             pic = subscriber.getPic()
             if ((lat != None) and (lon != None)): 
+                count += 1
                 kml.addPlace(lat, lon, name=subscriber.getName(), description=pic)
                 
             
@@ -276,6 +284,7 @@ class Subscribers:
             kml.write(kml_file)
             kml_file.flush()
             kml_file.close()
+            print count, 'subcribers\' coordinates exported in KML'
         except IOError, detail:
             print 'Error exporting coordinates to KML: ' + str(detail)
         

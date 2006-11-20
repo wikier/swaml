@@ -7,7 +7,7 @@ de casos de uso:
 
 \begin{itemize}
  \item Parametrizar el sistema
- \item Iniciar la publicación
+ \item Publicar
  \item Enriquecer los datos
  \item Consular los archivos generados
  \item Consultar la información extra generada
@@ -29,12 +29,12 @@ se puede ver el diagrama de actividad de este caso de uso.
 	\label{fig:uml:parametrizar-sistema}
 \end{figure}
 
-\subsubsection{Iniciar la publicación}
+\subsubsection{Publicar}
 
 Representa la acción de publicación propiamente dicha. El proceso es un proceso por 
 lotes que a partir de una configuración genera una serie de ficheros RDF. Internamente
 se descompone en varias actividades menores tal y como describe la 
-figura~\ref{fig:uml:iniciar-publicacion}.
+figura~\ref{fig:uml:publicar}.
 
 \begin{enumerate}
  \item \emph{Parsear} el mailbox
@@ -48,9 +48,9 @@ figura~\ref{fig:uml:iniciar-publicacion}.
 
 \begin{figure}[ht]
  	\centering
-	\includegraphics[width=4cm]{images/uml/casos-uso/iniciar-publicacion.png}
-	\caption{Caso de uso «iniciar publicación»}
-	\label{fig:uml:iniciar-publicacion}
+	\includegraphics[width=4cm]{images/uml/casos-uso/publicar.png}
+	\caption{Caso de uso «publicar»}
+	\label{fig:uml:publicar}
 \end{figure}
 
 \subsubsection{Enriquecer los datos}

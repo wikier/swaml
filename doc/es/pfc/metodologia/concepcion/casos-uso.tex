@@ -58,7 +58,7 @@ enumerar:
 
 \begin{itemize}
  \item Parametrizar el sistema
- \item Iniciar la publicación
+ \item Publicar
  \item Enriquecer los datos
  \item Consular los archivos generados
  \item Consultar la información extra generada
@@ -82,7 +82,7 @@ Para pasar a describirlos más detalladamente:
 	  \item \textbf{Postcondiciones:} Ninguna detectada.
 	\end{itemize}
 
-  \item \textbf{Iniciar la publicación:}
+  \item \textbf{Publicar:}
  	\begin{itemize}
  	  \item \textbf{Descripción:} Representa la acción de publicación 
 		propiamente dicha.
@@ -98,6 +98,8 @@ Para pasar a describirlos más detalladamente:
 		 \item Exportar los suscriptores en KML si fuese requerido
 		 \item Exportar todos los indices
 		\end{enumerate}
+		FIXME: revisar, Diego dice que no se corresponden a un "flujo de eventos", 
+		porque no hay interacción con el usuario.
 	  \item \textbf{Precondiciones:} Disponer de una configuración correcta.
 	  \item \textbf{Postcondiciones:} El directorio destino de la exportación
 		debe poder \emph{consumirse} mediante otro servicio, como un 

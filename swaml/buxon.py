@@ -35,10 +35,7 @@ from classes.namespaces import SIOC, RDF, DC, DCTERMS
 class Callbacks:
 
 	def destroy(self):
-		print 'Exiting...'
-		buxon.destroy()
-		gtk.main_quit()
-		return gtk.FALSE
+		return buxon.destroy()
 
 	def goButtonClicked(self):
 		uri = widgets.get_widget('urlInput').get_text()
@@ -231,8 +228,13 @@ class Buxon(GtkUI):
 			return self.cache.uri
 		
 	def destroy(self):
-		if (self.cache != None):
-			self.cache.dump(self.base + 'buxon.cache')
+		print 'Exiting...'
+		
+		#if (self.cache != None):
+		#	self.cache.dump(self.base + 'buxon.cache')
+		
+		gtk.main_quit()
+		return gtk.FALSE
 
 	def main(self, uri=None):
 		#widgets

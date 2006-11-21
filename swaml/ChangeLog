@@ -1,6 +1,5 @@
 2006-11-21	0.0.4	- Minor bugs fixed
 			- sioc:Site class added
-			- SIOC generator independence in Buxon
 			- New inheritance scheme for classes with any type of UI
 			- Added make file rules to install
 

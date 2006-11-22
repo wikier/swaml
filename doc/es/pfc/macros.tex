@@ -3,3 +3,29 @@
 \let\OLDthebibliography=\thebibliography
 \def\thebibliography#1{\OLDthebibliography{#1}%
 	\addcontentsline{toc}{chapter}{\bibname}}
+
+%colores
+\definecolor{darkred}{rgb}{0.5, 0, 0}
+\definecolor{violet}{rgb}{1, 0, 1}
+\definecolor{green}{rgb}{0.3, 0.95, 0.3}
+\definecolor{listinggray}{gray}{0.97}
+
+%listings
+\lstset{
+        basewidth=0.6em,
+	backgroundcolor=\color{listinggray},
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{violet},
+ 	stringstyle=\color{blue}\itshape,
+ 	commentstyle=\color{green}\itshape,
+ 	showspaces=false,
+ 	showtabs=false,
+ 	showstringspaces=false,
+ 	frame=trbl,
+ 	extendedchars=true,
+ 	numbers=none,
+        aboveskip=0.5cm,
+        belowskip=0.5cm,
+        xleftmargin=0cm,
+        xrightmargin=0cm
+}

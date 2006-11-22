@@ -41,7 +41,7 @@ verse en la figura \ref{fig:evoWeb}\footnote{Fuente: W3C}, que le ha llevado a
 convertirse no sólo en un almacen de contenido estático, sino también en un 
 repositorio universal de conocimiento y servicios.
 
-\begin{figure}[tp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{images/web-evolution.png}
 	\caption{Evolución de la Web}
@@ -64,7 +64,7 @@ Algunas parte del diseño aún se estan discutiendo en los distintos grupos de
 trabajo, aunque en la figura \ref{fig:swStack} encontramos el diseño que toma
 más forma después de los últimos años de trabajo:
 
-\begin{figure}[tp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{images/semantic-web-stack.png}
 	\caption{Pila de la web semántica}
@@ -130,7 +130,7 @@ con el objetivo que fuera fácilmente procesable por una máquina y legible por 
 humano. 
 
 Basandose en una definición abstracta (XML Schema), permite extender su gramática 
-de una forma muy fácil y sencilla de procesar (XSL/XSLT, XPath, XPoint, etc).
+de una forma muy fácil y sencilla de procesar (XSL/XSLT, XPath, XPointer, etc).
 
 Es usado en múltiples tecnológías hoy en día, sobre todo en la web (XHTML, XForms, 
 SVG, etc), aunque también para documentación (DocBook), interfaces de usuario (XUL,
@@ -156,7 +156,7 @@ RDF es un modelo de tripletas del tipo \texttt{(sujecto, predicado, objecto)}. E
 sujeto es un recurso que se identifica con una URI, y se relaciona mediante un 
 predicado binario con el objeto, que puede ser otra URI o un literal.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{images/arc.png}
 	\caption{Arco RDF}
@@ -172,7 +172,7 @@ Usando Dublin Core (sección \ref{sec:dc}) podría quedar la siguiente tripleta:
 \texttt{(http://www.wikier.org/, dc:creator, "Sergio Fdez")}. Dando lugar a un 
 grafo del estilo del que se puede ver en la figura~\ref{fig:rdfTripletExample}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{images/arc-example.png}
 	\caption{Ejemplo de arco RDF}
@@ -184,38 +184,45 @@ RDF se puede serializar con tres sintáxis: en XML, N3 (notación de tripletas)
 o Turtle. El mismo grafo se podría serializar con las tres sintáxis, conteniendo 
 todas ellas idéntica información semántica:
 
-\begin{figure}[tp]
-\begin{verbatim}
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-                 xmlns:dc="http://purl.org/dc/elements/1.1/"
-	>
-	  <rdf:Description rdf:about="http://www.wikier.org/">
-	    <dc:creator>Sergio Fdez</dc:creator>	
-	  </rdf:Description>
-	</rdf:RDF>
-\end{verbatim}
-	\caption{Ejemplo de grafo RDF serializado en XML}
-	\label{fig:ejemplo.rdfxml}
+\begin{figure}[H]
+\lstset{language=XML}
+\begin{lstlisting}
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+>
+
+  <rdf:Description rdf:about="http://www.wikier.org/">
+    <dc:creator>Sergio Fdez</dc:creator>
+  </rdf:Description>
+
+</rdf:RDF>
+ \end{lstlisting}
+ \caption{Ejemplo de grafo RDF serializado en XML}
+ \label{fig:ejemplo.rdfxml}
 \end{figure}
 
-\begin{figure}[tp]
-\begin{verbatim}
-	@prefix dc <http://http://purl.org/dc/elements/1.1/>
-	<http://www.wikier.org> dc:creator "Sergio Fdez"
-\end{verbatim}
-	\caption{Ejemplo de grafo RDF serializado en N3}
-	\label{fig:ejemplo.rdfn3}
+\begin{figure}[H]
+\lstset{language=XML}
+\begin{lstlisting}
+@prefix dc <http://http://purl.org/dc/elements/1.1/>
+
+<http://www.wikier.org> dc:creator "Sergio Fdez"
+\end{lstlisting}
+\caption{Ejemplo de grafo RDF serializado en N3}
+\label{fig:ejemplo.rdfn3}
 \end{figure}
 
-\begin{figure}[tp]
-\begin{verbatim}
-	@prefix dc <http://http://purl.org/dc/elements/1.1/>
-	<http://www.wikier.org> 
-		dc:creator "Sergio Fdez"
-\end{verbatim}
-	\caption{Ejemplo de grafo RDF serializado en Turtle}
-	\label{fig:ejemplo.rdfturtle}
+\begin{figure}[H]
+\lstset{language=XML}
+\begin{lstlisting}
+@prefix dc <http://http://purl.org/dc/elements/1.1/>
+
+<http://www.wikier.org> 
+	dc:creator "Sergio Fdez"
+\end{lstlisting}
+\caption{Ejemplo de grafo RDF serializado en Turtle}
+\label{fig:ejemplo.rdfturtle}
 \end{figure}
 
 \subsubsection{RDFS}
@@ -297,18 +304,19 @@ Posee una sintáxis similar a la otros lenguajes de consulta relacionales, como
 podría ser SQL. De hecho sus algebras comparten\cite{RelationalAlgebraSPARQL} 
 determinados puntos. 
 
-\begin{figure}[ht]
-	\begin{verbatim}
-		PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-		PREFIX dc: <http://purl.org/dc/elements/1.1/>
-		SELECT DISTINCT ?x, ?name
-		WHERE {
-		  ?x dc:creator ?name
-		}
-	\end{verbatim}
-	\centering
-	\caption{Ejemplo de consulta SPARQL}
-	\label{fig:ejemplo.sparql}
+\begin{figure}[H]
+\lstset{language=XML}
+\begin{lstlisting}
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT ?x, ?name
+WHERE {
+	?x dc:creator ?name
+}
+\end{lstlisting}
+\caption{Ejemplo de consulta SPARQL}
+\label{fig:ejemplo.sparql}
 \end{figure}
 
 Aplicando esta sencilla consulta de ejemplo a un RDF, como por ejemplo el de 
@@ -349,7 +357,7 @@ figura~\ref{fig:rssEvolution}, de versiones incompatibles entre sí; de hecho s�
 la versión 1.0 de RSS es RDF, el resto de versiones han introducido ciertos aspectos
 incompatibles.
 
-\begin{figure}[p]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{images/rssEvolution.png}
 	\caption{Evolucion de RSS}
@@ -363,25 +371,28 @@ se trata de un vocabulario RDF para describir semánticamente información perso
 muy extendido (en 2004 se estimaba\cite{Li2005} que existian alrededor de 1,2 millones 
 de documentos FOAF) dentro del ámbito de la web semántica.
 
-\begin{figure} [tp]
-\begin{verbatim}
-	<rdf:RDF
-		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-		xmlns:foaf="http://xmlns.com/foaf/0.1/"
-	>
-	  <foaf:Person rdf:nodeID="me">
-	    <foaf:name>Sergio Fernández</foaf:name>
-	    <foaf:title>Mr</foaf:title>
-	    <foaf:firstName>Sergio</foaf:firstName>
-	    <foaf:surname>Fernández</foaf:surname>
-	    <foaf:gender>Male</foaf:gender>
-	    <foaf:mbox>sergio@wikier.org</foaf:mbox>
-	  </foaf:Person>
-	</rdf:RDF>
-\end{verbatim}
-	\caption{Ejemplo de FOAF}
-	\label{fig:ejemplo.foaf}
+\begin{figure} [H]
+\lstset{language=XML}
+\begin{lstlisting}
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+>
+
+  <foaf:Person rdf:nodeID="me">
+    <foaf:name>Sergio Fdez</foaf:name>
+    <foaf:title>Mr</foaf:title>
+    <foaf:firstName>Sergio</foaf:firstName>
+    <foaf:surname>Fdez</foaf:surname>
+    <foaf:gender>Male</foaf:gender>
+    <foaf:mbox>sergio@wikier.org</foaf:mbox>
+  </foaf:Person>
+
+</rdf:RDF>
+\end{lstlisting}
+\caption{Ejemplo de FOAF}
+\label{fig:ejemplo.foaf}
 \end{figure}
 
 \begin{figure}[tp]
@@ -400,15 +411,15 @@ uniendo todos ellos. El patrón\ref{fig:patternFOAF} siempre se repite.
 Description-of-a-Project\footnote{\url{http://usefulinc.com/doap}} es una idea 
 similar a FOAF pero para describir todo tipo de proyectos.
 
-\begin{figure}[p]
-\begin{verbatim}
-
+\begin{figure}[H]
+\lstset{language=XML}
+\begin{lstlisting}
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
          xmlns:doap="http://usefulinc.com/ns/doap#" 
          xmlns:foaf="http://xmlns.com/foaf/0.1/" 
          xmlns:admin="http://webns.net/mvcb/" 
-         xml:lang="en">
+>
 
   <doap:Project rdf:about="http://swaml.berlios.de/">
 
@@ -418,14 +429,9 @@ similar a FOAF pero para describir todo tipo de proyectos.
     <doap:homepage rdf:resource="http://swaml.berlios.de/"/>
     <doap:created>2005-09-24</doap:created>
 
-    <doap:description xml:lang="en">
+    <doap:description>
       SWAML is a research project around the semantic web tecnologies 
-      to publish the mailing lists's archive into an RDF format.
-    </doap:description>
-    <doap:description xml:lang="es">
-      SWAML es un proyecto de investigación alrededor de las tecnologías 
-      de la web semántica para publicar los archivos de las listas de 
-      correo en un formato RDF.
+      to publish the mailing lists archive into an RDF format.
     </doap:description>
 
     <doap:wiki rdf:resource="http://swaml.berlios.de/wiki"/>
@@ -438,9 +444,9 @@ similar a FOAF pero para describir todo tipo de proyectos.
   </doap:Project>
 
 </rdf:RDF>
-\end{verbatim}
-	\caption{Fichero DOAP de SWAML}
-	\label{fig:ejemplo.doap}
+\end{lstlisting}
+\caption{Fichero DOAP de SWAML}
+\label{fig:ejemplo.doap}
 \end{figure}
 
 \paragraph{EARL}

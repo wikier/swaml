@@ -49,9 +49,10 @@ repositorio universal de conocimiento y servicios.
 \end{figure}
 
 A pesar de todas estas pequeñas revoluciones, todavia seguimos en una web 
-\emph{sintáctica}. Una Web en la que todavía es muy difícil realizar
-muchas tareas que con la Web Semántica, y todas sus tecnologías, al menos
-serán un poco más fácil de hacer.
+\emph{sintáctica}. Hoy en día la llamada \emph{Web 2.0}\cite{O'Reilly2005} está
+de actualidad, aunque todavía es una Web en la es muy difícil realizar muchas 
+tareas que con la Web Semántica (\emph{¿Web 3.0?}), y todas sus tecnologías, 
+al menos serán un poco más fácil de hacer.
 
 \subsection{Estructura de la Web Semántica}
 
@@ -129,6 +130,35 @@ Desarrollado por el W3C a partir de SGML\footnote{\url{http://www.w3.org/MarkUp/
 con el objetivo que fuera fácilmente procesable por una máquina y legible por un 
 humano. 
 
+\begin{figure}[H]
+\lstset{language=XML}
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<peliculas>
+
+  <pelicula vista="true">
+    <titulo>
+      Resevoir Dogs
+    </titulo>
+    <autor>
+      Quentin Tarantino
+    </author>
+    <imdb>
+      http://www.imdb.com/title/tt0105236/
+    </imdb>
+  </pelicula>
+
+  <pelicula vista="false">
+    ...
+  </pelicula>
+
+</peliculas>
+\end{lstlisting}
+\caption{Ejemplo de fichero en XML}
+\label{fig:ejemplo.xml}
+\end{figure}
+
 Basandose en una definición abstracta (XML Schema), permite extender su gramática 
 de una forma muy fácil y sencilla de procesar (XSL/XSLT, XPath, XPointer, etc).
 
@@ -180,9 +210,17 @@ grafo del estilo del que se puede ver en la figura~\ref{fig:rdfTripletExample}.
 \end{figure}
 
 
-RDF se puede serializar con tres sintáxis: en XML, N3 (notación de tripletas)
-o Turtle. El mismo grafo se podría serializar con las tres sintáxis, conteniendo 
-todas ellas idéntica información semántica:
+RDF se puede serializar en tres sintáxis: 
+
+\begin{itemize}
+ \item XML\footnote{\url{http://www.w3.org/TR/rdf-syntax-grammar/}}
+ \item N3\footnote{\url{http://www.w3.org/DesignIssues/Notation3}} (notación de tripletas)
+ \item Turtle\footnote{\url{http://www.dajobe.org/2004/01/turtle/}}
+\end{itemize}
+
+El mismo grafo de la figura~\ref{fig:rdfTripletExample} se podría serializar 
+con las tres sintáxis, conteniendo las tres representaciones idéntica información 
+semántica:
 
 \begin{figure}[H]
 \lstset{language=XML}
@@ -197,9 +235,9 @@ todas ellas idéntica información semántica:
   </rdf:Description>
 
 </rdf:RDF>
- \end{lstlisting}
- \caption{Ejemplo de grafo RDF serializado en XML}
- \label{fig:ejemplo.rdfxml}
+\end{lstlisting}
+\caption{Ejemplo de grafo RDF serializado en XML}
+\label{fig:ejemplo.rdfxml}
 \end{figure}
 
 \begin{figure}[H]
@@ -261,7 +299,7 @@ complejidad:
 
 Una perpectiva sencilla sería mostrada por la figura \ref{fig:owlVariants}.
 
-\begin{figure}[tp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{images/owl-variants.png}
 	\caption{Perspectiva completa de OWL}
@@ -274,7 +312,7 @@ lógica que abarcan. Quedando un panorama aún más confuso, como se puede ver e
 la figura \ref{fig:owlVariantsExtended}\footnote{Gráfico extraido de Ontotext, 
 \url{http://www.ontotext.com/inference/rdfs_rules_owl.html#owl_fragments}}.
 
-\begin{figure}[tp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{images/owl-dialects.png}
 	\caption{Variantes de OWL ampliado}
@@ -305,7 +343,6 @@ podría ser SQL. De hecho sus algebras comparten\cite{RelationalAlgebraSPARQL}
 determinados puntos. 
 
 \begin{figure}[H]
-\lstset{language=XML}
 \begin{lstlisting}
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -343,33 +380,34 @@ reutilizables entre si.
 
 Existen multitud de ejemplos:
 
-\paragraph{Dublin Core\label{sec:dc}}
+\begin{itemize}
+  \item \textbf{Dublin Core\label{sec:dc}:} Dublin Core\footnote{\url{http://dublincore.org/}}, 
+	también conocido por sus siglas \texttt{DC}, es un vocabulario RDF para la descripción 
+	de múltiples propiedades de todo tipo de recursos online.
 
-Dublin Core\footnote{\url{http://dublincore.org/}}, también conocido por sus siglas DC,
-es un vocabulario RDF para la descripción de múltiples propiedades de todo tipo de 
-recursos online.
+	Por ejemplo se ha usado Dublin Core en el ejemplo descrito en la 
+	figura~\ref{fig:rdfTripletExample}, y evidentemente también en sus distintas 
+	serializaciones (figura~\ref{fig:ejemplo.rdfxml}, figura~\ref{fig:ejemplo.rdfn3} 
+	y figura~\ref{fig:ejemplo.rdfturtle}).
 
-\paragraph{RSS}
+  \item \textbf{RSS:} Desarrollado en el seno de Netscape, RSS es el formato de sindicación de 
+	noticias más extendido en la actualidad. Con un complicado historial, como se puede ver 
+	en la figura~\ref{fig:rssEvolution}, de versiones incompatibles entre sí; de hecho sólo 
+	la versión 1.0 de RSS es RDF, el resto de versiones han introducido ciertos aspectos
+	incompatibles.
 
-Desarrollado en el seno de Netscape, RSS es el formato de sindicación de noticias
-más extendido en la actualidad. Con un complicado historial, como se puede ver en la
-figura~\ref{fig:rssEvolution}, de versiones incompatibles entre sí; de hecho sólo 
-la versión 1.0 de RSS es RDF, el resto de versiones han introducido ciertos aspectos
-incompatibles.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=10cm]{images/rssEvolution.png}
+		\caption{Evolucion de RSS}
+		\label{fig:rssEvolution}
+	\end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=10cm]{images/rssEvolution.png}
-	\caption{Evolucion de RSS}
-	\label{fig:rssEvolution}
-\end{figure}
-
-\paragraph{FOAF}
-
-FOAF\footnote{\url{http://www.foaf-project.org/}}, acrónimo de Friend-of-a-Friend, 
-se trata de un vocabulario RDF para describir semánticamente información personal
-muy extendido (en 2004 se estimaba\cite{Li2005} que existian alrededor de 1,2 millones 
-de documentos FOAF) dentro del ámbito de la web semántica.
+  \item \textbf{FOAF:} FOAF\footnote{\url{http://www.foaf-project.org/}}, acrónimo de 
+	\emph{Friend-of-a-Friend}, se trata de un vocabulario RDF para describir 
+	semánticamente información personal muy extendido (en 2004 se estimaba\cite{Li2005} 
+	que existian alrededor de 1,2 millones de documentos FOAF) dentro del ámbito 
+	de la web semántica.
 
 \begin{figure} [H]
 \lstset{language=XML}
@@ -380,7 +418,7 @@ de documentos FOAF) dentro del ámbito de la web semántica.
 	xmlns:foaf="http://xmlns.com/foaf/0.1/"
 >
 
-  <foaf:Person rdf:nodeID="me">
+  <foaf:Person rdf:about="http://www.wikier.org/foaf.rdf#wikier">
     <foaf:name>Sergio Fdez</foaf:name>
     <foaf:title>Mr</foaf:title>
     <foaf:firstName>Sergio</foaf:firstName>
@@ -395,21 +433,19 @@ de documentos FOAF) dentro del ámbito de la web semántica.
 \label{fig:ejemplo.foaf}
 \end{figure}
 
-\begin{figure}[tp]
- 	\centering
-	\includegraphics[width=7cm]{images/patron-foaf.png}
-	\caption{Patrón de documentos FOAF}
-	\label{fig:patternFOAF}
-\end{figure}
+	Pudiendo describir relaciones (amigos, compañeros de trabajo, etc), interéses,
+	proyectos y demás recursos de uso personal, de forma que se forme un grafo 
+	uniendo todos ellos. El patrón\ref{fig:patternFOAF} siempre se repite.
 
-Pudiendo describir relaciones (amigos, compañeros de trabajo, etc), interéses,
-proyectos y demás recursos de uso personal, de forma que se forme un grafo 
-uniendo todos ellos. El patrón\ref{fig:patternFOAF} siempre se repite.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{images/patron-foaf.png}
+		\caption{Patrón de documentos FOAF}
+		\label{fig:patternFOAF}
+	\end{figure}
 
-\paragraph{DOAP}
-
-Description-of-a-Project\footnote{\url{http://usefulinc.com/doap}} es una idea 
-similar a FOAF pero para describir todo tipo de proyectos.
+  \item \textbf{DOAP:} \emph{Description-of-a-Project\footnote{\url{http://usefulinc.com/doap}}} 
+	es una idea similar a FOAF pero para describir todo tipo de proyectos.
 
 \begin{figure}[H]
 \lstset{language=XML}
@@ -449,15 +485,57 @@ similar a FOAF pero para describir todo tipo de proyectos.
 \label{fig:ejemplo.doap}
 \end{figure}
 
-\paragraph{EARL}
+  \item \textbf{EARL:} EARL\cite{EARL} (\emph{Evaluation and Report Language}, 
+	en español \emph{Lenguaje de Evaluación de informes} es un vocabulario 
+     	RDF para la grabación, transferencia y procesamiento de datos sobre 
+	evaluaciones automáticas. Es usado por ejemplo por algunas herramientas
+	de validación automática de la accesibilidad Web, como el
+	TAW\footnote{\url{http://www.tawdis.net/}}, para expresar el
+	resultado de sus evaluaciones.
 
-FIXME
+\end{itemize}
 
 \subsubsection{Otras aplicaciones de RDF}
 
-\paragraph{Mozilla}
+\begin{itemize}
+  \item \textbf{Framework Mozilla:} Firefox utiliza RDF internamente para 
+	describir muchos aspectos del navegador. Por ejemplo un fichero como 
+	el mostrado en la figura~\ref{fig:rdf.firefox} se utiliza en sus
+	extensiones para describirlas semánticamente.
 
-FIXME
+\begin{figure}[H]
+\lstset{language=XML}
+\begin{lstlisting}
+<?xml version="1.0" encoding="utf-8"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:creator>Sergio Fdez</em:creator>
+    <em:description>FOAFox, discover FOAF profiles in Firefox</em:description>
+    <em:homepageURL>http://www.wikier.org/archivos/firefox/foafox/</em:homepageURL>
+    <em:id>{5be0dd31-4194-4543-b29c-72248db06b71}</em:id>
+    <em:name>FOAFox</em:name>
+    <em:iconURL>chrome://foafox/skin/foafox.png</em:iconURL>
+    <em:updateURL>http://www.wikier.org/archivos/mozilla/foafox/update.rdf</em:updateURL>
+    <em:version>0.2.1</em:version>
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>1.5</em:minVersion>
+        <em:maxVersion>2.0.0.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+  </Description>
+
+</RDF>
+\end{lstlisting}
+\caption{Ejemplo fichero RDF para describir una extensión de Mozilla Firefox}
+\label{fig:rdf.firefox}
+\end{figure}
+
+\end{itemize}
 
 \subsection{Libros de interés}
 

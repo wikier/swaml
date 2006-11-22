@@ -1,0 +1,57 @@
+
+\section{Manual de despliegue}
+
+\subsection*{Requisitos técnicos}
+
+El proyecto requiere de ciertos requisitos técnicos para su correcto
+funcionamiento.
+
+\subsubsection*{Interprete de Python}
+
+Evidentemente será necesario disponer en nuestro sistema de algun interprete
+de Python 2.4 (Python, IronPython u otros...).
+
+Se puede obtener\footnote{\url{http://www.python.org/download/}} de la propia 
+página ofivial del leneguaje, aunque se encuentra empaquetada para múltiples
+sistemas operativos.
+
+En Debian GNU/Linux\footnote{\url{http://www.debian.org/}}, por ejemplo, bastaría
+con hacer:
+
+\begin{center}
+	\texttt{apt-get install python2.4}
+\end{center}
+
+\subsubsection*{Bibliotecas necesarias}
+
+Como se puede ver en la sección~\ref{sec:conclu:bib}, han sido varias las
+bibliotecas utilizadas en el proyecto que debemos tener instaladas:
+
+\begin{itemize}
+  \item RDFLib\footnote{\url{http://rdflib.net/}} = 2.3.1
+  \item PyXML\footnote{\url{http://pyxml.sourceforge.net/}}
+  \item GTK+\footnote{\url{http://www.gtk.org/}} >= 2.6.0
+  \item PyGTK\footnote{\url{http://www.pygtk.org/}} >= 2.6.0
+  \item gazpacho\footnote{\url{http://gazpacho.sicem.biz/}} >= 0.6.6
+\end{itemize}
+
+La forma de instalarlas ya dependerá del sistema operativo que utilice.
+
+
+\subsection*{Descomprimir SWAML}
+
+SWAML se distribuye\footnote{\url{http://swaml.berlios.de/files}} comprimido
+en ficheros \texttt{.tar.gz}  que podrá descomprimir con casi cualquier 
+software de descompresión de ficheros (gzip, tar, WinZip, WinRAR, etc).
+
+En los propios tarballs\footnote{Nombre por el que conoce los ficheros \texttt{.tar.gz}}
+se distribuye esta misma documentación (en un fichero llamado \texttt{INSTALL})
+de forma un poco más abreviada.
+
+\subsection*{Instalar SWAML}
+
+La instalación de SWAML se realiza con una simple regla del Makefile:
+
+\begin{center}
+	\texttt{make install}
+\end{center}

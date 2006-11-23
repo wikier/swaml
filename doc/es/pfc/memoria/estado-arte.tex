@@ -15,9 +15,8 @@ Por tanto se pasará a analizar cada uno con detalle.
 \subsection{Creación de un esquema de información}
 
 Es necesario definir formalmente el esquema (ontología) que se usará para
-exportar la información. 
-
-Existen algunos trabajos similares a las necesidades del proyecto:
+exportar la información. Existen algunos trabajos similares a las necesidades 
+del proyecto:
 
 \begin{itemize}
   \item El proyecto DOAML\footnote{\url{http://www.doaml.net/}} consiste en un 
@@ -32,17 +31,15 @@ Existen algunos trabajos similares a las necesidades del proyecto:
 \end{itemize}
 
 Pero ninguno parece ser lo que se busca, bien por ser un esquema incompleto e
-inconsistente o incluso por estar completamente abandonado el proyecto.
-
-Por tanto había que decidir si reutilizar uno de los vocabularios anteriormente
+inconsistente o incluso por estar completamente abandonado el proyecto. Por 
+tanto había que decidir si reutilizar uno de los vocabularios anteriormente
 nombrados o crear uno de cero. El resultado, como se puede ver en la
 seccion~\ref{sec:ont:0.1}, fue una ontología que modelaba exactamente las
 necesidades del proyecto.
 
 Una vez se dispuso de este esquema fue mucho más fácil realizar comparaciones
-con otras ontologías, pues se disponia de un modelo completo y consistente.
-
-Una segunda evaluación arrojó el mismo resultado ante los tres primeros candidatos:
+con otras ontologías, pues se disponia de un modelo completo y consistente. Una 
+segunda evaluación arrojó el mismo resultado ante los tres primeros candidatos:
 por diversas razones ninguno servía.
 
 Un \emph{rastreo} más profundo por las ontologías disponibles llevó a 
@@ -50,7 +47,7 @@ Un \emph{rastreo} más profundo por las ontologías disponibles llevó a
 SIOC\footnote{\url{http://sioc-project.org/}} es una ontología desarrollada 
 por el equipo de web semántica de DERI Galway\footnote{\url{http://www.deri.ie/}} 
 para describir semánticamente comunidades online. En el momento de redacción
-de este proyecto se encuentra inmersa en el proceso de \emph{submit} al
+de este proyecto se encuentra inmersa en el proceso de \emph{submission} al
 W3C, lo que implicitamente significa que es una tecnología libre de patentes.
 
 Como se comenta en la sección~\ref{sec:ont:0.2} SIOC modela una clase denominada
@@ -70,8 +67,7 @@ las distintas posibilidades para la parte software más grande del proyecto.
 Existe un gran abanico de software que exporta listas de correo. Pero todos
 ellos (Pipermail\footnote{\url{http://www.amk.ca/python/unmaintained/pipermail.html}},
 Hypermail\footnote{\url{http://www.hypermail-project.org/}}, etc) exportan únicamente
-a formatos sintácticos (principalmente HTML).
-
+a formatos formatos orientados a la presentación final (principalmente HTML). 
 Técnicamente parece complicado adaptar alguno: no disponen de API's, código bastante
 viejo sin mantener, etc.
 
@@ -93,10 +89,12 @@ restricciones de diseño impuestas de utilizar código heredado.
 \subsection{Consumición de la información}
 
 SIOC aún no dispone de demasiadas implementaciones\footnote{\url{http://esw.w3.org/topic/SIOC/Implementations}},
-y la mayor parte se concentran en la fase de exportación de datos. 
+y la mayor parte se concentran en la fase de exportación de datos de otros
+tipos de foros (principalmente blogs). 
 
-Respecto a la fase de consumir los datos el panorama aún no es demasiado amplio,
-únicamente existe dos aplicación que sirva para \emph{leer} de datos en SIOC:
+Respecto a la fase de consumir los datos el catálogo de aplicaciones es aún 
+menor; únicamente existe dos aplicación especializadas en \emph{leer} de datos 
+en SIOC:
 
 \begin{itemize}
  \item SIOC Browser\footnote{\url{http://sioc-project.org/browser}}

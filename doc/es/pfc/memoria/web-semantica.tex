@@ -72,7 +72,7 @@ más forma después de los últimos años de trabajo:
 	\label{fig:swStack}
 \end{figure}
 
-Puede verse que el nucleo de la Web Semántica se fundamenta sobre tres 
+Puede verse que el nucleo de la Web Semántica se construye sobre tres 
 tecnologías fundamentales:
 
 \begin{itemize}
@@ -178,7 +178,7 @@ recorrido por XML y todas sus tecnologías.
 
 Acrónimo del inglés \emph{Resource Description Framework} (marco de descripción 
 de recursos), RDF\footnote{\url{http://www.w3.org/RDF/}} es una especificación del 
-W3C originalmente diseñada como modelo de datos, pero su uso se ha extendido como
+W3C originalmente diseñada como modelo de metadatos, pero su uso se ha extendido como
 método general para modelar el conocimiento.
 
 RDF es un modelo de tripletas del tipo \texttt{(sujecto, predicado, objecto)}. El
@@ -192,7 +192,7 @@ predicado binario con el objeto, que puede ser otra URI o un literal.
 	\label{fig:rdfTriplet}
 \end{figure}
 
-Cada tripleta puede verse como un arco, que al juntarse con otros arcos se obtiene
+Cada tripleta puede verse como un arco, y al juntarse con otros arcos se obtiene
 un grafo dirigido que describe los recursos y las relaciones entre todos los 
 recursos.
 
@@ -274,7 +274,7 @@ ontologias se encuentras definidas con RDFS.
 \subsubsection{OWL}
 
 Acrónimo resultante de \emph{retorcer} el nombre de 
-\emph{Web Ontology Languaje}, OWL\cite{OWL} es la recomendación 
+\emph{Web Ontology Language}, OWL\cite{OWL} es la recomendación 
 oficial de W3C\footnote{\url{http://www.w3.org/}} para publicar ontologías en 
 la Web. Se trata de un lenguaje de gran expresividad para describir conceptos 
 y relaciones entre conceptos, con un compromiso entre expresividad y tratabilidad
@@ -284,8 +284,10 @@ definición de ontologías como son DAML\footnote{\url{http://www.daml.org/}} y
 OIL\footnote{\url{http://www.ontoknowledge.org/oil/}} (lo llamado
 DAML+OIL\footnote{\url{http://www.daml.org/2001/03/daml+oil-index}}).
 
-La versión actual de OWL (1.0) tiene principalmente tres variantes según su
-complejidad:
+La versión actual de OWL, la 1.0 (la 1.1 aún se encuentra en estos momentos en 
+fase de desarrollo bajo el liderazgo del español Bernardo 
+Cuenca\footnote{\url{http://www.cs.man.ac.uk/~bcg/}}), tiene principalmente 
+tres variantes según su complejidad y expresividad:
 
 \begin{itemize}
   \item OWL Full, intimamente ligado a la lógica de RDF, pero que puede resultar
@@ -296,12 +298,12 @@ complejidad:
 	de menor expresividad ${SHIF} (D)$.
 \end{itemize}
 
-Una perpectiva sencilla sería mostrada por la figura \ref{fig:owlVariants}.
+Una perpectiva sencilla sería la mostrada por la figura~\ref{fig:owlVariants}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{images/owl-variants.png}
-	\caption{Perspectiva completa de OWL}
+	\caption{Perspectiva sencilla de OWL}
 	\label{fig:owlVariants}
 \end{figure}
 
@@ -365,9 +367,11 @@ RDFLib\footnote{\url{http://rdflib.net/sparql/}} para Python,
 Jena\footnote{\url{http://jena.sourceforge.net/ARQ/}} en Java, 
 Redland RDF\footnote{\url{http://librdf.org/}} en C con bindings también para 
 otros lenguajes, twinql\footnote{\url{http://www.holygoat.co.uk/projects/twinql/}} 
-en Lisp,etc. Además de estar soportado por alguno de los razonadores más conocidos, 
-como Pellet\footnote{\url{http://www.mindswap.org/2003/pellet/}} o 
-KAON2\footnote{\url{http://kaon2.semanticweb.org/}}.
+en Lisp,etc. Además de estar soportado por alguno de los razonadores\footnote{Un 
+razonador es un componente software que permite operar lógicamente sobre una base 
+de conocimiento, por ejemplo para verificar su consistencia o inferir nueva
+información.} más conocidos, como Pellet\footnote{\url{http://www.mindswap.org/2003/pellet/}} 
+o KAON2\footnote{\url{http://kaon2.semanticweb.org/}}.
 
 \subsection{Aplicaciones prácticas}
 

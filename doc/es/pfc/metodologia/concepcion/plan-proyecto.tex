@@ -7,9 +7,12 @@
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{llll}
+  \begin{tabular}{|l|l|c|c|}
+	\hline
 	\textbf{ID Unidad} & \textbf{Descripción} & \textbf{Unidad de medición} & \textbf{Nº de unidades} \\
-	HW1 & Ordenador de tipo PC & unidad & 1
+	\hline
+	HW1 & Ordenador de tipo PC & unidad & 1 \\
+	\hline
   \end{tabular}
   \caption{Recursos hardware}
  \end{center}
@@ -17,11 +20,16 @@
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{llll}
+  \begin{tabular}{|l|l|c|c|}
+	\hline
 	\textbf{ID Unidad} & \textbf{Descripción} & \textbf{Unidad de medición} & \textbf{Nº de unidades} \\
+	\hline
 	SW1 & S.O. GNU/Linux & unidad & 1 \\
+	\hline
 	SW2 & Interprete de Python & unidad & 1 \\
-	SW3 & Entorno de desarrollo Eclipse & unidad & 1 
+	\hline
+	SW3 & Entorno de desarrollo Eclipse & unidad & 1 \\
+	\hline
   \end{tabular}
   \caption{Recursos software}
  \end{center}
@@ -31,11 +39,16 @@
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{llll}
+  \begin{tabular}{|l|l|c|c|}
+	\hline
 	\textbf{ID Unidad} & \textbf{Descripción} & \textbf{Unidad de medición} & \textbf{Nº de unidades} \\
+	\hline
 	HU1 & Análisis y diseño & horas & 200 \\
+	\hline
 	HU2 & Desarrollo del software & horas & 550 \\
-	HU3 & Dirección técnica & horas & 70 
+	\hline
+	HU3 & Dirección técnica & horas & 70 \\
+	\hline
   \end{tabular}
   \caption{Recursos personales}
  \end{center}
@@ -52,16 +65,23 @@ figura~\ref{fig:gantt}, se enumeran en la siguiente tabla:
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{llll}
+  \begin{tabular}{|l|l|c|c|}
+	\hline
 	\textbf{WBS} & \textbf{Tarea} & \textbf{Inicio} & \textbf{Fin} \\
-	\textbf{1}   & Especificación de requisitos y estudio de viabilidad & 26/09/2005 & 09/01/2006 \\
-	\textbf{2}   & Análisis y Diseño & 09/01/2006 & 15/02/2006 \\
-	\textbf{3}   & Desarrollo Software & 19/01/2006 & 21/11/2006 \\
+	\hline
+	\textbf{1}   & \textbf{Especificación de requisitos y estudio de viabilidad} & 26/09/2005 & 09/01/2006 \\
+	\hline
+	\textbf{2}   & \textbf{Análisis y Diseño} & 09/01/2006 & 15/02/2006 \\
+	\hline
+	\textbf{3}   & \textbf{Desarrollo Software} & 19/01/2006 & 21/11/2006 \\
 	\textbf{3.1} & Desarrollo del core de SWAML & 19/01/2006 & 18/08/2006 \\	
 	\textbf{3.2} & Desarrollo de Buxon & 18/08/2006 & 01/11/2006 \\
 	\textbf{3.3} & Desarrollo de herramientas complementarias & 07/09/2006 & 21/11/2006 \\	
-	\textbf{4}   & Elaboración de la documentación & 01/06/2006 & 30/11/2006 \\	
-	\textbf{5}   & Dirección & 26/09/2005 & 01/12/2006
+	\hline
+	\textbf{4}   & \textbf{Elaboración de la documentación} & 01/06/2006 & 30/11/2006 \\	
+	\hline
+	\textbf{5}   & \textbf{Dirección} & 26/09/2005 & 01/12/2006 \\
+	\hline
   \end{tabular}
   \caption{Reparto de tareas}
  \end{center}
@@ -84,15 +104,24 @@ FIXME: conseguir la tabla de precios oficial
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{llll}
+  \begin{tabular}{|l|l|c|r|}
+	\hline
 	\textbf{ID Unidad} & \textbf{Descripción} & \textbf{Unidad de medición} & \textbf{Precio} \\
+	\hline
 	HW1 & Ordenador de tipo PC & \euro/ud & 1.190 \\
+	\hline
 	SW1 & S.O. GNU/Linux & \euro/ud & 0 \\
+	\hline
 	SW2 & Interprete de Python & \euro/ud & 0 \\
+	\hline
 	SW3 & Entorno de desarrollo Eclipse & \euro/ud & 0 \\
+	\hline
 	HU1 & Análisis y diseño & \euro/h & 57,01 \\
+	\hline
 	HU2 & Desarrollo del software & \euro/h & 36,51 \\
-	HU3 & Dirección técnica & \euro/h & 71,85 
+	\hline
+	HU3 & Dirección técnica & \euro/h & 71,85 \\
+	\hline
   \end{tabular}
   \caption{Tabla de precios}
  \end{center}
@@ -102,9 +131,12 @@ FIXME: conseguir la tabla de precios oficial
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{lll}
+  \begin{tabular}{|l|l|r|}
+	\hline
 	\textbf{ID Unidad} & \textbf{Descripción} & \textbf{Importe} \\
-	HW1 & Ordenador de tipo PC & 1.190,00 \euro
+	\hline
+	HW1 & Ordenador de tipo PC & 1.190,00 \euro \\
+	\hline
   \end{tabular}
   \caption{Presupuesto parcial de recursos hardware}
  \end{center}
@@ -112,11 +144,16 @@ FIXME: conseguir la tabla de precios oficial
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{lll}
+  \begin{tabular}{|l|l|r|}
+	\hline
 	\textbf{ID Unidad} & \textbf{Descripción} & \textbf{Importe} \\
+	\hline
 	SW1 & S.O. GNU/Linux & 0,00 \euro \\
+	\hline
 	SW2 & Interprete de Python & 0,00 \euro \\
-	SW3 & Entorno de desarrollo Eclipse & 0,00 \euro
+	\hline
+	SW3 & Entorno de desarrollo Eclipse & 0,00 \euro \\
+	\hline
   \end{tabular}
   \caption{Presupuesto parcial de recursos software}
  \end{center}
@@ -124,11 +161,16 @@ FIXME: conseguir la tabla de precios oficial
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{lll}
+  \begin{tabular}{|l|l|r|}
+	\hline
 	\textbf{ID Unidad} & \textbf{Descripción} & \textbf{Importe} \\
+	\hline
 	HU1 & Análisis y diseño & 11.402,00 \euro \\
+	\hline
 	HU2 & Desarrollo del software & 20.080,50 \euro \\
-	HU3 & Dirección técnica & 5.010,60 \euro 
+	\hline
+	HU3 & Dirección técnica & 5.010,60 \euro \\
+	\hline
   \end{tabular}
   \caption{Presupuesto parcial de recursos personales}
  \end{center}
@@ -140,17 +182,28 @@ FIXME: conseguir la tabla de precios oficial
 
 \begin{table}[H]
  \begin{center}
-  \begin{tabular}{ll}
-	\textbf{Descripción} & \textbf{Importe} \\
+  \begin{tabular}{|l|r|}
+	\hline
+	\textbf{Descripción} & \textbf{Importe} \\ 
+	\hline
 	Recursos hardware & 1.190,00 \euro \\
+	\hline
 	Recursos software & 0,00 \euro \\
+	\hline
 	Recursos personales & 36.493,10 \euro \\
+	\hline
 	\textbf{SUBTOTAL} & \textbf{37.683,10 \euro} \\
+	\hline
 	Beneficio industrial (6\%) & 2.260,99 \euro \\
+	\hline
 	Costes generales (15\%) & 5.652,47 \euro \\
+	\hline
 	Suma de gastos y beneficios & 45.596,55 \euro \\
+	\hline
 	I.V.A. (16\%) & 7.295,49 \euro \\
-	\textbf{TOTAL} & \textbf{52.892 \euro}
+	\hline
+	\textbf{TOTAL} & \textbf{52.892 \euro} \\
+	\hline
   \end{tabular}
   \caption{Presupuesto final}
  \end{center}

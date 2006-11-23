@@ -1,0 +1,12 @@
+
+Usage: configWizard.py dest
+        
+Helps to write a SWAML's configuration file.
+
+   dest :	destination file
+
+Options:
+   -h, --help           : print this help message and exit.
+
+Report bugs to: <http://swaml.berlios.de/bugs>
+

@@ -10,7 +10,7 @@ install:
 	cp setup/buxon $(DESTDIR)/usr/bin/buxon
 	chmod 755 $(DESTDIR)/usr/bin/buxon
 	mkdir -p $(DESTDIR)/usr/local/swaml/
-	cp -r __init__.py swaml.py buxon.py foaf.py kml.py classes includes $(DESTDIR)/usr/local/swaml/
+	cp -r __init__.py swaml.py buxon.py foaf.py kml.py configWizard.py classes includes $(DESTDIR)/usr/local/swaml/
 	mkdir -p $(DESTDIR)/etc/swaml
 	cp -r config $(DESTDIR)/etc/swaml/
 
@@ -23,7 +23,7 @@ uninstall:
 gendoc:
 	rm -rf $(DOCDIR)
 	mkdir -p $(DOCDIR)
-	epydoc -n $(NAME) -o $(DOCDIR) --html __init__.py swaml.py foaf.py kml.py buxon.py classes/
+	epydoc -n $(NAME) -o $(DOCDIR) --html __init__.py swaml.py foaf.py kml.py buxon.py configWizard.py classes/
 
 pubdoc:	gendoc
 	scp -r $(DOCDIR)/* $(USER)@shell.berlios.de:/home/groups/swaml/htdocs/$(DOCDIR)/

@@ -1,10 +1,61 @@
 
+%título según la portada oficial de PFC's de la EUITIO
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+	\begin{center}
+                {%
+                    \Large\textrm{\textbf{UNIVERSIDAD DE OVIEDO}}\\
+                    \vspace{2cm}
+                }
+                {%
+                    \includegraphics[width=3.5cm]{images/uniovi.png}
+                    \hspace{5cm}
+                    \includegraphics[width=3cm]{images/euitio.png}\\
+                    \vspace{1cm}
+                }
+                {%
+                    \Large\textrm{ESCUELA UNIVERSITARIA DE INGENIERÍA TÉCNICA EN INFORMÁTICA DE OVIEDO}\\
+                    \vspace{3cm}
+                }
+                {%
+                    \Large\textrm{\textbf{PROYECTO FIN DE CARRERA}}\\
+                    \vspace{3cm}
+                }
+                {%
+                    \Large\uppercase{\textrm{SWAML, publicaci\'on de listas de correo en Web Sem\'antica}}\\
+                    \vspace{2cm}
+                }
+	\end{center}
+            {
+                \bfseries
+                \begin{adjustwidth}{7.5cm}{0cm}
+                    \begin{flushleft}
+                        {\footnotesize\textrm{\textbf{DIRECTORES:} Jos\'e Emilio Labra Gayo, Diego Berrueta Mu\'noz}}\\
+                        \vspace{0.5cm}
+                        {\footnotesize\textrm{\textbf{AUTOR:} Sergio Fern\'andez L\'opez}}\\
+                        \vspace{0.5cm}
+                    \end{flushleft}
+                \end{adjustwidth}
+                \begin{tabular}{|p{5cm}|}
+                    \hline
+                    \\
+                    \\
+                    \\
+                    {\scriptsize \textbf{VºBº del Director del Proyecto}}\\
+                    \hline
+                \end{tabular}
+            }
+	\pagestyle{empty}
+	\cleardoublepage
+    \end{titlepage}
+}
+
 %macro que me ha chivado Frade, extraido del libro «LaTeX, una imprenta en sus manos», para añadir la bibliografía al indice
 \let\OLDthebibliography=\thebibliography
 \def\thebibliography#1{\OLDthebibliography{#1}%
 	\addcontentsline{toc}{chapter}{\bibname}}
 
-%tablas (no funciona)
+%renombrar las tablas (no funciona)
 \renewcommand{\tablename}{Tabla}
 \renewcommand{\listtablename}{Indice de tablas}
 

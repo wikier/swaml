@@ -222,7 +222,7 @@ con las tres sintáxis, conteniendo las tres representaciones idéntica informac
 semántica:
 
 \begin{figure}[H]
-\lstset{language=XML}
+\lstset{language=RDF}
 \begin{lstlisting}
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -344,6 +344,7 @@ podría ser SQL. De hecho sus
 algebras\footnote{\url{http://www.w3.org/2001/sw/DataAccess/rq23/rq24-algebra.html}} comparten\cite{RelationalAlgebraSPARQL} determinados puntos. 
 
 \begin{figure}[H]
+\lstset{language=SPARQL}
 \begin{lstlisting}
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -413,7 +414,7 @@ Existen multitud de ejemplos:
 	de la web semántica.
 
 \begin{figure} [H]
-\lstset{language=XML}
+\lstset{language=RDF}
 \begin{lstlisting}
 <rdf:RDF
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -451,7 +452,7 @@ Existen multitud de ejemplos:
 	es una idea similar a FOAF pero para describir todo tipo de proyectos.
 
 \begin{figure}[H]
-\lstset{language=XML}
+\lstset{language=RDF}
 \begin{lstlisting}
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
@@ -507,14 +508,14 @@ Existen multitud de ejemplos:
 	extensiones para describirlas semánticamente.
 
 \begin{figure}[H]
-\lstset{language=XML}
+\lstset{language=RDF}
 \begin{lstlisting}
 <?xml version="1.0" encoding="utf-8"?>
 
-<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
-  <Description about="urn:mozilla:install-manifest">
+  <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <em:creator>Sergio Fdez</em:creator>
     <em:description>FOAFox, discover FOAF profiles in Firefox</em:description>
     <em:homepageURL>http://www.wikier.org/archivos/firefox/foafox/</em:homepageURL>
@@ -524,13 +525,13 @@ Existen multitud de ejemplos:
     <em:updateURL>http://www.wikier.org/archivos/mozilla/foafox/update.rdf</em:updateURL>
     <em:version>0.2.1</em:version>
     <em:targetApplication>
-      <Description>
+      <rdf:Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>1.5</em:minVersion>
         <em:maxVersion>2.0.0.*</em:maxVersion>
-      </Description>
+      </rdf:Description>
     </em:targetApplication>
-  </Description>
+  </rdf:Description>
 
 </RDF>
 \end{lstlisting}

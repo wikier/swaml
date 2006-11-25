@@ -87,3 +87,23 @@
 	xleftmargin=0cm,
 	xrightmargin=0cm
 }
+
+\lstdefinelanguage{RDF}[]{XML}{%
+	morekeywords = {rdf:RDF, rdf:about, rdf:resource, rdf:Description,
+			foaf:Person, doap:Project, dc:creator,
+			rdfs:label, rdfs:comment, rdfs:domain, 
+			rdfs:range, rdfsDatatype, rdfs:subClassOf
+	}
+}
+
+\lstdefinelanguage{OWL}[]{RDF}{%
+	morekeywords = {owl:Ontology, owl:Class, owl:versionInfo, 
+			owl:ObjectProperty, owl:inverseOf,
+			owl:DatatypeProperty, owl:disjointWith
+	}
+}
+
+\lstdefinelanguage{SPARQL}{%
+	morekeywords = {PREFIX, SELECT, DISTINCT, WHERE
+	}
+}

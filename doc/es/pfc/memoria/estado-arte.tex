@@ -46,13 +46,32 @@ Un \emph{rastreo} más profundo por las ontologías disponibles llevó a
 \textbf{SIOC}\cite{Breslin2005} (Semantically-Interlinked Online Communities). 
 SIOC\footnote{\url{http://sioc-project.org/}} es una ontología desarrollada 
 por el equipo de web semántica de DERI Galway\footnote{\url{http://www.deri.ie/}} 
-para describir semánticamente comunidades online. En el momento de redacción
+para describir semánticamente disntintas comunidades online como se muestra en
+la figura~\ref{fig:siocCloud}\footnote{Imagen original de John Breslin en 
+\url{http://sioc-project.org/node/139}}. En el momento de redacción
 de este proyecto se encuentra inmersa en el proceso de \emph{submission} al
 W3C, lo que implicitamente significa que es una tecnología libre de patentes.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=12cm]{images/sioc-clouds.png}
+	\caption{Conexiones de SIOC}
+	\label{fig:siocCloud}
+\end{figure}
+
 Como se comenta en la sección~\ref{sec:ont:0.2} SIOC modela una clase denominada
 \texttt{sioc:Forum} que define un esquema (casi) completo para describir
-semánticamente listas de correo.
+semánticamente listas de correo. Además, ral y como se muestra en la 
+figura~\ref{fig:sioc+foaf+skos}\footnote{Imagen original de John Breslin en 
+\url{http://sioc-project.org/node/158}}, utiliza otras ontologías relacionadas
+con gran acierto.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=9cm]{images/sioc-foaf-skos.png}
+	\caption{Algunas ontologias relacionadas con SIOC}
+	\label{fig:sioc+foaf+skos}
+\end{figure}
 
 Por tanto SIOC fue la opción escogida sobre la que construir SWAML. Utilizar SIOC
 implicitamente significa que se usarán otras ontologías como FOAF y Dublin Core,

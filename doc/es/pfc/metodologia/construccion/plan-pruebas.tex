@@ -1,0 +1,137 @@
+
+\subsection{Plan de pruebas}
+
+\subsubsection{Pruebas de requisitos funcionales}
+
+A continuación de presentan las pruebas que se deberán realizar para comprobar 
+el correcto funcionamiento de la aplicación con respecto a cada uno de los 
+casos de uso presentados en la sección~\ref{sec:espec-casos-uso} bajo el
+epígrafe \emph{«Especificación de los Casos de Uso»}. El conjunto de pruebas 
+aquí presentadas se corresponde con las denominadas pruebas de caja negra. 
+
+\begin{itemize}
+
+  \item \textbf{Parametrizar el sistema:}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{5cm}|p{7cm}|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado esperado} \\ 
+		\hline
+		El usuario edita a mano el fichero 
+		& 
+		Impredecible
+		\\\hline
+		Se genera una configuración utilizando el asistente
+		& 
+		Configuración correctamente formada en el fichero indicado
+		\\\hline
+	  \end{tabular}
+	  \caption{Plan para las pruebas de «parametrizar el sistema»}
+	 \end{center}
+	\end{table}
+
+  \item \textbf{Publicar}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{5cm}|p{7cm}|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado esperado} \\ 
+		\hline
+		Mailbox sin ninguna ninguna particularidad 
+		& 
+		Se genera correctamente su representación en RDF
+		\\\hline
+		El mailbox no existe en la ruta indicada 
+		& 
+		Se advierte al usuario de dicho error
+		\\\hline
+		Mailbox de gran extensión (más de 9.000 mensajes)
+		& 
+		Se genera correctamente su representación en RDF
+		\\\hline
+		Mailbox con correos repetidos
+		& 
+		Se genera correctamente su representación en RDF
+		\\\hline
+	  \end{tabular}
+	  \caption{Plan para las pruebas de «publicar»}
+	 \end{center}
+	\end{table}
+
+  \item \textbf{Enriquecer los datos}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{5cm}|p{7cm}|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado esperado} \\ 
+		\hline
+		Se dispone del FOAF de algunos suscriptores
+		& 
+		Se enriquece la información de esos suscriptores
+		\\\hline
+		No se dispone de ficheros FOAF asociado a ningún suscriptor
+		& 
+		La lista no se enriquece
+		\\\hline
+		El suscriptor tiene más de un FOAF
+		& 
+		Se enriquece con el FOAF que se reciba del servicio externo
+		\\\hline
+	  \end{tabular}
+	  \caption{Plan para las pruebas de «enriquecer datos»}
+	 \end{center}
+	\end{table}
+
+  \item \textbf{Consular los archivos generados}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{5cm}|p{7cm}|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado esperado} \\ 
+		\hline
+		Se encuentra la información consultada por el usuario
+		& 
+		Se le devuelve esa información
+		\\\hline
+		No se encuentra la información consultada por el usuario
+		& 
+		Se advierte al usuario de que su consulta no ha tenido resultados
+		\\\hline
+	  \end{tabular}
+	  \caption{Plan para las pruebas de «consultar»}
+	 \end{center}
+	\end{table}
+
+  \item \textbf{Consultar la información extra generada}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{5cm}|p{7cm}|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado esperado} \\ 
+		\hline
+		Hay meta-información generada
+		& 
+		Se puede explotar esa información con las aplicaciones disponibles
+		\\\hline
+		No hay meta-información asociada
+		& 
+		La aplicación que la explote deberá controlar esta situación
+		\\\hline
+	  \end{tabular}
+	  \caption{Plan para las pruebas de «consultar información extra»}
+	 \end{center}
+	\end{table}
+
+\end{itemize}
+
+
+\subsubsection{Pruebas de requisitos no funcionales}
+
+Se deberán realizar, al menos, las siguientes pruebas:
+
+\begin{itemize}
+  \item Comprobar el correcto funcionamiento del todos los servicios en GNU/Linux,
+	Microsoft Windows y Apple MacOS.
+  \item Comprobar si los requisitos mínimos del ordenador son válidos.
+\end{itemize}

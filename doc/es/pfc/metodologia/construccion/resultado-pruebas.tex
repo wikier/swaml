@@ -1,0 +1,162 @@
+
+\subsection{Resultado de las pruebas}
+
+\subsubsection{Pruebas de requisitos funcionales}
+
+\begin{itemize}
+
+  \item \textbf{Parametrizar el sistema:}
+	\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{|p{4cm}|p{6cm}|c|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado obtenido} & \textbf{Resultado prueba} \\ 
+		\hline
+		El usuario edita a mano el fichero 
+		& 
+		Impredecible
+		&
+		No aplicable
+		\\\hline
+		Se genera una configuración utilizando el asistente
+		& 
+		Se crea correctamente un fichero de configuración
+		&
+		Correcto
+		\\\hline
+	\end{tabular}
+	\caption{Resultado para las pruebas de «parametrizar el sistema»}
+	\end{center}
+	\end{table}
+
+  \item \textbf{Publicar}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{4cm}|p{6cm}|c|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado obtenido} & \textbf{Resultado prueba} \\ 
+		\hline
+		Mailbox sin ninguna ninguna particularidad 
+		& 
+		Se genera correctamente su representación en RDF
+		&
+		Correcto
+		\\\hline
+		El mailbox no existe en la ruta indicada 
+		& 
+		Se advierte al usuario de dicho error
+		&
+		Correcto
+		\\\hline
+		Mailbox de gran extensión (más de 9.000 mensajes)
+		& 
+		Se genera correctamente su representación en RDF
+		&
+		Correcto
+		\\\hline
+		Mailbox con correos repetidos
+		& 
+		Se genera correctamente su representación en RDF
+		&
+		Correcto
+		\\\hline
+	  \end{tabular}
+	  \caption{Resultado para las pruebas de «publicar»}
+	 \end{center}
+	\end{table}
+
+  \item \textbf{Enriquecer los datos}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{4cm}|p{6cm}|c|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado obtenido} & \textbf{Resultado prueba} \\ 
+		\hline
+		Se dispone del FOAF de algunos suscriptores
+		& 
+		Se enriquece la información de esos suscriptores
+		&
+		Correcto
+		\\\hline
+		No se dispone de ficheros FOAF asociado a ningún suscriptor
+		& 
+		La lista no se enriquece
+		&
+		Correcto
+		\\\hline
+		El suscriptor tiene más de un FOAF
+		& 
+		Se enriquece con el FOAF que se reciba del servicio externo
+		&
+		Correcto
+		\\\hline
+	  \end{tabular}
+	  \caption{Resultado para las pruebas de «enriquecer datos»}
+	 \end{center}
+	\end{table}
+
+  \item \textbf{Consular los archivos generados}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{4cm}|p{6cm}|c|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado obtenido} & \textbf{Resultado prueba} \\ 
+		\hline
+		Se encuentra la información consultada por el usuario
+		& 
+		Se le devuelve esa información
+		&
+		Correcto
+		\\\hline
+		No se encuentra la información consultada por el usuario
+		& 
+		Se advierte al usuario de que su consulta no ha tenido resultados
+		&
+		Correcto
+		\\\hline
+	  \end{tabular}
+	  \caption{Resultado para las pruebas de «consultar»}
+	 \end{center}
+	\end{table}
+
+  \item \textbf{Consultar la información extra generada}
+	\begin{table}[H]
+	 \begin{center}
+	  \begin{tabular}{|p{4cm}|p{6cm}|c|}
+		\hline
+		\textbf{Prueba} & \textbf{Resultado obtenido} & \textbf{Resultado prueba} \\ 
+		\hline
+		Hay meta-información generada
+		& 
+		Se puede explotar esa información con las aplicaciones disponibles
+		&
+		Correcto
+		\\\hline
+		No hay meta-información asociada
+		& 
+		La aplicación que la explote deberá controlar esta situación
+		&
+		No aplicable
+		\\\hline
+	  \end{tabular}
+	  \caption{Resultado para las pruebas de «consultar información extra»}
+	 \end{center}
+	\end{table}
+
+\end{itemize}
+
+
+\subsubsection{Pruebas de requisitos no funcionales}
+
+Se deberán realizar, al menos, las siguientes pruebas:
+
+\begin{itemize}
+  \item Comprobar el correcto funcionamiento del todos los servicios en GNU/Linux,
+	Microsoft Windows y Apple MacOS. \textbf{Correcto} (funcionando en Debian,
+	WindowsXP y MacOSX).
+  \item Comprobar si los requisitos mínimos del ordenador son válidos. \textbf{Correcto}
+	(comprobado en un ordenador de menor capacidad).
+\end{itemize}
+
+
+

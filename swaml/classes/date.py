@@ -23,7 +23,7 @@ import email.Utils
 import time
 
 
-class DateUtil:
+class Date:
     
     def __init__(self, date):
         self.date = date
@@ -87,13 +87,13 @@ class DateUtil:
             
         
 
-class MailDate(DateUtil):
+class MailDate(Date):
     
     def __init__(self, date):
         self.date = email.Utils.parsedate(date)
 
 
-class FileDate(DateUtil):
+class FileDate(Date):
     """
     Utils functions for date of files
     """

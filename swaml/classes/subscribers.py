@@ -19,13 +19,13 @@
 """Subscribers management"""
 
 import sys, os, string
-from services import FoafUtils
 from message import Message
+from foaf import FOAFS
 import rdflib
 from rdflib import Graph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
-from rdflib import plugin
+from rdflib import Namespace
 from rdflib.sparql import sparqlGraph, GraphPattern
 from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
 
@@ -67,7 +67,7 @@ class Subscriber:
         """
         Get subscriber's sha sum of mail address
         """
-        return FoafUtils().getShaMail(self.mail) 
+        return FOAFS().getShaMail(self.mail) 
     
     def getFoaf(self):
         """
@@ -296,11 +296,11 @@ class Subscribers:
         Process subscribers to obtain more semantic information
         """
         
-        foafserv = FoafUtils()
+        foafserv = FOAFS()
         
         for mail, subscriber in self.subscribers.items():
             self.__copileFoafInfo(subscriber, foafserv) #get foaf information
-            self.__compact(subscriber, foafserv) #compact subscribers list
+            self.__compact(subscriber, foafserv) #compact subscribers lis
             #more ideas?
 
     def __copileFoafInfo(self, subscriber, foafserv):

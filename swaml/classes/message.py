@@ -23,8 +23,8 @@ import datetime, email, email.Errors
 from rdflib import Graph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
-from services import FoafUtils, Charset
-from dateutils import MailDate, FileDate
+from charset import Charset
+from date import MailDate, FileDate
 
 class Message:
     """Mail message abstraction"""

@@ -16,7 +16,7 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-"""Util services to work with FOAF and charsets"""
+"""Util services to work with FOAF"""
 
 import sys, os, string, sha
 import rdflib
@@ -25,7 +25,7 @@ from rdflib import Namespace, Literal
 from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
 from email.Header import decode_header
 
-class FoafUtils:
+class FOAFS:
     """
     Collection of util services to SWAML
     """
@@ -170,52 +170,3 @@ class FoafUtils:
         """        
         
         return sha.new('mailto:'+mail).hexdigest()
-
-
-class Charset:
-    """
-    Collection of services related with charset and encondig
-    """
-    
-    def __init__(self, charset='iso-8859-1'):
-        self.charset = charset
-    
-    def encode(self, orig):
-        """
-        Decode an string
-        """
-        
-        ret = ''
-        
-        try:
-            ret = self.__force_decode(orig)
-        except Exception:
-            ret = self.__unicode(orig, self.charset)
-            
-        return ret
-            
-    def __decode(self, orig):            
-        #tip because decode_header returns the exception 
-        #    ValueError: too many values to unpack
-        #TODO: performance this tip
-        parted = orig.split(' ') 
-        dest = ''
-        for one in parted:
-            [(s, enconding)] = decode_header(one)
-            if (dest == ''):
-                dest = s
-            else:
-                dest += ' ' + s
-        
-        return dest
-    
-    def __unicode(self, orig, charset):
-        ret = ''
-        
-        try:
-            ret = unicode(orig, charset)
-        except TypeError:
-            ret = orig   
-                     
-        return orig
-        

@@ -23,7 +23,7 @@ from classes.ui import CommandLineUI
 import rdflib
 from rdflib import sparql, BNode, Literal, URIRef
 from classes.namespaces import SWAML, SIOC, RDF, FOAF, GEO, RDFS
-from classes.services import FoafUtils
+from classes.foaf import FOAFS
 
 class SwamlFoafEnricher(CommandLineUI):
     """
@@ -67,7 +67,7 @@ class SwamlFoafEnricher(CommandLineUI):
             users = sparqlGr.query(select, where)
             
             if (len(users) > 0):
-                foafserv = FoafUtils()
+                foafserv = FOAFS()
                 n = 0
                 
                 graph.bind('foaf', FOAF)

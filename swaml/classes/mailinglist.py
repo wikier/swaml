@@ -26,7 +26,7 @@ from index import Index
 from rdflib import Graph, URIRef, Literal, BNode, RDF
 from namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
 import datetime
-from dateutils import FileDate
+from date import FileDate
 
 class MailingList:
     

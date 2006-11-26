@@ -21,7 +21,7 @@
 import rdflib
 from rdflib import sparql, Namespace
 from namespaces import SIOC, RDF, RDFS, DC, DCTERMS
-from dateutils import MailDate
+from date import MailDate
 import gtk
 
 class Cache:

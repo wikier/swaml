@@ -298,10 +298,14 @@ class Subscribers:
         
         foafserv = FOAFS()
         
+        self.foafEnriched = 0
+        
         for mail, subscriber in self.subscribers.items():
             self.__copileFoafInfo(subscriber, foafserv) #get foaf information
             self.__compact(subscriber, foafserv) #compact subscribers lis
             #more ideas?
+            
+        print self.foafEnriched, 'subscribers enriched using FOAF'
 
     def __copileFoafInfo(self, subscriber, foafserv):
         """
@@ -312,6 +316,7 @@ class Subscribers:
         foaf = foafserv.getFoaf(mail)
         if (foaf != None):
             subscriber.setFoaf(foaf)
+            self.foafEnriched += 1
             
             #coordinates
             lat, lon = foafserv.getGeoPosition(foaf, foafserv.getShaMail(mail))

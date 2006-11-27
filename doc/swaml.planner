@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project name="SWAML" company="EUITIO" manager="Sergio Fdez" phase="" project-start="20050924T000000Z" mrproject-version="2" calendar="1">
+  <properties/>
+  <phases/>
+  <calendars>
+    <day-types>
+      <day-type id="0" name="Jornada laboral" description="Un d&#xED;a de trabajo predeterminado"/>
+      <day-type id="1" name="Jornada de descanso" description="Un d&#xED;a de descanso predeterminado"/>
+      <day-type id="2" name="Usar base" description="Usar d&#xED;a del calendario base"/>
+    </day-types>
+    <calendar id="1" name="Predeterminado">
+      <default-week mon="0" tue="0" wed="0" thu="0" fri="0" sat="1" sun="1"/>
+      <overridden-day-types>
+        <overridden-day-type id="0">
+          <interval start="0800" end="1200"/>
+          <interval start="1300" end="1700"/>
+        </overridden-day-type>
+      </overridden-day-types>
+      <days/>
+    </calendar>
+  </calendars>
+  <tasks>
+    <task id="1" name="Especificaci&#xF3;n de requisitos y estudio de viabilidad" note="" work="288000" duration="2448000" start="20050924T000000Z" end="20060109T130000Z" work-start="20050926T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration"/>
+    <task id="2" name="An&#xE1;lisis y Dise&#xF1;o" note="" work="288000" duration="864000" start="20060109T130000Z" end="20060215T100000Z" work-start="20060109T130000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="3" name="Desarrollo Software" note="" work="7776000" duration="6292800" start="20060119T130000Z" end="20061121T170000Z" work-start="20060119T130000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS" lag="864000"/>
+      </predecessors>
+      <task id="4" name="Desarrollo del core de SWAML" note="" work="4320000" duration="4896000" start="20060119T130000Z" end="20060818T140000Z" work-start="20060119T130000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration"/>
+      <task id="5" name="Desarrollo de Buxon" note="" work="1728000" duration="1728000" start="20060818T140000Z" end="20061101T170000Z" work-start="20060818T140000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+        <predecessors>
+          <predecessor id="1" predecessor-id="4" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="6" name="Desarrollo de herramientas complementarias" note="" work="1728000" duration="1728000" start="20060907T140000Z" end="20061121T170000Z" work-start="20060907T140000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+        <predecessors>
+          <predecessor id="1" predecessor-id="4" type="FS" lag="1728000"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="7" name="Elaboraci&#xF3;n de la documentaci&#xF3;n" note="" work="1152000" duration="4233600" start="20060601T000000Z" end="20061130T140000Z" work-start="20060601T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+      <constraint type="must-start-on" time="20060601T000000Z"/>
+    </task>
+    <task id="8" name="Direcci&#xF3;n" note="" work="864000" duration="10022400" start="20050924T000000Z" end="20061201T110000Z" work-start="20050926T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+      <constraint type="must-start-on" time="20050924T000000Z"/>
+    </task>
+  </tasks>
+  <resource-groups/>
+  <resources/>
+  <allocations/>
+</project>

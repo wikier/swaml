@@ -37,12 +37,12 @@ en siguientes etapas del análisis.
 
 \begin{figure}[ht]
  	\centering
-	\includegraphics[width=12cm]{images/uml/casos-uso/general.png}
+	\includegraphics[width=11cm]{images/uml/caso-uso-general.png}
 	\caption{Casos generales de uso}
 	\label{fig:uml:casos-uso}
 \end{figure}
 
-Como se ve en la figura~\ref{fig:uml:casos-uso} se puede disntiguir claramente
+Como se ve en la figura~\ref{fig:uml:casos-uso} se puede distinguir claramente
 tres grandes bloques de casos de uso:
 
 \begin{itemize}
@@ -90,16 +90,10 @@ Para pasar a describirlos más detalladamente:
 		lotes que a partir de una configuración genera una serie 
 		de ficheros RDF. Internamente se divide en varios procesos:
 		\begin{enumerate}
-		 \item \emph{Parsear} el mailbox
-		 \item Revisar la consistencia de todas las relaciones entre los distintos mensajes
-		 \item Enriquecer la información
-		 \item Exportar cada uno de estos mensajes en RDF
-		 \item Exportar los suscriptores en RDF
-		 \item Exportar los suscriptores en KML si fuese requerido
-		 \item Exportar todos los indices
+		 \item Iniciar publicación
+		 \item Imprimir estadísticas
+		 \item Terminar publicación
 		\end{enumerate}
-		FIXME: revisar, Diego dice que no se corresponden a un "flujo de eventos", 
-		porque no hay interacción con el usuario.
 	  \item \textbf{Precondiciones:} Disponer de una configuración correcta.
 	  \item \textbf{Postcondiciones:} El directorio destino de la exportación
 		debe poder \emph{consumirse} mediante otro servicio, como un 
@@ -136,14 +130,7 @@ Para pasar a describirlos más detalladamente:
 		usuario con los datos generados. Desde una simple consulta 
 		manual a los ficheros RDF generados, hasta realizar consultas 
 		de una forma más sofisticada.
- 	  \item \textbf{Flujo de eventos:} Con la información obtenida se 
-		repetirá siempre el mismo flujo:
-		\begin{enumerate}
-		 \item consultar
-		 \item leer
-		 \item comprender
-		 \item y/o desechar
-		\end{enumerate}
+ 	  \item \textbf{Flujo de eventos:} Ninguno particular.
 	  \item \textbf{Precondiciones:} Disponer de la lista exportada a RDF.
 	  \item \textbf{Postcondiciones:} Ninguna concreta.
 	\end{itemize}
@@ -155,8 +142,8 @@ Para pasar a describirlos más detalladamente:
 		ejemplo los suscriptores en formato KML.
  	  \item \textbf{Flujo de eventos:}
 		\begin{enumerate}
-		 \item consultar
-		 \item explotar
+		 \item Consultar
+		 \item Explotar los datos
 		\end{enumerate}
 	  \item \textbf{Precondiciones:} Disponer de la información geográfica 
 		de los suscriptores.

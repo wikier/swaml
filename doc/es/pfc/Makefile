@@ -11,6 +11,8 @@ IMAGES= images/swaml-owl.png images/sad.png
 all:	clean $(NAME).pdf
 
 $(NAME).pdf: $(IMAGES)	
+	umbrello --export png --directory images/uml/ uml/swaml.xmi
+	umbrello --export png --directory images/uml/ uml/swaml-clases.xmi
 	rubber --pdf $(NAME).tex
 
 %.png:  %.dia
@@ -27,4 +29,5 @@ clean:
 	rm -f *.aux *.log *.dvi *.toc *.pdf *.bbl *.blg *.lof *.bak *.lot *.out
 	rm -f `find . -name "*.backup"`
 	rm -f `find . -name "*~"`
+	rm -f images/uml/*
 

@@ -24,7 +24,7 @@ se puede ver el diagrama de actividad de este caso de uso.
 
 \begin{figure}[H]
  	\centering
-	\includegraphics[width=8cm]{images/uml/casos-uso/parametrizar-sistema.png}
+	\includegraphics[width=8cm]{images/uml/caso-uso-parametrizar.png}
 	\caption{Diagrama de actividad para el caso de uso «parametrizar el sistema»}
 	\label{fig:uml:parametrizar-sistema}
 \end{figure}
@@ -37,18 +37,14 @@ se descompone en varias actividades menores tal y como describe la
 figura~\ref{fig:uml:publicar}.
 
 \begin{enumerate}
- \item \emph{Parsear} el mailbox
- \item Revisar la consistencia de todas las relaciones entre los distintos mensajes
- \item Enriquecer la información
- \item Exportar cada uno de estos mensajes en RDF
- \item Exportar los suscriptores en RDF
- \item Exportar los suscriptores en KML si fuese requerido
- \item Exportar todos los indices
+ \item Iniciar publicación
+ \item Imprimir estadísticas
+ \item Terminar publicación
 \end{enumerate}
 
 \begin{figure}[H]
  	\centering
-	\includegraphics[width=4cm]{images/uml/casos-uso/publicar.png}
+	\includegraphics[width=3cm]{images/uml/caso-uso-publicar.png}
 	\caption{Diagrama de actividad para el caso de uso «publicar»}
 	\label{fig:uml:publicar}
 \end{figure}
@@ -75,7 +71,7 @@ figura~\ref{fig:uml:enriquecer}:
 
 \begin{figure}[H]
  	\centering
-	\includegraphics[width=8cm]{images/uml/casos-uso/enriquecer.png}
+	\includegraphics[width=8cm]{images/uml/caso-uso-enriquecer.png}
 	\caption{Diagrama de actividad para el caso de uso «enriquecer datos»}
 	\label{fig:uml:enriquecer}
 \end{figure}
@@ -87,18 +83,11 @@ simple consulta manual a los ficheros RDF generados, hasta realizar
 consultas de una forma más sofisticada.
 
 Con la información obtenida se repetirá siempre el mismo flujo descrito en
-la figura~\ref{fig:uml:consultar}
-
-\begin{enumerate}
- \item consultar
- \item leer
- \item comprender
- \item y/o desechar
-\end{enumerate}
+la figura~\ref{fig:uml:consultar}.
 
 \begin{figure}[H]
  	\centering
-	\includegraphics[width=2.5cm]{images/uml/casos-uso/consultar.png}
+	\includegraphics[width=4cm]{images/uml/caso-uso-consultar.png}
 	\caption{Diagrama de actividad para el caso de uso «consultar»}
 	\label{fig:uml:consultar}
 \end{figure}
@@ -112,7 +101,7 @@ figura~\ref{fig:uml:consultar-extra}.
 
 \begin{figure}[H]
  	\centering
-	\includegraphics[width=2.5cm]{images/uml/casos-uso/consultar-extra.png}
+	\includegraphics[width=2.5cm]{images/uml/caso-uso-consultar-extra.png}
 	\caption{Diagrama de actividad para el caso de uso «consultar información extra»}
 	\label{fig:uml:consultar-extra}
 \end{figure}

@@ -41,11 +41,11 @@ Ha sido mucha la diversidad de software (complidores, bibliotecas y herramientas
 utilizado para la realización de este proyecto. Nótese que todo él se ha podido
 desarrollar utilizando únicamente \emph{software libre}.
 
-\subsection{Python}
+\subsection*{Python}
 
 FIXME
 
-\subsection{Bibliotecas\label{sec:conclu:bib}}
+\subsection*{Bibliotecas\label{sec:conclu:bib}}
 
 FIXME(¿más?)
 
@@ -61,7 +61,7 @@ dom.xml\footnote{\url{http://docs.python.org/lib/module-xml.dom.html}} FIXME
 
 FIXME
 
-\subsection{Herramientas}
+\subsection*{Herramientas}
 
 FIXME
 
@@ -161,13 +161,30 @@ actual.
 Aunque puede que no se incluyan todas las existentes, estas on algunas de las lineas
 que seria interesante el proyecto abarcara algún día:
 
+\subsection*{Marcado semántico para el cuerpo de los mensajes}
+
+La información semántica de un lista de correo publicada por SWAML sólo tiene una
+alguna: el marcado semántico del cuerpor de mensaje (\texttt{sioc:content}). En
+la actualidad no se realiza ningún tipo de procesamiento al contenido de ese campo.
+Quizás fuera interesante, bien de forma manual o automática, mejorar el marcado
+semántico de ese contenido para así poder explotar de manera más eficar esa 
+información.
+
+\subsection*{API en Python para SIOC}
+
+Ya hay disponible uno similar en PHP\footnote{\url{http://sioc-project.org/phpapi}}. 
+Abstraer todo el código de SWAML relacionado con SIOC a un API independeiente permitiría,
+además de mejorar el diseño de esa parte del proyecto, proveer a otras aplicaciones 
+en Python (o con bindings para Python) la posibilidad de exportar a SIOC los datos 
+que manejan.
+
 \subsection*{Integración con Mailman}
 
 FIXME
 
 \subsection*{API para DIG}
 
-Sería interesante disponer de una API en Python para utilizar razonadores DL que implementen 
+Sería interesante disponer de un API en Python para utilizar razonadores DL que implementen 
 el protocolo DIG\footnote{\url{http://dig.cs.manchester.ac.uk/}}. 
 
 Existen ya API's similares en Java (dentro del framework

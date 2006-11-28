@@ -1,0 +1,4 @@
+
+- ultima:
+	"from syntax to semantics"
+	"de la sintaxis a la semántica"

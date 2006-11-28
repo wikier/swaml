@@ -107,12 +107,12 @@
 
 %listings
 \lstset{
-	basewidth=0.6em,
+	basewidth=0.55em,
 	backgroundcolor=\color{listinggray},
 	basicstyle=\footnotesize\ttfamily,
-	keywordstyle=\bfseries\color{violet},
-	stringstyle=\color{blue}\itshape,
-	commentstyle=\color{green}\itshape,
+	keywordstyle=\bfseries,
+	stringstyle=\itshape,
+	commentstyle=\itshape,
 	showspaces=false,
 	showtabs=false,
 	showstringspaces=false,
@@ -125,11 +125,28 @@
 	xrightmargin=0cm
 }
 
+\lstdefinelanguage{XML}{%
+	morekeywords = {peliculas, pelicula, titulo, autor, url }
+}
+
 \lstdefinelanguage{RDF}[]{XML}{%
 	morekeywords = {rdf:RDF, rdf:about, rdf:resource, rdf:Description,
+			rdfs:label, rdfs:comment, rdfs:domain, rdfs:Datatype,
+			rdfs:range, rdfsDatatype, rdfs:subClassOf,
+			xmlns:rdf, xmlns:rdfs, xmlns:doap, xmlns:foaf,
+			xmlns:admin, xmlns:em, xmlns:dc, xmlns:xsd,
+			xmlns:owl, xmlns:swaml, xmlns:base,
 			foaf:Person, doap:Project, dc:creator,
-			rdfs:label, rdfs:comment, rdfs:domain, 
-			rdfs:range, rdfsDatatype, rdfs:subClassOf
+			foaf:name, foaf:title, foaf:firstName,
+			foaf:surname, foaf:gender, foaf:mbox,
+			doap:name, doap:shortname, doap:homepage,
+			doap:description, doap:wiki, doap:bug-database,
+			doap:programming-language, doap:license, 
+			doap:download-page, doap:download-mirror,
+			em:creator, em:description, em:homepageURL,
+			em:id, em:name, em:iconURL, em:updateURL,
+			em:version, em:targetApplication, em:minVersion,
+			em:maxVersion
 	}
 }
 
@@ -141,6 +158,5 @@
 }
 
 \lstdefinelanguage{SPARQL}{%
-	morekeywords = {PREFIX, SELECT, DISTINCT, WHERE
-	}
+	morekeywords = {PREFIX, SELECT, DISTINCT, WHERE }
 }

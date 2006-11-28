@@ -41,9 +41,9 @@ verse en la figura \ref{fig:evoWeb}\footnote{Fuente: W3C}, que le ha llevado a
 convertirse no sólo en un almacen de contenido estático, sino también en un 
 repositorio universal de conocimiento y servicios.
 
-\begin{figure}[H]
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=12cm]{images/web-evolution.png}
+	\includegraphics[width=15cm]{images/web-evolution.png}
 	\caption{Evolución de la Web}
 	\label{fig:evoWeb}
 \end{figure}
@@ -143,9 +143,9 @@ humano.
     <autor>
       Quentin Tarantino
     </author>
-    <imdb>
+    <url>
       http://www.imdb.com/title/tt0105236/
-    </imdb>
+    </url>
   </pelicula>
 
   <pelicula vista="false">
@@ -517,12 +517,18 @@ Existen multitud de ejemplos:
 
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <em:creator>Sergio Fdez</em:creator>
-    <em:description>FOAFox, discover FOAF profiles in Firefox</em:description>
-    <em:homepageURL>http://www.wikier.org/archivos/firefox/foafox/</em:homepageURL>
+    <em:description>
+      FOAFox, discover FOAF profiles in Firefox
+    </em:description>
+    <em:homepageURL>
+      http://www.wikier.org/archivos/firefox/foafox/
+    </em:homepageURL>
     <em:id>{5be0dd31-4194-4543-b29c-72248db06b71}</em:id>
     <em:name>FOAFox</em:name>
     <em:iconURL>chrome://foafox/skin/foafox.png</em:iconURL>
-    <em:updateURL>http://www.wikier.org/archivos/mozilla/foafox/update.rdf</em:updateURL>
+    <em:updateURL>
+      http://www.wikier.org/archivos/mozilla/foafox/update.rdf
+    </em:updateURL>
     <em:version>0.2.1</em:version>
     <em:targetApplication>
       <rdf:Description>
@@ -533,7 +539,7 @@ Existen multitud de ejemplos:
     </em:targetApplication>
   </rdf:Description>
 
-</RDF>
+</rdf:RDF>
 \end{lstlisting}
 \caption{Ejemplo fichero RDF para describir una extensión de Mozilla Firefox}
 \label{fig:rdf.firefox}

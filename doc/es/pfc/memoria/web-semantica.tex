@@ -130,7 +130,7 @@ con el objetivo que fuera fácilmente procesable por una máquina y legible por 
 humano. 
 
 \begin{figure}[H]
-\lstset{language=XML}
+\lstset{language=PeliculasXML}
 \begin{lstlisting}
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -142,7 +142,7 @@ humano.
     </titulo>
     <autor>
       Quentin Tarantino
-    </author>
+    </autor>
     <url>
       http://www.imdb.com/title/tt0105236/
     </url>
@@ -240,7 +240,7 @@ semántica:
 \end{figure}
 
 \begin{figure}[H]
-\lstset{language=XML}
+\lstset{language=N3}
 \begin{lstlisting}
 @prefix dc <http://http://purl.org/dc/elements/1.1/>
 
@@ -251,7 +251,7 @@ semántica:
 \end{figure}
 
 \begin{figure}[H]
-\lstset{language=XML}
+\lstset{language=Turtle}
 \begin{lstlisting}
 @prefix dc <http://http://purl.org/dc/elements/1.1/>
 
@@ -290,12 +290,12 @@ Cuenca\footnote{\url{http://www.cs.man.ac.uk/~bcg/}}), tiene principalmente
 tres variantes según su complejidad y expresividad:
 
 \begin{itemize}
-  \item OWL Full, intimamente ligado a la lógica de RDF, pero que puede resultar
-	no computable.
-  \item OWL DL, un subconjunto del anterior basado en la lógica descriptiva 
-	${SHOIN} (D)$.
-  \item OWL Lite, subconjunto de OWL DL que se basa en la lógica descriptiva 
-	de menor expresividad ${SHIF} (D)$.
+  \item \textbf{OWL Full}, intimamente ligado a la lógica de RDF, pero que puede 
+	resultar no computable.
+  \item \textbf{OWL DL}, un subconjunto del anterior basado en la lógica 
+	descriptiva ${SHOIN} (D)$.
+  \item \textbf{OWL Lite}, subconjunto de OWL DL que se basa en la lógica 
+	descriptiva de menor expresividad ${SHIF} (D)$.
 \end{itemize}
 
 Una perpectiva sencilla sería la mostrada por la figura~\ref{fig:owlVariants}.

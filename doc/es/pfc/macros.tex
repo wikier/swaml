@@ -125,7 +125,7 @@
 	xrightmargin=0cm
 }
 
-\lstdefinelanguage{XML}{%
+\lstdefinelanguage{PeliculasXML}[]{XML}{%
 	morekeywords = {peliculas, pelicula, titulo, autor, url }
 }
 
@@ -133,15 +133,15 @@
 	morekeywords = {rdf:RDF, rdf:about, rdf:resource, rdf:Description,
 			rdfs:label, rdfs:comment, rdfs:domain, rdfs:Datatype,
 			rdfs:range, rdfsDatatype, rdfs:subClassOf,
-			xmlns:rdf, xmlns:rdfs, xmlns:doap, xmlns:foaf,
-			xmlns:admin, xmlns:em, xmlns:dc, xmlns:xsd,
-			xmlns:owl, xmlns:swaml, xmlns:base,
-			foaf:Person, doap:Project, dc:creator,
+			xmlns:ns, xmlns:rdf, xmlns:rdfs, xmlns:sioc, 
+			xmlns:doap, xmlns:foaf, xmlns:admin, xmlns:em, 
+			xmlns:dc, xmlns:xsd, xmlns:owl, xmlns:swaml, 
+			xml:base, foaf:Person, doap:Project, dc:creator,
 			foaf:name, foaf:title, foaf:firstName,
 			foaf:surname, foaf:gender, foaf:mbox,
 			doap:name, doap:shortname, doap:homepage,
 			doap:description, doap:wiki, doap:bug-database,
-			doap:programming-language, doap:license, 
+			doap:programming-language, doap:license,
 			doap:download-page, doap:download-mirror,
 			em:creator, em:description, em:homepageURL,
 			em:id, em:name, em:iconURL, em:updateURL,
@@ -151,10 +151,18 @@
 }
 
 \lstdefinelanguage{OWL}[]{RDF}{%
-	morekeywords = {owl:Ontology, owl:Class, owl:versionInfo, 
+	morekeywords = {owl:Ontology, owl:Class, owl:versionInfo,
 			owl:ObjectProperty, owl:inverseOf,
 			owl:DatatypeProperty, owl:disjointWith
 	}
+}
+
+\lstdefinelanguage{N3}{%
+	morekeywords = {@prefix}
+}
+
+\lstdefinelanguage{Turtle}{%
+	morekeywords = {@prefix}
 }
 
 \lstdefinelanguage{SPARQL}{%

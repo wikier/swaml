@@ -36,17 +36,17 @@ La Web es un recurso muy especial y particular, con unas características muy
 especiales que deben tenerse en cuenta: no centralizada, información dinámica,
 mucha cantidad de información y está abierta a todo el mundo.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=12cm]{images/web-evolution.png}
+	\caption{Evolución de la Web}
+	\label{fig:evoWeb}
+\end{figure}
+
 En los últimos años la Web ha experimentado una notable evolución, como puede 
 verse en la figura \ref{fig:evoWeb}\footnote{Fuente: W3C}, que le ha llevado a 
 convertirse no sólo en un almacen de contenido estático, sino también en un 
 repositorio universal de conocimiento y servicios.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=15cm]{images/web-evolution.png}
-	\caption{Evolución de la Web}
-	\label{fig:evoWeb}
-\end{figure}
 
 A pesar de todas estas pequeñas revoluciones, todavia seguimos en una web 
 \emph{sintáctica}. Hoy en día la llamada \emph{Web 2.0}\cite{O'Reilly2005} está
@@ -76,9 +76,9 @@ Puede verse que el nucleo de la Web Semántica se construye sobre tres
 tecnologías fundamentales:
 
 \begin{itemize}
-  \item RDF
-  \item OWL
-  \item SPARQL
+  \item RDF\cite{Graham2004}
+  \item OWL\cite{OWL}
+  \item SPARQL\cite{Eric2006}
 \end{itemize}
 
 Con una envoltura de lógica y reglas, sustentadas sobre una infraestructura 
@@ -92,12 +92,10 @@ tienen.
 
 \subsubsection{Elementos básicos}
 
-\paragraph{Unicode}
-
-Unicode\footnote{\url{http://www.unicode.org/}} es una iniciativa de un consorcio de 
-empresas dedicadas a la internacionalización para conseguir una representación 
-informática de los caracteres en todos los idiomas de forma que pueda ser representados
-y manipulados de forma universal. 
+\paragraph{Unicode}es una iniciativa\footnote{\url{http://www.unicode.org/}} de 
+un consorcio de empresas dedicadas a la internacionalización para conseguir una 
+representación informática de los caracteres en todos los idiomas de forma que 
+pueda ser representados y manipulados de forma universal. 
 
 Aunque existen varias codificaciónes distintas, UTF-8\cite{Yergeau2003} es la 
 codificación unicode más usada y extendida, tanto por su sencillez (usa grupos 
@@ -106,9 +104,7 @@ del mundo se pueden representar en UTF-8).
 
 Unicode es el recurso primario de representación de caracteres en la Web Semántica.
 
-\paragraph{URI}
-
-URI\cite{Berners-Lee1998}, acrónimo del inglés \emph{Uniform Resource Identifier}, 
+\paragraph{URI}acrónimo del inglés \emph{Uniform Resource Identifier}\cite{Berners-Lee1998}, 
 identificador uniforme de recursos, es un mecanismo para la identificación de recursos
 en red. Se trata de una especialización del IRI (Internationalized Resource Identifier) 
 limitada al rango de caracteres ASCII.
@@ -120,10 +116,10 @@ en la World Wide Web.
 
 \subsubsection{XML}
 
-XML\footnote{\url{http://www.w3.org/XML/}} (eXtensible Markup Language, Lenguaje 
-de marcado extensible) es un formato de marcado estructurado para la representación 
-de información muy usado y extendido hoy en día, hasta tal punto de ser considerado 
-el lenguaje universal para el intercambio de información. 
+XML\cite{Bray2006} (eXtensible Markup Language\footnote{\url{http://www.w3.org/XML/}}, 
+lenguaje  de marcado extensible) es un formato de marcado estructurado para la 
+representación de información muy usado y extendido hoy en día, hasta tal punto de 
+ser considerado el lenguaje universal para el intercambio de información. 
 
 Desarrollado por el W3C a partir de SGML\footnote{\url{http://www.w3.org/MarkUp/SGML/}} 
 con el objetivo que fuera fácilmente procesable por una máquina y legible por un 
@@ -137,15 +133,9 @@ humano.
 <peliculas>
 
   <pelicula vista="true">
-    <titulo>
-      Resevoir Dogs
-    </titulo>
-    <autor>
-      Quentin Tarantino
-    </autor>
-    <url>
-      http://www.imdb.com/title/tt0105236/
-    </url>
+    <titulo>Resevoir Dogs</titulo>
+    <autor>Quentin Tarantino</autor>
+    <url>http://www.imdb.com/title/tt0105236/</url>
   </pelicula>
 
   <pelicula vista="false">
@@ -158,8 +148,9 @@ humano.
 \label{fig:ejemplo.xml}
 \end{figure}
 
-Basandose en una definición abstracta (XML Schema), permite extender su gramática 
-de una forma muy fácil y sencilla de procesar (XSL/XSLT, XPath, XPointer, etc).
+Basandose en una definición abstracta (XML Schema\footnote{\url{http://www.w3.org/XML/Schema}}), 
+permite extender su gramática de una forma muy fácil y sencilla de procesar 
+(XSL/XSLT, XPath, XPointer, etc).
 
 Es usado en múltiples tecnológías hoy en día, sobre todo en la web (XHTML, XForms, 
 SVG, etc), aunque también para documentación (DocBook), interfaces de usuario (XUL,
@@ -203,7 +194,7 @@ grafo del estilo del que se puede ver en la figura~\ref{fig:rdfTripletExample}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=10cm]{images/arc-example.png}
+	\includegraphics[width=12cm]{images/arc-example.png}
 	\caption{Ejemplo de arco RDF}
 	\label{fig:rdfTripletExample}
 \end{figure}
@@ -264,9 +255,11 @@ semántica:
 
 \subsubsection{RDFS}
 
-RDFS\cite{RDFS} (RDF Schema) es una forma primitiva y limitada de describir 
+RDFS (RDF Schema\cite{RDFS}) es una forma primitiva y limitada de describir 
 ontologías en RDF, también llamado «\emph{vocabulario RDF}». Provee los elementos
-básicos para la definición de ontologias (clases, subclases, propiedades, etc).
+básicos para la definición de ontologias (clases, subclases, propiedades, etc)
+\footnote{¿Qué es una ontología? La mejor definición es la que da Tom Gruber
+en \url{http://www-ksl.stanford.edu/kst/what-is-an-ontology.html}}.
 
 Aunque OWL, del que hablaremos a continuación, es mucho más expresivo, aún muchas
 ontologias se encuentras definidas con RDFS.
@@ -466,20 +459,14 @@ Existen multitud de ejemplos:
     <doap:name>Semantic Web Archive of Mailing Lists</doap:name>
     <doap:shortname>SWAML</doap:shortname>
 
-    <doap:homepage rdf:resource="http://swaml.berlios.de/"/>
-    <doap:created>2005-09-24</doap:created>
-
     <doap:description>
       SWAML is a research project around the semantic web tecnologies 
-      to publish the mailing lists archive into an RDF format.
+      to publish the mailing lists archive into a RDF format.
     </doap:description>
 
-    <doap:wiki rdf:resource="http://swaml.berlios.de/wiki"/>
-    <doap:bug-database rdf:resource="http://swaml.berlios.de/bugs"/>
-    <doap:programming-language>python</doap:programming-language>
-    <doap:license rdf:resource="http://usefulinc.com/doap/licenses/gpl"/>
-    <doap:download-page rdf:resource="http://swaml.berlios.de/#files"/>
-    <doap:download-mirror rdf:resource="http://swaml.berlios.de/files"/>
+    <doap:homepage rdf:resource="http://swaml.berlios.de/" />
+    <doap:wiki rdf:resource="http://swaml.berlios.de/wiki" />
+    <doap:license rdf:resource="http://usefulinc.com/doap/licenses/gpl" />
 
   </doap:Project>
 
@@ -512,8 +499,10 @@ Existen multitud de ejemplos:
 \begin{lstlisting}
 <?xml version="1.0" encoding="utf-8"?>
 
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+>
 
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <em:creator>Sergio Fdez</em:creator>
@@ -547,13 +536,6 @@ Existen multitud de ejemplos:
 
 \end{itemize}
 
-\subsection{Libros de interés}
-
-Aunque no existen buenas publicaciones en castellano, hay varios libros en inglés 
-que es imprescindible ojear: \emph{A Semantic Web primer}\cite{SemanticWebPrimer},
-\emph{Practical RDF}\cite{PracticalRDF}, 
-\emph{Spinning the Semantic Web}\cite{SpinningSemanticWeb}
-\emph{Explorer's Guide to the Semantic Web}\cite{ExplorerSemanticWeb}.
 
 \subsection{Futuro}
 

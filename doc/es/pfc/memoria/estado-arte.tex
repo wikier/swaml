@@ -46,7 +46,7 @@ Un \emph{rastreo} más profundo por las ontologías disponibles llevó a
 \textbf{SIOC}\cite{Breslin2005} (Semantically-Interlinked Online Communities). 
 SIOC\footnote{\url{http://sioc-project.org/}} es una ontología desarrollada 
 por el equipo de web semántica de DERI Galway\footnote{\url{http://www.deri.ie/}} 
-para describir semánticamente disntintas comunidades online como se muestra en
+para describir semánticamente distintas comunidades online, como se muestra en
 la figura~\ref{fig:siocCloud}\footnote{Imagen original de John Breslin en 
 \url{http://sioc-project.org/node/139}}. En el momento de redacción
 de este proyecto se encuentra inmersa en el proceso de \emph{submission} al
@@ -59,12 +59,12 @@ W3C, lo que implicitamente significa que es una tecnología libre de patentes.
 	\label{fig:siocCloud}
 \end{figure}
 
-Como se comenta en la sección~\ref{sec:ont:0.2} SIOC modela una clase denominada
+Como se comenta en la sección~\ref{sec:ont:0.2}, SIOC modela una clase denominada
 \texttt{sioc:Forum} que define un esquema (casi) completo para describir
-semánticamente listas de correo. Además, ral y como se muestra en la 
+semánticamente listas de correo. Además, tal y como se muestra en la 
 figura~\ref{fig:sioc+foaf+skos}\footnote{Imagen original de John Breslin en 
-\url{http://sioc-project.org/node/158}}, utiliza otras ontologías relacionadas
-con gran acierto.
+\url{http://sioc-project.org/node/158}}, utiliza con gran acierto otras ontologías 
+relacionadas.
 
 \begin{figure}[H]
 	\centering
@@ -75,7 +75,7 @@ con gran acierto.
 
 Por tanto SIOC fue la opción escogida sobre la que construir SWAML. Utilizar SIOC
 implicitamente significa que se usarán otras ontologías como FOAF y Dublin Core,
-de las que hablaremos próximamente.
+de las que hablará próximamente más en profundidad.
 
 
 \subsection{Exportación de la información}
@@ -116,17 +116,15 @@ menor; únicamente existe dos aplicación especializadas en \emph{leer} de datos
 en SIOC:
 
 \begin{itemize}
- \item SIOC Browser\footnote{\url{http://sioc-project.org/browser}}
- \item SIOC live query\footnote{\url{http://b4mad.net/datenbrei/archives/2006/06/05/sioc-live-query/}}
+  \item SIOC Browser\footnote{\url{http://sioc-project.org/browser}} es un 
+	navegador de información en RDF en general y SIOC en particular. 
+	Esta escrito en Python como CGI para proveer una interfaz en HTML.
+  \item SIOC live query\footnote{\url{http://b4mad.net/datenbrei/archives/2006/06/05/sioc-live-query/}},
+	escrito en PHP, es una interfaz HTML para realizar consultas
+	contra ficheros SIOC (predefinidos y no personalizables).
 \end{itemize}
 
-\emph{SIOC Browser} es un navegador de información en RDF en general y SIOC en 
-particular. Esta escrito en Python como CGI para proveer una interfaz en HTML.
-
-\emph{SIOC live query}, escrito en PHP, es una interfaz HTML para realizar consultas
-contra ficheros SIOC (prefefinida y no personalizable).
-
-Ninguno realiza operaciones más allá de realizar consultas a un único fichero 
+Ninguno hace operaciones más allá de realizar simples consultas a un único fichero 
 SIOC. Por ello, y siempre que no alargue mucho los pazos del proyecto, puede ser 
 interesante abordar el desarrollo de una aplicación que explote más profundamente
 los datos exportados.

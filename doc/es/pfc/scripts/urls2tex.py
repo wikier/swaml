@@ -156,9 +156,9 @@ class Urls2TeX:
 			f = open(self.translationFile, 'w')
 			for url in self.translation.keys():
 				title = self.translation[url]
-				f.write(url + ' ' + title)
+				f.write(url + ' ' + title + '\n')
 			f.close()
-			print 'dumped URL\'s cache in', self.destinationFile
+			print 'dumped URL\'s cache in', self.translationFile
 		except IOError, details:
 			print 'Problem writing translation cache: ' + str(details)
 

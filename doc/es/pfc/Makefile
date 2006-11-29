@@ -11,8 +11,8 @@ IMAGES= images/swaml-owl.png images/sad.png
 all:	clean $(NAME).pdf
 
 $(NAME).pdf: $(IMAGES)	
-	umbrello --export png --directory images/uml/ uml/swaml.xmi
-	umbrello --export png --directory images/uml/ uml/swaml-clases.xmi
+	umbrello --export png --directory images/uml/ uml/swaml.xmi 2> /dev/null
+	umbrello --export png --directory images/uml/ uml/swaml-clases.xmi 2> /dev/null
 	rubber --pdf $(NAME).tex
 
 %.png:  %.dia

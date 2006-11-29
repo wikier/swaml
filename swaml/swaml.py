@@ -47,7 +47,6 @@ class SWAML(CommandLineUI):
         """
         main method
         @param argv: values of inline arguments
-        @param base: base dir
         """
         
         path = __file__.split('/')

@@ -26,7 +26,9 @@ class Configuration:
     """Class to encapsulate SWAML's configuration"""
 
     def __init__(self):
-        """Constructor method"""
+        """
+        Constructor method
+        """
         
         #default values
         self.config = { 
@@ -82,23 +84,36 @@ class Configuration:
 
 
     def getAntiSpam(self):
-        """String to fight against the SPAM"""
+        """
+        String to fight against the SPAM
+        """
         
         return self.antispam;
 
 
     def get(self, var):
-        """Method to get a configuration property"""
+        """
+        Method to get a configuration property
+        
+        @param var: var key
+        """
         
         if (var in self.config.keys()):
             return self.config[var]
         
     def getAgent(self):
-        """Return the agent URL"""
+        """
+        Return the agent URL
+        """
         return self.agent
 
     def set(self, var, value):
-        """Method to set a configuration property"""
+        """
+        Method to set a configuration property
+        
+        @param var: var key
+        @param value: value var
+        """
         
         if (var in self.config.keys()):
             
@@ -119,12 +134,19 @@ class Configuration:
             return False
         
     def setAgent(self, agent):
-        """Store the agent's url"""
+        """
+        Store the agent's url
+        
+        @param agent: agent uri
+        """
+        
         self.agent = agent
 
 
     def show(self):
-        """[Deprecated] Show all configure options"""
+        """
+        Show all configure options
+        """
         
         for var in self.config.keys():
             print var + ': ' + str(self.config[var])

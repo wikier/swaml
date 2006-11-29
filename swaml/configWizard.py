@@ -32,6 +32,10 @@ class ConfigWizard(CommandLineUI):
     """
     
     def requestData(self):
+        """
+        Queries the user a new configuration
+        """
+        
         self.config = Configuration()
         
         print 'Write your configuration options:'
@@ -44,6 +48,9 @@ class ConfigWizard(CommandLineUI):
                 self.config.set(var, value)
     
     def printData(self):
+        """
+        Dump on hard disk the configuration
+        """
         
         ini = ConfigParser.ConfigParser()
         
@@ -62,12 +69,17 @@ class ConfigWizard(CommandLineUI):
             print 'Error exporting coordinates config file: ' + str(detail)
     
     def wizard(self):
+        """
+        Executes all the wizard functions
+        """
+        
         self.requestData()
         self.printData()
         
     def __init__(self, argv):
         """
         main method
+        
         @param argv: values of inline arguments
         """       
         

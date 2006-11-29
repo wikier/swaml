@@ -27,6 +27,13 @@ import gtk
 class Cache:
 
     def orderByDate(self, posts):
+        """
+        Order by date a list of posts
+        
+        @param posts: posts to order
+        @return: posts ordered
+        """
+        
         #SPARQL in RDFLib doesn't support 'ORDER BY' queries
         #then we'll implement a rustic support to order by dates
         #state: testing
@@ -48,6 +55,14 @@ class Cache:
         return ordered
             
     def filterPosts(self, posts, min=None, max=None, text=None):
+        """
+        Filter post from some conditions
+        
+        @param posts: list of posts
+        @param min: min date
+        @param max: max date
+        @param text: text to search
+        """
         
         filtered = []
         
@@ -73,6 +88,13 @@ class Cache:
         return filtered
 
     def __like(self, text, query):
+        """
+        Search words into a text
+        
+        @param text: text where we'll search
+        @param query: words to search
+        """
+        
         text = text.lower()
         query = query.lower().split(' ')
         
@@ -83,6 +105,12 @@ class Cache:
         return True
 
     def query(self):
+        """
+        Make a SPARQL query
+        
+        @return: posts result
+        """
+        
         try:    
             sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')            
@@ -100,6 +128,10 @@ class Cache:
             return None
         
     def __listPosts(self):
+        """
+        List post at cache
+        """
+        
         try:    
             sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?title')            
@@ -121,11 +153,24 @@ class Cache:
             return None
         
     def getPostAuthor(self, post):
+        """
+        Get author of a post
+        
+        @param post: post uri
+        """
+        
         authorUri = self.getValueForPredicate(post, SIOC['has_creator'])
         author = self.getValueForPredicate(authorUri, SIOC['name'])
         return author, authorUri
         
     def getPost(self, uri):
+        """
+        Get fields of a post
+        
+        @param uri: post uri
+        @return: post fields
+        """
+        
         author, authorUri = self.getPostAuthor(uri)
         listUri = self.getValueForPredicate(uri, SIOC['has_container'])
         listName = self.getValueForPredicate(listUri, DC['title'])
@@ -135,6 +180,12 @@ class Cache:
         return author, authorUri, listName, listUri, title, date, content
     
     def loadMailingList(self, uri):
+        """
+        Load a mailing list into a graph memory
+        
+        @param uri: mailing list's uri
+        """
+        
         graph = rdflib.Graph()
         print 'Getting mailing list data (', uri, ')...',
         graph.parse(uri)
@@ -144,6 +195,12 @@ class Cache:
         return graph
     
     def __loadData(self, uri):
+        """
+        Load data
+        
+        @param uri: uri to load
+        """
+        
         print 'Resolving reference to get additional data (', uri, ')...',
         self.graph.parse(uri)
         
@@ -155,6 +212,9 @@ class Cache:
         print 'OK, now', len(self.graph), 'triples'     
     
     def loadAdditionalData(self):
+        """
+        Load additional data of a mailing list
+        """
     
         for post in self.graph.objects(self.uri, SIOC['container_of']):
             if not self.hasValueForPredicate(post, SIOC['id']):
@@ -169,9 +229,23 @@ class Cache:
                 self.__loadData(user)
 
     def hasValueForPredicate(self, subject, predicate):
+        """
+        Get if a predicate exists
+        
+        @param subject: subject
+        @param predicate: predicate
+        """
+        
         return (len([x for x in self.graph.objects(subject, predicate)]) > 0)        
        
     def getValueForPredicate(self, subject, predicate):
+        """
+        Get value of a predicate
+        
+        @param subject: subject
+        @param predicate: predicate
+        """        
+        
         value = [x for x in self.graph.objects(subject, predicate)]
         if (len(value) > 0):
             return value[0]
@@ -179,6 +253,12 @@ class Cache:
             return None
         
     def dump(self, path='cache.rdf'):
+        """
+        Dump graph on disk
+        
+        @param path: path to dump
+        """
+        
         if (not self.bad):
             try:
                 file = open(path, 'w+')
@@ -189,6 +269,13 @@ class Cache:
                 print 'Error dumping cache: ' + str(detail)
 
     def __init__(self, uri, pb=None):
+        """
+        Cache constructor
+        
+        @param uri: uri to load
+        @param pb: progress bar
+        """
+        
         self.uri = uri
         self.bad = False
         self.pb = pb

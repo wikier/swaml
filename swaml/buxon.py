@@ -71,6 +71,10 @@ class Callbacks:
 class Buxon(GtkUI):
 
 	def clear(self):
+		"""
+        Clear all GTK components on Buxon
+        """	
+        	
 		#tree
 		self.treeTranslator = {}
 		for column in self.treeView.get_columns():
@@ -80,11 +84,19 @@ class Buxon(GtkUI):
 		self.text.get_buffer().set_text('')
 		
 	def clearSearchForm(self):
+		"""
+        Clear search form
+        """	
+        		
 		widgets.get_widget('searchInput').set_text('')
 		widgets.get_widget('fromEntry').set_text('01/01/1995')
 		widgets.get_widget('toEntry').set_text('31/31/2010')		
 
 	def showPost(self):
+		"""
+		Show post selected at gtk.TreeView
+		"""
+		
 		selection = self.treeView.get_selection()
 		(model, iter) = selection.get_selected()
 		uri = model.get_value(iter, 0)
@@ -93,6 +105,18 @@ class Buxon(GtkUI):
 		self.writePost(uri, author, authorUri, listName, listUri, title, date, content)
 		
 	def writePost(self, uri, author=None, authorUri='', listName=None, listUri='', title='', date='', content=''):
+		"""
+        Write a post on the gtk.TextView
+        
+        @param author: author's name
+        @param authorUri: author's uri
+		@param listName: mailing list's name
+		@param listUri: mailing list's uri
+		@param title: post subject
+		@param date: post date
+		@param content: post body
+        """	
+        		
 		PANGO_SCALE = 1024
 		buffer = self.text.get_buffer()
 		buffer.set_text('')
@@ -136,6 +160,12 @@ class Buxon(GtkUI):
 		buffer.insert(iter, '\n')
 		
 	def getDates(self):
+		"""
+		Get selected dates
+		
+		@return: dates
+		@rtype: tuple
+		"""
 		
 		#min date
 		fromDate = widgets.get_widget('fromEntry').get_text().split('/')
@@ -152,6 +182,15 @@ class Buxon(GtkUI):
 		return min, max	
 	
 	def getPosts(self, uri, min=None, max=None, text=None):
+		"""
+		Get mailing list's posts
+		
+		@param uri: mailing list's uri
+		@param min: min date
+		@param max: max date
+		@param text: text to search
+		"""
+		
 		if (self.cache == None):
 			pb = LoadProgressBar()
 			self.cache = Cache(uri, pb)
@@ -179,6 +218,12 @@ class Buxon(GtkUI):
 			return None
 
 	def drawTree(self, posts):
+		"""
+		Draw post on gtk.TreeView
+		
+		@param posts: posts
+		@type posts: tuple
+		"""
 		
 		if (posts!=None and len(posts)>0):
 		
@@ -207,27 +252,59 @@ class Buxon(GtkUI):
 			self.messageBar('none posts founded at ' + self.cache.uri)
 			
 	def __getParent(self, uri):
+		"""
+		Get the parent post
+		
+		@param uri: post uri
+		@return: parent uri
+		"""
+		
 		if (uri in self.treeTranslator):
 			return self.treeTranslator[uri]
 		else:
 			return None
 	
 	def messageBar(self, text):
+		"""
+		Write a message on the status bar
+		
+		@param text: text
+		"""
+		
 		self.statusbar.push(0, text)
 
 	def insertBufferTag(self, buffer, name, property, value):
-	    tag = gtk.TextTag(name)
-	    tag.set_property(property, value)
-	    table = buffer.get_tag_table()
-	    table.add(tag)
+		"""
+		Insert a new tag on buffer
+		
+		@param buffer: buffer
+		@param name: tag name
+		@param property: property to customize
+		@param value: property value
+		"""
+		
+		tag = gtk.TextTag(name)
+		tag.set_property(property, value)
+		table = buffer.get_tag_table()
+		table.add(tag)
 	    
 	def getUri(self):
+		"""
+		Get actual URI
+		
+		@return: actual uri
+		"""
+		
 		if (self.cache == None):
 			return None
 		else:
 			return self.cache.uri
 		
 	def destroy(self):
+		"""
+		Destoy all the infraestructure
+		"""
+		
 		print 'Exiting...'
 		
 		#if (self.cache != None):
@@ -237,6 +314,12 @@ class Buxon(GtkUI):
 		return gtk.FALSE
 
 	def main(self, uri=None):
+		"""
+		Main bucle
+		
+		@param uri: uri
+		"""
+		
 		#widgets
 		self.treeView = widgets.get_widget('postsTree')
 		
@@ -261,6 +344,11 @@ class Buxon(GtkUI):
 		gtk.main()
 
 	def __init__(self, base='./'):
+		"""
+		Buxon constructor
+		
+		@param base: base directory
+		"""
 		
 		GtkUI.__init__(self, 'buxon')
 		
@@ -277,6 +365,10 @@ buxon = None
 class BuxonMain:
 	
 	def __init__(self, argv):
+		"""
+		All operation that Buxon need to run
+		"""
+		
 		try:
 			path = __file__.split('/')
 			base = '/'.join(path[:-1]) + '/'

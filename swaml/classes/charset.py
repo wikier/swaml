@@ -28,11 +28,19 @@ class Charset:
     """
     
     def __init__(self, charset='iso-8859-1'):
+        """
+        Charset constructor
+        
+        @param charset: charset internacional code
+        """
+        
         self.charset = charset
     
     def encode(self, orig):
         """
-        Decode an string
+        Encode an string
+        
+        @param orig: original string
         """
         
         ret = ''
@@ -44,7 +52,13 @@ class Charset:
             
         return ret
             
-    def __decode(self, orig):            
+    def __decode(self, orig):  
+        """
+        Decode an string
+        
+        @param orig: original string
+        """        
+                  
         #tip because decode_header returns the exception 
         #    ValueError: too many values to unpack
         #TODO: performance this tip
@@ -60,6 +74,12 @@ class Charset:
         return dest
     
     def __unicode(self, orig, charset):
+        """
+        Decode an unicode string
+        
+        @param orig: original string
+        @param charset: charset internacional code
+        """        
         ret = ''
         
         try:

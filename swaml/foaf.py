@@ -34,11 +34,23 @@ class SwamlFoafEnricher(CommandLineUI):
     """
     
     def parse(self, path):
+        """
+        Parse a RDF file
+        
+        @param path: file path
+        """
+        
         graph = rdflib.Graph()
         graph.parse(path)
         return graph
     
     def enriched(self, graph):
+        """
+        Find if the graph is enriched with FOAF
+        
+        @param graph: graph
+        @return: graph enriched (True/False)
+        """
         
         sparqlGr = sparql.sparqlGraph.SPARQLGraph(graph)
         select = ('?foaf')
@@ -50,6 +62,12 @@ class SwamlFoafEnricher(CommandLineUI):
         return (len(foafs) > 0)
     
     def process(self, input, output=None):
+        """
+        Enrichement process
+        
+        @param input: input file
+        @param output: output file
+        """
         
         graph = self.parse(input)
         

@@ -31,6 +31,10 @@ class FOAFS:
     """
     
     def __init__(self):
+        """
+        FOAF services constructor
+        """
+        
         self.__actualFoaf = None
         self.__graph = None
     
@@ -42,8 +46,6 @@ class FOAFS:
         @type mail: string
         @return: the FOAF URI of this email owner
         @rtype: string
-        
-        @todo: customize FOAF service
         """
         
         mail_sha1sum = self.getShaMail(mail)
@@ -96,6 +98,10 @@ class FOAFS:
     def __getGraph(self, foaf):
         """
         A simple mechanism to cache foaf graph
+        
+        @param foaf: a foaf uri
+        @return: the graph with the foaf loaded
+        @rtype: rdflib.sparqlGraph.SPARQLGraph        
         """
         
         #tip to set socket timeout global var
@@ -115,6 +121,10 @@ class FOAFS:
     def getGeoPosition(self, foaf, sha1mail):
         """
         Obtain geography information from foaf
+        
+        @param foaf: a foaf uri
+        @param sha1mail: mail addess enconded
+        @return: coordinates      
         """
         
         sparqlGr = self.__getGraph(foaf)
@@ -139,6 +149,10 @@ class FOAFS:
     def getPic(self, foaf, sha1mail):
         """
         Get picture from FOAF
+        
+        @param foaf: a foaf uri
+        @param sha1mail: mail addess enconded
+        @return: picture url        
         """
         sparqlGr = self.__getGraph(foaf)
         

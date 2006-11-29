@@ -34,11 +34,24 @@ class SwamlKmlExporter(CommandLineUI):
     """
     
     def parse(self, path):
+        """
+        Parse RDF file
+        
+        @param path: file path
+        """
+        
         graph = rdflib.Graph()
         graph.parse(path)
         return graph
     
     def process(self, input, output=None):
+        """
+        Process
+        
+        @param input: input file
+        @param output: output file
+        """
+        
         if (output == None):
             output = '.'.join(input.split('.')[:-1]) + '.kml'
         

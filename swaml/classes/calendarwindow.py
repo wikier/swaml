@@ -25,19 +25,47 @@ import time
 class CalendarWindow:
     
     def selectDay(self, widget):
+        """
+        Select a day
+        
+        @param widget: widget
+        """
+        
         self.window.destroy()
     
     def destroy(self, widget):
+        """
+        Destroy window
+        
+        @param widget: widget
+        """
+        
         self.setText(self.getDate())
         
     def setText(self, text):
+        """
+        Set text on text entry
+        
+        @param text: text
+        """
+        
         self.entry.set_text(text)
         
     def getDate(self):
+        """
+        Get selected date
+        
+        @return: date in string format
+        """
+        
         year, month, day = self.calendar.get_date()
         return str(day) + '/' + str(month+1) + '/' + str(year)
     
     def setInitialDate(self):
+        """
+        Load initial date
+        """
+        
         date = self.entry.get_text().split('/')
         day = int(date[0])
         month = int(date[1])
@@ -48,6 +76,10 @@ class CalendarWindow:
             self.calendar.select_day(day)
     
     def __init__(self, entry):
+        """
+        CalendarWindow constructor
+        """
+        
         self.entry = entry
         
         self.window = gtk.Window(gtk.WINDOW_POPUP)

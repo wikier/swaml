@@ -135,17 +135,16 @@ class Urls2TeX:
 		try:
 			import codecs
 			f = open(self.destinationFile, 'w')
-			f.write(codecs.BOM_UTF8)
 			f.write('\n')
-			f.write('\chapter{Referencias}\n')
+			f.write('\\chapter{Referencias}\n')
 			f.write('\n')
-			f.write('\begin{itemize}\n')
+			f.write('\\begin{itemize}\n')
 
 			for url in self.translation.keys():
 				title = self.translation[url]
-				f.write(' \item ' + title + ' <\url{' + url + '}> \n')
+				f.write(' \\item ' + title + ' <\url{' + url + '}>\n')
 
-			f.write('\end{itemize}\n')
+			f.write('\\end{itemize}')
 			f.write('\n')
 			f.close()
 			print 'dumped URLs in', self.destinationFile
@@ -157,7 +156,7 @@ class Urls2TeX:
 			f = open(self.translationFile, 'w')
 			for url in self.translation.keys():
 				title = self.translation[url]
-				f.write(url + ' ' + title + '\n')
+				f.write(url + ' ' + title)
 			f.close()
 			print 'dumped URL\'s cache in', self.destinationFile
 		except IOError, details:

@@ -1,0 +1,51 @@
+
+\section{Lineas de futuro}
+
+El trabajo realizado hasta ahora con SWAML no ha hecho sino empezar, abriendo las 
+puertas hacia una linea de desarrollo que puede significar un foco importante
+en cuanto a la publicación en formatos semánticos de todo el conocimiento contenido
+en esas miles de listas de correo existentes por lo largo y ancho de la internet
+actual.
+
+Aunque puede que no se incluyan todas las existentes, estas on algunas de las lineas
+que seria interesante el proyecto abarcara algún día:
+
+\subsection*{Marcado semántico para el cuerpo de los mensajes}
+
+La información semántica de un lista de correo publicada por SWAML sólo tiene una
+alguna: el marcado semántico del cuerpor de mensaje (\texttt{sioc:content}). En
+la actualidad no se realiza ningún tipo de procesamiento al contenido de ese campo.
+Quizás fuera interesante, bien de forma manual o automática, mejorar el marcado
+semántico de ese contenido para así poder explotar de manera más eficar esa 
+información.
+
+\subsection*{API en Python para SIOC}
+
+Ya hay disponible uno similar en PHP\footnote{\url{http://sioc-project.org/phpapi}}. 
+Abstraer todo el código de SWAML relacionado con SIOC a un API independeiente permitiría,
+además de mejorar el diseño de esa parte del proyecto, proveer a otras aplicaciones 
+en Python (o con bindings para Python) la posibilidad de exportar a SIOC los datos 
+que manejan.
+
+\subsection*{Integración con Mailman}
+
+GNU Mailman\footnote{\url{http://www.gnu.org/software/mailman/index.html}} es quizás el
+sistema de gestión de listas de correo más usado y extendido en la actualidad. Desarrollado
+también en Python, una integración de SWAML con Mailman supondría que incontables listas
+de correo repartidas por todo el mundo publicarían la descripción semántica de sus
+archivos antiguos. Indudablemente sería un hecho muy relevante para el proyecto, pero
+se trata de objetivo difícil de alcanzar por la calidad del software requerido en
+proyectos de tal envergadura.
+
+\subsection*{API para DIG}
+
+Sería interesante disponer de un API en Python para utilizar razonadores DL que implementen 
+el protocolo DIG\footnote{\url{http://dig.cs.manchester.ac.uk/}}. 
+
+Existen ya API's similares en Java (dentro del framework
+Jena\footnote{\url{http://jena.sourceforge.net/how-to/dig-reasoner.html}} o incluso en Haskell 
+(implementada dentro del proyecto WESO\footnote{\url{http://weso.sourceforge.net/}}. Por eso 
+sería interesante implementar el protocolo DIG en Python, y no sería una tarea
+en la que nos encontraríamos en solitario\cite{PythonOWL}.
+
+FIXME

@@ -93,7 +93,7 @@ class TeX:
 class Urls2TeX:
 
 	def getTitleFromURL(self, url):
-		print '\ntrying with', url,
+		#print '\ntrying with', url,
 
 		try:
 			f = urllib.urlopen(url)
@@ -114,14 +114,43 @@ class Urls2TeX:
 	def loadTranslation(self):
 		self.translation = {}
 
+		if (os.path.exists(self.translationFile)):
+			try:
+				for line in open(self.translationFile):
+					line = line.split(' ')
+					url = line[0]
+					title = ' '.join(line[1:])
+					self.translation[url] = title
+			except IOError, details:
+				print 'Problem reading translation cache: ' + str(details)
+		else:
+			print 'no initial URL\'s cache founded'
+			print 'then this will take some time... be pacient'
+
+	def dump(self):
+		self.dumpTex()
+		self.dumpTranslation()
+
+	def dumpTex(self):
 		try:
-			for line in open(self.translationFile):
-				line = line.split(' ')
-				url = line[0]
-				title = ' '.join(line[1:])
-				self.translation[url] = title
+			import codecs
+			f = open(self.destinationFile, 'w')
+			f.write(codecs.BOM_UTF8)
+			f.write('\n')
+			f.write('\chapter{Referencias}\n')
+			f.write('\n')
+			f.write('\begin{itemize}\n')
+
+			for url in self.translation.keys():
+				title = self.translation[url]
+				f.write(' \item ' + title + ' <\url{' + url + '}> \n')
+
+			f.write('\end{itemize}\n')
+			f.write('\n')
+			f.close()
+			print 'dumped URLs in', self.destinationFile
 		except IOError, details:
-			print 'Problem reading translation cache: ' + str(details)
+			print 'Problem writing translation cache: ' + str(details)
 
 	def dumpTranslation(self):
 		try:
@@ -130,12 +159,14 @@ class Urls2TeX:
 				title = self.translation[url]
 				f.write(url + ' ' + title + '\n')
 			f.close()
+			print 'dumped URL\'s cache in', self.destinationFile
 		except IOError, details:
 			print 'Problem writing translation cache: ' + str(details)
 
 
 	def __init__(self, base):
 		self.translationFile = 'urls.cache'
+		self.destinationFile = 'anexos/referencias.tex'
 		self.base = base
 		self.loadTranslation()
 		self.tex = TeX()
@@ -145,10 +176,10 @@ class Urls2TeX:
 			if not url in self.translation:
 				title = self.getTitleFromURL(url)
 				if (title != 'FIXME'):
-					print ';', title
+					#print ';', title
 					self.translation[url] = title
 
-		self.dumpTranslation()
+		self.dump()
 
 	
 

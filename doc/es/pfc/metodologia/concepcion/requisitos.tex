@@ -21,7 +21,7 @@ quienes ejercieron la función del cliente.
 
 La fuente de información será una lista de correo en formato mbox 
 (RFC4155\cite{Hall2005}), un formato estandarizado que utilizan la 
-mayoria de los sistemas de gestión de listas de correo, entre otros:
+mayoría de los sistemas de gestión de listas de correo, entre otros:
 
 \begin{itemize}
  \item Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}
@@ -46,14 +46,14 @@ Por tanto es fácil adivinar dos problemas evidentes de este formato:
 
 	Cuando alguien responde un determinado mensaje, el cliente de correo 
 	colocará en la respuesta una cabecera (\texttt{In-Reply-To}) con este 
-	\texttt{ID} para referirse explicitamente al mensaje que se está 
+	\texttt{ID} para referirse explícitamente al mensaje que se está 
 	respondiendo.
 
 	Este es el mecanismo especificado en el RFC2822\cite{Resnick2001} para 
 	la gestión de hilos de conversación por medio de correo electrónico. 
 	Y el mecanismo que es utilizado para representar los hilos de 
 	conversaciones en forma de árbol, tanto en clientes de correo (Evolution, 
-	Thunderbird, Outlook, etc) como en alguno de los sistemas convecionales 
+	Thunderbird, Outlook, etc) como en alguno de los sistemas convencionales 
 	de publicación de listas de correo nombrados anteriormente.
 
 	Dicho identificador tiene una forma similar a 
@@ -81,10 +81,10 @@ Por tanto es fácil adivinar dos problemas evidentes de este formato:
 	interactuar entre varios sistemas. Actualmente dos codificaciones, ISO 
 	y Unicode, son las más utilizadas y extendidas.
 
-	El problema radica en la heterogeneidad de codificaciones que utilizen 
-	los usuarios. Los sistema de listas de correo no suelen antender a la 
+	El problema radica en la heterogeneidad de codificaciones que utilicen 
+	los usuarios. Los sistema de listas de correo no suelen atender a la 
 	codificación de los correos que reciben, y los \emph{vuelcan} todos al 
-	mbox codificado en al codificación que use el sistema servidor. Ello 
+	mbox codificado en la codificación que use el sistema servidor. Ello 
 	provoca en muchos casos una corrupción de algunas cadenas, siendo 
 	tremendamente difícil recomponerlas de nuevo a la hora de procesarlas.
 
@@ -103,7 +103,7 @@ Pero también se pueden contemplar otros formatos de salida complementarios:
 	Evidentemente ambos (RDF y HTML) deberán enlazarse mutuamente.
   \item \textbf{KML}: el formato KML 2.0\footnote{\url{http://earth.google.com/kml/kml_intro.html}}
 	(Keyhole Markup Language) es una gramática XML para describir determinadas
-	características geográficas (puntos, lineas, imágenes, polígonos, etc)
+	características geográficas (puntos, lineas, imágenes, polígonos, etc.)
 	que luego pueden ser 
 	\emph{explotados}\footnote{\url{http://googlemapsapi.blogspot.com/2006/11/kml-on-google-maps.html}} 
 	desde Google Maps\footnote{\url{http://maps.google.es/}} o
@@ -122,7 +122,7 @@ de determinadas características:
   \item \textbf{Fácil despliegue:} hay que procurar que SWAML se pueda desplegar 
 	en todo tipo de máquinas, sin excesivos requisitos ni hardware ni software.
 	Es importante que SWAML pueda ser invocado por los distintos programadores
-	de tarea de que disponen los sistemas operativos (cron y similares), pues
+	de tareas de que disponen los sistemas operativos (cron y similares), pues
 	SWAML no será un proceso interactivo sino un proceso por lotes.
   \item \textbf{API para RDF:} que disponga de una madura bliblioteca, a poder ser 
 	nativa, para manejar RDF (creación de grafos, parseo desde disco/URI, 
@@ -136,7 +136,7 @@ Por tanto el cumplimiento de estas tres necesidades principales debe ser lo
 primero a valorar entre todos lenguajes de programación candidatos a convertirse 
 en el lenguaje utilizado para implementar SWAML. 
 
-Pero tambien se ha de tener en cuenta otras cualidades más generales al problema,
+Pero también se ha de tener en cuenta otras cualidades más generales al problema,
 como por ejemplo:
 
 \begin{itemize}
@@ -147,7 +147,7 @@ como por ejemplo:
   \item Posibilidad de usarse compiladores/intérpretes libres.
 \end{itemize}
 
-Despues de revisar los lenguajes dsiponibles, fueron varios los candidatos para
+Después de revisar los lenguajes disponibles, fueron varios los candidatos para
 someterlos a un estudio más profundo:
 
 \paragraph{Java:}Java\footnote{\url{http://java.sun.com/}} es un lenguaje de 
@@ -168,31 +168,31 @@ Sobre el problema que nos atañe:
 	de entornos (J2EE por ejemplo), puede invocarse perfectamente en modo en
 	linea y resolver problemas de procesamientos por lotes como el que nos
 	atañe.
-  \item Dispone de forma nativa (desarrollado tambien en Java) de la biblioteca para
+  \item Dispone de forma nativa (desarrollada también en Java) de la biblioteca para
 	manejar RDF más madura actualmente: Jena\footnote{\url{http://jena.sourceforge.net/}}.
 	El famework Jena incluye paquetes para múltiples propósitos dentro de la web
 	semántica: API para RDF y OWL, persistencia, serializado y soporte para consultas
 	SPARQL.
   \item Con JavaMail\footnote{\url{http://java.sun.com/products/javamail/}} y
-	jmbox\footnote{\url{http://jmbox.dev.java.net/}} se conseguiria un nivel
+	jmbox\footnote{\url{http://jmbox.dev.java.net/}} se conseguiría un nivel
 	de abstracción del problema suficiente para centrarse en el desarrollo
 	de las otras capas.
 \end{itemize}
 
-En las fechas en que se desarrollo esta especificación de requisitos la máquina virtual
+En las fechas en que se desarrolló esta especificación de requisitos la máquina virtual
 de Java de Sun, la más completa y eficiente actualmente, no era libre. Por tanto en 
-aquellas fechas tubo que que ser tomado como un punto negativo, pues complicaría de 
+aquellas fechas tuvo que ser tomado como un punto negativo, pues complicaría de 
 una manera importante un futura distribución de SWAML de manera totalmente libre,
 por tener como dependencias paquetes no libres.
 
 Pero la noticia de la liberación de Java por parte de Sun\footnote{\url{http://www.sun.com/2006-1113/feature/story.jsp}} ha obligado a la
-revisión de este documento. Sin bien las conclusiones de este documento se ven 
+revisión de este documento. Si bien las conclusiones de este documento se ven 
 desvirtuadas (que Java no fuese libre en esas fechas fue un argumento de peso para
 descartarlo como lenguaje), al menos recoger en estas lineas dicha noticia.
 
 \paragraph{Python:}Python\footnote{\url{http://www.python.org/}} es un lenguaje de 
 script extremadamente eficiente. Su uso está muy extendido en todos los sistemas 
-Unix actuales (GNU/Linux, familia BSD, Solaris, etc), aunque también está disponible\footnote{\url{http://www.python.org/download/}} para la mayoria de sistemas 
+Unix actuales (GNU/Linux, familia BSD, Solaris, etc), aunque también está disponible\footnote{\url{http://www.python.org/download/}} para la mayoría de sistemas 
 operativos actuales (Windows, MacOS y demás).
 
 Se trata de un lenguaje de script mucho más moderno que otros lenguajes hermanos 
@@ -203,8 +203,8 @@ a objetos más modernos.
 Respecto a los tres requisitos que nos interesan:
 
 \begin{itemize}
-  \item Al tratarse de un lenguaje de script basta dsiponer de un interprete 
-	instalado en el sistema para poderlo ejecutar. Además esta caracteristica
+  \item Al tratarse de un lenguaje de script basta disponer de un intérprete 
+	instalado en el sistema para poderlo ejecutar. Además esta característica
 	simplifica enormemente la forma de invocarlo desde un programador de
 	tareas.
   \item Existen varias posibilidades para manejar RDF desde Python. Algunas son
@@ -214,12 +214,12 @@ Respecto a los tres requisitos que nos interesan:
 	De todas las posibilidades\cite{PracticalRDF}, quizás 
 	RDFLib\footnote{\url{http://rdflib.net/}} sea la que se encuentra en 
 	un estado de desarrollo más avanzado y maduro (persistencia, serialización, 
-	consultas SPARQL, etc).
+	consultas SPARQL, etc.).
 	Además ofrece la posibilidad de \emph{colocar encima} otras bibliotecas,
 	como por ejemplo Sparta\footnote{\url{http://www.mnot.net/sw/sparta/}},
 	para utilizar determinados conceptos que no contempla RDFLib.
-  \item Python dispone una extensa y completa biblioteca estandar, además de contar
-	con multitud de bibliotecas para los más variopintos propósitos. Con modulos 
+  \item Python dispone una extensa y completa biblioteca estándar, además de contar
+	con multitud de bibliotecas para los más variopintos propósitos. Con módulos 
 	como email\footnote{\url{http://docs.python.org/lib/module-email.html}} y
 	mailbox\footnote{\url{http://docs.python.org/lib/module-mailbox.html}}, el
 	problema de acceso primario a los datos (mailbox unix) que SWAML deberá
@@ -228,11 +228,11 @@ Respecto a los tres requisitos que nos interesan:
 \end{itemize}
 
 Además es un lenguaje totalmente libre, desde su especificación hasta varias
-de sus implementaciones, incluido el interprete oficial.
+de sus implementaciones, incluido el intérprete oficial.
 
 Mailman\footnote{\url{http://www.gnu.org/software/mailman/}}, el sistema de gestión
 de listas de correo más popular hoy en día, también está escrito en Python, lo que 
-facilitaria en gran medida una posible integración de SWAML en Mailman.
+facilitaría en gran medida una posible integración de SWAML en Mailman.
 
 
 \paragraph{C\#:}C\#\footnote{\url{http://msdn2.microsoft.com/en-us/vcsharp/aa336809.aspx}} 
@@ -245,27 +245,27 @@ como parte fundamental de su plataforma .NET\footnote{\url{http://www.microsoft.
   \item Se dispone de SemWeb\footnote{\url{http://razor.occams.info/code/semweb/}}, una
 	biblioteca con un inmaduro soporte para RDF y SPARQL. También están disponibles los 
 	bindings a C\# de Redland\footnote{\url{http://librdf.org/docs/csharp.html}}, 
-	aunque estos ofrencen un pobre rendimiento.
+	aunque estos ofrecen un pobre rendimiento.
   \item Por ahora no parece existir ninguna biblioteca que ayude en el parseo de los mailboxes 
-	de Unix, aunque no parece complicado su desarrollo dada la cantidad de modulos para 
+	de Unix, aunque no parece complicado su desarrollo dada la cantidad de módulos para 
 	manejar formatos de correo de que dispone la plataforma.
 \end{itemize}
 
 Dispone además de varias implementaciones libres, como 
 Mono\footnote{\url{http://www.mono-project.com/}} o DotGNU\footnote{\url{http://dotgnu.org/}}.
 Pero hoy por hoy la implementación más completa es la desarollada por Microsoft. Usar por 
-tanto su framework no sólo complicaria los términos de distribución de SWAML, sino que 
+tanto su framework no sólo complicaría los términos de distribución de SWAML, sino que 
 encima coartarían su funcionamiento a las plataformas soportadas actualmente por ese 
 framework (únicamente Microsoft Windows).
 
 
 \paragraph{Perl:}Perl\footnote{\url{http://www.perl.org/}} es un lenguaje de script de 
-gran tradición. Soporta paradignas de programación imperativo (estructurados y orientados 
-a objetos) y lógico funcionale.
+gran tradición. Soporta paradigmas de programación imperativos (estructurados y orientados 
+a objetos) y lógico-funcionales.
 
 \begin{itemize}
   \item Está especialmente extendido en sistemas Unix y, en menor medida, en sistemas
-	operativos Windows. Sus requerimientos sonn realmente bajos y, dada su naturaleza
+	operativos Windows. Sus requerimientos son realmente bajos y, dada su naturaleza
 	de script, está especialmente pensado para invocarse en linea.
   \item Con RDFStore\footnote{\url{http://rdfstore.sourceforge.net/}} se dispone de un 
 	API bastante bueno para manejar RDF desde Perl. También existe una
@@ -289,14 +289,14 @@ parecida a Perl con detalles de Smalltalk.
 
 \begin{itemize}
   \item Sus dos principales interpretes, Ruby y JRuby, están disponibles para la
-	mayoria de plataformas actuales. Sus requerimientos son realmente bajos y
+	mayoría de plataformas actuales. Sus requerimientos son realmente bajos y
 	sus rendimiento notable en las últimas versiones.
   \item RubyRDF\footnote{\url{http://www.w3.org/2001/12/rubyrdf/intro.html}} y 
 	Rena\footnote{\url{http://raa.ruby-lang.org/project/rena/}} están aún
 	realmente verdes, y los bindings de Redland\footnote{\url{http://librdf.org/docs/ruby.html}} 
 	ofrencen un rendimiento bastante pobre.
   \item RubyMail\footnote{\url{http://www.lickey.com/rubymail/}} podría servir,
-	aunque parece que la biblioteca se encuentra abandona en los últimos años. 
+	aunque parece que la biblioteca se encuentra abandonada en los últimos años. 
 	Algo parecido ocurre con mbox\footnote{\url{http://raa.ruby-lang.org/project/mbox/}}.
 \end{itemize}
 

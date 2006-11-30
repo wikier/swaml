@@ -11,7 +11,6 @@ IMAGES= images/swaml-owl.png images/sad.png
 all:	clean $(NAME).pdf
 
 $(NAME).pdf: $(IMAGES)	
-	python scripts/urls2tex.py .
 	umbrello --export png --directory images/uml/ uml/swaml.xmi 2> /dev/null
 	umbrello --export png --directory images/uml/ uml/swaml-clases.xmi 2> /dev/null
 	rubber --pdf $(NAME).tex
@@ -31,5 +30,5 @@ clean:
 	rm -f `find . -name "*.backup"`
 	rm -f `find . -name "*~"`
 	rm -f images/uml/*
-	rm -f anexos/referencias.tex
+
 

@@ -119,7 +119,11 @@ como se puede ver en la figura~\ref{fig:googlemaps}.
 
 \subsection*{Buxon}
 
-FIXME
+Buxon es un visor de foros exportados con el vocabulario SIOC. Básicamente 
+recibe la URI de un \texttt{sioc:Forum} y recompone en forma de árbol los
+hilos de conversación definidos. En la figura~\ref{fig:buxon} se puede ver
+una captura de la aplicación en acción, que tiene un buscado parecido con 
+los navegadores Web convencionales.
 
 \begin{figure}[H]
 	\centering
@@ -128,3 +132,9 @@ FIXME
 	\label{fig:buxon}
 \end{figure}
 
+Su uso es bastante sencillo: sólo necesita recibir, bien como parámetro en linea
+o en la barra de direcciones habilitada, la URI de un \texttt{sioc:Forum}.
+Haciendo click en el boton \textit{"ir a"} la aplicación analizará esa URI y reconpondrá
+todos los mensajes que contenga, listandolos en forma de conversación como si se estuviera
+viendo con un cliente de correo tradicional. Además el usuario podrá hacer busquedas
+sencillas por contenido y por rango de fechas.

@@ -29,19 +29,29 @@ class KML:
         """
         KML document constructor
         """
+        
         self.places = []
         self.ns = 'http://earth.google.com/kml/2.0'
         
     def addPlace(self, lat, lon, name=None, description=None):
         """
         Add a new placemark
+        
+        @param lat: latitude
+        @param lon: longitude
+        @param name: place name
+        @param description: place description
         """
+        
         self.places.append(Place(lat, lon, name, description))
         
     def write(self, file):
         """
         Serialize into KML 2.0 format
+        
+        @param file: file object
         """
+        
         import xml.dom.minidom
         from   xml.dom.minidom import getDOMImplementation
         from   xml.dom.ext     import PrettyPrint
@@ -109,30 +119,48 @@ class KML:
     
 
 class Place:
+    """
+    Place abstraction for KML lib
+    """
     
-        def __init__(self, lat, lon, name=None, description=None):
-            """
-            New placemark
-            """
-            self.name = name
-            self.description = description
-            self.lat = lat
-            self.lon = lon
-            
-        def getName(self):
-            """
-            Get placemark name
-            """
-            return self.name
+    def __init__(self, lat, lon, name=None, description=None):
+        """
+        New placemark
         
-        def getDescription(self):
-            """
-            Get placemark description
-            """
-            return self.description
+        @param lat: latitude
+        @param lon: longitude
+        @param name: place name
+        @param description: place description 
+        """
         
-        def getCoordinates(self):
-            """
-            Get placemark coordinates
-            """
-            return [self.lat, self.lon]
+        self.name = name
+        self.description = description
+        self.lat = lat
+        self.lon = lon
+        
+    def getName(self):
+        """
+        Get placemark name
+        
+        @return: place name
+        """
+        
+        return self.name
+    
+    def getDescription(self):
+        """
+        Get placemark description
+        
+        @return: place description
+        """
+        
+        return self.description
+    
+    def getCoordinates(self):
+        """
+        Get placemark coordinates
+        
+        @return: place coordinates tuple
+        """
+        
+        return [self.lat, self.lon]

@@ -40,7 +40,12 @@ class Subscriber:
     def __init__(self, name, mail, config):
         """
         Subscriber constructor
+        
+        @param name: name
+        @param mail: mail address
+        @param config: config params
         """
+        
         self.__class__.id += 1
         self.id = self.__class__.id
         self.setName(name)
@@ -54,31 +59,46 @@ class Subscriber:
     def getName(self):
         """
         Get subscriber's name
+        
+        @return: name
         """
+        
         return self.name
     
     def getMail(self):
         """
         Get subscriber's mail address
+        
+        @return: mail
         """
+        
         return self.mail 
     
     def getShaMail(self):
         """
         Get subscriber's sha sum of mail address
+        
+        @return: sha1mail
         """
+        
         return FOAFS().getShaMail(self.mail) 
     
     def getFoaf(self):
         """
         Get subscriber's FOAF
+        
+        @return: foaf url
         """
+        
         return self.foaf    
     
     def getSentMails(self):
         """
         Get the array with subscriber sent mails ids
-        """        
+        
+        @return: sent mails list
+        """
+           
         sent = []
         for one in self.mails:
             sent.append(one.getUri())
@@ -88,37 +108,55 @@ class Subscriber:
     def getGeo(self):
         """
         Obtain geo coordinates
+        
+        @return: coordinates tuple
         """
+        
         return self.geo
     
     def getPic(self):
         """
         Return the uri of his picture
+        
+        @return: picture url
         """
+        
         return self.pic
     
     def getId(self):
         """
         Return subscriber numeric id
+        
+        @return: id
         """
+        
         return self.id
     
     def getStringId(self):
         """
         Return string id
+        
+        @return: string id
         """
+        
         return 's' + str(self.getId())
     
     def getUri(self):
         """
         Return the subscriber's URI
+        
+        @return: subscriber uri
         """
+        
         return self.config.get('url') + 'subscribers.rdf#' + self.getStringId()
     
     def setName(self, name):
         """
         Set subscriber's name
+        
+        @param name: name
         """
+        
         if (len(name)>1 and name[0]=='"' and name[-1]=='"'):
             self.name = name[1:-1]
         else:
@@ -127,31 +165,47 @@ class Subscriber:
     def setMail(self, mail):
         """
         Set subscriber's mail address
+        
+        @param mail: mail address
         """
+        
         self.mail = mail
         
     def setFoaf(self, foaf):
         """
         Set subscriber's FOAF
+        
+        @param foaf: foaf url
         """
+        
         self.foaf = foaf     
         
     def addMail(self, new):
         """
         Add new sent mail
+        
+        @param new: newmail address
         """
+        
         self.mails.append(new) 
         
     def setGeo(self, lat, lon):
         """
         Set coordinates
+        
+        @param lat: latitude
+        @param lon: longitude
         """
+        
         self.geo = [lat, lon]
         
     def setPic(self, uri):
         """
         Set subscriber picture
+        
+        @param uri: picture url
         """
+        
         self.pic = uri
                 
         
@@ -174,7 +228,11 @@ class Subscribers:
 
 
     def add(self, msg):
-        """Add a new subscriber"""
+        """
+        Add a new subscriber
+        
+        @param msg: new message
+        """
         
         name = msg.getFromName()
         mail = msg.getFromMail()
@@ -185,13 +243,21 @@ class Subscribers:
         self.subscribers[mail].addMail(msg)
         
     def get(self, mail):
+        """
+        Get subscriber
+        
+        @param mail: subscriber's mail address
+        """
+        
         if (mail in self.subscribers):
             return self.subscribers[mail]
         else:
             return None
 
     def __toRDF(self):
-        """Dump to RDF file all subscribers"""
+        """
+        Dump to RDF file all subscribers
+        """
         
         if not (os.path.exists(self.config.get('dir'))):
             os.mkdir(self.config.get('dir'))
@@ -309,9 +375,12 @@ class Subscribers:
 
     def __copileFoafInfo(self, subscriber, foafserv):
         """
-        Compile subscribers' information from
-        his FOAFs
-        """  
+        Compile subscribers' information from his FOAFs
+        
+        @param subscriber: subscriber reference
+        @param foafserv: FOAF service reference
+        """
+        
         mail = subscriber.getMail()
         foaf = foafserv.getFoaf(mail)
         if (foaf != None):
@@ -333,6 +402,9 @@ class Subscribers:
         """
         Compact mailing list subscribers
         according his foaf information
+        
+        @param subscriber: subscriber reference
+        @param foafserv: FOAF service reference
         """
         
         #diego's idea: look on foaf if the subscriber uses more than one address
@@ -350,6 +422,12 @@ class Subscribers:
             self.__toKML()
             
     def getSubscribersUris(self):
+        """
+        Get a list of subscribers' URIs
+        
+        @return: subscribers uris
+        """
+        
         uris = []
         
         for mail, subscriber in self.subscribers.items():

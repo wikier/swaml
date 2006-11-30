@@ -21,13 +21,28 @@
 import sys, os, string, sha
 
 class Index:
+    """
+    Messages index
+    """
     
     def __init__(self, config):
+        """
+        Index constructor
+        
+        @param config: reference to the configuration
+        """
+        
         self.config = config
         self.items = []
         self.translateIndex = {}
         
     def add(self, new):
+        """
+        Add new item
+        
+        @param new: new item
+        """
+        
         #store message
         self.items.append(new)
         
@@ -42,6 +57,9 @@ class Index:
     def get(self, id):
         """
         Get message who has an ID
+        
+        @param id: message id
+        @return: message
         """
         
         return self.getMessage(self.__getTranslation(id))
@@ -49,6 +67,8 @@ class Index:
     def getMessage(self, n):
         """
         Get a message
+        
+        @param n: message numeric id
         """
         if (n != None and n <= len(self.items)):
             return self.items[n-1]
@@ -56,12 +76,24 @@ class Index:
             return None
         
     def __getTranslation(self, id):
+        """
+        Get the reference translation
+        
+        @param id: message id
+        @return: translation
+        """
+        
         if (id in self.translateIndex):
             return self.translateIndex[id]
         else:
             return None
                 
     def getMessagesUri(self):
+        """
+        Get all URIs into a list
+        
+        @return: messages uris
+        """
         uris = []
         
         for msg in self.items:

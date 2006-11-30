@@ -27,12 +27,21 @@ from charset import Charset
 from date import MailDate, FileDate
 
 class Message:
-    """Mail message abstraction"""
+    """
+    Mail message abstraction
+    """
     
     id = 0
     
     def __init__(self, msg, config, sender=None):
-        """Message constructor"""
+        """
+        Message constructor
+        
+        @param msg: plain message object
+        @param config: configuration reference
+        @param sender: author message reference
+        """
+        
         self.__class__.id += 1
         self.id = self.__class__.id
         self.config = config
@@ -66,37 +75,92 @@ class Message:
         #[(self.body, enconding)] = decode_header(msg.fp.read())
         
     def setBody(self, body):
+        """
+        Set body content
+        
+        @param body: content
+        """
+        
         self.body = body
         
     def setSender(self, sender):
         """
         Set message's sender
+        
+        @param sender: author
         """
+        
         self.sender = sender
         
     def setParent(self, parent):
+        """
+        Set parent message
+        
+        @param parent: parent reference
+        """
+        
         self.parent = parent.getUri()
         
     def addChild(self, child):
+        """
+        Add new child message
+        
+        @param child: child reference
+        """
+        
         self.childs.append(child.getUri())
         
     def setNextByDate(self, next):
+        """
+        Set next message by date
+        
+        @param next: next message reference
+        """
+        
         self.nextByDate = next.getUri()
         
     def setPreviousByDate(self, previous):
+        """
+        Set previous message by date
+        
+        @param previous: previous message reference
+        """
+                
         self.previousByDate = previous.getUri()
         
     def getId(self):
+        """
+        Get message ID
+        
+        @return: id
+        """
+        
         return self.id
     
     def getSwamlId(self):
+        """
+        Get message SWAML ID
+        
+        @return: swaml id
+        """
+        
         return self.swamlId    
     
     def getMessageId(self):
+        """
+        Get message ID field
+        
+        @return: id field
+        """
+        
         return self.messageId
         
     def getPath(self):
-        """Return the message's index name"""
+        """
+        Return the message's index name
+        
+        @return: path
+        """
 
         #replace vars        
         #FIXME: format permited vars (feature #1355)
@@ -124,13 +188,29 @@ class Message:
         return index
     
     def getUri(self):    
+        """
+        Get message URI
+        
+        @return: uri
+        """
+                
         return self.config.get('url') + self.getPath()
     
     def getSender(self):
+        """
+        Get message sender
+        
+        @return: author
+        """
+        
         return self.sender
     
     def __parseFrom(self, from_text):
-        """Method to parse from field"""
+        """
+        Method to parse from field
+        
+        @param from_text: from field
+        """
         
         from_parted = from_text.split(' ')
         name = ' '.join(from_parted[:-1])
@@ -139,6 +219,12 @@ class Message:
         return [name, mail]
     
     def getFromName(self):   
+        """
+        Get message from name
+        
+        @return: name
+        """     
+           
         if(self.From.find('<')!= -1):
             #mail similar than: Name Surmane <name@domain.com>
             from_name = str(self.getAddressFrom[0])
@@ -148,7 +234,13 @@ class Message:
             
         return Charset().encode(from_name)
             
-    def getFromMail(self):   
+    def getFromMail(self):
+        """
+        Get from mail
+        
+        @return: mail
+        """
+        
         if(self.From.find('<')!= -1):
             #mail similar than: Name Surmane <name@domain.com>
             return str(self.getAddressFrom[1])
@@ -158,7 +250,13 @@ class Message:
             return from_mail             
         
         
-    def getTo(self):        
+    def getTo(self):
+        """
+        Get To field
+        
+        @return: to
+        """
+                        
         to = self.to
                 
         to = to.replace('@', self.config.getAntiSpam())
@@ -168,24 +266,65 @@ class Message:
         return to
     
     def getSubject(self):
+        """
+        Get subject
+        
+        @return: subject
+        """        
+        
         return Charset().encode(self.subject)
         
     def getDate(self):
+        """
+        Get date
+        
+        @return: date string
+        """
+                
         return self.date
     
     def getInReplyTo(self):
+        """
+        Get in-reply-to field
+        
+        @return: in-reply-to
+        """
+        
         return self.inReplyTo
     
     def getParent(self):
+        """
+        Get parent message
+        
+        @return: parent
+        """
+        
         return self.parent
     
     def getNextByDate(self):
+        """
+        Get next message by date
+        
+        @return: next
+        """
         return self.nextByDate
         
     def getPreviousByDate(self):
+        """
+        Get previous message by date
+        
+        @return: previous
+        """
+        
         return self.previousByDate
    
     def getBody(self):
+        """
+        Get message body content
+        
+        @return: body
+        """
+        
         return self.body
     
     def toRDF(self):

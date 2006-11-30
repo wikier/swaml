@@ -29,10 +29,16 @@ import datetime
 from date import FileDate
 
 class MailingList:
+    """
+    Mailing List abstraction
+    """
     
     def __init__(self, config, lang=None):
         """
         Constructor method
+        
+        @param config: configuration
+        @param lang: language
         """
         
         self.config = config
@@ -41,13 +47,16 @@ class MailingList:
         self.index = Index(self.config)
         
     def __createDir(self):
+        """
+        Create the necessary directory
+        """
+        
         if not (os.path.exists(self.config.get('dir'))):
             os.mkdir(self.config.get('dir'))
         
     def __parse(self):
         """
-        Parse mailingg list and load all
-        indexes into memory
+        Parse mailingg list and load all indexes into memory
         """
         
         previous = None
@@ -137,17 +146,32 @@ class MailingList:
         return messages
     
     def __getUri(self):
+        """
+        Get the mailing list URI
+        
+        @return: uri
+        """
+        
         return self.config.get('url')+'index.rdf'
     
     def __addSite(self, graph, url):
-        #TODO: write a new class
+        """
+        Add the site
+        
+        @param graph: mailing list graph
+        @param url: site url
+        @todo: write a new class
+        """
+        
         site = URIRef(url)
         graph.add((site, RDF.type, SIOC['Site']))
         graph.add((site, SIOC['host_of'], URIRef(self.__getUri())))
         
     
     def __toRDF(self):
-        """Dump mailing list to RDF file"""
+        """
+        Dump mailing list into a RDF file
+        """
 
         #rdf graph
         store = Graph()

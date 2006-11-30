@@ -21,10 +21,16 @@
 import os, sys,string, mailbox
 
 class Mbox:
-    """mbox abstraction class"""
+    """
+    mailbox abstraction class
+    """
 
     def __init__(self, path):
-        """Constructor method"""
+        """
+        Constructor method
+        
+        @param path: mailbox path
+        """
 
         self.path = path
 
@@ -36,7 +42,11 @@ class Mbox:
     
 
     def nextMessage(self):
-        """Return next message of mbox file"""
+        """
+        Return next message of mbox file
+        
+        @return: next message at mailbox
+        """
         
         return self.mbox_file.next()
         

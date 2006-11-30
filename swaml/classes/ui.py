@@ -24,18 +24,39 @@ pygtk.require('2.0')
 import gtk
 
 class UI:
+    """
+    Abstract class for User Interfaces
+    """
     
     def usage(self):
+        """
+        Print usage information
+        """
+        
         pass
     
     def __init__(self, id=None, base='./'):
+        """
+        Constructor method
+        
+        @param id: string id
+        @param base: base directory
+        """
+        
         self.id = id
         self.base = base
     
     
 class CommandLineUI(UI):
+    """
+    Abstract class for Text-mode User Interfaces
+    """
     
     def usage(self):
+        """
+        Print usage information
+        """
+                
         path = self.base + 'usage/' + self.id + '.txt'
         
         try:
@@ -48,12 +69,26 @@ class CommandLineUI(UI):
         
     
     def __init__(self, id=None, base='./'):
+        """
+        Constructor method
+        
+        @param id: string id
+        @param base: base directory
+        """
+                
         UI.__init__(self, id, base+'includes/ui/line/')
 
     
 class GtkUI(UI):
+    """
+    Abstract class for GTK User Interfaces
+    """    
     
     def usage(self):
+        """
+        Print usage information
+        """
+                
         path = self.lineBase + 'usage/' + self.id + '.txt'
         
         try:
@@ -65,6 +100,12 @@ class GtkUI(UI):
         sys.exit()
     
     def alert(self, text):
+        """
+        Alert window
+        
+        @param text: text on alert
+        """
+        
         self.alertWindow = gtk.Window(gtk.WINDOW_POPUP)
         self.alertWindow.set_position(gtk.WIN_POS_CENTER_ALWAYS)
         self.alertWindow.set_modal(True)
@@ -94,9 +135,23 @@ class GtkUI(UI):
         self.alertWindow.show()
         
     def destroyAlert(self, widget=None, other=None):
+        """
+        Destroy aler window
+        
+        @param widget: widget
+        @param other: other
+        """
+        
         self.alertWindow.destroy() 
     
     def __init__(self, id=None, base='./'):
+        """
+        Constructor method
+        
+        @param id: string id
+        @param base: base directory
+        """
+                
         UI.__init__(self, id, base)
         self.lineBase = self.base + 'includes/ui/line/'
         self.graphicalBase = self.base + 'includes/ui/graphical/'

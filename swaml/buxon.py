@@ -106,8 +106,9 @@ class Buxon(GtkUI):
 		
 	def writePost(self, uri, author=None, authorUri='', listName=None, listUri='', title='', date='', content=''):
 		"""
-        Write a post on the gtk.TextView
+        Write a post on the gtkTextView
         
+        @param uri: post uri
         @param author: author's name
         @param authorUri: author's uri
 		@param listName: mailing list's name

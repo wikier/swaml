@@ -22,14 +22,24 @@ import sys
 import gtk, pygtk, gobject
 
 class LoadProgressBar:
+    """
+    ProgressBar for load events
+    """
 
     def destroy(self, widget=None):
+        """
+        Destroy
+        
+        @param widget: widget
+        """
+        
         self.window.destroy()
         
     def progress(self):
         """
         Update the value of the progress bar
         """
+        
         new_val = self.pbar.get_fraction() + 0.01
         if new_val > 1.0:
             new_val = 0.0
@@ -37,6 +47,10 @@ class LoadProgressBar:
         return True
 
     def __init__(self):
+        """
+        PorgressBarLoad constructor
+        """
+        
         self.window = gtk.Window(gtk.WINDOW_POPUP)
         self.window.set_position(gtk.WIN_POS_CENTER_ALWAYS)
         self.window.set_modal(True)

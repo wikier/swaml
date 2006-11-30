@@ -1,7 +1,7 @@
 
 \section{Manual de usuario}
 
-La aplicación entregada se compone en realidad de cico partes:
+La aplicación entregada se compone en realidad de cinco partes:
 
 \begin{itemize}
  \item SWAML
@@ -18,11 +18,11 @@ explicar con más detalle el uso de cada una de estas cinco aplicaciones.
 
 \subsection*{SWAML}
 
-Es la aplicación principal, la que desarrolla el proposito principal del
+Es la aplicación principal, la que desarrolla el propósito principal del
 proyecto. Su funcionalidad se provee por medio del script \texttt{swaml.py}.
 Su uso es bien sencillo: como se puede ver en la captura de la 
-figura~\ref{fig:swaml} se le invoca acomañado de un único parámetro obligatorio 
-que inidica la ruta donde esta la configuración que se le quiere pasar a 
+figura~\ref{fig:swaml} se le invoca acompañado de un único parámetro obligatorio 
+que indica la ruta donde esta la configuración que se le quiere pasar a 
 SWAML. Inmediatamente se desemboca todo el proceso sin interacción
 alguna con el usuario más que las estadísticas informativas que se 
 imprimen al final de cada fase importante del proceso. Si no se
@@ -42,9 +42,9 @@ ayudar al usario a crear ficheros de configuración según el formato
 que debe recibir SWAML. Tal y como se puede ver en la captura de pantalla
 de la figura~\ref{fig:configWizard} el script recibe la ruta destino del 
 fichero donde se quiera guardar la configuración. El proceso es sencillo: 
-el asistente va pidiendo una serie de parametros al usuario, ofreciendole
+el asistente va pidiendo una serie de parámetros al usuario, ofreciendole
 un valor por defecto, hasta que haya recopilado toda la información necesaria,
-volcandolos inmediatamente a disco con el formato adecuado en la ruta 
+volcándolos inmediatamente a disco con el formato adecuado en la ruta 
 indicada por el usuario.
 
 \begin{figure}[H]
@@ -80,7 +80,7 @@ foaf = yes
 Aunque esta funcionalidad se provee en el core de la aplicación principal,
 en determinados casos puede ser necesario su uso de manera independiente.
 Así el script \texttt{foaf.py} recibe la ruta de un fichero RDF con los
-suscriptores de una lista de correo, busca el fichero FOAF de casa uno y
+suscriptores de una lista de correo, busca el fichero FOAF de cada uno y
 lo enriquece con determinadas propiedades (el propio URI del FOAF, fotografía,
 coordenadas geográficas, etc).
 
@@ -95,7 +95,7 @@ coordenadas geográficas, etc).
 
 Al igual que en el caso anterior, la funcionalidad dada por este componente
 de manera independiente forma también parte de la aplicación principal. En ese
-caso el script \texttt{kml.py} coge como primer parámetro la ruta de un fichero
+caso el script \texttt{kml.py} toma como primer parámetro la ruta de un fichero
 de suscriptores enriquecido con información geográfica y genera otro fichero
 en formato KML posicionando geográficamente los suscriptores.
 
@@ -122,7 +122,7 @@ como se puede ver en la figura~\ref{fig:googlemaps}.
 Buxon es un visor de foros exportados con el vocabulario SIOC. Básicamente 
 recibe la URI de un \texttt{sioc:Forum} y recompone en forma de árbol los
 hilos de conversación definidos. En la figura~\ref{fig:buxon} se puede ver
-una captura de la aplicación en acción, que tiene un buscado parecido con 
+una captura de la aplicación en acción, que tiene un buscador parecido con 
 los navegadores Web convencionales.
 
 \begin{figure}[H]
@@ -135,6 +135,6 @@ los navegadores Web convencionales.
 Su uso es bastante sencillo: sólo necesita recibir, bien como parámetro en linea
 o en la barra de direcciones habilitada, la URI de un \texttt{sioc:Forum}.
 Haciendo click en el boton \textit{"ir a"} la aplicación analizará esa URI y reconpondrá
-todos los mensajes que contenga, listandolos en forma de conversación como si se estuviera
-viendo con un cliente de correo tradicional. Además el usuario podrá hacer busquedas
+todos los mensajes que contenga, listándolos en forma de conversación como si se estuviera
+viendo con un cliente de correo tradicional. Además el usuario podrá hacer búsquedas
 sencillas por contenido y por rango de fechas.

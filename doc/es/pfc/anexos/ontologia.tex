@@ -1,13 +1,13 @@
 
 \chapter{Ontología}
 
-Se ha desarrollado una sencilla ontología que formalizara las representación de 
+Se ha desarrollado una sencilla ontología que formaliza la representación de 
 una lista de correo que SWAML publica en RDF. 
 
-\section{Version 0.1}\label{sec:ont:0.1}
+\section{Versión 0.1}\label{sec:ont:0.1}
 
 La primera versión de la ontología modelaba una lista de correo con clases propias,
-apoyandose únicamente en algunas clases y propiedades de 
+apoyándose únicamente en algunas clases y propiedades de 
 FOAF\footnote{\url{http://www.foaf-project.org/}} y 
 Dublin Core\footnote{\url{http://dublincore.org/}}.
 
@@ -22,7 +22,7 @@ como se puede ver en la figura~\ref{fig:swamlOWL}:
 \end{figure}
 
 Además de las propiedades mostradas en la figura~\ref{fig:swamlOWL}, la ontología
-definia otras muchas con rango a tipos de datos simples de
+definía otras muchas con rango a tipos de datos simples de
 XMLSchema\footnote{\url{http://www.w3.org/2001/XMLSchema}}.
 
 Esta versión 0.1 estaba desarrollada en OWL DL, disponiendo evidentemente
@@ -275,12 +275,12 @@ de una URI: \url{http://swaml.berlios.de/ns/0.1}.
 
 No me extiendo más en la documentación de esta versión de la ontología, pues
 fue sólo una forma de aprender OWL que pronto fue sustituida por una siguiente
-versión, mucho más homogenea y madura como explicaré a continuación.
+versión, mucho más homogénea y madura como explicaré a continuación.
 
 
-\section{Version 0.2}\label{sec:ont:0.2}
+\section{Versión 0.2}\label{sec:ont:0.2}
 
-No tardé mucho en darme cuenta que esta primera versión de la ontología inclumplia
+No tardé mucho en darme cuenta que esta primera versión de la ontología inclumplía
 cierto principios de la web semántica. El más importante de ellos que modelaba
 cosas ya modeladas en otras ontologías más maduras y extendidas.
 
@@ -302,18 +302,18 @@ SIOC define, entre otras, algunas clases realmente interesantes para SWAML:
   \item Y \texttt{sioc:User} lo sería con \texttt{swaml:Suscriptor}.
 \end{itemize}
 
-Por tanto se habia encontrado una ontología completa, madura, con una gran 
-comunidad detrás y libre de pantentes sobre la que construir SWAML.
+Por tanto se había encontrado una ontología completa, madura, con una gran 
+comunidad detrás y libre de patentes sobre la que construir SWAML.
 
 De todas las propiedades modeladas en la primera versión de nuestra ontología,
 sólo dos no se encontraban modeladas en SIOC: \texttt{swaml:nextByDate} y
 \texttt{swaml:previousByDate}. 
 
-Por tanto, y anticipandonos a una futura revisión de SIOC, fue necesario añadirselas, 
+Por tanto, y anticipándonos a una futura revisión de SIOC, fue necesario añadírselas, 
 con \texttt{sioc:Post} como \texttt{rdfs:domain} y \texttt{rdfs:range}, a una 
 nueva revisión de la ontología de SWAML.
 
-Esta nueva versión paso a tener \url{http://swaml.berlios.de/ns/0.2} como
+Esta nueva versión pasó a tener \url{http://swaml.berlios.de/ns/0.2} como
 URI.
 
 \newpage

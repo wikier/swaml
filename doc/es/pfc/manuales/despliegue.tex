@@ -9,14 +9,11 @@ funcionamiento.
 \subsubsection*{Interprete de Python}
 
 Evidentemente será necesario disponer en nuestro sistema de algun interprete
-de Python 2.4 (Python, IronPython u otros...).
-
-Se puede obtener\footnote{\url{http://www.python.org/download/}} de la propia 
-página oficial del lenguaje, aunque se encuentra empaquetada para múltiples
-sistemas operativos.
-
-En Debian GNU/Linux\footnote{\url{http://www.debian.org/}}, por ejemplo, bastaría
-con hacer:
+de Python 2.4 (Python, IronPython u otros...). Se puede 
+obtener\footnote{\url{http://www.python.org/download/}} de la propia página 
+oficial del lenguaje, aunque se encuentra empaquetada para múltiples sistemas 
+operativos. En Debian GNU/Linux\footnote{\url{http://www.debian.org/}}, por 
+ejemplo, bastaría con hacer:
 
 \begin{center}
 	\texttt{apt-get install python2.4}
@@ -37,7 +34,6 @@ bibliotecas utilizadas en el proyecto que debemos tener instaladas:
 
 La forma de instalarlas ya dependerá del sistema operativo que utilice.
 
-
 \subsection*{Descomprimir SWAML}
 
 SWAML se distribuye\footnote{\url{http://swaml.berlios.de/files}} comprimido
@@ -49,8 +45,17 @@ de forma un poco más abreviada.
 
 \subsection*{Instalar SWAML}
 
-La instalación de SWAML se realiza con una simple regla del Makefile:
+SWAML puede ser usado perfectamente si necesidad de instalarse. Aún así la instalación 
+de SWAML se realiza con una simple regla del Makefile:
 
 \begin{center}
 	\texttt{make install}
+\end{center}
+
+\subsection*{Desinstalar SWAML}
+
+También para desinstalarlo basta invocar una simple regla de Makefile:
+
+\begin{center}
+	\texttt{make uninstall}
 \end{center}

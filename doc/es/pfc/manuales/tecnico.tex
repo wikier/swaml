@@ -41,6 +41,30 @@ utilizadas en el mismo.
 	modifica alguna de las salidas generadas por el proyecto.
 \end{itemize}
 
-\subsection*{Primeros pasos}
+\subsection*{Continuar con el proyecto}
 
-FIXME(contar como continuar con el proyecto)
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5cm]{images/screenshots/package-explorer.png}
+	\caption{Árbol de ficheros del proyecto}
+	\label{fig:package-explorer}
+\end{figure}
+
+El proyecto se encuentra organizado en dos paquetes: \texttt{swaml} y \texttt{swaml.classes}.
+El árbol de ficheros es como el que muestra la figura~\ref{fig:package-explorer}:
+
+\begin{itemize}
+  \item En el directorio raiz se encuentran los scripts que sirven como punto de entrada
+	a las distintas funcionalidades dadas (paquete\texttt{swaml}).
+  \item En el subdirectorio \texttt{classes} se encuentran  todas la biblioteca de clases
+	del proyecto (paquete \texttt{swaml.classes}).
+  \item En el subdirectorio \texttt{config} se adjuntan ficheros de configuración de ejemplo.
+  \item Bajo el subdirectorio \texttt{includes} están alguno archivos complementarios
+	que necesitan las distintas aplicaciones: definición de interfaces grágicas, iconos,
+	ficheros de ayuda, etc.
+  \item Y en el directorio \texttt{setup} hay una serie de script sólo necesarios en caso
+	de que necesite instalarse la aplicación.
+\end{itemize}
+
+Por tanto, dependiendo de intenciones con que necesita tocarse el código del proyecto,
+se deberán modificar ficheros de uno u otro de estos directorios descritos.

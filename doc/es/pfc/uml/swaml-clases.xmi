@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI xmlns:UML="http://schema.omg.org/spec/UML/1.3" verified="false" timestamp="2006-11-28T22:44:26" xmi.version="1.2" >
+<XMI xmlns:UML="http://schema.omg.org/spec/UML/1.3" verified="false" timestamp="2006-11-30T17:16:07" xmi.version="1.2" >
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://uml.sf.net</XMI.exporter>
@@ -12,6 +12,11 @@
   <UML:Model isSpecification="false" isLeaf="false" isRoot="false" xmi.id="m1" isAbstract="false" name="UML Model" >
    <UML:Namespace.ownedElement>
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
+    <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
+    <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
+    <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
+    <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="13" isRoot="false" isAbstract="false" name="datatype" />
+    <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2" isRoot="false" isAbstract="false" name="folder" />
     <UML:Stereotype isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="13" isRoot="false" isAbstract="false" name="datatype" />
@@ -83,7 +88,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="123" isRoot="false" isAbstract="false" isQuery="false" name="enconde" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3171" type="36" />
+          <UML:Parameter kind="return" xmi.id="3319" type="36" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="126" value="" type="36" name="orig" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
@@ -99,7 +104,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="137" isRoot="false" isAbstract="false" isQuery="false" name="usage" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3172" type="36" />
+          <UML:Parameter kind="return" xmi.id="3320" type="36" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
        </UML:Classifier.feature>
@@ -115,7 +120,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="166" isRoot="false" isAbstract="false" isQuery="false" name="get" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3173" type="36" />
+          <UML:Parameter kind="return" xmi.id="3321" type="36" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="167" value="" type="36" name="key" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
@@ -127,7 +132,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="185" isRoot="false" isAbstract="false" isQuery="false" name="show" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3174" type="36" />
+          <UML:Parameter kind="return" xmi.id="3322" type="36" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
        </UML:Classifier.feature>
@@ -142,7 +147,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="218" isRoot="false" isAbstract="false" isQuery="false" name="get" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3175" type="36" />
+          <UML:Parameter kind="return" xmi.id="3323" type="36" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="219" value="" type="36" name="key" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
@@ -150,6 +155,7 @@
       </UML:Class>
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="51" isRoot="false" isAbstract="false" name="FileDate" >
        <UML:GeneralizableElement.generalization>
+        <UML:Generalization xmi.idref="265" />
         <UML:Generalization xmi.idref="265" />
        </UML:GeneralizableElement.generalization>
        <UML:Classifier.feature>
@@ -169,19 +175,19 @@
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="340" isRoot="false" isAbstract="false" isQuery="false" name="__init__" />
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="346" isRoot="false" isAbstract="false" isQuery="false" name="getFoaf" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3176" type="36" />
+          <UML:Parameter kind="return" xmi.id="3324" type="36" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="347" value="" type="36" name="mail" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="364" isRoot="false" isAbstract="false" isQuery="false" name="getGeoPosition" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3177" type="26" />
+          <UML:Parameter kind="return" xmi.id="3325" type="26" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="365" value="" type="36" name="foaf" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="379" isRoot="false" isAbstract="false" isQuery="false" name="getPic" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3178" type="36" />
+          <UML:Parameter kind="return" xmi.id="3326" type="36" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="387" value="" type="36" name="foaf" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
@@ -197,7 +203,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="454" isRoot="false" isAbstract="false" isQuery="false" name="usage" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3179" type="36" />
+          <UML:Parameter kind="return" xmi.id="3327" type="36" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="464" isRoot="false" isAbstract="false" isQuery="false" name="alert" >
@@ -224,7 +230,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="572" isRoot="false" isAbstract="false" isQuery="false" name="get" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3180" type="67" />
+          <UML:Parameter kind="return" xmi.id="3328" type="67" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="573" value="" type="26" name="id" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
@@ -268,7 +274,7 @@
         </UML:Operation>
        </UML:Classifier.feature>
       </UML:Class>
-      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="65" isRoot="false" isAbstract="false" name="MailingList" >
+      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="65" isRoot="false" isAbstract="false" name="MailingList" >
        <UML:Classifier.feature>
         <UML:Attribute isSpecification="false" visibility="private" xmi.id="962" type="47" name="config" />
         <UML:Attribute isSpecification="false" visibility="private" xmi.id="973" type="73" name="subscribers" />
@@ -337,17 +343,17 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="1534" isRoot="false" isAbstract="false" isQuery="false" name="getName" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3181" type="36" />
+          <UML:Parameter kind="return" xmi.id="3329" type="36" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="1546" isRoot="false" isAbstract="false" isQuery="false" name="getDescription" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3182" type="36" />
+          <UML:Parameter kind="return" xmi.id="3330" type="36" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="1559" isRoot="false" isAbstract="false" isQuery="false" name="getCoordinates" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3183" type="26" />
+          <UML:Parameter kind="return" xmi.id="3331" type="26" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
        </UML:Classifier.feature>
@@ -367,7 +373,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="1735" isRoot="false" isAbstract="false" isQuery="false" name="get*" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3184" type="36" />
+          <UML:Parameter kind="return" xmi.id="3332" type="36" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="1736" value="" type="36" name="key" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
@@ -390,7 +396,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="2038" isRoot="false" isAbstract="false" isQuery="false" name="get" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3185" type="71" />
+          <UML:Parameter kind="return" xmi.id="3333" type="71" />
           <UML:Parameter isSpecification="false" visibility="private" xmi.id="2039" value="" type="36" name="mail" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
@@ -450,7 +456,7 @@
         </UML:Operation>
         <UML:Operation isSpecification="false" isLeaf="false" visibility="public" xmi.id="2649" isRoot="false" isAbstract="false" isQuery="false" name="usage" >
          <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="3186" type="36" />
+          <UML:Parameter kind="return" xmi.id="3334" type="36" />
          </UML:BehavioralFeature.parameter>
         </UML:Operation>
        </UML:Classifier.feature>
@@ -461,14 +467,12 @@
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="101" isRoot="false" isAbstract="false" name="rdflib.Graph" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="111" isRoot="false" isAbstract="false" name="gtk.Window" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="112" isRoot="false" isAbstract="false" name="gtk.Window" />
-      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="149" isRoot="false" isAbstract="false" name="dict" />
-      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="158" isRoot="false" isAbstract="false" name="list" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="329" isRoot="false" isAbstract="false" name="rdflib.Graph" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="803" isRoot="false" isAbstract="false" name="gtk.ProgressBar" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="858" isRoot="false" isAbstract="false" name="gtk.Window" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2304" isRoot="false" isAbstract="false" name="rdflib.Graph" />
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2446" isRoot="false" isAbstract="false" name="rdflib.Graph" />
-      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="m1" xmi.id="2939" isRoot="false" isAbstract="false" name="Mbox" >
+      <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2939" isRoot="false" isAbstract="false" name="Mbox" >
        <UML:Classifier.feature>
         <UML:Attribute isSpecification="false" visibility="private" xmi.id="2956" type="2957" name="mbox" />
         <UML:Attribute isSpecification="false" visibility="private" xmi.id="3057" type="36" name="path" />
@@ -481,116 +485,120 @@
        </UML:Classifier.feature>
       </UML:Class>
       <UML:Class isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="2957" isRoot="false" isAbstract="false" name="mailbox" />
+      <UML:DataType stereotype="13" isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="3203" isRoot="false" isAbstract="false" name="tuple" />
+      <UML:DataType stereotype="13" isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="3285" isRoot="false" isAbstract="false" name="dict" />
+      <UML:DataType stereotype="13" isSpecification="false" isLeaf="false" visibility="public" namespace="1" xmi.id="3302" isRoot="false" isAbstract="false" name="list" />
+      <UML:Generalization isSpecification="false" child="51" visibility="public" namespace="1" xmi.id="265" parent="49" discriminator="" name="" />
       <UML:Generalization isSpecification="false" child="51" visibility="public" namespace="1" xmi.id="265" parent="49" discriminator="" name="" />
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello" >
       <diagrams>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="25" documentation="" type="1" showops="1" showpackage="0" name="clase-buxon" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="25" documentation="" type="1" showops="1" showpackage="0" name="clase-buxon" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="156" showattsigs="601" usesdiagramusefillcolour="0" x="289" y="91" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="162" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="37" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="38" documentation="" type="1" showops="1" showpackage="0" name="clase-cache" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="38" documentation="" type="1" showops="1" showpackage="0" name="clase-cache" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="156" showattsigs="601" usesdiagramusefillcolour="0" x="246" y="85" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="144" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="39" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="40" documentation="" type="1" showops="1" showpackage="0" name="clase-calendarwindow" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="40" documentation="" type="1" showops="1" showpackage="0" name="clase-calendarwindow" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
-         <classwidget usesdiagramfillcolour="0" width="160" showattsigs="601" usesdiagramusefillcolour="0" x="209" y="95" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="126" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="41" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
+         <classwidget usesdiagramfillcolour="0" width="161" showattsigs="601" usesdiagramusefillcolour="0" x="209" y="95" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="126" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="41" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="42" documentation="" type="1" showops="1" showpackage="0" name="clase-charset" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="42" documentation="" type="1" showops="1" showpackage="0" name="clase-charset" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="215" showattsigs="601" usesdiagramusefillcolour="0" x="224" y="127" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="72" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="43" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="44" documentation="" type="1" showops="1" showpackage="0" name="clase-commandlineui" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="44" documentation="" type="1" showops="1" showpackage="0" name="clase-commandlineui" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="143" showattsigs="601" usesdiagramusefillcolour="0" x="187" y="117" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="72" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="45" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="46" documentation="" type="1" showops="1" showpackage="0" name="clase-configuration" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="46" documentation="" type="1" showops="1" showpackage="0" name="clase-configuration" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="222" showattsigs="601" usesdiagramusefillcolour="0" x="206" y="148" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="126" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="47" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="48" documentation="" type="1" showops="1" showpackage="0" name="clase-date" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="48" documentation="" type="1" showops="1" showpackage="0" name="clase-date" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="179" showattsigs="601" usesdiagramusefillcolour="0" x="231" y="107" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="72" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="49" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="50" documentation="" type="1" showops="1" showpackage="0" name="clase-filedate" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="50" documentation="" type="1" showops="1" showpackage="0" name="clase-filedate" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
-         <classwidget usesdiagramfillcolour="0" width="160" showattsigs="601" usesdiagramusefillcolour="0" x="267" y="100" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="72" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="51" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
+         <classwidget usesdiagramfillcolour="0" width="161" showattsigs="601" usesdiagramusefillcolour="0" x="267" y="100" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="72" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="51" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="52" documentation="" type="1" showops="1" showpackage="0" name="clase-foaf" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="52" documentation="" type="1" showops="1" showpackage="0" name="clase-foaf" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="238" showattsigs="601" usesdiagramusefillcolour="0" x="270" y="112" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="126" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="53" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="54" documentation="" type="1" showops="1" showpackage="0" name="clase-gtkui" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="54" documentation="" type="1" showops="1" showpackage="0" name="clase-gtkui" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="143" showattsigs="601" usesdiagramusefillcolour="0" x="231" y="106" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="108" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="55" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="56" documentation="" type="1" showops="1" showpackage="0" name="clase-index" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="56" documentation="" type="1" showops="1" showpackage="0" name="clase-index" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="220" showattsigs="601" usesdiagramusefillcolour="0" x="253" y="58" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="108" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="57" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="58" documentation="" type="1" showops="1" showpackage="0" name="clase-kml" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="58" documentation="" type="1" showops="1" showpackage="0" name="clase-kml" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="421" showattsigs="601" usesdiagramusefillcolour="0" x="190" y="77" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="90" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="59" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="60" documentation="" type="1" showops="1" showpackage="0" name="clase-loadprogressbar" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="536" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="60" documentation="" type="1" showops="1" showpackage="0" name="clase-loadprogressbar" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="156" showattsigs="601" usesdiagramusefillcolour="0" x="278" y="101" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="108" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="61" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="62" documentation="" type="1" showops="1" showpackage="0" name="clase-maildate" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="62" documentation="" type="1" showops="1" showpackage="0" name="clase-maildate" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
-         <classwidget usesdiagramfillcolour="0" width="160" showattsigs="601" usesdiagramusefillcolour="0" x="322" y="93" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="54" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="63" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
+         <classwidget usesdiagramfillcolour="0" width="161" showattsigs="601" usesdiagramusefillcolour="0" x="322" y="93" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="54" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="63" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="792" snapy="10" showatts="1" xmi.id="64" documentation="" type="1" showops="1" showpackage="0" name="clase-mailinglist" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="536" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="64" documentation="" type="1" showops="1" showpackage="0" name="clase-mailinglist" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="220" showattsigs="601" usesdiagramusefillcolour="0" x="226" y="106" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="162" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="65" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="792" snapy="10" showatts="1" xmi.id="66" documentation="" type="1" showops="1" showpackage="0" name="clase-message" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="536" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="66" documentation="" type="1" showops="1" showpackage="0" name="clase-message" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="228" showattsigs="601" usesdiagramusefillcolour="0" x="256" y="100" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="306" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="67" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
@@ -605,62 +613,62 @@
            <point x="62" y="217" />
            <point x="69" y="330" />
           </linepath>
-          <floatingtext usesdiagramfillcolour="1" width="84" usesdiagramusefillcolour="1" x="71" y="304" linewidth="none" posttext="" role="710" fillcolour="none" height="22" usefillcolor="1" pretext="+" isinstance="0" xmi.id="59" showstereotype="1" text="inReplyTo" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="none" />
+          <floatingtext usesdiagramfillcolour="1" width="84" usesdiagramusefillcolour="1" x="71" y="304" linewidth="none" posttext="" role="710" fillcolour="none" height="22" usefillcolor="1" pretext="+" isinstance="0" xmi.id="3337" showstereotype="1" text="inReplyTo" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="none" />
          </assocwidget>
         </associations>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="68" documentation="" type="1" showops="1" showpackage="0" name="clase-place" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="68" documentation="" type="1" showops="1" showpackage="0" name="clase-place" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="407" showattsigs="601" usesdiagramusefillcolour="0" x="267" y="40" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="162" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="69" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="70" documentation="" type="1" showops="1" showpackage="0" name="clase-subscriber" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="70" documentation="" type="1" showops="1" showpackage="0" name="clase-subscriber" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="252" showattsigs="601" usesdiagramusefillcolour="0" x="282" y="69" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="162" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="71" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="792" snapy="10" showatts="1" xmi.id="72" documentation="" type="1" showops="1" showpackage="0" name="clase-subscribers" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="536" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="72" documentation="" type="1" showops="1" showpackage="0" name="clase-subscribers" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="215" showattsigs="601" usesdiagramusefillcolour="0" x="272" y="88" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="144" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="73" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="74" documentation="" type="1" showops="1" showpackage="0" name="clase-swaml" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="74" documentation="" type="1" showops="1" showpackage="0" name="clase-swaml" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="159" showattsigs="601" usesdiagramusefillcolour="0" x="299" y="70" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="90" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="75" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="76" documentation="" type="1" showops="1" showpackage="0" name="clase-foafenricher" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="76" documentation="" type="1" showops="1" showpackage="0" name="clase-foafenricher" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
-         <classwidget usesdiagramfillcolour="0" width="152" showattsigs="601" usesdiagramusefillcolour="0" x="268" y="117" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="108" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="77" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
+         <classwidget usesdiagramfillcolour="0" width="153" showattsigs="601" usesdiagramusefillcolour="0" x="268" y="117" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="108" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="77" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="78" documentation="" type="1" showops="1" showpackage="0" name="clase-kmlexporter" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="568" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="78" documentation="" type="1" showops="1" showpackage="0" name="clase-kmlexporter" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
-         <classwidget usesdiagramfillcolour="0" width="148" showattsigs="601" usesdiagramusefillcolour="0" x="273" y="37" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="90" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="79" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
+         <classwidget usesdiagramfillcolour="0" width="151" showattsigs="601" usesdiagramusefillcolour="0" x="273" y="37" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="90" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="79" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="80" documentation="" type="1" showops="1" showpackage="0" name="clase-ui" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="536" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="80" documentation="" type="1" showops="1" showpackage="0" name="clase-ui" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
          <classwidget usesdiagramfillcolour="0" width="143" showattsigs="601" usesdiagramusefillcolour="0" x="291" y="72" drawascircle="0" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="72" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="81" showoperations="1" showpackage="0" showscope="1" showstereotype="1" font="Sans Serif,10,-1,5,75,1,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
        </diagram>
-       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="808" snapy="10" showatts="1" xmi.id="2890" documentation="" type="1" showops="1" showpackage="0" name="clase-mbox" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="536" >
+       <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" linewidth="0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1012" snapy="10" showatts="1" xmi.id="2890" documentation="" type="1" showops="1" showpackage="0" name="clase-mbox" localid="900000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="824" >
         <widgets>
-         <classwidget usesdiagramfillcolour="0" width="160" showattsigs="601" usesdiagramusefillcolour="0" x="297" y="110" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="90" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="2939" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
+         <classwidget usesdiagramfillcolour="0" width="161" showattsigs="601" usesdiagramusefillcolour="0" x="297" y="110" showopsigs="601" linewidth="none" fillcolour="#ffffc0" height="90" usefillcolor="1" showpubliconly="0" showattributes="1" isinstance="0" xmi.id="2939" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" linecolor="#ff0000" />
         </widgets>
         <messages/>
         <associations/>
@@ -684,7 +692,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello" >
-  <docsettings viewid="64" documentation="" uniqueid="3186" />
+  <docsettings viewid="64" documentation="" uniqueid="3334" />
   <listview>
    <listitem open="1" type="800" label="Views" >
     <listitem open="1" type="801" id="1" >
@@ -869,20 +877,21 @@
       <listitem open="0" type="815" id="2617" />
       <listitem open="0" type="815" id="2649" />
      </listitem>
-     <listitem open="1" type="813" id="149" />
      <listitem open="1" type="813" id="803" />
      <listitem open="1" type="813" id="858" />
-     <listitem open="1" type="813" id="111" />
-     <listitem open="1" type="813" id="112" />
-     <listitem open="1" type="813" id="89" />
      <listitem open="1" type="813" id="91" />
-     <listitem open="1" type="813" id="158" />
+     <listitem open="1" type="813" id="112" />
+     <listitem open="1" type="813" id="111" />
+     <listitem open="1" type="813" id="89" />
      <listitem open="1" type="813" id="2957" />
-     <listitem open="1" type="813" id="99" />
+     <listitem open="1" type="813" id="101" />
      <listitem open="1" type="813" id="2446" />
      <listitem open="1" type="813" id="2304" />
+     <listitem open="1" type="813" id="99" />
      <listitem open="1" type="813" id="329" />
-     <listitem open="1" type="813" id="101" />
+     <listitem open="1" type="829" id="3285" />
+     <listitem open="1" type="829" id="3302" />
+     <listitem open="1" type="829" id="3203" />
      <listitem open="0" type="830" id="24" >
       <listitem open="1" type="829" id="28" />
       <listitem open="1" type="829" id="27" />

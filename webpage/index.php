@@ -153,11 +153,15 @@
      another documents about the project:
     </p>
     <dl>
+
      <dt><a href="http://prdownload.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
      <dd>original document in spanish with the idea that motivated this project</dd>
 
      <dt><a href="http://prdownload.berlios.de/swaml/proposal.pdf">proposal.pdf</a>:</dt>
      <dd>translation with the idea that motivated this project</dd>
+
+     <dt><a href="http://prdownload.berlios.de/swaml/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
+     <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
     </dl>  
    </div>
 

@@ -1,4 +1,7 @@
-\documentclass[spanish]{beamer}
+\documentclass[spanish,notes=hide]{beamer}
+
+%Para crear una versión 'handout' (Copyright: Diego Berrueta)
+%\documentclass[handout,notes=show]{beamer}
 
 \usetheme{Warsaw}
 \usepackage{beamerthemesplit}
@@ -10,7 +13,7 @@
 \usepackage{colortbl}
 
 \title{SWAML}
-\subtitle{publicaci\'on de listas de correo en Web Sem\'antica}
+\subtitle{Publicaci\'on de listas de correo en Web Sem\'antica}
 \author{Sergio Fern\'andez L\'opez}
 \institute{%
 Proyecto Fin de Carrera\\
@@ -20,7 +23,15 @@ E.U. de Ingenier\'ia T\'ecnica en Inform\'atica de Oviedo
 
 \begin{document}
 
-\frame{\titlepage}
+\frame{
+  \note[item]{Saludar}
+  \note[item]{Presentarse}
+  \note[item]{Esta es la presentación del proyecto
+    \textit{SWAML, publicación de listas de correo en Web Semántica}
+  }
+
+  \titlepage
+}
 
 %\frame{\tableofcontents}
 
@@ -57,7 +68,7 @@ E.U. de Ingenier\'ia T\'ecnica en Inform\'atica de Oviedo
   FIXME
 }
 
-\section{Meollo}
+\section{El proyecto SWAML}
 
 \subsection{Tecnologías implicadas}
 \frame
@@ -87,10 +98,30 @@ E.U. de Ingenier\'ia T\'ecnica en Inform\'atica de Oviedo
   FIXME
 }
 
+\section{Conclusiones}
+\subsection{Resultados}
+\frame
+{
+  FIXME\\
+  aportación a SIOC
+}
+\subsection{Futuras líneas de trabajo}
+\frame
+{
+  FIXME: sacar de la doc
+}
+
 \section{Demostración}
 \subsection{Demostración}
 \frame
 {
+  \note[item]{Crear una configuración en directo con asistente.}
+  \note[item]{Ejemplo de exportación con SWAML (con todas las opciones), enseñar los RDF en plano.}
+  \note[item]{Mismo ejemplo si enriquecer con FOAF ni exportación a KML.}
+  \note[item]{Enriquecer con FOAF.}
+  \note[item]{Exportar a KML.}
+  \note[item]{Visualizarla con Buxon.}
+
   \begin{center}
     \LARGE{\textbf{demostración práctica}}
   \end{center}
@@ -98,9 +129,26 @@ E.U. de Ingenier\'ia T\'ecnica en Inform\'atica de Oviedo
 \subsection{Preguntas}
 \frame
 {
+  \note[item]{Agradecer la atención prestada.}
+  \note[item]{Quedar a disposición del tribunal para contestar a las
+		preguntas o ampliar cualquiera de los temas expuestos.}
+
   \begin{center}
-    \LARGE{\textbf{¿preguntas?}}
+    \LARGE{\textbf{¿preguntas?}}\\
+    \vspace{4cm}
+    \small{%
+	Esta presentación se distribuye bajo los términos de la licencia
+	CreativeCommons Reconocimiento-CompartirIgual 2.5
+    }
   \end{center}
 }
+
+\appendix
+
+\section{Respuestas preparadas}
+\frame{
+  FIXME: retocarlas según el tribunal
+}
+
 
 \end{document}

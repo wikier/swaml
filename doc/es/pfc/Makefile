@@ -8,7 +8,7 @@ PDFVIEWER = evince
 
 IMAGES= images/swaml-owl.png images/sad.png
 
-all:	clean $(NAME).pdf
+all:	$(NAME).pdf
 
 $(NAME).pdf: $(IMAGES)	
 	umbrello --export png --directory images/uml/ uml/swaml.xmi 2> /dev/null

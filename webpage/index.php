@@ -119,7 +119,8 @@
 
    <h2 id="files">Files</h2>
    <div class="wikitext">
-    <p>There are some <a href="/files">files</a> until the moment:</p>
+    <p>There are some <a href="/files">files</a> (and a <a href="/releases">mirror</a> 
+	of it) until the moment:</p>
     <dl>
      <dt>
       	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>

@@ -188,5 +188,11 @@
      <a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" alt="BerliOS Developer Logo" /></a>
   </div>
 
+ <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+ <script type="text/javascript">
+	_uacct = "UA-599301-2";
+	urchinTracker();
+ </script>
+
  </body>
 </html>

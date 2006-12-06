@@ -46,9 +46,9 @@ class Charset:
         ret = ''
         
         try:
-            ret = self.__force_decode(orig)
-        except Exception:
             ret = self.__unicode(orig, self.charset)
+        except Exception:
+            ret = self.__decode(orig)
             
         return ret
             
@@ -57,11 +57,12 @@ class Charset:
         Decode an string
         
         @param orig: original string
+        @todo: performance this tip
         """        
                   
         #tip because decode_header returns the exception 
         #    ValueError: too many values to unpack
-        #TODO: performance this tip
+
         parted = orig.split(' ') 
         dest = ''
         for one in parted:

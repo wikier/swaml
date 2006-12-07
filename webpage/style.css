@@ -1,320 +1,126 @@
 /**
  * SWAML CSS
  * Based on phpWiki Crao Theme <http://www.crao.net/>
- * 2005-10-3
- */
+ * 2006-12-07
+*/
 
 body {
-  background-color: #ccc;
+  color: #000000;
+  background: #CCCCCC; 
   font-family: Helvetica, Verdana, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 14px;
-  margin: 0em;
-  padding: 0px;
-  border: 0px none;
-  color: #000;
-  text-align: left;
+  margin: 0;
+  padding: 0;
 }
 
-img {
-  border: 0;
-  vertical-align: middle;
-}
-
-table {
-  border-spacing: 0px;
-  /* For Mozilla */
-  empty-cells: show;
+h1, h2, h3, h4, h5, h6 { 
+  font-family: Arial, Helvetica, sans-serif; 
 }
 
 a:link, a:visited, a {
-	color: #33c; 
+	color: #3333cc; 
 	text-decoration: none; 
 	background-color: transparent;
 }
 
 a:hover {
-	color: #03f;
+	color: #0033ff;
 	text-decoration:none;
 	background-color: transparent;
 }
 
-a.wiki {
+img {
+  border: 0;
 }
 
-hr { 
-	background-color: #ccc;
-	height: 1px;
-	border: 1px solid #ccc;
+div.accessibility {
+  display: none;
 }
 
-div.wikitext pre { font-family: monospace; }
+/* head */
 
-p {	
-	font-size: 1em;
-	margin: 0em;
-	margin-bottom: 1em;
-	text-align: justify;
+div#head {
+  color: #cccccc;
+  background-color: #333333;
+  margin-top: 0px;
+  margin-left: 0px;
+  height: 50px;
+  width: auto;
+  font: bolder 67px/50px  Verdana, Arial, Helvetica, sans-serif;
+  letter-spacing: -0.1em;
+  text-transform: uppercase;
 }
 
-ul{
-	position: relative;
-	padding : 0px;
-	margin: 0 0 2em 4em;
-	font-family: Helvetica, Verdana, Arial, sans-serif;
-	font-size: 100%;
-	line-height: 120%;
-	list-style: inside;
-	background-color: transparent;
+div#head img {
+  float: right;
 }
 
-ul ul{
-	position:  relative;
-	font-family: Helvetica, Verdana, Arial, sans-serif;
-	font-size: 100%;
-	margin-left: 2em;
+div#head a:link, div#head a:visited, div#head a {
+	color: #cccccc;
+	text-decoration: none;
 }
 
-li strong{
-  font-weight: normal;
-  background-color: transparent;
+div#head {
+	color: #cccccc;
+	text-decoration: none;
 }
 
-li.rc-major a.wiki {
-  font-size:  1.2em;
+/* menu */
+
+div#menu {
+  color: #000000;
+  background-color: #f2f2f2;
+  border: 1px #000000 solid;
+  padding: 0.8em 0 0.8em 0;
+  margin: 2em 4em 1em 4em;
+  font-size: 12px;
+}
+
+div#menu ul {
+  list-style: none;
+  display: inline;
+}
+
+div#menu ul li {
+  display: inline;
+  margin-right: 1em;
+}
+
+div#menu ul li:after {
+  margin-left: 1em;
+  content: "|";
+}
+
+div#menu ul li.last:after {
+  margin-left: 0;
+  content: "";
+}
+
+div#menu ul li a, div#menu ul li a:link, div#menu ul li a:visited {
+  color: #333333; 
+  text-decoration: none;
   font-weight: bold;
+  font-size: 1.1em;
 }
 
-li>p {
- display: inline;
+div#menu ul li a:hover {
+  color: #888888; 
+  text-decoration: none;
 }
 
-#header {
-	background-color: #333;
-        margin-bottom: 20px;
+/* content */
+
+div#content {
+  color: #000000;
+  background-color: #f2f2f2;
+  border: 1px #000000 solid;
+  padding: 1em 3em 2em 3em;
+  margin: 2em 4em 1em 4em;
+  font-size: 0.75em;
 }
 
-#logo {
-	color:  #ccc;
-	display: inline;
-	margin-top: 0px;
-	margin-left: 0px;
-	height: 50px;
-	width:auto;
-	background-color: transparent;
-	font: bolder 67px/50px  Verdana, Arial, Helvetica, sans-serif;
-        letter-spacing: -0.1em;
-}
-
-#logo img {
-	border: 0px; 
-}
-
-#logo a {
-	color:  #ccc;
-	font: bolder 67px/50px  Arial, Verdana, Helvetica, sans-serif;
-  	text-decoration: none;
-}
-
-#content {	
-	margin-top: 15px;
-	margin-left: 7%;
-	margin-right: 7%;
-	margin-bottom: 2%;
-	background-color: #f2f2f2;
-	border: 1px #999 solid;
-	padding-left: 2em; 
-	padding-right: 15px;
-	padding-top:   15px;
-	padding-bottom: 0.5ex;
-}
-
-#footer {
-	text-align: right;
-        margin-top: 0px;
-        margin-left: 7%;
-        margin-right: 7%;
-        margin-bottom: 2%;
-        padding-top: 0;
-        padding-bottom: 0;
-}
-
-#footer a img {
-	padding-left: 1em;
-}
-
-
-div.wikitext {
-	font-size: 1em;
-	line-height: 130%;
-	text-align: left;
-}
-
-blockquote p {
-	margin-top:  0.5ex;
-	margin-bottom: 0.5ex;
-}
-
-.toolbar, input.button, #berlios { font-family:Verdana, Arial, Helvetica, sans-serif; }
-
-div.toolbar{
-  	display:block;
-  	background-color:#f2f2f2;
-  	border: 1px #666 solid;
-  	/*margin: 2% 7%;*/
-	float: left;
-	height: auto;
-	clear: both;
-        margin-top: 0px;
-        margin-left: 7%;
-        margin-right: 7%;
-        margin-bottom: 2%;
-}
-
-.toolbar {
-	padding: 0;
-	margin:  0;
-}
-
-#navbuttons {
-	float: left;
-	clear: none;
-	line-height: 40px;
-}
-
-#navbuttons img{
-	margin:5px 0px 5px 10px;
-}
-
-#navbuttons a:link, #navbuttons a {
-	font-weight: bold;
-	padding-left: 1ex;
-	padding-right: 1ex;
-	color:#333;
-}
-#navbuttons a:visited {}
-#navbuttons a:hover {}
-
-#berlios {
-	width:  auto;
-	text-align: right;
-	padding-right: 10px;
-	background-color:transparent;
-	color:#ccc;
-	font-size:12px;
-}
-
-a.wiki{
-	color:#FFF;
-	background-color: transparent;
-}
-
-#search {
-	float: right; 
-	font-size: 12px;
-        line-height: 40px;
-	padding-right: 10px;
-}
-
-#search form{
-	margin: 0px;
-}
-#search input{
-	padding: 0px;
-	margin: 0px;
-	font-family:  Verdana, Arial,  Helvetica, sans-serif;
-	color: #333;
-	font-size: 12px; 
-}
-
-body.sidebar {
-  font-size: smaller;
-  margin: 0.5em;
-}
-
-body.sidebar div.wikitext {
-  padding: 0.5em;
-}
-
-body.sidebar  { padding-left: 1em; }
-
-body.sidebar h2 { margin-top: 0; }
-
-h1, h2, h3, h4, h5, h6 { font-family: Arial, Helvetica, sans-serif; }
-
-h1 {
-  margin-top:   10px;
-  background-color: transparent;
-  color: #555; 
-}
-
-h1 a.backlinks{
-  color: #777; 
-  text-decoration:none;
-}
-
-h1 a.wiki{
-   color: #777; 
-   text-decoration:none;
-}
-
-h1 a:hover{
- color: #888; 
- text-decoration:underline;
-}
-
-h2 { 
-  margin-top:   10px;
-  background-color: transparent;
-  color: #555;
-  border-bottom-style: solid;
-  border-color: #ccc;
-  padding-top:1em;
-}
-
-h4, h5, h6 {
-	margin-bottom:   0px;
-	background-color: transparent;
- 	color: #111; 
- }
-
-table, td { font-family: Verdana, Arial, Helvetica, sans-serif; }
-
-caption { 
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	width: auto;
-}
-
-#revision{
-	font-size:10px;
-	text-align:right;
-	background-color: #f2f2f2;
-	padding-left: 2em; 
-	padding-right: 1em;
-	padding-top:    0.5ex;
-	padding-bottom: 0.5ex;
-	clear: both;
-}
-
-.editdate {
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 0;
-	padding: 0;
-	padding-top: 0.25ex;
-}
-
-form { margin: 0; }
-
-input, textarea { 
-	margin: 0.1em; 
-	background-color: #FFF;
-	vertical-align: middle;
-	font-size: 1em;
-}
-
-#feed-icon {
+#process {
 	float: right;
-	margin: 0 0 0 10em;
+	margin: 0.2em 0 0.2em 1em;
 }
 
 #advertisement {
@@ -326,18 +132,33 @@ input, textarea {
 	margin-right: 420px;
 }
 
-tt {
-	font-size: 12px;
+#content h2 { 
+  margin-top: 2em;
+  background-color: transparent;
+  color: #555555;
+  border-bottom-style: solid;
+  border-color: #cccccc;
+  padding-top:1em;
 }
 
-#process {
-	float: right;
-	margin: 2px 0px 2px 10px;
+#content h2 img {
+ float: right;
+ margin: 0 0 0 10em;
+}
+
+ul, ol, dl {
+  margin-left: 3em;
+  list-style: square;
+}
+
+dd {
+  text-align: justify;
 }
 
 p.svn {
 	font-family: monospace;
 	text-align: center;
+	font-size: 1.2em;
 }
 
 p.svn a, p.svn a:active, p.svn a:hover, p.svn a:visited {
@@ -345,13 +166,16 @@ p.svn a, p.svn a:active, p.svn a:hover, p.svn a:visited {
 	text-decoration: none;
 }
 
-ul, ol, dl {
-	margin-left: 3em;
+/* foot */
+
+#foot {
+  text-align: right;
+  margin: 0 4em 2em 4em;;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-dd {
-	text-align: justify;
+#foot a img {
+  padding-left: 1em;
 }
-
-
 

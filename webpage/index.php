@@ -15,7 +15,7 @@
   <body>
 
     <div class="accessibility">
-		<a href="#content" title="Go to content">Go to content</a>
+		<a href="#content" accesskey="c" title="Go to content">Go to content</a>
     </div>
 
     <h1 id="head">
@@ -25,12 +25,12 @@
 
     <div id="menu">
 	  <ul>
-		<li><a href="/" title="go SWAML home">Home</a></li>
-		<li><a href="#news" title="read SWAML news">News</a></li>
- 		<li><a href="#files" title="download SWAML files">Files</a></li>
-		<li><a href="#doc" title="see SWAML documentation">Documentation</a></li>
- 		<li><a href="/wiki" title="go SWAML wiki">Wiki</a></li>
-		<li class="last" title="contact with SWAML team"><a href="#contact">Contact</a></li>
+		<li><a href="/" accesskey="1" title="go SWAML home">Home</a></li>
+		<li><a href="#news" accesskey="2" title="read SWAML news">News</a></li>
+ 		<li><a href="#files" accesskey="3" title="download SWAML files">Files</a></li>
+		<li><a href="#doc" accesskey="4" title="see SWAML documentation">Documentation</a></li>
+ 		<li><a href="/wiki" accesskey="5" title="go SWAML wiki">Wiki</a></li>
+		<li class="last"><a href="#contact" accesskey="6" title="contact with SWAML team">Contact</a></li>
 	  </ul>
     </div>
 

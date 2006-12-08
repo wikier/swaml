@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif; 
 }
 
+p {
+  text-align: justify;
+}
+
 a:link, a:visited, a {
 	color: #3333cc; 
 	text-decoration: none; 
@@ -70,7 +74,7 @@ div#menu {
   background-color: #f2f2f2;
   border: 1px #000000 solid;
   padding: 0.8em 0 0.8em 0;
-  margin: 1em 4em 1em 4em;
+  margin: 1em 5em 1em 5em;
   font-size: 12px;
 }
 
@@ -113,7 +117,7 @@ div#content {
   background-color: #f2f2f2;
   border: 1px #000000 solid;
   padding: 1em 3em 2em 3em;
-  margin: 2em 4em 1em 4em;
+  margin: 2em 5em 1em 5em;
   font-size: 0.75em;
 }
 
@@ -167,14 +171,20 @@ div#content {
 
 /* foot */
 
-#foot {
-  text-align: right;
-  margin: 0 4em 2em 4em;;
-  padding-top: 0;
-  padding-bottom: 0;
+div#foot {
+  margin: 1em 5em 10em 5em;
+  padding: 0;
 }
 
-#foot a img {
-  padding-left: 1em;
+div#foot ul {
+  list-style: none;
+  display: inline;
+  float: right;
 }
+
+div#foot ul li {
+  display: inline;
+  margin-left: 1em;
+}
+
 

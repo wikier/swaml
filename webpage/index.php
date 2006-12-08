@@ -18,30 +18,30 @@
 		<a href="#content" title="Go to content">Go to content</a>
     </div>
 
-    <div id="head">
+    <h1 id="head">
 		<a href="http://developer.berlios.de/"><img src="images/berlios.png" width="132" height="50" alt="Project hosted by BerliOS" /></a>
-		<a href="http://swaml.berlios.de/">swaml</a>
-    </div>
+		<a href="http://swaml.berlios.de/"><acronym title="Semantic Web Archive of Mailing Lists">swaml</acronym></a>
+    </h1>
 
     <div id="menu">
-		<ul>
-    	  <li><a href="/" title="go SWAML home">Home</a></li>
-    	  <li><a href="#news" title="read SWAML news">News</a></li>
-    	  <li><a href="#files" title="download SWAML files">Files</a></li>
-    	  <li><a href="#doc" title="see SWAML documentation">Documentation</a></li>
-    	  <li><a href="/wiki" title="go SWAML wiki">Wiki</a></li>
-    	  <li class="last" title="contact with SWAML team"><a href="#contact">Contact</a></li>
-		</ul>
+	  <ul>
+		<li><a href="/" title="go SWAML home">Home</a></li>
+		<li><a href="#news" title="read SWAML news">News</a></li>
+ 		<li><a href="#files" title="download SWAML files">Files</a></li>
+		<li><a href="#doc" title="see SWAML documentation">Documentation</a></li>
+ 		<li><a href="/wiki" title="go SWAML wiki">Wiki</a></li>
+		<li class="last" title="contact with SWAML team"><a href="#contact">Contact</a></li>
+	  </ul>
     </div>
 
     <div id="content">
-   	  <p>
-     	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>, pronounced <em>[sw&aelig;ml]</em>,
-     	is  a research project around the semantic web technologies to publish the mailing lists&acute;s 
-     	archive into a <acronym title="Resource Description Framework">RDF</acronym> format, developed at 
-     	<a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). You can visit the 
-     	<a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> for more details.
-   	  </p>
+	  <p>
+		<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>, pronounced <em>[sw&aelig;ml]</em>,
+		is  a research project around the semantic web technologies to publish the mailing lists&acute;s 
+		archive into a <acronym title="Resource Description Framework">RDF</acronym> format, developed at 
+		<a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). You can visit the 
+		<a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> for more details.
+	  </p>
 
       <img src="images/swaml.png" width="400" height="336" alt="SWAML process description" id="process" />
 

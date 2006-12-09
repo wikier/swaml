@@ -175,6 +175,8 @@
 		urchinTracker();
     </script>
 
+    <script type="text/javascript" src="http://embed.technorati.com/embed/4y8uh7tpy.js"></script>
+
   </body>
 
 </html>

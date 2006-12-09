@@ -1,0 +1,4 @@
+# robots.txt of swal.berlios.de
+
+User-agent: *
+Disallow: /tmp/

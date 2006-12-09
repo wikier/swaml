@@ -3,7 +3,6 @@
   <head>
     <title>SWAML - Semantic Web Archive of Mailing Lists</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="robots" content="index,follow" />
     <meta name="keywords" content="SWAML, semantic web, mailing lists, python, sioc" />
     <meta name="language" content="en" />
     <link rel="stylesheet" type="text/css" charset="utf-8" href="style.css" />

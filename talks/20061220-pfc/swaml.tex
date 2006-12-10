@@ -45,9 +45,9 @@
   \frametitle{Publicación actual de los archivos de listas de correo}
 
   \begin{itemize}
-  \item<1-> Miles de listas de correo de las más variopinta temática
-  \item<2-> Publicación en HTML de los archivos antiguos
-  \item<3-> Pérdida de toda posibilidad de recuperar esa información
+   \item<1-> Miles de listas de correo de las más variopinta temática
+   \item<2-> Publicación en HTML de los archivos antiguos
+   \item<3-> Pérdida de toda posibilidad de recuperar esa información
   \end{itemize}
 }
 
@@ -57,8 +57,8 @@
   \frametitle{Objetivos}
 
   \begin{enumerate}
-  \item Publicación de los archivos antiguos de listas de correo en un formato rico semánticamente
-  \item FIXME
+   \item Publicación de los archivos antiguos de listas de correo en un formato rico semánticamente
+   \item FIXME
   \end{enumerate}
 }
 
@@ -110,7 +110,39 @@
 \subsection{Futuras líneas de trabajo}
 \frame
 {
-  FIXME: sacar de la doc
+  \frametitle{Futuro inmediato}
+
+  \note[item]{ Usar GMail como fuente de información. }
+  \note[item]{ Bastará disponer de una (o varias) cuentas de GMail suscritas a diferentes
+    listas de correo. Después apenas habrá que optimizar el software para
+    hacer más eficientes estas exportaciones automáticas. }
+  \note[item]{ Esperamos llevar a cabo el experimento en la sproximas semanas. }
+
+  \bigskip
+  \begin{columns}
+   \begin{column}{0.7\textwidth}
+    \includegraphics[width=0.99\textwidth]{images/gmail-swaml.png}
+   \end{column}
+   \begin{column}{0.4\textwidth}
+    Automatizar el experimento aislado ya realizado por John Breslin:
+    \begin{enumerate}
+     \item Descargar los correos (\texttt{python-libgmail})
+     \item Generar un mbox
+     \item Usar SWAML para generar su descripción en RDF
+    \end{enumerate}
+   \end{column}
+  \end{columns}
+  \bigskip
+}
+\frame
+{
+  \frametitle{Futuro a medio plazo}
+  \begin{itemize}
+   \item Marcado semántico para el cuerpo de los mensajes
+   \item API en Python para SIOC
+   \item Integración con Mailman
+   \item API para DIG
+  \end{itemize}
 }
 
 \section{Demostración}

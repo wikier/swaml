@@ -197,16 +197,58 @@
 
 }
 
-\subsection{Meollo}
+\subsection{SWAML}
 \frame
 {
-  \frametitle{Meollo}
+  \frametitle{SWAML}
 
-  FIXME
+  En realidad en proyecto SWAML se compone de varios componentes:
+
+  \begin{itemize}
+   \item SWAML propiamente dicho
+   \item Buxon
+   \item herramientas complementarias
+  \end{itemize}
+}
+\frame
+{
+  \frametitle{SWAML Core}
+  \begin{columns}
+   \begin{column}{0.5\textwidth}
+	\includegraphics[width=0.95\textwidth]{images/swaml.png}
+   \end{column}
+   \begin{column}{0.5\textwidth}
+	Un proceso batch que se encarga de traducir un mbox a su representación en RDF:
+	\begin{enumerate}
+	 \item Parsear el mbox
+	 \item Recomponer y verificar la consistencia de todos los datos y relaciones
+	 \item Serializar a RDF/XML la lista de correo (\texttt{sioc:Forum})
+	\end{enumerate}
+   \end{column}
+  \end{columns}
+}
+\frame
+{
+  \frametitle{Buxon}
+
+  Visor de \texttt{sioc:Forum}'s, desarrollado para demostrar que la representación en RDF de una lista de correo
+  permite volver recomponerla sin pérdida de información.
 
   \begin{center}
-	\includegraphics[width=0.5\textwidth]{images/swaml.png}
+	\includegraphics[width=0.7\textwidth]{images/buxon.png}
   \end{center}
+}
+\frame
+{
+  \frametitle{Herramientas complementarias}
+
+  Además son necesarias una serie de herramientas adicionales para realizar determinadas tareas:
+
+  \begin{itemize}
+   \item \textbf{configWizard}, asistente para realizar configuraciones.
+   \item \textbf{FOAF Enricher}, agente encargado de enriquecer la listas de correo con datos sacados de los FOAF de los suscriptores.
+   \item \textbf{KML Exporter}, componente encargado de exportar a KML la información geográfica de los suscriptores.
+  \end{itemize}
 }
 
 \section{Conclusiones}

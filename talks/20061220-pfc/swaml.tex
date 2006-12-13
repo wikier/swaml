@@ -28,9 +28,8 @@
 \frame{
   \note[item]{Saludar}
   \note[item]{Presentarse}
-  \note[item]{Esta es la presentación del proyecto
-    \textit{SWAML, publicación de listas de correo en Web Semántica}
-  }
+  \note[item]{Con su permiso procederé a presentarles mi proyecto fin de carrera 
+    \textit{SWAML, publicación de listas de correo en Web Semántica}}
 
   \titlepage
 }
@@ -49,9 +48,9 @@
   en la comunicación en internet.
 
   \begin{itemize}
-   \item<1-> Miles de listas de correo de las más variopinta temática
-   \item<2-> Publicación en HTML de los archivos antiguos
-   \item<3-> Pérdida de toda posibilidad de recuperar esa información
+   \item<2-> Miles de listas de correo de las más variopinta temática
+   \item<3-> Publicación en HTML de los archivos antiguos
+   \item<4-> Pérdida de toda posibilidad de recuperar esa información
   \end{itemize}
 }
 
@@ -77,9 +76,35 @@
 \subsection{La Web Semántica}
 \frame
 {
-  \frametitle{Introducción a la Web Semántica}
+  \frametitle{Introducción a la Web Semántica (I)}
 
-  FIXME
+  Tim Berners-Lee expuso en 2001 su visión de lo que sería la Web Semántica:
+
+  \begin{quote}
+	\emph{«... \textbf{disponer datos} en la Web \textbf{definidos y enlazados} 
+	de forma que puedan ser \textbf{utilizados por las máquinas}, no solamente 
+	para visualizarnos, sino también para \textbf{automatizar} tareas, 
+	\textbf{integrar} y \textbf{reutilizar} datos entre aplicaciones.»}
+  \end{quote}
+}
+\frame
+{
+  \frametitle{Introducción a la Web Semántica (II)}
+
+  Una ambiciosa visión en la que es (será) necesario la interacción de varias capas:
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+	\includegraphics[width=\textwidth]{images/semantic-web-stack.png}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      A destacar tres (tecnologías) capas:
+      \begin{itemize}
+	\item \textbf{RDF} (\textit{Resource Description Framework})
+	\item \textbf{OWL} (\textit{Web Ontology Language})
+	\item \textbf{SPARQL} (\textit{SPARQL Protocol and RDF query language})
+      \end{itemize}
+    \end{column}
+  \end{columns}
 }
 
 \section{El proyecto SWAML}
@@ -89,7 +114,17 @@
 {
   \frametitle{RDF}
 
-  FIXME
+  RDF se basa en un modelo de tripletas del tipo \texttt{(sujeto, predicado, objeto)}. El
+  sujeto es un recurso que se identifica con una URI, y se relaciona mediante un 
+  predicado binario con el objeto, que puede ser otra URI o un literal.
+
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/arc.png}
+  \end{center}
+
+  Cada tripleta puede verse como un arco, y al juntarse con otros arcos se obtiene
+  un grafo dirigido que describe los recursos y las relaciones entre todos los 
+  recursos.
 }
 \frame
 {
@@ -128,7 +163,9 @@
 {
   \frametitle{Python}
 
-  FIXME
+  \begin{center}
+	\includegraphics[width=0.8\textwidth]{images/python.png}
+  \end{center}
 }
 
 \subsection{Meollo}

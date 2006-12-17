@@ -41,16 +41,23 @@
 \subsection{Situación actual}
 \frame
 {
-  \frametitle{Publicación actual de los archivos de listas de correo}
+  \frametitle{Panorama actual}
 
-  A pesar de la proliferación en los últimos años de los foros web de
-  discursión, las listas de correo aún juegan un papel muy importante
-  en la comunicación en internet.
+  %FIXME: abreviar estos parrafos
 
   \begin{itemize}
-   \item<2-> Miles de listas de correo de las más variopinta temática
-   \item<3-> Publicación en HTML de los archivos antiguos
-   \item<4-> Pérdida de toda posibilidad de recuperar esa información
+   \item<2-> Situación:
+	\begin{itemize}
+	  \item Miles de listas de correo de las más variopinta temática
+	  \item Publicación en HTML de los archivos antiguos %FIXME: captura de una lista de W3C
+	\end{itemize}
+   \item<3-> Problemas:
+	\begin{itemize}
+	  \item Pérdida de toda posibilidad de recuperar esa información
+	  \item Marcado estructurado sin valor semántico (problemas de internacionalización 
+		y accesibilidad entre otros)
+	  \item Duplicidad de datos en los motores de búsqueda tradicionales
+	\end{itemize}
   \end{itemize}
 }
 
@@ -65,11 +72,12 @@
       \item \textbf{Publicación de los archivos antiguos de listas de correo en un formato rico semánticamente.}
      \end{itemize}
    \item<2-> Varios objetivos secundarios:
-     \begin{itemize}
-	\item Maximizar la reutilización de la infraestructura disponible previamente.
-	\item Desarrollar un prototipo capar de recomponer listas de correo \textit{atacando} colecciones de ficheros RDF.
-	\item Abrir la puerta a nuevas aplicaciones.
-     \end{itemize}
+	\begin{itemize}
+	  \item Maximizar la reutilización de la infraestructura disponible previamente.
+	  \item Desarrollar un prototipo capar de recomponer listas de correo \textit{atacando} 
+		colecciones de ficheros RDF.
+	  \item Abrir la puerta a nuevas aplicaciones.
+     	\end{itemize}
   \end{itemize}
 }
 
@@ -91,20 +99,43 @@
 {
   \frametitle{Introducción a la Web Semántica (II)}
 
-  Una ambiciosa visión en la que es (será) necesario la interacción de varias capas:
   \begin{columns}
-    \begin{column}{0.5\textwidth}
-	\includegraphics[width=\textwidth]{images/semantic-web-stack.png}
+    \begin{column}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{images/pila-web-semantica.png}
     \end{column}
-    \begin{column}{0.5\textwidth}
-      A destacar tres (tecnologías) capas:
+    \begin{column}{0.4\textwidth}
+      Tecnologías:
       \begin{itemize}
 	\item \textbf{RDF} (\textit{Resource Description Framework})
 	\item \textbf{OWL} (\textit{Web Ontology Language})
-	\item \textbf{SPARQL} (\textit{SPARQL Protocol and RDF query language})
+	\item \textbf{SPARQL} (\textit{SPARQL Protocol and RDF Query Language})
       \end{itemize}
     \end{column}
   \end{columns}
+}
+\frame
+{
+  \frametitle{RDF}
+
+  \note[item]{	RDF se basa en un modelo de tripletas. El sujeto es un recurso, identificado
+		por una URI, que se relaciona mediante un predicado binario con el objeto, que 
+		puede ser otra URI o un literal.}
+  \note[item]{	Cada tripleta puede verse como un arco, y al juntarse con otros arcos 
+		se obtiene un grafo dirigido que describe los recursos y las relaciones 
+		entre todos los recursos.}
+
+  \begin{center}
+    Modelo de tripletas del tipo \texttt{(sujeto, predicado, objeto)}:
+    \includegraphics[width=0.8\textwidth]{images/grafo-rdf.png}
+  \end{center}
+
+
+}
+\frame
+{
+  \frametitle{Ontología}
+
+  Una \textbf{ontología} es FIXME (indio)
 }
 
 \section{El proyecto SWAML}
@@ -112,89 +143,14 @@
 \subsection{Tecnologías implicadas}
 \frame
 {
-  \frametitle{RDF}
-
-  RDF se basa en un modelo de tripletas del tipo \texttt{(sujeto, predicado, objeto)}. El
-  sujeto es un recurso que se identifica con una URI, y se relaciona mediante un 
-  predicado binario con el objeto, que puede ser otra URI o un literal.
-
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/arc.png}
-  \end{center}
-
-  Cada tripleta puede verse como un arco, y al juntarse con otros arcos se obtiene
-  un grafo dirigido que describe los recursos y las relaciones entre todos los 
-  recursos.
-}
-\frame
-{
-  \frametitle{SIOC (I)}
-
-  \begin{columns}
-   \begin{column}{0.6\textwidth}
-     \begin{center}
-	\textbf{SIOC} (Semantically-Interlinked Online Communities) es una ontología desarrollada 
-	por el equipo de web semántica de DERI Galway para describir semánticamente 
-	distintas comunidades online.
-     \end{center}
-   \end{column}
-   \begin{column}{0.4\textwidth}
-	\includegraphics[width=0.9\textwidth]{images/sioc.png}
-   \end{column}
-  \end{columns}
-}
-\frame
-{
-  \frametitle{SIOC (II)}
-
-  \begin{center}
-	\includegraphics[width=0.85\textwidth]{images/sioc-discussion.png}
-  \end{center}
-}
-\frame
-{
-  \frametitle{SIOC (III)}
-
-  \begin{center}
-	\includegraphics[width=0.8\textwidth]{images/sioc-foaf-skos.png}
-  \end{center}
-}
-\frame
-{
-  \frametitle{Python}
-
-  \begin{columns}
-   \begin{column}{0.6\textwidth}
-      \begin{itemize}
-	 \item lenguaje de script moderno
-	 \item interpretado con tipado dinámico
-	 \item orientado a objetos
-	 \item multiplataforma
-	 \item extensa bliblioteca estandar
-	 \item productivo
-	 \item maduro
-	 \item libre
-      \end{itemize}
-   \end{column}
-   \begin{column}{0.4\textwidth}
-	\includegraphics[width=0.95\textwidth]{images/python.png}
-   \end{column}
-  \end{columns}
-}
-\frame
-{
-  \frametitle{RDFLib}
-
-  RDF se trata de una biblioteca de Python para trabajar con RDF con varias caracteristicas interesantes:
+  \frametitle{Tecnologías implicadas}
 
   \begin{itemize}
-   \item RDF/XML parser
-   \item serialización NTriples, N3 y RDF/XML
-   \item soporte para persistencia de grafos en memoria
-   \item consultas SPARQL
-   \item persistencia
+    \item<2-> \textbf{SIOC}: Semantically-Interlinked Online Communities.
+    \item<3-> \textbf{Python}: lenguaje de script orientado a objetos.
+    \item<4-> \textbf{RDFLib}: biblioteca de Python para trabajar con RDF.
   \end{itemize}
-
+  FIXME(¿más?)
 }
 
 \subsection{SWAML}
@@ -202,7 +158,9 @@
 {
   \frametitle{SWAML}
 
-  En realidad en proyecto SWAML se compone de varios componentes:
+  SWAML se compone de varios componentes:
+
+  FIXME(diagrama)
 
   \begin{itemize}
    \item SWAML propiamente dicho
@@ -246,13 +204,14 @@
 
   \begin{itemize}
    \item \textbf{configWizard}, asistente para realizar configuraciones.
-   \item \textbf{FOAF Enricher}, agente encargado de enriquecer la listas de correo con datos sacados de los FOAF de los suscriptores.
+   \item \textbf{FOAF Enricher}, agente encargado de enriquecer la listas de correo con datos 
+	 sacados de los FOAF de los suscriptores.
    \item \textbf{KML Exporter}, componente encargado de exportar a KML la información geográfica de los suscriptores.
   \end{itemize}
 }
 
 \section{Conclusiones}
-\subsection{Resultados}
+\subsection{Impacto}
 \frame
 {
   FIXME\\
@@ -300,12 +259,11 @@
 \subsection{Demostración}
 \frame
 {
-  \note[item]{Crear una configuración en directo con asistente.}
+  \note[item]{Si no desean realizar ningún comentario, procederé a realizar una demostración práctica.}
   \note[item]{Ejemplo de exportación con SWAML (con todas las opciones), enseñar los RDF en plano.}
-  \note[item]{Mismo ejemplo si enriquecer con FOAF ni exportación a KML.}
-  \note[item]{Enriquecer con FOAF.}
-  \note[item]{Exportar a KML.}
   \note[item]{Visualizarla con Buxon.}
+  \note[item]{¿Algún ejemplo de SPARQL?}
+  \note[item]{Terminar enseñando el KML en Google Maps}
 
   \begin{center}
     \LARGE{\textbf{demostración práctica}}
@@ -319,8 +277,10 @@
 		preguntas o ampliar cualquiera de los temas expuestos.}
 
   \begin{center}
-    \LARGE{\textbf{¿preguntas?}}\\
-    \vspace{3cm}
+    \LARGE{\textbf{SWAML, publicación de listas de correo en web semántica}}\\
+    \vspace{1cm}
+    \LARGE{Fin}\\
+    \vspace{2cm}
     \small{%
 	Esta presentación se distribuye bajo los términos de la licencia
 	CreativeCommons Reconocimiento-CompartirIgual 2.5

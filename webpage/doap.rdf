@@ -10,7 +10,7 @@
     <admin:generatorAgent rdf:resource="http://doapy.bonjourlesmouettes.org/doap-a-matic"/>
   </rdf:Description>
 
-  <doap:Project rdf:about="http://swaml.berlios.de/">
+  <doap:Project rdf:about="http://swaml.berlios.de/doap.rdf">
 
     <doap:name>Semantic Web Archive of Mailing Lists</doap:name>
     <doap:shortname>SWAML</doap:shortname>

@@ -86,14 +86,16 @@
 {
   \frametitle{Introducción a la Web Semántica (I)}
 
-  Tim Berners-Lee expuso en 2001 su visión de lo que sería la Web Semántica:
-
-  \begin{quote}
+  \begin{itemize}
+   \item<1-> Tim Berners-Lee expuso en 2001 su visión de lo que sería la Web Semántica:
+     \begin{quote}
 	\emph{«... \textbf{disponer datos} en la Web \textbf{definidos y enlazados} 
 	de forma que puedan ser \textbf{utilizados por las máquinas}, no solamente 
 	para visualizarnos, sino también para \textbf{automatizar} tareas, 
 	\textbf{integrar} y \textbf{reutilizar} datos entre aplicaciones.»}
-  \end{quote}
+     \end{quote}
+   \item<2-> \begin{Large}\textbf{Una web más útil}\end{Large}
+  \end{itemize}
 }
 \frame
 {
@@ -146,11 +148,15 @@
   \frametitle{Tecnologías implicadas}
 
   \begin{itemize}
-    \item<2-> \textbf{SIOC}: Semantically-Interlinked Online Communities.
-    \item<3-> \textbf{Python}: lenguaje de script orientado a objetos.
-    \item<4-> \textbf{RDFLib}: biblioteca de Python para trabajar con RDF.
+    \item<2-> \textbf{Python}: lenguaje de script orientado a objetos.
+    \item<3-> \textbf{RDFLib}: biblioteca de Python para trabajar con RDF.
+    \item<4-> \textbf{SIOC}: Semantically-Interlinked Online Communities.
   \end{itemize}
-  FIXME(¿más?)
+
+  \begin{center}
+ 	\only<2-3>{\includegraphics[width=0.65\textwidth]{images/python.png}}
+ 	\only<4>{\includegraphics[width=0.35\textwidth]{images/sioc.png}}
+  \end{center}
 }
 
 \subsection{SWAML}
@@ -173,41 +179,68 @@
   \frametitle{SWAML Core}
   \begin{columns}
    \begin{column}{0.5\textwidth}
-	\includegraphics[width=0.95\textwidth]{images/swaml.png}
+	\begin{center}
+	  \only<1>{\includegraphics[width=0.95\textwidth]{images/swaml-0.png}}
+	  \only<2>{\includegraphics[width=0.95\textwidth]{images/swaml-1.png}}
+	  \only<3>{\includegraphics[width=0.95\textwidth]{images/swaml-2.png}}
+	  \only<4>{\includegraphics[width=0.95\textwidth]{images/swaml.png}}
+	\end{center}
    \end{column}
    \begin{column}{0.5\textwidth}
-	Un proceso batch que se encarga de traducir un mbox a su representación en RDF:
+	\begin{Large}Proceso batch:\end{Large}
 	\begin{enumerate}
-	 \item Parsear el mbox
-	 \item Recomponer y verificar la consistencia de todos los datos y relaciones
-	 \item Serializar a RDF/XML la lista de correo (\texttt{sioc:Forum})
+	 \item<2-> mbox
+	 \item<3-> parsear
+	 \item<4-> serializar a RDF/XML 
 	\end{enumerate}
    \end{column}
   \end{columns}
 }
 \frame
 {
+  \frametitle{sioc:Forum}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/sioc-discussions.png}
+  \end{center}
+}
+
+\frame
+{
   \frametitle{Buxon}
 
-  Visor de \texttt{sioc:Forum}'s, desarrollado para demostrar que la representación en RDF de una lista de correo
-  permite volver recomponerla sin pérdida de información.
+  \note[item] {	Desarrollado para demostrar que la representación en RDF de 
+		una lista de correo permite volver recomponerla sin pérdida 
+		de información. }
+  \note[item] {	Implementación más madura para la explotación de datos SIOC. }
 
-  \begin{center}
-	\includegraphics[width=0.7\textwidth]{images/buxon.png}
-  \end{center}
+  \begin{columns}
+   \begin{column}{0.32\textwidth}
+	\begin{itemize}
+	  \item Visor de \texttt{sioc:Forum}'s
+	  \item Recomposición de la lista de correo
+	  \item Implementación más completa de SIOC
+	\end{itemize}
+   \end{column}
+   \begin{column}{0.68\textwidth}
+	\includegraphics[width=\textwidth]{images/buxon.png}
+   \end{column}
+  \end{columns}
 }
 \frame
 {
   \frametitle{Herramientas complementarias}
 
-  Además son necesarias una serie de herramientas adicionales para realizar determinadas tareas:
-
   \begin{itemize}
-   \item \textbf{configWizard}, asistente para realizar configuraciones.
-   \item \textbf{FOAF Enricher}, agente encargado de enriquecer la listas de correo con datos 
-	 sacados de los FOAF de los suscriptores.
-   \item \textbf{KML Exporter}, componente encargado de exportar a KML la información geográfica de los suscriptores.
+   \item<1-> \textbf{configWizard}: asistente de configuración mediante reflectividad estructural
+   \item<2-> \textbf{FOAF Enricher}: enriquecedor de datos basado en FOAF
+   \item<3-> \textbf{KML Exporter}: exportación de datos para Google Maps y Google Earth
   \end{itemize}
+
+  \begin{center}
+ 	\only<2>{\includegraphics[width=0.4\textwidth]{images/foaf.png}}
+ 	\only<3>{\includegraphics[width=0.55\textwidth]{images/googlemaps.png}}
+  \end{center}
+
 }
 
 \section{Conclusiones}
@@ -228,7 +261,6 @@
     hacer más eficientes estas exportaciones automáticas. }
   \note[item]{ Esperamos llevar a cabo el experimento en la sproximas semanas. }
 
-  \bigskip
   \begin{columns}
    \begin{column}{0.7\textwidth}
     \includegraphics[width=0.99\textwidth]{images/gmail-swaml.png}
@@ -242,7 +274,6 @@
     \end{enumerate}
    \end{column}
   \end{columns}
-  \bigskip
 }
 \frame
 {

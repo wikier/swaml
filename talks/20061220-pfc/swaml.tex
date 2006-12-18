@@ -137,7 +137,25 @@
 {
   \frametitle{Ontología}
 
-  Una \textbf{ontología} es FIXME (indio)
+  \note[item] { Una ontología trata de describir o proponer las categorías y relaciones básicas. }
+  \note[item] { En informática hace referencia al intento de formular un exhaustivo 
+		y riguroso esquema conceptual dentro de un dominio dado. }
+  \begin{columns}
+   \begin{column}{0.5\textwidth}
+	\begin{itemize}
+	 \item Forma describir categorías y relaciones básicas.
+	 \item Formulación un exhaustiva y rigurosa del esquema conceptual de un dominio dado.
+	 \item OWL, lenguaje propuesto por el W3C para describir ontologías en la Web.
+	\end{itemize}
+   \end{column}
+   \begin{column}{0.5\textwidth}
+	\includegraphics[width=0.9\textwidth]{images/ontologia.png}
+   \end{column}
+  \end{columns}
+
+
+
+
 }
 
 \section{El proyecto SWAML}
@@ -250,39 +268,16 @@
   FIXME\\
   aportación a SIOC
 }
-\subsection{Futuras líneas de trabajo}
-\frame
-{
-  \frametitle{Futuro inmediato}
-
-  \note[item]{ Usar GMail como fuente de información. }
-  \note[item]{ Bastará disponer de una (o varias) cuentas de GMail suscritas a diferentes
-    listas de correo. Después apenas habrá que optimizar el software para
-    hacer más eficientes estas exportaciones automáticas. }
-  \note[item]{ Esperamos llevar a cabo el experimento en la sproximas semanas. }
-
-  \begin{columns}
-   \begin{column}{0.7\textwidth}
-    \includegraphics[width=0.99\textwidth]{images/gmail-swaml.png}
-   \end{column}
-   \begin{column}{0.4\textwidth}
-    Automatizar el experimento aislado ya realizado por John Breslin:
-    \begin{enumerate}
-     \item Descargar los correos (\texttt{python-libgmail})
-     \item Generar un mbox
-     \item Usar SWAML para generar su descripción en RDF
-    \end{enumerate}
-   \end{column}
-  \end{columns}
-}
+\subsection{Futuro}
 \frame
 {
   \frametitle{Futuro a medio plazo}
   \begin{itemize}
+   \item Acceder a cuentas de GMail
    \item Marcado semántico para el cuerpo de los mensajes
    \item API en Python para SIOC
    \item Integración con Mailman
-   \item API para DIG
+   \item \textit{Submission} al W3C
   \end{itemize}
 }
 
@@ -312,10 +307,10 @@
     \vspace{1cm}
     \LARGE{Fin}\\
     \vspace{2cm}
-    \small{%
+    \begin{tiny}
 	Esta presentación se distribuye bajo los términos de la licencia
 	CreativeCommons Reconocimiento-CompartirIgual 2.5
-    }
+    \end{tiny}
   \end{center}
 }
 
@@ -323,7 +318,7 @@
 
 \section{Respuestas preparadas}
 \frame{
-  FIXME: retocarlas según el tribunal
+  FIXME: SPARQL, UML, etc
 }
 
 

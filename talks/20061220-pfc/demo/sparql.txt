@@ -44,3 +44,54 @@ WHERE
   ?x sioc:container_of ?uri .
   ?uri dc:title ?title
 }
+
+SWAML2:
+------
+
+"Todos los mensajes de John Breslin que tiene alguna respuesta"
+
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+SELECT ?title, ?reply
+FROM <http://swaml.berlios.de/buxon.rdf>
+WHERE
+{
+  ?x rdf:type sioc:Forum .
+  ?x sioc:container_of ?y .
+  ?y rdf:type sioc:Post .
+  ?y sioc:has_creator ?z .
+  ?z rdf:type sioc:User .
+  ?z sioc:name "John Breslin" .
+  ?y dc:title ?title .
+  ?y sioc:has_reply ?reply
+}
+
+SWAML3:
+------
+
+"Todos los mensajes de John Breslin como respuesta a"
+
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+SELECT ?title, ?parent
+FROM <http://swaml.berlios.de/buxon.rdf>
+WHERE
+{
+  ?x rdf:type sioc:Forum .
+  ?x sioc:container_of ?y .
+  ?y rdf:type sioc:Post .
+  ?y sioc:has_creator ?z .
+  ?z rdf:type sioc:User .
+  ?z sioc:name "John Breslin" .
+  ?y dc:title ?title .
+  ?x rdf:type sioc:Forum .
+  ?x sioc:container_of ?y .
+  ?y rdf:type sioc:Post .
+  ?y sioc:has_creator ?z .
+  ?z rdf:type sioc:User .
+  ?z sioc:name "John Breslin" .
+  ?y dc:title ?title .
+  ?y sioc:reply_of ?parent
+}

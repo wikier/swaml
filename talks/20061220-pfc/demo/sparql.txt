@@ -1,0 +1,46 @@
+
+SWAML SPARQL Demo:
+******************
+
+http://librdf.org/2005/sparqling
+
+FOAF:
+----
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+FROM <http://www.wikier.org/foaf.rdf>
+SELECT ?nick, ?name
+WHERE { 
+  ?x a foaf:Person . 
+  ?x foaf:nick ?nick . 
+  ?x foaf:name ?name 
+}
+
+
+SWAML1:
+------
+
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#
+SELECT ?uri
+FROM <http://swaml.berlios.de/demo/index.rdf>
+WHERE
+{
+  ?x rdf:type sioc:Forum .
+  ?x sioc:container_of ?uri
+}
+
+SWAML2:
+------
+
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+SELECT ?uri, ?title
+FROM <http://swaml.berlios.de/buxon.rdf>
+WHERE
+{
+  ?x rdf:type sioc:Forum .
+  ?x sioc:container_of ?uri .
+  ?uri dc:title ?title
+}

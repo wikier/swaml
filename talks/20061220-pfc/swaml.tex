@@ -53,16 +53,17 @@
   \note[item] {	Duplicidad de datos para los motores de búsqueda tradicionales }
 
   \begin{itemize}
-   \item<2-> \textbf{Situación:}
+   \item<2-> \begin{large}\textbf{Situación:}\end{large}
 	\begin{itemize}
-	  \item Miles de listas de correo
-	  \item Publicación en HTML
+	  \item \begin{large}Miles de listas de correo\end{large}
+	  \item \begin{large}Publicación en HTML\end{large}
 	\end{itemize}
+   \vspace{0.8cm}
    \item<3-> \textbf{Problemas:}
 	\begin{itemize}
-	  \item Pérdida de información
-	  \item Marcado estructurado sin valor semántico
-	  \item Problemas en las búsquedas tradicionales
+	  \item \begin{large}Pérdida de información\end{large}
+	  \item \begin{large}Marcado estructurado sin valor semántico\end{large}
+	  \item \begin{large}Problemas en las búsquedas tradicionales\end{large}
 	\end{itemize}
   \end{itemize}
 }
@@ -76,20 +77,21 @@
 \subsection{Objetivos}
 \frame
 {
+  \note[item] { Objetivo principal: publicación de los archivos antiguos de listas de correo en un formato rico semánticamente. }
+  \note[item] { Perp además varios objetivos secundarios: }
+  \note[item] { Maximizar la reutilización de la infraestructura disponible previamente. }
+  \note[item] { Desarrollar un prototipo capar de recomponer listas de correo \textit{atacando} 
+		colecciones de ficheros RDF. }
+  \note[item] { Abrir la puerta a nuevas aplicaciones. }
+
   \frametitle{Objetivos}
-  FIXME: no me gusta
   \begin{itemize}
    \item<1-> Objetivo principal: 
      \begin{itemize}
       \item \textbf{Publicación de los archivos antiguos de listas de correo en un formato rico semánticamente.}
      \end{itemize}
-   \item<2-> Varios objetivos secundarios:
-	\begin{itemize}
-	  \item Maximizar la reutilización de la infraestructura disponible previamente.
-	  \item Desarrollar un prototipo capar de recomponer listas de correo \textit{atacando} 
-		colecciones de ficheros RDF.
-	  \item Abrir la puerta a nuevas aplicaciones.
-     	\end{itemize}
+   \vspace{1cm}
+   \item<2-> Varios objetivos secundarios
   \end{itemize}
 }
 \frame
@@ -114,6 +116,7 @@
 	para visualizarnos, sino también para \textbf{automatizar} tareas, 
 	\textbf{integrar} y \textbf{reutilizar} datos entre aplicaciones.»}
      \end{quote}
+   \vspace{0.5cm}
    \item<2-> En definitiva, \begin{Large}\textbf{una web más útil}\end{Large}.
   \end{itemize}
 }
@@ -198,10 +201,10 @@
   \end{center}
 }
 
-\subsection{SWAML}
+\subsection{Componentes}
 \frame
 {
-  \frametitle{SWAML}
+  \frametitle{Componentes de SWAML}
 
   \begin{columns}
    \begin{column}{0.35\textwidth}
@@ -217,9 +220,10 @@
    \end{column}
   \end{columns}
 }
+\subsection{SWAML}
 \frame
 {
-  \frametitle{SWAML Core}
+  \frametitle{SWAML}
 
   \begin{columns}
    \begin{column}{0.5\textwidth}
@@ -247,7 +251,7 @@
     \includegraphics[width=0.8\textwidth]{images/sioc-discussions.png}
   \end{center}
 }
-
+\subsection{Buxon}
 \frame
 {
   \frametitle{Buxon}
@@ -284,7 +288,6 @@
  	\only<2>{\includegraphics[width=0.4\textwidth]{images/foaf.png}}
  	\only<3>{\includegraphics[width=0.55\textwidth]{images/googlemaps.png}}
   \end{center}
-
 }
 
 \section{Conclusiones}
@@ -295,13 +298,13 @@
 
   \begin{itemize}
    \item<1-> En palabras del propio John Breslin:
-	\begin{quotation}
- 	  El proyecto de SWAML satisface un requisito muy necesario para la Web semántica: 
+	\begin{quote}
+ 	  \emph{«El proyecto de SWAML satisface un requisito muy necesario para la Web semántica: 
 	  poder referir a versiones semánticas de los mensajes de correo electrónico usando
-	  un URI.
-	\end{quotation}
+	  un URI. ...»}
+	\end{quote}
    \item<2-> Aporta dos implementaciones a SIOC
-   \item<3-> Acompaña a SIOC en el inminente proceso de \textit{submission} al W3C
+   \item<3-> Acompaña a SIOC en el proceso de \textit{submission} al W3C
   \end{itemize}
 
 }
@@ -319,8 +322,7 @@
   \end{itemize}
 }
 
-\section{Parte práctica}
-\subsection{Demostración}
+\section{Demostración}
 \frame
 {
   \note[item]{Si no desean realizar ningún comentario, procederé a realizar una demostración práctica.}
@@ -333,7 +335,6 @@
     \LARGE{\textbf{demostración práctica}}
   \end{center}
 }
-\subsection{Preguntas}
 \frame
 {
   \note[item]{Agradecer la atención prestada.}
@@ -344,10 +345,10 @@
     \LARGE{\textbf{SWAML, publicación de listas de correo en web semántica}}\\
     \vspace{1cm}
     \LARGE{Fin}\\
-    \vspace{2cm}
+    \vspace{1cm}
     \begin{tiny}
-	Esta presentación se distribuye bajo los términos de la licencia
-	CreativeCommons Reconocimiento-CompartirIgual 2.5
+	Esta presentación se distribuye bajo los términos de la licencia:\\
+	\includegraphics[width=3.5cm]{images/creativecommons.png}
     \end{tiny}
   \end{center}
 }
@@ -355,8 +356,22 @@
 \appendix
 
 \section{Respuestas preparadas}
+
+\subsection{SPARQL}
 \frame{
-  FIXME: SPARQL, UML, etc
+\begin{center}
+  \SPARQL
+\end{center}
+}
+
+\subsection{UML}
+\frame{
+  FIXME: UML
+}
+
+\subsection{¿más?}
+\frame{
+  FIXME: etc
 }
 
 

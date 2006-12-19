@@ -47,6 +47,10 @@
 	morekeywords = {From, Message, Date, Organization, To, Subject }
 }
 
+\lstdefinelanguage{SPARQL}{%
+	morekeywords = {PREFIX, SELECT, DISTINCT, WHERE }
+}
+
 \defverbatim[colored]\MBOX{
 \lstset{language=mbox}
 \begin{lstlisting}
@@ -65,5 +69,25 @@ To: sioc-dev@googlegroups.com
 Subject: Re: User vs. Person complexity
 Date: Tue, 19 Sep 2006 16:09:15 +0200
 ...
+\end{lstlisting}
+}
+
+\defverbatim[colored]\SPARQL{
+\lstset{language=SPARQL}
+\begin{lstlisting}
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT ?uri, ?title
+
+FROM <http://swaml.berlios.de/buxon.rdf>
+
+WHERE
+{
+  ?x rdf:type sioc:Forum .
+  ?x sioc:container_of ?uri .
+  ?uri dc:title ?title
+}
 \end{lstlisting}
 }

@@ -75,19 +75,16 @@ Date: Tue, 19 Sep 2006 16:09:15 +0200
 \defverbatim[colored]\SPARQL{
 \lstset{language=SPARQL}
 \begin{lstlisting}
-PREFIX sioc: <http://rdfs.org/sioc/ns#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-SELECT ?uri, ?title
+FROM <http://www.wikier.org/foaf.rdf>
 
-FROM <http://swaml.berlios.de/buxon.rdf>
+SELECT ?nick, ?name
 
-WHERE
-{
-  ?x rdf:type sioc:Forum .
-  ?x sioc:container_of ?uri .
-  ?uri dc:title ?title
+WHERE {
+  ?x a foaf:Person .
+  ?x foaf:nick ?nick .
+  ?x foaf:name ?name
 }
 \end{lstlisting}
 }

@@ -98,7 +98,9 @@
   \begin{itemize}
    \item<1-> Objetivo principal: 
      \begin{itemize}
-      \item \textbf{Publicación de los archivos antiguos de listas de correo en un formato rico semánticamente.}
+      \item \begin{Large}
+		\textbf{Publicación de los archivos antiguos de listas de correo en un formato rico semánticamente.}
+	    \end{Large}
      \end{itemize}
    \vspace{1cm}
    \item<2-> Varios objetivos secundarios
@@ -152,8 +154,9 @@
 		entre todos los recursos.}
 
   \begin{center}
-    Modelo de tripletas del tipo \texttt{(sujeto, predicado, objeto)}:
-    \includegraphics[width=0.8\textwidth]{images/grafo-rdf.png}
+    Modelo de tripletas del tipo \texttt{(sujeto, predicado, objeto)}:\\
+    \vspace{1cm}
+    \includegraphics[width=0.95\textwidth]{images/grafo-rdf.png}
   \end{center}
 
 
@@ -166,44 +169,47 @@
   \note[item] { En informática hace referencia al intento de formular un exhaustivo 
 		y riguroso esquema conceptual dentro de un dominio dado. }
   \begin{columns}
-   \begin{column}{0.55\textwidth}
+   \begin{column}{0.4\textwidth}
 	\begin{itemize}
 	 \item Forma describir categorías y relaciones básicas.
-	 \item Formulación un exhaustiva y rigurosa del esquema conceptual de un dominio dado.
-	 \item OWL, lenguaje propuesto por el W3C para describir ontologías en la Web.
-	 \item Varios ejemplos: FOAF, SIOC, Dublin Core, SKOS...
+	 \item Formulación rigurosa del esquema conceptual de un dominio dado.
+	 \item OWL, lenguaje propuesto por el W3C.
+	 \item Varios ejemplos: FOAF, SIOC, Dublin Core...
 	\end{itemize}
    \end{column}
-   \begin{column}{0.45\textwidth}
-	\includegraphics[width=0.9\textwidth]{images/ontologia.png}
+   \begin{column}{0.6\textwidth}
+	\includegraphics[width=0.99\textwidth]{images/ontologia.png}
    \end{column}
   \end{columns}
+}
+\frame
+{
+  \frametitle{SPARQL}
 
-
-
-
+  \begin{center}
+    \textbf{SPARQL} (SPARQL Protocol and RDF query language)\\
+    \SPARQL
+  \end{center}
 }
 
 \section{El proyecto SWAML}
 
-\subsection{Tecnologías implicadas}
-\frame
-{
-  \frametitle{Tecnologías implicadas}
+%\frame
+%{
+%  \frametitle{Tecnologías implicadas}
+%
+%  \begin{itemize}
+%    \item<2-> \textbf{Python}: lenguaje de script orientado a objetos.
+%    \item<3-> \textbf{RDFLib}: biblioteca de Python para trabajar con RDF.
+%    \item<4-> \textbf{SIOC}: Semantically-Interlinked Online Communities.
+%  \end{itemize}
+%
+%  \begin{center}
+% 	\only<2-3>{\includegraphics[width=0.65\textwidth]{images/python.png}}
+% 	\only<4>{\includegraphics[width=0.35\textwidth]{images/sioc.png}}
+%  \end{center}
+%}
 
-  \begin{itemize}
-    \item<2-> \textbf{Python}: lenguaje de script orientado a objetos.
-    \item<3-> \textbf{RDFLib}: biblioteca de Python para trabajar con RDF.
-    \item<4-> \textbf{SIOC}: Semantically-Interlinked Online Communities.
-  \end{itemize}
-
-  \begin{center}
- 	\only<2-3>{\includegraphics[width=0.65\textwidth]{images/python.png}}
- 	\only<4>{\includegraphics[width=0.35\textwidth]{images/sioc.png}}
-  \end{center}
-}
-
-\subsection{Componentes}
 \frame
 {
   \frametitle{Componentes de SWAML}
@@ -212,16 +218,36 @@
    \begin{column}{0.35\textwidth}
 	El proyecto SWAML se compone de varias partes:
 	\begin{itemize}
+	 \item \begin{Large}Ontología\end{Large}
 	 \item \begin{Large}SWAML\end{Large}
 	 \item \begin{Large}Buxon\end{Large}
-	 \item Herramientas complementarias
+	 \item \begin{Large}Herramientas complementarias\end{Large}
 	\end{itemize}
    \end{column}
    \begin{column}{0.65\textwidth}
-	\includegraphics[width=0.95\textwidth]{images/swaml.png}
+	\includegraphics[width=0.95\textwidth]{images/componentes.png}
    \end{column}
   \end{columns}
 }
+\subsection{Ontología}
+\frame
+{
+  \begin{columns}
+   \begin{column}{0.6\textwidth}
+	\includegraphics[width=0.95\textwidth]{images/ontologias.png}
+   \end{column}
+   \begin{column}{0.4\textwidth}
+	SWAML utiliza varias ontologías\only<2->{, principalemente:}
+	\begin{itemize}
+	 \item<2-> \begin{Large}SIOC\end{Large}
+	 \item<3-> \begin{Large}SWAML\end{Large}
+	 \item<4-> \begin{Large}FOAF\end{Large}
+	 \item<5-> \begin{Large}Dublin Core\end{Large}
+	\end{itemize}
+   \end{column}
+  \end{columns}
+}
+
 \subsection{SWAML}
 \frame
 {
@@ -253,6 +279,7 @@
     \includegraphics[width=0.8\textwidth]{images/sioc-discussions.png}
   \end{center}
 }
+
 \subsection{Buxon}
 \frame
 {
@@ -276,6 +303,8 @@
    \end{column}
   \end{columns}
 }
+
+\subsection{Herramientas complementarias}
 \frame
 {
   \frametitle{Herramientas complementarias}
@@ -358,14 +387,6 @@
 \appendix
 
 \section{Respuestas preparadas}
-
-\subsection{SPARQL}
-\frame
-{
-\begin{center}
-  \SPARQL
-\end{center}
-}
 
 \subsection{UML}
 \frame

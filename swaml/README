@@ -24,8 +24,7 @@ REQUIREMENTS:
 -------------
 
 	- python >= 2.4.0
-	- rdflib = 2.3.1	(Official releases at http://rdflib.net/releases/. Warning: rdflib != librdf)
-			   			
+	- rdflib >= 2.3.1		        			
 
 
 FEATURES:

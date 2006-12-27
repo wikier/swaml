@@ -7,8 +7,8 @@ ZIP=gzip
 install:
 	cp setup/buxon $(DESTDIR)/usr/bin/buxon
 	chmod 755 $(DESTDIR)/usr/bin/buxon
-	mkdir -p $(DESTDIR)/usr/local/buxon/
-	cp -r buxon.py includes $(DESTDIR)/usr/local/buxon/
+	mkdir -p $(DESTDIR)/usr/share/buxon/
+	cp -r buxon.py includes $(DESTDIR)/usr/share/buxon/
 	mkdir tmp
 	$(ZIP) -9 -c manpages/buxon.1 > tmp/buxon.1.gz
 	mv tmp/buxon.1.gz $(DESTDIR)/usr/share/man/man1/
@@ -16,7 +16,7 @@ install:
 
 uninstall:
 	rm -f $(DESTDIR)/usr/bin/buxon
-	rm -rf $(DESTDIR)/usr/local/buxon
+	rm -rf $(DESTDIR)/usr/share/buxon
 	rm -f $(DESTDIR)/usr/share/man/man1/buxon.1.gz
 
 clean:

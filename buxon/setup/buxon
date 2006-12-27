@@ -20,7 +20,7 @@
 
 import sys
 
-BUXON_PATH = '/usr/local/buxon/'
+BUXON_PATH = '/usr/share/buxon/'
 sys.path.append(BUXON_PATH)
 
 try:

@@ -20,7 +20,7 @@
 
 import sys
 
-SWAML_PATH = '/usr/local/swaml/'
+SWAML_PATH = '/usr/share/swaml/'
 sys.path.append(SWAML_PATH)
 
 try:

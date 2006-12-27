@@ -34,8 +34,8 @@ except:
 	sys.exit(-1)	
 
 try:
-	SWAML_PATH = '/usr/local/'
-	sys.path.append(SWAML_PATH)
+	SWAML_PATH = '/usr/share/swaml/'
+	sys.path.append(SWAML_PATH+'../')
 	from swaml.classes.ui import UI
 	from swaml.classes.cache import Cache
 	from swaml.classes.loadprogressbar import LoadProgressBar

@@ -8,8 +8,8 @@ DOCDIR=doc
 install:
 	cp setup/swaml $(DESTDIR)/usr/bin/swaml
 	chmod 755 $(DESTDIR)/usr/bin/swaml
-	mkdir -p $(DESTDIR)/usr/local/swaml/
-	cp -r __init__.py swaml.py foaf.py kml.py configWizard.py classes includes $(DESTDIR)/usr/local/swaml/
+	mkdir -p $(DESTDIR)/usr/share/swaml/
+	cp -r __init__.py swaml.py foaf.py kml.py configWizard.py classes includes $(DESTDIR)/usr/share/swaml/
 	mkdir -p $(DESTDIR)/usr/share/doc/swaml/examples
 	cp -r config $(DESTDIR)/usr/share/doc/swaml/examples
 	mkdir tmp
@@ -19,7 +19,7 @@ install:
 
 uninstall:
 	rm -f $(DESTDIR)/usr/bin/swaml
-	rm -rf $(DESTDIR)/usr/local/swaml
+	rm -rf $(DESTDIR)/usr/share/swaml
 	rm -rf $(DESTDIR)/usr/share/doc/swaml/examples
 	rm -f $(DESTDIR)/usr/share/man/man1/swaml.1.gz
 

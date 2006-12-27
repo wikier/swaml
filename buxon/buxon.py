@@ -428,7 +428,7 @@ class Buxon(GtkUI):
 	
 		#main window
 		self.window = widgets.get_widget('buxon')
-		self.window.set_icon_from_file(self.base + 'includes/images/rdf.ico')
+		self.window.set_icon_from_file(self.base + 'includes/images/rdf.xpm')
 		self.window.show()		
 		
 		if (uri != None):

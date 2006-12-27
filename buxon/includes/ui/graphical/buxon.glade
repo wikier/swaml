@@ -230,7 +230,7 @@
                                                                                 <property name="visible">True</property>
                                                                                 <child>
                                                                                     <widget class="GtkImage" id="image1">
-                                                                                        <property name="file">../../images/calendar.png</property>
+                                                                                        <property name="file">../../images/calendar.xpm</property>
                                                                                         <property name="visible">True</property>
                                                                                     </widget>
                                                                                 </child>
@@ -284,7 +284,7 @@
                                                                                 <property name="visible">True</property>
                                                                                 <child>
                                                                                     <widget class="GtkImage" id="image1">
-                                                                                        <property name="file">../../images/calendar.png</property>
+                                                                                        <property name="file">../../images/calendar.xpm</property>
                                                                                         <property name="visible">True</property>
                                                                                     </widget>
                                                                                 </child>

@@ -23,6 +23,12 @@ from classes.ui import CommandLineUI
 from classes.configuration import Configuration
 from classes.mailinglist import MailingList
 
+try:
+    import rdflib
+except:
+    print 'RDFLib is requiered'
+    sys.exit(-1)
+
 class SWAML(CommandLineUI):
     """
     Main class of SWAML project

@@ -26,7 +26,7 @@ uninstall:
 gendoc:
 	rm -rf $(DOCDIR)
 	mkdir -p $(DOCDIR)
-	epydoc -n $(NAME) -o $(DOCDIR) --html __init__.py swaml.py foaf.py kml.py buxon.py configWizard.py classes/
+	epydoc -n $(NAME) -o $(DOCDIR) --html __init__.py swaml.py foaf.py kml.py configWizard.py classes/
 
 pubdoc:	gendoc
 	scp -r $(DOCDIR)/* $(USER)@shell.berlios.de:/home/groups/swaml/htdocs/$(DOCDIR)/

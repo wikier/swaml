@@ -1,7 +1,7 @@
 
-XXXX-XX-XX	0.0.5	- SIOC generator independence in Buxon
-			- Cache dump added in Buxon
+XXXX-XX-XX	0.0.5	- Buxon parted as an independent tool
 			- Added a wizard to write configuration files
+			- Another minor changes according to Debian policies
 
 2006-11-21	0.0.4	- Minor bugs fixed
 			- sioc:Site class added

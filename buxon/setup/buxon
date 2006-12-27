@@ -20,12 +20,12 @@
 
 import sys
 
-SWAML_PATH = '/usr/local/swaml/'
-sys.path.append(SWAML_PATH)
+BUXON_PATH = '/usr/local/buxon/'
+sys.path.append(BUXON_PATH)
 
 try:
 	from buxon import Buxon, BuxonMain
-	sys.exit(BuxonMain(sys.argv[1:], SWAML_PATH))
+	sys.exit(BuxonMain(sys.argv[1:], BUXON_PATH))
 except ImportError:
 	print 'Buxon cannot be found; please, ensure that it is installed correctly.'
 	sys.exit(1)

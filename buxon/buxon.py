@@ -23,13 +23,25 @@ import pygtk
 pygtk.require('2.0')
 import gtk, pango
 from gazpacho.loader.loader import ObjectBuilder
-from classes.ui import UI
-import rdflib
-from rdflib import sparql, Namespace
-from classes.cache import Cache
-from classes.loadprogressbar import LoadProgressBar
-from classes.calendarwindow import CalendarWindow
-from classes.namespaces import SIOC, RDF, DC, DCTERMS
+
+try:
+	import rdflib
+	from rdflib import sparql, Namespace
+except:
+	print 'RDFLib is requiered'
+	sys.exit(-1)	
+
+try:
+	SWAML_PATH = '/usr/local/'
+	sys.path.append(SWAML_PATH)
+	from swaml.classes.ui import UI
+	from swaml.classes.cache import Cache
+	from swaml.classes.loadprogressbar import LoadProgressBar
+	from swaml.classes.calendarwindow import CalendarWindow
+	from swaml.classes.namespaces import SIOC, RDF, DC, DCTERMS
+except:
+	print 'SWAML is requiered'
+	sys.exit(-1)
 
 
 class Callbacks:

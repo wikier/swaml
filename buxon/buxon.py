@@ -28,7 +28,7 @@ try:
 	import rdflib
 	from rdflib import sparql, Namespace
 except:
-	print 'RDFLib is requiered'
+	print 'RDFLib is required'
 	sys.exit(-1)	
 
 try:
@@ -40,7 +40,7 @@ try:
 	from swaml.classes.calendarwindow import CalendarWindow
 	from swaml.classes.namespaces import SIOC, RDF, DC, DCTERMS
 except:
-	print 'SWAML is requiered'
+	print 'SWAML is required'
 	sys.exit(-1)
 
 

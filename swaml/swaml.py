@@ -26,7 +26,7 @@ from classes.mailinglist import MailingList
 try:
     import rdflib
 except:
-    print 'RDFLib is requiered'
+    print 'RDFLib is required'
     sys.exit(-1)
 
 class SWAML(CommandLineUI):

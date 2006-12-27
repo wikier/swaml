@@ -1,7 +1,6 @@
 
 XXXX-XX-XX	0.0.3	- Separated of SWAML
 			- Cache dump added in Buxon
-			- Added a wizard to write configuration files
 
 2006-11-21	0.0.2	- Minor bugs fixed
 			- New inheritance scheme for classes with any type of UI

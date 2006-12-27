@@ -1,7 +1,9 @@
 #!/usr/bin/env python2.4
 # -*- coding: utf8 -*-
 #
-# GSR <http://swaml.berlios.de/>
+# Buxon, a sioc:Forum Visor
+#
+# SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
 # Copyright (C) 2006 Sergio Fdez, Diego Berrueta

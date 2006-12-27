@@ -7,8 +7,7 @@ semantic web friendly format (RDF in XML).
    'configfile'      : path to a configuration file compatible with RFC822.
 
 Options:
-   -v, --verbose     : turn on verbose mode.
-   -V, --version     : show version.
+   -v, --version     : show version.
    -h, --help        : print this help message and exit.
 
 Report bugs to: <http://swaml.berlios.de/bugs>

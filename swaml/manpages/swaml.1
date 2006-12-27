@@ -1,0 +1,39 @@
+.TH SWAML "1" "December 2006" "swaml" "User Commands"
+.SH NAME
+\fBSWAML\fP \- Semantic Web Archive of Mailing Lists
+.SH SYNOPSIS
+\fBswaml\fP \fIconfigfile\fP [options]
+.SH DESCRIPTION
+\fBSWAML\fP transform the archives of a mailing list (in mbox format)
+into a semantic web friendly format (RDF in XML).
+.PP
+It reads a collection of email messages stored in a mailbox (from a 
+mailing list compatible with RFC 4155) and generates a RDF description. 
+It is written in Python using SIOC as the main ontology to represent 
+in RDF a mailing list.
+.SH OPTIONS
+.TP
+.B
+\fB\-h\fR, \fB\-\-help\fR
+Print help text and exit.
+.TP
+.B
+\fB\-v, --version\fP
+Print version and exit.
+.SH EXAMPLES
+On directory /usr/share/doc/swaml/examples you should find some 
+configuration file examples.
+.SH AUTHOR
+Manpage written by Nacho Barrientos Arias <chipi@criptonita.com> and 
+Sergio Fdez <sergio@wikier.org> for the Debian GNU/Linux system (but 
+may be used by others).
+.SH BUGS
+Report bugs to Debian BTS or to http://swaml.berlios.de/bugs.
+.SH COPYRIGHT
+Copyright \(co 2006, Sergio Fdez. Licensed under GPLv2 license.
+.PP
+.nf
+.fam C
+http://swaml.berlios.de/
+.SH "SEE ALSO"
+.BR buxon (1)

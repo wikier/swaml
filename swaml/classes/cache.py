@@ -1,6 +1,3 @@
-#!/usr/bin/env python2.4
-# -*- coding: utf8 -*-
-#
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
@@ -19,7 +16,9 @@
 """a cache service for sioc:Forum"""
 
 import rdflib
-from rdflib import sparql, Namespace
+from rdflib import Namespace
+from rdflib.sparql import sparqlGraph
+from rdflib.sparql.graphPattern import GraphPattern
 from namespaces import SIOC, RDF, RDFS, DC, DCTERMS
 from date import MailDate
 import gtk
@@ -112,15 +111,15 @@ class Cache:
         """
         
         try:    
-            sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
+            sparqlGr = sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')            
-            where  = sparql.GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
+            where  = GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
                                           ('?post',    DC['title'],            '?postTitle'),
                                           ('?post',    DCTERMS['created'],     '?date'),
                                           ('?post',    SIOC['content'],        '?content'),
                                           ('?post',    SIOC['has_creator'],    '?user'),
                                           ('?user',    SIOC['name'],           '?userName')])
-            opt    = sparql.GraphPattern([('?post',    SIOC['reply_of'],       '?parent')])
+            opt    = GraphPattern([('?post',    SIOC['reply_of'],       '?parent')])
             posts  = sparqlGr.query(select, where, opt)
             return self.orderByDate(posts)
         except Exception, details:
@@ -133,9 +132,9 @@ class Cache:
         """
         
         try:    
-            sparqlGr = sparql.sparqlGraph.SPARQLGraph(self.graph)
+            sparqlGr = sparqlGraph.SPARQLGraph(self.graph)
             select = ('?post', '?title')            
-            where  = sparql.GraphPattern([('?post', RDF['type'],   SIOC['Post']),
+            where  = GraphPattern([('?post', RDF['type'],   SIOC['Post']),
                                           ('?post', DC['title'], '?title')])
             posts  = sparqlGr.query(select, where)
             

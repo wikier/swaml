@@ -1,6 +1,3 @@
-#!/usr/bin/env python2.4
-# -*- coding: utf8 -*-
-#
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
@@ -26,7 +23,6 @@ from rdflib import Graph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from rdflib import Namespace
-from rdflib.sparql import sparqlGraph, GraphPattern
 from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
 
 

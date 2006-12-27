@@ -21,7 +21,8 @@
 import sys, os, string
 from classes.ui import CommandLineUI
 import rdflib
-from rdflib import sparql
+from rdflib.sparql import sparqlGraph
+from rdflib.sparql.graphPattern import GraphPattern
 from classes.namespaces import SWAML, SIOC, RDF, FOAF, GEO
 from classes.kml import KML
 
@@ -58,15 +59,15 @@ class SwamlKmlExporter(CommandLineUI):
         graph = self.parse(input)
         
         #sparql query
-        sparqlGr = sparql.sparqlGraph.SPARQLGraph(graph)
+        sparqlGr = sparqlGraph.SPARQLGraph(graph)
         select = ('?name', '?lat', '?lon', '?pic')
-        where = sparql.GraphPattern(
+        where = GraphPattern(
             [('?x', RDF['type'], SIOC['User']),
              ('?x', SIOC['name'], '?name'),
              ('?x', FOAF['based_near'], "?y"),
              ('?y', GEO['long'], '?lon'),
              ('?y', GEO['lat'], '?lat')])
-        opt = sparql.GraphPattern([('?x', SIOC['avatar'], "?pic")])
+        opt = GraphPattern([('?x', SIOC['avatar'], "?pic")])
         users = sparqlGr.query(select, where, opt)
         
         n = len(users)
@@ -96,7 +97,7 @@ class SwamlKmlExporter(CommandLineUI):
         @param argv: values of inline arguments
         """       
         
-        CommandLineUI.__init__(self, 'kml')
+        CommandLineUI.__init__(self, 'kml', os.getcwd() + '/')
         
         for arg in argv:
             if arg == "-h" or arg == "--help":

@@ -18,12 +18,12 @@
 
 """Buxon, a sioc:Forum visor"""
 
-import sys
+import sys, os
 import pygtk
 pygtk.require('2.0')
 import gtk, pango
 from gazpacho.loader.loader import ObjectBuilder
-from classes.ui import GtkUI
+from classes.ui import UI
 import rdflib
 from rdflib import sparql, Namespace
 from classes.cache import Cache
@@ -67,6 +67,84 @@ class Callbacks:
 	def alertButtonClicked(self):
 		buxon.alertWindow.destroy()
 		
+		
+class GtkUI(UI):
+    """
+    Abstract class for GTK User Interfaces
+    """    
+    
+    def usage(self):
+        """
+        Print usage information
+        """
+                
+        path = self.lineBase + 'usage/' + self.id + '.txt'
+        
+        try:
+            for line in open(path):
+                print line,
+        except IOError, details:
+                print 'Problem reading from ' + path + ': ' + str(details)
+                
+        sys.exit()
+    
+    def alert(self, text):
+        """
+        Alert window
+        
+        @param text: text on alert
+        """
+        
+        self.alertWindow = gtk.Window(gtk.WINDOW_POPUP)
+        self.alertWindow.set_position(gtk.WIN_POS_CENTER_ALWAYS)
+        self.alertWindow.set_modal(True)
+        self.alertWindow.set_resizable(False)
+        self.alertWindow.set_border_width(0)
+        
+        vbox = gtk.VBox(False, 5)
+        vbox.set_border_width(10)
+        self.alertWindow.add(vbox)
+        vbox.show()
+                
+        align1 = gtk.Alignment(0.5, 0.5, 0, 0)
+        vbox.pack_start(align1, False, False, 5)
+        align1.show()
+        label = gtk.Label(text)
+        align1.add(label)
+        label.show()
+        
+        align2 = gtk.Alignment(0.5, 0.5, 0, 0)
+        vbox.pack_start(align2, False, False, 5)
+        align2.show()        
+        button = gtk.Button('OK')
+        button.connect('clicked', self.destroyAlert, 'cool button')
+        align2.add(button)
+        button.show()
+        
+        self.alertWindow.show()
+        
+    def destroyAlert(self, widget=None, other=None):
+        """
+        Destroy aler window
+        
+        @param widget: widget
+        @param other: other
+        """
+        
+        self.alertWindow.destroy() 
+    
+    def __init__(self, id=None, base='./'):
+        """
+        Constructor method
+        
+        @param id: string id
+        @param base: base directory
+        """
+                
+        UI.__init__(self, id, base)
+        self.lineBase = self.base + 'includes/ui/text/'
+        self.graphicalBase = self.base + 'includes/ui/graphical/'
+    
 
 class Buxon(GtkUI):
 
@@ -351,7 +429,7 @@ class Buxon(GtkUI):
 		@param base: base directory
 		"""
 		
-		GtkUI.__init__(self, 'buxon')
+		GtkUI.__init__(self, 'buxon', base)
 		
 		self.base = base
 		self.cache = None
@@ -365,18 +443,19 @@ buxon = None
 
 class BuxonMain:
 	
-	def __init__(self, argv):
+	def __init__(self, argv, base=None):
 		"""
 		All operation that Buxon need to run
 		"""
 		
-		try:
-			path = __file__.split('/')
-			base = '/'.join(path[:-1]) + '/'
-			
+		try:			
 			global widgets
 			global callbacks
 			global buxon
+			
+			if (base == None):
+				path = __file__.split('/')
+				base = '/'.join(path[:-1]) + '/'
 			
 			widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
 			callbacks = Callbacks()

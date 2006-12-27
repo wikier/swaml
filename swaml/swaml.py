@@ -18,7 +18,7 @@
 
 """Semantic Web Archive of Mailing Lists"""
 
-import sys, string
+import sys, os, string
 from classes.ui import CommandLineUI
 from classes.configuration import Configuration
 from classes.mailinglist import MailingList
@@ -42,15 +42,21 @@ class SWAML(CommandLineUI):
             self.usage()
             
         #self.config.show()
+        
+    def version(self):
+        print "SWAML 0.0.5", #TODO: __init__.__version__
+        sys.exit()
 
-    def __init__(self, argv):
+    def __init__(self, argv, base=None):
         """
         main method
         @param argv: values of inline arguments
         """
         
-        path = __file__.split('/')
-        base = '/'.join(path[:-1]) + '/'
+        if (base == None):
+            path = __file__.split('/')
+            base = '/'.join(path[:-1]) + '/'
+        
         CommandLineUI.__init__(self, 'swaml', base)
         
         self.config = Configuration()        
@@ -58,10 +64,10 @@ class SWAML(CommandLineUI):
         for arg in argv:
             if arg == "-h" or arg == "--help":
                 self.usage()
-            elif arg == "-v" or arg == "--verbose":
-                self.config.set('verbose', True)
+            elif arg == "-v" or arg == "--version":
+                self.version()
                 
-        self.config.setAgent('http://swaml.berlios.de/doap.rdf')
+        self.config.setAgent('http://swaml.berlios.de/doap.rdf') #TODO: how __init__.__agent__?
         self.parseArgs(argv)
         self.list = MailingList(self.config)
         messages = self.list.publish()

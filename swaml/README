@@ -43,7 +43,8 @@ FEATURES:
 PLANNED FEATURES:
 -----------------
 
+	* RSS exportation of last messages
 	* (X)HTML output
 	* serialize to any RDFdb (sesame for example)
 	* incremental exportations
-  
+

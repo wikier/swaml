@@ -47,9 +47,11 @@
 
       <img src="images/swaml.png" width="400" height="336" alt="SWAML process description" id="process" />
 
+<!--
       <p id="advertisement">
      	This project is still on development phase, not to be used without careful considerations.
       </p>
+-->
 
       <p>
      	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> reads a collection of email messages 
@@ -66,11 +68,29 @@
       <ul>
      	<li><a href="http://www.wikier.org/">Sergio Fdez</a> (maintainer)</li>
      	<li><a href="http://www.berrueta.net/">Diego Berrueta</a></li>
-     	<li><a href="http://www.di.uniovi.es/~labra/">Jose E. Labra</a></li>
+     	<li><a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a></li>
+     	<li><a href="http://www.asturlinux.org/comunidad/blog/frade">Iván Frade</a></li>
+     	<li><a href="http://criptonita.com/~nacho">Nacho Barrientos</a></li>
       </ul>
 
       <p>
-     	It has some <strong>features</strong>:
+		Mainly it's formed by two components:
+      </p>
+      <ul>
+     	<li>
+		  <strong><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym></strong>, 
+		  the core process that exports a mailing list in 
+		  <acronym title="Resource Description Framework">RDF</acronym>.
+		</li>
+     	<li>
+		  <strong>Buxon</strong>, a graphical
+		  <acronym title="Semantically-Interlinked Online Communities ">sioc</acronym>:Forum
+		  visor.
+		</li>
+      </ul>
+
+      <p>
+     	And it has some <strong>features</strong>:
       </p>
       <ul>
       	<li>platform independent (written in <a href="http://www.python.org/">python</a>)</li>
@@ -101,8 +121,13 @@
 		</p>
     	<dl>
     	 <dt>
-    	  	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>
+    	  	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>:
     	 </dt>
+    	 <dd>
+			<a href="http://prdownload.berlios.de/swaml/swaml-0.0.5.tar.gz">swaml-0.0.5.tar.gz</a>
+			and
+			<a href="http://prdownload.berlios.de/swaml/swaml_0.0.5-1_all.deb">swaml_0.0.5-1_all.deb</a>
+    	 </dd>
     	 <dd>
 			<a href="http://prdownload.berlios.de/swaml/swaml-0.0.4.tar.gz">swaml-0.0.4.tar.gz</a>
     	 </dd>
@@ -115,10 +140,22 @@
    	 	 <dd>
 			<a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
     	 </dd>
+    	 <dt>
+    	  	Buxon:
+    	 </dt>
+    	 <dd>
+			<a href="http://prdownload.berlios.de/swaml/buxon-0.0.3.tar.gz">buxon-0.0.3.tar.gz</a>
+			and
+			<a href="http://prdownload.berlios.de/swaml/buxon_0.0.3-1_all.deb">buxon_0.0.3-1_all.deb</a>
+    	 </dd>
    	 	</dl>
 
     	<p>
-		  You can see <a href="/demo">demo</a> of which <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> makes.
+		  All packages dependes of <a href="http://rdflib.net/">RDFLib</a>
+		  (install it from <a href="http://rdflib.net/releases/">tarballs</a> or using
+		  <a href="http://zoidberg.criptonita.com/~nacho/debian/rdflib/">debian packages</a>).
+		  You can see a <a href="/demo">demo</a> of which 
+		  <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> makes.
 		</p>
 
     	<p>

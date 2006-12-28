@@ -151,7 +151,7 @@
    	 	</dl>
 
     	<p>
-		  All packages dependes of <a href="http://rdflib.net/">RDFLib</a>
+		  All packages depends of <a href="http://rdflib.net/">RDFLib</a>
 		  (install it from <a href="http://rdflib.net/releases/">tarballs</a> or using
 		  <a href="http://zoidberg.criptonita.com/~nacho/debian/rdflib/">debian packages</a>).
 		  You can see a <a href="/demo">demo</a> of which 

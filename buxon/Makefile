@@ -8,7 +8,10 @@ install:
 	cp setup/buxon $(DESTDIR)/usr/bin/buxon
 	chmod 755 $(DESTDIR)/usr/bin/buxon
 	mkdir -p $(DESTDIR)/usr/share/buxon/
-	cp -r buxon.py includes $(DESTDIR)/usr/share/buxon/
+	cp buxon.py $(DESTDIR)/usr/share/buxon/
+	mkdir -p $(DESTDIR)/usr/share/buxon/includes/images
+	cp includes/images/calendar.xpm $(DESTDIR)/usr/share/buxon/includes/images/
+	cp -r includes/ui $(DESTDIR)/usr/share/buxon/includes/
 	mkdir -p $(DESTDIR)/usr/share/pixmaps
 	cp includes/images/rdf.xpm $(DESTDIR)/usr/share/pixmaps/buxon.xpm
 	mkdir tmp

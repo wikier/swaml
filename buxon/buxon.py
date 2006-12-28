@@ -428,7 +428,10 @@ class Buxon(GtkUI):
 	
 		#main window
 		self.window = widgets.get_widget('buxon')
-		self.window.set_icon_from_file(self.base + 'includes/images/rdf.xpm')
+		if (os.path.exists('/usr/share/pixmaps/buxon.xpm')):
+			self.window.set_icon_from_file('/usr/share/pixmaps/buxon.xpm')
+		else:
+			self.window.set_icon_from_file(self.base + 'includes/images/rdf.xpm')
 		self.window.show()		
 		
 		if (uri != None):

@@ -158,6 +158,11 @@ div#content {
   text-align: justify;
 }
 
+#content ul#members li ul {
+  list-style: none;
+  display: inline;
+}
+
 #content p.svn {
 	font-family: monospace;
 	text-align: center;

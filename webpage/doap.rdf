@@ -37,34 +37,51 @@
       <foaf:Person>
         <foaf:name>Sergio Fdez</foaf:name>
         <foaf:nick>Wikier</foaf:nick>
-        <foaf:mbox_sha1sum>119222cf3a2893a375cc4f884a0138155c771415</foaf:mbox_sha1sum>
+        <foaf:mbox_sha1sum>d0fd987214f56f70b4c47fb96795f348691f93ab</foaf:mbox_sha1sum>
         <rdfs:seeAlso rdf:resource="http://www.wikier.org/foaf.rdf#wikier"/>
         <foaf:homepage rdf:resource="http://www.wikier.org/" />
       </foaf:Person>
     </doap:maintainer>
 
-    <doap:maintainer>
+    <doap:developer>
       <foaf:Person>
         <foaf:name>Diego Berrueta</foaf:name>
         <foaf:mbox_sha1sum>98a99390f2fe9395041bddc41e933f50e59a5ecb</foaf:mbox_sha1sum>
         <rdfs:seeAlso rdf:resource="http://www.berrueta.net/foaf.rdf#me"/>
         <foaf:homepage rdf:resource="http://www.berrueta.net/"/>
       </foaf:Person>
-    </doap:maintainer>
+    </doap:developer>
 
-    <doap:maintainer>
+    <doap:developer>
       <foaf:Person>
         <foaf:name>Jose Labra</foaf:name>
         <foaf:mbox_sha1sum>3d0a8f16ce3d560ca75e16d36f6ded63599c60a7</foaf:mbox_sha1sum>
         <rdfs:seeAlso rdf:resource="http://www.di.uniovi.es/~labra/labraFoaf.rdf"/>
         <foaf:homepage rdf:resource="ttp://www.di.uniovi.es/~labra/"/>
       </foaf:Person>
-    </doap:maintainer>
+    </doap:developer>
+
+    <doap:helper>
+      <foaf:Person>
+        <foaf:name>Iván Frade</foaf:name>
+        <foaf:mbox_sha1sum>84d076726727b596b08198e26ef37e4817353e97</foaf:mbox_sha1sum>
+        <rdfs:seeAlso rdf:resource="http://frade.no-ip.info:2080/~ivan/foaf.rdf"/>
+      </foaf:Person>
+    </doap:helper>
+
+    <doap:helper>
+      <foaf:Person>
+        <foaf:name>Nacho Barrientos</foaf:name>
+        <foaf:mbox_sha1sum>6b31c41e80d36cc08a489462c0c2c37d7de8d2e5</foaf:mbox_sha1sum>
+        <rdfs:seeAlso rdf:resource="http://criptonita.com/~nacho/foaf.rdf"/>
+        <foaf:homepage rdf:resource="http://criptonita.com/~nacho"/>
+      </foaf:Person>
+    </doap:helper>
 
     <doap:repository>
       <doap:SVNRepository>
         <doap:module>swaml</doap:module>
-        <doap:browse rdf:resource="http://svn.berlios.de/wsvn/swaml"/>
+        <doap:browse rdf:resource="http://swaml.berlios.de/wsvn"/>
       </doap:SVNRepository>
     </doap:repository>
 

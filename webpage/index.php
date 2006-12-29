@@ -65,12 +65,63 @@
       <p>
 		In the project we're involved:
       </p>
-      <ul>
-     	<li><a href="http://www.wikier.org/">Sergio Fdez</a> (maintainer)</li>
-     	<li><a href="http://www.berrueta.net/">Diego Berrueta</a></li>
-     	<li><a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a></li>
-     	<li><a href="http://www.asturlinux.org/comunidad/blog/frade">Iván Frade</a></li>
-     	<li><a href="http://criptonita.com/~nacho">Nacho Barrientos</a></li>
+      <ul id="members">
+     	<li>
+     	  <ul>
+     	    <li>
+     	      <a href="http://www.wikier.org/">Sergio Fdez</a> 
+     	    </li>
+     	    <li>
+     	      <a href="http://www.wikier.org/foaf.rdf#wikier"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	    </li>
+     	    <li>
+     	      (maintainer)
+     	    </li>
+     	  </ul>
+     	</li>
+     	<li>
+     	  <ul>
+     	    <li>
+     	      <a href="http://www.berrueta.net/">Diego Berrueta</a>
+     	    </li>
+     	    <li>
+     	      <a href="http://www.berrueta.net/foaf.rdf#me"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	    </li>
+     	  </ul>	  
+     	</li>
+     	<li>
+     	  <ul>
+     	    <li>
+     	      <a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a>
+     	    </li>
+     	    <li>
+     	      <a href="http://www.di.uniovi.es/~labra/labraFoaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	    </li>
+     	  </ul>	 
+     	</li>
+     	<li>
+     	  <ul>
+     	    <li>
+     	      <a href="http://www.asturlinux.org/comunidad/blog/frade">Iván Frade</a>
+     	    </li>
+     	    <li>
+     	      <a href="http://frade.no-ip.info:2080/~ivan/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	    </li>
+     	  </ul>	 
+     	</li>
+     	<li>
+     	  <ul>
+     	    <li>
+     	      <a href="http://criptonita.com/~nacho">Nacho Barrientos</a>
+     	    </li>
+     	    <li>
+     	      <a href="http://criptonita.com/~nacho/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	    </li>
+     	    <li>
+     	      (debian packager)
+     	    </li>
+     	  </ul>	 
+     	</li>
       </ul>
 
       <p>

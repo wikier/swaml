@@ -81,7 +81,7 @@
         <property name="default_height">1</property>
         <property name="default_width">1</property>
         <property name="icon_name" context="yes" translatable="yes"></property>
-        <property name="title" context="yes" translatable="yes">Buxon, a sioc:Forum visor</property>
+        <property name="title" context="yes" translatable="yes">Buxon, a sioc:Forum browser</property>
         <property name="type_hint">dialog</property>
         <property name="window_position">center</property>
         <signal handler="destroy" name="destroy"/>

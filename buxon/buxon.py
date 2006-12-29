@@ -18,7 +18,7 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-"""Buxon, a sioc:Forum visor"""
+"""Buxon, a sioc:Forum browser"""
 
 import sys, os
 import pygtk

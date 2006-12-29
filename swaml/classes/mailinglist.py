@@ -20,7 +20,8 @@ from mbox import Mbox
 from subscribers import Subscribers
 from message import Message
 from index import Index
-from rdflib import Graph, URIRef, Literal, BNode, RDF
+from rdflib.Graph import ConjunctiveGraph
+from rdflib import URIRef, Literal, BNode, RDF
 from namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
 import datetime
 from date import FileDate
@@ -171,7 +172,7 @@ class MailingList:
         """
 
         #rdf graph
-        store = Graph()
+        store = ConjunctiveGraph()
         
         #namespaces
         store.bind('swaml', SWAML)

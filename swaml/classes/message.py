@@ -17,7 +17,7 @@
 
 import sys, os, string, sha
 import datetime, email, email.Errors
-from rdflib import Graph
+from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from charset import Charset
@@ -330,7 +330,7 @@ class Message:
         """
         
         #rdf graph
-        store = Graph()
+        store = ConjunctiveGraph()
         
         #namespaces
         from namespaces import SWAML, SIOC, RDFS, FOAF, DC, DCTERMS

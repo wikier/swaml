@@ -19,7 +19,7 @@ import sys, os, string
 from message import Message
 from foaf import FOAFS
 import rdflib
-from rdflib import Graph
+from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from rdflib import Namespace
@@ -259,7 +259,7 @@ class Subscribers:
             os.mkdir(self.config.get('dir'))
 
         #rdf graph
-        store = Graph()
+        store = ConjunctiveGraph()
         
         #namespaces
         store.bind('swaml', SWAML)

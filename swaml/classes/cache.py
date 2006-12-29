@@ -19,6 +19,7 @@ import rdflib
 from rdflib import Namespace
 from rdflib.sparql import sparqlGraph
 from rdflib.sparql.graphPattern import GraphPattern
+from rdflib.Graph import ConjunctiveGraph
 from namespaces import SIOC, RDF, RDFS, DC, DCTERMS
 from date import MailDate
 import gtk
@@ -185,7 +186,7 @@ class Cache:
         @param uri: mailing list's uri
         """
         
-        graph = rdflib.Graph()
+        graph = ConjunctiveGraph()
         print 'Getting mailing list data (', uri, ')...',
         graph.parse(uri)
         print 'OK, loaded', len(graph), 'triples'

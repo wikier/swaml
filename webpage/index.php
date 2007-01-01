@@ -67,60 +67,24 @@
       </p>
       <ul id="members">
      	<li>
-     	  <ul>
-     	    <li>
-     	      <a href="http://www.wikier.org/">Sergio Fdez</a> 
-     	    </li>
-     	    <li>
-     	      <a href="http://www.wikier.org/foaf.rdf#wikier"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
-     	    </li>
-     	    <li>
-     	      (maintainer)
-     	    </li>
-     	  </ul>
+     	  <a href="http://www.wikier.org/">Sergio Fdez</a> (maintainer),
+     	  <a href="http://www.wikier.org/foaf.rdf#wikier"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <ul>
-     	    <li>
-     	      <a href="http://www.berrueta.net/">Diego Berrueta</a>
-     	    </li>
-     	    <li>
-     	      <a href="http://www.berrueta.net/foaf.rdf#me"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
-     	    </li>
-     	  </ul>	  
+     	  <a href="http://www.berrueta.net/">Diego Berrueta</a>,
+     	  <a href="http://www.berrueta.net/foaf.rdf#me"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <ul>
-     	    <li>
-     	      <a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a>
-     	    </li>
-     	    <li>
-     	      <a href="http://www.di.uniovi.es/~labra/labraFoaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
-     	    </li>
-     	  </ul>	 
+     	  <a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a>,
+     	  <a href="http://www.di.uniovi.es/~labra/labraFoaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <ul>
-     	    <li>
-     	      <a href="http://www.asturlinux.org/comunidad/blog/frade">Iván Frade</a>
-     	    </li>
-     	    <li>
-     	      <a href="http://frade.no-ip.info:2080/~ivan/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
-     	    </li>
-     	  </ul>	 
+     	  <a href="http://www.asturlinux.org/comunidad/blog/frade">Iván Frade</a>,
+     	  <a href="http://frade.no-ip.info:2080/~ivan/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <ul>
-     	    <li>
-     	      <a href="http://criptonita.com/~nacho">Nacho Barrientos</a>
-     	    </li>
-     	    <li>
-     	      <a href="http://criptonita.com/~nacho/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
-     	    </li>
-     	    <li>
-     	      (debian packager)
-     	    </li>
-     	  </ul>	 
+     	  <a href="http://criptonita.com/~nacho">Nacho Barrientos</a> (debian package),
+     	  <a href="http://criptonita.com/~nacho/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
       </ul>
 
@@ -202,7 +166,7 @@
    	 	</dl>
 
     	<p>
-		  All packages depends of <a href="http://rdflib.net/">RDFLib</a>
+		  All packages depends on <a href="http://rdflib.net/">RDFLib</a>
 		  (install it from <a href="http://rdflib.net/releases/">tarballs</a> or using
 		  <a href="http://zoidberg.criptonita.com/~nacho/debian/rdflib/">debian packages</a>).
 		  You can see a <a href="/demo">demo</a> of which 

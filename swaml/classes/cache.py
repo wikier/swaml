@@ -22,6 +22,7 @@ from rdflib.sparql.graphPattern import GraphPattern
 from rdflib.Graph import ConjunctiveGraph
 from namespaces import SIOC, RDF, RDFS, DC, DCTERMS
 from date import MailDate
+from ptsw import PTSW
 import gtk
 
 class Cache:
@@ -190,8 +191,12 @@ class Cache:
         print 'Getting mailing list data (', uri, ')...',
         graph.parse(uri)
         print 'OK, loaded', len(graph), 'triples'
+        
         if (self.pb != None):
             self.pb.progress()
+            
+        self.ptsw.ping(uri)
+        
         return graph
     
     def __loadData(self, uri):
@@ -208,6 +213,8 @@ class Cache:
             self.pb.progress()
             while gtk.events_pending():
                 gtk.main_iteration()
+                
+        self.ptsw.ping(uri)
                 
         print 'OK, now', len(self.graph), 'triples'     
     
@@ -279,6 +286,7 @@ class Cache:
         self.uri = uri
         self.bad = False
         self.pb = pb
+        self.ptsw = PTSW()
         
         
         try:

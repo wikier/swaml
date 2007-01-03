@@ -21,6 +21,7 @@ class PTSW:
     
     def __init__(self):
         self.rest = "http://pingthesemanticweb.com/rest/?url="
+        self.pinged = 0
 
     def ping(self, uri):
         try:
@@ -29,7 +30,10 @@ class PTSW:
             socket.setdefaulttimeout(5)
             response = urllib2.urlopen(self.rest+uri).read()
             responseParsed = self.parseResponse(response)
-            return (responseParsed['flerror'] == 0)
+            ok = (responseParsed['flerror'] == 0)
+            if ok:
+                self.pinged += 1
+            return ok
         except:
             return False
         
@@ -47,4 +51,6 @@ class PTSW:
                 dict[key] = value
                     
         return dict
-
+    
+    def stats(self):
+        return self.pinged, 'SIOC files pinged'

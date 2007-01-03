@@ -23,6 +23,7 @@ from rdflib.Graph import ConjunctiveGraph
 from namespaces import SIOC, RDF, RDFS, DC, DCTERMS
 from date import MailDate
 from ptsw import PTSW
+import socket
 import gtk
 
 class Cache:
@@ -189,13 +190,18 @@ class Cache:
         
         graph = ConjunctiveGraph()
         print 'Getting mailing list data (', uri, ')...',
-        graph.parse(uri)
-        print 'OK, loaded', len(graph), 'triples'
+        try:
+            graph.parse(uri)
+            print 'OK, loaded', len(graph), 'triples'
+        except URLError, e:
+            print '\nAn exception ocurred parsing ' + uri + ': ' + e.reason
+            return graph         
         
         if (self.pb != None):
             self.pb.progress()
             
-        self.ptsw.ping(uri)
+        if (self.ptsw != None):
+            self.ptsw.ping(uri)
         
         return graph
     
@@ -207,14 +213,19 @@ class Cache:
         """
         
         print 'Resolving reference to get additional data (', uri, ')...',
-        self.graph.parse(uri)
+        try:
+            self.graph.parse(uri)
+        except URLError, e:
+            print '\nAn exception ocurred parsing ' + uri + ': ' + e.reason
+            return
         
         if (self.pb != None):
             self.pb.progress()
             while gtk.events_pending():
                 gtk.main_iteration()
-                
-        self.ptsw.ping(uri)
+        
+        if (self.ptsw != None):
+            self.ptsw.ping(uri)
                 
         print 'OK, now', len(self.graph), 'triples'     
     
@@ -275,7 +286,7 @@ class Cache:
             except IOError, detail:
                 print 'Error dumping cache: ' + str(detail)
 
-    def __init__(self, uri, pb=None):
+    def __init__(self, uri, ping, pb=None):
         """
         Cache constructor
         
@@ -286,8 +297,12 @@ class Cache:
         self.uri = uri
         self.bad = False
         self.pb = pb
-        self.ptsw = PTSW()
+        if ping:
+            self.ptsw = PTSW()
+        else:
+            self.ptsw = None
         
+        socket.setdefaulttimeout(5)
         
         try:
             self.graph = self.loadMailingList(self.uri)
@@ -302,5 +317,8 @@ class Cache:
         
         if (self.pb != None):
             self.pb.destroy()
+        
+        if (self.ptsw != None):
+            print self.ptsw.stats()
         
         print 'Total triples loaded:', len(self.graph)

@@ -113,11 +113,22 @@
                                 <property name="is_focus">True</property>
                                 <property name="text" context="yes" translatable="yes">http://</property>
                                 <property name="visible">True</property>
-                                <property name="width_request">700</property>
+                                <property name="width_request">500</property>
                                 <signal handler="goButtonClicked" name="activate"/>
                             </widget>
                             <packing>
                                 <property name="position">1</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkCheckButton" id="checkping">
+                                <property name="active">True</property>
+                                <property name="label" context="yes" translatable="yes">PingTheSemanticWeb.com</property>
+                                <property name="visible">True</property>
+                            </widget>
+                            <packing>
+                                <property name="expand">False</property>
+                                <property name="position">2</property>
                             </packing>
                         </child>
                         <child>
@@ -130,8 +141,7 @@
                                 <signal handler="goButtonClicked" name="clicked"/>
                             </widget>
                             <packing>
-                                <property name="expand">False</property>
-                                <property name="position">2</property>
+                                <property name="position">3</property>
                             </packing>
                         </child>
                     </widget>
@@ -342,6 +352,7 @@
                             <widget class="GtkScrolledWindow" id="scrolledwindow2">
                                 <property name="border_width">6</property>
                                 <property name="hscrollbar_policy">never</property>
+                                <property name="is_focus">True</property>
                                 <property name="visible">True</property>
                                 <property name="vscrollbar_policy">automatic</property>
                                 <child>

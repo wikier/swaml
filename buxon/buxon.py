@@ -286,12 +286,12 @@ class Buxon(GtkUI):
 		
 		if (self.cache == None):
 			pb = LoadProgressBar()
-			self.cache = Cache(uri, pb)
+			self.cache = Cache(uri, self.checkping.get_active(), pb)
 			pb.destroy()
 		else:			
 			if (uri!=self.cache.uri or self.cache.bad):
 				pb = LoadProgressBar()
-				self.cache = Cache(uri, pb)
+				self.cache = Cache(uri, self.checkping.get_active(), pb)
 				pb.destroy()
 				
 		min, max = self.getDates()
@@ -423,6 +423,7 @@ class Buxon(GtkUI):
 		self.insertBufferTag(buffer, 'wrap_mode', 'wrap_mode', gtk.WRAP_WORD)
 		
 		self.input = widgets.get_widget('urlInput')
+		self.checkping = widgets.get_widget('checkping')
 		self.statusbar = widgets.get_widget('buxonStatusbar')
 		self.messageBar('ready')
 	

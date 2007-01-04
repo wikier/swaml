@@ -193,8 +193,8 @@ class Cache:
         try:
             graph.parse(uri)
             print 'OK, loaded', len(graph), 'triples'
-        except URLError, e:
-            print '\nAn exception ocurred parsing ' + uri + ': ' + e.reason
+        except:
+            print '\nAn exception ocurred parsing ' + uri
             return graph         
         
         if (self.pb != None):
@@ -215,8 +215,8 @@ class Cache:
         print 'Resolving reference to get additional data (', uri, ')...',
         try:
             self.graph.parse(uri)
-        except URLError, e:
-            print '\nAn exception ocurred parsing ' + uri + ': ' + e.reason
+        except:
+            print '\nAn exception ocurred parsing ' + uri
             return
         
         if (self.pb != None):
@@ -297,10 +297,9 @@ class Cache:
         self.uri = uri
         self.bad = False
         self.pb = pb
+        self.ptsw = None
         if ping:
             self.ptsw = PTSW()
-        else:
-            self.ptsw = None
         
         socket.setdefaulttimeout(5)
         

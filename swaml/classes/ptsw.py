@@ -25,6 +25,7 @@ class PTSW:
 
     def ping(self, uri):
         try:
+            print 'ping', uri
             uri = uri.replace(":", "%3A")
             import socket
             socket.setdefaulttimeout(5)

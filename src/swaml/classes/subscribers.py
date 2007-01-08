@@ -24,6 +24,7 @@ from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from rdflib import Namespace
 from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
+from kml import KML
 
 
 class Subscriber:
@@ -326,8 +327,7 @@ class Subscribers:
         if it's available in his foaf files,
         into KML file
         """
-
-        from kml import KML
+        
         kml = KML()
         
         count = 0
@@ -348,10 +348,7 @@ class Subscribers:
             kml_file.close()
             print count, 'subcribers\' coordinates exported in KML'
         except IOError, detail:
-            print 'Error exporting coordinates to KML: ' + str(detail)
-        
-        del KML
-                                
+            print 'Error exporting coordinates to KML: ' + str(detail)                       
 
     def process(self):
         """

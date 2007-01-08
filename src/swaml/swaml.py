@@ -91,6 +91,4 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print 'Received Ctrl+C or another break signal. Exiting...'
 
-                                                                            
-del sys, string
 

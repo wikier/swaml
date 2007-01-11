@@ -15,7 +15,8 @@
 
 """PingTheSemanticWeb.com wrapper"""
 
-import urllib2
+import urllib, urllib2
+from xml.dom import minidom
 
 class PTSW:
     
@@ -25,11 +26,13 @@ class PTSW:
 
     def ping(self, uri):
         try:
-            print 'ping', uri
-            uri = uri.replace(":", "%3A")
             import socket
             socket.setdefaulttimeout(5)
-            response = urllib2.urlopen(self.rest+uri).read()
+            url = self.rest + urllib.quote(uri)
+            data = {}
+            headers = { 'User-Agent' : 'buxon' }
+            request = urllib2.Request(url, data, headers)
+            response = urllib2.urlopen(request).read()
             responseParsed = self.parseResponse(response)
             ok = (responseParsed['flerror'] == 0)
             if ok:
@@ -54,4 +57,4 @@ class PTSW:
         return dict
     
     def stats(self):
-        return self.pinged, 'SIOC files pinged'
+        return str(self.pinged) + 'SIOC files pinged to PingTheSemanticWeb.com'

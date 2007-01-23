@@ -14,7 +14,6 @@
 Sergio Fern\'andez \and Diego Berrueta \and Jose E. Labra
 }
 
-
 \authorrunning{Sergio Fern\'andez et al.}
 
 \tocauthor{Sergio Fern\'andez, Diego Berrueta, Jose E. Labra (Universidad de Oviedo)} 
@@ -45,7 +44,7 @@ information in a more convenient way.
 
 \section{Introduction}
 
-FIXME
+\cite{Luke2004}
 
 \subsection{SIOC}
 
@@ -69,14 +68,29 @@ the concept of forum.
  \caption{Connections between discussion clouds with SIOC}
 \end{figure}
 
-FIXME: talk about SIOC classes?
+Then \texttt{Forum} class is the most important for us at SIOC ontology. In the 
+domain of a forum there are another classes at the ontology, mainly we need two
+of it: \texttt{Post} and \texttt{User} 
 
-FIXME: wrappers to existing tools (legacy systems y Web-based systems) 
-in \cite{Breslin2005} (point 3.1).
+The SIOC community has developed several wrappers that allows to export instances
+of community site concepts (such as blogs o forums) in RDF format. But the effort 
+is only centered in providing mappings from web-based systems, forgetting all the 
+knowledgement stored in a large number of legacy systems preceding the current Web.
+
+\section{Formal model}
+
+FIXME (talk with Polo)
 
 \section{Components}
 
-FIXME
+In the SWAML project are involved several components, mainly three:
+
+\begin{itemize}
+ \item SWAML, the core process that exports a mailing list in RDF.
+ \item Buxon, a browser for SIOC Forum instances.
+ \item SWAML Ontology.
+\end{itemize}
+
 
 \subsection{SWAML}
 
@@ -86,9 +100,40 @@ FIXME
 
 FIXME
 
+\subsection{SWAML Ontology}
+
+Until SIOC ontology contemplates some subclasses of Forum, it's necessary 
+to add some properties. Concretely in version 0.2 of our ontology 
+\footnote{http://swaml.berlios.de/ns/0.2} we have reduced these properties 
+to only two:
+
+\begin{itemize}
+  \item \texttt{previousByDate} to link with the previous post sent in the 
+	mailing list..
+  \item \texttt{nextByDate} to link with the post that was sent after by date 
+	in the mailing list.
+\end{itemize}
+
+Both under the domain and the range of \texttt{sioc:Post}. Perhaps these 
+properties has a minor importance to describe generic forums instances, 
+but its meaning receives greater importance in the concrete scope of a 
+mailing list.
+
 \section{Conclussions and Future Work}
 
 FIXME, interesting stuff here...
+
+\begin{itemize}
+  \item To make agile the obtaining of several mailboxes:
+	To improve the experiment done using LibGmail
+	
+	the simplest form to obtain a lot of mail lists is to serializar to mboxes 
+	the posts stored by the users in its mail accounts. The preliminar experiment 
+	was made across a GMail account subscribed to a semantic web related mailing list
+	\footnote{\url{http://www.johnbreslin.com/blog/2006/11/08/buxon-visor-for-siocforum-browsing/}},
+	but 
+\end{itemize}
+
 
 
 \bibliographystyle{abbrv}

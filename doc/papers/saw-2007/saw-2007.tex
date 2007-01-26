@@ -29,9 +29,6 @@ WWW home page: \texttt{http://swaml.berlios.de/}
 
 \maketitle
 
-%TODO:
-%	- images in b/w
-
 \begin{abstract}
 
 Mailing list archives (i.e., the messages posted up-to-now) are often published 
@@ -112,9 +109,28 @@ in RDF a mailing list.
  \caption{SWAML core process}
 \end{figure}
 
+The SWAML project fulfills a much-needed requirement for the Semantic Web: to be able 
+to refer to semantic versions of email messages and their properties using a resource 
+URI. By reusing the SIOC vocabulary for describing online discussions, SWAML allows 
+users of SIOC to refer to email messages from other discussions taking place on forums, 
+blogs, etc., so that distributed conversations can occur across these discussion media. 
+Also, by providing email messages in SIOC format, SWAML are providing a rich source of 
+data, namely mailing lists, for use in SIOC applications. 
+
 \subsection{Buxon}
 
-FIXME
+Buxon is the application that make the opposite work. It takes the URI of a generic SIOC 
+Forum (for example a mailing list exported by SWAML, although it's independent of the 
+export tool) and it recompose the graph. With that graph the tool shows the posts ordered 
+by threads using a similar GUI than the classic mail clients.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[bb=0 0 288 202]{images/buxon.png}
+ \caption{Buxon in action (FIXME: add a screenshot of v0.0.4)}
+\end{figure}
+
+In addition it allows to make simple searches by terms and dates over the back-end graph .
 
 \subsection{SWAML Ontology}
 

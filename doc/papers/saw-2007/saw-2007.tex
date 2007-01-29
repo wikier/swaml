@@ -9,7 +9,6 @@
 
 \titlerunning{SWAML, from Mailing Lists to the Semantic Web}
 
-
 \author{
 Sergio Fern\'andez \and Diego Berrueta \and Jose E. Labra
 }
@@ -130,7 +129,9 @@ by threads using a similar GUI than the classic mail clients.
  \caption{Buxon in action (FIXME: add a screenshot of v0.0.4)}
 \end{figure}
 
-In addition it allows to make simple searches by terms and dates over the back-end graph .
+In addition it allows to make simple searches by terms and dates over the back-end graph.
+
+FIXME: support to PingTheSemanticWeb.com (search a cite)
 
 \subsection{SWAML Ontology}
 
@@ -157,6 +158,10 @@ FIXME, interesting stuff here...
 
 \begin{itemize}
   \item To add XHTML markup using a syntax for layering RDF like RDFa \cite{Birbeck2006}.
+	This new output format could publish under the same URI than the RDF files,
+	and using content negotiation (FIXME: cite) configure the HTTP server (Apache or 
+	other similar) to serve each according with the mime type accepted by the
+	user agent.
   \item To improve the semantic markup of the body of the messages.
   \item To make agile the obtaining of several mailboxes:
 	To improve the experiment done using LibGmail
@@ -168,8 +173,6 @@ FIXME, interesting stuff here...
 	but 
   \item Integration with Mailman.
 \end{itemize}
-
-
 
 \bibliographystyle{abbrv}
 \bibliography{../references}

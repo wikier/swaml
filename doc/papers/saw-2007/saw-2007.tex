@@ -185,13 +185,32 @@ We are exploring some directions for future work. Some of them are:
         an exception. A good recipe to tackle this problem is to
         integrate the new technologies into old tools, making
         a smooth transition without requiring any extra effort from
-        the users.
-  \item To add XHTML markup using a syntax for layering RDF like RDFa \cite{Birbeck2006}.
-	This new output format could publish under the same URI than the RDF files,
-	and using content negotiation \cite{Seshan1998} configuring the HTTP server 
-	(Apache or other similar) to serve each according with the mime type accepted 
-	by the user agent.
-  \item To improve the semantic markup of the body of the messages.
+        the users. Merging the SWAML process into the batch flow of
+        tools such as Hypermail would allow to generate both
+        HTML and RDF versions of the archive. Those could reside
+        side-by-side on the web server, even sharing the same URI
+        by means of content-negotiation~\cite{Recipes}.
+  \item Actually, integration could be pushed further away through
+        RDFa~\cite{Birbeck2006}, embedding the RDF content into the
+        XHTML documents.
+  \item So far, no semantic annotation relative to the meaning of
+        the messages is considered. Obviously, this information can not
+        be derived from a RFC 4155-compilant mailbox. However, it is
+        conceivable that it can be added by other means, for instance,
+        by social tagging using folksonomies, or by parsing the RDFa
+        that can exist in the messages that are send in XHTML format.
+  \item The metadata extracted from a mailing list archive can be
+        quite huge. Even after removing the body of the messages, the
+        XML/RDF metadata of a mailing list containing 1000 messages may
+        have a size of ??? KBytes, with a linear growth. It is not uncommon
+        for a busy mailing list to generate this volume of messages
+        monthly. Hence, it is imperative to design a mechanism to
+        fragmentate the dataset. The SWAML process splits each message
+        in a separate RDF document, but this arbitrary decision clearly
+        does not fit every application. A much better solution would be to
+        create an easy-to-deploy SPARQL endpoint\cite{SPARQL},
+        that translates the
+        decision on how to partition the data to the final application.
   \item To make agile the obtaining of several mailboxes:
 	To improve the experiment done using LibGmail
 	

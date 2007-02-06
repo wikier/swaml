@@ -53,7 +53,7 @@ list archives are published in tradicional formats, like HTML. But, although
 these formats allow to have the information available to index, it loses a lot 
 of information about the relationships between the messages.
 
-Then it's necessary to publish these old archives into a much rich format\cite{Luke2004}.
+Then it's necessary to publish these old archives into a much rich format~\cite{Luke2004}.
 A format that mainly fulfills 2 intentions:
 \begin{itemize}
   \item Publish the archives with the smaller possible loss of information,
@@ -70,7 +70,7 @@ readable format for expressing the information contained both explicitly
 and implicitly in internet discussion methods, of SIOC metadata producers 
 for a number of popular blogging platforms and content management systems, 
 and of storage and browsing/searching systems for leveraging this SIOC 
-data. \cite{Breslin2005}
+data~\cite{Breslin2005}.
 
 The goal of SIOC \footnote{\url{http://sioc-project.org/}} is to interconnect
 these online communities. Community sites can include many discussion primitives,
@@ -115,7 +115,7 @@ as the data consumition phase.
 \subsection{SWAML}
 
 The main component, the core, is called with the same name that the project. SWAML is
-the process in charge to process the mailing lists . SWAML reads a collection of email 
+the process in charge to process the mailing lists. SWAML reads a collection of email 
 messages stored in a mailbox (from a mailing list compatible with RFC 4155) and generates 
 a RDF description. It is written in Python using SIOC as the main ontology to represent 
 in RDF a mailing list.
@@ -132,7 +132,19 @@ URI. By reusing the SIOC vocabulary for describing online discussions, SWAML all
 users of SIOC to refer to email messages from other discussions taking place on forums, 
 blogs, etc., so that distributed conversations can occur across these discussion media. 
 Also, by providing email messages in SIOC format, SWAML are providing a rich source of 
-data, namely mailing lists, for use in SIOC applications. 
+data, namely mailing lists, for use in SIOC applications.
+
+But this component not only exports a mailbox, it goes a little more far...
+
+Firstly it tries to find a FOAF profile that describes a person with the mail address 
+of each subscriber. This it isn't a trivial task with the infrastructure of the actual 
+Semantic Web, because there isn't any service that provides this specific functionality.
+For the moment this part is only a mock, but it's ready to work when we'll finish another 
+project~\footnote{This other project is called futil (\url{http://futil.berlios.de/}),
+and soon we'll can show some conclusions of our work.}.
+
+Secondly it exports all the geographical information found in these FOAF profiles into 
+KML~\cite{KML}, to draw the point into Google Maps or Google Earth.
 
 \subsection{Buxon}
 
@@ -208,18 +220,17 @@ We are exploring some directions for future work. Some of them are:
         fragmentate the dataset. The SWAML process splits each message
         in a separate RDF document, but this arbitrary decision clearly
         does not fit every application. A much better solution would be to
-        create an easy-to-deploy SPARQL endpoint\cite{SPARQL},
+        create an easy-to-deploy SPARQL endpoint~\cite{SPARQL},
         that translates the
         decision on how to partition the data to the final application.
   \item To make agile the obtaining of several mailboxes:
 	To improve the experiment done using LibGmail
-	
+	FIXME
 	the simplest form to obtain a lot of mail lists is to serializar to mboxes 
 	the posts stored by the users in its mail accounts. The preliminar experiment 
 	was made across a GMail account subscribed to a semantic web related mailing list
 	\footnote{\url{http://www.johnbreslin.com/blog/2006/11/08/buxon-visor-for-siocforum-browsing/}},
 	but 
-  \item Integration with Mailman.
 \end{itemize}
 
 %\section{Acknowledgements}

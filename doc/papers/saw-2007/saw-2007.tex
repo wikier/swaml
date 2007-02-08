@@ -43,25 +43,34 @@ information in a more convenient way.
 
 \section{Introduction}
 
-The electronic mail is one of the best tools that Internet has. Using the
-email persons exchange information at his job and with his friends. A big 
-percent of mail traffic involves mail lists. Mail lists is a dicussion forum,
-allowing users to discuss different topics with people who shares his interests.
-All these discussions and arguments (including sometimes experts "interventions") 
-are logged and stored, and suposse a big knowledge database. Often the mailing 
-list archives are published in tradicional formats, like HTML. But, although 
-these formats allow to have the information available to index, it loses a lot 
-of information about the relationships between the messages.
+It is obvious that the electronic mail (e-mail) is one of the most
+popular applications of the Internet. Besides direct messaging
+between individuals, mailing lists exist as private or public
+forums for information exchange in communities with shared interests.
+Mailing list archives are compilations of the previously posted
+messages that are often converted into static HTML for its
+publication on the web. They represent a significative portion of
+the contents that are indexed by the web search engines, and they
+capture an impressive body of knowledge that, however, is difficult
+to locate and browse.
 
-Then it's necessary to publish these old archives into a much rich format~\cite{Luke2004}.
-A format that mainly fulfills 2 intentions:
-\begin{itemize}
-  \item Publish the archives with the smaller possible loss of information,
-	about the author, the messages in the thread, etc.
-  \item Allow to refer this information for external uses.
-\end{itemize}
+The root of these problems can be traced back to the translation
+procedure that is run to transform the e-mail messages into static
+HTML pages. This task is fulfilled by scripts that create an
+static HTML page for each message in the archive, in addition to
+some indexes (by date, by author, by thread), often splitted by
+date intervals to avoid excessive growth. On one hand, this fixed
+structure reduces the flexibility when the user browses the
+mailing list archives from his web browser. On the other one, some of
+the metadata that was associated to each e-mail message is lost
+when it is rendered as HTML for presentational purpouses.
 
-\subsection{SIOC}
+We propose to use an ontology and RDF to enable the publishing of
+the mailing list archives into the (Semantic) web, while retaining
+the metadata that were present in the messages. The rest of the
+paper is organized as follows: \textbf{FIXME}.
+
+\section{SIOC}
 
 SIOC (Semantically-Interlinked Online Communities) provides methods for 
 interconnecting discussion methods such as blogs, forums and mailing lists 

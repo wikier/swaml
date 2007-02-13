@@ -264,24 +264,23 @@ We are exploring some directions for future work. Some of them are:
         fragmentate the dataset. The SWAML process splits each message
         in a separate RDF document, but this arbitrary decision clearly
         does not fit every application. A much better solution would be to
-        create an easy-to-deploy SPARQL endpoint~\cite{SPARQL},
+        create an easy-to-deploy SPARQL endpoint~\cite{SPARQLProtocol},
         that translates the
         decision on how to partition the data to the final application.
-  \item To make agile the obtaining of several mailboxes:
-	To improve the experiment done using LibGmail
-	FIXME
-	the simplest form to obtain a lot of mail lists is to serializar to mboxes 
-	the posts stored by the users in its mail accounts. The preliminar experiment 
-	was made across a GMail account subscribed to a semantic web related mailing list
-	\footnote{\url{http://www.johnbreslin.com/blog/2006/11/08/buxon-visor-for-siocforum-browsing/}},
-	but 
+  \item It is not always possible to obtain a mailbox file for a mailing
+        list. For these cases, an alternative is envisaged: a high-capacity
+        GMail account can be subscribed to the mailing list with the unique
+        purpose of collecting and storing the messages. A simple extension
+        to SWAML that makes possible to import the contents of a GMail
+        account has been developed.
+
 \end{itemize}
 
-%\section{Acknowledgements}
-%
-%The authors would like to express their gratitude to Dr. John Breslin and
-%Uldis Bojars, whose support and contributions have been of great help
-%to this project.
+\section*{Acknowledgements}
+
+The authors would like to express their gratitude to Dr. John Breslin and
+Uldis Bojars, whose support and contributions have been of great help
+to this project.
 
 \bibliographystyle{abbrv}
 \bibliography{../references}

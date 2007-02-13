@@ -111,14 +111,32 @@ of community site concepts (such as blogs o forums) in RDF format. But the effor
 is only centered in providing mappings from web-based systems, forgetting all the 
 knowledgement stored in a large number of legacy systems preceding the current Web.
 
-\section{\label{sec:software}Components}
+\subsection{Our extension}
 
-In the SWAML project are involved several components, mainly three:
+Until SIOC ontology contemplates some subclasses of Forum, it's necessary 
+to add some properties. Concretely in version 0.2 of our ontology 
+\footnote{http://swaml.berlios.de/ns/0.2} we have reduced these properties 
+to only two:
+
+\begin{itemize}
+  \item \texttt{previousByDate} to link with the previous post sent in the 
+	mailing list..
+  \item \texttt{nextByDate} to link with the post that was sent after by date 
+	in the mailing list.
+\end{itemize}
+
+Both under the domain and the range of \texttt{sioc:Post}. Perhaps these 
+properties has a minor importance to describe generic forums instances, 
+but its meaning receives greater importance in the concrete scope of a 
+mailing list.
+
+\section{\label{sec:tools}Software tools}
+
+In the SWAML project ahas been developed some software tools, mainly three:
 
 \begin{itemize}
  \item SWAML, the core process that exports a mailing list in RDF.
  \item Buxon, a browser for SIOC Forum instances.
- \item SWAML Ontology.
 \end{itemize}
 
 Each of it each one fulfills a concrete purpose into the global purposes that 
@@ -181,25 +199,6 @@ by threads using a similar GUI than the classic mail clients.
 In addition it allows to make simple searches by terms and dates over the back-end graph.
 
 FIXME: support to PingTheSemanticWeb.com (search a cite)
-
-\subsection{SWAML Ontology}
-
-Until SIOC ontology contemplates some subclasses of Forum, it's necessary 
-to add some properties. Concretely in version 0.2 of our ontology 
-\footnote{http://swaml.berlios.de/ns/0.2} we have reduced these properties 
-to only two:
-
-\begin{itemize}
-  \item \texttt{previousByDate} to link with the previous post sent in the 
-	mailing list..
-  \item \texttt{nextByDate} to link with the post that was sent after by date 
-	in the mailing list.
-\end{itemize}
-
-Both under the domain and the range of \texttt{sioc:Post}. Perhaps these 
-properties has a minor importance to describe generic forums instances, 
-but its meaning receives greater importance in the concrete scope of a 
-mailing list.
 
 \section{\label{sec:conclussions}Conclussions and Future Work}
 

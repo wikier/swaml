@@ -93,10 +93,11 @@ that provides methods for
 interconnecting discussion methods such as blogs, forums and mailing
 lists~\cite{Breslin2005}. Indeed, SIOC has a wider scope than just
 mailing lists, and groups all kinds of online discussion primitives
-on a generic `Forum' concept. Each forum represents an online community
+on a generic \textsf{sioc:Forum} concept. Each forum represents an online community
 of people that share a common interest. The goal of SIOC is to interconnect
 these online communities. Other key concepts into the ontology are
-`User' and `Post', which model respectively the members of the
+\textsf{sioc:User} and \textsf{sioc:Post}, which model respectively the
+members of the
 communities and the content they produce.
 
 The SIOC ontology is designed to express the information contained
@@ -118,7 +119,14 @@ a community.
 \subsection{Extension to SIOC}
 
 SIOC was quickly identified as an almost perfect match for our
-purpose. However, additional object properties are required
+purpose. Each mailing list is an instance of \textsf{sioc:Forum},
+messages sent to the list become instances of \textsf{sioc:Post}
+(as well as their replies), and the people subscribed to the
+list are \textsf{sioc:User}s. The Dublin Core~\cite{DublinCore}
+vocabulary is used to capture metadata such as the message
+date or title.
+
+However, additional object properties were required
 in order to capture the sequence of messages published in a
 mailing list. Thus, we extended the SIOC ontology with two
 properties\footnote{These properties are defined in a separate

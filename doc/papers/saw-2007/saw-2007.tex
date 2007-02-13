@@ -10,7 +10,11 @@
 \titlerunning{Mailing lists meet the Semantic Web}
 
 \author{
-Sergio Fern\'andez\inst{1} \and Diego Berrueta\inst{1} \and Jose E. Labra\inst{2}
+Sergio Fern\'andez\inst{1} 
+\and
+Diego Berrueta\inst{1} 
+\and
+Jose E. Labra\inst{2}
 }
 
 \authorrunning{Sergio Fern\'andez et al.}
@@ -34,14 +38,14 @@ Oviedo, Asturias, Spain,\\
 
 \begin{abstract}
 
-Mailing list archives (i.e., the messages posted up-to-now) are often published 
-on the web and indexed by conventional search engines. They store a vast 
-knowledge capital. However, the ability to auto-matically recognize and process 
-the information is mostly lost at publishing time. As a result, the current 
-mailing list archives are hard to query and have a limited use. This paper 
-describes how SWAML uses Semantic Web technologies in order to avoid the
-information loss and to allow new applications able to exploit this 
-information in a more convenient way.
+Mailing list archives (i.e., the messages posted up-to-now) are often 
+published on the web and indexed by conventional search engines. They 
+store a vast knowledge capital. However, the ability to auto-matically 
+recognize and process the information is mostly lost at publishing time. 
+As a result, the current mailing list archives are hard to query and have 
+a limited use. This paper describes how SWAML uses Semantic Web technologies 
+in order to avoid the information loss and to allow new applications able 
+to exploit this information in a more convenient way.
 
 \end{abstract}
 
@@ -74,7 +78,7 @@ the mailing list archives into the (Semantic) web, while retaining
 the metadata that were present in the messages. The rest of the
 paper is organized as follows: Section~\ref{sec:SIOC} introduces the
 SIOC ontology and our extensions to it, and then our software
-applications are described in Section~\ref{sec:software}. We close
+applications are described in Section~\ref{sec:tools}. We close
 the paper with the conclussions and a discussion on our future plans
 in Section~\ref{sec:conclussions}.
 
@@ -90,9 +94,9 @@ and of storage and browsing/searching systems for leveraging this SIOC
 data~\cite{Breslin2005}.
 
 The goal of SIOC \footnote{\url{http://sioc-project.org/}} is to interconnect
-these online communities. Community sites can include many discussion primitives,
-such as bulletin boards, weblogs and mailing lists, which it have grouped under 
-the concept of forum.
+these online communities. Community sites can include many discussion 
+primitives,such as bulletin boards, weblogs and mailing lists, which it 
+have grouped under the concept of forum.
 
 %\begin{figure}[ht]
 % \centering
@@ -102,14 +106,15 @@ the concept of forum.
 
 FIXME: add a graphic about relations between forums
 
-Then \texttt{Forum} class is the most important for us at SIOC ontology. In the 
-domain of a forum there are another classes at the ontology, mainly we need two
-of it: \texttt{Post} and \texttt{User} 
+Then \texttt{Forum} class is the most important for us at SIOC ontology. 
+In the domain of a forum there are another classes at the ontology, mainly 
+we need two of it: \texttt{Post} and \texttt{User} 
 
-The SIOC community has developed several wrappers that allows to export instances
-of community site concepts (such as blogs o forums) in RDF format. But the effort 
-is only centered in providing mappings from web-based systems, forgetting all the 
-knowledgement stored in a large number of legacy systems preceding the current Web.
+The SIOC community has developed several wrappers that allows to export 
+instances of community site concepts (such as blogs o forums) in RDF format. 
+But the effort is only centered in providing mappings from web-based systems, 
+forgetting all the knowledgement stored in a large number of legacy systems 
+preceding the current Web.
 
 \subsection{Our extension}
 
@@ -119,37 +124,38 @@ to add some properties. Concretely in version 0.2 of our ontology
 to only two:
 
 \begin{itemize}
-  \item \texttt{previousByDate} to link with the previous post sent in the 
-	mailing list..
-  \item \texttt{nextByDate} to link with the post that was sent after by date 
-	in the mailing list.
+  \item \texttt{previousByDate} to link with the previous post sent 
+	in the mailing list..
+  \item \texttt{nextByDate} to link with the post that was sent after 
+	by date in the mailing list.
 \end{itemize}
 
-Both under the domain and the range of \texttt{sioc:Post}. Perhaps these 
-properties has a minor importance to describe generic forums instances, 
-but its meaning receives greater importance in the concrete scope of a 
-mailing list.
+Both under the domain and the range of \texttt{sioc:Post}. Perhaps 
+these properties has a minor importance to describe generic forums 
+instances, but its meaning receives greater importance in the concrete 
+scope of a mailing list.
 
 \section{\label{sec:tools}Software tools}
 
-In the SWAML project ahas been developed some software tools, mainly three:
+In the SWAML project ahas been developed some software tools, mainly 
+three:
 
 \begin{itemize}
  \item SWAML, the core process that exports a mailing list in RDF.
  \item Buxon, a browser for SIOC Forum instances.
 \end{itemize}
 
-Each of it each one fulfills a concrete purpose into the global purposes that 
-the project persecutes. The project covers so much the data exportation phase 
-as the data consumition phase.
+Each of it each one fulfills a concrete purpose into the global purposes 
+that the project persecutes. The project covers so much the data exportation 
+phase as the data consumition phase.
 
 \subsection{SWAML}
 
-The main component, the core, is called with the same name that the project. SWAML is
-the process in charge to process the mailing lists. SWAML reads a collection of email 
-messages stored in a mailbox (from a mailing list compatible with RFC 4155) and generates 
-a RDF description. It is written in Python using SIOC as the main ontology to represent 
-in RDF a mailing list.
+The main component, the core, is called with the same name that the project. 
+SWAML is the process in charge to process the mailing lists. SWAML reads a 
+collection of email messages stored in a mailbox (from a mailing list 
+compatible with RFC 4155) and generates a RDF description. It is written in 
+Python using SIOC as the main ontology to represent in RDF a mailing list.
 
 \begin{figure}[ht]
  \centering
@@ -157,24 +163,17 @@ in RDF a mailing list.
  \caption{SWAML core process}
 \end{figure}
 
-The SWAML project fulfills a much-needed requirement for the Semantic Web: to be able 
-to refer to semantic versions of email messages and their properties using a resource 
-URI. By reusing the SIOC vocabulary for describing online discussions, SWAML allows 
-users of SIOC to refer to email messages from other discussions taking place on forums, 
-blogs, etc., so that distributed conversations can occur across these discussion media. 
-Also, by providing email messages in SIOC format, SWAML are providing a rich source of 
-data, namely mailing lists, for use in SIOC applications.
-
 But this component not only exports a mailbox, it goes a little more far...
 
-Firstly it tries to find a FOAF profile that describes a person with the mail address 
-of each subscriber. This it isn't a trivial task with the infrastructure of the actual 
-Semantic Web, because there isn't any service that provides this specific functionality.
-For the moment this part is only a mock, but it's ready to work when we'll finish another 
-project.
+Firstly it tries to find a FOAF profile that describes a person with the 
+mail address of each subscriber. This it isn't a trivial task with the 
+infrastructure of the actual Semantic Web, because there isn't any service 
+that provides this specific functionality.For the moment this part is only 
+a mock, but it's ready to work when we'll finish another project.
 
-Secondly it exports all the geographical information found in these FOAF profiles into 
-KML~\cite{KML}, to draw the point into Google Maps or Google Earth.
+Secondly it exports all the geographical information found in these FOAF 
+profiles into KML~\cite{KML}, to draw the point into Google Maps or Google 
+Earth.
 
 \begin{figure}[ht]
  \centering
@@ -185,10 +184,11 @@ KML~\cite{KML}, to draw the point into Google Maps or Google Earth.
 
 \subsection{Buxon}
 
-Buxon is the application that make the opposite work. It takes the URI of a generic SIOC 
-Forum (for example a mailing list exported by SWAML, although it's independent of the 
-export tool) and it recompose the graph. With that graph the tool shows the posts ordered 
-by threads using a similar GUI than the classic mail clients.
+Buxon is the application that make the opposite work. It takes the URI of a 
+generic SIOC Forum (for example a mailing list exported by SWAML, although 
+it's independent of the export tool) and it recompose the graph. With that
+graph the tool shows the posts ordered by threads using a similar GUI than 
+the classic mail clients.
 
 \begin{figure}[ht]
  \centering
@@ -196,21 +196,30 @@ by threads using a similar GUI than the classic mail clients.
  \caption{Buxon in action (FIXME: add a screenshot of v0.0.4)}
 \end{figure}
 
-In addition it allows to make simple searches by terms and dates over the back-end graph.
+In addition it allows to make simple searches by terms and dates over 
+the back-end graph.
 
 FIXME: support to PingTheSemanticWeb.com (search a cite)
 
 \section{\label{sec:conclussions}Conclussions and Future Work}
 
 There is a lot of ongoing effort to translate data already reachable
-on the web into formats
-which are Semantic Web-friendly. Most of that work focuses on relational
-databases, microformats and web services. However, at the time of this
-writing and to the best of our knowledge, e-mail was almost excluded from the
-Semantic Web. This project, in combination with the generic SIOC framework,
-fills this gap, conveniently providing
-an ontology and a parser to publish machine-readable versions of the
-archives of the countless mailing lists.
+on the web into formats which are Semantic Web-friendly. Most of that 
+work focuses on relational databases, microformats and web services. 
+However, at the time of this writing and to the best of our knowledge, 
+e-mail was almost excluded from the Semantic Web. This project, in 
+combination with the generic SIOC framework, fills this gap, conveniently 
+providing an ontology and a parser to publish machine-readable versions 
+of the archives of the countless mailing lists.
+
+The SWAML project fulfills a much-needed requirement for the Semantic Web: 
+to be able to refer to semantic versions of email messages and their 
+properties using a resource URI. By reusing the SIOC vocabulary for describing
+online discussions, SWAML allows users of SIOC to refer to email messages 
+from other discussions taking place on forums, blogs, etc., so that distributed 
+conversations can occur across these discussion media. Also, by providing email 
+messages in SIOC format, SWAML are providing a rich source of data, namely 
+mailing lists, for use in SIOC applications.
 
 Some benefits arouse from the availability of these data. In the first
 place, data can be fetched by user applications to provide handy browsing

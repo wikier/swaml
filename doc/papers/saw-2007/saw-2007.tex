@@ -91,14 +91,13 @@ DERI Galway has developed
 SIOC (Semantically-Interlinked Online Communities), an ontology
 that provides methods for 
 interconnecting discussion methods such as blogs, forums and mailing
-lists~\cite{Breslin2005}. Indeed, SIOC has a wider scope than just
-mailing lists, and groups all kinds of online discussion primitives
-on a generic \textsf{sioc:Forum} concept. Each forum represents an online community
-of people that share a common interest. The goal of SIOC is to interconnect
-these online communities. Other key concepts into the ontology are
-\textsf{sioc:User} and \textsf{sioc:Post}, which model respectively the
-members of the
-communities and the content they produce.
+lists~\cite{Breslin2006}\cite{Breslin2005}. Indeed, SIOC has a wider 
+scope than just mailing lists, and groups all kinds of online discussion 
+primitives on a generic \textsf{sioc:Forum} concept. Each forum represents 
+an online community of people that share a common interest. The goal of 
+SIOC is to interconnect these online communities. Other key concepts into 
+the ontology are \textsf{sioc:User} and \textsf{sioc:Post}, which model 
+respectively the members of the communities and the content they produce.
 
 The SIOC ontology is designed to express the information contained
 both explicitly 
@@ -170,7 +169,8 @@ Each message includes a field (\textsf{Message-ID}) assigned arbitrarily by
 the SMTP server used. This field is used by mail clients to answer a message
 linking it using another field (\textsf{In-Reply-To}). Then the tool must be 
 able to recompose the conversation threads using this non unique ids,
-trying to resolve the possible conflicts found.
+trying to resolve the possible conflicts found using several heuristic 
+algorithms.
 
 But this component not only exports a mailbox, it goes a little more far...
 

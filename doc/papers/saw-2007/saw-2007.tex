@@ -76,7 +76,10 @@ when it is rendered as HTML for presentational purposes.
 We propose to use an ontology and RDF (Resource Description Framework
 \cite{RDF}) to enable the publishing of the mailing list archives into 
 the (Semantic) web, while retaining the meta-data that were present in 
-the messages. The rest of the paper is organized as follows: 
+the messages. Additionally, by doing so, the information could be
+merged with other vocabularies, such as FOAF.
+
+The rest of the paper is organized as follows: 
 Section~\ref{sec:SIOC} introduces the SIOC ontology and our extensions 
 to it, and then our software applications are described in 
 Section~\ref{sec:tools}. We close the paper with the conclusions and 
@@ -120,7 +123,7 @@ The obvious choice here is FOAF~\cite{FOAF}, which provides more
 powerful means to describe the personal data of the members of
 a community.
 
-\subsection{Extension to SIOC}
+\subsection{Extending SIOC Ontology}
 
 SIOC was quickly identified as an almost perfect match for our
 purpose. Each mailing list is an instance of \textsf{sioc:Forum},
@@ -141,7 +144,8 @@ are defined with \textsf{sioc:Post} as their domain and range.
 \section{\label{sec:tools}Software tools}
 
 The ontology itself provides no service to end users. Software tools
-are required, and we have built two of them as part of this project.
+are required, and we have built two of them as part of this
+project\footnote{Both of them are available at \url{http://swaml.berlios.de}}.
 
 \begin{itemize}
   \item SWAML is a non-interactive, command-line application whose main

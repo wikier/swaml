@@ -313,12 +313,14 @@ We are exploring some directions for future work. Some of them are:
         RDFa~\cite{Birbeck2006}, embedding the RDF content into the
         XHTML documents.
   \item So far, no semantic annotation relative to the meaning of
-        the messages is considered. Obviously, this information can not
+        the messages is considered. Obviously, such information can not
         be derived from a RFC 4155-compliant mailbox.
         However, it is
         conceivable that it can be added by other means, for instance,
         by social tagging using folksonomies, or by parsing the RDFa
         that can exist in the messages that are send in XHTML format.
+        The inherent community-based nature of mailing lists may
+        be exploited to build recommendation systems~\cite{Celma2006}.
   \item The meta-data extracted from a mailing list archive can be
         quite huge. Even after removing the body of the messages, the
         XML/RDF meta-data of a mailing list containing 1000 messages may
@@ -330,7 +332,8 @@ We are exploring some directions for future work. Some of them are:
         does not fit every application. A much better solution would be to
         create an easy-to-deploy SPARQL endpoint~\cite{SPARQLProtocol},
         that translates the
-        decision on how to partition the data to the final application.
+        decision on how to partition the data to the final
+        application~\cite{Pan2006}.
   \item It is not always possible to obtain a mailbox file for a mailing
         list. For these cases, an alternative is envisaged: a high-capacity
         GMail account can be subscribed to the mailing list with the unique

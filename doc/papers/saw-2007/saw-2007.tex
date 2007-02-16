@@ -40,7 +40,7 @@ Oviedo, Asturias, Spain,\\
 
 Mailing list archives (i.e., the messages posted up-to-now) are often 
 published on the web and indexed by conventional search engines. They 
-store a vast knowledge capital. However, the ability to auto-matically 
+store a vast knowledge capital. However, the ability to automatically 
 recognize and process the information is mostly lost at publishing time. 
 As a result, the current mailing list archives are hard to query and have 
 a limited use. This paper describes how SWAML uses Semantic Web technologies 
@@ -57,7 +57,7 @@ between individuals, mailing lists exist as private or public
 forums for information exchange in communities with shared interests.
 Mailing list archives are compilations of the previously posted
 messages that are often converted into static HTML for its
-publication on the web. They represent a significative portion of
+publication on the web. They represent a noteworthy portion of
 the contents that are indexed by the web search engines, and they
 capture an impressive body of knowledge that, however, is difficult
 to locate and browse.
@@ -70,12 +70,12 @@ some indexes (by date, by author, by thread), often splitted by
 date intervals to avoid excessive growth. On the one hand, this 
 fixed structure reduces the flexibility when the user browses the
 mailing list archives from his web browser. On the other hand, some 
-of the metadata that was associated to each e-mail message is lost
-when it is rendered as HTML for presentational purpouses.
+of the meta-data that was associated to each e-mail message is lost
+when it is rendered as HTML for presentational purposes.
 
 We propose to use an ontology and RDF (Resource Description Framework
 \cite{RDF}) to enable the publishing of the mailing list archives into 
-the (Semantic) web, while retaining the metadata that were present in 
+the (Semantic) web, while retaining the meta-data that were present in 
 the messages. The rest of the paper is organized as follows: 
 Section~\ref{sec:SIOC} introduces the SIOC ontology and our extensions 
 to it, and then our software applications are described in 
@@ -84,7 +84,7 @@ a discussion about our future plans in Section~\ref{sec:conclusions}.
 
 \section{\label{sec:SIOC}SIOC}
 
-An ontology to capture the metadata of a discussion forum, such as
+An ontology to capture the meta-data of a discussion forum, such as
 a mailing list, was clearly recognized as the first milestone to
 fulfil the purpose of the project. Fortunately, DERI Galway has 
 developed SIOC\footnote{\url{http://sioc-project.org/}} (Semantically-Interlinked 
@@ -107,8 +107,8 @@ produce, respectively.
 %\end{figure}
 
 The SIOC ontology is designed to express the information contained
-both explicitly  and implicitly in internet discussion methods. Several 
-software applications, usually deployed as plugins, are already available 
+both explicitly  and implicitly in Internet discussion methods. Several 
+software applications, usually deployed as plug-ins, are already available 
 to export SIOC data from some popular blogging platforms and content 
 management systems. The effort, however, is focused on web-based communities 
 (weblogs, webforums), while little has been done so far to extend the coverage 
@@ -127,7 +127,7 @@ purpose. Each mailing list is an instance of \textsf{sioc:Forum},
 messages sent to the list become instances of \textsf{sioc:Post}
 (as well as their replies), and the people subscribed to the
 list are \textsf{sioc:User}s. The Dublin Core~\cite{DublinCore}
-vocabulary is used to capture metadata such as the message
+vocabulary is used to capture meta-data such as the message
 date or title.
 
 However, additional object properties were required
@@ -188,7 +188,7 @@ identifier in its header (\textsf{Message-ID}, defined by
 RFC~2822~\cite{RFC2822}), in practice its uniqueness cannot be
 taken for granted. Actually, we have found some
 messages with repeated identifiers in some mailing lists,
-probably due to non-RFC compilant mail transport agents.
+probably due to non-RFC compliant mail transport agents.
 Therefore, SWAML assumes that any reference to a message
 (such those created by the \textsf{In-Reply-To} header)
 is in fact a reference to the most recent message with that ID
@@ -199,7 +199,7 @@ properly linked.
 
 Actually, SWAML goes further than just a format-translation
 tool. A dedicated sub-process that runs a part of the batch
-execution, but may be also separatedly invoked over any
+execution, but may be also separately invoked over any
 \textsf{sioc:Forum}, tries to find a FOAF description for
 each \textsf{sioc:User}. To the best of our knowledge, there is not
 any web service to fetch FOAF descriptions from a given e-mail
@@ -225,7 +225,7 @@ of the KML file using Google Maps.
 
 \subsection{Buxon}
 
-Buxon is a multiplatform application written in PyGTK. Its main purpose
+Buxon is a multi-platform application written in PyGTK. Its main purpose
 is to allow end users to browse the archives of mailing lists as if
 they were using their desktop mail applications. Buxon takes
 the URI of a \textsf{sioc:Forum} instance (for example, a mailing list
@@ -245,7 +245,7 @@ Buxon also gives users the ability to query the messages, searching
 for terms or filtering the messages in a date range. All these queries
 are internally translated to SPARQL~\cite{SPARQLProtocol} to be executed
 over the RDF graph. Newer versions of Buxon can, at user's
-request, send the URL to
+request, send the URI to
 PingTheSemanticWeb.com\footnote{\url{http://pingthesemanticweb.com/}}, 
 a social web service that tracks semantic web documents.
 That way, Buxon
@@ -256,7 +256,7 @@ find and publish RDF documents.
 
 There is a lot of ongoing effort to translate data already reachable
 on the web into formats which are Semantic Web-friendly. Most of that 
-work focuses on relational databases, microformats and web services. 
+work focuses on relational databases, micro-formats and web services. 
 However, at the time of this writing and to the best of our knowledge, 
 e-mail was almost excluded from the Semantic Web. This project, in 
 combination with the generic SIOC framework, fills this gap, conveniently 
@@ -294,7 +294,7 @@ We are exploring some directions for future work. Some of them are:
 \begin{itemize}
   \item Integration of the SWAML process with a popular HTML-based
         mailing list archiver, such as Hypermail or Pipermail, would be
-        a gigant push to speed up the adoption of SWAML. It is well
+        a giant push to speed up the adoption of SWAML. It is well
         known that one of the most awkward problems of any technology
         is to gain a critical mass of users. The semantic web is not
         an exception. A good recipe to tackle this problem is to
@@ -310,14 +310,14 @@ We are exploring some directions for future work. Some of them are:
         XHTML documents.
   \item So far, no semantic annotation relative to the meaning of
         the messages is considered. Obviously, this information can not
-        be derived from a RFC 4155-compilant mailbox.
+        be derived from a RFC 4155-compliant mailbox.
         However, it is
         conceivable that it can be added by other means, for instance,
         by social tagging using folksonomies, or by parsing the RDFa
         that can exist in the messages that are send in XHTML format.
-  \item The metadata extracted from a mailing list archive can be
+  \item The meta-data extracted from a mailing list archive can be
         quite huge. Even after removing the body of the messages, the
-        XML/RDF metadata of a mailing list containing 1000 messages may
+        XML/RDF meta-data of a mailing list containing 1000 messages may
         have a size of 4 MBytes, with a linear growth. It is not uncommon
         for a busy mailing list to generate this volume of messages
         monthly. Hence, it is imperative to design a mechanism to

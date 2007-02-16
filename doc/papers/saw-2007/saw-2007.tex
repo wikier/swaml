@@ -69,8 +69,8 @@ static HTML page for each message in the archive, in addition to
 some indexes (by date, by author, by thread), often splitted by
 date intervals to avoid excessive growth. On one hand, this fixed
 structure reduces the flexibility when the user browses the
-mailing list archives from his web browser. On the other one, some of
-the metadata that was associated to each e-mail message is lost
+mailing list archives from his web browser. On the other hand, some 
+of the metadata that was associated to each e-mail message is lost
 when it is rendered as HTML for presentational purpouses.
 
 We propose to use an ontology and RDF to enable the publishing of
@@ -79,8 +79,8 @@ the metadata that were present in the messages. The rest of the
 paper is organized as follows: Section~\ref{sec:SIOC} introduces the
 SIOC ontology and our extensions to it, and then our software
 applications are described in Section~\ref{sec:tools}. We close
-the paper with the conclussions and a discussion on our future plans
-in Section~\ref{sec:conclussions}.
+the paper with the conclussions and a discussion about our future 
+plans in Section~\ref{sec:conclussions}.
 
 \section{\label{sec:SIOC}SIOC}
 
@@ -143,9 +143,15 @@ programming language, mainly three:
  \item Buxon, a browser for SIOC Forum instances.
 \end{itemize}
 
-Each of it each one fulfills a concrete purpose into the global purposes 
-that the project persecutes. The project covers so much the data exportation 
-phase as the data consumition phase.
+\begin{figure}[ht]
+ \centering
+ \includegraphics[bb=0 0 300 283]{images/swaml.png}
+ \caption{Processes involved in SWAML}
+\end{figure}
+
+Each one fulfills a concrete purpose into the global purposes that the 
+project desires to achieve. The project covers so much the data 
+exportation phase as the data consumition phase.
 
 \subsection{SWAML}
 
@@ -157,21 +163,20 @@ represent in RDF a mailing list.
 
 \begin{figure}[ht]
  \centering
- %\includegraphics[bb=0 0 238 200]{images/swaml-process.png}
- \includegraphics[bb=0 0 300 283]{images/swaml.png}
- \caption{SWAML core process}
+ \includegraphics[bb=0 0 238 200]{images/swaml-process.png}
+ \caption{SWAML cpre process}
 \end{figure}
 
 Basically it parses a mailing list, a non trivial task, compatible with 
 RFC 4155~\cite{RFC4155} and it serializes it to RDF as a Forum according 
-to the SIOC ontology. And to parse a mailing list it isn't a trivial task 
+to the SIOC ontology. Parsing a mailing list it isn't a trivial task 
 because a mailbox is a structured data file based on non unique identifiers.
 Each message includes a field (\textsf{Message-ID}) assigned arbitrarily by 
 the SMTP server used. This field is used by mail clients to answer a message
 linking it using another field (\textsf{In-Reply-To}). Then the tool must be 
 able to recompose the conversation threads using this non unique ids,
 trying to resolve the possible conflicts found using several heuristic 
-algorithms.
+algorithms. (FIXME: this paragraph is not clear, rewrite it)
 
 But this component not only exports a mailbox, it goes a little more far...
 

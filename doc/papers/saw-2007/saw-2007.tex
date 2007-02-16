@@ -44,7 +44,7 @@ store a vast knowledge capital. However, the ability to auto-matically
 recognize and process the information is mostly lost at publishing time. 
 As a result, the current mailing list archives are hard to query and have 
 a limited use. This paper describes how SWAML uses Semantic Web technologies 
-in order to avoid the information loss and to allow new applications able 
+in order to avoid the information loss and to allow new applications 
 to exploit this information in a more convenient way.
 
 \end{abstract}
@@ -67,8 +67,8 @@ procedure that is run to transform the e-mail messages into static
 HTML pages. This task is fulfilled by scripts that create an
 static HTML page for each message in the archive, in addition to
 some indexes (by date, by author, by thread), often splitted by
-date intervals to avoid excessive growth. On one hand, this fixed
-structure reduces the flexibility when the user browses the
+date intervals to avoid excessive growth. On the one hand, this 
+fixed structure reduces the flexibility when the user browses the
 mailing list archives from his web browser. On the other hand, some 
 of the metadata that was associated to each e-mail message is lost
 when it is rendered as HTML for presentational purpouses.
@@ -79,25 +79,24 @@ the metadata that were present in the messages. The rest of the
 paper is organized as follows: Section~\ref{sec:SIOC} introduces the
 SIOC ontology and our extensions to it, and then our software
 applications are described in Section~\ref{sec:tools}. We close
-the paper with the conclussions and a discussion about our future 
-plans in Section~\ref{sec:conclussions}.
+the paper with the conclusions and a discussion about our future 
+plans in Section~\ref{sec:conclusions}.
 
 \section{\label{sec:SIOC}SIOC}
 
 An ontology to capture the metadata of a discussion forum, such as
 a mailing list, was clearly recognized as the first milestone to
-fulfill the purpose of the project. Fortunately,
-DERI Galway has developed
-SIOC (Semantically-Interlinked Online Communities), an ontology
-that provides methods for 
-interconnecting discussion methods such as blogs, forums and mailing
-lists~\cite{Breslin2006}\cite{Breslin2005}. Indeed, SIOC has a wider 
-scope than just mailing lists, and groups all kinds of online discussion 
-primitives on a generic \textsf{sioc:Forum} concept. Each forum represents 
-an online community of people that share a common interest. The goal of 
-SIOC is to interconnect these online communities. Other key concepts into 
-the ontology are \textsf{sioc:User} and \textsf{sioc:Post}, which model 
-respectively the members of the communities and the content they produce.
+fulfil the purpose of the project. Fortunately, DERI Galway has 
+developed SIOC (Semantically-Interlinked Online Communities), an 
+ontology that provides methods for interconnecting discussion methods 
+such as blogs, forums and mailing lists~\cite{Breslin2006}\cite{Breslin2005}. 
+Indeed, SIOC has a wider scope than just mailing lists, and groups all 
+kinds of online discussion primitives on a generic \textsf{sioc:Forum} 
+concept. Each forum represents an online community of people that share 
+a common interest. The goal of SIOC is to interconnect these online 
+communities. Other key concepts into the ontology are \textsf{sioc:User} 
+and \textsf{sioc:Post}, which model respectively the members of the 
+communities and the content they produce, respectively.
 
 %FIXME: very ugly 
 %\begin{figure}[ht]
@@ -107,17 +106,15 @@ respectively the members of the communities and the content they produce.
 %\end{figure}
 
 The SIOC ontology is designed to express the information contained
-both explicitly 
-and implicitly in internet discussion methods. Several software applications,
-usually deployed as plugins,
-are already available to export SIOC data from some popular blogging
-platforms and content management systems. The effort, however, is
-focused on web-based communities (weblogs, webforums), while little
-has been done so far to extend the coverage to legacy non-web
-communities, chiefly mailing lists and Usenet groups.
+both explicitly  and implicitly in internet discussion methods. Several 
+software applications, usually deployed as plugins, are already available 
+to export SIOC data from some popular blogging platforms and content 
+management systems. The effort, however, is focused on web-based communities 
+(weblogs, webforums), while little has been done so far to extend the coverage 
+to legacy non-web communities, chiefly mailing lists and Usenet groups.
 
 SIOC is specified using OWL, and their instances are expressed
-in RDF. Therefore, they can be easily linked to another ontologies.
+in RDF. Therefore, they can be easily linked to other ontologies.
 The obvious choice here is FOAF~\cite{FOAF}, which provides more
 powerful means to describe the personal data of the members of
 a community.
@@ -142,7 +139,7 @@ are defined with \textsf{sioc:Post} as their domain and range.
 
 \section{\label{sec:tools}Software tools}
 
-In the SWAML project has been developed some software tools using the Python 
+In the SWAML project some software toolshas been developed using the Python 
 programming language, mainly three:
 
 \begin{itemize}
@@ -156,17 +153,17 @@ programming language, mainly three:
  \caption{Processes involved in SWAML}
 \end{figure}
 
-Each one fulfills a concrete purpose into the global purposes that the 
+Each one fulfils a concrete purpose into the global goals that the 
 project desires to achieve. The project covers so much the data 
 exportation phase as the data consumition phase.
 
 \subsection{SWAML}
 
-The main component, the core, is called with the same name that the project. 
-SWAML is the process in charge to process the mailing lists. SWAML reads a 
+The main component, the core, that has the same name than the project. 
+SWAML is the tool in charge to process the mailing lists. SWAML reads a 
 collection of email messages stored in a mailbox and generates a RDF 
 description. It is written in Python using SIOC as the main ontology to 
-represent in RDF a mailing list.
+represent a mailing list in RDF.
 
 \begin{figure}[ht]
  \centering
@@ -176,22 +173,24 @@ represent in RDF a mailing list.
 
 Basically it parses a mailing list, a non trivial task, compatible with 
 RFC 4155~\cite{RFC4155} and it serializes it to RDF as a Forum according 
-to the SIOC ontology. Parsing a mailing list it isn't a trivial task 
+to the SIOC ontology. Parsing a mailing list it is a complex task 
 because a mailbox is a structured data file based on non unique identifiers.
-Each message includes a field (\textsf{Message-ID}) assigned arbitrarily by 
+Each message includes a field (\textsf{Message-ID}) arbitrarily assigned by 
 the SMTP server used. This field is used by mail clients to answer a message
-linking it using another field (\textsf{In-Reply-To}). Then the tool must be 
-able to recompose the conversation threads using this non unique ids,
-trying to resolve the possible conflicts found using several heuristic 
-algorithms. (FIXME: this paragraph is not clear, rewrite it)
+linking it using another field (\textsf{In-Reply-To}) in the reply messages. 
+Then the tool must be able to recompose the conversation threads using this 
+non unique ids, trying to resolve the possible conflicts found using several 
+heuristic algorithms. %(FIXME: this paragraph is not clear, rewrite it)
 
-But this component not only exports a mailbox, it goes a little more far...
+Not only does this component export a mailbox, but it also goes a little 
+further...
 
 Firstly it tries to find a FOAF profile that describes a person with the 
-mail address of each subscriber. This it isn't a trivial task with the 
-infrastructure of the actual Semantic Web, because there isn't any service 
-that provides this specific functionality.For the moment this part is only 
-a mock, but it's ready to work when we'll finish another project.
+mail address of each subscriber. This is not easy taking into account 
+infrastructure of the current Semantic Web, since there is no service 
+that provides this specific functionality. For the moment this module is 
+only a mock, but it will fully work as soon as we finish another related 
+project
 
 Secondly it exports all the geographical information found in these FOAF 
 profiles into KML~\cite{Ricket2006}, to draw the point into Google Maps or 
@@ -206,11 +205,11 @@ Google Earth.
 
 \subsection{Buxon}
 
-Buxon is the application written in PyGTK that make the opposite work. It 
+Buxon is the application written in PyGTK that makes the opposite work. It 
 takes the URI of a generic SIOC Forum (for example a mailing list exported 
-by SWAML, although it's independent of the export tool) and it recompose the 
-graph. With that graph the tool shows the posts ordered by threads using a 
-similar GUI than a classic mail client.
+by SWAML, although it is independent of the export tool) and it recomposes 
+the graph. With that graph the tool displays the posts ordered by threads using 
+a similar GUI to that of a classic mail client.
 
 \begin{figure}[ht]
  \centering
@@ -218,10 +217,10 @@ similar GUI than a classic mail client.
  \caption{Buxon in action (FIXME: add a screenshot of v0.0.4)}
 \end{figure}
 
-In addition it allows to make simple searches by terms and dates, using
+In addition it allows making simple searches by terms and dates, using
 SPARQL queries over the backend graph.
 
-In addition the latest versions of Buxon has support to 
+In addition the latest versions of Buxon have support for 
 PingTheSemanticWeb.com\footnote{\url{http://pingthesemanticweb.com/}}, 
 a social web service where people can send a ping each time they find 
 a Semantic Web document. If the user wants, Buxon will warn to 
@@ -229,7 +228,7 @@ PingTheSemanticWeb.com what's the URIs of the SIOC documents browsed,
 contributing to create an infrastructure letting people easily create, 
 find and publish RDF documents.
 
-\section{\label{sec:conclussions}Conclussions and Future Work}
+\section{\label{sec:conclusions}Conclusions and Future Work}
 
 There is a lot of ongoing effort to translate data already reachable
 on the web into formats which are Semantic Web-friendly. Most of that 

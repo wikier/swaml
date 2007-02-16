@@ -225,28 +225,31 @@ of the KML file using Google Maps.
 
 \subsection{Buxon}
 
-Buxon is the application written in PyGTK that makes the opposite work. It 
-takes the URI of a generic SIOC Forum (for example a mailing list exported 
-by SWAML, although it is independent of the export tool) and it recomposes 
-the graph. With that graph the tool displays the posts ordered by threads using 
-a similar GUI to that of a classic mail client.
+Buxon is a multiplatform application written in PyGTK. Its main purpose
+is to allow end users to browse the archives of mailing lists as if
+they were using their desktop mail applications. Buxon takes
+the URI of a \textsf{sioc:Forum} instance (for example, a mailing list
+exported by SWAML, although other \textsf{sioc:Forum} instances
+are valid) and fetches the data, retrieving additional files
+if necessary. Then, it rebuilds the conversation structure and
+displays the familiar message thread list (see Figure~\ref{fig:buxon}).
 
 \begin{figure}[ht]
  \centering
  \includegraphics[bb=0 0 288 202]{images/buxon.png}
- \caption{Buxon browsing SIOC-Dev mailing list}
+ \caption{\label{fig:buxon}Buxon browsing SIOC-Dev mailing list}
  %FIXME: add a screenshot of v0.0.4
 \end{figure}
 
-In addition it allows making simple searches by terms and dates, using
-SPARQL queries over the backend graph.
-
-In addition the latest versions of Buxon have support for 
+Buxon also gives users the ability to query the messages, searching
+for terms or filtering the messages in a date range. All these queries
+are internally translated to SPARQL~\cite{SPARQLProtocol} to be executed
+over the RDF graph. Newer versions of Buxon can, at user's
+request, send the URL to
 PingTheSemanticWeb.com\footnote{\url{http://pingthesemanticweb.com/}}, 
-a social web service where people can send a ping each time they find 
-a Semantic Web document. If the user wants, Buxon will warn to 
-PingTheSemanticWeb.com what's the URIs of the SIOC documents browsed,
-contributing to create an infrastructure letting people easily create, 
+a social web service that tracks semantic web documents.
+That way, Buxon
+contributes to establish an infrastructure that lets people easily create, 
 find and publish RDF documents.
 
 \section{\label{sec:conclusions}Conclusions and Future Work}

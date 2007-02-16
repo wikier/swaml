@@ -73,30 +73,31 @@ mailing list archives from his web browser. On the other hand, some
 of the metadata that was associated to each e-mail message is lost
 when it is rendered as HTML for presentational purpouses.
 
-We propose to use an ontology and RDF to enable the publishing of
-the mailing list archives into the (Semantic) web, while retaining
-the metadata that were present in the messages. The rest of the
-paper is organized as follows: Section~\ref{sec:SIOC} introduces the
-SIOC ontology and our extensions to it, and then our software
-applications are described in Section~\ref{sec:tools}. We close
-the paper with the conclusions and a discussion about our future 
-plans in Section~\ref{sec:conclusions}.
+We propose to use an ontology and RDF (Resource Description Framework
+\cite{RDF}) to enable the publishing of the mailing list archives into 
+the (Semantic) web, while retaining the metadata that were present in 
+the messages. The rest of the paper is organized as follows: 
+Section~\ref{sec:SIOC} introduces the SIOC ontology and our extensions 
+to it, and then our software applications are described in 
+Section~\ref{sec:tools}. We close the paper with the conclusions and 
+a discussion about our future plans in Section~\ref{sec:conclusions}.
 
 \section{\label{sec:SIOC}SIOC}
 
 An ontology to capture the metadata of a discussion forum, such as
 a mailing list, was clearly recognized as the first milestone to
 fulfil the purpose of the project. Fortunately, DERI Galway has 
-developed SIOC (Semantically-Interlinked Online Communities), an 
-ontology that provides methods for interconnecting discussion methods 
-such as blogs, forums and mailing lists~\cite{Breslin2006}\cite{Breslin2005}. 
-Indeed, SIOC has a wider scope than just mailing lists, and groups all 
-kinds of online discussion primitives on a generic \textsf{sioc:Forum} 
-concept. Each forum represents an online community of people that share 
-a common interest. The goal of SIOC is to interconnect these online 
-communities. Other key concepts into the ontology are \textsf{sioc:User} 
-and \textsf{sioc:Post}, which model respectively the members of the 
-communities and the content they produce, respectively.
+developed SIOC\footnote{\url{http://sioc-project.org/}} (Semantically-Interlinked 
+Online Communities), an ontology that provides methods for interconnecting 
+discussion methods such as blogs, forums and mailing 
+lists~\cite{Breslin2006}\cite{Breslin2005}. Indeed, SIOC has a wider 
+scope than just mailing lists, and groups all kinds of online discussion 
+primitives on a generic \textsf{sioc:Forum} concept. Each forum represents 
+an online community of people that share a common interest. The goal 
+of SIOC is to interconnect these online communities. Other key concepts 
+of the ontology are \textsf{sioc:User} and \textsf{sioc:Post}, which 
+model respectively the members of the communities and the content they 
+produce, respectively.
 
 %FIXME: very ugly 
 %\begin{figure}[ht]
@@ -111,7 +112,7 @@ software applications, usually deployed as plugins, are already available
 to export SIOC data from some popular blogging platforms and content 
 management systems. The effort, however, is focused on web-based communities 
 (weblogs, webforums), while little has been done so far to extend the coverage 
-to legacy non-web communities, chiefly mailing lists and Usenet groups.
+to legacy non-web communities, such us mailing lists and Usenet groups.
 
 SIOC is specified using OWL, and their instances are expressed
 in RDF. Therefore, they can be easily linked to other ontologies.
@@ -139,7 +140,7 @@ are defined with \textsf{sioc:Post} as their domain and range.
 
 \section{\label{sec:tools}Software tools}
 
-In the SWAML project some software toolshas been developed using the Python 
+In the SWAML project some software tools has been developed using the Python 
 programming language, mainly three:
 
 \begin{itemize}
@@ -154,8 +155,8 @@ programming language, mainly three:
 \end{figure}
 
 Each one fulfils a concrete purpose into the global goals that the 
-project desires to achieve. The project covers so much the data 
-exportation phase as the data consumition phase.
+project desires to achieve. The project covers both the data exporation 
+phase and the data consumption phase.
 
 \subsection{SWAML}
 

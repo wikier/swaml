@@ -144,11 +144,10 @@ The ontology itself provides no service to end users. Software tools
 are required, and we have built two of them as part of this project.
 
 \begin{itemize}
- \item SWAML is a non-interactive, command-line application whose main
-purpose is to generate \textsf{sioc:Forum} instances in RDF from
-mail folders.
-
- \item Buxon is a graphical browser for SIOC \textsf{Forum} instances.
+  \item SWAML is a non-interactive, command-line application whose main
+	purpose is to generate \textsf{sioc:Forum} instances in RDF from
+	mailboxes.
+  \item Buxon is a graphical browser for SIOC \textsf{Forum} instances.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -177,11 +176,11 @@ implemented in Python. Its output is a number of SIOC instances
 of RDF files. SWAML is a highly configurable, non-interactive
 application designed to be invoked by the system task scheduler.
 
-\begin{figure}[ht]
- \centering
- \includegraphics[bb=0 0 238 200]{images/swaml-process.png}
- \caption{SWAML core process}
-\end{figure}
+%\begin{figure}[ht]
+% \centering
+% \includegraphics[bb=0 0 238 200]{images/swaml-process.png}
+% \caption{SWAML core process}
+%\end{figure}
 
 Parsing the mailbox and rebuilding the discussion threads may be
 tricky sometimes. Although each mail message has a supposedly unique
@@ -221,7 +220,6 @@ of the KML file using Google Maps.
 \begin{figure}[ht]
  \centering
  \includegraphics[bb=0 0 400 285,width=10cm]{images/googlemaps.png}
- %FIXME: add a screeshot with more points
  \caption{\label{fig:googlemaps}Plotting the subscribers of a mailing list using Google Maps.}
 \end{figure}
 
@@ -236,7 +234,8 @@ a similar GUI to that of a classic mail client.
 \begin{figure}[ht]
  \centering
  \includegraphics[bb=0 0 288 202]{images/buxon.png}
- \caption{Buxon in action (FIXME: add a screenshot of v0.0.4)}
+ \caption{Buxon browsing SIOC-Dev mailing list}
+ %FIXME: add a screenshot of v0.0.4
 \end{figure}
 
 In addition it allows making simple searches by terms and dates, using

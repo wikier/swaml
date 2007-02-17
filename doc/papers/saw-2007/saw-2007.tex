@@ -2,6 +2,38 @@
 
 %\usepackage{makeidx}  % allows for indexgeneration
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+
+%some utils macros
+\definecolor{listinggray}{gray}{0.97}
+\lstset{
+	basewidth=0.4em,
+	backgroundcolor=\color{listinggray},
+	keywordstyle=\bfseries,
+	stringstyle=\itshape,
+	commentstyle=\itshape,
+	%basicstyle=\small\tt,
+	showspaces=false,
+	showtabs=false,
+	showstringspaces=false,
+	frame=trbl,
+	extendedchars=true,
+	numbers=none,
+	aboveskip=0.5cm,
+	belowskip=0.5cm,
+	xleftmargin=0cm,
+	xrightmargin=0cm
+}
+\lstdefinelanguage{RDF}[]{XML}{%
+	morekeywords = {rdf:RDF, rdf:about, rdf:resource, rdf:Description,
+			sioc:Post, sioc:id, sioc:has_creator, sioc:content, 
+			sioc:has_reply, dc:title, dcterms:created,
+			swaml:previousByDate, swaml:nextByDate }
+}
+\lstdefinelanguage{SPARQL}{%
+	morekeywords = {PREFIX, SELECT, DISTINCT, WHERE, FROM }
+}
 
 \begin{document}
 
@@ -201,6 +233,32 @@ considered). SWAML builds a tree for in-memory representation
 of the conversation threads, so \textsf{sioc:Message}s can be
 properly linked.
 
+\begin{figure}[ht]
+\lstset{language=RDF}
+\begin{lstlisting}
+<rdf:RDF
+  xmlns:dcterms='http://purl.org/dc/terms/'
+  xmlns:sioc='http://rdfs.org/sioc/ns#'
+  xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+  xmlns:swaml='http://swaml.berlios.de/ns/0.2#'
+  xmlns:dc='http://purl.org/dc/elements/1.1/'
+>
+  <sioc:Post rdf:about="http://swaml.berlios.de/demo/2006-Oct/post-50.rdf">
+    <dc:title>SIOC properties cardinality</dc:title>
+    <sioc:id>ee5f9a4c016208bc64daed456bd7c0696d760909</sioc:id>
+    <sioc:has_creator rdf:resource="http://swaml.berlios.de/demo/subscribers.rdf#s4"/>
+    <dcterms:created>Thu, 12 Oct 2006 23:59:26 +0200</dcterms:created>
+    <sioc:content>...</sioc:content>
+    <sioc:has_reply rdf:resource="http://swaml.berlios.de/demo/2006-Oct/post-51.rdf"/>
+    <swaml:previousByDate rdf:resource="http://swaml.berlios.de/demo/2006-Oct/post-49.rdf"/>
+    <swaml:nextByDate rdf:resource="http://swaml.berlios.de/demo/2006-Oct/post-51.rdf"/>
+  </sioc:Post>
+</rdf:RDF
+\end{lstlisting}
+\caption{Ejemplo de grafo RDF serializado en XML}
+\label{fig:rdfexample}
+\end{figure}
+
 Actually, SWAML goes further than just a format-translation
 tool. A dedicated sub-process that runs a part of the batch
 execution, but may be also separately invoked over any
@@ -248,13 +306,28 @@ displays the familiar message thread list (see Figure~\ref{fig:buxon}).
 Buxon also gives users the ability to query the messages, searching
 for terms or filtering the messages in a date range. All these queries
 are internally translated to SPARQL~\cite{SPARQLProtocol} to be executed
-over the RDF graph. Newer versions of Buxon can, at user's
-request, send the URI to
-PingTheSemanticWeb.com\footnote{\url{http://pingthesemanticweb.com/}}, 
-a social web service that tracks semantic web documents.
-That way, Buxon
+over the RDF graph. Newer versions of Buxon can, at user's request, send 
+the URI to PingTheSemanticWeb.com\footnote{\url{http://pingthesemanticweb.com/}}, 
+a social web service that tracks semantic web documents. That way, Buxon
 contributes to establish an infrastructure that lets people easily create, 
 find and publish RDF documents.
+
+\begin{figure}[ht]
+\lstset{language=SPARQL}
+\begin{lstlisting}
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?uri
+FROM <http://swaml.berlios.de/demo/index.rdf>
+WHERE
+{
+  ?x rdf:type sioc:Forum .
+  ?x sioc:container_of ?uri
+}
+\end{lstlisting}
+\caption{SPARQL query example to extract all the posts sent in a SIOC Forum instance}
+\label{fig:sparqlquery}
+\end{figure}
 
 \section{\label{sec:conclusions}Conclusions and Future Work}
 

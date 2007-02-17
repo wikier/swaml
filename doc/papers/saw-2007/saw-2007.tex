@@ -21,8 +21,8 @@
 	frame=trbl,
 	extendedchars=true,
 	numbers=none,
-	aboveskip=0.5cm,
-	belowskip=0.5cm,
+	aboveskip=0cm,
+	belowskip=0cm,
 	xleftmargin=0cm,
 	xrightmargin=0cm
 }
@@ -315,12 +315,15 @@ find and publish RDF documents.
 \begin{lstlisting}
 PREFIX sioc: <http://rdfs.org/sioc/ns#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT ?message
+SELECT ?title
 FROM <http://swaml.berlios.de/demo/index.rdf>
 WHERE
 {
   ?x rdf:type sioc:Forum .
-  ?x sioc:container_of ?message
+  ?x sioc:container_of ?message .
+  ?message sioc:has_creator ?creator .
+  ?creator sioc:name "Diego Berrueta" .
+  ?message dc:title ?title
 }
 \end{lstlisting}
 \caption{SPARQL query to extract all the posts sent to any \textsf{sioc:Forum} instance.}

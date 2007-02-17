@@ -173,6 +173,34 @@ properties\footnote{These properties are defined in a separate
 namespace, \url{http://swaml.berlios.de/ns/0.2\#}}:
 \textsf{previousByDate} and \textsf{nextByDate}. Both properties
 are defined with \textsf{sioc:Post} as their domain and range.
+A sample RDF representation of a message is shown in
+Figure~\ref{fig:rdfexample}.
+
+\begin{figure}[ht]
+\lstset{language=RDF}
+\begin{lstlisting}
+<rdf:RDF
+  xmlns:dcterms='http://purl.org/dc/terms/'
+  xmlns:sioc='http://rdfs.org/sioc/ns#'
+  xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+  xmlns:swaml='http://swaml.berlios.de/ns/0.2#'
+  xmlns:dc='http://purl.org/dc/elements/1.1/'
+  xml:base='http://swaml.berlios.de/demo/'>
+  <sioc:Post rdf:about="2006-Oct/post-50.rdf">
+    <dc:title>SIOC properties cardinality</dc:title>
+    <sioc:id>ee5f9a4c016208bc64daed456bd7c0696d760909</sioc:id>
+    <sioc:has_creator rdf:resource="subscribers.rdf#s4"/>
+    <dcterms:created>Thu, 12 Oct 2006 23:59:26 +0200</dcterms:created>
+    <sioc:content><!-- ommitted --></sioc:content>
+    <sioc:has_reply rdf:resource="2006-Oct/post-51.rdf"/>
+    <swaml:previousByDate rdf:resource="2006-Oct/post-49.rdf"/>
+    <swaml:nextByDate rdf:resource="2006-Oct/post-51.rdf"/>
+  </sioc:Post>
+</rdf:RDF>
+\end{lstlisting}
+\caption{SIOC Post example in RDF/XML}
+\label{fig:rdfexample}
+\end{figure}
 
 \section{\label{sec:tools}Software tools}
 
@@ -233,33 +261,6 @@ in the mailbox (obviously, only previous messages are
 considered). SWAML builds a tree for in-memory representation
 of the conversation threads, so \textsf{sioc:Message}s can be
 properly linked.
-
-\begin{figure}[ht]
-\lstset{language=RDF}
-\begin{lstlisting}
-<rdf:RDF
-  xmlns:dcterms='http://purl.org/dc/terms/'
-  xmlns:sioc='http://rdfs.org/sioc/ns#'
-  xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
-  xmlns:swaml='http://swaml.berlios.de/ns/0.2#'
-  xmlns:dc='http://purl.org/dc/elements/1.1/'
-  xml:base='http://swaml.berlios.de/demo/'
->
-  <sioc:Post rdf:about="2006-Oct/post-50.rdf">
-    <dc:title>SIOC properties cardinality</dc:title>
-    <sioc:id>ee5f9a4c016208bc64daed456bd7c0696d760909</sioc:id>
-    <sioc:has_creator rdf:resource="subscribers.rdf#s4"/>
-    <dcterms:created>Thu, 12 Oct 2006 23:59:26 +0200</dcterms:created>
-    <sioc:content><!-- ommitted --></sioc:content>
-    <sioc:has_reply rdf:resource="2006-Oct/post-51.rdf"/>
-    <swaml:previousByDate rdf:resource="2006-Oct/post-49.rdf"/>
-    <swaml:nextByDate rdf:resource="2006-Oct/post-51.rdf"/>
-  </sioc:Post>
-</rdf:RDF
-\end{lstlisting}
-\caption{SIOC Post example in RDF/XML}
-\label{fig:rdfexample}
-\end{figure}
 
 Actually, SWAML goes further than just a format-translation
 tool. A dedicated sub-process that runs a part of the batch

@@ -21,7 +21,7 @@ SWAML1:
 ------
 
 PREFIX sioc: <http://rdfs.org/sioc/ns#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT ?uri
 FROM <http://swaml.berlios.de/demo/index.rdf>
 WHERE

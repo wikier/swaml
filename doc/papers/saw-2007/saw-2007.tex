@@ -204,27 +204,27 @@ Figure~\ref{fig:rdfexample}.
 \section{\label{sec:tools}Software tools}
 
 The ontology itself provides no service to end users. Software tools
-are required, and we have built two of them as part of this
-project\footnote{Both of them are available at \url{http://swaml.berlios.de/}}.
+are required, and we built two of them as part of this
+project\footnote{Our applications are available at \url{http://swaml.berlios.de/}}.
 
 \begin{itemize}
   \item SWAML is a non-interactive, command-line application whose main
-	purpose is to generate \textsf{sioc:Forum} instances in RDF from
-	mailboxes.
-  \item Buxon is a graphical browser for SIOC \textsf{Forum} instances.
+	purpose is to translate mailboxes into \textsf{sioc:Forum}
+        instances in RDF.
+  \item Buxon is a graphical browser for \textsf{sioc:Forum} instances.
 \end{itemize}
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=9cm]{images/swaml.png}
  \caption{\label{fig:swaml-and-buxon}Buxon is an end-user application
-that consumes SIOC
-\textsf{Forum} instances that can be generated from mailboxes
+that consumes
+\textsf{sioc:Forum} instances, which in turn can be generated from mailboxes
 using SWAML.}
 \end{figure}
 
-Each tool has a well-defined role, fulfilling the need to
-generate RDF data and consume data, respectively, as depicted
+Each tool has a precisely defined role, fulfilling the need to
+generate RDF data and to consume data, respectively, as depicted
 in Figure~\ref{fig:swaml-and-buxon}. The following paragraphs
 provide further detail on SWAML and Buxon.
 
@@ -233,7 +233,7 @@ provide further detail on SWAML and Buxon.
 SWAML covers the data-generation phase, and it is intended to be
 used by mailing list administrators, who usually have access to
 the archives in raw format. The most popular format for
-mailing list archives is the ``mailbox'' (or ``mbox''), defined
+mailing list archives is the ``mailbox'' (or ``mbox''), as defined
 in RFC~4155~\cite{RFC4155}. SWAML is essentially a mailbox parser
 implemented in Python. Its output is a number of SIOC instances
 (\textsf{Forum}, \textsf{Post}s and \textsf{User}s) in a set
@@ -241,7 +241,7 @@ of RDF files. SWAML is a highly configurable, non-interactive
 application designed to be invoked by the system task scheduler.
 
 Parsing the mailbox and rebuilding the discussion threads may be
-tricky sometimes. Although each mail message has a supposedly unique
+sometimes tricky. Although each mail message has a supposedly unique
 identifier in its header (\textsf{Message-ID}, defined by
 RFC~2822~\cite{RFC2822}), in practice its uniqueness cannot be
 taken for granted. Actually, we have found some
@@ -256,39 +256,41 @@ of the conversation threads, so \textsf{sioc:Post}s can be
 properly linked.
 
 Actually, SWAML goes further than just a format-translation
-tool. A dedicated sub-process that runs a part of the batch
-execution, but may be also separately invoked over any
+tool. A dedicated subrutine that runs a part of the batch
+execution, but may be also separately invoked on any
 \textsf{sioc:Forum}, tries to find a FOAF description for
 each \textsf{sioc:User}. To the best of our knowledge, there is not
 any web service to fetch FOAF descriptions from a given e-mail
-address, so we mocked it. Some of the authors are currently working
+address, so we mocked it. Some of the authors of this paper are also
+currently working
 on a functional implementation of such a service as part of a
 different project.
 
 The last step of the SWAML processing chain generates a
-KML~\cite{Ricket2006} file with the geographical coordinates of
+KML~\cite{Ricket2006} file that contains the geographical coordinates of
 the mailing list subscribers. The information is fetched from their
 FOAF descriptions, therefore it is only available for those
 subscribers whose FOAF description contains the coordinates
 using the basic \textsf{geo} vocabulary by Dan
 Brickley~\cite{Brickley2006}.
 Figure~\ref{fig:googlemaps} depicts a graphical representation
-of the KML file using Google Maps.
+of the KML file for a sample mailing list.
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=9cm]{images/googlemaps.png}
- \caption{\label{fig:googlemaps}Plotting the subscribers of a mailing list using Google Maps.}
+ \caption{\label{fig:googlemaps}Plotting the geographical coordinates of
+the members of a mailing list using Google Maps.}
 \end{figure}
 
 \subsection{Buxon}
 
-Buxon is a multi-platform application written in PyGTK. Its main purpose
-is to allow end users to browse the archives of mailing lists as if
-they were using their desktop mail applications. Buxon takes
+Buxon is a multi-platform desktop application written in PyGTK.
+It allows end users to browse the archives of mailing lists as if
+they were using their desktop mail application. Buxon takes
 the URI of a \textsf{sioc:Forum} instance (for example, a mailing list
-exported by SWAML, although other \textsf{sioc:Forum} instances
-are valid) and fetches the data, retrieving additional files
+exported by SWAML, although any \textsf{sioc:Forum} instance
+is valid) and fetches the data, retrieving additional files
 if necessary. Then, it rebuilds the conversation structure and
 displays the familiar message thread list (see Figure~\ref{fig:buxon}).
 
@@ -303,7 +305,7 @@ Buxon also gives users the ability to query the messages, searching
 for terms or filtering the messages in a date range. All these queries
 are internally translated to SPARQL~\cite{SPARQLProtocol} to be executed
 over the RDF graph. Newer versions of Buxon can, at user's request, send 
-the URI to PingTheSemanticWeb.com\footnote{\url{http://pingthesemanticweb.com/}}, 
+the \textsf{sioc:Forum} URI to PingTheSemanticWeb.com\footnote{\url{http://pingthesemanticweb.com/}}, 
 a social web service that tracks semantic web documents. That way, Buxon
 contributes to establish an infrastructure that lets people easily create, 
 find and publish RDF documents.

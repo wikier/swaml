@@ -89,44 +89,45 @@ popular applications of the Internet. Besides direct messaging
 between individuals, mailing lists exist as private or public
 forums for information exchange in communities with shared interests.
 Mailing list archives are compilations of the previously posted
-messages that are often converted into static HTML for its
+messages that are often converted into static HTML pages for their
 publication on the web. They represent a noteworthy portion of
-the contents that are indexed by the web search engines, and they
+the contents that are indexed by web search engines, and they
 capture an impressive body of knowledge that, however, is difficult
 to locate and browse.
 
 The root of these problems can be traced back to the translation
 procedure that is run to transform the e-mail messages into static
 HTML pages. This task is fulfilled by scripts that create an
-static HTML page for each message in the archive, in addition to
-some indexes (by date, by author, by thread), often splitted by
-date intervals to avoid excessive growth. On the one hand, this 
-fixed structure reduces the flexibility when the user browses the
-mailing list archives from his web browser. On the other hand, some 
-of the meta-data that was associated to each e-mail message is lost
-when it is rendered as HTML for presentational purposes.
+static HTML page for each message in the archive. In addition,
+some indexes (by date, by author, by thread) are generated and
+usually splitted by date ranges to avoid excessive growth.
+On the one hand, this 
+fixed structure reduces the flexibility when users browse the
+mailing list archives using their web browsers. On the other hand, some 
+of the meta-data that were associated to each e-mail message are lost
+when the message is rendered as HTML for presentational purposes.
 
-We propose to use an ontology and RDF (Resource Description Framework
-\cite{RDF}) to enable the publishing of the mailing list archives into 
+We propose to use an ontology and RDF (Resource Description
+Framework~\cite{RDF}) to publish the mailing list archives into 
 the (Semantic) web, while retaining the meta-data that were present in 
 the messages. Additionally, by doing so, the information could be
-merged with other vocabularies, such as FOAF.
+merged and linked to other vocabularies, such as FOAF.
 
 The rest of the paper is organized as follows: 
 Section~\ref{sec:SIOC} introduces the SIOC ontology and our extensions 
-to it, and then our software applications are described in 
+to it, and then some software applications are described in 
 Section~\ref{sec:tools}. We close the paper with the conclusions and 
-a discussion about our future plans in Section~\ref{sec:conclusions}.
+a discussion on future plans in Section~\ref{sec:conclusions}.
 
 \section{\label{sec:SIOC}SIOC}
 
 An ontology to capture the meta-data of a discussion forum, such as
 a mailing list, was clearly recognized as the first milestone to
-fulfil the purpose of the project. Fortunately, DERI Galway has 
-developed SIOC\footnote{\url{http://sioc-project.org/}} (Semantically-Interlinked 
-Online Communities), an ontology that provides methods for interconnecting 
-discussion methods such as blogs, forums and mailing 
-lists~\cite{Breslin2006}\cite{Breslin2005}. Indeed, SIOC has a wider 
+fulfill the purpose of the project. Fortunately, DERI Galway has 
+developed SIOC (Semantically-Interlinked Online
+Communities\footnote{\url{http://sioc-project.org/}}), an ontology that provides a vocabulary to interconnect 
+different discussion methods such as blogs, web-based forums and mailing 
+lists~\cite{Breslin2006,Breslin2005}. Indeed, SIOC has a wider 
 scope than just mailing lists, and groups all kinds of online discussion 
 primitives on a generic \textsf{sioc:Forum} concept. Each forum represents 
 an online community of people that share a common interest. The goal 

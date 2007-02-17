@@ -129,12 +129,12 @@ Communities\footnote{\url{http://sioc-project.org/}}), an ontology that provides
 different discussion methods such as blogs, web-based forums and mailing 
 lists~\cite{Breslin2006,Breslin2005}. Indeed, SIOC has a wider 
 scope than just mailing lists, and groups all kinds of online discussion 
-primitives on a generic \textsf{sioc:Forum} concept. Each forum represents 
+primitives in a generic \textsf{sioc:Forum} concept. Each forum represents 
 an online community of people that share a common interest. The goal 
-of SIOC is to interconnect these online communities. Other key concepts 
+of SIOC is to interconnect these online communities. Other relevant concepts 
 of the ontology are \textsf{sioc:User} and \textsf{sioc:Post}, which 
 model respectively the members of the communities and the content they 
-produce, respectively.
+produce.
 
 \begin{figure}[ht]
  \centering
@@ -142,24 +142,24 @@ produce, respectively.
  \caption{SIOC ontology terms}
 \end{figure}
 
-The SIOC ontology is designed to express the information contained
+The SIOC ontology was designed to express the information contained
 both explicitly  and implicitly in Internet discussion methods. Several 
 software applications, usually deployed as plug-ins, are already available 
 to export SIOC data from some popular blogging platforms and content 
 management systems. The effort, however, is focused on web-based communities 
 (weblogs, webforums), while little has been done so far to extend the coverage 
-to legacy non-web communities, such us mailing lists and Usenet groups.
+to legacy non-web communities, such as mailing lists and Usenet groups.
 
-SIOC is specified using OWL, and their instances are expressed
+SIOC is specified in OWL, and their instances can be expressed
 in RDF. Therefore, they can be easily linked to other ontologies.
-The obvious choice here is FOAF~\cite{FOAF}, which provides more
+The obvious choice here is FOAF~\cite{FOAF}, which provides
 powerful means to describe the personal data of the members of
 a community.
 
 \subsection{Extending SIOC Ontology}
 
 SIOC was quickly identified as an almost perfect match for our
-purpose. Each mailing list is an instance of \textsf{sioc:Forum},
+purpose. Each mailing list becomes an instance of \textsf{sioc:Forum},
 messages sent to the list become instances of \textsf{sioc:Post}
 (as well as their replies), and the people subscribed to the
 list are \textsf{sioc:User}s. The Dublin Core~\cite{DublinCore}
@@ -167,13 +167,13 @@ vocabulary is used to capture meta-data such as the message
 date or title.
 
 However, additional object properties were required
-in order to capture the sequence of messages published in a
+in order to retain the sequence of messages published in a
 mailing list. Thus, we extended the SIOC ontology with two
 properties\footnote{These properties are defined in a separate
 namespace, \url{http://swaml.berlios.de/ns/0.2\#}}:
-\textsf{previousByDate} and \textsf{nextByDate}. Both properties
+\textsf{swaml:previousByDate} and \textsf{swaml:nextByDate}. Both properties
 are defined with \textsf{sioc:Post} as their domain and range.
-A sample RDF representation of a message is shown in
+An RDF representation of a sample message is shown in
 Figure~\ref{fig:rdfexample}.
 
 \begin{figure}[ht]

@@ -237,7 +237,7 @@ the archives in raw format. The most popular format for
 mailing list archives is the ``mailbox'' (or ``mbox''), defined
 in RFC~4155~\cite{RFC4155}. SWAML is essentially a mailbox parser
 implemented in Python. Its output is a number of SIOC instances
-(\textsf{Forum}, \textsf{Message}s and \textsf{User}s) in a set
+(\textsf{Forum}, \textsf{Post}s and \textsf{User}s) in a set
 of RDF files. SWAML is a highly configurable, non-interactive
 application designed to be invoked by the system task scheduler.
 
@@ -259,7 +259,7 @@ Therefore, SWAML assumes that any reference to a message
 is in fact a reference to the most recent message with that ID
 in the mailbox (obviously, only previous messages are
 considered). SWAML builds a tree for in-memory representation
-of the conversation threads, so \textsf{sioc:Message}s can be
+of the conversation threads, so \textsf{sioc:Post}s can be
 properly linked.
 
 Actually, SWAML goes further than just a format-translation

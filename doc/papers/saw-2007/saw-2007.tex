@@ -318,12 +318,12 @@ find and publish RDF documents.
 \begin{lstlisting}
 PREFIX sioc: <http://rdfs.org/sioc/ns#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT ?uri
+SELECT ?message
 FROM <http://swaml.berlios.de/demo/index.rdf>
 WHERE
 {
   ?x rdf:type sioc:Forum .
-  ?x sioc:container_of ?uri
+  ?x sioc:container_of ?message
 }
 \end{lstlisting}
 \caption{SPARQL query example to extract all the posts sent in a SIOC Forum instance}

@@ -339,15 +339,17 @@ However, at the time of this writing and to the best of our knowledge,
 e-mail was almost excluded from the Semantic Web. This project, in 
 combination with the generic SIOC framework, fills this gap, conveniently 
 providing an ontology and a parser to publish machine-readable versions 
-of the archives of the countless mailing lists.
+of the archives of the countless mailing lists that exist on the Internet.
 
 The SWAML project fulfills a much-needed requirement for the Semantic Web: 
-to be able to refer to semantic versions of email messages and their 
-properties using a resource URI. By reusing the SIOC vocabulary for describing
-online discussions, SWAML allows users of SIOC to refer to email messages 
+to be able to refer to semantic versions of e-mail messages and their 
+properties using resource URIs. By re-using the SIOC vocabulary for describing
+online discussions, SWAML allows any semantic web document (in particular,
+SIOC documents) to refer to
+e-mail messages 
 from other discussions taking place on forums, blogs, etc., so that distributed 
-conversations can occur across these discussion media. Also, by providing email 
-messages in SIOC format, SWAML are providing a rich source of data, namely 
+conversations can occur across these discussion media. Also, by providing e-mail 
+messages in SIOC format, SWAML is providing a rich source of data, namely 
 mailing lists, for use in SIOC applications.
 
 Some benefits arouse from the availability of these data. In the first
@@ -370,17 +372,17 @@ web.
 We are exploring some directions for future work. Some of them are:
 
 \begin{itemize}
-  \item Integration of the SWAML process with a popular HTML-based
-        mailing list archiver, such as Hypermail or Pipermail, would be
+  \item Integration of the SWAML process with popular HTML-based
+        mailing list archivers, such as Hypermail or Pipermail, would be
         a giant push to speed up the adoption of SWAML. It is well
-        known that one of the most awkward problems of any technology
+        known that one of the most awkward problems of any new technology
         is to gain a critical mass of users. The semantic web is not
         an exception. A good recipe to tackle this problem is to
-        integrate the new technologies into old tools, making
+        integrate the new technology into old tools, making
         a smooth transition without requiring any extra effort from
-        the users. Merging the SWAML process into the batch flow of
+        users. Merging the SWAML process into the batch flow of
         tools such as Hypermail would allow to generate both
-        HTML and RDF versions of the archive. Those could reside
+        HTML and RDF versions of the archives. Those could reside
         side-by-side on the web server, even sharing the same URI
         by means of content-negotiation~\cite{Recipes}.
   \item Actually, integration could be pushed further away through
@@ -388,31 +390,31 @@ We are exploring some directions for future work. Some of them are:
         XHTML documents.
   \item So far, no semantic annotation relative to the meaning of
         the messages is considered. Obviously, such information can not
-        be derived from a RFC 4155-compliant mailbox.
+        be automatically derived from a RFC~4155-compliant mailbox.
         However, it is
-        conceivable that it can be added by other means, for instance,
-        by social tagging using folksonomies, or by parsing the RDFa
-        that can exist in the messages that are send in XHTML format.
-        The inherent community-based nature of mailing lists may
+        conceivable that it can be added by other means, such as
+        social tagging using folksonomies, or parsing the RDFa
+        that may exist in the e-mail messages that are send in XHTML format.
+        The inherent community-based nature of mailing lists can
         be exploited to build recommendation systems~\cite{Celma2006}.
-  \item The meta-data extracted from a mailing list archive can be
-        quite huge. Even after removing the body of the messages, the
-        XML/RDF meta-data of a mailing list containing 1000 messages may
+  \item The meta-data extracted from a mailing list archive can grow
+        quite huge. Even if the body of the messages is omitted, the
+        RDF/XML meta-data of a mailing list containing 1,000 messages may
         have a size of 4 MBytes, with a linear growth. It is not uncommon
-        for a busy mailing list to generate this volume of messages
-        monthly. Hence, it is imperative to design a mechanism to
+        for a busy mailing list to generate such volume of messages
+        monthly. Hence, it becomes imperative to provide a mechanism to
         fragmentate the dataset. The SWAML process splits each message
         in a separate RDF document, but this arbitrary decision clearly
         does not fit every application. A much better solution would be to
         create an easy-to-deploy SPARQL endpoint~\cite{SPARQLProtocol},
-        that translates the
+        effectively translating the
         decision on how to partition the data to the final
         application~\cite{Pan2006}.
   \item It is not always possible to obtain a mailbox file for a mailing
         list. For these cases, an alternative is envisaged: a high-capacity
-        GMail account can be subscribed to the mailing list with the unique
+        mail account can be subscribed to the mailing list with the unique
         purpose of collecting and storing the messages. A simple extension
-        to SWAML that makes possible to import the contents of a GMail
+        to SWAML that makes possible to read the contents of a GMail
         account has been developed.
 
 \end{itemize}

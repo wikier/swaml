@@ -119,6 +119,23 @@
      	<li>free software (under <acronym title="GNU is Not Unix">GNU</acronym> General Public License, <a href="http://www.gnu.org/licenses/gpl.html"><acronym title="GNU General Public License">GPL</acronym></a> <abbr title="version 2">v2</abbr> or later)</li>
       </ul>
 
+	  <script type="text/javascript"><!--
+		google_ad_client = "pub-8526284355576873";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		google_ad_format = "728x90_as";
+		google_ad_type = "text";
+		google_ad_channel = "";
+		google_color_border = "f2f2f2";
+		google_color_bg = "f2f2f2";
+		google_color_link = "000000";
+		google_color_text = "000000";
+		google_color_url = "3333cc";
+	  //--></script>
+	  <script type="text/javascript"
+	  	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	  </script>
+
       <h2 id ="news">
      	<a href="/rss/news" type="application/rss+xml" title="read SWAML's news in your favourite feed reader"><img src="images/rss.png" width="28" height="28" alt="RSS" id="feed-icon" /></a>
      	News
@@ -210,6 +227,23 @@
 		  Also, you can <a href="/bugs">report a bug</a> or sending a <a href="/features">feature request</a> 
     	  without you need to subscribe of any of <a href="/lists">project mailing lists</a>.
 		</p>
+
+	  <script type="text/javascript"><!--
+		google_ad_client = "pub-8526284355576873";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		google_ad_format = "728x90_as";
+		google_ad_type = "text";
+		google_ad_channel = "";
+		google_color_border = "f2f2f2";
+		google_color_bg = "f2f2f2";
+		google_color_link = "000000";
+		google_color_text = "000000";
+		google_color_url = "3333cc";
+	  //--></script>
+	  <script type="text/javascript"
+	  	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	  </script>
 
     </div>
 

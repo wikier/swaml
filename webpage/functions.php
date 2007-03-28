@@ -22,14 +22,18 @@ class SWAML {
 
 	function acronyms_replace($text) {
 
-		$acronyms = array(	'SWAML', 'RDF', 'URL', 'URI', 'OWL', 'SIOC', 'RFC');
+		$acronyms = array(	'SWAML', 'RDF', 'URL', 'URI', 'OWL', 
+							'SIOC', 'RFC', 'SAW', 'ACM'
+						);
 		$titles   = array(	'Semantic Web Archive of Mailing Lists',
 					'Resource Description Framework',
 					'Uniform Resource Locator',
 					'Uniform Resource Identifier',
 					'Ontology Web Languaje',
 					'Semantically-Interlinked Online Communities',
-					'Request for Comments'
+					'Request for Comments',
+					'Social Aspects of the Web',
+					'Association for Computing Machinery'
 				);
 
 		for ($i=0; $i<count($acronyms); $i++) {

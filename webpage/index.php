@@ -114,7 +114,7 @@
      	<li>serialize <acronym title="Resource Description Framework">RDF</acronym> to disk</li>
      	<li>reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended, mainly <a href="http://sioc-project.org/"><acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym></a></li>
      	<li>enrichment using <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a></li>
-     	<li><a href="http://earth.google.com/kml/kml_intro.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support</li>
+     	<li><a href="http://earth.google.com/kml/whatiskml.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support</li>
      	<li>browser in <acronym title="GIMP Tool Kit">GTK</acronym></li>
      	<li>free software (under <acronym title="GNU is Not Unix">GNU</acronym> General Public License, <a href="http://www.gnu.org/licenses/gpl.html"><acronym title="GNU General Public License">GPL</acronym></a> <abbr title="version 2">v2</abbr> or later)</li>
       </ul>

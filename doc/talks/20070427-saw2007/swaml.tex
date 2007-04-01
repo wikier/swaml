@@ -1,0 +1,406 @@
+\documentclass[spanish,notes=hide]{beamer}
+
+%To create 'handout' version (Copyright: Diego Berrueta)
+%\documentclass[handout,notes=show]{beamer}
+
+\usetheme{Warsaw}
+\usepackage{beamerthemesplit}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{eurosym}
+
+\title{Mailing lists meet the Semantic Web}
+\author{
+Sergio Fern\'andez\inst{1} 
+\and
+Diego Berrueta\inst{1} 
+\and
+Jose E. Labra\inst{2}
+}
+\institute{%
+Fundaci\'on CTIC, \\
+Gij\'on, Asturias, Spain,\\
+\{sergio.fernandez,diego.berrueta\}@fundacionctic.org %FIXME
+\and
+Universidad de Oviedo,\\
+Computer Science Department,\\
+Oviedo, Asturias, Spain,\\
+labra@uniovi.es\\
+}
+\date{27 April 2007}
+
+\begin{document}
+
+\input{macros.tex}
+
+\frame{
+  \note[item]{Saludar}
+  \note[item]{Presentarse}
+  \note[item]{Con su permiso procederé a presentarles mi proyecto fin de carrera 
+    \textit{SWAML, publicación de listas de correo en Web Semántica}}
+
+  \titlepage
+}
+
+\frame{\tableofcontents} %FIXME: take the paper's skell
+
+\section{Introduction}
+
+\subsection{Situación actual}
+\frame
+{
+  \frametitle{Panorama actual}
+
+  \note[item] {	Miles de listas de correo de las más variopinta temática }
+  \note[item] {	Publicación en HTML de los archivos antiguos }
+  \note[item] {	Pérdida de toda posibilidad de recuperar esa información }
+  \note[item] {	Marcado estructurado sin valor semántico (problemas de internacionalización 
+		y accesibilidad entre otros) }
+  \note[item] {	Duplicidad de datos para los motores de búsqueda tradicionales }
+
+  \begin{itemize}
+   \item<2-> \begin{large}\textbf{Situación:}\end{large}
+	\begin{itemize}
+	  \item \begin{large}Miles de listas de correo\end{large}
+	  \item \begin{large}Publicación en HTML\end{large}
+	\end{itemize}
+   \vspace{0.8cm}
+   \item<3-> \textbf{Problemas:}
+	\begin{itemize}
+	  \item \begin{large}Pérdida de información\end{large}
+	  \item \begin{large}Marcado estructurado sin valor semántico\end{large}
+	  \item \begin{large}Problemas en las búsquedas tradicionales\end{large}
+	\end{itemize}
+  \end{itemize}
+}
+\frame
+{
+\frametitle{mbox}
+
+\begin{center}
+  \MBOX
+\end{center}
+}
+\frame
+{
+  \begin{center}
+	\includegraphics[width=0.8\textwidth]{images/lista-html.png}
+  \end{center}
+}
+
+\subsection{Objetivos}
+\frame
+{
+  \note[item] { Objetivo principal: publicación de los archivos antiguos de listas de correo en un formato rico semánticamente. }
+  \note[item] { Perp además varios objetivos secundarios: }
+  \note[item] { Maximizar la reutilización de la infraestructura disponible previamente. }
+  \note[item] { Desarrollar un prototipo capar de recomponer listas de correo \textit{atacando} 
+		colecciones de ficheros RDF. }
+  \note[item] { Abrir la puerta a nuevas aplicaciones. }
+
+  \frametitle{Objetivos}
+  \begin{itemize}
+   \item<1-> Objetivo principal: 
+     \begin{itemize}
+      \item \begin{Large}
+		\textbf{Publicación de los archivos antiguos de listas de correo en un formato rico semánticamente.}
+	    \end{Large}
+     \end{itemize}
+   \vspace{1cm}
+   \item<2-> Varios objetivos secundarios
+  \end{itemize}
+}
+
+\subsection{La Web Semántica}
+\frame
+{
+  \frametitle{Introducción a la Web Semántica (I)}
+
+  \begin{itemize}
+   \item<1-> Tim Berners-Lee expuso en 2001 su visión de lo que sería la Web Semántica:
+     \begin{quote}
+	\emph{«... \textbf{disponer datos} en la Web \textbf{definidos y enlazados} 
+	de forma que puedan ser \textbf{utilizados por las máquinas}, no solamente 
+	para visualizarnos, sino también para \textbf{automatizar} tareas, 
+	\textbf{integrar} y \textbf{reutilizar} datos entre aplicaciones.»}
+     \end{quote}
+   \vspace{0.5cm}
+   \item<2-> En definitiva, \begin{Large}\textbf{una web más útil}\end{Large}.
+  \end{itemize}
+}
+\frame
+{
+  \frametitle{Introducción a la Web Semántica (II)}
+
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{images/pila-web-semantica.png}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      Tecnologías:
+      \begin{itemize}
+	\item \textbf{RDF} (\textit{Resource Description Framework})
+	\item \textbf{OWL} (\textit{Web Ontology Language})
+	\item \textbf{SPARQL} (\textit{SPARQL Protocol and RDF Query Language})
+      \end{itemize}
+    \end{column}
+  \end{columns}
+}
+\frame
+{
+  \frametitle{RDF}
+
+  \note[item]{	RDF se basa en un modelo de tripletas. El sujeto es un recurso, identificado
+		por una URI, que se relaciona mediante un predicado binario con el objeto, que 
+		puede ser otra URI o un literal.}
+  \note[item]{	Cada tripleta puede verse como un arco, y al juntarse con otros arcos 
+		se obtiene un grafo dirigido que describe los recursos y las relaciones 
+		entre todos los recursos.}
+
+  \begin{center}
+    Modelo de tripletas del tipo \texttt{(sujeto, predicado, objeto)}:\\
+    \vspace{1cm}
+    \includegraphics[width=0.95\textwidth]{images/grafo-rdf.png}
+  \end{center}
+
+
+}
+\frame
+{
+  \frametitle{Ontología}
+
+  \note[item] { Una ontología trata de describir o proponer las categorías y relaciones básicas. }
+  \note[item] { En informática hace referencia al intento de formular un exhaustivo 
+		y riguroso esquema conceptual dentro de un dominio dado. }
+  \begin{columns}
+   \begin{column}{0.4\textwidth}
+	\begin{itemize}
+	 \item Forma describir categorías y relaciones básicas.
+	 \item Formulación rigurosa del esquema conceptual de un dominio dado.
+	 \item OWL, lenguaje propuesto por el W3C.
+	 \item Varios ejemplos: FOAF, SIOC, Dublin Core...
+	\end{itemize}
+   \end{column}
+   \begin{column}{0.6\textwidth}
+	\includegraphics[width=0.99\textwidth]{images/ontologia.png}
+   \end{column}
+  \end{columns}
+}
+\frame
+{
+  \frametitle{SPARQL}
+
+  \begin{center}
+    \textbf{SPARQL} (SPARQL Protocol and RDF query language)\\
+    \SPARQL
+  \end{center}
+}
+
+\section{The SWAML project}
+
+%\frame
+%{
+%  \frametitle{Tecnologías implicadas}
+%
+%  \begin{itemize}
+%    \item<2-> \textbf{Python}: lenguaje de script orientado a objetos.
+%    \item<3-> \textbf{RDFLib}: biblioteca de Python para trabajar con RDF.
+%    \item<4-> \textbf{SIOC}: Semantically-Interlinked Online Communities.
+%  \end{itemize}
+%
+%  \begin{center}
+% 	\only<2-3>{\includegraphics[width=0.65\textwidth]{images/python.png}}
+% 	\only<4>{\includegraphics[width=0.35\textwidth]{images/sioc.png}}
+%  \end{center}
+%}
+
+\frame
+{
+  \frametitle{Componentes de SWAML}
+
+  \begin{columns}
+   \begin{column}{0.35\textwidth}
+	El proyecto SWAML se compone de varias partes:
+	\begin{itemize}
+	 \item \begin{Large}Ontología\end{Large}
+	 \item \begin{Large}SWAML\end{Large}
+	 \item \begin{Large}Buxon\end{Large}
+	 \item \begin{Large}Herramientas complementarias\end{Large}
+	\end{itemize}
+   \end{column}
+   \begin{column}{0.65\textwidth}
+	\includegraphics[width=0.95\textwidth]{images/componentes.png}
+   \end{column}
+  \end{columns}
+}
+\subsection{Ontología}
+\frame
+{
+  \begin{columns}
+   \begin{column}{0.6\textwidth}
+	\includegraphics[width=0.95\textwidth]{images/ontologias.png}
+   \end{column}
+   \begin{column}{0.4\textwidth}
+	SWAML utiliza varias ontologías\only<2->{, principalemente:}
+	\begin{itemize}
+	 \item<2-> \begin{Large}SIOC\end{Large}
+	 \item<3-> \begin{Large}SWAML\end{Large}
+	 \item<4-> \begin{Large}FOAF\end{Large}
+	 \item<5-> \begin{Large}Dublin Core\end{Large}
+	\end{itemize}
+   \end{column}
+  \end{columns}
+}
+
+\subsection{SWAML}
+\frame
+{
+  \frametitle{SWAML}
+
+  \begin{columns}
+   \begin{column}{0.5\textwidth}
+	\begin{center}
+	  \only<1>{\includegraphics[width=0.95\textwidth]{images/swaml-0.png}}
+	  \only<2>{\includegraphics[width=0.95\textwidth]{images/swaml-1.png}}
+	  \only<3>{\includegraphics[width=0.95\textwidth]{images/swaml-2.png}}
+	  \only<4>{\includegraphics[width=0.95\textwidth]{images/swaml-3.png}}
+	\end{center}
+   \end{column}
+   \begin{column}{0.5\textwidth}
+	\begin{Large}Proceso batch:\end{Large}
+	\begin{enumerate}
+	 \item<2-> mbox
+	 \item<3-> parsear
+	 \item<4-> serializar a RDF/XML 
+	\end{enumerate}
+   \end{column}
+  \end{columns}
+}
+\frame
+{
+  \frametitle{sioc:Forum}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/sioc-discussions.png}
+  \end{center}
+}
+
+\subsection{Buxon}
+\frame
+{
+  \frametitle{Buxon}
+
+  \note[item] {	Desarrollado para demostrar que la representación en RDF de 
+		una lista de correo permite volver recomponerla sin pérdida 
+		de información. }
+  \note[item] {	Implementación más madura para la explotación de datos SIOC. }
+
+  \begin{columns}
+   \begin{column}{0.32\textwidth}
+	\begin{itemize}
+	  \item Visor de \texttt{sioc:Forum}'s
+	  \item Recomposición de la lista de correo
+	  \item Implementación más completa de SIOC
+	\end{itemize}
+   \end{column}
+   \begin{column}{0.68\textwidth}
+	\includegraphics[width=\textwidth]{images/buxon.png}
+   \end{column}
+  \end{columns}
+}
+
+\subsection{Herramientas complementarias}
+\frame
+{
+  \frametitle{Herramientas complementarias}
+
+  \begin{itemize}
+   \item<1-> \textbf{configWizard}: asistente de configuración mediante reflectividad estructural
+   \item<2-> \textbf{FOAF Enricher}: enriquecedor de datos basado en FOAF
+   \item<3-> \textbf{KML Exporter}: exportación de datos para Google Maps y Google Earth
+  \end{itemize}
+
+  \begin{center}
+ 	\only<2>{\includegraphics[width=0.4\textwidth]{images/foaf.png}}
+ 	\only<3>{\includegraphics[width=0.55\textwidth]{images/googlemaps.png}}
+  \end{center}
+}
+
+\section{Conclusiones}
+\subsection{Impacto}
+\frame
+{
+  \frametitle{Impacto}
+
+  \begin{itemize}
+   \item<1-> En palabras del propio John Breslin:
+	\begin{quote}
+ 	  \emph{«El proyecto de SWAML satisface un requisito muy necesario para la Web semántica: 
+	  poder referir a versiones semánticas de los mensajes de correo electrónico usando
+	  un URI. ...»}
+	\end{quote}
+   \item<2-> Aporta dos implementaciones a SIOC
+   \item<3-> Acompaña a SIOC en el proceso de \textit{submission} al W3C
+  \end{itemize}
+
+}
+\subsection{Conclusions and Future Work}
+\frame
+{
+  \frametitle{Future Work}
+  \begin{itemize}
+   \item \begin{Large}Acceder a cuentas de GMail\end{Large}
+   \item \begin{Large}Marcado semántico para el cuerpo de los mensajes\end{Large}
+   \item \begin{Large}API en Python para SIOC\end{Large}
+   \item \begin{Large}Integración con Mailman\end{Large}
+   \item \begin{Large}Paquete en Debian GNU/Linux\end{Large}
+   \item \begin{Large}\textit{Submission} al W3C\end{Large}
+  \end{itemize}
+
+  \frametitle{Future Work}
+  \begin{itemize}
+   \item \begin{Large}Acceder a cuentas de GMail\end{Large}
+   \item \begin{Large}Marcado semántico para el cuerpo de los mensajes\end{Large}
+   \item \begin{Large}API en Python para SIOC\end{Large}
+   \item \begin{Large}Integración con Mailman\end{Large}
+   \item \begin{Large}Paquete en Debian GNU/Linux\end{Large}
+   \item \begin{Large}\textit{Submission} al W3C\end{Large}
+  \end{itemize}
+}
+
+\section{Demostration}
+\frame
+{
+  \note[item]{Si no desean realizar ningún comentario, procederé a realizar una demostración práctica.}
+  \note[item]{Ejemplo de exportación con SWAML (con todas las opciones), enseñar los RDF en plano.}
+  \note[item]{Visualizarla con Buxon.}
+  \note[item]{¿Algún ejemplo de SPARQL?}
+  \note[item]{Terminar enseñando el KML en Google Maps}
+
+  \begin{center}
+    \LARGE{\textbf{demostración práctica}}
+  \end{center}
+}
+\frame
+{
+  \note[item]{Agradecer la atención prestada.}
+  \note[item]{Quedar a disposición del tribunal para contestar a las
+		preguntas o ampliar cualquiera de los temas expuestos.}
+
+  \begin{center}
+    \LARGE{\textbf{SWAML, publicación de listas de correo en web semántica}}\\
+    \vspace{1cm}
+    \LARGE{Fin}\\
+    \vspace{1cm}
+    \begin{tiny}
+	Esta presentación se distribuye bajo los términos de la licencia:\\
+	\includegraphics[width=3.5cm]{images/creativecommons.png}
+    \end{tiny}
+  \end{center}
+}
+
+\end{document}

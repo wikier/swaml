@@ -39,7 +39,9 @@
 		<em>[sw&aelig;ml]</em>, is  a research project around the semantic web technologies 
 		to publish the mailing lists' archives into a 
 		<acronym title="Resource Description Framework">RDF</acronym> format. It has been
-		developed at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). 
+		developed by the <a href="http://weso.sourceforge.net/"><abbr 
+		title="Semantic Web Oviedo Research Group">WESO-RG</acronym></a>
+		at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). 
 		You can visit the 
 		<a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> 
 		for more details.

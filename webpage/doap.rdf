@@ -26,6 +26,8 @@
       para publicar los archivos de las listas de correo en un formato RDF.
     </doap:description>
 
+    <doap:category rdf:resource="http://rdflib.net/projects#using_rdflib"/>
+
     <doap:wiki rdf:resource="http://swaml.berlios.de/wiki"/>
     <doap:bug-database rdf:resource="http://swaml.berlios.de/bugs"/>
     <doap:programming-language>python</doap:programming-language>

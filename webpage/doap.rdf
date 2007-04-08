@@ -18,11 +18,11 @@
     <doap:created>2005-09-24</doap:created>
 
     <doap:description xml:lang="en">
-      SWAML is a research project around the semantic web tecnologies to publish the mailing 
-      lists's archive into an RDF format.
+      SWAML is a research project around the Semantic Web tecnologies to publish the mailing 
+      lists's archive into a RDF format.
     </doap:description>
     <doap:description xml:lang="es">
-      SWAML es un proyecto de investigación alrededor de las tecnologías de la web semántica 
+      SWAML es un proyecto de investigación alrededor de las tecnologías de la Web Semántica 
       para publicar los archivos de las listas de correo en un formato RDF.
     </doap:description>
 

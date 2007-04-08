@@ -26,6 +26,22 @@
       para publicar los archivos de las listas de correo en un formato RDF.
     </doap:description>
 
+    <doap:release>
+      <doap:Version>
+        <doap:name>SWAML</name>
+        <doap:created>2006-12-28</created>
+        <doap:revision>0.0.5</revision>
+      </doap:Version>
+    </doap:release>
+
+    <doap:release>
+      <doap:Version>
+        <doap:name>Buxon</name>
+        <doap:created>2006-12-28</created>
+        <doap:revision>0.0.3</revision>
+      </doap:Version>
+    </doap:release>
+
     <doap:category rdf:resource="http://rdflib.net/projects#using_rdflib"/>
 
     <doap:wiki rdf:resource="http://swaml.berlios.de/wiki"/>

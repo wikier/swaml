@@ -149,6 +149,10 @@
     	?>
 		<p style="text-align:right;"><a href="/news">read more news...</a></p>
 
+		<p>Also you could find all news/comments related with the project in a wiki page 
+		called <a href="/wiki/index.php/SWAML-o-sphere">SWAML-o-sphere</a>.
+		Feel free to add any other.</p>
+
       <h2 id="files">Files</h2>
     	<p>
 		  There are some <a href="/files">files</a> (and a <a href="/releases">mirror</a> of it) until the moment:

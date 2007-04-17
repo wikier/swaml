@@ -1,4 +1,4 @@
-\documentclass[spanish,notes=hide]{beamer}
+\documentclass[spanish,notes=hide,16pt]{beamer}
 
 %To create 'handout' version (Copyright: Diego Berrueta)
 %\documentclass[handout,notes=show]{beamer}
@@ -46,31 +46,92 @@ Oviedo, Asturias, Spain,\\
   \frametitle{Introduction}
 
   \begin{itemize}
-   \item<2-> \begin{large}\textbf{Actual situation:}\end{large}
+   \item<2-> \begin{large}\textbf{Current situation:}\end{large}
 	\begin{itemize}
-	  \item \begin{large}Miles de listas de correo\end{large}
-	  \item \begin{large}Publicación en HTML\end{large}
+	  \item \begin{large}Thousands of mailing lists\end{large}
+	  \item \begin{large}HTML (syntactic) publication\end{large}
 	\end{itemize}
-   \vspace{0.8cm}
+   \vspace{1cm}
    \item<3-> \textbf{Problems:}
 	\begin{itemize}
-	  \item \begin{large}Pérdida de información\end{large}
-	  \item \begin{large}Marcado estructurado sin valor semántico\end{large}
-	  \item \begin{large}Problemas en las búsquedas tradicionales\end{large}
+	  \item \begin{large}Loss of information\end{large}
+	  \item \begin{large}Structured markup without any semantic meaning\end{large}
+	  \item \begin{large}Problems with traditional searches\end{large}
 	\end{itemize}
   \end{itemize}
 }
 
+\section{The Semantic Web}
+\frame
+{
+  \frametitle{The Semantic Web}
+
+  \begin{Large}
+    The semantic web is an evolving \textbf{extension} of the World Wide Web in 
+    which web content can be expressed in a form that can be understood, 
+    interpreted and used by machines.
+  \end{Large}
+  
+  \vspace{1cm}
+
+  \begin{Large}
+    It derives from W3C director Tim Berners-Lee's vision of the Web as a universal 
+    medium for \textbf{data}, \textbf{information} and \textbf{knowledge} exchange.
+  \end{Large}
+}
+\frame
+{
+  \frametitle{RDF}
+
+  \begin{Large}
+     \textbf{R}esource \textbf{D}escription \textbf{F}ramework is a family W3C
+     technologies to model information.
+  \end{Large}
+
+  \vspace{1cm}
+
+  \begin{Large}
+     RDF is based upon a triples metadata model:
+     \begin{center}
+       \texttt{Resource -> predicate -> Object}
+     \end{center}
+  \end{Large}
+  FIXME: graphic
+}
+
 \section{SIOC}
-\frame{
+\frame
+{
   \frametitle{SIOC Ontology}
 
-  FIXME
+  \begin{Large}
+    \textbf{S}emantically-\textbf{I}nterlinked \textbf{O}nline \textbf{C}ommunities 
+    is an ontology that provides a vocabulary to interconnect different discussion 
+    methods such as blogs, web-based forums and mailing lists.
+  \end{Large}
+
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/sioc-terms.png}
+  \end{center}
+
+
 }
 \frame{
   \frametitle{Extending SIOC Ontology}
 
-  FIXME
+  \begin{Large}
+     SIOC is an almost perfect match for our purpose, using instances of
+     \texttt{sioc:Forum}, \texttt{sioc:Post} and \texttt{sioc:User} classes.
+  \end{Large}
+
+  \vspace{0.7cm}
+
+  \begin{Large}
+    However, additional object properties were required in order to retain the 
+    sequence of messages published in a mailing list. Thus, we extended the SIOC 
+    ontology with \textbf{two new properties}.
+  \end{Large}
+
 }
 
 \section{Software tools}
@@ -78,18 +139,17 @@ Oviedo, Asturias, Spain,\\
 {
   \frametitle{Software tools}
 
-  \begin{columns}
-   \begin{column}{0.35\textwidth}
-	El proyecto SWAML se compone de varias partes:
-	\begin{itemize}
-	 \item \begin{Large}SWAML\end{Large}
-	 \item \begin{Large}Buxon\end{Large}
-	\end{itemize}
-   \end{column}
-   \begin{column}{0.65\textwidth}
-	\includegraphics[width=0.95\textwidth]{images/componentes.png}
-   \end{column}
-  \end{columns}
+  We built two software tools as part of this project:
+  \vspace{0.5cm}
+  \begin{itemize}
+    \item<2->	\begin{Large}\textbf{SWAM}L is a non-interactive, 
+		command-line application whose main purpose is to 
+		translate mailboxes into sioc:Forum instances in 
+		RDF.\end{Large}
+    \vspace{0.5cm}
+    \item<3->	\begin{Large}\textbf{Buxon} is a graphical browser 
+		for \texttt{sioc:Forum} instances.\end{Large}
+  \end{itemize}
 }
 \frame
 {

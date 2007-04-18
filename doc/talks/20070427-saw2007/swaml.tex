@@ -184,14 +184,25 @@ Oviedo, Asturias, Spain,\\
 }
 \frame
 {
+  \frametitle{SWAML and KML}
+
+  SWAML also generates a KML file that contains the geographical coordinates 
+  of the mailing list subscribers.
+
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{images/googlemaps.png}
+  \end{center}
+}
+\frame
+{
   \frametitle{Buxon}
 
   \begin{columns}
    \begin{column}{0.32\textwidth}
 	\begin{itemize}
 	  \item a \texttt{sioc:Forum} browser
-	  \item Recomposición de la lista de correo
-	  \item Implementación más completa de SIOC
+	  \item it recomposes mailing lists' threads
+	  \item one of the most important implementation of SIOC
 	\end{itemize}
    \end{column}
    \begin{column}{0.68\textwidth}
@@ -205,20 +216,23 @@ Oviedo, Asturias, Spain,\\
 {
   \frametitle{Conclusions}
 
-  FIXME
-
+  \begin{Large}
+    The SWAML project fulfills a much-needed requirement for the Semantic Web: 
+    to be able to refer to semantic versions of e-mail messages and their properties 
+    using resource URIs.
+  \end{Large}
 }
 \frame
 {
   \frametitle{Future Work}
 
   \begin{itemize}
-   \item \begin{Large}Acceder a cuentas de GMail\end{Large}
-   \item \begin{Large}Marcado semántico para el cuerpo de los mensajes\end{Large}
-   \item \begin{Large}API en Python para SIOC\end{Large}
-   \item \begin{Large}Integración con Mailman\end{Large}
-   \item \begin{Large}Paquete en Debian GNU/Linux\end{Large}
-   \item \begin{Large}\textit{Submission} al W3C\end{Large}
+   \item \begin{Large}Integration of the SWAML process with popular HTML-based mailing list archivers.\end{Large}
+   \item \begin{Large}Integration could be pushed further away through RDFa.\end{Large}
+   \item \begin{Large}Semantic annotation relative to the meaning of the messages.\end{Large}
+   \item \begin{Large}A simple extension to SWAML that makes it possible to read the contents of a GMail account has 
+		been developed.\end{Large}
+   \item \begin{Large}SIOC submission to W3C.\end{Large}
   \end{itemize}
 }
 
@@ -233,6 +247,25 @@ Oviedo, Asturias, Spain,\\
 }
 
 \appendix
+
+\section{Acknowledgements}
+\frame
+{
+  \frametitle{Acknowledgements}
+  
+  \begin{Large}
+    The authors would like to express their gratitude to Dr. John Breslin and 
+    Uldis Bojars from DERI Galway, whose support and contributions have been 
+    of great help to this project. 
+  \end{Large}
+
+  \vspace{1cm}
+
+  \begin{Large}
+    Also to Ignacio Barrientos by his contribution packaging the project for 
+    Debian GNU/Linux.
+  \end{Large}
+}
 
 \section{More information}
 \frame

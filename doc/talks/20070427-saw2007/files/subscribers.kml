@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://earth.google.com/kml/2.0'>
+  <Document>
+  <Style id="style2">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Placemark>
+    <name>Sergio Fdez</name>
+    <description>&lt;img src="http://www.wikier.org/images/polaroid.png" /></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-5.77544,43.437028,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>John Breslin</name>
+    <description>&lt;img src="http://www.johnbreslin.com/images/foaf_photo.jpg" /></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-9.03,53.16,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Henry Story</name>
+    <description></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>2.700448,48.404532,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Alexandre Passant</name>
+    <description></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>2.41,48.81,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Frédérick Giasson</name>
+    <description></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-71.2930297851562,46.749271104752,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Kingsley (Uyi) Idehen</name>
+    <description></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-71.2183,42.455002,0</coordinates>
+    </Point>
+  </Placemark>
+  </Document>
+</kml>

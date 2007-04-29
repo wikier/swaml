@@ -1,10 +1,9 @@
-\documentclass[spanish,notes=hide,16pt]{beamer}
+\documentclass[spanish,notes=hide]{beamer}
 
-%To create 'handout' version (Copyright: Diego Berrueta)
+%Para crear una versión 'handout' (Copyright: Diego Berrueta)
 %\documentclass[handout,notes=show]{beamer}
 
 \usetheme{Marburg}
-%\usepackage{beamerthemesplit}
 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -14,25 +13,19 @@
 \usepackage{array}
 \usepackage{eurosym}
 
-\title{Mailing lists meet the Semantic Web}
-\author{
-Sergio Fern\'andez\inst{1} 
-\and
-\textbf{Diego Berrueta}\inst{1} 
-\and
-Jose E. Labra\inst{2}
-}
+\title{SWAML}
+\subtitle{Semantic Web Archive of Mailing Lists}
+\author{Sergio Fern\'andez}
 \institute{%
-Fundaci\'on CTIC, \\
-Gij\'on, Asturias, Spain,\\
-\email{\{sergio.fernandez,diego.berrueta\}@fundacionctic.org}
-\and
-Universidad de Oviedo,\\
-Computer Science Department,\\
-Oviedo, Asturias, Spain,\\
-\email{labra@uniovi.es}\\
+        \email{sergio@wikier.org}\\
+	\vspace{1cm}
+	E.U. de Ingenier\'ia T\'ecnica en Inform\'atica de Oviedo\\
+	(Universidad de Oviedo)\\
+	\vspace{1cm}
+	\href{http://swaml.berlios.de/}{\begin{Large}\textbf{http://swaml.berlios.de/}\end{Large}}\\
+        \vspace{0.5cm}
 }
-\date{27 April 2007}
+\date{11 de Mayo de 2007}
 
 \begin{document}
 
@@ -40,48 +33,53 @@ Oviedo, Asturias, Spain,\\
 
 \maketitle
 
-\section{Introduction}
+\section{Introducción}
 \frame
 {
-  \frametitle{Introduction}
+  \frametitle{Introducción}
 
   \begin{itemize}
-   \item<2-> \begin{large}\textbf{Current situation:}\end{large}
+   \item<2-> \begin{large}\textbf{Situación actual:}\end{large}
 	\begin{itemize}
-	  \item \begin{large}Thousands of mailing lists\end{large}
-	  \item \begin{large}HTML (syntactic) publication\end{large}
+	  \item \begin{large}miles de listas de correo\end{large}
+	  \item \begin{large}publicación (sintáctica) en (X)HTML\end{large}
 	\end{itemize}
    \vspace{1cm}
-   \item<3-> \textbf{Problems:}
+   \item<3-> \textbf{Problemas:}
 	\begin{itemize}
-	  \item \begin{large}Loss of information\end{large}
-	  \item \begin{large}Structured markup without any semantic meaning\end{large}
-	  \item \begin{large}Problems with traditional searches\end{large}
+	  \item \begin{large}pérdida de información\end{large}
+	  \item \begin{large}marcado sin ningún valor semántico\end{large}
+	  \item \begin{large}problemas usando motores de búsqueda convencionales\end{large}
 	\end{itemize}
   \end{itemize}
 }
-
-\section{The Semantic Web}
 \frame
 {
-  \frametitle{The Semantic Web}
+  FIXME: captura de pantalla con una busqueda en google
+}
+
+\section{La Web semántica}
+\frame
+{
+  \frametitle{La Web semántica}
 
   \begin{Large}
-    The semantic web is an evolving \textbf{extension} of the World Wide Web in 
-    which web content can be expressed in a form that can be understood, 
-    interpreted and used by machines.
+    La Web semántica es una \textbf{extensión} sobre la Web actual donde el 
+    contentido Web debe ser expresado de forma que sea entendido, interpretado 
+    y usado por máquinas.
   \end{Large}
   
   \vspace{1cm}
 
   \begin{Large}
-    It derives from W3C director Tim Berners-Lee's vision of the Web as a universal 
-    medium for \textbf{data}, \textbf{information} and \textbf{knowledge} exchange.
+    Proviene de la visión de Tim Berners-Lee (Director del W3C) de la Web como un
+    medio \textbf{universal} para el intercambio de \textbf{datos}, \textbf{información} 
+    y \textbf{conocimiento}.
   \end{Large}
 }
 \frame
 {
-  \frametitle{Semantic Web stack}
+  \frametitle{La pila de la Web semántica}
 
   \begin{center}
     \includegraphics[width=0.8\textwidth]{images/semantic-web-stack.png}
@@ -93,28 +91,26 @@ Oviedo, Asturias, Spain,\\
   \frametitle{RDF}
 
   \begin{Large}
-     \textbf{R}esource \textbf{D}escription \textbf{F}ramework is a family W3C
-     technologies to model information.
+     \textbf{R}esource \textbf{D}escription \textbf{F}ramework es una familia de
+     tecnologías (RDF, SPARQL, etc...) de W3C para modelar conocimiento. 
   \end{Large}
 
   \vspace{0.7cm}
 
   \begin{Large}
-     RDF is based upon a triples metadata model:
+     RDF se basa en un modelo de tripletas:
      \begin{center}
        \includegraphics[width=0.8\textwidth]{images/triple.png}
      \end{center}
-     The \textbf{subject} of an RDF statement is a resource, possibly as named by 
-     a Uniform Resource Identifier (URI). The \textbf{predicate} is a resource as 
-     well, representing a relationship. The \textbf{object} is a resource or a 
-     Unicode string literal.
+     El \textbf{sujeto} es un recurso, identificado por un URI 
+     (\textit{Uniform Resource Identifier}), que se relaciona mediante un 
+     \textbf{predicado} con un \textbf{objeto}, que puede ser a su vez otro 
+     recurso o un literal.
   \end{Large}
 }
-
-\section{SIOC}
 \frame
 {
-  \frametitle{SIOC Ontology}
+  \frametitle{SIOC}
 
   \begin{Large}
     \textbf{S}emantically-\textbf{I}nterlinked \textbf{O}nline \textbf{C}ommunities 
@@ -254,10 +250,10 @@ Oviedo, Asturias, Spain,\\
   \end{itemize}
 }
 
-\section{Demostration}
+\section{Demostración}
 \frame
 {
-  \frametitle{Practical demostration}
+  \frametitle{Demostración práctica}
 
   \begin{center}
     \LARGE{\textbf{Let's go...}}
@@ -266,10 +262,10 @@ Oviedo, Asturias, Spain,\\
 
 \appendix
 
-\section{Acknowledgements}
+\section{Agradecimientos}
 \frame
 {
-  \frametitle{Acknowledgements}
+  \frametitle{Agradecimientos}
   
   \begin{Large}
     The authors would like to express their gratitude to Dr. John Breslin and 
@@ -285,27 +281,30 @@ Oviedo, Asturias, Spain,\\
   \end{Large}
 }
 
-\section{More information}
+\section{Más información}
 \frame
 {
   \begin{center}
-    More information at the project Web page:\\
+    Más información en la página Web del proyecto:\\
     \vspace{1cm}
     \LARGE{\href{http://swaml.berlios.de/}{http://swaml.berlios.de/}}\\
   \end{center}
 
 }
 
-\section{License}
+\section{Licencia}
 \frame
 {
   \begin{center}
-    \LARGE{\textbf{Mailing lists meet\\the Semantic Web}}\\
+    \LARGE{%
+	\textbf{SWAML}\\
+	\textbf{Semantic Web Archive\\of Mailing Lists}
+    }\\
     \vspace{1cm}
     \vspace{1cm}
     \begin{tiny}
-	This talk is distributed under the terms of:\\
-	\textbf{CreativeCommons license}\\
+	Esta charla se distribuye bajo los términos de la licencia:\\
+	\textbf{CreativeCommons}\\
 	\includegraphics[width=3.5cm]{images/creativecommons.png}
     \end{tiny}
   \end{center}

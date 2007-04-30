@@ -22,9 +22,9 @@ class SWAML {
 
 	function acronyms_replace($text) {
 
-		$acronyms = array(	'SWAML', 'RDF', 'URL', 'URI', 'OWL', 
-							'SIOC', 'RFC', 'SAW', 'ACM', 'GNU'
-						);
+		$abbrs = array(	'SWAML', 'RDF', 'URL', 'URI', 'OWL', 
+						'SIOC', 'RFC', 'aka', 'ACM', 'GNU'
+					  );
 		$titles   = array(	'Semantic Web Archive of Mailing Lists',
 					'Resource Description Framework',
 					'Uniform Resource Locator',
@@ -32,17 +32,17 @@ class SWAML {
 					'Ontology Web Languaje',
 					'Semantically-Interlinked Online Communities',
 					'Request for Comments',
-					'Social Aspects of the Web',
+					'also know as',
 					'Association for Computing Machinery',
 					'GNU is Not Unix'
 				);
 
-		for ($i=0; $i<count($acronyms); $i++) {
-			$acronym = $acronyms[$i];
+		for ($i=0; $i<count($abbrs); $i++) {
+			$abbr = $abbrs[$i];
 			$title = $titles[$i];
 			$text = str_replace(
-					$acronym,
-					'<acronym title="'.$title.'">'.$acronym.'</acronym>',
+					$abbr,
+					'<abbr title="'.$title.'">'.$abbr.'</abbr>',
 					$text);
 		}
 		

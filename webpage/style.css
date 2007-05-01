@@ -163,6 +163,7 @@ div#content {
 
 #content dd {
   text-align: justify;
+  margin-bottom: 0.5em;
 }
 
 #content p.svn {

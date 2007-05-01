@@ -40,7 +40,7 @@
 		to publish the mailing lists' archives into a 
 		<acronym title="Resource Description Framework">RDF</acronym> format. It has been
 		developed by the <a href="http://weso.sourceforge.net/"><abbr 
-		title="Semantic Web Oviedo Research Group">WESO-RG</acronym></a>
+		title="Semantic Web Oviedo Research Group">WESO-RG</abbr></a>
 		at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). 
 		You can visit the 
 		<a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> 
@@ -56,12 +56,13 @@
 -->
 
       <p>
-     	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> reads a collection of email messages 
-     	stored in a mailbox (from a mailing list compatible with <acronym title="Request For Comments">RFC</acronym> 
-     	4155) and generates a <acronym title="Resource Description Framework">RDF</acronym> description. It is 
+     	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> reads a 
+        collection of email messages stored in a mailbox (from a mailing list compatible 
+        with <acronym title="Request For Comments">RFC</acronym> 4155) and generates a 
+        <acronym title="Resource Description Framework">RDF</acronym> description. It is 
      	written in Python using <acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym> as 
-     	the main ontology to represent in <acronym title="Resource Description Framework">RDF</acronym> a mailing 
-     	list.     	
+     	the main ontology to represent in <acronym title="Resource Description Framework">RDF</acronym>
+        a mailing list.     	
       </p>
 
       <p>
@@ -216,7 +217,43 @@
      	  <dd>translation with the idea that motivated this project</dd>
      	  <dt><a href="http://prdownload.berlios.de/swaml/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
      	  <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
-    	</dl>  
+    	</dl>
+        <p>
+          And we made some presentations about the project around the world:
+        </p>
+        <dl>
+          <dt>
+            <a href="#"><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
+            Semantic Web Archive of Mailing Lists</a>:
+          </dt>
+          <dd>
+            11 of May of 2007 in Seville (Spain) on the final phase of the 
+            <a href="http://concurso-softwarelibre.us.es/"><span 
+            xml:lang="es"><abbr title="primer">I</abbr> Concurso Universitario de Software 
+            Libre</span></a>
+          </dd> 
+          <dt>
+            <a href="http://prdownload.berlios.de/swaml/SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf">Mailing Lists Meet The Semantic Web</a>:
+          </dt>
+          <dd>
+            27 of April of 2007 in Poznan (Poland) on the workshop of Social Aspects of 
+            the Web (<a href="http://integror.net/saw"><abbr title="Social Aspects of the Web">SAW</abbr>2007</a>),
+            in conjunction with <abbr title="tenth">10<sup>th</sup></abbr> International
+            Conference on Business Information Systems 
+            (<a href="http://bis.kie.ae.poznan.pl/10th_bis"><abbr title="Business Information
+            Systems">BIS</abbr>2007</a>), in co-operation with
+            <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
+            <abbr title="Special Interest Groups in Management Information Systems">SIGMIS</abbr>
+          </dd>
+          <dt>
+            <a href="http://prdownload.berlios.de/swaml/20061220-pfc-swaml.pdf"><span
+            xml:lang="es"><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
+            publicación de listas de correo en Web Semántica</span></a>:
+          </dt>
+          <dd>
+            20 of December of 2006 in Oviedo (Spain) for Sergio's degree dissertation
+          </dd>
+        </dl>
 
       <h2 id="contact">Contact</h2>
     	<p>

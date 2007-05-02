@@ -95,12 +95,12 @@
 		Mainly it's formed by two components:
       </p>
       <ul>
-     	<li>
+     	<li id="swaml">
 		  <strong><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym></strong>, 
 		  the core process that exports a mailing list in 
 		  <acronym title="Resource Description Framework">RDF</acronym>.
 		</li>
-     	<li>
+     	<li id="buxon">
 		  <strong>Buxon</strong>, a 
 		  <acronym title="Semantically-Interlinked Online Communities ">sioc</acronym>:Forum
 		  browser.

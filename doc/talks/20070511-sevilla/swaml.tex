@@ -55,7 +55,19 @@
 }
 \frame
 {
-  FIXME: captura de pantalla con una busqueda en google
+  \frametitle{Archivos de una lista de correo en HTML}
+
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{images/lista-html.png}
+  \end{center}
+}
+\frame
+{
+  \frametitle{Búsquedas caóticas}
+
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{images/query-google.png}
+  \end{center}
 }
 
 \section{La Web semántica}
@@ -76,6 +88,12 @@
     medio \textbf{universal} para el intercambio de \textbf{datos}, \textbf{información} 
     y \textbf{conocimiento}.
   \end{Large}
+}
+\frame
+{
+  \frametitle{RSS, un caso de uso muy conocido}
+
+  FIXME: analogia columnas de noticias y RSS
 }
 \frame
 {
@@ -122,32 +140,15 @@
     \includegraphics[width=0.8\textwidth]{images/sioc-terms.png}
   \end{center}
 
-
-}
-\frame{
-  \frametitle{Extending SIOC Ontology}
-
-  \begin{Large}
-     SIOC is an almost perfect match for our purpose, using instances of
-     \texttt{sioc:Forum}, \texttt{sioc:Post} and \texttt{sioc:User} classes.
-  \end{Large}
-
-  \vspace{0.7cm}
-
-  \begin{Large}
-    However, additional object properties were required in order to retain the 
-    sequence of messages published in a mailing list. Thus, we extended the SIOC 
-    ontology with \textbf{two new properties}.
-  \end{Large}
-
 }
 
-\section{Software tools}
+\section{Herramientas de software}
 \frame
 {
-  \frametitle{Software tools}
+  \frametitle{Herramientas de software}
 
-  We built two software tools as part of this project:
+  Hemos desarrollado principalmente dos herramientas de software como parte
+  de este proyecto:
   \vspace{0.5cm}
   \begin{itemize}
     \item<2->	\begin{Large}\textbf{SWAM}L is a non-interactive, 
@@ -161,7 +162,7 @@
 }
 \frame
 {
-  \frametitle{Software tools}
+  \frametitle{Herramientas de software}
 
   \begin{center}
     \includegraphics[width=0.85\textwidth]{images/swaml-tools.png}
@@ -192,13 +193,14 @@
 }
 \frame
 {
-  \frametitle{SWAML and KML}
+  \frametitle{SWAML y KML}
 
   SWAML also generates a KML file that contains the geographical coordinates 
   of the mailing list subscribers.
 
   \begin{center}
-    \includegraphics[width=0.7\textwidth]{images/googlemaps.png}
+    \includegraphics[width=0.7\textwidth]{images/googlemaps.png}\\
+    SWAML + SPARQL + FOAF = mash-up!
   \end{center}
 }
 \frame
@@ -219,10 +221,10 @@
   \end{columns}
 }
 
-\section{Conclusions and future work}
+\section{Conclusiones y trabajo futuro}
 \frame
 {
-  \frametitle{Conclusions}
+  \frametitle{Conclusiones técnicas}
 
   \begin{Large}
     At the time of this talk e-mail was almost excluded from the Semantic Web.
@@ -233,12 +235,17 @@
     much-needed requirement for the Semantic Web: \textbf{to be able to refer 
     to semantic versions of e-mail messages and their properties using resource 
     URIs.}
-    
+
   \end{Large}
 }
 \frame
 {
-  \frametitle{Future Work}
+  \frametitle{Conclusiones personales}
+
+}
+\frame
+{
+  \frametitle{Trabajo futuro}
 
   \begin{itemize}
    \item \begin{Large}Integration of the SWAML process with popular HTML-based mailing list archivers.\end{Large}
@@ -250,14 +257,34 @@
   \end{itemize}
 }
 
-\section{Demostración}
+%\section{Demostración}
+%\frame
+%{
+%  \frametitle{Demostración práctica}
+%
+%  \begin{center}
+%    \LARGE{\textbf{Let's go...}}
+%  \end{center}
+%}
+
 \frame
 {
-  \frametitle{Demostración práctica}
 
-  \begin{center}
-    \LARGE{\textbf{Let's go...}}
-  \end{center}
+  \begin{quote}
+    \begin{Large}
+      La tarea de la universidad no es ofrecer lo que la sociedad demanda, sino lo que la sociedad necesita.
+    \end{Large}
+    \begin{flushright}E. W. Dijkstra\end{flushright}
+  \end{quote}
+
+  \vspace{1cm}
+
+  \begin{Large}
+    Y como el Software Libre es algo que ayuda a que una sociedad sea mejor, 
+    \textbf{la Universidad debe apostar por el Software Libre} para que estos
+    beneficios lleguen a la sociedad.
+  \end{Large}
+
 }
 
 \appendix

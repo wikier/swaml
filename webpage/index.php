@@ -39,7 +39,9 @@
 		<em>[sw&aelig;ml]</em>, is  a research project around the semantic web technologies 
 		to publish the mailing lists' archives into a 
 		<acronym title="Resource Description Framework">RDF</acronym> format. It has been
-		developed by the <a href="http://weso.sourceforge.net/"><abbr 
+		developed by the <a href="http://www.fundacionctic.org/"><abbr title="Centro Tecnológico de la Información y la Comunicación"
+        xml:lang="es">CTIC</abbr> Foundation</a> and the
+        <a href="http://weso.sourceforge.net/"><abbr 
 		title="Semantic Web Oviedo Research Group">WESO-RG</abbr></a>
 		at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). 
 		You can visit the 

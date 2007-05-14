@@ -169,9 +169,12 @@
    	 	</dl>
 
     	<p>
-		  All packages depends on <a href="http://rdflib.net/">RDFLib</a>
-		  (install it from <a href="http://rdflib.net/releases/">tarballs</a> or using
-		  <a href="http://packages.debian.org/python-rdflib">debian packages</a>).
+          If you use any <a href="http://www.debian.org/">Debian</a>-based 
+          <abbr title="GNU is Not Unix">GNU</abbr>/Linux distribution, you could 
+          install it using <abbr title="Advanced Packaging Tool">APT</abbr> tools
+          (<span class="console">apt-get install swaml</span> and 
+          <span class="console">apt-get install buxon</span>).
+		  All packages depends on <a href="http://rdflib.net/">RDFLib</a>.
 		  You can see a <a href="/demo">demo</a> of which 
 		  <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> makes.
 		</p>

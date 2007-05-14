@@ -205,7 +205,7 @@
         </p>
         <dl>
           <dt>
-            <a href="#"><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
+            <a href="http://prdownload.berlios.de/swaml/20070511-swaml-concurso-software-libre.pdf"><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
             Semantic Web Archive of Mailing Lists</a>:
           </dt>
           <dd>

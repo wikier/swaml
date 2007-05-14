@@ -18,10 +18,9 @@
 \author{Sergio Fern\'andez}
 \institute{%
         \email{sergio.fernandez@fundacionctic.org}\\
-	Fundación CTIC\\
+	Departamento I+D+i (Fundación CTIC)\\
 	\vspace{1cm}
-	E.U. de Ingenier\'ia T\'ecnica en Inform\'atica de Oviedo\\
-	(Universidad de Oviedo)\\
+	E.U.I.T.I.O (Universidad de Oviedo)\\
 	\vspace{1cm}
 	\href{http://swaml.berlios.de/}{\begin{Large}\textbf{http://swaml.berlios.de/}\end{Large}}\\
         \vspace{0.5cm}
@@ -89,13 +88,19 @@
     medio \textbf{universal} para el intercambio de \textbf{datos}, \textbf{información} 
     y \textbf{conocimiento}.
   \end{Large}
+
+  \vspace{1cm}
+
+  \begin{Large}
+    La siguiente versión de la Web, la \textbf{Web 3.0}
+  \end{Large}
 }
 \frame
 {
   \frametitle{RSS, un caso de uso muy conocido}
 
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{images/rss.png}
+    \includegraphics[width=0.95\textwidth]{images/rss.png}
   \end{center}
 }
 \frame
@@ -135,8 +140,8 @@
 
   \begin{Large}
     \textbf{S}emantically-\textbf{I}nterlinked \textbf{O}nline \textbf{C}ommunities 
-    is an ontology that provides a vocabulary to interconnect different discussion 
-    methods such as blogs, web-based forums and mailing lists.
+    es una ontologia que provee un vocabulario para interconectar diferente sitios
+    de discusión, como blogs, wikis, foros y/o listas de correo.
   \end{Large}
 
   \begin{center}
@@ -150,17 +155,16 @@
 {
   \frametitle{Herramientas de software}
 
-  Hemos desarrollado principalmente dos herramientas de software como parte
+  Principalmente hemos desarrollado dos herramientas de software como parte
   de este proyecto:
   \vspace{0.5cm}
   \begin{itemize}
-    \item<2->	\begin{Large}\textbf{SWAM}L is a non-interactive, 
-		command-line application whose main purpose is to 
-		translate mailboxes into sioc:Forum instances in 
-		RDF.\end{Large}
-    \vspace{0.5cm}
-    \item<3->	\begin{Large}\textbf{Buxon} is a graphical browser 
-		for \texttt{sioc:Forum} instances.\end{Large}
+    \item<2->	\begin{Large}\textbf{SWAML} es un aplicación no interactiva
+		en linea de comandos cuyo principal propósito es \textit{traducir}
+		mailboxes en instancias de \texttt{sioc:Forum} en RDF.\end{Large}
+    \vspace{1cm}
+    \item<3->	\begin{Large}\textbf{Buxon} es un navegador gráfico para
+		visualizar instancias de \texttt{sioc:Forum}.\end{Large}
   \end{itemize}
 }
 \frame
@@ -185,11 +189,11 @@
 	\end{center}
    \end{column}
    \begin{column}{0.5\textwidth}
-	\begin{Large}batch process:\end{Large}
+	\begin{Large}proceso batch:\end{Large}
 	\begin{enumerate}
 	 \item<2-> mbox
 	 \item<3-> parser
-	 \item<4-> serialize to RDF/XML 
+	 \item<4-> serializar a RDF/XML 
 	\end{enumerate}
    \end{column}
   \end{columns}
@@ -198,8 +202,8 @@
 {
   \frametitle{SWAML y KML}
 
-  SWAML also generates a KML file that contains the geographical coordinates 
-  of the mailing list subscribers.
+  SWAML también exporta en KML las coordenadas geográficas de los suscriptores
+  de una lista de correo.
 
   \begin{center}
     \includegraphics[width=0.7\textwidth]{images/googlemaps.png}\\
@@ -213,9 +217,9 @@
   \begin{columns}
    \begin{column}{0.32\textwidth}
 	\begin{itemize}
-	  \item a \texttt{sioc:Forum} browser
-	  \item it recomposes mailing lists' threads
-	  \item one of the most important implementation of SIOC
+	  \item un lector de \texttt{sioc:Forum}
+	  \item recompone los hilos de los mensajes
+	  \item quizás la implementaciñon más madura de SIOC
 	\end{itemize}
    \end{column}
    \begin{column}{0.68\textwidth}
@@ -229,21 +233,29 @@
 {
   \frametitle{Conclusiones técnicas}
 
-  \begin{Large}
-    At the time of this talk e-mail was almost excluded from the Semantic Web.
+  \begin{itemize}
+   \item \begin{Large}Conseguir que la inmensa cantidad de conocimiento que almacenan
+	 las distintas listas de correo pueda llegar a ser \textbf{útil} de 
+         verdad.\end{Large}
+   \vspace{1cm}
+   \item \begin{Large}Apoyo a la submission de SIOC al W3C.\end{Large}
+   \vspace{1cm}
+   \item \begin{Large}Presencia internacional (paquetes en Debian GNU/Linux)
+	 con una relativa comunidad ya.\end{Large}
+  \end{itemize}
 
-    \vspace{1cm}
-
-    This project, in combinationwith the generic SIOC framework, fulfills a 
-    much-needed requirement for the Semantic Web: \textbf{to be able to refer 
-    to semantic versions of e-mail messages and their properties using resource 
-    URIs.}
-
-  \end{Large}
 }
 \frame
 {
   \frametitle{Conclusiones personales}
+
+  \begin{itemize}
+   \item \begin{Large}Mayor involucración en la comunidad del Software Libre\end{Large}
+   \vspace{1cm}
+   \item \begin{Large}El haber llegado a esta fase final\end{Large}
+   \vspace{1cm}
+   \item \begin{Large}Y conseguir un título :-)\end{Large}
+  \end{itemize}
 
 }
 \frame
@@ -251,31 +263,21 @@
   \frametitle{Trabajo futuro}
 
   \begin{itemize}
-   \item \begin{Large}Integration of the SWAML process with popular HTML-based mailing list archivers.\end{Large}
-   \item \begin{Large}Integration could be pushed further away through RDFa.\end{Large}
-   \item \begin{Large}Semantic annotation relative to the meaning of the messages.\end{Large}
-   \item \begin{Large}A simple extension to SWAML that makes it possible to read the contents of a GMail account has 
-		been developed.\end{Large}
-   \item \begin{Large}SIOC submission to W3C.\end{Large}
+   \item \begin{Large}Generar RDFa, incluyendo las tripletas en el marcado XHTML.\end{Large}
+   \vspace{1cm}
+   \item \begin{Large}Acceso a cuentas POP/IMAP para no depender de quien aloja la lista de correo.\end{Large}
+   \vspace{1cm}
+   \item \begin{Large}Publicar los datos a través un SPARQL endpoint.\end{Large}
   \end{itemize}
 }
-
-%\section{Demostración}
-%\frame
-%{
-%  \frametitle{Demostración práctica}
-%
-%  \begin{center}
-%    \LARGE{\textbf{Let's go...}}
-%  \end{center}
-%}
 
 \frame
 {
 
   \begin{quote}
     \begin{Large}
-      La tarea de la universidad no es ofrecer lo que la sociedad demanda, sino lo que la sociedad necesita.
+      La tarea de la universidad no es ofrecer lo que la sociedad demanda, 
+      sino lo que la sociedad necesita.
     \end{Large}
     \begin{flushright}E. W. Dijkstra\end{flushright}
   \end{quote}
@@ -290,25 +292,35 @@
 
 }
 
+
+\frame
+{
+
+  \begin{center}
+     \begin{Large}¿preguntas...?\end{Large}
+  \end{center}
+
+}
+
 \appendix
 
 \section{Agradecimientos}
 \frame
 {
   \frametitle{Agradecimientos}
-  
+
   \begin{Large}
-    The authors would like to express their gratitude to Dr. John Breslin and 
-    Uldis Bojars from DERI Galway, whose support and contributions have been 
-    of great help to this project. 
+    En primer lugar a todas las personas que han puesto su granito de arena en el 
+    proyecto, especialmente a \textbf{Diego Berrueta} y \textbf{Jose E. Labra}, 
+    pero también a John Breslin y Uldis Bojars de DERI Galway, y a Nacho Barrientos.
   \end{Large}
 
   \vspace{1cm}
 
   \begin{Large}
-    Also to Ignacio Barrientos by his contribution packaging the project for 
-    Debian GNU/Linux.
+    Y también a los organizadores, patrocinadores y colaboradores del concurso.
   \end{Large}
+
 }
 
 \section{Más información}

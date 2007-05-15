@@ -201,7 +201,7 @@
      	  <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
     	</dl>
 
-        <p>
+        <p id="publications">
           The research activity in the project produces some <strong>publications</strong>:
         </p>
         <ul>
@@ -215,7 +215,7 @@
             in co-operation with
             <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
             <abbr title="Special Interest Groups in Management Information Systems" xml:lang="en">SIGMIS</abbr>,
-            Poznan (Poland), 25-27 Abril, 2007.
+            <abbr title="pages">pp.</abbr>45-52, 25-27 Abril, 2007, Poznan, Poland.
           </li>
         </ul>
 

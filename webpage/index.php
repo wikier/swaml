@@ -202,7 +202,7 @@
     	</dl>
 
         <p>
-          The research activity in the project produces some papers:
+          The research activity in the project produces some <strong>publications</strong>:
         </p>
         <ul>
           <li>

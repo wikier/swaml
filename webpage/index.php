@@ -189,8 +189,8 @@
 
       <h2 id="doc">Documentation</h2>
     	<p>
-     	  Also the <a href="doc/">online documentation for developers</a>, it's available to download
-     	  another documents about the project:
+     	  Also the <a href="doc/">online documentation for developers</a>, it's available 
+          to download another documents about the project:
     	</p>
     	<dl>
    		  <dt><a href="http://prdownload.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
@@ -200,6 +200,25 @@
      	  <dt><a href="http://prdownload.berlios.de/swaml/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
      	  <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
     	</dl>
+
+        <p>
+          The research activity in the project produces some papers:
+        </p>
+        <ul>
+          <li>
+            Sergio Fernández, Diego Berrueta y José E. Labra.
+            <a href="http://prdownload.berlios.de/swaml/SWAML-Mailing-List-Meet-The-Semantic-Web-SAW2007.pdf">Mailing lists meet the Semantic Web</a>.             
+            <abbr title="Social Aspects of the Web" xml:lang="en">SAW</abbr>
+            2007 Workshop, in conjunction with 
+            <span xml:lang="en"><abbr title="tenth">10<sup>th</sup></abbr> 
+            International Conference on Business Information Systems</span>,
+            in co-operation with
+            <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
+            <abbr title="Special Interest Groups in Management Information Systems" xml:lang="en">SIGMIS</abbr>,
+            Poznan (Poland), 25-27 Abril, 2007.
+          </li>
+        </ul>
+
         <p>
           And we made some presentations about the project around the world:
         </p>

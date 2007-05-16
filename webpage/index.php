@@ -215,7 +215,7 @@
             in co-operation with
             <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
             <abbr title="Special Interest Groups in Management Information Systems" xml:lang="en">SIGMIS</abbr>,
-            <abbr title="pages">pp.</abbr>45-52, 25-27 Abril, 2007, Poznan, Poland.
+            <abbr title="pages">pp.</abbr> 45-52, 25-27 April, 2007, Poznan, Poland.
           </li>
         </ul>
 

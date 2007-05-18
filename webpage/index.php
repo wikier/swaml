@@ -262,9 +262,18 @@
     	  <a href="/lists">mailing lists</a>:
 		</p>
     	<ul>
-    	 <li><a href="/lists/devel">Developers mailing list</a></li>
-    	 <li><a href="/lists/users">Users mailing list</a></li>
-    	 <li><a href="/lists/spanish">Spanish Users mailing list</a></li>
+    	  <li>
+            <a href="/lists/devel">Developers mailing list</a>
+            (<a href="http://lists.berlios.de/pipermail/swaml-devel/">archives</a>)
+          </li>
+    	  <li>
+            <a href="/lists/users">Users mailing list</a>
+            (<a href="http://lists.berlios.de/pipermail/swaml-users/">archives</a>)
+          </li>
+    	  <li>
+            <a href="/lists/spanish">Spanish Users mailing list</a>
+            (<a href="http://lists.berlios.de/pipermail/swaml-spanish/">archives</a>)
+          </li>
     	</ul>
 
 		<p>

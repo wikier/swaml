@@ -66,7 +66,7 @@
       </p>
       <ul id="members">
      	<li>
-     	  <a href="http://www.wikier.org/">Sergio Fdez</a> (maintainer),
+     	  <a href="http://www.wikier.org/">Sergio Fernández</a> (maintainer),
      	  <a href="http://www.wikier.org/foaf.rdf#wikier"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>

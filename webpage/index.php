@@ -206,7 +206,7 @@
         </p>
         <ul>
           <li>
-            Sergio Fernández, Diego Berrueta y José E. Labra.
+            Sergio Fernández, Diego Berrueta and José E. Labra.
             <a href="http://prdownload.berlios.de/swaml/SWAML-Mailing-List-Meet-The-Semantic-Web-SAW2007.pdf">Mailing lists meet the Semantic Web</a>.             
             <abbr title="Social Aspects of the Web" xml:lang="en">SAW</abbr>
             2007 Workshop, in conjunction with 

@@ -39,7 +39,7 @@
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.2#previousByDate">
-    <rdfs:comment>Previous message posted in a mailign list by date</rdfs:comment>
+    <rdfs:comment>Previous message posted in a mailing list by date</rdfs:comment>
     <rdfs:label>previousByDate</rdfs:label>
     <rdfs:domain>
       <owl:Class rdf:about="http://rdfs.org/sioc/ns#Post" />

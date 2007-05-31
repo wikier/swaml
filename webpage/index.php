@@ -220,8 +220,8 @@
           lists meet the Semantic Web</a>. Proceedings of the 
           <a href="http://bis.kie.ae.poznan.pl/10th_bis/"><abbr title="Business Information Systems">BIS</abbr> 2007</a> 
           Workshop on <a href="http://integror.net/saw/">Social Aspects of the Web</a>, 
-          <a href="http://CEUR-WS.org/Vol-245/">CEUR <abbr title="volume">vol.</abbr>245</a>, 
-          <abbr title="pages">pp.</abbr> 45-52, Poznan, Poland, April 27, 2007.
+          <a href="http://CEUR-WS.org/Vol-245/">CEUR <abbr title="volume">vol.</abbr> 245</a>, 
+          Poznan, Poland, April 27, 2007.
         </li>
        </ul>
 

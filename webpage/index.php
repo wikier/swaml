@@ -14,40 +14,41 @@
   <body>
 
     <div class="accessibility">
-		<a href="#content" accesskey="c" title="Go to content">Go to content</a>
+      <a href="#content" accesskey="c" title="Go to content">Go to content</a>
     </div>
 
     <h1 id="head">
-		<a href="http://developer.berlios.de/"><img src="images/berlios.png" width="132" height="50" alt="Project hosted by BerliOS" /></a>
-		<a href="http://swaml.berlios.de/"><acronym title="Semantic Web Archive of Mailing Lists">swaml</acronym></a>
+      <a href="http://developer.berlios.de/"><img src="images/berlios.png" width="132" height="50" alt="Project hosted by BerliOS" /></a>
+      <a href="http://swaml.berlios.de/"><acronym title="Semantic Web Archive of Mailing Lists">swaml</acronym></a>
     </h1>
 
     <div id="menu">
-	  <ul>
-		<li><a href="/" accesskey="1" title="go SWAML home">Home</a></li>
-		<li><a href="#news" accesskey="2" title="read SWAML news">News</a></li>
- 		<li><a href="#files" accesskey="3" title="download SWAML files">Files</a></li>
-		<li><a href="#doc" accesskey="4" title="see SWAML documentation">Documentation</a></li>
- 		<li><a href="/wiki" accesskey="5" title="go SWAML wiki">Wiki</a></li>
-		<li class="last"><a href="#contact" accesskey="6" title="contact with SWAML team">Contact</a></li>
-	  </ul>
+      <ul>
+        <li><a href="/" accesskey="1" title="go SWAML home">Home</a></li>
+        <li><a href="#news" accesskey="2" title="read SWAML news">News</a></li>
+        <li><a href="#files" accesskey="3" title="download SWAML files">Files</a></li>
+        <li><a href="#doc" accesskey="4" title="see SWAML documentation">Documentation</a></li>
+        <li><a href="/wiki" accesskey="5" title="go SWAML wiki">Wiki</a></li>
+        <li class="last"><a href="#contact" accesskey="6" title="contact with SWAML team">Contact</a></li>
+      </ul>
     </div>
 
     <div id="content">
-	  <p>
-		<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>, pronounced 
-		<em>[sw&aelig;ml]</em>, is  a research project around the semantic web technologies 
-		to publish the mailing lists' archives into a 
-		<acronym title="Resource Description Framework">RDF</acronym> format. It has been
-		developed by the <a href="http://www.fundacionctic.org/"><abbr title="Centro Tecnológico de la Información y la Comunicación"
+      <p>
+        <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>, pronounced 
+        <em>[sw&aelig;ml]</em>, is  a research project around the semantic web technologies 
+        to publish the mailing lists' archives into a 
+        <acronym title="Resource Description Framework">RDF</acronym> format. It has been
+        developed by the <a href="http://www.fundacionctic.org/"><abbr 
+        title="Centro Tecnológico de la Información y la Comunicación"
         xml:lang="es">CTIC</abbr> Foundation</a> and the
         <a href="http://weso.sourceforge.net/"><abbr 
-		title="Semantic Web Oviedo Research Group">WESO-RG</abbr></a>
-		at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). 
-		You can visit the 
-		<a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> 
-		for more details.
-	  </p>
+        title="Semantic Web Oviedo Research Group">WESO-RG</abbr></a>
+        at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). 
+        You can visit the 
+        <a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> 
+        for more details.
+      </p>
 
       <img src="images/swaml.png" width="400" height="336" alt="SWAML process description" id="process" />
 
@@ -62,7 +63,7 @@
       </p>
 
       <p>
-		In the project we're involved:
+        In the project we're involved:
       </p>
       <ul id="members">
      	<li>
@@ -88,19 +89,19 @@
       </ul>
 
       <p>
-		Mainly it's formed by two components:
+        Mainly it's formed by two components:
       </p>
       <ul>
      	<li id="swaml">
-		  <strong><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym></strong>, 
-		  the core process that exports a mailing list in 
-		  <acronym title="Resource Description Framework">RDF</acronym>.
-		</li>
+          <strong><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym></strong>, 
+          the core process that exports a mailing list in 
+          <acronym title="Resource Description Framework">RDF</acronym>.
+        </li>
      	<li id="buxon">
-		  <strong>Buxon</strong>, a 
-		  <acronym title="Semantically-Interlinked Online Communities ">sioc</acronym>:Forum
-		  browser.
-		</li>
+          <strong>Buxon</strong>, a 
+          <acronym title="Semantically-Interlinked Online Communities ">sioc</acronym>:Forum
+          browser.
+        </li>
       </ul>
 
       <p>
@@ -127,95 +128,104 @@
 		  $swaml = new SWAML();
 		  echo $swaml->parse_rss();
     	?>
-		<p style="text-align:right;"><a href="/news">read more news...</a></p>
+      <p style="text-align:right;">
+        <a href="/news">read more news...</a>
+      </p>
 
-		<p>Also you could find all news/comments related with the project in a wiki page 
-		called <a href="/wiki/index.php/SWAML-o-sphere">SWAML-o-sphere</a>.
-		Feel free to add any other.</p>
+      <p>
+        Also you could find all news/comments related with the project in a wiki page 
+        called <a href="/wiki/index.php/SWAML-o-sphere">SWAML-o-sphere</a>. Feel free 
+        to add any other entry.
+      </p>
 
       <h2 id="files">Files</h2>
-    	<p>
-		  There are some <a href="/files">files</a> (and a <a href="/releases">mirror</a> of it) until the moment:
-		</p>
-    	<dl>
-    	 <dt>
-    	  	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>:
-    	 </dt>
-    	 <dd>
-			<a href="http://prdownload.berlios.de/swaml/swaml-0.0.5.tar.gz">swaml-0.0.5.tar.gz</a>
-			and
-			<a href="http://prdownload.berlios.de/swaml/swaml_0.0.5-2_all.deb">swaml_0.0.5-2_all.deb</a>
-    	 </dd>
-    	 <dd>
-			<a href="http://prdownload.berlios.de/swaml/swaml-0.0.4.tar.gz">swaml-0.0.4.tar.gz</a>
-    	 </dd>
-    	 <dd>
-		<a href="http://prdownload.berlios.de/swaml/swaml-0.0.3.tar.gz">swaml-0.0.3.tar.gz</a>
-    	 </dd>
-    	 <dd>
-			<a href="http://prdownload.berlios.de/swaml/swaml-0.0.2.tar.gz">swaml-0.0.2.tar.gz</a>
-    	 </dd>
-   	 	 <dd>
-			<a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
-    	 </dd>
-    	 <dt>
-    	  	Buxon:
-    	 </dt>
-    	 <dd>
-			<a href="http://prdownload.berlios.de/swaml/buxon-0.0.3.tar.gz">buxon-0.0.3.tar.gz</a>
-			and
-			<a href="http://prdownload.berlios.de/swaml/buxon_0.0.3-2_all.deb">buxon_0.0.3-2_all.deb</a>
-    	 </dd>
-   	 	</dl>
+      <p>
+        There are some <a href="/files">files</a> (and a <a href="/releases">mirror</a> of it) until the moment:
+      </p>
+      <dl>
+        <dt>
+          <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>:
+        </dt>
+        <dd>
+          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.5.tar.gz">swaml-0.0.5.tar.gz</a>
+          and
+          <a href="http://prdownload.berlios.de/swaml/swaml_0.0.5-2_all.deb">swaml_0.0.5-2_all.deb</a>
+        </dd>
+        <dd>
+          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.4.tar.gz">swaml-0.0.4.tar.gz</a>
+        </dd>
+        <dd>
+          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.3.tar.gz">swaml-0.0.3.tar.gz</a>
+        </dd>
+        <dd>
+          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.2.tar.gz">swaml-0.0.2.tar.gz</a>
+        </dd>
+        <dd>
+          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
+        </dd>
+        <dt>
+          Buxon:
+        </dt>
+        <dd>
+          <a href="http://prdownload.berlios.de/swaml/buxon-0.0.3.tar.gz">buxon-0.0.3.tar.gz</a>
+          and
+          <a href="http://prdownload.berlios.de/swaml/buxon_0.0.3-2_all.deb">buxon_0.0.3-2_all.deb</a>
+        </dd>
+      </dl>
 
-    	<p>
-          If you use any <a href="http://www.debian.org/">Debian</a>-based 
-          <abbr title="GNU is Not Unix">GNU</abbr>/Linux distribution, you could 
-          install it using <abbr title="Advanced Packaging Tool">APT</abbr> tools
-          (<span class="console">apt-get install swaml</span> and 
-          <span class="console">apt-get install buxon</span>).
-		  All packages depends on <a href="http://rdflib.net/">RDFLib</a>.
-		  You can see a <a href="/demo">demo</a> of which 
-		  <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> makes.
-		</p>
+      <p>
+        If you use any <a href="http://www.debian.org/">Debian</a>-based 
+        <abbr title="GNU is Not Unix">GNU</abbr>/Linux distribution, you could 
+        install it using <abbr title="Advanced Packaging Tool">APT</abbr> tools
+        (<span class="console">apt-get install swaml</span> and 
+        <span class="console">apt-get install buxon</span>).
+        All packages depends on <a href="http://rdflib.net/">RDFLib</a>.
+        You can see a <a href="/demo">demo</a> of which 
+        <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> makes.
+      </p>
 
-    	<p>
-		  If you would like to stay up to date with development you can check out the latest version via the 
-    	  <a href="http://subversion.tigris.org/">subversion</a> version control system:
-		</p>
-    	<p class="svn">
-		  svn checkout <a href="/wsvn">http://svn.berlios.de/svnroot/repos/swaml/trunk</a> swaml
-		</p>
+      <p>
+        If you would like to stay up to date with development you can check out the latest version via the 
+        <a href="http://subversion.tigris.org/">subversion</a> version control system:
+      </p>
+
+      <p class="svn">
+        svn checkout <a href="/wsvn">http://svn.berlios.de/svnroot/repos/swaml/trunk</a> swaml
+      </p>
 
       <h2 id="doc">Documentation</h2>
-    	<p>
-     	  Also the <a href="doc/">online documentation for developers</a>, it's available 
-          to download another documents about the project:
-    	</p>
-    	<dl>
-   		  <dt><a href="http://prdownload.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
-     	  <dd>original document in spanish with the idea that motivated this project</dd>
-     	  <dt><a href="http://prdownload.berlios.de/swaml/proposal.pdf">proposal.pdf</a>:</dt>
-     	  <dd>translation with the idea that motivated this project</dd>
-     	  <dt><a href="http://prdownload.berlios.de/swaml/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
-     	  <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
-    	</dl>
+      <p>
+        Also the <a href="doc/">online documentation for developers</a>, it's available 
+        to download another documents about the project:
+      </p>
 
-        <p id="publications">
-          The research activity in the project produces some <strong>publications</strong>:
-        </p>
-        <ul>
-          <li>
-            Sergio Fernández, Diego Berrueta and José E. Labra.
-            <a href="http://prdownload.berlios.de/swaml/SWAML-Mailing-List-Meet-The-Semantic-Web-SAW2007.pdf">Mailing lists meet the Semantic Web</a>.             
-            <abbr title="Social Aspects of the Web" xml:lang="en">SAW</abbr>
-            2007 Workshop, in conjunction with 
-            <span xml:lang="en"><abbr title="tenth">10<sup>th</sup></abbr> 
-            International Conference on Business Information Systems</span>,
-            in co-operation with
-            <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
-            <abbr title="Special Interest Groups in Management Information Systems" xml:lang="en">SIGMIS</abbr>,
-            <abbr title="pages">pp.</abbr> 45-52, 25-27 April, 2007, Poznan, Poland.
+      <dl>
+        <dt><a href="http://prdownload.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
+        <dd>original document in spanish with the idea that motivated this project</dd>
+
+        <dt><a href="http://prdownload.berlios.de/swaml/proposal.pdf">proposal.pdf</a>:</dt>
+        <dd>translation with the idea that motivated this project</dd>
+
+        <dt><a href="http://prdownload.berlios.de/swaml/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
+        <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
+      </dl>
+
+      <p id="publications">
+        The research activity in the project produces some <strong>publications</strong>:
+      </p>
+      <ul>
+        <li>
+          Sergio Fernández, Diego Berrueta and José E. Labra.
+          <a href="http://prdownload.berlios.de/swaml/SWAML-Mailing-List-Meet-The-Semantic-Web-SAW2007.pdf">Mailing 
+          lists meet the Semantic Web</a>.             
+          <abbr title="Social Aspects of the Web" xml:lang="en">SAW</abbr>
+          2007 Workshop, in conjunction with 
+          <span xml:lang="en"><abbr title="tenth">10<sup>th</sup></abbr> 
+          International Conference on Business Information Systems</span>,
+          in co-operation with
+          <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
+          <abbr title="Special Interest Groups in Management Information Systems" xml:lang="en">SIGMIS</abbr>,
+          <abbr title="pages">pp.</abbr> 45-52, 25-27 April, 2007, Poznan, Poland.
           </li>
         </ul>
 
@@ -257,48 +267,46 @@
         </dl>
 
       <h2 id="contact">Contact</h2>
-    	<p>
-		  You can contact any <a href="/members-list">members of project</a>. Also you have a several 
-    	  <a href="/lists">mailing lists</a>:
-		</p>
-    	<ul>
-    	  <li>
-            <a href="/lists/devel">Developers mailing list</a>
-            (<a href="http://lists.berlios.de/pipermail/swaml-devel/">archives</a>)
-          </li>
-    	  <li>
-            <a href="/lists/users">Users mailing list</a>
-            (<a href="http://lists.berlios.de/pipermail/swaml-users/">archives</a>)
-          </li>
-    	  <li>
-            <a href="/lists/spanish">Spanish Users mailing list</a>
-            (<a href="http://lists.berlios.de/pipermail/swaml-spanish/">archives</a>)
-          </li>
-    	</ul>
+      <p>
+        You can contact any <a href="/members-list">members of project</a>. Also you have a several 
+        <a href="/lists">mailing lists</a>:
+      </p>
 
-		<p>
-		  Also, you can <a href="/bugs">report a bug</a> or sending a <a href="/features">feature request</a> 
-    	  without you need to subscribe of any of <a href="/lists">project mailing lists</a>.
-		</p>
+      <ul>
+        <li>
+          <a href="/lists/devel">Developers mailing list</a>
+          (<a href="http://lists.berlios.de/pipermail/swaml-devel/">archives</a>)
+        </li>
+        <li>
+          <a href="/lists/users">Users mailing list</a>
+          (<a href="http://lists.berlios.de/pipermail/swaml-users/">archives</a>)
+        </li>
+        <li>
+          <a href="/lists/spanish">Spanish Users mailing list</a>
+          (<a href="http://lists.berlios.de/pipermail/swaml-spanish/">archives</a>)
+        </li>
+      </ul>
+
+      <p>
+        Also, you can <a href="/bugs">report a bug</a> or sending a 
+        <a href="/features">feature request</a> without you need to subscribe of 
+        any of <a href="/lists">project mailing lists</a>.
+      </p>
 
     </div>
 
     <div id="foot">
-	  <ul>
-		<li><a href="doap.rdf" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a></li>
-		<li><a href="http://validator.w3.org/check/referer"><img src="images/xhtml.png" alt="Valid XHTML" /></a></li>
-		<li><a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/css.png" alt="Valid CSS" /></a></li>
- 		<li><a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" alt="BerliOS Developer Logo" /></a></li>
-	  </ul>
+      <ul>
+        <li><a href="doap.rdf" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a></li>
+        <li><a href="http://validator.w3.org/check/referer"><img src="images/xhtml.png" alt="Valid XHTML" /></a></li>
+        <li><a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/css.png" alt="Valid CSS" /></a></li>
+        <li><a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" alt="BerliOS Developer Logo" /></a></li>
+      </ul>
     </div>
 
 
     <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-    <script type="text/javascript">
-		_uacct = "UA-599301-2";
-		urchinTracker();
-    </script>
-
+    <script type="text/javascript">_uacct = "UA-599301-2";urchinTracker();</script>
     <script type="text/javascript" src="http://embed.technorati.com/embed/4y8uh7tpy.js"></script>
 
   </body>

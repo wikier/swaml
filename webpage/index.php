@@ -215,13 +215,13 @@
       </p>
       <ul>
         <li>
-          Sergio Fernández, Diego Berrueta and José E. Labra.
-          <a href="http://sunsite.informatik.rwth-aachen.de/Publications/CEUR-WS//Vol-245/paper4.pdf">Mailing 
-          lists meet the Semantic Web</a>. Proceedings of the 
+          Sergio Fernández, Diego Berrueta, José E. Labra,
+          <a href="http://sunsite.informatik.rwth-aachen.de/Publications/CEUR-WS//Vol-245/paper4.pdf"><em>Mailing 
+          lists meet the Semantic Web</em></a>, in Proceedings of the 
           <a href="http://bis.kie.ae.poznan.pl/10th_bis/"><abbr title="Business Information Systems">BIS</abbr> 2007</a> 
           Workshop on <a href="http://integror.net/saw/">Social Aspects of the Web</a>, 
-          <a href="http://CEUR-WS.org/Vol-245/">CEUR <abbr title="volume">vol.</abbr> 245</a>, 
-          Poznan, Poland, April 27, 2007.
+          <abbr title="International Standard Book Number">ISBN</abbr> 83-916842-4-2, 
+          <abbr title="pages">pp.</abbr> 45-52, Poznan, Poland, April 27, 2007.
         </li>
        </ul>
 

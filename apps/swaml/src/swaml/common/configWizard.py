@@ -19,11 +19,11 @@
 """Wizard to create config files for SWAML"""
 
 import sys, os, string
-from classes.ui import CommandLineUI
-from classes.configuration import Configuration
+from swaml.ui.ui import ConsoleUI
+from swaml.common.configuration import Configuration
 import ConfigParser
 
-class ConfigWizard(CommandLineUI):
+class ConfigWizard(ConsoleUI):
     """
     SWAML's config wizard
     
@@ -83,7 +83,7 @@ class ConfigWizard(CommandLineUI):
         @param argv: values of inline arguments
         """       
         
-        CommandLineUI.__init__(self, 'configWizard')
+        ConsoleUI.__init__(self, 'configWizard')
         
         self.section = 'SWAML'
         

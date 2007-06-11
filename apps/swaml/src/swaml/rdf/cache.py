@@ -1,7 +1,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2006 Sergio Fdez, Diego Berrueta
+# Copyright (C) 2006-2007 Sergio Fdez, Diego Berrueta
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -20,9 +20,9 @@ from rdflib import Namespace
 from rdflib.sparql import sparqlGraph
 from rdflib.sparql.graphPattern import GraphPattern
 from rdflib.Graph import ConjunctiveGraph
-from namespaces import SIOC, RDF, RDFS, DC, DCTERMS
-from date import MailDate
-from ptsw import PTSW
+from swaml.rdf.namespaces import SIOC, RDF, RDFS, DC, DCTERMS
+from swaml.common.date import MailDate
+from swaml.rdf.ptsw import PTSW
 import socket
 import gtk
 

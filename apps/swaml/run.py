@@ -4,7 +4,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2006 Sergio Fdez
+# Copyright (C) 2005-2007 Sergio Fdez
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -18,10 +18,13 @@
 
 """Semantic Web Archive of Mailing Lists"""
 
-import sys, os, string
-from classes.ui import CommandLineUI
-from classes.configuration import Configuration
-from classes.mailinglist import MailingList
+import sys
+sys.path.append('./src')
+
+import os, string
+from swaml.ui.consoleui import ConsoleUI
+from swaml.common.configuration import Configuration
+from swaml.rdf.sioc.mailinglist import MailingList
 
 try:
     import rdflib
@@ -29,7 +32,7 @@ except:
     print 'RDFLib is required'
     sys.exit(-1)
 
-class SWAML(CommandLineUI):
+class SWAML(ConsoleUI):
     """
     Main class of SWAML project
     
@@ -67,7 +70,7 @@ class SWAML(CommandLineUI):
             path = __file__.split('/')
             base = '/'.join(path[:-1]) + '/'
         
-        CommandLineUI.__init__(self, 'swaml', base)
+        ConsoleUI.__init__(self, 'swaml', base)
         
         self.config = Configuration()        
         
@@ -82,7 +85,6 @@ class SWAML(CommandLineUI):
         self.list = MailingList(self.config)
         messages = self.list.publish()
         print str(messages), 'messages procesed'
-
 
 
 if __name__ == '__main__':

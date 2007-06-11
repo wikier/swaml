@@ -1,7 +1,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2006 Sergio Fdez
+# Copyright (C) 2005-2007 Sergio Fdez
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -16,15 +16,15 @@
 """Subscribers management"""
 
 import sys, os, string
-from message import Message
-from foaf import FOAFS
 import rdflib
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from rdflib import Namespace
-from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
-from kml import KML
+from swaml.rdf.namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
+from swaml.rdf.sioc.message import Message
+from swaml.rdf.foaf import FOAFS
+from swaml.rdf.kml import KML
 
 
 class Subscriber:

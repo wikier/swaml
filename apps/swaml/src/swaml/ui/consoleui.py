@@ -1,7 +1,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2006 Sergio Fdez
+# Copyright (C) 2005-2007 Sergio Fdez
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -13,35 +13,12 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-"""Common functions for UIs"""
+"""Common console UI"""
 
 import sys, os, string
+from swaml.ui.ui import UI
 
-class UI:
-    """
-    Abstract class for User Interfaces
-    """
-    
-    def usage(self):
-        """
-        Print usage information
-        """
-        
-        pass
-    
-    def __init__(self, id=None, base='./'):
-        """
-        Constructor method
-        
-        @param id: string id
-        @param base: base directory
-        """
-        
-        self.id = id
-        self.base = base
-    
-    
-class CommandLineUI(UI):
+class ConsoleUI(UI):
     """
     Abstract class for Text-mode User Interfaces
     """
@@ -71,4 +48,3 @@ class CommandLineUI(UI):
         """
                 
         UI.__init__(self, id, base+'includes/ui/text/')
-

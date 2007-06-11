@@ -20,8 +20,9 @@ import datetime, email, email.Errors
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
-from charset import Charset
-from date import MailDate, FileDate
+from swaml.rdf.namespaces import SWAML, SIOC, RDFS, FOAF, DC, DCTERMS
+from swaml.common.charset import Charset
+from swaml.common.date import MailDate, FileDate
 
 class Message:
     """
@@ -332,8 +333,7 @@ class Message:
         #rdf graph
         store = ConjunctiveGraph()
         
-        #namespaces
-        from namespaces import SWAML, SIOC, RDFS, FOAF, DC, DCTERMS
+        #namespaces        
         store.bind('swaml', SWAML)
         store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)

@@ -1,7 +1,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2006 Sergio Fdez
+# Copyright (C) 2005-2007 Sergio Fdez
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -16,15 +16,15 @@
 """Abstraction of a mailing list"""
 
 import sys, os, mailbox, rfc822, string, email, email.Errors, datetime, sha
-from mbox import Mbox
-from subscribers import Subscribers
-from message import Message
-from index import Index
+from swaml.mail.mbox import Mbox
+from swaml.rdf.sioc.subscribers import Subscribers
+from swaml.rdf.sioc.message import Message
+from swaml.rdf.sioc.index import Index
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode, RDF
-from namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
+from swaml.rdf.namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
 import datetime
-from date import FileDate
+from swaml.common.date import FileDate
 
 class MailingList:
     """

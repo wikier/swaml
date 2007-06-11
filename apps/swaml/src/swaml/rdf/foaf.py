@@ -20,7 +20,7 @@ import rdflib
 from rdflib.sparql import sparqlGraph
 from rdflib.sparql.graphPattern import GraphPattern
 from rdflib import Namespace, Literal
-from namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
+from swaml.rdf.namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
 from email.Header import decode_header
 
 class FOAFS:

@@ -24,7 +24,7 @@ SWAML_PATH = '/usr/share/swaml/'
 sys.path.append(SWAML_PATH)
 
 try:
-	from swaml import SWAML
+	from run import SWAML
 	sys.exit(SWAML(sys.argv[1:], SWAML_PATH))
 except ImportError:
 	print 'SWAML cannot be found; please, ensure that it is installed correctly.'

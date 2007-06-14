@@ -9,7 +9,7 @@ install:
 	cp setup/swaml $(DESTDIR)/usr/bin/swaml
 	chmod 755 $(DESTDIR)/usr/bin/swaml
 	mkdir -p $(DESTDIR)/usr/share/swaml/
-	cp -r __init__.py swaml.py foaf.py kml.py configWizard.py classes includes $(DESTDIR)/usr/share/swaml/
+	cp -r __init__.py run.py src includes $(DESTDIR)/usr/share/swaml/
 	mkdir -p $(DESTDIR)/usr/share/doc/swaml/examples
 	cp -r config $(DESTDIR)/usr/share/doc/swaml/examples
 	mkdir tmp
@@ -26,7 +26,7 @@ uninstall:
 gendoc:
 	rm -rf $(DOCDIR)
 	mkdir -p $(DOCDIR)
-	epydoc -n $(NAME) -o $(DOCDIR) --html __init__.py swaml.py foaf.py kml.py configWizard.py classes/
+	epydoc -n $(NAME) -o $(DOCDIR) --html __init__.py run.py src/swaml/
 
 pubdoc:	gendoc
 	scp -r $(DOCDIR)/* $(USER)@shell.berlios.de:/home/groups/swaml/htdocs/$(DOCDIR)/

@@ -16,14 +16,15 @@
 """a cache service for sioc:Forum"""
 
 import rdflib
-from rdflib import Namespace
-from rdflib.sparql import sparqlGraph
-from rdflib.sparql.graphPattern import GraphPattern
 from rdflib.Graph import ConjunctiveGraph
+from rdflib.sparql.sparqlGraph import SPARQLGraph
+from rdflib.sparql.graphPattern import GraphPattern
+from rdflib.sparql import Query
+from rdflib import Namespace
 from swaml.rdf.namespaces import SIOC, RDF, RDFS, DC, DCTERMS
 from swaml.common.date import MailDate
 from swaml.rdf.ptsw import PTSW
-import socket
+import socket    
 import gtk
 
 class Cache:
@@ -113,8 +114,8 @@ class Cache:
         @return: posts result
         """
         
-        try:    
-            sparqlGr = sparqlGraph.SPARQLGraph(self.graph)
+        try:
+            sparqlGr = SPARQLGraph(self.graph)
             select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')            
             where  = GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
                                           ('?post',    DC['title'],            '?postTitle'),
@@ -123,7 +124,7 @@ class Cache:
                                           ('?post',    SIOC['has_creator'],    '?user'),
                                           ('?user',    SIOC['name'],           '?userName')])
             opt    = GraphPattern([('?post',    SIOC['reply_of'],       '?parent')])
-            posts  = sparqlGr.query(select, where, opt)
+            posts = Query.query(sparqlGr, select, where)
             return self.orderByDate(posts)
         except Exception, details:
             print 'parsing exception:', str(details)
@@ -135,11 +136,11 @@ class Cache:
         """
         
         try:    
-            sparqlGr = sparqlGraph.SPARQLGraph(self.graph)
+            sparqlGr = SPARQLGraph(self.graph)
             select = ('?post', '?title')            
             where  = GraphPattern([('?post', RDF['type'],   SIOC['Post']),
                                           ('?post', DC['title'], '?title')])
-            posts  = sparqlGr.query(select, where)
+            posts = Query.query(sparqlGr, select, where)
             
             print len(posts), 'posts:'
             

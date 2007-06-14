@@ -16,6 +16,7 @@
 """Util services to work with FOAF"""
 
 import sys, os, string, sha
+import rdflib
 from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.sparqlGraph import SPARQLGraph
 from rdflib.sparql.graphPattern import GraphPattern

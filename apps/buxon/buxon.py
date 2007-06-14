@@ -35,14 +35,15 @@ except:
 
 try:
 	SWAML_PATH = '/usr/share/swaml/'
-	sys.path.append(SWAML_PATH+'../')
-	from swaml.classes.ui import UI
-	from swaml.classes.cache import Cache
-	from swaml.classes.loadprogressbar import LoadProgressBar
-	from swaml.classes.calendarwindow import CalendarWindow
-	from swaml.classes.namespaces import SIOC, RDF, DC, DCTERMS
-except:
+	sys.path.append(SWAML_PATH + 'src/')
+	from swaml.ui.ui import UI
+	from swaml.rdf.cache import Cache
+	from swaml.ui.loadprogressbar import LoadProgressBar
+	from swaml.ui.calendarwindow import CalendarWindow
+	from swaml.rdf.namespaces import SIOC, RDF, DC, DCTERMS
+except Exception, details:
 	print 'SWAML is required'
+	print str(details)
 	sys.exit(-1)
 
 

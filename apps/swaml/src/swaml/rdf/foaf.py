@@ -16,8 +16,8 @@
 """Util services to work with FOAF"""
 
 import sys, os, string, sha
-import rdflib
-from rdflib.sparql import sparqlGraph
+from rdflib.Graph import ConjunctiveGraph
+from rdflib.sparql.sparqlGraph import SPARQLGraph
 from rdflib.sparql.graphPattern import GraphPattern
 from rdflib import Namespace, Literal
 from swaml.rdf.namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
@@ -99,7 +99,7 @@ class FOAFS:
         
         @param foaf: a foaf uri
         @return: the graph with the foaf loaded
-        @rtype: rdflib.sparqlGraph.SPARQLGraph        
+        @rtype: rdflib.Graph.ConjunctiveGraph
         """
         
         #tip to set socket timeout global var
@@ -108,7 +108,7 @@ class FOAFS:
         
         if (self.__actualFoaf != foaf or self.__graph == None):
             self.__actualFoaf = foaf
-            self.__graph = sparqlGraph.SPARQLGraph()
+            self.__graph = ConjunctiveGraph()
             try:
                 self.__graph.parse(foaf)
             except:
@@ -125,9 +125,9 @@ class FOAFS:
         @return: coordinates      
         """
         
-        sparqlGr = self.__getGraph(foaf)
+        graph = self.__getGraph(foaf)
         
-        if (sparqlGr != None):
+        if (graph != None):
         
             select = ('?lat', '?long')
             where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
@@ -136,8 +136,8 @@ class FOAFS:
                                     ('?y', GEO['lat'], '?lat'),
                                     ('?y', GEO['long'], '?long')    
                                   ])
-        
-            result = sparqlGr.query(select, where)
+            
+            result = rdflib.sparql.Query.query(graph, select, where)
         
             for one in result:
                 return [one[0], one[1]]
@@ -152,9 +152,10 @@ class FOAFS:
         @param sha1mail: mail addess enconded
         @return: picture url        
         """
-        sparqlGr = self.__getGraph(foaf)
         
-        if (sparqlGr != None):
+        graph = self.__getGraph(foaf)
+        
+        if (graph != None):
         
             select = ('?pic')
             where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
@@ -162,7 +163,7 @@ class FOAFS:
                                     ('?x', FOAF['depiction'], '?pic')   
                                   ])
         
-            result = sparqlGr.query(select, where)
+            result = rdflib.sparql.Query.query(graph, select, where)
         
             for one in result:
                 return one

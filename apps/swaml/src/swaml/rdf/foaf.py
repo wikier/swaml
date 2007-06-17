@@ -20,6 +20,7 @@ import rdflib
 from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.sparqlGraph import SPARQLGraph
 from rdflib.sparql.graphPattern import GraphPattern
+from rdflib.sparql import Query
 from rdflib import Namespace, Literal
 from swaml.rdf.namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
 from email.Header import decode_header
@@ -130,6 +131,7 @@ class FOAFS:
         
         if (graph != None):
         
+            sparqlGr = SPARQLGraph(graph)
             select = ('?lat', '?long')
             where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
                                     ('?x', FOAF['mbox_sha1sum'], sha1mail),
@@ -138,7 +140,7 @@ class FOAFS:
                                     ('?y', GEO['long'], '?long')    
                                   ])
             
-            result = rdflib.sparql.Query.query(graph, select, where)
+            result = Query.query(sparqlGr, select, where)
         
             for one in result:
                 return [one[0], one[1]]
@@ -158,13 +160,14 @@ class FOAFS:
         
         if (graph != None):
         
+            sparqlGr = SPARQLGraph(graph)
             select = ('?pic')
             where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
                                     ('?x', FOAF['mbox_sha1sum'], sha1mail),
                                     ('?x', FOAF['depiction'], '?pic')   
                                   ])
         
-            result = rdflib.sparql.Query.query(graph, select, where)
+            result = Query.query(sparqlGr, select, where)
         
             for one in result:
                 return one

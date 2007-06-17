@@ -44,6 +44,8 @@ class MailingList:
         self.subscribers = Subscribers(config)
         self.index = Index(self.config)
         
+        self.uri = self.config.get('url') + 'index.rdf#' + self.config.get('title').replace(" ", "-")
+        
     def __createDir(self):
         """
         Create the necessary directory
@@ -150,7 +152,7 @@ class MailingList:
         @return: uri
         """
         
-        return self.config.get('url')+'index.rdf'
+        return self.uri
     
     def __addSite(self, graph, url):
         """

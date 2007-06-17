@@ -462,7 +462,7 @@ buxon = None
 
 class BuxonMain:
 	
-	def __init__(self, argv, base=None):
+	def __init__(self, argv, base='./'):
 		"""
 		All operation that Buxon need to run
 		"""

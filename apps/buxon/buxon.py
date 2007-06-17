@@ -21,6 +21,7 @@
 """Buxon, a sioc:Forum browser"""
 
 import sys, os
+import logging
 import pygtk
 pygtk.require('2.0')
 import gtk, pango
@@ -467,6 +468,15 @@ class BuxonMain:
 		All operation that Buxon need to run
 		"""
 		
+		#configure buxon log
+		self.logger = logging.getLogger('buxon')
+		self.logger.setLevel(logging.DEBUG)
+		_hdlr = logging.StreamHandler()
+		_hdlr.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s: %(message)s'))
+		self.logger.addHandler(_hdlr)
+		
+		self.logger('Starting up Buxon')
+		
 		try:			
 			global widgets
 			global callbacks
@@ -479,6 +489,7 @@ class BuxonMain:
 			widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
 			callbacks = Callbacks()
 			widgets.signal_autoconnect(Callbacks.__dict__)
+			self.logger.debug('GUI loaded')
 			
 			buxon = Buxon(base)
 			
@@ -491,7 +502,7 @@ class BuxonMain:
 				buxon.main()
 				
 		except KeyboardInterrupt:
-			print 'Received Ctrl+C or another break signal. Exiting...'
+			self.logger.info('Received Ctrl+C or another break signal. Exiting...')
 			sys.exit()
 		
 		

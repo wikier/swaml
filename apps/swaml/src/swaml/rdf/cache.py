@@ -198,6 +198,9 @@ class Cache:
             print '\nAn exception ocurred parsing ' + uri
             return graph         
         
+        self.uri = self.__getForums(graph)[0]
+        print 'Using ' + self.uri + ' sioc:Forum'
+        
         if (self.pb != None):
             self.pb.progress()
             
@@ -228,23 +231,33 @@ class Cache:
         if (self.ptsw != None):
             self.ptsw.ping(uri)
                 
-        print 'OK, now', len(self.graph), 'triples'     
+        print 'OK, now', len(self.graph), 'triples'    
+        
+    def __getForums(self, graph): 
+        """
+        Get all sioc:Forum's in a graph
+        """
+        
+        sparqlGr = SPARQLGraph(graph)
+        select = ('?uri')
+        where  = GraphPattern([('?uri', RDF['type'], SIOC['Forum'])])
+        forums = Query.query(sparqlGr, select, where)
+        return forums;
+        
     
     def loadAdditionalData(self):
         """
         Load additional data of a mailing list
         """
-    
-        #for post in self.graph.objects(self.uri, SIOC['container_of']):
-        for post in self.graph.objects(predicate=SIOC['container_of']):
+        
+        for post in self.graph.objects(self.uri, SIOC['container_of']):
             if not self.hasValueForPredicate(post, SIOC['id']):
                 postSeeAlso = self.getValueForPredicate(post, RDFS['seeAlso'])
                 if (postSeeAlso == None):
                     self.__loadData(post)
                 else:
                     self.__loadData(postSeeAlso)
-    
-        #for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
+        
         for user in self.graph.objects(predicate=SIOC['has_subscriber']):
             if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
                 self.__loadData(user)
@@ -297,7 +310,6 @@ class Cache:
         @param pb: progress bar
         """
         
-        self.uri = uri
         self.bad = False
         self.pb = pb
         self.ptsw = None
@@ -307,7 +319,7 @@ class Cache:
         socket.setdefaulttimeout(5)
         
         try:
-            self.graph = self.loadMailingList(self.uri)
+            self.graph = self.loadMailingList(uri)
         except Exception, details:
             print '\nAn exception ocurred parsing ' + uri + ': ' + str(details)
             self.bad = True
@@ -315,7 +327,7 @@ class Cache:
         
         self.loadAdditionalData()
         
-        self.__listPosts()
+        #self.__listPosts()
         
         if (self.pb != None):
             self.pb.destroy()

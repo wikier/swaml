@@ -191,12 +191,9 @@ class Cache:
         
         graph = ConjunctiveGraph()
         print 'Getting mailing list data (', uri, ')...',
-        try:
-            graph.parse(uri)
-            print 'OK, loaded', len(graph), 'triples'
-        except:
-            print '\nAn exception ocurred parsing ' + uri
-            return graph         
+        graph.parse(uri)
+        print 'OK, loaded', len(graph), 'triples'
+        
         
         self.uri = self.__getForums(graph)[0]
         print 'Using ' + self.uri + ' sioc:Forum'
@@ -310,6 +307,7 @@ class Cache:
         @param pb: progress bar
         """
         
+        self.uri = uri
         self.bad = False
         self.pb = pb
         self.ptsw = None

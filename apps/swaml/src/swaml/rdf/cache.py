@@ -235,7 +235,8 @@ class Cache:
         Load additional data of a mailing list
         """
     
-        for post in self.graph.objects(self.uri, SIOC['container_of']):
+        #for post in self.graph.objects(self.uri, SIOC['container_of']):
+        for post in self.graph.objects(predicate=SIOC['container_of']):
             if not self.hasValueForPredicate(post, SIOC['id']):
                 postSeeAlso = self.getValueForPredicate(post, RDFS['seeAlso'])
                 if (postSeeAlso == None):
@@ -243,7 +244,8 @@ class Cache:
                 else:
                     self.__loadData(postSeeAlso)
     
-        for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
+        #for user in self.graph.objects(self.uri, SIOC['has_subscriber']):
+        for user in self.graph.objects(predicate=SIOC['has_subscriber']):
             if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
                 self.__loadData(user)
 

@@ -21,7 +21,7 @@ from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from rdflib import Namespace
-from swaml.rdf.namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
+from swaml.rdf.namespaces import SIOC, RDF, RDFS, FOAF, GEO
 from swaml.rdf.sioc.message import Message
 from swaml.rdf.foaf import FOAFS
 from swaml.rdf.kml import KML
@@ -263,7 +263,6 @@ class Subscribers:
         store = ConjunctiveGraph()
         
         #namespaces
-        store.bind('swaml', SWAML)
         store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)

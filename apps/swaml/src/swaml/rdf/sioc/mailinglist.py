@@ -22,7 +22,7 @@ from swaml.rdf.sioc.message import Message
 from swaml.rdf.sioc.index import Index
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode, RDF
-from swaml.rdf.namespaces import SWAML, SIOC, RDFS, FOAF, DC, MVCB
+from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, MVCB
 import datetime
 from swaml.common.date import FileDate
 
@@ -177,7 +177,6 @@ class MailingList:
         store = ConjunctiveGraph()
         
         #namespaces
-        store.bind('swaml', SWAML)
         store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)

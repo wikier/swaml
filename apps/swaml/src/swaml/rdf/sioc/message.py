@@ -20,7 +20,7 @@ import datetime, email, email.Errors
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
-from swaml.rdf.namespaces import SWAML, SIOC, RDFS, FOAF, DC, DCTERMS
+from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCTERMS
 from swaml.common.charset import Charset
 from swaml.common.date import MailDate, FileDate
 
@@ -334,7 +334,6 @@ class Message:
         store = ConjunctiveGraph()
         
         #namespaces        
-        store.bind('swaml', SWAML)
         store.bind('sioc', SIOC)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)
@@ -364,11 +363,11 @@ class Message:
                 
             previous = self.getPreviousByDate()
             if (previous != None):
-                store.add((message, SWAML['previousByDate'], URIRef(previous)))
+                store.add((message, SIOC['previous_by_date'], URIRef(previous)))
                 
             next = self.getNextByDate()
             if (next != None):
-                store.add((message, SWAML['nextByDate'], URIRef(next)))                
+                store.add((message, SIOC['next_by_date'], URIRef(next)))                
                         
             store.add((message, SIOC['content'], Literal(self.getBody())))      
             

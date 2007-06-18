@@ -16,13 +16,12 @@
 """Util services to work with FOAF"""
 
 import sys, os, string, sha
-import rdflib
 from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.sparqlGraph import SPARQLGraph
 from rdflib.sparql.graphPattern import GraphPattern
 from rdflib.sparql import Query
 from rdflib import Namespace, Literal
-from swaml.rdf.namespaces import SWAML, SIOC, RDF, RDFS, FOAF, GEO
+from swaml.rdf.namespaces import SIOC, RDF, RDFS, FOAF, GEO
 from email.Header import decode_header
 
 class FOAFS:

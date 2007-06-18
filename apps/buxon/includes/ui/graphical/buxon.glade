@@ -122,7 +122,7 @@
                         </child>
                         <child>
                             <widget class="GtkCheckButton" id="checkping">
-                                <property name="active">True</property>
+                                <property name="active">False</property>
                                 <property name="label" context="yes" translatable="yes">PingTheSemanticWeb.com</property>
                                 <property name="visible">True</property>
                             </widget>

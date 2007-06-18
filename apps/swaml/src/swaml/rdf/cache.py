@@ -15,7 +15,7 @@
 
 """a cache service for sioc:Forum"""
 
-import rdflib
+from rdflib import URIRef
 from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.sparqlGraph import SPARQLGraph
 from rdflib.sparql.graphPattern import GraphPattern
@@ -124,7 +124,7 @@ class Cache:
                                           ('?post',    SIOC['has_creator'],    '?user'),
                                           ('?user',    SIOC['name'],           '?userName')])
             opt    = GraphPattern([('?post',    SIOC['reply_of'],       '?parent')])
-            posts = Query.query(sparqlGr, select, where)
+            posts = Query.query(sparqlGr, select, where, opt)
             return self.orderByDate(posts)
         except Exception, details:
             print 'parsing exception:', str(details)
@@ -267,7 +267,7 @@ class Cache:
         @param predicate: predicate
         """
         
-        return (len([x for x in self.graph.objects(subject, predicate)]) > 0)        
+        return (len([x for x in self.graph.objects(URIRef(subject), predicate)]) > 0)        
        
     def getValueForPredicate(self, subject, predicate):
         """
@@ -277,7 +277,7 @@ class Cache:
         @param predicate: predicate
         """        
         
-        value = [x for x in self.graph.objects(subject, predicate)]
+        value = [x for x in self.graph.objects(URIRef(subject), predicate)]
         if (len(value) > 0):
             return value[0]
         else:

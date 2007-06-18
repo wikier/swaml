@@ -482,10 +482,6 @@ class BuxonMain:
 			global callbacks
 			global buxon
 			
-			if (base == None):
-				path = __file__.split('/')
-				base = '/'.join(path[:-1]) + '/'
-			
 			widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
 			callbacks = Callbacks()
 			widgets.signal_autoconnect(Callbacks.__dict__)

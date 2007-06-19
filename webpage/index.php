@@ -223,71 +223,54 @@
           <abbr title="International Standard Book Number">ISBN</abbr> 83-916842-4-2, 
           <abbr title="pages">pp.</abbr> 45-52, Poznan, Poland, April 27, 2007.
         </li>
-       </ul>
-
-       <p>
-         And we made some presentations about the project around the world:
-       </p>
-       <dl>
-         <dt>
-           <a href="http://prdownload.berlios.de/swaml/20070511-swaml-concurso-software-libre.pdf"><acronym 
-           title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
-           Semantic Web Archive of Mailing Lists</a>:
-         </dt>
-         <dd>
-           11 of May of 2007 in Seville (Spain) on the final phase of the 
-           <a href="http://concurso-softwarelibre.us.es/"><span 
-           xml:lang="es"><abbr title="primer">I</abbr> Concurso Universitario de Software 
-           Libre</span></a>
-         </dd>
- 
-         <dt>
-           <a href="http://prdownload.berlios.de/swaml/SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf">Mailing Lists Meet The Semantic Web</a>:
-         </dt>
-         <dd>
-           27 of April of 2007 in Poznan (Poland) on the workshop of Social Aspects of 
-           the Web (<a href="http://integror.net/saw"><abbr title="Social Aspects of the Web">SAW</abbr>2007</a>),
-           in conjunction with <abbr title="tenth">10<sup>th</sup></abbr> International
-           Conference on Business Information Systems 
-           (<a href="http://bis.kie.ae.poznan.pl/10th_bis"><abbr title="Business Information
-           Systems">BIS</abbr>2007</a>), in co-operation with
-           <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
-           <abbr title="Special Interest Groups in Management Information Systems">SIGMIS</abbr>
-         </dd>
-
-         <dt>
-           <a href="http://prdownload.berlios.de/swaml/20061220-pfc-swaml.pdf"><span
-           xml:lang="es"><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
-           publicación de listas de correo en Web Semántica</span></a>:
-         </dt>
-         <dd>
-           20 of December of 2006 in Oviedo (Spain) for Sergio's degree dissertation
-         </dd>
-       </dl>
-
-      <h2 id="contact">Contact</h2>
-      <p>
-        You can contact any <a href="/members-list">members of project</a>. Also you have a several 
-        <a href="/lists">mailing lists</a>:
-      </p>
-
-      <ul>
-        <li>
-          <a href="/lists/devel">Developers mailing list</a>
-          (<a href="http://lists.berlios.de/pipermail/swaml-devel/">archives</a>)
-        </li>
-        <li>
-          <a href="/lists/users">Users mailing list</a>
-          (<a href="http://lists.berlios.de/pipermail/swaml-users/">archives</a>)
-        </li>
-        <li>
-          <a href="/lists/spanish">Spanish Users mailing list</a>
-          (<a href="http://lists.berlios.de/pipermail/swaml-spanish/">archives</a>)
-        </li>
       </ul>
 
       <p>
-        Also, you can <a href="/bugs">report a bug</a> or sending a 
+        And we made some presentations about the project around the world:
+      </p>
+      <dl>
+        <dt>
+          <a href="http://prdownload.berlios.de/swaml/20070511-swaml-concurso-software-libre.pdf"><acronym 
+          title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
+          Semantic Web Archive of Mailing Lists</a>:
+        </dt>
+        <dd>
+          11 of May of 2007 in Seville (Spain) on the final phase of the 
+          <a href="http://concurso-softwarelibre.us.es/"><span 
+          xml:lang="es"><abbr title="primer">I</abbr> Concurso Universitario de Software 
+          Libre</span></a>
+        </dd>
+ 
+        <dt>
+          <a href="http://prdownload.berlios.de/swaml/SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf">Mailing Lists Meet The Semantic Web</a>:
+        </dt>
+        <dd>
+          27 of April of 2007 in Poznan (Poland) on the workshop of Social Aspects of 
+          the Web (<a href="http://integror.net/saw"><abbr title="Social Aspects of the Web">SAW</abbr>2007</a>),
+          in conjunction with <abbr title="tenth">10<sup>th</sup></abbr> International
+          Conference on Business Information Systems 
+          (<a href="http://bis.kie.ae.poznan.pl/10th_bis"><abbr title="Business Information
+          Systems">BIS</abbr>2007</a>), in co-operation with
+          <abbr title="Association for Computing Machinery" xml:lang="en">ACM</abbr>
+          <abbr title="Special Interest Groups in Management Information Systems">SIGMIS</abbr>
+        </dd>
+
+        <dt>
+          <a href="http://prdownload.berlios.de/swaml/20061220-pfc-swaml.pdf"><span
+          xml:lang="es"><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
+          publicación de listas de correo en Web Semántica</span></a>:
+        </dt>
+        <dd>
+          20 of December of 2006 in Oviedo (Spain) for Sergio's degree dissertation
+        </dd>
+      </dl>
+
+      <h2 id="contact">Contact</h2>
+      <p>
+        You can contact with the <a href="/members-list">members of project</a> 
+        in the <a href="/lists/devel">developers mailing list</a>
+        (<a href="http://lists.berlios.de/pipermail/swaml-devel/">archives</a> are
+        public). Also, you can <a href="/bugs">report a bug</a> or send a 
         <a href="/features">feature request</a> without you need to subscribe of 
         any of <a href="/lists">project mailing lists</a>.
       </p>

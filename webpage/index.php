@@ -150,18 +150,23 @@
           <a href="http://prdownload.berlios.de/swaml/swaml-0.0.5.tar.gz">swaml-0.0.5.tar.gz</a>
           and
           <a href="http://prdownload.berlios.de/swaml/swaml_0.0.5-2_all.deb">swaml_0.0.5-2_all.deb</a>
+          (28/12/2006)
         </dd>
         <dd>
           <a href="http://prdownload.berlios.de/swaml/swaml-0.0.4.tar.gz">swaml-0.0.4.tar.gz</a>
+          (21/11/2006)
         </dd>
         <dd>
           <a href="http://prdownload.berlios.de/swaml/swaml-0.0.3.tar.gz">swaml-0.0.3.tar.gz</a>
+          (01/11/2006)
         </dd>
         <dd>
           <a href="http://prdownload.berlios.de/swaml/swaml-0.0.2.tar.gz">swaml-0.0.2.tar.gz</a>
+          (13/10/2006)
         </dd>
         <dd>
           <a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
+          (02/10/2006)
         </dd>
         <dt>
           Buxon:
@@ -170,6 +175,7 @@
           <a href="http://prdownload.berlios.de/swaml/buxon-0.0.3.tar.gz">buxon-0.0.3.tar.gz</a>
           and
           <a href="http://prdownload.berlios.de/swaml/buxon_0.0.3-2_all.deb">buxon_0.0.3-2_all.deb</a>
+          (28/12/2006)
         </dd>
       </dl>
 

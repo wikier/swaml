@@ -186,7 +186,7 @@
         (<span class="console">apt-get install swaml</span> and 
         <span class="console">apt-get install buxon</span>).
         All packages depends on <a href="http://rdflib.net/">RDFLib</a>.
-        You can see a <a href="/demo">demo</a> of which 
+        You can see a <a href="/demos">demo</a> of which 
         <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> makes.
       </p>
 

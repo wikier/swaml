@@ -145,7 +145,7 @@ class Subscriber:
         @return: subscriber uri
         """
         
-        return self.config.get('url') + 'subscribers.rdf#' + self.getStringId()
+        return self.config.get('url') + 'subscriber/' + self.getStringId()
     
     def setName(self, name):
         """
@@ -220,7 +220,7 @@ class Subscribers:
         """
         
         self.config = config
-        self.baseUri = self.config.get('url') + 'subscribers.rdf'
+        self.baseUri = self.config.get('url') + 'subscriber/'
         self.subscribers = {}
 
 
@@ -273,7 +273,7 @@ class Subscribers:
         for mail, subscriber in self.subscribers.items():
             count += 1
             
-            person = URIRef(self.baseUri + '#' + subscriber.getStringId())
+            person = URIRef(self.baseUri + subscriber.getStringId())
             store.add((person, RDF.type, SIOC['User']))
             
             try:

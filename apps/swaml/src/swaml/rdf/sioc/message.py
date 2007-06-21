@@ -72,6 +72,8 @@ class Message:
         #self.body = msg.fp.read()
         #[(self.body, enconding)] = decode_header(msg.fp.read())
         
+        self.obtainPath()
+        
     def setBody(self, body):
         """
         Set body content
@@ -159,6 +161,13 @@ class Message:
         
         @return: path
         """
+        
+        return self.path
+    
+    def obtainPath(self):
+        """
+        Obtain message path
+        """
 
         #replace vars        
         #FIXME: format permited vars (feature #1355)
@@ -182,8 +191,9 @@ class Message:
             index_dir += one_dir + '/'
             if not (os.path.exists(self.config.get('dir')+index_dir)):
                 os.mkdir(self.config.get('dir')+index_dir)
-            
-        return index
+                
+        self.dir = index_dir
+        self.path = index
     
     def getUri(self):    
         """
@@ -192,7 +202,7 @@ class Message:
         @return: uri
         """
                 
-        return self.config.get('url') + self.getPath()
+        return self.config.get('url') + 'post/' + self.dir + str(self.id)
     
     def getSender(self):
         """
@@ -348,7 +358,7 @@ class Message:
                  
             store.add((message, SIOC['id'], Literal(self.getSwamlId())))
             store.add((message, SIOC['link'], URIRef(self.getUri())))  
-            store.add((message, SIOC['has_container'],URIRef(self.config.get('url')+'index.rdf')))   
+            store.add((message, SIOC['has_container'],URIRef(self.config.get('url')+'forum')))   
             store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
             store.add((message, DC['title'], Literal(self.getSubject()))) 
             store.add((message, DCTERMS['created'], Literal(self.getDate())))  

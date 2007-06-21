@@ -44,7 +44,7 @@ class MailingList:
         self.subscribers = Subscribers(config)
         self.index = Index(self.config)
         
-        self.uri = self.config.get('url') + 'index.rdf#' + self.config.get('title').replace(" ", "-")
+        self.uri = self.config.get('url') + 'forum'
         
     def __createDir(self):
         """
@@ -222,7 +222,7 @@ class MailingList:
                     
         #and dump to disk
         try:
-            rdf_file = open(self.config.get('dir')+'index.rdf', 'w+')
+            rdf_file = open(self.config.get('dir')+'forum.rdf', 'w+')
             rdf_file.write(store.serialize(format="pretty-xml"))
             rdf_file.flush()
             rdf_file.close()

@@ -33,6 +33,7 @@ RewriteRule feature/([0-9]+) http://developer.berlios.de/feature/?func=detailfea
 
 # Demo old files
 RewriteRule ^demo/index.rdf /demos/sioc-dev/index.rdf [R]
+RewriteRule ^demo/ /demos/ [R]
 RewriteRule ^demo$ /demos/ [R]
 
 # Mime types

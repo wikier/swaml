@@ -37,5 +37,5 @@ RewriteRule ^demo/ /demos/ [R]
 RewriteRule ^demo$ /demos/ [R]
 
 # Mime types
-AddType text/xml .rdf
+AddType application/rdf+xml .rdf
 AddType application/x-xpinstall .xpi

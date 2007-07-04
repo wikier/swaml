@@ -15,7 +15,9 @@
 
 """Abstraction of a mailing list"""
 
-import sys, os, mailbox, rfc822, string, email, email.Errors, datetime, sha
+import sys, os
+import mailbox, email
+import datetime
 from swaml.mail.mbox import Mbox
 from swaml.rdf.sioc.subscribers import Subscribers
 from swaml.rdf.sioc.message import Message

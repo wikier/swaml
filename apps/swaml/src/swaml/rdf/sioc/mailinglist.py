@@ -18,14 +18,13 @@
 import sys, os
 import mailbox, email
 import datetime
+from rdflib.Graph import ConjunctiveGraph
+from rdflib import URIRef, Literal, BNode, RDF
 from swaml.mail.mbox import Mbox
 from swaml.rdf.sioc.subscribers import Subscribers
 from swaml.rdf.sioc.message import Message
 from swaml.rdf.sioc.index import Index
-from rdflib.Graph import ConjunctiveGraph
-from rdflib import URIRef, Literal, BNode, RDF
 from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, MVCB
-import datetime
 from swaml.common.date import FileDate
 
 class MailingList:

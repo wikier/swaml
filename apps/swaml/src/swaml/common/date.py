@@ -146,6 +146,16 @@ class MailDate(Date):
         
         self.date = email.Utils.parsedate(date)
 
+	if (self.date == None):
+		print 'Error parsing date: non valid format (' + date + ')'
+		#trying another format: dd.mm.yyyy
+		try:		
+			tmp = date.split('.')
+			self.date = (int(tmp[2]), int(tmp[1]), int(tmp[0]),
+				 	0, 0, 0, 0, 1, -1)
+		except:
+			self.date = (1970, 1, 1, 0, 0, 0, 0, 1, -1)
+
 
 class FileDate(Date):
     """

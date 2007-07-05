@@ -69,7 +69,11 @@ class MailingList:
         while(message != None):
             #fisrt load message
             messages += 1
-            msg = Message(message, self.config)
+            
+            try:
+                msg = Message(message, self.config)
+            except KeyError, details:
+                print 'Error parsin a mail form mailbox: ' + str(details)
             
             #index it
             self.index.add(msg)

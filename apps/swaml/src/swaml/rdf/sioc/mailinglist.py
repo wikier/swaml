@@ -67,34 +67,35 @@ class MailingList:
         message = mbox.nextMessage()
         
         while(message != None):
-            #fisrt load message
+            
             messages += 1
             
             try:
+                #fisrt load message
                 msg = Message(message, self.config)
+                
+                #index it
+                self.index.add(msg)
+                self.subscribers.add(msg)
+                subscriber = self.subscribers.get(msg.getFromMail())
+                msg.setSender(subscriber)
+                
+                #parent message (refactor)
+                inReplyTo = msg.getInReplyTo()
+                if (inReplyTo != None):
+                    parent = self.index.get(inReplyTo)
+                    if (parent != None):
+                        msg.setParent(parent) #link child with parent
+                        parent.addChild(msg) #and parent with child
+                        
+                #and previous and next by date
+                if (previous != None):
+                    previous.setNextByDate(msg)
+                    msg.setPreviousByDate(previous)
+                
+                previous = msg
             except KeyError, details:
                 print 'Error parsin a mail form mailbox: ' + str(details)
-            
-            #index it
-            self.index.add(msg)
-            self.subscribers.add(msg)
-            subscriber = self.subscribers.get(msg.getFromMail())
-            msg.setSender(subscriber)
-            
-            #parent message (refactor)
-            inReplyTo = msg.getInReplyTo()
-            if (inReplyTo != None):
-                parent = self.index.get(inReplyTo)
-                if (parent != None):
-                    msg.setParent(parent) #link child with parent
-                    parent.addChild(msg) #and parent with child
-                    
-            #and previous and next by date
-            if (previous != None):
-                previous.setNextByDate(msg)
-                msg.setPreviousByDate(previous)
-            
-            previous = msg
             
             #and continue with next message
             message = mbox.nextMessage()

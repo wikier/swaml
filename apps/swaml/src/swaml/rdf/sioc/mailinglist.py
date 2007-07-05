@@ -131,7 +131,7 @@ class MailingList:
                     #msg.toHTML()
                     #self.index.delete(id)
                 else:
-                    print 'Someone was wrong with message ' + str(messages) + ' with ID ' #+ id + ' ('+msg.getMessageId()+')'
+                    print 'Someone was wrong with message ' + str(messages) + ' with ID ' + id #+ ' ('+msg.getMessageId()+')'
 
                 message = mbox.nextMessage()
                 

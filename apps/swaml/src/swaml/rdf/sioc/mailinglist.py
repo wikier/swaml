@@ -95,7 +95,7 @@ class MailingList:
                 
                 previous = msg
             except KeyError, details:
-                print 'Error parsin a mail form mailbox: ' + str(details)
+                print 'Error parsing a mail form mailbox: ' + str(details)
             
             #and continue with next message
             message = mbox.nextMessage()
@@ -131,7 +131,7 @@ class MailingList:
                     #msg.toHTML()
                     #self.index.delete(id)
                 else:
-                    print 'Someone was wrong with message ' + str(messages) + ' with ID ' + id + ' ('+msg.getMessageId()+')'
+                    print 'Someone was wrong with message ' + str(messages) + ' with ID ' #+ id + ' ('+msg.getMessageId()+')'
 
                 message = mbox.nextMessage()
                 

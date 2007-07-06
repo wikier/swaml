@@ -14,6 +14,8 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+"""A basic SPARQL client"""
+
 import sys
 import urllib, urllib2
 from rdflib.Graph import ConjunctiveGraph
@@ -23,30 +25,48 @@ from rdflib.StringInputSource import StringInputSource
 class SPARQLClient:
     
     def __init__(self, server, serialization='application/rdf+xml'):
+        """
+        Client constructor
+        
+        @param server: server url
+        @param serialization: results serialization
+        """        
         self.server = server
         self.serialization = serialization
     
     def query(self, query, lang='sparql'):
+        """
+        SPARQL query
+        
+        @param query: text query
+        @param lang: query lang
+        @return: graph with query result
+        """        
         
         url =  self.server
         data = {'query' : query, 'queryLn' : lang}
         params = urllib.urlencode(data)  
         
         try:
-            
             headers = {'Accept': self.serialization, 'User-Agent' : 'SPARQLClient'}
             request = urllib2.Request(url, params, headers)
             result = urllib2.urlopen(request).read()
         except urllib2.HTTPError, e:
             result = urllib2.urlopen(url, params).read()        
         
-        graph = self.parse(StringInputSource(result))
+        graph = self.parse(result)
         return graph
         
 
     def parse(self, result):
+        """
+        Parse query result
+        
+        @param result: text result
+        @return: rdf graph
+        """        
         graph = ConjunctiveGraph()
-        graph.parse(result)
+        graph.parse(StringInputSource(result))
         return graph
 
 

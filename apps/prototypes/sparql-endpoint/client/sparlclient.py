@@ -29,27 +29,30 @@ class SPARQLClient:
         """
         Client constructor
         
-        @param server: server url
-        @param serialization: results serialization
+        @param server: sparql end-point server url
+        @param serialization: results serialization (see http://www.openrdf.org/doc/sesame2/system/ch08.html#table-var-binding-formats)
         """        
         self.server = server
         self.serialization = serialization
     
-    def query(self, query, lang='sparql'):
+    def query(self, type, query, lang='sparql'):
         """
         SPARQL query
         
+        @todo: implement select query
+        
+        @param type: query type (CONSTRUCT or SELECT)
         @param query: text query
-        @param lang: query lang
+        @param lang: query lang (SPARQL or SeRQL)
         @return: graph with query result
         """        
         
         url =  self.server
-        data = {'query' : query, 'queryLn' : lang}
+        data = { 'query' : query, 'queryLn' : lang.lower() }
         params = urllib.urlencode(data)  
         
         try:
-            headers = {'Accept': self.serialization, 'User-Agent' : 'SPARQLClient'}
+            headers = { 'Accept': self.serialization, 'User-Agent' : 'SWAML SPARQLClient' }
             request = urllib2.Request(url, params, headers)
             result = urllib2.urlopen(request).read()
         except urllib2.HTTPError, e:
@@ -77,7 +80,7 @@ if __name__ == '__main__':
         server = 'http://wopr:8180/openrdf-http-server-2.0-beta5/repositories/prueba'
         query = 'CONSTRUCT {<http://swaml.berlios.de/demos/sioc-dev/2007-Feb/post-500.rdf> ?y ?z } WHERE { <http://swaml.berlios.de/demos/sioc-dev/2007-Feb/post-500.rdf> ?y ?z }'
         client = SPARQLClient(server)
-        graph = client.query(query)
+        graph = client.query('CONSTRUCT', query)
         for x in graph.objects():
             print x
     except KeyboardInterrupt:

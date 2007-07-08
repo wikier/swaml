@@ -433,7 +433,36 @@ class Message:
             span = doc.createElement('span')
             span.setAttribute('property', 'dc:title')
             span.appendChild(doc.createTextNode(self.getSubject()))
-            p.appendChild(span)            
+            p.appendChild(span)
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Author: '))
+            a = doc.createElement('a')
+            a.setAttribute('rel', 'sioc:has_creator')
+            a.setAttribute('href', self.getSender().getUri())
+            a.appendChild(doc.createTextNode(self.getSender().getName()))
+            p.appendChild(a)
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Forum: '))
+            a = doc.createElement('a')
+            a.setAttribute('rel', 'sioc:has_container')
+            a.setAttribute('href', self.config.get('url')+'forum')
+            if (len(self.config.get('title'))>0):
+                a.appendChild(doc.createTextNode(self.config.get('title')))
+            else:
+                a.appendChild(doc.createTextNode(self.config.get('url')+'forum'))
+            p.appendChild(a)
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Date: '))
+            span = doc.createElement('span')
+            span.setAttribute('property', 'dcterms:created')
+            span.appendChild(doc.createTextNode(self.getDate()))
+            p.appendChild(span)
             
             p = doc.createElement('p')
             div.appendChild(p)
@@ -443,30 +472,10 @@ class Message:
             span.appendChild(doc.createTextNode(self.getSwamlId()))
             p.appendChild(span)
             
-            p = doc.createElement('p')
-            div.appendChild(p)
-            p.appendChild(doc.createTextNode('Forum: '))
-            span = doc.createElement('span')
-            span.setAttribute('property', 'sioc:has_container')
-            span.appendChild(doc.createTextNode(self.config.get('url')+'forum'))
-            p.appendChild(span)
-            
-            p = doc.createElement('p')
-            div.appendChild(p)
-            p.appendChild(doc.createTextNode('Author: '))
-            a = doc.createElement('a')
-            a.setAttribute('rel', 'sioc:has_creator')
-            a.setAttribute('href', self.getSender().getUri())
-            a.appendChild(doc.createTextNode(self.getSender().getUri()))
-            p.appendChild(a)
-                                        
-            p = doc.createElement('p')
-            div.appendChild(p)
-            p.appendChild(doc.createTextNode('Date: '))
-            span = doc.createElement('span')
-            span.setAttribute('property', 'dcterms:created')
-            span.appendChild(doc.createTextNode(self.getDate()))
-            p.appendChild(span)
+            pre = doc.createElement('pre')
+            div.appendChild(pre)
+            pre.setAttribute('property', 'sioc:content')
+            pre.appendChild(doc.createTextNode(self.getBody()))             
             
             parent = self.getParent()
             if (parent != None):
@@ -511,11 +520,6 @@ class Message:
                 a.setAttribute('href', next)
                 a.appendChild(doc.createTextNode(next))
                 p.appendChild(a)
-            
-            pre = doc.createElement('pre')
-            div.appendChild(pre)
-            pre.setAttribute('property', 'sioc:content')
-            pre.appendChild(doc.createTextNode(self.getBody())) 
             
         except Exception, detail:
             print 'Error exporting to XHTML message ' + str(self.getId()) + ': ' + str(detail) 

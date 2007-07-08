@@ -411,11 +411,18 @@ class Message:
         root.setAttribute('xmlns:sioc', str(SIOC))
         root.setAttribute('xmlns:dc', str(DC))
         root.setAttribute('xmlns:dcterms', str(DCTERMS))
+        
         head = doc.createElement('head')
         root.appendChild(head)
+        head.setAttribute('profile', 'http://www.w3.org/2003/g/data-view')
+        link = doc.createElement('link')
+        link.setAttribute('rel', 'transformation')
+        link.setAttribute('href', 'http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl')
+        head.appendChild(link)
         title = doc.createElement('title')
         title.appendChild(doc.createTextNode(self.getSubject()))
         head.appendChild(title)
+        
         body = doc.createElement('body')
         root.appendChild(body)
         

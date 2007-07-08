@@ -4,7 +4,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2007 Sergio Fdez
+# Copyright (C) 2005-2007 Sergio Fernández, Diego Berrueta
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -16,7 +16,7 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-"""Semantic Web Archive of Mailing Lists"""
+"""Semantic Web Archive of Mailing Lists run file"""
 
 import sys
 sys.path.append('./src')

@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
@@ -16,6 +18,9 @@
 """Google KML basic support"""
 
 import sys, os, string
+import xml.dom.minidom
+from xml.dom.minidom import getDOMImplementation
+from xml.dom.ext import PrettyPrint
 
 class KML:
     """
@@ -49,12 +54,8 @@ class KML:
         @param file: file object
         """
         
-        import xml.dom.minidom
-        from   xml.dom.minidom import getDOMImplementation
-        from   xml.dom.ext     import PrettyPrint
-        
         #root nodes
-        doc  = getDOMImplementation().createDocument(None, "kml", None)
+        doc = getDOMImplementation().createDocument(None, "kml", None)
         root = doc.documentElement
         root.setAttribute('xmlns', self.ns)
         

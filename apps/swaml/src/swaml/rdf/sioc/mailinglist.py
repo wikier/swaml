@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
@@ -128,7 +130,7 @@ class MailingList:
                 if (msg != None and msg.getMessageId() == id):
                     msg.setBody(message.fp.read())
                     msg.toRDF()
-                    #msg.toHTML()
+                    msg.toXHTML()
                     #self.index.delete(id)
                 else:
                     print 'Someone was wrong with message ' + str(messages) + ' with ID ' + id #+ ' ('+msg.getMessageId()+')'

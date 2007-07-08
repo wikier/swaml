@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
@@ -23,6 +25,9 @@ from rdflib import RDF
 from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCTERMS
 from swaml.common.charset import Charset
 from swaml.common.date import MailDate, FileDate
+import xml.dom.minidom
+from xml.dom.minidom import getDOMImplementation
+from xml.dom.ext import PrettyPrint
 
 class Message:
     """
@@ -393,6 +398,137 @@ class Message:
             rdf_file.close()        
         except IOError, detail:
             print 'IOError saving message ' + str(self.getId()) + ': ' + str(detail)
+            
+    def toXHTML(self):
+        """
+        Print a message into XHTML+RDFa format
+        """
+        
+        #root nodes
+        doc = getDOMImplementation().createDocument(None, "html", None)
+        root = doc.documentElement
+        root.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
+        root.setAttribute('xmlns:sioc', str(SIOC))
+        root.setAttribute('xmlns:dc', str(DC))
+        root.setAttribute('xmlns:dcterms', str(DCTERMS))
+        head = doc.createElement('head')
+        root.appendChild(head)
+        title = doc.createElement('title')
+        title.appendChild(doc.createTextNode(self.getSubject()))
+        head.appendChild(title)
+        body = doc.createElement('body')
+        root.appendChild(body)
+        
+        #post div
+        div = doc.createElement('div')
+        body.appendChild(div)
+        div.setAttribute('class', 'sioc:Post')
+        div.setAttribute('about', self.getUri())
+        
+        try:
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Subject: '))
+            span = doc.createElement('span')
+            span.setAttribute('class', 'dc:title')
+            span.appendChild(doc.createTextNode(self.getSubject()))
+            p.appendChild(span)            
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Message-Id: '))
+            span = doc.createElement('span')
+            span.setAttribute('class', 'sioc:id')
+            span.appendChild(doc.createTextNode(self.getSwamlId()))
+            p.appendChild(span)
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Forum: '))
+            span = doc.createElement('span')
+            span.setAttribute('class', 'sioc:has_container')
+            span.appendChild(doc.createTextNode(self.config.get('url')+'forum'))
+            p.appendChild(span)
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Author: '))
+            a = doc.createElement('a')
+            a.setAttribute('class', 'sioc:has_creator')
+            a.setAttribute('href', self.getSender().getUri())
+            a.appendChild(doc.createTextNode(self.getSender().getUri()))
+            p.appendChild(a)
+                                        
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Date: '))
+            span = doc.createElement('span')
+            span.setAttribute('class', 'dcterms:created')
+            span.appendChild(doc.createTextNode(self.getDate()))
+            p.appendChild(span)
+            
+            parent = self.getParent()
+            if (parent != None):
+                p = doc.createElement('p')
+                div.appendChild(p)
+                p.appendChild(doc.createTextNode('Reply of: '))
+                a = doc.createElement('a')
+                a.setAttribute('class', 'sioc:reply_of')
+                a.setAttribute('href', parent)
+                a.appendChild(doc.createTextNode(parent))
+                p.appendChild(a)
+                
+            if (len(self.childs) > 0):
+                for child in self.childs:
+                    p = doc.createElement('p')
+                    div.appendChild(p)
+                    p.appendChild(doc.createTextNode('Has reply: '))
+                    a = doc.createElement('a')
+                    a.setAttribute('class', 'sioc:has_reply')
+                    a.setAttribute('href', child)
+                    a.appendChild(doc.createTextNode(child))
+                    p.appendChild(a)
+                
+            previous = self.getPreviousByDate()
+            if (previous != None):
+                p = doc.createElement('p')
+                div.appendChild(p)
+                p.appendChild(doc.createTextNode('Previous by Date: '))
+                a = doc.createElement('a')
+                a.setAttribute('class', 'sioc:previous_by_date')
+                a.setAttribute('href', previous)
+                a.appendChild(doc.createTextNode(previous))
+                p.appendChild(a)                
+                
+            next = self.getNextByDate()
+            if (next != None):
+                p = doc.createElement('p')
+                div.appendChild(p)
+                p.appendChild(doc.createTextNode('Next by Date: '))
+                a = doc.createElement('a')
+                a.setAttribute('class', 'sioc:next_by_date')
+                a.setAttribute('href', next)
+                a.appendChild(doc.createTextNode(next))
+                p.appendChild(a)
+            
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.setAttribute('class', 'sioc:content')
+            p.appendChild(doc.createTextNode(self.getBody())) 
+            
+        except Exception, detail:
+            print 'Error exporting to XHTML message ' + str(self.getId()) + ': ' + str(detail) 
+        
+        #and dump to disk
+        try:
+            xhtml_file = open(self.config.get('dir') +  '.'.join(self.getPath().split('.')[:-1]) + '.xhtml', 'w+') #FIXME
+            xml.dom.ext.PrettyPrint(doc, xhtml_file)
+            xhtml_file.flush()
+            xhtml_file.close()
+            
+        except IOError, detail:
+            print 'IOError saving message ' + str(self.getId()) + ': ' + str(detail)            
             
     def __calculateId(self):
         """

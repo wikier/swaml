@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 # SWAML KML Exporter <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
@@ -25,3 +27,4 @@ DCTERMS = Namespace(u'http://purl.org/dc/terms/')
 FOAF = Namespace(u'http://xmlns.com/foaf/0.1/')
 GEO = Namespace(u'http://www.w3.org/2003/01/geo/wgs84_pos#')
 MVCB = Namespace(u'http://webns.net/mvcb/')
+ICAL = Namespace(u'http://www.w3.org/2002/12/cal/icaltzd#')

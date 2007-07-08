@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #

@@ -512,10 +512,10 @@ class Message:
                 a.appendChild(doc.createTextNode(next))
                 p.appendChild(a)
             
-            p = doc.createElement('p')
-            div.appendChild(p)
-            p.setAttribute('class', 'sioc:content')
-            p.appendChild(doc.createTextNode(self.getBody())) 
+            pre = doc.createElement('pre')
+            div.appendChild(pre)
+            pre.setAttribute('class', 'sioc:content')
+            pre.appendChild(doc.createTextNode(self.getBody())) 
             
         except Exception, detail:
             print 'Error exporting to XHTML message ' + str(self.getId()) + ': ' + str(detail) 

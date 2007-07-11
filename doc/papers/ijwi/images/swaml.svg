@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45"
+   sodipodi:docbase="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images"
+   sodipodi:docname="swaml.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/swaml.png"
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600"
+   sodipodi:modified="TRUE">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="350"
+     inkscape:cy="714.54388"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1280"
+     inkscape:window-height="949"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     showgrid="true"
+     showguides="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       y="253.98657"
+       x="110"
+       id="image2260"
+       height="46.021748"
+       width="77.553291"
+       sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/FOAF.png"
+       xlink:href="FOAF.png" />
+    <image
+       y="240.13884"
+       x="492.59894"
+       id="image2432"
+       height="75"
+       width="75"
+       sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/icon_user.gif"
+       xlink:href="icon_user.gif" />
+    <image
+       y="25.291115"
+       x="441.44687"
+       id="image2475"
+       height="173.92383"
+       width="251.50757"
+       sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/saw-2007/images/buxon.png"
+       xlink:href="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/saw-2007/images/buxon.png" />
+    <image
+       y="88.103058"
+       x="33.659924"
+       id="image2733"
+       height="64.786797"
+       width="51.87817"
+       sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/mbox.png"
+       xlink:href="mbox.png" />
+    <g
+       id="g2812"
+       transform="translate(155.56349,-88.893425)">
+      <image
+         xlink:href="files.png"
+         sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/files.png"
+         width="118"
+         height="144"
+         id="image2796"
+         x="69.289375"
+         y="126.78329" />
+      <image
+         xlink:href="rdf.png"
+         sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/rdf.png"
+         width="76.172592"
+         height="81.172592"
+         id="image2389"
+         x="89.697975"
+         y="180.9254" />
+      <text
+         id="text2806"
+         y="168.4787"
+         x="104.06601"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:18px"
+           y="168.4787"
+           x="104.06601"
+           id="tspan2808"
+           sodipodi:role="line">RDF</tspan><tspan
+           style="font-size:18px"
+           id="tspan2810"
+           y="190.9787"
+           x="104.06601"
+           sodipodi:role="line">data</tspan></text>
+    </g>
+    <path
+       sodipodi:nodetypes="cccccccc"
+       id="path641"
+       d="M 347.70171,104.51775 L 413.58067,104.23018 C 413.58067,104.23018 413.77777,95.460643 413.58067,95.460643 C 413.38339,95.460643 432.31854,114.86867 432.31854,114.86867 L 415.75029,134.42057 C 415.75029,134.42057 415.15865,125.7947 415.15865,125.93846 C 415.15865,126.08226 347.7017,126.65727 347.89894,126.51348 L 347.70171,104.51775 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.50506771;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cccccccc"
+       id="path2858"
+       d="M 99.989902,98.648337 L 189.54915,98.195067 C 189.54915,98.195067 189.81707,84.372387 189.54915,84.372387 C 189.28095,84.372387 215.02236,114.96354 215.02236,114.96354 L 192.49863,145.78148 C 192.49863,145.78148 191.69434,132.18528 191.69434,132.41191 C 191.69434,132.63854 99.989872,133.54487 100.25802,133.31825 L 99.989902,98.648337 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.20315504;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="44.231087"
+       y="169.26797"
+       id="text2860"><tspan
+         sodipodi:role="line"
+         id="tspan2862"
+         x="44.231087"
+         y="169.26797"
+         style="font-size:14px">mbox</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="115.15737"
+       y="122.13562"
+       id="text2864"><tspan
+         sodipodi:role="line"
+         id="tspan2866"
+         x="115.15737"
+         y="122.13562"
+         style="font-size:16px;font-weight:bold">SWAML</tspan></text>
+    <path
+       sodipodi:nodetypes="cccccccc"
+       id="path2868"
+       d="M 152.19334,232.68901 L 152.30597,164.18324 C 152.30597,164.18324 155.74106,163.97829 155.74106,164.18324 C 155.74106,164.38839 148.13885,144.69823 148.13885,144.69823 L 140.48028,161.92711 C 140.48028,161.92711 143.85906,162.54234 143.80275,162.54234 C 143.74643,162.54234 143.52119,232.68903 143.57752,232.48391 L 152.19334,232.68901 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.96056217;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="149.37735"
+       y="250.30106"
+       id="text2870"><tspan
+         sodipodi:role="line"
+         x="149.37735"
+         y="250.30106"
+         id="tspan2874">FOAF Enricher</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="293.38977"
+       y="239.12267"
+       id="text2878"><tspan
+         sodipodi:role="line"
+         x="293.38977"
+         y="239.12267"
+         id="tspan2882">KML</tspan><tspan
+         sodipodi:role="line"
+         x="293.38977"
+         y="256.62267"
+         id="tspan2886">Exporter</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="385.73825"
+       y="119.89181"
+       id="text2892"><tspan
+         sodipodi:role="line"
+         x="385.73825"
+         y="119.89181"
+         id="tspan2900"
+         style="font-size:16px;font-weight:bold">Buxon</tspan></text>
+    <path
+       sodipodi:nodetypes="cccccccc"
+       id="path2904"
+       d="M 280.47904,188.94273 L 333.80766,255.16238 C 333.80766,255.16238 331.82471,257.08966 331.66495,256.89172 C 331.50503,256.69357 351.59518,271.88314 351.59518,271.88314 L 342.9428,251.38789 C 342.9428,251.38789 340.35566,252.49469 340.39079,252.46634 C 340.4259,252.43799 285.88847,184.57687 286.01323,184.8033 L 280.47904,188.94273 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.95808834;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="585.79205"
+       y="309.33932"
+       id="text2906"><tspan
+         sodipodi:role="line"
+         id="tspan2908"
+         x="585.79205"
+         y="309.33932">User</tspan></text>
+    <path
+       sodipodi:nodetypes="cccccccc"
+       id="path2966"
+       d="M 535.21484,237.12495 L 535.33777,214.55363 C 535.33777,214.55363 539.08679,214.48611 539.08679,214.55363 C 539.08679,214.62122 530.78981,208.1337 530.78981,208.1337 L 522.4313,213.81028 C 522.4313,213.81028 526.11887,214.01299 526.05741,214.01299 C 525.99595,214.01299 525.75012,237.12495 525.8116,237.05737 L 535.21484,237.12495 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.57601076;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       id="g3014"
+       transform="matrix(0.7611213,0,0,0.7999171,160.06046,26.143795)">
+      <image
+         xlink:href="file.png"
+         sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/file.png"
+         width="71.888329"
+         height="85.827408"
+         id="image2954"
+         x="256.495"
+         y="272.86472" />
+      <text
+         id="text2888"
+         y="347.23599"
+         x="292.94424"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="347.23599"
+           x="292.94424"
+           id="tspan2890"
+           sodipodi:role="line">&lt;kml /&gt;</tspan></text>
+      <image
+         xlink:href="ge_icon.jpg"
+         sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/ge_icon.jpg"
+         width="58.258865"
+         height="41.182556"
+         id="image3008"
+         x="266.29956"
+         y="292.36218" />
+    </g>
+    <path
+       sodipodi:nodetypes="cccccccc"
+       id="path3020"
+       d="M 482.69923,274.34896 L 440.23522,274.23486 C 440.23522,274.23486 440.10818,270.75489 440.23522,270.75489 C 440.36238,270.75489 428.15723,278.45642 428.15723,278.45642 L 438.83673,286.21505 C 438.83673,286.21505 439.21809,282.79213 439.21809,282.84917 C 439.21809,282.90623 482.69924,283.13441 482.57209,283.07734 L 482.69923,274.34896 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.7611863;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45"
+   sodipodi:docbase="/home/wikier/proyectos/swaml/svn/trunk/doc/papers/ijwi/images"
+   sodipodi:docname="content-negotiation-html.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/wikier/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/content-negotiation-html.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   sodipodi:modified="true">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.1414938"
+     inkscape:cx="336.91485"
+     inkscape:cy="891.14088"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="872"
+     inkscape:window-height="590"
+     inkscape:window-x="8"
+     inkscape:window-y="49" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2397"
+       transform="translate(76.281352,-232.79099)">
+      <rect
+         y="275.89447"
+         x="161.89261"
+         height="37.375645"
+         width="234.35249"
+         id="rect2293"
+         style="fill:#dbdbe3" />
+      <text
+         id="text2269"
+         y="291.47937"
+         x="168.58017"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-weight:bold"
+           id="tspan2273"
+           y="291.47937"
+           x="168.58017"
+           sodipodi:role="line">GET /2007-Jun/post-45</tspan><tspan
+           id="tspan2277"
+           y="306.47937"
+           x="168.58017"
+           sodipodi:role="line">Accept: text/html</tspan></text>
+      <path
+         transform="matrix(1.012045,0,0,0.8808904,-15.706382,51.556668)"
+         d="M 442.44682,275.55487 L 424.26407,286.05268 L 406.08132,296.5505 L 406.08133,275.55487 L 406.08132,254.55924 L 424.26407,265.05706 L 442.44682,275.55487 z "
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0471976"
+         sodipodi:arg1="0"
+         sodipodi:r2="12.121829"
+         sodipodi:r1="24.243662"
+         sodipodi:cy="275.55487"
+         sodipodi:cx="418.20316"
+         sodipodi:sides="3"
+         id="path2300"
+         style="fill:#dbdbe3"
+         sodipodi:type="star" />
+    </g>
+    <g
+       id="g2404"
+       transform="translate(76.281352,-232.79099)">
+      <rect
+         y="322.52698"
+         x="204.05081"
+         height="32.851295"
+         width="222.42169"
+         id="rect2302"
+         style="fill:#dbdbe3" />
+      <path
+         transform="matrix(-1,0,0,0.7814163,610.07122,123.71399)"
+         d="M 442.44682,275.55487 L 424.26407,286.05268 L 406.08132,296.5505 L 406.08133,275.55487 L 406.08132,254.55924 L 424.26407,265.05706 L 442.44682,275.55487 z "
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0471976"
+         sodipodi:arg1="0"
+         sodipodi:r2="12.121829"
+         sodipodi:r1="24.243662"
+         sodipodi:cy="275.55487"
+         sodipodi:cx="418.20316"
+         sodipodi:sides="3"
+         id="path2304"
+         style="fill:#dbdbe3"
+         sodipodi:type="star" />
+      <text
+         id="text2368"
+         y="335.75729"
+         x="208.49872"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="335.75729"
+           x="208.49872"
+           id="tspan2370"
+           sodipodi:role="line">303 REDIRECT</tspan><tspan
+           id="tspan2372"
+           y="350.75729"
+           x="208.49872"
+           sodipodi:role="line">Location: /2007-Jun/post-45.xhtml</tspan></text>
+    </g>
+    <g
+       id="g2434"
+       transform="translate(76.281352,-232.79099)">
+      <image
+         xlink:href="server.png"
+         sodipodi:absref="/home/wikier/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/server.png"
+         width="140.27299"
+         height="116.01672"
+         id="image2258"
+         x="465.05624"
+         y="283.22379" />
+      <text
+         id="text2426"
+         y="422.16394"
+         x="499.53516"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="422.16394"
+           x="499.53516"
+           id="tspan2428"
+           sodipodi:role="line">Web server</tspan></text>
+    </g>
+    <g
+       id="g2439"
+       transform="translate(76.281352,-232.79099)">
+      <image
+         xlink:href="client.png"
+         sodipodi:absref="/home/wikier/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/client.png"
+         width="140.14905"
+         height="124.52926"
+         id="image2200"
+         x="-6.8990126"
+         y="282.36218" />
+      <text
+         id="text2430"
+         y="415.47742"
+         x="36.793892"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="415.47742"
+           x="36.793892"
+           id="tspan2432"
+           sodipodi:role="line">Client</tspan></text>
+    </g>
+    <g
+       id="g2699"
+       transform="translate(76.281352,-232.79099)">
+      <rect
+         y="364.34183"
+         x="160.48543"
+         height="37.375645"
+         width="234.35249"
+         id="rect2684"
+         style="fill:#dbdbe3" />
+      <text
+         id="text2686"
+         y="379.92673"
+         x="167.17299"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-weight:normal"
+           id="tspan2688"
+           y="379.92673"
+           x="167.17299"
+           sodipodi:role="line">GET /2007-Jun/post-45.xhtml</tspan><tspan
+           id="tspan2690"
+           y="394.92673"
+           x="167.17299"
+           sodipodi:role="line">Accept: text/html</tspan></text>
+      <path
+         transform="matrix(1.012045,0,0,0.8808904,-17.113568,140.00402)"
+         d="M 442.44682,275.55487 L 424.26407,286.05268 L 406.08132,296.5505 L 406.08133,275.55487 L 406.08132,254.55924 L 424.26407,265.05706 L 442.44682,275.55487 z "
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0471976"
+         sodipodi:arg1="0"
+         sodipodi:r2="12.121829"
+         sodipodi:r1="24.243662"
+         sodipodi:cy="275.55487"
+         sodipodi:cx="418.20316"
+         sodipodi:sides="3"
+         id="path2692"
+         style="fill:#dbdbe3"
+         sodipodi:type="star" />
+    </g>
+    <g
+       id="g2779">
+      <rect
+         y="179.89673"
+         x="279.73373"
+         height="32.851295"
+         width="222.42169"
+         id="rect2708"
+         style="fill:#dbdbe3" />
+      <path
+         transform="matrix(-1,0,0,0.7814163,685.75413,-18.916276)"
+         d="M 442.44682,275.55487 L 424.26407,286.05268 L 406.08132,296.5505 L 406.08133,275.55487 L 406.08132,254.55924 L 424.26407,265.05706 L 442.44682,275.55487 z "
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0471976"
+         sodipodi:arg1="0"
+         sodipodi:r2="12.121829"
+         sodipodi:r1="24.243662"
+         sodipodi:cy="275.55487"
+         sodipodi:cx="418.20316"
+         sodipodi:sides="3"
+         id="path2710"
+         style="fill:#dbdbe3"
+         sodipodi:type="star" />
+      <text
+         id="text2712"
+         y="193.12704"
+         x="284.18161"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="193.12704"
+           x="284.18161"
+           id="tspan2714"
+           sodipodi:role="line">200 OK</tspan><tspan
+           id="tspan2716"
+           y="208.12704"
+           x="284.18161"
+           sodipodi:role="line">Content-Type: text/html</tspan></text>
+    </g>
+  </g>
+</svg>

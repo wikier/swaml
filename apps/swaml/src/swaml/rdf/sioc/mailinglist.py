@@ -28,6 +28,7 @@ from swaml.rdf.sioc.message import Message
 from swaml.rdf.sioc.index import Index
 from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, MVCB
 from swaml.common.date import FileDate
+from shutil import copyfile
 
 class MailingList:
     """
@@ -143,6 +144,8 @@ class MailingList:
                 self.subscribers.process()
             
             self.subscribers.export()
+            
+            copyfile('./includes/ui/web/swaml.css', self.config.get('dir')+'swaml.css')
             
         except Exception, detail:
             print str(detail)

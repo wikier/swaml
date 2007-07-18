@@ -7,7 +7,7 @@
          xml:lang="en">
 
   <rdf:Description rdf:about="">
-    <admin:generatorAgent rdf:resource="http://doapy.bonjourlesmouettes.org/doap-a-matic"/>
+    <admin:generatorAgent rdf:resource="http://doapy.bonjourlesmouettes.org/doap-a-matic" />
   </rdf:Description>
 
   <doap:Project rdf:about="http://swaml.berlios.de/doap.rdf">
@@ -36,28 +36,61 @@
 
     <doap:release>
       <doap:Version>
+        <doap:name>SWAML</doap:name>
+        <doap:created>2006-11-21</doap:created>
+        <doap:revision>0.0.4</doap:revision>
+      </doap:Version>
+    </doap:release>
+
+    <doap:release>
+      <doap:Version>
+        <doap:name>SWAML</doap:name>
+        <doap:created>2006-11-01</doap:created>
+        <doap:revision>0.0.3</doap:revision>
+      </doap:Version>
+    </doap:release>
+
+    <doap:release>
+      <doap:Version>
+        <doap:name>SWAML</doap:name>
+        <doap:created>2006-10-13</doap:created>
+        <doap:revision>0.0.2</doap:revision>
+      </doap:Version>
+    </doap:release>
+
+    <doap:release>
+      <doap:Version>
+        <doap:name>SWAML</doap:name>
+        <doap:created>2006-10-02</doap:created>
+        <doap:revision>0.0.1</doap:revision>
+      </doap:Version>
+    </doap:release>
+
+    <doap:release>
+      <doap:Version>
         <doap:name>Buxon</doap:name>
         <doap:created>2006-12-28</doap:created>
         <doap:revision>0.0.3</doap:revision>
       </doap:Version>
     </doap:release>
 
-    <doap:category rdf:resource="http://rdflib.net/projects#using_rdflib"/>
+    <doap:category rdf:resource="http://rdflib.net/projects#using_rdflib" />
 
-    <doap:wiki rdf:resource="http://swaml.berlios.de/wiki"/>
-    <doap:bug-database rdf:resource="http://swaml.berlios.de/bugs"/>
+    <doap:wiki rdf:resource="http://swaml.berlios.de/wiki" />
+    <doap:bug-database rdf:resource="http://swaml.berlios.de/bugs" />
     <doap:programming-language>python</doap:programming-language>
-    <doap:license rdf:resource="http://usefulinc.com/doap/licenses/gpl"/>
-    <doap:download-page rdf:resource="http://swaml.berlios.de/#files"/>
-    <doap:download-mirror rdf:resource="http://swaml.berlios.de/files"/>
+    <doap:license rdf:resource="http://usefulinc.com/doap/licenses/gpl" />
+    <doap:download-page rdf:resource="http://swaml.berlios.de/#files" />
+    <doap:download-mirror rdf:resource="http://swaml.berlios.de/files" />
 
     <doap:maintainer>
       <foaf:Person>
         <foaf:name>Sergio Fdez</foaf:name>
         <foaf:nick>Wikier</foaf:nick>
         <foaf:mbox_sha1sum>d0fd987214f56f70b4c47fb96795f348691f93ab</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://www.wikier.org/foaf.rdf#wikier"/>
+        <rdfs:seeAlso rdf:resource="http://www.wikier.org/foaf.rdf#wikier" />
         <foaf:homepage rdf:resource="http://www.wikier.org/" />
+        <foaf:depiction rdf:resource="http://www.wikier.org/images/polaroid.png" />
       </foaf:Person>
     </doap:maintainer>
 
@@ -65,8 +98,9 @@
       <foaf:Person>
         <foaf:name>Diego Berrueta</foaf:name>
         <foaf:mbox_sha1sum>98a99390f2fe9395041bddc41e933f50e59a5ecb</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://www.berrueta.net/foaf.rdf#me"/>
-        <foaf:homepage rdf:resource="http://www.berrueta.net/"/>
+        <rdfs:seeAlso rdf:resource="http://berrueta.net/foaf.rdf#me" />
+        <foaf:homepage rdf:resource="http://berrueta.net/" />
+        <foaf:depiction rdf:resource="http://berrueta.net/images/2.png" />
       </foaf:Person>
     </doap:developer>
 
@@ -74,8 +108,9 @@
       <foaf:Person>
         <foaf:name>Jose Labra</foaf:name>
         <foaf:mbox_sha1sum>3d0a8f16ce3d560ca75e16d36f6ded63599c60a7</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://www.di.uniovi.es/~labra/labraFoaf.rdf"/>
-        <foaf:homepage rdf:resource="ttp://www.di.uniovi.es/~labra/"/>
+        <rdfs:seeAlso rdf:resource="http://www.di.uniovi.es/~labra/labraFoaf.rdf" />
+        <foaf:homepage rdf:resource="http://www.di.uniovi.es/~labra/" />
+        <foaf:depiction rdf:resource="http://www.di.uniovi.es/~labra/images/yoCara.jpg" />
       </foaf:Person>
     </doap:developer>
 
@@ -83,7 +118,7 @@
       <foaf:Person>
         <foaf:name>Iván Frade</foaf:name>
         <foaf:mbox_sha1sum>84d076726727b596b08198e26ef37e4817353e97</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://frade.no-ip.info:2080/~ivan/foaf.rdf"/>
+        <rdfs:seeAlso rdf:resource="http://frade.no-ip.info:2080/~ivan/foaf.rdf" />
       </foaf:Person>
     </doap:helper>
 
@@ -91,15 +126,16 @@
       <foaf:Person>
         <foaf:name>Nacho Barrientos</foaf:name>
         <foaf:mbox_sha1sum>6b31c41e80d36cc08a489462c0c2c37d7de8d2e5</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://criptonita.com/~nacho/foaf.rdf"/>
-        <foaf:homepage rdf:resource="http://criptonita.com/~nacho"/>
+        <rdfs:seeAlso rdf:resource="http://criptonita.com/~nacho/foaf.rdf" />
+        <foaf:homepage rdf:resource="http://criptonita.com/~nacho" />
       </foaf:Person>
     </doap:helper>
 
     <doap:repository>
       <doap:SVNRepository>
         <doap:module>swaml</doap:module>
-        <doap:browse rdf:resource="http://swaml.berlios.de/wsvn"/>
+        <doap:location rdf:resource="http://svn.berlios.de/svnroot/repos/swaml/trunk" />
+        <doap:browse rdf:resource="http://swaml.berlios.de/wsvn" />
       </doap:SVNRepository>
     </doap:repository>
 

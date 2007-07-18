@@ -271,6 +271,26 @@
         </dd>
       </dl>
 
+      <h2 id="related">Related projects</h2>
+      <p>
+        There are some projects that share our vision of providing structured 
+        data on the Web:
+      </p>
+      <ul>
+        <li>
+          <a href="http://sw.joanneum.at/mle/xplore.php">
+            <abbr title="Mailing List Explorer">MLE</abbr>
+          </a>
+        </li>
+        <li>
+          And all the 
+          <a href="http://sw.deri.org/2005/08/sioc/submission/applications.html">
+            applications related with 
+            <abbr title="Semantically-Interlinked Online Communities">SIOC</abbr>
+          </a>
+        </li>
+      </ul>
+
       <h2 id="contact">Contact</h2>
       <p>
         You can contact with the <a href="/members-list">members of project</a> 

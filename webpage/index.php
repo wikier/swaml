@@ -216,8 +216,9 @@
         <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
       </dl>
 
-      <p id="publications">
-        The research activity in the project produces some <strong>scientist publications</strong>:
+      <h3 id="publications">Publications</h3>
+      <p>
+        The research activity in the project produces some scientist publications:
       </p>
       <ul>
         <li>
@@ -231,6 +232,7 @@
         </li>
       </ul>
 
+      <h3 id="talks">Talks</h3>
       <p>
         And we made some presentations about the project around the world:
       </p>

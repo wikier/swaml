@@ -1,7 +1,8 @@
+
 /**
  * SWAML CSS
  * Based on phpWiki Crao Theme <http://www.crao.net/>
- * 2006-12-07
+ * 2007-07-18
  */
 
 body {
@@ -21,15 +22,15 @@ p {
 }
 
 a:link, a:visited, a {
-	color: #3333cc; 
-	text-decoration: none; 
-	background-color: transparent;
+  color: #3333cc; 
+  text-decoration: none; 
+  background-color: transparent;
 }
 
 a:hover {
-	color: #0033ff;
-	text-decoration:none;
-	background-color: transparent;
+  color: #0033ff;
+  text-decoration:none;
+  background-color: transparent;
 }
 
 img {
@@ -58,13 +59,13 @@ h1#head img {
 }
 
 h1#head a:link, h1#head a:visited, h1#head a {
-	color: #cccccc;
-	text-decoration: none;
+  color: #cccccc;
+  text-decoration: none;
 }
 
 h1#head {
-	color: #cccccc;
-	text-decoration: none;
+  color: #cccccc;
+  text-decoration: none;
 }
 
 /* menu */
@@ -122,17 +123,17 @@ div#content {
 }
 
 #process {
-	float: right;
-	margin: 0.2em 0 0.2em 1em;
+  float: right;
+  margin: 0.2em 0 0.2em 1em;
 }
 
 #advertisement {
-	border: 1px solid red; 
-	padding: 10px;
-	text-align: center;
-	font-weight: bold;
-	width: auto;
-	margin-right: 420px;
+  border: 1px solid red; 
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  width: auto;
+  margin-right: 420px;
 }
 
 #content h2 { 
@@ -141,14 +142,14 @@ div#content {
   color: #555555;
   border-bottom-style: solid;
   border-color: #cccccc;
-  padding-top:1em;
+  padding-top: 1em;
 }
 
-#content iframe {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5em;
+#content h3 { 
+  margin-top: 1.8em;
+  background-color: transparent;
+  color: #555555;
+  padding-top: 0.5em;
 }
 
 #content h2 img {
@@ -167,18 +168,18 @@ div#content {
 }
 
 #content .console {
-	font-family: monospace;
+  font-family: monospace;
 }
 
 #content p.svn {
-	font-family: monospace;
-	text-align: center;
-	font-size: 1.2em;
+  font-family: monospace;
+  text-align: center;
+  font-size: 1.2em;
 }
 
 #content p.svn a, #content p.svn a:active, #content p.svn a:hover, #content p.svn a:visited {
-	color: #000000;
-	text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 }
 
 /* foot */
@@ -198,5 +199,3 @@ div#foot ul li {
   display: inline;
   margin-left: 1em;
 }
-
-

@@ -222,11 +222,17 @@
       </p>
       <ul>
         <li>
-          Sergio Fernández, Diego Berrueta, José E. Labra,
-          <a href="http://sunsite.informatik.rwth-aachen.de/Publications/CEUR-WS//Vol-245/paper4.pdf"><em>Mailing 
-          lists meet the Semantic Web</em></a>, in Proceedings of the 
-          <a href="http://bis.kie.ae.poznan.pl/10th_bis/"><abbr title="Business Information Systems">BIS</abbr> 2007</a> 
-          Workshop on <a href="http://integror.net/saw/">Social Aspects of the Web</a>, 
+          Sergio Fernández, Diego Berrueta and José E. Labra.
+          <em>A semantic web approach to publish and consume mailing lists</em>.
+          <abbr title="International Association for Development of the Information Society">IADIS</abbr>
+          International Journal on <abbr title="World Wide Web">WWW</abbr>/Internet
+          (to appear).
+        </li>
+        <li>
+          Sergio Fernández, Diego Berrueta and José E. Labra.
+          <a href="http://www.wikier.org/archivos/research/publications/2007/SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf" class="entry_title"><em>Mailing lists meet the Semantic Web</em></a>. 
+          Proceedings of workshop on Social Aspects of the Web
+          (<abbr title="Social Aspects of the Web">SAW</abbr> 2007), 
           <abbr title="International Standard Book Number">ISBN</abbr> 83-916842-4-2, 
           <abbr title="pages">pp.</abbr> 45-52, Poznan, Poland, April 27, 2007.
         </li>

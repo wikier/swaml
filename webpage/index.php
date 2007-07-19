@@ -230,7 +230,7 @@
         </li>
         <li>
           Sergio Fernández, Diego Berrueta and José E. Labra.
-          <a href="http://www.wikier.org/archivos/research/publications/2007/SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf" class="entry_title"><em>Mailing lists meet the Semantic Web</em></a>. 
+          <a href="http://sunsite.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-245/paper4.pdf" class="entry_title"><em>Mailing lists meet the Semantic Web</em></a>. 
           Proceedings of workshop on Social Aspects of the Web
           (<abbr title="Social Aspects of the Web">SAW</abbr> 2007), 
           <abbr title="International Standard Book Number">ISBN</abbr> 83-916842-4-2, 

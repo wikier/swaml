@@ -3,7 +3,7 @@
 # SWAML KML Exporter <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2007 Sergio Fernández
+# Copyright (C) 2005-2007 Sergio FernÃ¡ndez
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -28,3 +28,4 @@ FOAF = Namespace(u'http://xmlns.com/foaf/0.1/')
 GEO = Namespace(u'http://www.w3.org/2003/01/geo/wgs84_pos#')
 MVCB = Namespace(u'http://webns.net/mvcb/')
 ICAL = Namespace(u'http://www.w3.org/2002/12/cal/icaltzd#')
+XSD = Namespace(u'http://www.w3.org/2001/XMLSchema#')

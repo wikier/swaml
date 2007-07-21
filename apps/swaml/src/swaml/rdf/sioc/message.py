@@ -22,7 +22,7 @@ import datetime, email, email.Errors
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
-from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCTERMS, MVCB
+from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCTERMS, MVCB, XSD
 from swaml.common.charset import Charset
 from swaml.common.date import MailDate, FileDate
 import xml.dom.minidom
@@ -367,7 +367,7 @@ class Message:
             store.add((message, SIOC['has_container'],URIRef(self.config.get('url')+'forum')))   
             store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
             store.add((message, DC['title'], Literal(self.getSubject()))) 
-            store.add((message, DCTERMS['created'], Literal(self.getDate())))  
+            store.add((message, DCTERMS['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
             
             parent = self.getParent()
             if (parent != None):
@@ -412,6 +412,7 @@ class Message:
         root.setAttribute("xmlns:dc", str(DC))
         root.setAttribute("xmlns:dcterms", str(DCTERMS))
         root.setAttribute("xmlns:mvcb", str(MVCB))
+        root.setAttribute("xmlns:xsd", str(XSD))
         
         head = doc.createElement("head")
         root.appendChild(head)
@@ -478,6 +479,7 @@ class Message:
             strong.appendChild(doc.createTextNode("Date: "))
             span = doc.createElement("span")
             span.setAttribute("property", "dcterms:created")
+            span.setAttribute("datatype", "xsd:dateTime")
             span.appendChild(doc.createTextNode(self.getDate()))
             p.appendChild(span)
             

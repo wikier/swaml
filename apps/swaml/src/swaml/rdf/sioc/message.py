@@ -558,7 +558,6 @@ class Message:
             xml.dom.ext.PrettyPrint(doc, xhtml_file)
             xhtml_file.flush()
             xhtml_file.close()
-            
         except IOError, detail:
             print 'IOError saving message ' + str(self.getId()) + ': ' + str(detail)            
             

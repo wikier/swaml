@@ -149,6 +149,8 @@ class MailingList:
             
             self.copyFiles()
             
+            self.generateApacheConf()
+            
         except Exception, detail:
             print str(detail)
             
@@ -251,3 +253,48 @@ class MailingList:
         """
         
         copyfile('./includes/ui/web/swaml.css', self.config.get('dir')+'swaml.css')
+        
+    def generateApacheConf(self):
+        """
+        Generate a customized htaccess file
+        """
+        
+        #read template
+        data = ''
+        try:
+            file = open('./includes/apache/htaccess-files.tpl')
+            for line in file:
+                data += line
+            file.close()
+        except:
+            print 'An exception occured reading apache template file'
+            
+        base = self.config.get('base')
+        base = '/' + '/'.join(base.split('/')[3:])
+        data = data.replace('{BASE}', base)
+        
+        #post/([0-9]{4}\-[A-Za-z]+/[0-9]+)$
+        #RewriteRule ^post/([0-9]{4})-([A-Za-z]+)/([0-9]+)$ $1-$2/post-$3.xhtml [R=303]
+        
+        pattern = self.config.get('post')
+        pattern = pattern.replace('DD', '[0-9]{2}')
+        pattern = pattern.replace('MMMM', '[A-Za-z]{4}')
+        pattern = pattern.replace('MMM', '[A-Za-z]{3}')
+        pattern = pattern.replace('MM', '[0-9]{2}')
+        pattern = pattern.replace('YYYY', '[0-9]{4}')
+        pattern = pattern.replace('ID', '[0-9]+')
+        pattern = pattern.replace('-', '\-')
+        
+        data = data.replace('{POSTURI}', '('+pattern+')')
+        data = data.replace('{POSTFILE}', '$1')
+        
+        #and dump to disk
+        try:
+            file = open(self.config.get('dir')+'.htaccess', 'w+')
+            file.write(data)
+            file.flush()
+            file.close()        
+        except IOError, detail:
+            print 'IOError saving message .htaccess file'
+       
+        

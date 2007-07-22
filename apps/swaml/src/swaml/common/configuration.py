@@ -35,7 +35,7 @@ class Configuration:
             'host' : '',
             'verbose' : False,         
             'dir' : 'archive/',
-            'url' : 'http://localhost/swaml/',
+            'base' : 'http://localhost/swaml/',
             'mbox' : 'mbox',
             'format' : 'YYYY-MMM/messageID.rdf',
             'to' : 'foo@bar.com',

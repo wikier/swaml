@@ -147,7 +147,7 @@ class Subscriber:
         @return: subscriber uri
         """
         
-        return self.config.get('url') + 'subscriber/' + self.getStringId()
+        return self.config.get('base') + 'subscriber/' + self.getStringId()
     
     def setName(self, name):
         """
@@ -222,7 +222,7 @@ class Subscribers:
         """
         
         self.config = config
-        self.baseUri = self.config.get('url') + 'subscriber/'
+        self.baseUri = self.config.get('base') + 'subscriber/'
         self.subscribers = {}
 
 

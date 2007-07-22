@@ -48,7 +48,7 @@ class MailingList:
         self.subscribers = Subscribers(config)
         self.index = Index(self.config)
         
-        self.uri = self.config.get('url') + 'forum'
+        self.uri = self.config.get('base') + 'forum'
         
     def __createDir(self):
         """

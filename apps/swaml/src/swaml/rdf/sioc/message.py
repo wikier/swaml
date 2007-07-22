@@ -207,8 +207,8 @@ class Message:
         
         @return: uri
         """
-                
-        return self.config.get('url') + 'post/' + self.dir + str(self.id)
+        
+        return self.config.get('base') + 'post/' + self.dir + str(self.id) #FIXME
     
     def getSender(self):
         """
@@ -364,7 +364,7 @@ class Message:
                  
             store.add((message, SIOC['id'], Literal(self.getSwamlId())))
             store.add((message, SIOC['link'], URIRef(self.getUri())))  
-            store.add((message, SIOC['has_container'],URIRef(self.config.get('url')+'forum')))   
+            store.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
             store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
             store.add((message, DC['title'], Literal(self.getSubject()))) 
             store.add((message, DCTERMS['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
@@ -424,7 +424,7 @@ class Message:
         link = doc.createElement("link")
         link.setAttribute("rel", "stylesheet")
         link.setAttribute("type", "text/css")
-        link.setAttribute("href", self.config.get("url")+"swaml.css")
+        link.setAttribute("href", self.config.get('base')+"swaml.css")
         head.appendChild(link)
         title = doc.createElement("title")
         title.appendChild(doc.createTextNode(self.getSubject()))
@@ -465,11 +465,11 @@ class Message:
             strong.appendChild(doc.createTextNode("To: "))
             a = doc.createElement("a")
             a.setAttribute("rel", "sioc:has_container")
-            a.setAttribute("href", self.config.get("url")+"forum")
+            a.setAttribute("href", self.config.get('base')+"forum")
             if (len(self.config.get("title"))>0):
                 a.appendChild(doc.createTextNode(self.config.get("title")))
             else:
-                a.appendChild(doc.createTextNode(self.config.get("url")+"forum"))
+                a.appendChild(doc.createTextNode(self.config.get('base')+"forum"))
             p.appendChild(a)
             
             p = doc.createElement("p")

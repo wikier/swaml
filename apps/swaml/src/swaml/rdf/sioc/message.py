@@ -72,13 +72,39 @@ class Message:
         self.__calculateId()
         self.nextByDate = None
         self.previousByDate = None
+
+        #Obtain message path        
+        #FIXME: format permited vars (feature #1355)
+        index = self.config.get('post')
+        
+        #message date
+        date = MailDate(self.date)   
+             
+         #replace vars
+        index = index.replace('DD', date.getStringDay()) #day
+        index = index.replace('MMMM', date.getLongStringMonth()) #long string month
+        index = index.replace('MMM', date.getShortStringMonth()) #short string month
+        index = index.replace('MM', date.getStringMonth()) #numeric month
+        index = index.replace('YYYY', date.getStringYear()) #year
+        index = index.replace('ID', str(self.id)) #swaml id
+
+        #create subdirs
+        dirs = index.split('/')[:-1]
+        index_dir = ''
+        for one_dir in dirs:
+            index_dir += one_dir + '/'
+            if not (os.path.exists(self.config.get('dir')+index_dir)):
+                os.mkdir(self.config.get('dir')+index_dir)
+                
+        self.dir = index_dir
+        self.path = index
+        
+        self.uri = self.config.get('base') + self.path
         
         #body after indexing all messages
         self.body = None
         #self.body = msg.fp.read()
         #[(self.body, enconding)] = decode_header(msg.fp.read())
-        
-        self.obtainPath()
         
     def setBody(self, body):
         """
@@ -160,46 +186,6 @@ class Message:
         """
         
         return self.messageId
-        
-    def getPath(self):
-        """
-        Return the message's index name
-        
-        @return: path
-        """
-        
-        return self.path
-    
-    def obtainPath(self):
-        """
-        Obtain message path
-        """
-
-        #replace vars        
-        #FIXME: format permited vars (feature #1355)
-        index = self.config.get('format')
-        
-        #message date
-        date = MailDate(self.date)   
-             
-         #replace vars
-        index = index.replace('DD', date.getStringDay()) #day
-        index = index.replace('MMMM', date.getLongStringMonth()) #long string month
-        index = index.replace('MMM', date.getShortStringMonth()) #short string month
-        index = index.replace('MM', date.getStringMonth()) #numeric month
-        index = index.replace('YYYY', date.getStringYear()) #year
-        index = index.replace('ID', str(self.id)) #swaml id
-
-        #create subdirs
-        dirs = index.split('/')[:-1]
-        index_dir = ''
-        for one_dir in dirs:
-            index_dir += one_dir + '/'
-            if not (os.path.exists(self.config.get('dir')+index_dir)):
-                os.mkdir(self.config.get('dir')+index_dir)
-                
-        self.dir = index_dir
-        self.path = index
     
     def getUri(self):    
         """
@@ -208,7 +194,13 @@ class Message:
         @return: uri
         """
         
-        return self.config.get('base') + 'post/' + self.dir + str(self.id) #FIXME
+        return self.uri
+    
+    def getRdfPath(self):
+        return self.config.get('dir') + self.path + '.rdf'
+        
+    def getXhtmlPath(self):
+        return self.config.get('dir') + self.path + '.xhtml'
     
     def getSender(self):
         """
@@ -392,7 +384,7 @@ class Message:
         
         #and dump to disk
         try:
-            rdf_file = open(self.config.get('dir') + self.getPath(), 'w+')
+            rdf_file = open(self.getRdfPath(), 'w+')
             rdf_file.write(store.serialize(format="pretty-xml"))
             rdf_file.flush()
             rdf_file.close()        
@@ -405,140 +397,140 @@ class Message:
         """
         
         #root nodes
-        doc = getDOMImplementation().createDocument(None, "html", None)
+        doc = getDOMImplementation().createDocument(None, 'html', None)
         root = doc.documentElement
-        root.setAttribute("xmlns", "http://www.w3.org/1999/xhtml")
-        root.setAttribute("xmlns:sioc", str(SIOC))
-        root.setAttribute("xmlns:dc", str(DC))
-        root.setAttribute("xmlns:dcterms", str(DCTERMS))
-        root.setAttribute("xmlns:mvcb", str(MVCB))
-        root.setAttribute("xmlns:xsd", str(XSD))
+        root.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
+        root.setAttribute('xmlns:sioc', str(SIOC))
+        root.setAttribute('xmlns:dc', str(DC))
+        root.setAttribute('xmlns:dcterms', str(DCTERMS))
+        root.setAttribute('xmlns:mvcb', str(MVCB))
+        root.setAttribute('xmlns:xsd', str(XSD))
         
-        head = doc.createElement("head")
+        head = doc.createElement('head')
         root.appendChild(head)
-        head.setAttribute("profile", "http://www.w3.org/2003/g/data-view")
-        link = doc.createElement("link")
-        link.setAttribute("rel", "transformation")
-        link.setAttribute("href", "http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl")
+        head.setAttribute('profile', 'http://www.w3.org/2003/g/data-view')
+        link = doc.createElement('link')
+        link.setAttribute('rel', 'transformation')
+        link.setAttribute('href', 'http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl')
         head.appendChild(link)
-        link = doc.createElement("link")
-        link.setAttribute("rel", "stylesheet")
-        link.setAttribute("type", "text/css")
-        link.setAttribute("href", self.config.get('base')+"swaml.css")
+        link = doc.createElement('link')
+        link.setAttribute('rel', 'stylesheet')
+        link.setAttribute('type', 'text/css')
+        link.setAttribute('href', self.config.get('base')+'swaml.css')
         head.appendChild(link)
-        title = doc.createElement("title")
+        title = doc.createElement('title')
         title.appendChild(doc.createTextNode(self.getSubject()))
         head.appendChild(title)
         
-        body = doc.createElement("body")
+        body = doc.createElement('body')
         root.appendChild(body)
         
         #post div
-        div = doc.createElement("div")
+        div = doc.createElement('div')
         body.appendChild(div)
-        div.setAttribute("class", "sioc:Post")
-        div.setAttribute("about", self.getUri())
+        div.setAttribute('class', 'sioc:Post')
+        div.setAttribute('about', self.getUri())
         
         #post fields
         try:
             
-            h1 = doc.createElement("h1")
+            h1 = doc.createElement('h1')
             div.appendChild(h1)
-            h1.setAttribute("property", "dc:title")
+            h1.setAttribute('property', 'dc:title')
             h1.appendChild(doc.createTextNode(self.getSubject()))
             
-            p = doc.createElement("p")
+            p = doc.createElement('p')
             div.appendChild(p)
-            strong = doc.createElement("strong")
+            strong = doc.createElement('strong')
             p.appendChild(strong)
-            strong.appendChild(doc.createTextNode("From: "))
-            a = doc.createElement("a")
-            a.setAttribute("rel", "sioc:has_creator")
-            a.setAttribute("href", self.getSender().getUri())
+            strong.appendChild(doc.createTextNode('From: '))
+            a = doc.createElement('a')
+            a.setAttribute('rel', 'sioc:has_creator')
+            a.setAttribute('href', self.getSender().getUri())
             a.appendChild(doc.createTextNode(self.getSender().getName()))
             p.appendChild(a)
             
-            p = doc.createElement("p")
+            p = doc.createElement('p')
             div.appendChild(p)
-            strong = doc.createElement("strong")
+            strong = doc.createElement('strong')
             p.appendChild(strong)
-            strong.appendChild(doc.createTextNode("To: "))
-            a = doc.createElement("a")
-            a.setAttribute("rel", "sioc:has_container")
-            a.setAttribute("href", self.config.get('base')+"forum")
-            if (len(self.config.get("title"))>0):
-                a.appendChild(doc.createTextNode(self.config.get("title")))
+            strong.appendChild(doc.createTextNode('To: '))
+            a = doc.createElement('a')
+            a.setAttribute('rel', 'sioc:has_container')
+            a.setAttribute('href', self.config.get('base')+'forum')
+            if (len(self.config.get('title'))>0):
+                a.appendChild(doc.createTextNode(self.config.get('title')))
             else:
-                a.appendChild(doc.createTextNode(self.config.get('base')+"forum"))
+                a.appendChild(doc.createTextNode(self.config.get('base')+'forum'))
             p.appendChild(a)
             
-            p = doc.createElement("p")
+            p = doc.createElement('p')
             div.appendChild(p)
-            strong = doc.createElement("strong")
+            strong = doc.createElement('strong')
             p.appendChild(strong)
-            strong.appendChild(doc.createTextNode("Date: "))
-            span = doc.createElement("span")
-            span.setAttribute("property", "dcterms:created")
-            span.setAttribute("datatype", "xsd:dateTime")
+            strong.appendChild(doc.createTextNode('Date: '))
+            span = doc.createElement('span')
+            span.setAttribute('property', 'dcterms:created')
+            span.setAttribute('datatype', 'xsd:dateTime')
             span.appendChild(doc.createTextNode(self.getDate()))
             p.appendChild(span)
             
-            #p = doc.createElement("p")
+            #p = doc.createElement('p')
             #div.appendChild(p)
-            #strong = doc.createElement("strong")
+            #strong = doc.createElement('strong')
             #p.appendChild(strong)
-            #strong.appendChild(doc.createTextNode("Message-Id: "))
-            #span = doc.createElement("span")
-            #span.setAttribute("property", "sioc:id")
+            #strong.appendChild(doc.createTextNode('Message-Id: '))
+            #span = doc.createElement('span')
+            #span.setAttribute('property', 'sioc:id')
             #span.appendChild(doc.createTextNode(self.getSwamlId()))
             #p.appendChild(span)
             
-            pre = doc.createElement("pre")
+            pre = doc.createElement('pre')
             div.appendChild(pre)
-            pre.setAttribute("property", "sioc:content")
+            pre.setAttribute('property', 'sioc:content')
             pre.appendChild(doc.createTextNode(self.getBody()))             
             
             parent = self.getParent()
             if (parent != None):
-                p = doc.createElement("p")
+                p = doc.createElement('p')
                 div.appendChild(p)
-                p.appendChild(doc.createTextNode("Reply of: "))
-                a = doc.createElement("a")
-                a.setAttribute("rel", "sioc:reply_of")
-                a.setAttribute("href", parent)
+                p.appendChild(doc.createTextNode('Reply of: '))
+                a = doc.createElement('a')
+                a.setAttribute('rel', 'sioc:reply_of')
+                a.setAttribute('href', parent)
                 a.appendChild(doc.createTextNode(parent))
                 p.appendChild(a)
                 
             if (len(self.childs) > 0):
                 for child in self.childs:
-                    p = doc.createElement("p")
+                    p = doc.createElement('p')
                     div.appendChild(p)
-                    p.appendChild(doc.createTextNode("Has reply: "))
-                    a = doc.createElement("a")
-                    a.setAttribute("rel", "sioc:has_reply")
-                    a.setAttribute("href", child)
+                    p.appendChild(doc.createTextNode('Has reply: '))
+                    a = doc.createElement('a')
+                    a.setAttribute('rel', 'sioc:has_reply')
+                    a.setAttribute('href', child)
                     a.appendChild(doc.createTextNode(child))
                     p.appendChild(a)
                 
             previous = self.getPreviousByDate()
             if (previous != None):
-                p = doc.createElement("p")
+                p = doc.createElement('p')
                 div.appendChild(p)
-                p.appendChild(doc.createTextNode("Previous by Date: "))
-                a = doc.createElement("a")
-                a.setAttribute("rel", "sioc:previous_by_date")
-                a.setAttribute("href", previous)
+                p.appendChild(doc.createTextNode('Previous by Date: '))
+                a = doc.createElement('a')
+                a.setAttribute('rel', 'sioc:previous_by_date')
+                a.setAttribute('href', previous)
                 a.appendChild(doc.createTextNode(previous))
                 p.appendChild(a)                
                 
             next = self.getNextByDate()
             if (next != None):
-                p = doc.createElement("p")
+                p = doc.createElement('p')
                 div.appendChild(p)
-                p.appendChild(doc.createTextNode("Next by Date: "))
-                a = doc.createElement("a")
-                a.setAttribute("rel", "sioc:next_by_date")
-                a.setAttribute("href", next)
+                p.appendChild(doc.createTextNode('Next by Date: '))
+                a = doc.createElement('a')
+                a.setAttribute('rel', 'sioc:next_by_date')
+                a.setAttribute('href', next)
                 a.appendChild(doc.createTextNode(next))
                 p.appendChild(a)
             
@@ -546,23 +538,23 @@ class Message:
             print 'Error exporting to XHTML message ' + str(self.getId()) + ': ' + str(detail) 
        
         #credits
-        p = doc.createElement("p")
+        p = doc.createElement('p')
         body.appendChild(p)
-        p.setAttribute("class", "credits")
-        a = doc.createElement("a")
-        a.setAttribute("rel", "mvcb:generatorAgent")
-        a.setAttribute("href", "http://swaml.berlios.de/")
-        a.appendChild(doc.createTextNode("Generated by "))
-        abbr = doc.createElement("abbr")
-        abbr.setAttribute("title", "Semantic Web Archives of Mailing Lists")
-        abbr.appendChild(doc.createTextNode("SWAML"))
+        p.setAttribute('class', 'credits')
+        a = doc.createElement('a')
+        a.setAttribute('rel', 'mvcb:generatorAgent')
+        a.setAttribute('href', 'http://swaml.berlios.de/')
+        a.appendChild(doc.createTextNode('Generated by '))
+        abbr = doc.createElement('abbr')
+        abbr.setAttribute('title', 'Semantic Web Archives of Mailing Lists')
+        abbr.appendChild(doc.createTextNode('SWAML'))
         a.appendChild(abbr)
         p.appendChild(a)
-            
+        
         
         #and dump to disk
         try:
-            xhtml_file = open(self.config.get('dir') +  '.'.join(self.getPath().split('.')[:-1]) + '.xhtml', 'w+') #FIXME
+            xhtml_file = open(self.getXhtmlPath(), 'w+') #FIXME
             xml.dom.ext.PrettyPrint(doc, xhtml_file)
             xhtml_file.flush()
             xhtml_file.close()

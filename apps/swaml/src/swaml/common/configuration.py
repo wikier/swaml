@@ -37,7 +37,7 @@ class Configuration:
             'dir' : 'archive/',
             'base' : 'http://localhost/swaml/',
             'mbox' : 'mbox',
-            'format' : 'YYYY-MMM/messageID.rdf',
+            'post' : 'YYYY-MMM/messageID',
             'to' : 'foo@bar.com',
             'kml' : True,
             'foaf' : True
@@ -116,10 +116,8 @@ class Configuration:
         if (var in self.config.keys()):
             
             #two litle exceptions in var format
-            if ((var == 'dir' or var == 'url') and value[-1] != '/'):
+            if ((var == 'dir' or var == 'base') and value[-1] != '/'):
                 value += '/'
-            elif (var == 'format' and value[-4:] != '.rdf'):
-                value += '.rdf'
             elif (var == 'kml' or var == 'foaf'):
                 if (value.lower() == 'no'):
                     value = False

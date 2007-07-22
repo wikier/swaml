@@ -71,8 +71,6 @@ class MailingList:
         
         while(message != None):
             
-            messages += 1
-            
             try:
                 #fisrt load message
                 msg = Message(message, self.config)
@@ -100,6 +98,9 @@ class MailingList:
             except KeyError, details:
                 print 'Error parsing a mail form mailbox: ' + str(details)
             
+    
+            messages += 1
+                        
             #and continue with next message
             message = mbox.nextMessage()
 

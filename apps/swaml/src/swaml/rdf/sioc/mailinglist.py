@@ -140,13 +140,14 @@ class MailingList:
                 message = mbox.nextMessage()
                 
             self.__toRDF()
+            self.__toXHTML()
     
             if (self.config.get('foaf')):
                 self.subscribers.process()
             
             self.subscribers.export()
             
-            copyfile('./includes/ui/web/swaml.css', self.config.get('dir')+'swaml.css')
+            self.copyFiles()
             
         except Exception, detail:
             print str(detail)
@@ -239,6 +240,14 @@ class MailingList:
             rdf_file.flush()
             rdf_file.close()
         except IOError, detail:
-            print 'Error exporting mialing list to RDF: ' + str(detail)    
-    
-
+            print 'Error exporting mailing list to RDF: ' + str(detail)
+            
+    def __toXHTML(self):
+        pass
+            
+    def copyFiles(self):
+        """
+        Copy necessary files
+        """
+        
+        copyfile('./includes/ui/web/swaml.css', self.config.get('dir')+'swaml.css')

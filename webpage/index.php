@@ -201,8 +201,8 @@
 
       <h2 id="doc">Documentation</h2>
       <p>
-        Also the <a href="doc/">online documentation for developers</a>, it's available 
-        to download another documents about the project:
+        In addition to the <a href="doc/">online documentation for developers</a>, there are  
+        available to download another documents about the project:
       </p>
 
       <dl>
@@ -215,6 +215,11 @@
         <dt><a href="http://prdownload.berlios.de/swaml/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
         <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
       </dl>
+
+      <p>
+        Also there are <a href="http://flickr.com/photos/tags/swaml/">some photos</a> related
+        with the project.
+      </p>
 
       <h3 id="publications">Publications</h3>
       <p>

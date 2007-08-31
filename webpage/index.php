@@ -292,7 +292,7 @@
         </li>
         <li>
           And all the 
-          <a href="http://sw.deri.org/2005/08/sioc/submission/applications.html">
+          <a href="http://www.w3.org/Submission/sioc-applications/">
             applications related with 
             <abbr title="Semantically-Interlinked Online Communities">SIOC</abbr>
           </a>

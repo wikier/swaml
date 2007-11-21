@@ -344,7 +344,7 @@ class Buxon(GtkUI):
 			
 		else:
 			
-			self.messageBar('none posts founded at ' + self.cache.uri)
+			self.messageBar('no posts found at ' + self.cache.uri)
 			
 	def __getParent(self, uri):
 		"""

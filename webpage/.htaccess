@@ -3,7 +3,7 @@
 RewriteEngine On
 
 # Ontology
-RewriteRule ^ns/swaml.owl /ns/swaml-0.1.owl
+RewriteRule ^ns/swaml.owl /ns/swaml-0.2.owl
 RewriteRule ^ns/0.1 /ns/swaml-0.1.owl
 RewriteRule ^ns/0.2 /ns/swaml-0.2.owl
 
@@ -38,4 +38,5 @@ RewriteRule ^demo$ /demos/ [R]
 
 # Mime types
 AddType application/rdf+xml .rdf
+AddType application/rdf+xml .owl
 AddType application/x-xpinstall .xpi

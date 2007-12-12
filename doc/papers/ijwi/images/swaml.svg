@@ -13,14 +13,13 @@
    height="297mm"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45"
-   sodipodi:docbase="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images"
+   inkscape:version="0.45.1"
+   sodipodi:docbase="/home/sergio/proyectos/SWAML/svn/doc/papers/ijwi/images"
    sodipodi:docname="swaml.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/swaml.png"
    inkscape:export-xdpi="600"
-   inkscape:export-ydpi="600"
-   sodipodi:modified="TRUE">
+   inkscape:export-ydpi="600">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -35,10 +34,10 @@
      inkscape:cy="714.54388"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     inkscape:window-width="1280"
-     inkscape:window-height="949"
+     inkscape:window-width="1268"
+     inkscape:window-height="936"
      inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-y="27"
      showgrid="true"
      showguides="false" />
   <metadata
@@ -72,14 +71,6 @@
        width="75"
        sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/icon_user.gif"
        xlink:href="icon_user.gif" />
-    <image
-       y="25.291115"
-       x="441.44687"
-       id="image2475"
-       height="173.92383"
-       width="251.50757"
-       sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/saw-2007/images/buxon.png"
-       xlink:href="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/saw-2007/images/buxon.png" />
     <image
        y="88.103058"
        x="33.659924"
@@ -216,41 +207,46 @@
        id="path2966"
        d="M 535.21484,237.12495 L 535.33777,214.55363 C 535.33777,214.55363 539.08679,214.48611 539.08679,214.55363 C 539.08679,214.62122 530.78981,208.1337 530.78981,208.1337 L 522.4313,213.81028 C 522.4313,213.81028 526.11887,214.01299 526.05741,214.01299 C 525.99595,214.01299 525.75012,237.12495 525.8116,237.05737 L 535.21484,237.12495 z "
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.57601076;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
-    <g
-       id="g3014"
-       transform="matrix(0.7611213,0,0,0.7999171,160.06046,26.143795)">
-      <image
-         xlink:href="file.png"
-         sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/file.png"
-         width="71.888329"
-         height="85.827408"
-         id="image2954"
-         x="256.495"
-         y="272.86472" />
-      <text
-         id="text2888"
-         y="347.23599"
-         x="292.94424"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           style="font-size:14px"
-           y="347.23599"
-           x="292.94424"
-           id="tspan2890"
-           sodipodi:role="line">&lt;kml /&gt;</tspan></text>
-      <image
-         xlink:href="ge_icon.jpg"
-         sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/ge_icon.jpg"
-         width="58.258865"
-         height="41.182556"
-         id="image3008"
-         x="266.29956"
-         y="292.36218" />
-    </g>
+    <image
+       y="244.41295"
+       x="355.28427"
+       id="image2954"
+       height="68.654808"
+       width="54.715736"
+       sodipodi:absref="/home/sergio/proyectos/swaml/svn/trunk/doc/papers/ijwi/images/file.png"
+       xlink:href="file.png" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.92389393px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="392.66705"
+       y="296.44257"
+       id="text2888"
+       transform="scale(0.9754487,1.0251692)"><tspan
+         sodipodi:role="line"
+         id="tspan2890"
+         x="392.66705"
+         y="296.44257"
+         style="font-size:10.92389393px">&lt;kml /&gt;</tspan></text>
     <path
        sodipodi:nodetypes="cccccccc"
        id="path3020"
        d="M 482.69923,274.34896 L 440.23522,274.23486 C 440.23522,274.23486 440.10818,270.75489 440.23522,270.75489 C 440.36238,270.75489 428.15723,278.45642 428.15723,278.45642 L 438.83673,286.21505 C 438.83673,286.21505 439.21809,282.79213 439.21809,282.84917 C 439.21809,282.90623 482.69924,283.13441 482.57209,283.07734 L 482.69923,274.34896 z "
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.7611863;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" />
+    <image
+       y="258.02185"
+       x="364.30469"
+       id="image2243"
+       height="32.035507"
+       width="34.055813"
+       sodipodi:absref="/home/sergio/proyectos/SWAML/svn/doc/papers/ijwi/images/icon_google_earth.gif"
+       xlink:href="icon_google_earth.gif" />
+    <image
+       y="14.539665"
+       x="446.63474"
+       id="image2286"
+       height="180.59883"
+       width="244.16228"
+       sodipodi:absref="/home/sergio/proyectos/SWAML/svn/doc/papers/ijwi/images/buxon.png"
+       xlink:href="buxon.png" />
   </g>
 </svg>

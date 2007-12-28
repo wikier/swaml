@@ -555,7 +555,11 @@ class Message:
         #and dump to disk
         try:
             xhtml_file = open(self.getXhtmlPath(), 'w+') #FIXME
-            xml.dom.ext.PrettyPrint(doc, xhtml_file)
+            try:
+                xml.dom.ext.PrettyPrint(doc, xhtml_file)
+            except UnicodeDecodeError, detail:
+                xhtml_file.write("")
+                print 'Decode error saving message ' + str(self.getId()) + ': ' + str(detail)
             xhtml_file.flush()
             xhtml_file.close()
         except IOError, detail:

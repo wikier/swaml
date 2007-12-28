@@ -113,7 +113,7 @@ class MailingList:
         
         self.__createDir()
         
-        #fisrt lap
+        #first lap
         self.__parse()
         
         #and second lap

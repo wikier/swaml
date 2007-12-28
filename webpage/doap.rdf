@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
-         xmlns:doap="http://usefulinc.com/ns/doap#" 
-         xmlns:foaf="http://xmlns.com/foaf/0.1/" 
-         xmlns:admin="http://webns.net/mvcb/" 
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:doap="http://usefulinc.com/ns/doap#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:sioc="http://rdfs.org/sioc/ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:admin="http://webns.net/mvcb/"
          xml:lang="en">
 
   <rdf:Description rdf:about="">
-    <admin:generatorAgent rdf:resource="http://doapy.bonjourlesmouettes.org/doap-a-matic" />
+    <foaf:maker rdf:resource="http://www.wikier.org/foaf.rdf#wikier"/>
+    <foaf:primaryTopic rdf:resource="http://swaml.berlios.de/doap.rdf#swaml"/>
+    <dc:date>2007-12-28</dc:date>
   </rdf:Description>
 
-  <doap:Project rdf:about="http://swaml.berlios.de/doap.rdf">
+  <doap:Project rdf:about="http://swaml.berlios.de/doap.rdf#swaml">
 
     <doap:name>Semantic Web Archive of Mailing Lists</doap:name>
     <doap:shortname>SWAML</doap:shortname>
@@ -85,7 +89,7 @@
 
     <doap:maintainer>
       <foaf:Person>
-        <foaf:name>Sergio Fdez</foaf:name>
+        <foaf:name>Sergio Fernández</foaf:name>
         <foaf:nick>Wikier</foaf:nick>
         <foaf:mbox_sha1sum>d0fd987214f56f70b4c47fb96795f348691f93ab</foaf:mbox_sha1sum>
         <rdfs:seeAlso rdf:resource="http://www.wikier.org/foaf.rdf#wikier" />
@@ -106,7 +110,7 @@
 
     <doap:developer>
       <foaf:Person>
-        <foaf:name>Jose Labra</foaf:name>
+        <foaf:name>Jose E. Labra</foaf:name>
         <foaf:mbox_sha1sum>3d0a8f16ce3d560ca75e16d36f6ded63599c60a7</foaf:mbox_sha1sum>
         <rdfs:seeAlso rdf:resource="http://www.di.uniovi.es/~labra/labraFoaf.rdf" />
         <foaf:homepage rdf:resource="http://www.di.uniovi.es/~labra/" />
@@ -138,6 +142,13 @@
         <doap:browse rdf:resource="http://swaml.berlios.de/wsvn" />
       </doap:SVNRepository>
     </doap:repository>
+
+    <doap:mailing-list>
+      <sioc:Forum>
+        <dc:title>SWAML Devel</dc:title>
+        <rdfs:seeAlso rdf:resource="http://swaml.berlios.de/lists/devel" />
+      </sioc:Forum>
+    </doap:mailing-list>
 
   </doap:Project>
 

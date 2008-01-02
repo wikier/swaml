@@ -21,7 +21,7 @@ import os, sys,string, mailbox
 
 class Mbox:
     """
-    mailbox abstraction class
+    mailbox wrapper
     """
 
     def __init__(self, path):

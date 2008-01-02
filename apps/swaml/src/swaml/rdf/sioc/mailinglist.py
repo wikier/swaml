@@ -18,7 +18,7 @@
 """Abstraction of a mailing list"""
 
 import sys, os
-import mailbox, email
+import random
 import datetime
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode, RDF
@@ -122,39 +122,37 @@ class MailingList:
 
         message = mbox.nextMessage()
         
-        try: 
+        while(message != None):
             
-            while(message != None):
+            try:
                 messages += 1
-                id = message['Message-Id']
+                try:
+                    id = message['Message-Id']
+                except:
+                    id = random.randint(1000000000, 9999999999) + "@localhost" #FIXME
+                    print messages + "is not a valid RFC2822 message, it hasn't message-id field"
                 msg = self.index.getMessage(messages)
-                
-                if (msg != None and msg.getMessageId() == id):
-                    msg.setBody(message.fp.read())
-                    msg.toRDF()
-                    msg.toXHTML()
-                    #self.index.delete(id)
-                else:
-                    print 'Someone was wrong with message ' + str(messages) + ' with ID ' + id #+ ' ('+msg.getMessageId()+')'
+                msg.setBody(message.fp.read())
+                msg.toRDF()
+                msg.toXHTML()
+                #self.index.delete(id)
+            except Exception, detail:
+                print 'Error processing message ' + str(messages) + ': ' + str(detail)
 
-                message = mbox.nextMessage()
-                
-            self.__toRDF()
-            self.__toXHTML()
+            message = mbox.nextMessage()
+            
+        self.__toRDF()
+        self.__toXHTML()
     
-            if (self.config.get('foaf')):
-                self.subscribers.process()
+        if (self.config.get('foaf')):
+            self.subscribers.process()
             
-            self.subscribers.export()
+        self.subscribers.export()
             
-            self.copyFiles()
+        self.copyFiles()
             
-            self.generateApacheConf()
-            
-        except Exception, detail:
-            print str(detail)
-            
-        
+        self.generateApacheConf()
+                
         if (self.messages != messages):
             print 'Something was wrong: ' + str(self.messages) + ' parsed, but ' + str(messages) + ' processed'
 

@@ -258,7 +258,7 @@ class Cache:
                     self.__loadData(postSeeAlso)
         
         for user in self.graph.objects(predicate=SIOC['has_subscriber']):
-            if not self.hasValueForPredicate(user, SIOC['email_sha1sum']):
+            if not self.hasValueForPredicate(user, SIOC['email_sha1']):
                 self.__loadData(user)
 
     def hasValueForPredicate(self, subject, predicate):

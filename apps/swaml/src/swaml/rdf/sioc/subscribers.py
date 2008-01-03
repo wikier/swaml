@@ -282,7 +282,7 @@ class Subscribers:
                 name = subscriber.getName()
                 if (len(name) > 0):
                     store.add((person, SIOC['name'], Literal(name) ))            
-                store.add((person, SIOC['email_sha1sum'], Literal(subscriber.getShaMail())))
+                store.add((person, SIOC['email_sha1'], Literal(subscriber.getShaMail())))
                 
                 if (self.config.get('foaf')):
                     foafResource = subscriber.getFoaf()

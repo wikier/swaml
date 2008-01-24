@@ -19,9 +19,10 @@
 
 from rdflib import Namespace
 
-SIOC = Namespace(u'http://rdfs.org/sioc/ns#')
 RDF = Namespace(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = Namespace(u'http://www.w3.org/2000/01/rdf-schema#')
+SIOC = Namespace(u'http://rdfs.org/sioc/ns#')
+SIOCT = Namespace(u'http://rdfs.org/sioc/types#')
 DC = Namespace(u'http://purl.org/dc/elements/1.1/')
 DCTERMS = Namespace(u'http://purl.org/dc/terms/')
 FOAF = Namespace(u'http://xmlns.com/foaf/0.1/')

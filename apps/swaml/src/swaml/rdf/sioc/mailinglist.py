@@ -26,7 +26,7 @@ from swaml.mail.mbox import Mbox
 from swaml.rdf.sioc.subscribers import Subscribers
 from swaml.rdf.sioc.message import Message
 from swaml.rdf.sioc.index import Index
-from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, MVCB
+from swaml.rdf.namespaces import RDFS, SIOC, SIOCT, FOAF, DC, MVCB
 from swaml.common.date import FileDate
 from shutil import copyfile
 
@@ -191,6 +191,7 @@ class MailingList:
         
         #namespaces
         store.bind('sioc', SIOC)
+        store.bind('sioct', SIOCT)
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)
         store.bind('dc', DC)
@@ -204,7 +205,8 @@ class MailingList:
         #and then the mailing list
         list = URIRef(self.__getUri())
         store.add((list, RDF.type, SIOC['Forum']))
-
+        #store.add((list, RDF.type, SIOCT['MailingList']))
+        
         #list information
         title = self.config.get('title')
         if (len(title) > 0):

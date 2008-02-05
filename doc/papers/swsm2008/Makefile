@@ -3,9 +3,7 @@
 # 2007 (c) Sergio Fernandez
 
 DESTDIR =
-
 NAME = swsm2008
-
 PDFVIEWER = evince
 
 all:	$(NAME).pdf

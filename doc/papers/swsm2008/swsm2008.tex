@@ -103,6 +103,7 @@ The Online Communities are a very rich font of collective
 knowledge that are untapped. In this paper we present 
 several approaches to mining this kind of communities to 
 allow a semantic use of all this  information.
+
 FIXME: completar y lucir
 \end{abstract}
 
@@ -121,7 +122,19 @@ FIXME
 
 \section{Technologies}
 
-FIXME: intro SIOC\cite{Breslin2005}, etc
+We use an ontology and RDF (Resource Description
+Framework~\cite{RDF}) to publish online communities into 
+the (Semantic) Web, while retaining the meta-data that were present in 
+the messages. Additionally, by doing so, the information can be
+merged and linked to other vocabularies, such as FOAF.
+
+DERI Galway leads the development of SIOC (Semantically-Interlinked Online
+Communities\footnote{\url{http://sioc-project.org/}}), an ontology that 
+provides a vocabulary to interconnect different discussion methods such 
+as blogs, web-based forums and mailing lists~\cite{Breslin2006,Breslin2005}.
+SIOC has been used as the core framework to represent information from
+online communities in all the work described in this paper.
+
 
 \section{Approaches}
 
@@ -132,14 +145,60 @@ and unintrusive techniques.
 
 FIXME
 
-
 \subsection{Intrusive techniques}
 
 FIXME
 
-\subsection{Unntrusive techniques}
+\subsection{Unintrusive techniques}
+
+These techniques are based in a unintrusive crawler process that
+fecth the data published in online communities in (X)HTML. Then
+different approaches are used to extract the information in RDF:
 
 FIXME
+
+\section{From mboxes to RDF: SWAML}
+
+The first approach uses SWAML~\cite{SWAML2007}. SWAML takes mailing 
+list archives in raw format, typically stored in a ``mailbox'' 
+(or ``mbox''), as defined in RFC~4155~\cite{RFC4155}. We have 
+developed SWAML, a Python script that parses mailboxes and 
+outputs RDF descriptions of the messages using the SIOC ontology.
+SWAML is a highly configurable, non-interactive application designed 
+to be invoked by the system task scheduler.
+
+We have tested SWAML with the archives of the GNOME project,
+as we tell later in section~\ref{sec:gnome}.
+
+FIXME
+
+\section{Scraping the HTML archives using XSLT}
+
+Unfortunately, mailing list archives are often unavailable in raw
+format. Sometimes we can only access to the ``cooked'' HTML
+version of the archives. In such cases, we can use a different
+approach: to scrap the data from the HTML file. As each web site
+uses a different, customized template for these HTML files, it is
+difficult to develop a generic scrapper. We implemented one
+for the Debian mailing list archives. It first retrieves all
+the relevant files by means of a web crawler. Then it tidies the
+markup in order to obtain well-formed XML. During the last stage,
+each file is transformed into RDF/XML using XSLT.
+
+Using these approach we have collected \textbf{FIXME} RDF triples
+from a selected subset of \textbf{FIXME: number of lists} lists for
+the period 2005-2006.
+
+\section{RDFa enrichement}
+
+Another possible way is to take (X)HTML markup of communities and
+enrich it with RDFa~\cite{Birbeck2006}, using XSLT or DOM. The process
+generates an output in XHMTL+RDFa that could be easy extracted in RDF 
+with one of the parsers available (such as RDFa Distiller\footnote{\url{http://www.w3.org/2007/08/pyRdfa}}.
+
+This approach is quite similar than the aproach used in mle~\cite{Hausenblas2007}
+project.
+
 
 \section{Common problems}
 
@@ -149,7 +208,47 @@ FIXME
 
 FIXME
 
+\section{\label{sec:gnome}GNOME mailing lists}
+
+FIXME
+
+For a selected subset of the mailing lists, SWAML has
+produced \textbf{FIXME: number of triples} triples.
+
+\section{Debian mailing lists}
+
+FIXME
+
+\section{Ubuntu Forums}
+
+FIXME
+
+\section{Advogato}
+
+FIXME
+
+
 \section{\label{sec:conclusions}Conclusions}
+
+Semantic descriptions of online communities pushes them
+into a new level of functionality. On the one hand, they can be
+conveniently browsed and queried. Search engines can exploit the
+metadata to improve their precission, and at the same time, to
+avoid repeated results.
+
+On the other hand, the semantic descriptions can be
+analysed and mined. Futhermore, they can be linked to other resources,
+thus reducing the risk of creating an ``information silo'' and
+enabling the rise of a network of ``linked data''.
+
+So far, no semantic annotation relative to the meaning of
+the messages is considered. Obviously, it is very difficult
+to extract such information from the message text.
+However, it is conceivable that it can be added by other 
+means, such as social tagging using folksonomies, or parsing the 
+RDFa that may exist in the e-mail messages that are send in XHTML 
+format.The inherent community-based nature of mailing lists can
+be exploited to build recommendation systems~\cite{Celma2006}.
 
 FIXME
 

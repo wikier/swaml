@@ -1,0 +1,169 @@
+% This is "www2008-sample.tex" copied from "www2005-sample.tex" V1.2 January 26 2004
+% This file should be compiled with V1.4 of "www2008-submission.class"
+%
+% This example file demonstrates the use of the 'www2008-submission.cls'
+% V1.4 LaTeX2e document class file. It is for those submitting
+% articles to the WWW'04 Conference WHO DO NOT WISH TO 
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'www2008-submission.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V1.4) produces:
+%       1) NO Permission Statement
+%       2) WWW'04-specific conference (location) information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Julie Goetz (goetz@acm.org) or Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions only to
+% Gerald Murray (murray@acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V1.2 - January 26 2004
+\documentclass{../templates/www2008-submission}
+
+\begin{document}
+%
+\title{Semantic Mining of Social Online Communities}
+%\subtitle{[Extended Abstract]
+%\titlenote{A full version of this paper is available as
+%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+%\LaTeX$2_\epsilon$\ and BibTeX} at
+%\texttt{www.acm.org/eaddress.htm}}}
+%
+% You need the command \numberofauthors to handle the "boxing"
+% and alignment of the authors under the title, and to add
+% a section for authors number 4 through n.
+%
+% Up to the first three authors are aligned under the title;
+% use the \alignauthor commands below to handle those names
+% and affiliations. Add names, affiliations, addresses for
+% additional authors as the argument to \additionalauthors;
+% these will be set for you without further effort on your
+% part as the last section in the body of your article BEFORE
+% References or any Appendices.
+
+\numberofauthors{4}
+%
+% Put no more than the first THREE authors in the \author command
+
+% NOTE: All authors should be on the first page. For instructions
+% for more than 3 authors, see:
+% http://www.acm.org/sigs/pubs/proceed/sigfaq.htm#a18
+
+\author{
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+%% e-mail address with \email.
+\alignauthor Diego Berrueta\\
+       \affaddr{Fundaci\'on CTIC}\\
+       \affaddr{Gij\'on, Asturias, Spain}\\
+       \email{diego.berrueta@fundacionctic.org}
+\alignauthor Luis Polo\\
+       \affaddr{Fundaci\'on CTIC}\\
+       \affaddr{Gij\'on, Asturias, Spain}\\
+       \email{luis.polo@fundacionctic.org}
+\and
+\alignauthor Sergio Fern\'andez\\
+       \affaddr{Fundaci\'on CTIC}\\
+       \affaddr{Gij\'on, Asturias, Spain}\\
+       \email{sergio.fernandez@fundacionctic.org}
+\alignauthor Lian Shi\\
+       \affaddr{Fundaci\'on CTIC}\\
+       \affaddr{Gij\'on, Asturias, Spain}\\
+       \email{lian.shi@fundacionctic.org}
+}
+
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv\"{a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+
+%\date{5 February 2008}
+
+\maketitle
+
+\begin{abstract}
+The Online Communities are a very rich font of collective 
+knowledge that are untapped. In this paper we present 
+several approaches to mining this kind of communities to 
+allow a semantic use of all this  information.
+FIXME: completar y lucir
+\end{abstract}
+
+% A category with only the three required fields
+%\category{H.4.m}{Information Systems}{Miscellaneous}
+%\category{D.2}{Software}{Software Engineering}
+%A category including the fourth, optional field follows...
+%\category{D.2.8}{Software Engineering}{Metrics}[complexity measures,
+%performance measures]
+
+\keywords{semantic mining, rdf, xsl}
+
+\section{Introduction}
+
+FIXME
+
+\section{Technologies}
+
+FIXME: intro SIOC\cite{Breslin2005}, etc
+
+\section{Approaches}
+
+There are a lot of possible approaches that could be used to
+extract the information published in social online communities.
+But mainly we centered in two kind: intrusive
+and unintrusive techniques.
+
+FIXME
+
+
+\subsection{Intrusive techniques}
+
+FIXME
+
+\subsection{Unntrusive techniques}
+
+FIXME
+
+\section{Common problems}
+
+FIXME
+
+\section{Experimentation with Free Sofware communities}
+
+FIXME
+
+\section{\label{sec:conclusions}Conclusions}
+
+FIXME
+
+\section*{Acknowledgements}
+
+FIXME
+
+
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{../references} 
+
+\balancecolumns
+
+\end{document}

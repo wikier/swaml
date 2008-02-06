@@ -475,7 +475,7 @@ class BuxonMain:
 		_hdlr.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s: %(message)s'))
 		self.logger.addHandler(_hdlr)
 		
-		self.logger('Starting up Buxon')
+		self.logger.info('Starting up Buxon')
 		
 		try:			
 			global widgets

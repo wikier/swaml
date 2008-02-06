@@ -6,7 +6,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2006 Sergio Fdez, Diego Berrueta
+# Copyright (C) 2006-2008 Sergio Fernández, Diego Berrueta
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -20,31 +20,26 @@
 
 """Buxon, a sioc:Forum browser"""
 
-import sys, os
+import sys
+sys.path.append('./src')
+
+import os
 import logging
 import pygtk
 pygtk.require('2.0')
 import gtk, pango
 from gazpacho.loader.loader import ObjectBuilder
+from buxon.ui.gtkui import GtkUI
+from buxon.ui.loadprogressbar import LoadProgressBar
+from buxon.ui.calendarwindow import CalendarWindow
+from buxon.rdf.cache import Cache
+from buxon.rdf.namespaces import SIOC, RDF, DC, DCTERMS
 
 try:
 	import rdflib
 	from rdflib import sparql, Namespace
 except:
 	print 'RDFLib is required'
-	sys.exit(-1)	
-
-try:
-	SWAML_PATH = '/usr/share/swaml/'
-	sys.path.append(SWAML_PATH + 'src/')
-	from swaml.ui.ui import UI
-	from swaml.rdf.cache import Cache
-	from swaml.ui.loadprogressbar import LoadProgressBar
-	from swaml.ui.calendarwindow import CalendarWindow
-	from swaml.rdf.namespaces import SIOC, RDF, DC, DCTERMS
-except Exception, details:
-	print 'SWAML is required'
-	print str(details)
 	sys.exit(-1)
 
 
@@ -82,85 +77,7 @@ class Callbacks:
 		
 	def alertButtonClicked(self):
 		buxon.alertWindow.destroy()
-		
-		
-class GtkUI(UI):
-    """
-    Abstract class for GTK User Interfaces
-    """    
-    
-    def usage(self):
-        """
-        Print usage information
-        """
-                
-        path = self.lineBase + 'usage/' + self.id + '.txt'
-        
-        try:
-            for line in open(path):
-                print line,
-        except IOError, details:
-                print 'Problem reading from ' + path + ': ' + str(details)
-                
-        sys.exit()
-    
-    def alert(self, text):
-        """
-        Alert window
-        
-        @param text: text on alert
-        """
-        
-        self.alertWindow = gtk.Window(gtk.WINDOW_POPUP)
-        self.alertWindow.set_position(gtk.WIN_POS_CENTER_ALWAYS)
-        self.alertWindow.set_modal(True)
-        self.alertWindow.set_resizable(False)
-        self.alertWindow.set_border_width(0)
-        
-        vbox = gtk.VBox(False, 5)
-        vbox.set_border_width(10)
-        self.alertWindow.add(vbox)
-        vbox.show()
-                
-        align1 = gtk.Alignment(0.5, 0.5, 0, 0)
-        vbox.pack_start(align1, False, False, 5)
-        align1.show()
-        label = gtk.Label(text)
-        align1.add(label)
-        label.show()
-        
-        align2 = gtk.Alignment(0.5, 0.5, 0, 0)
-        vbox.pack_start(align2, False, False, 5)
-        align2.show()        
-        button = gtk.Button('OK')
-        button.connect('clicked', self.destroyAlert, 'cool button')
-        align2.add(button)
-        button.show()
-        
-        self.alertWindow.show()
-        
-    def destroyAlert(self, widget=None, other=None):
-        """
-        Destroy aler window
-        
-        @param widget: widget
-        @param other: other
-        """
-        
-        self.alertWindow.destroy() 
-    
-    def __init__(self, id=None, base='./'):
-        """
-        Constructor method
-        
-        @param id: string id
-        @param base: base directory
-        """
-                
-        UI.__init__(self, id, base)
-        self.lineBase = self.base + 'includes/ui/text/'
-        self.graphicalBase = self.base + 'includes/ui/graphical/'
-    
+  
 
 class Buxon(GtkUI):
 
@@ -481,12 +398,12 @@ class BuxonMain:
 			global widgets
 			global callbacks
 			global buxon
-			
+
 			widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
 			callbacks = Callbacks()
 			widgets.signal_autoconnect(Callbacks.__dict__)
 			self.logger.debug('GUI loaded')
-			
+
 			buxon = Buxon(base)
 			
 			if ('-h' in argv or '--help' in argv):

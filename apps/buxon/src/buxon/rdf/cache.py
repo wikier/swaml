@@ -1,5 +1,7 @@
 # -*- coding: utf8 -*-
-
+#
+# Buxon, a sioc:Forum Visor
+#
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
@@ -23,9 +25,9 @@ from rdflib.sparql.sparqlGraph import SPARQLGraph
 from rdflib.sparql.graphPattern import GraphPattern
 from rdflib.sparql import Query
 from rdflib import Namespace
-from swaml.rdf.namespaces import SIOC, RDF, RDFS, DC, DCTERMS
-from swaml.common.date import MailDate
-from swaml.rdf.ptsw import PTSW
+from buxon.rdf.namespaces import SIOC, RDF, RDFS, DC, DCTERMS
+from buxon.common.date import MailDate
+from buxon.rdf.ptsw import PTSW
 import socket    
 import gtk
 

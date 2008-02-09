@@ -247,9 +247,12 @@ SWAML~\cite{SWAML2007} is a Python script that reads mailing
 list archives in raw format, typically stored in a ``mailbox'' 
 (or ``mbox''), as defined in RFC~4155~\cite{RFC4155}. It parses
 mailboxes and outputs RDF descriptions of the messages, mailing lists
-and users as instances of the SIOC ontology.
-SWAML is a highly configurable, non-interactive application designed 
-to be invoked by the system task scheduler. This low-coupling with
+and users as instances of the SIOC ontology. Internally, it re-constructs
+the structure of the conversations in a tree structure, and it exploits
+this structure to produce links between the posts.
+
+This script is highly configurable and non-interactive, and has been
+designed to be invoked by the system task scheduler. This low-coupling with
 the software that runs the mailing list eases its portability and
 deployment.
 
@@ -263,33 +266,35 @@ database in another box. This enables to use SWAML without the
 participation of the system administration of the original
 web server.
 
-\subsection{Scraping HTML using XSLT}
+\subsection{Scraping HTML by means of XSLT}
 
-Unfortunately, mailing list archives are often unavailable in raw
-format. Sometimes we can only access to the ``cooked'' HTML
-version of the archives. In such cases, we can use a different
-approach: to scrap the data from the HTML file. As each web site
-uses a different, customized template for these HTML files, it is
-difficult to develop a generic scrapper. We implemented one
-for the Debian mailing list archives. It first retrieves all
-the relevant files by means of a web crawler. Then it tidies the
-markup in order to obtain well-formed XML. During the last stage,
-each file is transformed into RDF/XML using XSLT.
+Web scraping is a well-known, non-intrusive and widely used technique,
+although it should be applied only when other approaches are not viable.
+Screen-scraping applications are difficult to maintain and
+often produce low-quality information.
 
-Using these approach we have collected \textbf{FIXME} RDF triples
-from a selected subset of \textbf{FIXME: number of lists} lists for
-the period 2005-2006.
+A popular language to write HTML scrapers is XSLT. As a pre-requisite,
+the mark-up must be converted to XHTML (an XML dialect) if it is not
+already in this format. Fortunately, open source utilities such as
+Tidy\footnote{\url{http://tidy.sourceforge.net/}} do a decent job
+to clean and fix HTML files with a poor mark-up.
 
-\subsubsection{RDFa enrichement}
+Scraping functions are often tied to a web crawler to follow the
+links between HTML pages.
 
-Another possible way is to take (X)HTML markup of communities and
-enrich it with RDFa~\cite{Birbeck2006}, using XSLT or DOM. The process
-generates an output in XHMTL+RDFa that could be easy extracted in RDF 
-with one of the parsers available (such as RDFa Distiller\footnote{\url{http://www.w3.org/2007/08/pyRdfa}}).
+As each web site uses a different, customized template to
+publish their cooked HTML files, it is
+difficult to develop a generic scraper, even for a single social
+web application. Moreover, there are lots of different social and
+web-community applications, and thus the portability of scrapers
+is very low.
 
-This approach is quite similar than the aproach used in mle~\cite{Hausenblas2007}
-project.
-
+The output of a web scraper implemented in XSLT can be RDF/XML, but
+another interesting posibility has already been explored. In
+mle~\cite{Hausenblas2007}, the authors use XSLT to decorate the
+DOM tree of an XHTML page with RDFa attributes~(FIXME: cite RDFa).
+This creates an hybrid representation which is readable for
+humans \emph{and} semantic web agents.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

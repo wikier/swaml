@@ -78,19 +78,16 @@
 %% e-mail address with \email.
 \alignauthor Diego Berrueta\\
        \affaddr{Fundaci\'on CTIC}\\
-       \affaddr{Gij\'on, Asturias, Spain}\\
-       \email{diego.berrueta@fundacionctic.org}
-%      \email{\begin{small}diego.berrueta@fundacionctic.org\end{small}}
+       \affaddr{Gij\'on, Asturias, Spain}
 \and
 \alignauthor Sergio Fern\'andez\\
        \affaddr{Fundaci\'on CTIC}\\
        \affaddr{Gij\'on, Asturias, Spain}\\
-       \email{sergio.fernandez@fundacionctic.org}
+       \email{\{fname.surname\}@fundacionctic.org}
 \and
 \alignauthor Lian Shi\\
        \affaddr{Fundaci\'on CTIC}\\
-       \affaddr{Gij\'on, Asturias, Spain}\\
-       \email{lian.shi@fundacionctic.org}
+       \affaddr{Gij\'on, Asturias, Spain}
 }
 
 %\author{
@@ -179,17 +176,28 @@ We further describe each category in the following paragraphs.
 
 \subsection{Intrusive techniques}
 
-A possible approach to the problem is to add new modules in our
-social applications (blogs, bulletin boards, etc) that export
-a semantic view (in RDF) of the community. In this way many
-developers have written exporters\footnote{\url{http://sioc-project.org/exporters}}
-for the most popular Web applications.
+It is safe to say that every social web site is built on top of a
+database that serves as the information model. The web application
+acts as the controller and publishes different views of the model in
+formats such as HTML and RSS. In terms of this pattern, publishing
+SIOC data is as simple as adding a new view.
+From a functional point of view, this is the most powerful scenario, because
+it allows a loseless publication due to the direct access
+to the backend database.
 
-This approach is very valid and powerfull, because it has direct 
-access to the back-end storage or API of Web applications. Then it
-couldn't applied in cases that you haven't access on this kind
-of resources. And here is where it apears the other approach to
-the problem.
+The SIOC community is contributing a number of plug-ins for some
+popular web community applications, such as Drupal, WordPress and 
+PhpBB\footnote{A more complete and up-to-date list is available
+at \url{http://sioc-project.org/exporters}.}. Mailing lists are
+also covered by SWAML, which will be discussed below.
+
+There is, however, a major blocker for this approach. All these
+software components need a deployment in the server side (where
+the database is). This is a burden for system administrators, who
+are often unwilling to make a move that would make it more difficult to
+maintain, securize and upgrade their systems. This is particularly
+true when there is no obvious inmmediate benefit of exporting
+SIOC data (\emph{chicken-and-egg} problem).
 
 \subsection{Unintrusive techniques}
 
@@ -203,7 +211,9 @@ in RDF:
 
 FIXME
 
-\subsubsection{From mboxes to RDF: SWAML}
+\section{Case studies}
+
+\subsection{From mboxes to RDF: SWAML}
 
 The first approach uses SWAML~\cite{SWAML2007}. SWAML takes mailing 
 list archives in raw format, typically stored in a ``mailbox'' 
@@ -222,7 +232,7 @@ section~\ref{sec:gnome} of this paper.
 
 FIXMEEE	
 
-\subsubsection{Scraping the HTML archives using XSLT}
+\subsection{Scraping the HTML archives using XSLT}
 
 Unfortunately, mailing list archives are often unavailable in raw
 format. Sometimes we can only access to the ``cooked'' HTML
@@ -250,7 +260,7 @@ This approach is quite similar than the aproach used in mle~\cite{Hausenblas2007
 project.
 
 
-\section{Common problem}
+\section{Common problems}
 
 These approaches for mining online communities have some common problem:
 

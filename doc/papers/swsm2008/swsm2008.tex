@@ -61,7 +61,7 @@
 % part as the last section in the body of your article BEFORE
 % References or any Appendices.
 
-\numberofauthors{4}
+\numberofauthors{3}
 %
 % Put no more than the first THREE authors in the \author command
 
@@ -216,11 +216,12 @@ Even if this source is always available,
 its exploitation poses a number of issues described in Section~FIXME.
 
 \item RSS/Atom feeds, which have become very popular. They can be easily
-translated into RDF data using XSLT stylesheets. Unfortunately,
+translated into RDF data using XSLT stylesheets (for XML-based feeds) or SPARQL queries\footnote{\url{http://apassant.net/blog/2006/10/05/from-rss-to-sioc-using-sparql/}}
+(for RSS 1.0, which is actually RDF). Unfortunately,
 these feeds often contain just partial descriptions.
 
 \item Public APIs. The web~2.0 trend has pushed some social web
-sites to export (a part of) their functionality through APIs
+sites to export (part of) their functionality through APIs
 to enable their consumption by third-party mash-ups and applications.
 Where available, these APIs offer an excellent opportunity to
 create RDF views of the data.
@@ -237,26 +238,32 @@ any access to the data is not primary.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Case studies}
 
+In this section we describe an example of each of the two approaches
+aforementioned.
+
 \subsection{From mboxes to RDF: SWAML}
 
-The first approach uses SWAML~\cite{SWAML2007}. SWAML takes mailing 
+SWAML~\cite{SWAML2007} is a Python script that reads mailing 
 list archives in raw format, typically stored in a ``mailbox'' 
-(or ``mbox''), as defined in RFC~4155~\cite{RFC4155}. We have 
-developed SWAML, a Python script that parses mailboxes and 
-outputs RDF descriptions of the messages using the SIOC ontology.
+(or ``mbox''), as defined in RFC~4155~\cite{RFC4155}. It parses
+mailboxes and outputs RDF descriptions of the messages, mailing lists
+and users as instances of the SIOC ontology.
 SWAML is a highly configurable, non-interactive application designed 
-to be invoked by the system task scheduler.
+to be invoked by the system task scheduler. This low-coupling with
+the software that runs the mailing list eases its portability and
+deployment.
 
-Some could think that this is a intrusive approarch, becuase it needs
-to access on mailboxes to export RDF. But many mailing lists publish
-their mailboxes (sometime splited by months or by days) directly by 
-HTTP, so it is very easy to fetch (and merge) it. We have tested SWAML 
-with the archives of the GNOME project, as we tell later in 
-section~\ref{sec:gnome} of this paper. 
+SWAML is classified as an example of the intrusive techniques because
+it actually requires access to the primary data source, even if
+it is not a relational database but a text file. Anyway, it is
+worth mention that some servers already export these text files
+(mailboxes) through HTTP. Therefore, sometimes it is possible to
+retrieve the mailbox and build a perfect replica of the primary
+database in another box. This enables to use SWAML without the
+participation of the system administration of the original
+web server.
 
-FIXMEEE	
-
-\subsection{Scraping the HTML archives using XSLT}
+\subsection{Scraping HTML using XSLT}
 
 Unfortunately, mailing list archives are often unavailable in raw
 format. Sometimes we can only access to the ``cooked'' HTML

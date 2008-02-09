@@ -136,10 +136,13 @@ FIXME: completar y lucir
 
 \keywords{semantic mining, online communities, rdf, xsl}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 FIXME
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies}
 
 We use an ontology and RDF (Resource Description
@@ -157,7 +160,8 @@ SIOC has been used as the core framework to represent information from
 online communities in all the work described in this paper.
 
 
-\section{Approaches}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Classification of SIOC-producing techiques}
 
 Since SIOC is a recent specification, its adoption is still low, and
 only a few sites export SIOC data. There are a number of techniques
@@ -201,16 +205,36 @@ SIOC data (\emph{chicken-and-egg} problem).
 
 \subsection{Unintrusive techniques}
 
-Another possible approach uses unintrusive techniques. These 
-techniques are based in a crawler process that fecthes the data 
-published in online communities in (X)HTML. So we don't need to
-access to a server-side appliaction to mining the data.
+In absence of direct access to the database, unintrusive
+techniques exploit the information already available on the web:
 
-Then different approaches are used to extract the information 
-in RDF:
+\begin{itemize}
 
-FIXME
+\item Cooked HTML views of the information, the same ones that
+are rendered by web browsers for human consumption.
+Even if this source is always available,
+its exploitation poses a number of issues described in Section~FIXME.
 
+\item RSS/Atom feeds, which have become very popular. They can be easily
+translated into RDF data using XSLT stylesheets. Unfortunately,
+these feeds often contain just partial descriptions.
+
+\item Public APIs. The web~2.0 trend has pushed some social web
+sites to export (a part of) their functionality through APIs
+to enable their consumption by third-party mash-ups and applications.
+Where available, these APIs offer an excellent opportunity to
+create RDF views of the data.
+
+\end{itemize}
+
+A shared aspects of these sources is their ubiquous availability through
+web protocols and languages, such as HTTP and XML. Therefore, they
+can be consumed anywhere, thus freeing the system administrators of
+taking care of any additional deployment. In contrast, they cannot compete
+with the intrusive approaches in terms of information quality, as
+any access to the data is not primary.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Case studies}
 
 \subsection{From mboxes to RDF: SWAML}
@@ -260,6 +284,8 @@ This approach is quite similar than the aproach used in mle~\cite{Hausenblas2007
 project.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Common problems}
 
 These approaches for mining online communities have some common problem:
@@ -300,11 +326,12 @@ These approaches for mining online communities have some common problem:
 \end{itemize}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimentation with Free Sofware communities}
 
 FIXME
 
-\section{\label{sec:gnome}GNOME mailing lists}
+\subsection{\label{sec:gnome}GNOME mailing lists}
 
 GNOME project publishes archives of its mailing lists~\footnote{\url{http://mail.gnome.org/archives/}}.
 It is an archive with around 200 mailing list with information of 
@@ -318,11 +345,11 @@ Then we had all necessary information to start running SWAML on these
 more than 200 mailboxes. For a selected subset of the mailing lists, 
 SWAML has produced plus 25 million triples.
 
-\section{Debian mailing lists}
+\subsection{Debian mailing lists}
 
 FIXME
 
-\section{Ubuntu Forums}
+\subsection{Ubuntu Forums}
 
 Ubuntu Forums\footnote{\url{http://ubuntuforums.org/}} are a very popular 
 discussion forusm among users of this GNU/Linux distribution. They have a 
@@ -335,11 +362,12 @@ and we developed some XSLT stylesheets to transform get instances of
 \texttt{sioc:Forum}, \texttt{sioc:Thread} and \texttt{sioc:Post}. We 
 selected only a subset of available forums to test our application, FIXME
 
-\section{Advogato}
+\subsection{Advogato}
 
 FIXME
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\label{sec:conclusions}Conclusions}
 
 Semantic descriptions of online communities pushes them
@@ -364,6 +392,7 @@ be exploited to build recommendation systems~\cite{Celma2006}.
 
 FIXME
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
 
 FIXME

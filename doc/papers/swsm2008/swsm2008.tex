@@ -159,6 +159,11 @@ SIOC is now an official W3C member submission~\cite{Bojars2007}.
 SIOC has been used as the core framework to represent information from
 online communities in all the work described in this paper.
 
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=7cm]{images/sioc.png}
+ \caption{SIOC main classes and properties}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Classification of SIOC-producing techiques}
@@ -305,15 +310,17 @@ These approaches for mining online communities have some common problem:
 \begin{itemize}
   \item \textbf{Identities:} as it can be seen in figure~\ref{fig:foaf-sioc},
 	a person (an instance of \texttt{foaf:Person}) can own many online 
-	accounts (instances of \texttt{sioc:User}). So we must apply techniques
-	(such as Smushing\footnote{\url{http://esw.w3.org/topic/RdfSmushing}})
-	in order to extract the real identy behind a online account.
+	accounts (instances of \texttt{sioc:User}). 
 
 	\begin{figure}[ht]
 	 \centering
 	 \includegraphics[width=7cm]{images/foaf-sioc.png}
 	 \caption{\label{fig:foaf-sioc}Online identity, relationship between FOAF and SIOC}
 	\end{figure}
+
+	So we must apply techniques (such as 
+	Smushing\footnote{\url{http://esw.w3.org/topic/RdfSmushin}g})
+	in order to extract the real identy behind a online account.
 
   \item \textbf{Problems with sha1 algorithm:} related with previous problem,
 	we detected a problem using sha1 algorithm~\cite{Eastlake2001}. FOAF 
@@ -328,12 +335,23 @@ These approaches for mining online communities have some common problem:
 	inverse functional properties. Unfortunately in our experimientos we 
 	have found many times this kind of problem.
 
-  \item \textbf{\textit{Flat} thread:} FIXME
+  \item \textbf{\textit{Flat} thread:} Typical structure of Web discussion
+	forum is flat: it's imposible to know which post is the parent of
+	other. So exporters of this kind of forums (server-side or scrapers)
+	create flat thread (\texttt{sioc:Thread}) where all posts always answer
+	the first one. This is a very poor information about thread, but it's
+	implicit in the anarchic nature of Web forums.
 
-  \item \textbf{Repeated keys:} FIXME
+  \item \textbf{Repeated keys:} This problem doesn't exist when there is a 
+	central application (such as a Web CMS) that assigns unique identifier 
+	for each message posted. But in a mailing list, although each mail 
+	message has a supposedly unique identifier in its header 
+	(\texttt{Message-ID}, defined by RFC~2822~\cite{RFC2822}), 
+	in practice its uniqueness cannot be taken for granted,
+	probably due to non-RFC compliant mail transport agents.
 
-  \item \textbf{Paginated discussions:} FIXME
-
+  \item \textbf{Paginated discussions:} in scraping approaches, we must be able 
+	to process the page in order not to lose important information.
 
 \end{itemize}
 

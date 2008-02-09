@@ -35,6 +35,11 @@
 % For tracking purposes - this is V1.2 - January 26 2004
 \documentclass{../templates/www2008-submission}
 
+% shared affiliation macro
+\def\sharedaffiliation{
+\end{tabular}
+\begin{tabular}{c}}
+
 \begin{document}
 %
 \title{Semantic Mining of Social Online Communities}
@@ -75,6 +80,7 @@
        \affaddr{Fundaci\'on CTIC}\\
        \affaddr{Gij\'on, Asturias, Spain}\\
        \email{diego.berrueta@fundacionctic.org}
+%      \email{\begin{small}diego.berrueta@fundacionctic.org\end{small}}
 \and
 \alignauthor Sergio Fern\'andez\\
        \affaddr{Fundaci\'on CTIC}\\
@@ -86,6 +92,23 @@
        \affaddr{Gij\'on, Asturias, Spain}\\
        \email{lian.shi@fundacionctic.org}
 }
+
+%\author{
+%  \alignauthor Diego Berrueta \\
+%  \email{diego.berrueta@fundacionctic.org}
+%
+%  \alignauthor Sergio Fern\'andez \\
+%  \email{sergio.fernandez@fundacionctic.org}
+%
+%  \alignauthor Lian Shi \\
+%  \email{lian.shi@fundacionctic.org}
+%
+%  \sharedaffiliation
+%    %\email{\{diego.berrueta,sergio.fernandez,lian.shi\}@fundacionctic.org}
+%    \affaddr{R\&D Department}  \\
+%    \affaddr{Fundaci\'on CTIC}  \\
+%    \affaddr{Gij\'on, Asturias, Spain}
+%}
 
 %\additionalauthors{Additional authors: John Smith (The Th{\o}rv\"{a}ld Group,
 %email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat

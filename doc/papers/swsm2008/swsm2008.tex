@@ -187,9 +187,9 @@ to be invoked by the system task scheduler.
 
 Some could think that this is a intrusive approarch, becuase it needs
 to access on mailboxes to export RDF. But many mailing lists publish
-their mailboxes (sometime splited bu months or days) directly by HTTP,
-so it is very easy to fetch (and merge) it. We have tested SWAML with 
-the archives of the GNOME project, as we tell later in 
+their mailboxes (sometime splited by months or by days) directly by 
+HTTP, so it is very easy to fetch (and merge) it. We have tested SWAML 
+with the archives of the GNOME project, as we tell later in 
 section~\label{sec:gnome} of this paper. 
 
 FIXMEEE	
@@ -232,10 +232,17 @@ FIXME
 
 \section{\label{sec:gnome}GNOME mailing lists}
 
-FIXME
+GNOME project publishes archives of its mailing lists~\footnote{\url{http://mail.gnome.org/archives/}}.
+It is an archive with around 200 mailing list with information of 
+more than ten years of activity in the project. Fortunately these
+archives are not only published in (X)HTML, but also there are 
+available (gzipped) mailboxes for each month. So we wrotte a simple
+crawler to fetch these raw data directly by HTTP, and merge archive
+of each month in a single mailbox for each mailing list of the project.
 
-For a selected subset of the mailing lists, SWAML has produced 
-\textbf{FIXME: number of triples} triples.
+Then we had all necessary information to start running SWAML on these 
+more than 200 mailboxes. For a selected subset of the mailing lists, 
+SWAML has produced plus 25 million triples.
 
 \section{Debian mailing lists}
 

@@ -195,7 +195,7 @@ to access on mailboxes to export RDF. But many mailing lists publish
 their mailboxes (sometime splited by months or by days) directly by 
 HTTP, so it is very easy to fetch (and merge) it. We have tested SWAML 
 with the archives of the GNOME project, as we tell later in 
-section~\label{sec:gnome} of this paper. 
+section~\ref{sec:gnome} of this paper. 
 
 FIXMEEE	
 
@@ -227,9 +227,45 @@ This approach is quite similar than the aproach used in mle~\cite{Hausenblas2007
 project.
 
 
-\section{Common problems}
+\section{Common problem}
 
-FIXME
+These approaches for mining online communities have some common problem:
+
+\begin{itemize}
+  \item \textbf{Identities:} as it can be seen in figure~\ref{fig:foaf-sioc},
+	a person (an instance of \texttt{foaf:Person}) can own many online 
+	accounts (instances of \texttt{sioc:User}). So we must apply techniques
+	(such as Smushing\footnote{\url{http://esw.w3.org/topic/RdfSmushing}})
+	in order to extract the real identy behind a online account.
+
+	\begin{figure}[ht]
+	 \centering
+	 \includegraphics[width=7cm]{images/foaf-sioc.png}
+	 \caption{\label{fig:foaf-sioc}Online identity, relationship between FOAF and SIOC}
+	\end{figure}
+
+  \item \textbf{Problems with sha1 algorithm:} related with previous problem,
+	we detected a problem using sha1 algorithm~\cite{Eastlake2001}. FOAF 
+	and SIOC use this algorithm (in properties \texttt{foaf:mbox\_sha1sum} 
+	and \texttt{sioc:email\_sha1}, respectively) in order to protect email 
+	addresses from SPAM attacks. And this algoritm is case sensitive. So,
+	for example, if we take Diego's email address, we could write it as
+	\texttt{diego.berrueta@fundacionctic.org} or as \texttt{Diego.Berrueta@fundacionctic.org}.
+	Both are valid email addresses. But each one generates different sha1sum.
+	This could  seem a detail without importance, but it really creates a 
+	serious problem when try to identify persons/users using these
+	inverse functional properties. Unfortunately in our experimientos we 
+	have found many times this kind of problem.
+
+  \item \textbf{\textit{Flat} thread:} FIXME
+
+  \item \textbf{Repeated keys:} FIXME
+
+  \item \textbf{Paginated discussions:} FIXME
+
+
+\end{itemize}
+
 
 \section{Experimentation with Free Sofware communities}
 

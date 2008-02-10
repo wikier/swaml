@@ -172,14 +172,15 @@ semantic social web and concludes the paper.
 \section{Semantic Web Vocabularies to describe the Social Web}\label{sec:vocabularies}
 
 The Semantic Web initiative uses RDF (Resource Description
-Framework~\cite{RDF}) as its (meta)data representation model.
+Framework~\cite{RDF}) as the (meta)data representation model.
 Ontologies are artifacts that define the meaning of the symbols
 which appear in the RDF assertions. Two ontologies are
 specially relevant to describe the social web: FOAF and SIOC.
 
 FOAF~\cite{FOAF} is one of the most used vocabularies in the documents that
 constitute the current Semantic Web~\cite{Ding2005, Finin2005}.
-It provides the essential classes and properties to describe individuals
+It provides the essential classes and properties necessary
+to describe individuals
 and their relationships. However, FOAF descriptions can be found
 only for a very small portion of the web users. Bootstrapping the
 FOAF-web by means of mining the document-web is the topic
@@ -188,8 +189,8 @@ description of people. Instead, this paper focuses on the description
 of the interactions between people in online discussion communities.
 
 DERI NUI Galway leads the development of SIOC (Seman\-ti\-cally-Interlinked Online
-Communities\footnote{\texttt{http://sioc-project.org/}}), an ontology that 
-provides a vocabulary to interconnect different discussion methods such 
+Communities\footnote{\texttt{http://sioc-project.org/}}), an ontology which 
+defines a vocabulary to interconnect different discussion methods such 
 as blogs, web-based forums and mailing lists~\cite{Breslin2006,Breslin2005}.
 SIOC is now an official W3C member submission~\cite{Bojars2007}.
 SIOC provides the foundations to describe online discussion
@@ -212,22 +213,22 @@ quantity of RDF instances of the SIOC ontology.
 Since SIOC is a recent specification, its adoption is still low, and
 only a few sites export SIOC data. There exist a number of techniques
 that can be used to bootstrap a network of semantic descriptions from
-current social web sites. We classify them in two categories:
+current social web sites. We classify them in two main categories:
 
 \begin{itemize}
-\item Those which require direct access to the underlying database behind
+\item On the one hand, methods which require direct access to the underlying database behind
 the social web site are \emph{intrusive techniques}.
-\item On the other hand, techniques which do not require direct access to
+\item On the other hand, methods which do not require direct access to
 the database and can operate on resources already published on the web
 are \emph{non-intrusive}.
 \end{itemize}
 
-We further describe each category in the following paragraphs.
+We further describe each kind in the following paragraphs.
 
 \subsection{Intrusive techniques}
 
 It is safe to say that every social web site is built on top of a
-database that serves as the information model. The web application
+database that serves as its information model. The web application
 acts as the controller and publishes different views of the model in
 formats such as HTML and RSS. In terms of this pattern, publishing
 SIOC data is as simple as adding a new view.
@@ -235,11 +236,11 @@ From a functional point of view, this is the most powerful scenario, because
 it allows a loseless publication due to the direct access
 to the back-end database.
 
-The SIOC community is contributing a number of plug-ins for some
-popular web community applications, such as Drupal, WordPress and 
+The SIOC community has contributed a number of plug-ins for some
+popular web community-building applications, such as Drupal, WordPress and 
 PhpBB\footnote{A more complete and up-to-date list is available
 at \texttt{http://sioc-project.org/exporters}.}. Mailing lists are
-also covered by SWAML, which will be discussed below.
+also covered by SWAML, which is described later in this paper.
 
 There is, however, a major blocker for this approach. All these
 software components need a deployment in the server side (where
@@ -259,28 +260,29 @@ techniques exploit the information already available on the web:
 \item Cooked HTML views of the information, the same ones that
 are rendered by web browsers for human consumption. Even if this 
 source is always available, its exploitation poses a number of 
-issues described in section~\ref{sec:problems}.
+issues described in Section~\ref{sec:problems}.
 
-\item RSS/Atom feeds, which have become very popular. They can be easily
-translated into RDF data using XSLT stylesheets (for XML-based feeds) or 
+\item RSS/Atom feeds, which have become very popular in the recent years.
+They can be easily
+translated into SIOC instances using XSLT stylesheets (for XML-based feeds) or 
 SPARQL queries\footnote{\texttt{http://tinyurl.com/2u3e6k}} (for RSS 1.0, 
 which is actually RDF). Unfortunately, these feeds often contain just 
 partial descriptions.
 
 \item Public APIs. The web~2.0 trend has pushed some social web
 sites to export (part of) their functionality through APIs
-to enable their consumption by third-party mash-ups and applications.
+in order to enable their consumption by third-party mash-ups and applications.
 Where available, these APIs offer an excellent opportunity to
 create RDF views of the data.
 
 \end{itemize}
 
-A shared aspects of these sources is their ubiquitous availability through
+A shared aspect of these sources is their ubiquitous availability through
 web protocols and languages, such as HTTP and XML. Therefore, they
-can be consumed anywhere, thus freeing the system administrators of
+can be consumed anywhere, and thus system administrators are freed of
 taking care of any additional deployment. In contrast, they cannot compete
 with the intrusive approaches in terms of information quality, as
-any access to the data is not primary.
+their access to the data is not primary.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Case studies}\label{sec:case-studies}
@@ -303,17 +305,17 @@ designed to be invoked by the system task scheduler. This low-coupling with
 the software that runs the mailing list eases its portability and
 deployment.
 
-SWAML is classified as an example of the intrusive techniques because
-it actually requires access to the primary data source, even if
+SWAML classifies as an intrusive technique because
+it requires access to the primary data source, even if in this case
 it is not a relational database but a text file. Anyway, it is
-worth mention that some servers already export these text files
+worth mention that some servers publish these text files
 (mailboxes) through HTTP. Therefore, sometimes it is possible to
 retrieve the mailbox and build a perfect replica of the primary
-database in another box. This enables to use SWAML without the
+database in another box. In such cases, SWAML can be used without the
 participation of the system administration of the original
 web server.
 
-\subsection{Scraping HTML by means of XSLT}
+\subsection{HTML Scraping with XSLT}
 
 Web scraping is a well-known, non-intrusive and widely used technique,
 although it should be applied only when other approaches are not viable.
@@ -333,10 +335,10 @@ As each web site uses a different, customized template to
 publish their cooked HTML files, it is
 difficult to develop a generic scraper, even for a single social
 web application. Moreover, there are lots of different social and
-web-community applications, and thus the portability of scrapers
+web community-building applications, and thus the portability of scrapers
 is very low.
 
-The output of a web scraper implemented in XSLT can be RDF/XML, but
+The output of a web scraper implemented in XSLT is usually RDF/XML, but
 another interesting possibility has already been explored. In
 mle~\cite{Hausenblas2007}, the authors use XSLT to decorate the
 DOM tree of an XHTML page with RDFa attributes~\cite{Birbeck2006}.

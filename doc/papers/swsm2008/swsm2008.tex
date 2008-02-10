@@ -196,9 +196,9 @@ Figure~\ref{fig:sioc}.
 \section{Classification of SIOC-producing techiques}
 
 Since SIOC is a recent specification, its adoption is still low, and
-only a few sites export SIOC data. There are a number of techniques
+only a few sites export SIOC data. There exist a number of techniques
 that can be used to bootstrap a network of semantic descriptions from
-current social sites. We classify them in two categories:
+current social web sites. We classify them in two categories:
 
 \begin{itemize}
 \item Those which require direct access to the underlying database behind
@@ -331,20 +331,20 @@ humans \emph{and} semantic web agents.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\label{sec:problems}Common problems}
+\section{\label{sec:problems}Common issues}
 
-These approaches for mining online communities have some common problems:
+When put into practice, some shared problems and limitations
+of the approaches described above are revealed:
 
 \begin{itemize}
-  \item \textbf{Identities:} as it can be seen in figure~\ref{fig:foaf-sioc}~\footnote{Based 
-	on another image by John Breslin, extracted from \texttt{http://sioc-project.org/node/158}},
+  \item \emph{Same person, multiple identities}: as it can be seen in Figure~\ref{fig:foaf-sioc}
 	a person (an instance of \texttt{foaf:Person}) can own many online 
 	accounts (instances of \texttt{foaf:OnlineAccount} or \texttt{sioc:User}). 
 
 	\begin{figure}[ht]
 	 \centering
-	 \includegraphics[width=7cm]{images/foaf-sioc.png}
-	 \caption{\label{fig:foaf-sioc}Online identity, relationship between FOAF and SIOC}
+	 \includegraphics[width=8cm]{images/foaf-sioc.png}
+	 \caption{\label{fig:foaf-sioc}Relationship between FOAF and SIOC. Image by John Breslin, reproduced from \texttt{http://sioc-project.org/node/158}.}
 	\end{figure}
 
 	People use many online account in their daily life. Except in exceptional 
@@ -360,7 +360,7 @@ These approaches for mining online communities have some common problems:
 	to find more information related that allows a better extraction of
 	identities involved.
 
-  \item \textbf{Problems with sha1 algorithm:} related with previous problem,
+  \item \emph{Problems with sha1 algorithm}: related with previous problem,
 	we detected a problem using sha1 algorithm~\cite{Eastlake2001}. FOAF 
 	and SIOC use this algorithm (in properties \texttt{foaf:mbox\_sha1sum} 
 	and \texttt{sioc:email\_sha1}, respectively) in order to protect email 
@@ -373,23 +373,42 @@ These approaches for mining online communities have some common problems:
 	inverse functional properties. Unfortunately in our experimientos we 
 	have found many times this kind of problem.
 
-  \item \textbf{\textit{Flat} thread:} Typical structure of Web discussion
-	forum is flat: it's imposible to know which post is the parent of
-	other. So exporters of this kind of forums (server-side or scrapers)
-	create flat thread (\texttt{sioc:Thread}) where all posts always answer
-	the first one. This is a very poor information about thread, but it's
-	implicit in the anarchic nature of Web forums.
+  \item \emph{Flat threads}. Typically, web-based discussion forums and blogs
+        have flat threads, i.e., all the replies are attached to the original
+        post that started the thread. However, discussions hosted in those
+        forums often violate this restrictive pattern, and some messages
+        are in fact replies to some of the precedent ones. Users often
+        quote the actual message they are replying to in order to clarify the
+        flow. Unfortunately, it is difficult to automatically re-build
+        the actual hierarchical structure of the conversation. Therefore,
+        when converted to SIOC, some information about the sequence of
+        the discussion is lost.
 
-  \item \textbf{Repeated keys:} This problem doesn't exist when there is a 
-	central application (such as a Web CMS) that assigns unique identifier 
-	for each message posted. But in a mailing list, although each mail 
-	message has a supposedly unique identifier in its header 
-	(\texttt{Message-ID}, defined by RFC~2822~\cite{RFC2822}), 
-	in practice its uniqueness cannot be taken for granted,
-	probably due to non-RFC compliant mail transport agents.
+        The situation is completely different for mailing lists, because
+        each new post contains a header (\texttt{In-Reply-To}) that points
+        to the immediate parent in the thread hierarchy.
 
-  \item \textbf{Paginated discussions:} in scraping approaches, we must be able 
-	to process the page in order not to lose important information.
+  \item \emph{Repeated primary keys}. Every online discussion community assigns
+        an identifier (primary key) to each message and user. These
+        identifiers are locally unique, and can be used to coin a URI
+        for each resource. Mailing lists also use identifiers
+        (\texttt{Message-ID}, as defined in RFC~2822~\cite{RFC2822}) for
+        each e-mail message, altough in this case, such identifiers are
+        supposed to be globally-unique. However, non RFC-compliant or
+        unproperly configured mail transport agents can potentially produce repeated
+        identifiers for e-mail messages. Our experimentation has
+        revealed that it is possible to find clashes among the messages
+        of a mailing list. This fact leads to two consequences. Firstly,
+        \texttt{Message-ID}s cannot be used to coin URIs. Secondly,
+        links between messages, such as those created by the
+        \texttt{In-Reply-To} header, are not fully reliable.
+
+  \item \emph{Pagination}: long discussions and indexes are often paginated
+        into several inter-linked HTML files. Although web crawlers can
+        retrieve all the parts, this fragmentation poses a challenge for
+        scraping the information. It is often necesary to re-join the
+        different pages in order to produce a consistent RDF representation
+        of the information.
 
 \end{itemize}
 

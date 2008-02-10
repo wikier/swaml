@@ -118,7 +118,7 @@
 
 \begin{abstract}
 Mining and searching the social web is hardly possible without
-a significative amount of data available in an interoperable
+a noteworthy amount of data available in an interoperable
 format. This paper enumerates and compares several techniques which can be
 applied to produce large quantities of RDF data describing
 social web sites. Advantages, drawbacks and potential issues of
@@ -139,7 +139,7 @@ are presented to illustrate the convenience of each approach.
 \section{Introduction}
 
 Effective large-scale mining of the social web requires the
-availability of a significative amount of well-defined data~\cite{Mika2004}.
+availability of a big amount of well-defined data~\cite{Mika2004}.
 The semantic web provides a convenient platform to publish and
 consume these data. There are a couple of vocabularies (FOAF~\cite{FOAF} and
 SIOC~\cite{Bojars2007}) that are particularly suited to represent the
@@ -157,7 +157,7 @@ web and it can help to reach the critical-mass that
 enables a virtuous cycle of applications and data.
 
 The rest of the paper is organized as follows: in Section~\ref{sec:vocabularies}
-the FOAF and SIOC vocabularies are introduced in the context of appling
+the FOAF and SIOC vocabularies are introduced in the context of applying
 the semantic web to describe the social web. Section~\ref{sec:taxonomy}
 enumerates and classifies some methods to produce large quantities
 of RDF descriptions. Section~\ref{sec:case-studies} and
@@ -202,7 +202,7 @@ Figure~\ref{fig:sioc}.
  \caption{\label{fig:sioc}SIOC main classes and properties, reproduced from the SIOC specification.}
 \end{figure}
 
-In the rest of the paper, we describe methods to create a significative
+In the rest of the paper, we describe methods to create a large
 quantity of RDF instances of the SIOC ontology.
 
 
@@ -233,7 +233,7 @@ formats such as HTML and RSS. In terms of this pattern, publishing
 SIOC data is as simple as adding a new view.
 From a functional point of view, this is the most powerful scenario, because
 it allows a loseless publication due to the direct access
-to the backend database.
+to the back-end database.
 
 The SIOC community is contributing a number of plug-ins for some
 popular web community applications, such as Drupal, WordPress and 
@@ -245,8 +245,8 @@ There is, however, a major blocker for this approach. All these
 software components need a deployment in the server side (where
 the database is). This is a burden for system administrators, who
 are often unwilling to make a move that would make it more difficult to
-maintain, securize and upgrade their systems. This is particularly
-true when there is no obvious inmmediate benefit of exporting
+maintain, keep secure and upgrade their systems. This is particularly
+true when there is no obvious immediate benefit of exporting
 SIOC data (\emph{chicken-and-egg} problem).
 
 \subsection{Unintrusive techniques}
@@ -275,7 +275,7 @@ create RDF views of the data.
 
 \end{itemize}
 
-A shared aspects of these sources is their ubiquous availability through
+A shared aspects of these sources is their ubiquitous availability through
 web protocols and languages, such as HTTP and XML. Therefore, they
 can be consumed anywhere, thus freeing the system administrators of
 taking care of any additional deployment. In contrast, they cannot compete
@@ -320,7 +320,7 @@ although it should be applied only when other approaches are not viable.
 Screen-scraping applications are difficult to maintain and
 often produce low-quality information.
 
-A popular language to write HTML scrapers is XSLT. As a pre-requisite,
+A popular language to write HTML scrapers is XSLT. As a prerequisite,
 the mark-up must be converted to XHTML (an XML dialect) if it is not
 already in this format. Fortunately, open source utilities such as
 Tidy\footnote{\texttt{http://tidy.sourceforge.net/}} do a decent job
@@ -337,7 +337,7 @@ web-community applications, and thus the portability of scrapers
 is very low.
 
 The output of a web scraper implemented in XSLT can be RDF/XML, but
-another interesting posibility has already been explored. In
+another interesting possibility has already been explored. In
 mle~\cite{Hausenblas2007}, the authors use XSLT to decorate the
 DOM tree of an XHTML page with RDFa attributes~\cite{Birbeck2006}.
 This creates an hybrid representation which is readable for
@@ -358,7 +358,7 @@ as explained below. The result, anyway, is the same in both cases:
 a big dataset of RDF instances that can be uploaded to an RDF
 store such as Sesame~\cite{Broekstra2002}. In this way, they can be
 queried and mined, but it is also possible to execute rules or
-inferrence engines to obtain new knowledge.
+inference engines to obtain new knowledge.
 
 \subsection{\label{sec:gnome}GNOME mailing lists}
 
@@ -369,10 +369,10 @@ The web site of the GNOME project publishes the complete archive
 of around 200 mailing lists during the ten year of activity of
 the project\footnote{\texttt{http://mail.gnome.org/archives/}}.
 These archives are not just published as cooked HTML files for
-human consumption, but also as gzipped mailboxes splitted by
+human consumption, but also as gzipped mailboxes split by
 month and mailing list.
 
-A simple shell script was run to fetch the mailboxes, unpack and concat them
+A simple shell script was run to fetch the mailboxes, unpack and concatenate them
 into a single mailbox for each mailing list. A subset of these files
 (FIXME: how many lists??) were provided as input data to SWAML. The
 result was a dataset containing more than 25 million RDF triples.
@@ -400,7 +400,7 @@ task of translating dates to a uniform ISO format, we extended
 the Xalan XSLT processor with custom functions implemented in Java.
 
 The resulting dataset sums up more that 3 million RDF triples. The
-memory space required to store this dataset can be significatively
+memory space required to store this dataset can be notably
 reduced if the body of the messages is dropped, i.e., if just the meta-data
 is kept. We envision that many mining applications will not need the
 body of the messages.
@@ -434,7 +434,7 @@ of the approaches described above are revealed:
         number of user accounts and e-mail addresses, which are modelled
         as different entities in SIOC. If each of these is taken as
         a different person, social web mining would lead to imprecise
-        conclussions.
+        conclusions.
 
         FOAF separates the description of a person
         (\texttt{Person})
@@ -481,7 +481,7 @@ of the approaches described above are revealed:
         fails to prevent that equivalent
         e-mail addresses from producing different hashed values. For instance,
         it is common to find different spelling variants of the same
-        e-mail address which only difer on the use of lower and upper-case
+        e-mail address which only differ on the use of lower and upper-case
         letters. These variants will produce irreconcilable values
         when the hash function is applied, thus making them unusable
         to spot equivalent instances of the same resource.
@@ -506,9 +506,9 @@ of the approaches described above are revealed:
         identifiers are locally unique, and can be used to coin a URI
         for each resource. Mailing lists also use identifiers
         (\texttt{Message-ID}, as defined in RFC~2822~\cite{RFC2822}) for
-        each e-mail message, altough in this case, such identifiers are
+        each e-mail message, although in this case, such identifiers are
         supposed to be globally-unique. However, non RFC-compliant or
-        unproperly configured mail transport agents can potentially produce repeated
+        improperly configured mail transport agents can potentially produce repeated
         identifiers for e-mail messages. Our experimentation has
         revealed that it is possible to find clashes among the messages
         of a mailing list. This fact leads to two consequences. Firstly,
@@ -519,7 +519,7 @@ of the approaches described above are revealed:
   \item \emph{Pagination}. Long discussions and indexes are often paginated
         into several inter-linked HTML files. Although web crawlers can
         retrieve all the parts, this fragmentation poses a challenge for
-        scraping the information. It is often necesary to re-join the
+        scraping the information. It is often necessary to re-join the
         different pages in order to produce a consistent RDF representation
         of the information.
 

@@ -243,9 +243,9 @@ techniques exploit the information already available on the web:
 \begin{itemize}
 
 \item Cooked HTML views of the information, the same ones that
-are rendered by web browsers for human consumption.
-Even if this source is always available,
-its exploitation poses a number of issues described in Section~FIXME.
+are rendered by web browsers for human consumption. Even if this 
+source is always available, its exploitation poses a number of 
+issues described in section~\ref{sec:problems}.
 
 \item RSS/Atom feeds, which have become very popular. They can be easily
 translated into RDF data using XSLT stylesheets (for XML-based feeds) or 
@@ -325,15 +325,15 @@ is very low.
 The output of a web scraper implemented in XSLT can be RDF/XML, but
 another interesting posibility has already been explored. In
 mle~\cite{Hausenblas2007}, the authors use XSLT to decorate the
-DOM tree of an XHTML page with RDFa attributes~(FIXME: cite RDFa).
+DOM tree of an XHTML page with RDFa attributes~\cite{Birbeck2006}.
 This creates an hybrid representation which is readable for
 humans \emph{and} semantic web agents.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Common problems}
+\section{\label{sec:problems}Common problems}
 
-These approaches for mining online communities have some common problem:
+These approaches for mining online communities have some common problems:
 
 \begin{itemize}
   \item \textbf{Identities:} as it can be seen in figure~\ref{fig:foaf-sioc}~\footnote{Based 
@@ -402,7 +402,9 @@ online communities with coarse amounts of information published.
 And we selected Free Software communities, becuase there are a very
 open kind of communities. More specifically chose four sites where
 test our experiments: GNOME mailing lists, Debian mailing lists,
-Ubuntu Forums and Advogato.
+Ubuntu Forums and Advogato. All results of our experiment have been
+stored into Sesame~\cite{Broekstra2002}, a generic RDF store, to
+allow querying it.
 
 \subsection{\label{sec:gnome}GNOME mailing lists}
 

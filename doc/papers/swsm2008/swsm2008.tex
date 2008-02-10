@@ -139,7 +139,7 @@ are presented to illustrate the convenience of each approach.
 \section{Introduction}
 
 Effective large-scale mining of the social web requires the
-availability of a significative amount of well-defined data.
+availability of a significative amount of well-defined data~\cite{Mika2004}.
 The semantic web provides a convenient platform to publish and
 consume these data. There are a couple of vocabularies (FOAF~\cite{FOAF} and
 SIOC~\cite{Bojars2007}) that are particularly suited to represent the
@@ -159,26 +159,37 @@ enables a virtuous cycle of applications and data.
 The rest of the paper is organized as follows: (FIXME).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Technologies}
+\section{Vocabularies for the Social Semantic Web}
 
-We use an ontology and RDF (Resource Description
-Framework~\cite{RDF}) to publish online communities into 
-the (Semantic) Web, while retaining the meta-data that were present in 
-the messages. Additionally, by doing so, the information can be
-merged and linked to other vocabularies, such as FOAF.
+The Semantic Web initiative uses RDF (Resource Description
+Framework~\cite{RDF}) as its (meta)data representation model.
+Ontologies are artifacts that define the meaning of the symbols
+which appear in the RDF assertions. Two ontologies are
+specially relevant to describe the social web: FOAF and SIOC.
+
+FOAF is one of the most used vocabularies in the documents that
+constitute the current Semantic Web~\cite{Ding2005, Finin2005}.
+It provides the essential classes and properties to describe individuals
+and their relationships. However, FOAF descriptions can be found
+only for a very small portion of the web users. Bootstrapping the
+FOAF-web by means of mining the document-web is the topic
+of~\cite{Mika2004}. Consequently, the focus of our work is not the
+description of people. Instead, this paper focuses on the description
+of the interactions between people in online discussion communities.
 
 DERI Galway leads the development of SIOC (Semantically-Interlinked Online
 Communities\footnote{\url{http://sioc-project.org/}}), an ontology that 
 provides a vocabulary to interconnect different discussion methods such 
 as blogs, web-based forums and mailing lists~\cite{Breslin2006,Breslin2005}.
 SIOC is now an official W3C member submission~\cite{Bojars2007}.
-SIOC has been used as the core framework to represent information from
-online communities in all the work described in this paper.
+SIOC provides the foundations to describe online discussion
+communities using RDF (users, forums and posts), as illustrated in
+Figure~\ref{fig:sioc}.
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=7cm]{images/sioc.png}
- \caption{SIOC main classes and properties}
+ \includegraphics[width=8cm]{images/sioc.png}
+ \caption{\label{fig:sioc}SIOC main classes and properties, reproduced from the SIOC specification.}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

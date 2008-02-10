@@ -84,7 +84,7 @@ class Buxon(GtkUI):
 	def clear(self):
 		"""
         Clear all GTK components on Buxon
-        """	
+		"""	
         	
 		#tree
 		self.treeTranslator = {}
@@ -97,7 +97,7 @@ class Buxon(GtkUI):
 	def clearSearchForm(self):
 		"""
         Clear search form
-        """	
+		"""	
         		
 		widgets.get_widget('searchInput').set_text('')
 		widgets.get_widget('fromEntry').set_text('01/01/1995')
@@ -117,7 +117,7 @@ class Buxon(GtkUI):
 		
 	def writePost(self, uri, author=None, authorUri='', listName=None, listUri='', title='', date='', content=''):
 		"""
-        Write a post on the gtkTextView
+		Write a post on the gtkTextView
         
         @param uri: post uri
         @param author: author's name
@@ -127,7 +127,7 @@ class Buxon(GtkUI):
 		@param title: post subject
 		@param date: post date
 		@param content: post body
-        """	
+		"""	
         		
 		PANGO_SCALE = 1024
 		buffer = self.text.get_buffer()
@@ -206,16 +206,14 @@ class Buxon(GtkUI):
 		if (self.cache == None):
 			pb = LoadProgressBar()
 			self.cache = Cache(uri, self.checkping.get_active(), pb)
-			pb.destroy()
 		else:			
-			if (uri!=self.cache.uri or self.cache.bad):
+			if (uri!=self.cache.uri or bool(self.cache.graph)):
 				pb = LoadProgressBar()
 				self.cache = Cache(uri, self.checkping.get_active(), pb)
-				pb.destroy()
 				
 		min, max = self.getDates()
 		
-		if (not self.cache.bad):
+		if bool(self.cache.graph):
 			posts = self.cache.query()
 			
 			if (posts == None):
@@ -318,10 +316,6 @@ class Buxon(GtkUI):
 		"""
 		
 		print 'Exiting...'
-		
-		#if (self.cache != None):
-		#	self.cache.dump(self.base + 'buxon.cache')
-		
 		gtk.main_quit()
 		return gtk.FALSE
 

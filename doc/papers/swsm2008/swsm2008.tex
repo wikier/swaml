@@ -156,10 +156,20 @@ techniques can provide enough momentum to the semantic social
 web and it can help to reach the critical-mass that
 enables a virtuous cycle of applications and data.
 
-The rest of the paper is organized as follows: (FIXME).
+The rest of the paper is organized as follows: in Section~\ref{sec:vocabularies}
+the FOAF and SIOC vocabularies are introduced in the context of appling
+the semantic web to describe the social web. Section~\ref{sec:taxonomy}
+enumerates and classifies some methods to produce large quantities
+of RDF descriptions. Section~\ref{sec:case-studies} and
+Section~\ref{sec:experimentation} address two paradigmatic methods
+and their experimental application. Some issues which appear
+frequently are described in Section~\ref{sec:problems}, and
+Section~\ref{sec:conclusions} discusses the future of the
+semantic social web and concludes the paper.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Vocabularies for the Social Semantic Web}
+\section{\label{sec:vocabularies}Semantic Web Vocabularies to describe the Social Web}
 
 The Semantic Web initiative uses RDF (Resource Description
 Framework~\cite{RDF}) as its (meta)data representation model.
@@ -177,7 +187,7 @@ of~\cite{Mika2004}. Consequently, the focus of our work is not the
 description of people. Instead, this paper focuses on the description
 of the interactions between people in online discussion communities.
 
-DERI NUI Galway leads the development of SIOC (Semantically-Interlinked Online
+DERI NUI Galway leads the development of SIOC (Seman\-ti\-cally-Interlinked Online
 Communities\footnote{\texttt{http://sioc-project.org/}}), an ontology that 
 provides a vocabulary to interconnect different discussion methods such 
 as blogs, web-based forums and mailing lists~\cite{Breslin2006,Breslin2005}.
@@ -186,14 +196,15 @@ SIOC provides the foundations to describe online discussion
 communities using RDF (users, forums and posts), as illustrated in
 Figure~\ref{fig:sioc}.
 
-\begin{figure}[ht]
+\begin{figure}
  \centering
  \includegraphics[width=8cm]{images/sioc.png}
  \caption{\label{fig:sioc}SIOC main classes and properties, reproduced from the SIOC specification.}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Classification of SIOC-producing techiques}
+\section{\label{sec:taxonomy}Classification of SIOC-producing techiques}
 
 Since SIOC is a recent specification, its adoption is still low, and
 only a few sites export SIOC data. There exist a number of techniques
@@ -269,7 +280,7 @@ with the intrusive approaches in terms of information quality, as
 any access to the data is not primary.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Case studies}
+\section{\label{sec:case-studies}Case studies}
 
 In this section we describe an example of each of the two approaches
 aforementioned.
@@ -331,7 +342,7 @@ humans \emph{and} semantic web agents.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Experimentation with Free\\ Sofware communities}
+\section{\label{sec:experimentation}Experimentation}
 
 In order to test and improve our experimentes, we needed social
 online communities with coarse amounts of information published.
@@ -356,7 +367,7 @@ Then we had all necessary information to start running SWAML on these
 more than 200 mailboxes. For a selected subset of the mailing lists, 
 SWAML has produced plus 25 million triples.
 
-\subsection{Debian mailing lists}
+\subsection{\label{sec:debian}Debian mailing lists}
 
 Debian is a compilation of free (libre) software that constitutes a
 complete operating system~\cite{Krafft2005}. It is the result of a
@@ -384,7 +395,7 @@ reduced if the body of the messages is dropped, i.e., if just the meta-data
 is kept. We envision that many mining applications will not need the
 body of the messages.
 
-\subsection{Ubuntu Forums}
+\subsection{\label{sec:ubuntu}Ubuntu Forums}
 
 Ubuntu Forums\footnote{\texttt{http://ubuntuforums.org/}} are a very popular 
 discussion forums among users of this GNU/Linux distribution. They have a 

@@ -337,32 +337,51 @@ When put into practice, some shared problems and limitations
 of the approaches described above are revealed:
 
 \begin{itemize}
-  \item \emph{Same person, multiple identities}. As it can be seen in Figure~\ref{fig:foaf-sioc}
-	a person (an instance of \texttt{foaf:Person}) can own many online 
-	accounts (instances of \texttt{foaf:OnlineAccount} or \texttt{sioc:User}). 
+  \item \emph{Same person, multiple identities}. A single individual can
+        participate in several social web sites, often under a different
+        virtual identity. Over the years, this individual can own a
+        number of user accounts and e-mail addresses, which are modelled
+        as different entities in SIOC. If each of these is taken as
+        a different person, social web mining would lead to imprecise
+        conclussions.
 
-	\begin{figure}[ht]
+        FOAF separates the description of a person
+        (\texttt{Person})
+        from the description her user accounts (\texttt{OnlineAccount}).
+        This makes it possible to establish the one-to-many relationships
+        between these entities, see Figure~\ref{fig:foaf-sioc}.
+
+	\begin{figure}[t]
 	 \centering
 	 \includegraphics[width=8cm]{images/foaf-sioc.png}
 	 \caption{\label{fig:foaf-sioc}Relationship between FOAF and SIOC. Image by John Breslin, reproduced from \texttt{http://sioc-project.org/node/158}.}
 	\end{figure}
 
-	People use many online account in their daily life. Except in exceptional 
-	cases where the information is gathered in one place (a personal Web page,
-	a FOAF profile, etc.), the only link between all these virtual identities 
-	is reduced to the real name or, as far, to the email address. So it is 
-	necessary to apply some techniques (such as 
-	Smushing\footnote{\texttt{http://esw.w3.org/topic/RdfSmushing}})
-	on some functional and inverse functional properties, in order to extract 
-	the real identity behind a online account. Fot this purposes maybe it could 
-	used external data sources (such as information stored in Google Social 
-	Graph\footnote{\texttt{http://code.google.com/apis/socialgraph/}})
-	to find more information related that allows a better extraction of
-	identities involved.
+        From the perspective of the automatic processing of the
+        information, the challenge is to detect these links. In an
+        ideal scenario, the FOAF description of an individual would
+        contain such links. In practice, these links must be
+        inferred from coincident values of some properties such
+        as the e-mail address or the URL of the personal home page.
+        In the worst case, the only way to go is to perform heuristic matching
+        using the person's name or nickname.
+
+        A comprehensive knowledge base of FOAF descriptions is very
+        useful in this tasks. However, this introduces another related issue:
+        as anyone can create FOAF descriptions, there may exist more than
+        one instance of \texttt{foaf:Person} to describe the same person.
+        Consolidation of these instances is a similar problem to the
+        one just described, and receives the name of "instance
+        smushing"\footnote{\texttt{http://esw.w3.org/topic/RdfSmushing}}.
+        For our experiments, we crawled a dataset 4,000 FOAF descriptions
+        from Advogato\footnote{\texttt{http://www.advogato.org/}}, a social
+        network for free software developers.
 
   \item \emph{Hashed e-mail addresses}. Both FOAF and SIOC
         rely on the sha1 algorithm~\cite{Eastlake2001} to represent
-        e-mail addresses in an opaque way to block spammers. It is
+        e-mail addresses in an opaque way. The main purpose to do so
+        is to block spammers, who otherwise would find it easy to collect
+        e-mail addresses. It is
         assumed that hashed e-mail addresses retain their capability
         as unique identifiers of the resources. However, neither
         the FOAF nor the SIOC specification describe a normalization
@@ -484,15 +503,6 @@ and we developed some XSLT stylesheets to transform get instances of
 selected only a subset of available forums to test our application,
 although the results have been quite poor because the informaion and 
 markup aren't very well organized.
-
-\subsection{Advogato}
-
-To complete our experiments it is also necessary to fetch data from 
-another kind of online community. We selected 
-Advogato\footnote{\texttt{http://www.advogato.org/}}, because it has
-native support to export people profiles directly in FOAF. So we 
-developed a simple ad-hoc crawler to fetch this data and join it with 
-data from others communities.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -120,10 +120,10 @@
 Mining and searching the social web is hardly possible without
 a noteworthy amount of data available in an interoperable
 format. This paper enumerates and compares several techniques which can be
-applied to produce large quantities of RDF data describing
+applied to obtain large quantities of RDF data describing
 social web sites. Advantages, drawbacks and potential issues of
-each of these techniques are discussed. Practical applications
-are presented to illustrate the convenience of each approach.
+each of these methods are discussed. Practical experimentation
+permits to illustrate and to discuss the convenience of each approach.
 \end{abstract}
 
 % A category with only the three required fields
@@ -133,38 +133,38 @@ are presented to illustrate the convenience of each approach.
 %\category{D.2.8}{Software Engineering}{Metrics}[complexity measures,
 %performance measures]
 
-\keywords{semantic mining, online community, mailing list, rdf, xsl, sioc}
+\keywords{semantic mining, online community, mailing list, rdf, xsl, foaf, sioc, semantic web, social web}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 Effective large-scale mining of the social web requires the
-availability of a big amount of well-defined data~\cite{Mika2004}.
+availability of big amounts of well-defined data~\cite{Mika2004}.
 The semantic web provides a convenient platform to publish and
-consume these data. There are a couple of vocabularies (FOAF~\cite{FOAF} and
-SIOC~\cite{Bojars2007}) that are particularly suited to represent the
+consume these data. There are a couple of semantic web vocabularies
+which are particularly suited to represent the
 information of the social web using an interoperable formalism.
-However, so far only a small portion of the social web is
+However, currently only a small portion of the social web is
 represented in these vocabularies.
 
-In this paper we survey and classify a number of techniques that
+In this paper we survey and classify a number of methods that
 are targeted to create semantic web enabled representations of
 the information of the social web. We focus on online communities
-and discussion forums, although these techniques remain valid
-for other social web sites. The combination of all these
-techniques can provide enough momentum to the semantic social
+and discussion forums, although the methods described here are also valid
+for other social web sites. The combination of all of them
+may provide enough momentum to the semantic social
 web and it can help to reach the critical-mass that
 enables a virtuous cycle of applications and data.
 
 The rest of the paper is organized as follows: in Section~\ref{sec:vocabularies}
 the FOAF and SIOC vocabularies are introduced in the context of applying
-the semantic web to describe the social web. Section~\ref{sec:taxonomy}
+the semantic web to the description of the social web. Section~\ref{sec:taxonomy}
 enumerates and classifies some methods to produce large quantities
 of RDF descriptions. Section~\ref{sec:case-studies} and
 Section~\ref{sec:experimentation} address two paradigmatic methods
 and their experimental application. Some issues which appear
 frequently are described in Section~\ref{sec:problems}, and
-Section~\ref{sec:conclusions} discusses the future of the
+finally Section~\ref{sec:conclusions} discusses the future of the
 semantic social web and concludes the paper.
 
 
@@ -177,7 +177,7 @@ Ontologies are artifacts that define the meaning of the symbols
 which appear in the RDF assertions. Two ontologies are
 specially relevant to describe the social web: FOAF and SIOC.
 
-FOAF is one of the most used vocabularies in the documents that
+FOAF~\cite{FOAF} is one of the most used vocabularies in the documents that
 constitute the current Semantic Web~\cite{Ding2005, Finin2005}.
 It provides the essential classes and properties to describe individuals
 and their relationships. However, FOAF descriptions can be found

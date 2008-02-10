@@ -337,7 +337,7 @@ When put into practice, some shared problems and limitations
 of the approaches described above are revealed:
 
 \begin{itemize}
-  \item \emph{Same person, multiple identities}: as it can be seen in Figure~\ref{fig:foaf-sioc}
+  \item \emph{Same person, multiple identities}. As it can be seen in Figure~\ref{fig:foaf-sioc}
 	a person (an instance of \texttt{foaf:Person}) can own many online 
 	accounts (instances of \texttt{foaf:OnlineAccount} or \texttt{sioc:User}). 
 
@@ -360,18 +360,21 @@ of the approaches described above are revealed:
 	to find more information related that allows a better extraction of
 	identities involved.
 
-  \item \emph{Problems with sha1 algorithm}: related with previous problem,
-	we detected a problem using sha1 algorithm~\cite{Eastlake2001}. FOAF 
-	and SIOC use this algorithm (in properties \texttt{foaf:mbox\_sha1sum} 
-	and \texttt{sioc:email\_sha1}, respectively) in order to protect email 
-	addresses from SPAM attacks. And this algoritm is case sensitive. So,
-	for example, if we take Diego's email address, we could write it as
-	\texttt{diego.berrueta@fundacionctic.org} or as \texttt{Diego.Berrueta@fundacionctic.org}.
-	Both are valid email addresses, but each one generates different sha1sum.
-	This could  seem a detail without importance, but it really creates a 
-	serious problem when an agent tries to identify persons/users using these
-	inverse functional properties. Unfortunately in our experimientos we 
-	have found many times this kind of problem.
+  \item \emph{Hashed e-mail addresses}. Both FOAF and SIOC
+        rely on the sha1 algorithm~\cite{Eastlake2001} to represent
+        e-mail addresses in an opaque way to block spammers. It is
+        assumed that hashed e-mail addresses retain their capability
+        as unique identifiers of the resources. However, neither
+        the FOAF nor the SIOC specification describe a normalization
+        procedure to be applied to the e-mail address, besides adding
+        the \texttt{mailto:} prefix. This is unfortunate, because it
+        fails to prevent that equivalent
+        e-mail addresses from producing different hashed values. For instance,
+        it is common to find different spelling variants of the same
+        e-mail address which only difer on the use of lower and upper-case
+        letters. These variants will produce irreconcilable values
+        when the hash function is applied, thus making them unusable
+        to spot equivalent instances of the same resource.
 
   \item \emph{Flat threads}. Typically, web-based discussion forums and blogs
         have flat threads, i.e., all the replies are attached to the original
@@ -403,7 +406,7 @@ of the approaches described above are revealed:
         links between messages, such as those created by the
         \texttt{In-Reply-To} header, are not fully reliable.
 
-  \item \emph{Pagination}: long discussions and indexes are often paginated
+  \item \emph{Pagination}. Long discussions and indexes are often paginated
         into several inter-linked HTML files. Although web crawlers can
         retrieve all the parts, this fragmentation poses a challenge for
         scraping the information. It is often necesary to re-join the

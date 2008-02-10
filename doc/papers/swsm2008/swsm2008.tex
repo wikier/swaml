@@ -434,14 +434,14 @@ of the approaches described above are revealed:
         participate in several social web sites, often under a different
         virtual identity. Over the years, this individual can own a
         number of user accounts and e-mail addresses, which are modelled
-        as different entities in SIOC. If each of these is taken as
+        as different entities in SIOC. If each of these were taken as
         a different person, social web mining would lead to imprecise
         conclusions.
 
         FOAF separates the description of a person
         (\texttt{Person})
         from the description her user accounts (\texttt{OnlineAccount}).
-        This makes it possible to establish the one-to-many relationships
+        This makes it possible to establish one-to-many relationships
         between these entities, see Figure~\ref{fig:foaf-sioc}.
 
 	\begin{figure}[t]
@@ -450,8 +450,8 @@ of the approaches described above are revealed:
 	 \caption{\label{fig:foaf-sioc}Relationship between FOAF and SIOC. Image by John Breslin, reproduced from \texttt{http://sioc-project.org/node/158}.}
 	\end{figure}
 
-        From the perspective of the automatic processing of the
-        information, the challenge is to detect these links. In an
+        From the perspective of an automatic processing of the
+        information, the challenge is to build these links. In an
         ideal scenario, the FOAF description of an individual would
         contain such links. In practice, these links must be
         inferred from coincident values of some properties such
@@ -459,10 +459,11 @@ of the approaches described above are revealed:
         In the worst case, the only way to go is to perform heuristic matching
         using the person's name or nickname.
 
-        A comprehensive knowledge base of FOAF descriptions is very
-        useful in this tasks. However, this introduces another related issue:
+        A comprehensive knowledge base of FOAF descriptions can prove
+        very useful in this task. However, it introduces another related issue:
         as anyone can create FOAF descriptions, there may exist more than
-        one instance of \texttt{foaf:Person} to describe the same person.
+        one instance of \texttt{foaf:Person} in the knowledge base
+        to describe the same person.
         Consolidation of these instances is a similar problem to the
         one just described, and receives the name of "instance
         smushing"\footnote{\texttt{http://esw.w3.org/topic/RdfSmushing}}.
@@ -480,11 +481,11 @@ of the approaches described above are revealed:
         the FOAF nor the SIOC specification describe a normalization
         procedure to be applied to the e-mail address, besides adding
         the \texttt{mailto:} prefix. This is unfortunate, because it
-        fails to prevent that equivalent
+        fails to prevent equivalent
         e-mail addresses from producing different hashed values. For instance,
-        it is common to find different spelling variants of the same
+        it is common to find spelling variants of the same
         e-mail address which only differ on the use of lower and upper-case
-        letters. These variants will produce irreconcilable values
+        letters. These variants produce irreconcilable values
         when the hash function is applied, thus making them unusable
         to spot equivalent instances of the same resource.
 
@@ -520,7 +521,7 @@ of the approaches described above are revealed:
 
   \item \emph{Pagination}. Long discussions and indexes are often paginated
         into several inter-linked HTML files. Although web crawlers can
-        retrieve all the parts, this fragmentation poses a challenge for
+        retrieve all parts, this fragmentation poses a challenge for
         scraping the information. It is often necessary to re-join the
         different pages in order to produce a consistent RDF representation
         of the information.
@@ -547,12 +548,11 @@ unpractical because of deployment issues.
 In the long term, we foresee that FOAF and SIOC-enabling plug-ins
 will become commodities in the software that supports the social
 web. The RSS is the most immediate precedent of a similar semantic web
-technology which permeates to the mainstream web. Information will
+technology which has permeated into the mainstream web. These information-rich
+descriptions will
 be available for both machines and humans by means of HTTP
 content negotiation~\cite{Recipes} or hybrid representations (RDFa).
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % The following two commands are all you need in the
 % initial runs of your .tex file to

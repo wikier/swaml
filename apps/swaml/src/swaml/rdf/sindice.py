@@ -26,22 +26,55 @@ import urllib2
 class Sindice:
     
     def __init__(self):
+        """
+        Sindice constructor     
+        """
+        
         self.service = "http://sindice.com/query/lookup?%s&format=txt" 
         
     def __request(self, uri):
+        """
+        Generic request
+        
+        @param uri: uri to request
+        @return: response
+        """
+        
         headers = { 'User-Agent' : "swaml (http://swaml.berlios.de/; sergio@wikier.org)" }
         request = urllib2.Request(uri)
         return urllib2.urlopen(request)
     
     def lookupURIs(self, uri):
+        """
+        Lookup URIs
+        
+        @param uri: uri to query
+        @return: results
+        """
+        
         print "TODO"
         return []
     
     def lookupKeywords(self, keyword):
+        """
+        Lookup keywords
+        
+        @param keyword: keyword to query
+        @return: picture results
+        """
+        
         print "TODO"
         return []
     
     def lookupIFPs(self, property, object):
+        """
+        Lookup IFPs
+        
+        @param property: property to query
+        @param object: object
+        @return: results       
+        """
+        
         query = "property=%s&object=%s" % (property, object)
         uri = self.service % query
         response = self.__request(uri)
@@ -50,13 +83,4 @@ class Sindice:
             line = line.split("\t")
             results.append((line[0], line[1]))
         return results
-        
-if __name__ == "__main__":
-    #FIXME: only to test
-    s = Sindice()
-    results = s.lookupIFPs("http://xmlns.com/foaf/0.1/mbox_sha1sum", "d0fd987214f56f70b4c47fb96795f348691f93ab")
-    for uri, date in results:
-        print uri
-
-    
     

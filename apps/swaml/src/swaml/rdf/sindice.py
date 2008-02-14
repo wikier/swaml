@@ -35,9 +35,11 @@ class Sindice:
     
     def lookupURIs(self, uri):
         print "TODO"
+        return []
     
     def lookupKeywords(self, keyword):
         print "TODO"
+        return []
     
     def lookupIFPs(self, property, object):
         query = "property=%s&object=%s" % (property, object)

@@ -18,7 +18,7 @@
 """
 A python client for sindice.com
 
-http://sindice.com/dev?section=api
+seeAlso: http://sindice.com/dev/api
 """
 
 import urllib2

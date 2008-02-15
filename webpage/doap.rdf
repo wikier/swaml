@@ -9,6 +9,7 @@
          xml:lang="en">
 
   <rdf:Description rdf:about="">
+    <rdfs:label>SWAML's DOAP document</rdfs:label>
     <foaf:maker rdf:resource="http://www.wikier.org/foaf.rdf#wikier"/>
     <foaf:primaryTopic rdf:resource="http://swaml.berlios.de/doap.rdf#swaml"/>
     <dc:date>2007-12-28</dc:date>

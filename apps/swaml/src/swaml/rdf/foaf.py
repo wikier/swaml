@@ -3,7 +3,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2006 Sergio Fdez
+# Copyright (C) 2005-2008 Sergio Fernández
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -67,7 +67,7 @@ class FOAFS:
         results = s.lookupIFPs("http://xmlns.com/foaf/0.1/mbox_sha1sum", mail_sha1sum)
                     
         if len(results)>0:
-            return results[0][0] #FIXME
+            return results[0][0] #FIXME, it's ordered by score
         else:
             return None        
         
@@ -161,6 +161,7 @@ class FOAFS:
         @return: encryted mail on foaf:mbox_sha1sum format
         @rtype: string
         """        
-        
+
+        mail = mail.lower() # I'm no sure if it's a good idea...
         return sha.new('mailto:'+mail).hexdigest()
 

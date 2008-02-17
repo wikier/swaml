@@ -83,4 +83,3 @@ class Sindice:
             line = line.split("\t")
             results.append((line[0], line[1]))
         return results
-    

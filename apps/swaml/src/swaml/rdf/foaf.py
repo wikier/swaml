@@ -65,11 +65,45 @@ class FOAFS:
         
         s = Sindice()
         results = s.lookupIFPs("http://xmlns.com/foaf/0.1/mbox_sha1sum", mail_sha1sum)
-                    
-        if len(results)>0:
-            return results[0][0] #FIXME, it's ordered by score
-        else:
-            return None        
+        return self.getBestURI(results)
+
+    def getBestURI(self, possibilities):
+        """
+        Search the file where a Person is the primary topic, else the first possibility
+
+        @param possibilities: all the urls to choose
+        @type possibilities: list of tuples
+        @return better uri for a Person
+        @rtype: string
+        """
+        for possibility in possibilities:
+            uri = possibility[0]
+            try:
+                g = ConjunctiveGraph()
+                g.parse(uri)
+                #query = Parse("""
+                #                SELECT ?person
+                #                WHERE {
+                #                        <%s> foaf:primaryTopic ?person .
+                #                        ?person rdf:type foaf:Person .  
+                #                        ?person foaf:mbox_sha1sum "%s"@en
+                #                      }
+                #              """ % (uri, mbox) )
+                query = Parse("""
+                                SELECT ?person
+                                WHERE {
+                                        <%s> foaf:primaryTopic ?person .
+                                        ?person rdf:type foaf:Person .                                       
+                                      }
+                             """ % uri )
+                queryResults = g.query(query, initNs=bindings).serialize('python')
+                if len(queryResults) > 0 :
+                    return queryResults[0]
+
+            except Exception, details:
+                print details
+
+        return possibilities[0][0]
         
     def __getGraph(self, foaf):
         """

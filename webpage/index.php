@@ -38,7 +38,7 @@
         <li><a href="#news" accesskey="2" title="read SWAML news">News</a></li>
         <li><a href="#files" accesskey="3" title="download SWAML files">Files</a></li>
         <li><a href="#doc" accesskey="4" title="see SWAML documentation">Documentation</a></li>
-        <li><a href="/wiki" accesskey="5" title="go SWAML wiki">Wiki</a></li>
+        <!--<li><a href="/wiki" accesskey="5" title="go SWAML wiki">Wiki</a></li>-->
         <li class="last"><a href="#contact" accesskey="6" title="contact with SWAML team">Contact</a></li>
       </ul>
     </div>
@@ -94,7 +94,7 @@
      	</li>
      	<li>
      	  <a href="http://criptonita.com/~nacho">Nacho Barrientos</a> (debian package),
-     	  <a href="http://criptonita.com/~nacho/foaf.rdf" rel="doap:helper"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://criptonita.com/~nacho/foaf.rdf#me" rel="doap:helper"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
       </ul>
 
@@ -118,15 +118,40 @@
      	And it has some <strong>features</strong>:
       </p>
       <ul>
-      	<li>platform independent (written in <a href="http://www.python.org/">python</a>)</li>
-     	<li>shell mode (to use manually or by cron script)</li>
-     	<li>compatible with <a href="http://rfc.net/rfc4155.html"><acronym title="Request For Comments">RFC</acronym> 4155</a></li>
-     	<li>serialize <acronym title="Resource Description Framework">RDF</acronym> to disk</li>
-     	<li>reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended, mainly <a href="http://sioc-project.org/"><acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym></a></li>
-     	<li>enrichment using <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a></li>
-     	<li><a href="http://earth.google.com/kml/whatiskml.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support</li>
-     	<li>browser in <acronym title="GIMP Tool Kit">GTK</acronym></li>
-     	<li>free software (under <acronym title="GNU is Not Unix">GNU</acronym> General Public License, <a href="http://www.gnu.org/licenses/gpl.html"><acronym title="GNU General Public License">GPL</acronym></a> <abbr title="version 2">v2</abbr> or later)</li>
+      	<li>
+          platform independent (written in <a href="http://www.python.org/">python</a>)
+        </li>
+     	<li>
+          shell mode (to use manually or by cron script)
+        </li>
+     	<li>
+          compatible with <a href="http://rfc.net/rfc4155.html"><acronym title="Request For Comments">RFC</acronym> 4155</a>
+        </li>
+     	<li>
+          serialize to disk in 
+          <acronym title="Resource Description Framework">RDF</acronym>/<acronym title="eXtensible Markup Language">XML</acronym>
+          and <acronym title="eXtensible HyperText Markup Language">XHTML</acronym>+<acronym title="RDF attributes">RDFa</acronym>,
+          using <acronym title="Hypertext Transfer Protocol">HTTP</acronym> content negotiation
+        </li>
+     	<li>
+          reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended, mainly 
+          <a href="http://sioc-project.org/"><acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym></a>
+        </li>
+     	<li>
+          enrichment with <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a>
+          using <a href="http://sindice.com/">sindice</a> as source of information
+        </li>
+     	<li>
+          <a href="http://earth.google.com/kml/whatiskml.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support
+        </li>
+     	<li>
+          <acronym title="GIMP Tool Kit">GTK</acronym> browser
+        </li>
+     	<li>
+          free software under
+          <a href="http://www.gnu.org/licenses/gpl.html"><acronym title="GNU General Public License">GPL</acronym></a><abbr title="version 2">v2</abbr>
+          or later)
+        </li>
       </ul>
 
       <h2 id ="news">

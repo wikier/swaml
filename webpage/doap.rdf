@@ -131,7 +131,7 @@
       <foaf:Person>
         <foaf:name>Nacho Barrientos</foaf:name>
         <foaf:mbox_sha1sum>6b31c41e80d36cc08a489462c0c2c37d7de8d2e5</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://criptonita.com/~nacho/foaf.rdf" />
+        <rdfs:seeAlso rdf:resource="http://criptonita.com/~nacho/foaf.rdf#me" />
         <foaf:homepage rdf:resource="http://criptonita.com/~nacho" />
       </foaf:Person>
     </doap:helper>

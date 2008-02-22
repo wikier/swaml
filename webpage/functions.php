@@ -76,7 +76,7 @@ class SWAML {
 	    		$num_items = 10;
 	    		$items = array_slice($rss->items, 0, $num_items);
 	    		
-			$ret = '<dl>';
+			$ret = '<dl instanceof="rss:channel" about="http://swaml.berlios.de/rss/news">';
 
 	    		foreach ($items as $item) {
 	      			$title = $item[title];

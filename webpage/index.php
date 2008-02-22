@@ -1,5 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:doap="http://usefulinc.com/ns/doap#"
+      xmlns:rss="http://purl.org/rss/1.0/"
+	  xml:lang="en"
+>
+
   <head>
     <title>SWAML - Semantic Web Archive of Mailing Lists</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,7 +21,7 @@
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://criptonita.com/~nacho/foaf.rdf" />
   </head>
 
-  <body>
+  <body instanceof="doap:Project" about="http://swaml.berlios.de/doap.rdf#swaml">
 
     <div class="accessibility">
       <a href="#content" accesskey="c" title="Go to content">Go to content</a>
@@ -24,7 +29,7 @@
 
     <h1 id="head">
       <a href="http://developer.berlios.de/"><img src="images/berlios.png" width="132" height="50" alt="Project hosted by BerliOS" /></a>
-      <a href="http://swaml.berlios.de/"><acronym title="Semantic Web Archive of Mailing Lists">swaml</acronym></a>
+      <a href="http://swaml.berlios.de/"><acronym title="Semantic Web Archive of Mailing Lists" property="doap:name">swaml</acronym></a>
     </h1>
 
     <div id="menu">
@@ -73,23 +78,23 @@
       <ul id="members">
      	<li>
      	  <a href="http://www.wikier.org/">Sergio Fernández</a> (maintainer),
-     	  <a href="http://www.wikier.org/foaf.rdf#wikier"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://www.wikier.org/foaf.rdf#wikier" rel="doap:maintainer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
      	  <a href="http://berrueta.net/">Diego Berrueta</a>,
-     	  <a href="http://berrueta.net/foaf.rdf#me"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://berrueta.net/foaf.rdf#me" rel="doap:developer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
      	  <a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a>,
-     	  <a href="http://www.di.uniovi.es/~labra/labraFoaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://www.di.uniovi.es/~labra/labraFoaf.rdf" rel="doap:developer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
      	  <a href="http://www.ifrade.es/">Iván Frade</a>,
-     	  <a href="http://frade.no-ip.info:2080/~ivan/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://frade.no-ip.info:2080/~ivan/foaf.rdf" rel="doap:helper"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
      	  <a href="http://criptonita.com/~nacho">Nacho Barrientos</a> (debian package),
-     	  <a href="http://criptonita.com/~nacho/foaf.rdf"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://criptonita.com/~nacho/foaf.rdf" rel="doap:helper"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
       </ul>
 

@@ -7,8 +7,13 @@
     <meta name="language" content="en" />
     <link rel="stylesheet" type="text/css" charset="utf-8" href="style.css" />
     <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="meta" title="DOAP" type="application/rdf+xml" href="doap.rdf#swaml" />
     <link rel="alternate" type="application/rss+xml" title="SWAML RSS" href="/rss/news" />
+    <link rel="meta" title="DOAP" type="application/rdf+xml" href="doap.rdf#swaml" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.wikier.org/foaf.rdf#wikier" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://berrueta.net/foaf.rdf#me" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.di.uniovi.es/~labra/labraFoaf.rdf" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://frade.no-ip.info:2080/~ivan/foaf.rdf" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://criptonita.com/~nacho/foaf.rdf" />
   </head>
 
   <body>
@@ -71,8 +76,8 @@
      	  <a href="http://www.wikier.org/foaf.rdf#wikier"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <a href="http://www.berrueta.net/">Diego Berrueta</a>,
-     	  <a href="http://www.berrueta.net/foaf.rdf#me"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://berrueta.net/">Diego Berrueta</a>,
+     	  <a href="http://berrueta.net/foaf.rdf#me"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
      	  <a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a>,

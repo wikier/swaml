@@ -32,7 +32,7 @@ class PTSW:
             socket.setdefaulttimeout(5)
             url = self.rest + urllib.quote(uri)
             data = {}
-            headers = { 'User-Agent' : 'buxon' }
+            headers = { 'User-Agent' : 'swaml (http://swaml.berlios.de/; sergio@wikier.org)' }
             request = urllib2.Request(url, data, headers)
             response = urllib2.urlopen(request).read()
             responseParsed = self.parseResponse(response)

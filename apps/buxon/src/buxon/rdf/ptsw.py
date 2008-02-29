@@ -3,7 +3,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2007 Sergio Fernández, Iván Frade
+# Copyright (C) 2005-2008 Sergio Fernández, Iván Frade
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -36,10 +36,11 @@ class PTSW:
             request = urllib2.Request(url, data, headers)
             response = urllib2.urlopen(request).read()
             responseParsed = self.parseResponse(response)
-            ok = (responseParsed['flerror'] == 0)
-            if ok:
+            if (responseParsed['flerror'] == 0):
                 self.pinged += 1
-            return ok
+                return True
+            else:
+                return False
         except:
             return False
         
@@ -59,4 +60,5 @@ class PTSW:
         return dict
     
     def stats(self):
-        return str(self.pinged) + 'SIOC files pinged to PingTheSemanticWeb.com'
+        return str(self.pinged) + ' files pinged to PingTheSemanticWeb.com'
+

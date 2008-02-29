@@ -207,7 +207,7 @@ Clear all GTK components on Buxon
             pb = LoadProgressBar()
             self.cache = Cache(uri, self.checkping.get_active(), pb)
         else:
-            if (uri!=self.cache.uri or bool(self.cache.graph)):
+            if (uri!=self.cache.uri or not bool(self.cache.graph)):
                 pb = LoadProgressBar()
                 self.cache = Cache(uri, self.checkping.get_active(), pb)
 

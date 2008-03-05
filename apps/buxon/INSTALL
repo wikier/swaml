@@ -4,7 +4,7 @@ Installing Buxon
 Short Answer:
 -------------
 
-	make install
+    make install
 
 
 Long Answer:
@@ -12,20 +12,20 @@ Long Answer:
 
 Dependencies:
 
-	- python >= 2.4.0
-	- rdflib >= 2.4.0
-	- gtk+ >= 2.6.0
-	- pygtk >= 2.6.0
-	- gazpacho >= 0.6.6
+    - python >= 2.4.0
+    - rdflib >= 2.4.0
+    - gtk+ >= 2.6.0
+    - pygtk >= 2.6.0
+    - gazpacho >= 0.6.6
         
 As root user you may run:
 
-	make install
+    make install
 	
 This command will install Buxon at common directories. Then it'll be available
 a new command: 'buxon'.
 
 To uninstall it's also easy:
 
-	make uninstall
+    make uninstall
 

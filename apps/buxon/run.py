@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.4
+#!/usr/bin/python
 # -*- coding: utf8 -*-
 
 # Buxon, a sioc:Forum Visor

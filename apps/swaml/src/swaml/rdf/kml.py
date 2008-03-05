@@ -162,3 +162,4 @@ class Place:
         """
         
         return [self.lat, self.lon]
+

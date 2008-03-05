@@ -24,7 +24,7 @@ BUXON_PATH = '/usr/share/buxon/'
 sys.path.append(BUXON_PATH)
 
 try:
-	from buxon import Buxon, BuxonMain
+	from run import Buxon, BuxonMain
 	sys.exit(BuxonMain(sys.argv[1:], BUXON_PATH))
 except ImportError:
 	print 'Buxon cannot be found; please, ensure that it is installed correctly.'

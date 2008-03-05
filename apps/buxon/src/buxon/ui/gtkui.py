@@ -17,6 +17,7 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+import gtk
 from buxon.ui.ui import UI
 		
 class GtkUI(UI):

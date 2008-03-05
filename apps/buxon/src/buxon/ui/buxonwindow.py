@@ -4,8 +4,7 @@ from buxon.ui.gtkui import GtkUI
 import gtk
 import pango
 from buxon.rdf.cache import Cache
-from buxon.rdf.namespaces import SIOC, RDF, DC, DCTERMS
-from buxon.ui.calendarwindow import CalendarWindow        
+from buxon.rdf.namespaces import SIOC, RDF, DC, DCTERMS      
 from buxon.ui.loadprogressbar import LoadProgressBar
 
 class BuxonWindow(GtkUI):

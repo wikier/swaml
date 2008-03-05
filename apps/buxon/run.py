@@ -66,9 +66,11 @@ class Callbacks:
         buxon.showPost()
 
     def fromButtonClicked(self):
+        from buxon.ui.calendarwindow import CalendarWindow
         CalendarWindow(widgets.get_widget('fromEntry'))
 
     def toButtonClicked(self):
+        from buxon.ui.calendarwindow import CalendarWindow
         CalendarWindow(widgets.get_widget('toEntry'))
 
     def alertButtonClicked(self):

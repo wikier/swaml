@@ -1,5 +1,5 @@
 
-XXXX-XX-XX  0.0.4   - PingTheSemanticWeb.com support added
+2008-03-05  0.0.4   - PingTheSemanticWeb.com support added
                     - Updated to the latest version of RDFLib
                     - Deleted dependency on SWAML core
                     - Redesigned fetcher and cache

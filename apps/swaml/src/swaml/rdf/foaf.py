@@ -32,13 +32,14 @@ class FOAFS:
     Collection of util services to SWAML
     """
     
-    def __init__(self):
+    def __init__(self, config=None):
         """
         FOAF services constructor
         """
         
         self.__actualFoaf = None
         self.__graph = None
+        self.config = config
     
     def getFoaf(self, mail):
         """
@@ -55,6 +56,21 @@ class FOAFS:
         
     def getFoafFromSha(self, mail_sha1sum):
         """
+        Obtain FOAF URI from an email sha1sum, provided by a external service
+        
+        @param mail_sha1sum: an email address sha1sum
+        @type mail_sha1sum: string
+        @return: the FOAF URI of this email owner
+        @rtype: string
+        """
+
+        if (self.config != None and self.config.get('search').lower() == 'sindice'):
+            return self.getFoafWithSindice(mail_sha1sum)
+        else:
+            return self.getFoafWithSWSE(mail_sha1sum)
+        
+    def getFoafWithSindice(self, mail_sha1sum):
+        """
         Obtain FOAF URI from an email sha1sum, provided by sindice.com
         
         @param mail_sha1sum: an email address sha1sum
@@ -62,12 +78,53 @@ class FOAFS:
         @return: the FOAF URI of this email owner
         @rtype: string
         """
-        
+
         s = Sindice()
         results = s.lookupIFPs("http://xmlns.com/foaf/0.1/mbox_sha1sum", mail_sha1sum)
-        return self.getBestURI(results)
+        return self.__getBestURI(results)
 
-    def getBestURI(self, possibilities):
+    def getFoafWithSWSE(self, mail_sha1sum):
+        """
+        Obtain FOAF URI from an email sha1sum, provided by swse.deri.org
+        
+        @param mail_sha1sum: an email address sha1sum
+        @type mail_sha1sum: string
+        @return: the FOAF URI of this email owner
+        @rtype: string
+        """
+        
+        query = """
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+                    SELECT DISTINCT ?person
+                    WHERE {
+                            ?file foaf:primaryTopic ?person .
+                            ?person rdf:type foaf:Person . 
+                            ?person foaf:mbox_sha1sum "%s"                                    
+                          }
+                """
+
+        swse = SWSE()
+        results = swse.query(query % mail_sha1sum)
+        if len(results) > 0:
+            return results[0]
+        else:
+            query2 = """
+                        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+                        SELECT DISTINCT ?person
+                        WHERE {
+                                ?person rdf:type foaf:Person . 
+                                ?person foaf:mbox_sha1sum "%s"                                    
+                              }
+                    """
+            results2 = swse.query(query2 % mail_sha1sum)
+            if len(results2) > 0:
+                return results2[0]
+            else:
+                return None
+    
+    def __getBestURI(self, possibilities):
         """
         Search the file where a Person is the primary topic, else the first possibility
 

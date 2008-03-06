@@ -3,7 +3,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2007 Sergio Fernández
+# Copyright (C) 2005-2008 Sergio Fernández
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -40,6 +40,7 @@ class Configuration:
             'post' : 'YYYY-MMM/messageID',
             'to' : 'foo@bar.com',
             'kml' : True,
+            'search': 'swse',
             'foaf' : True
             }       
              
@@ -146,6 +147,4 @@ class Configuration:
         
         for var in self.config.keys():
             print var + ': ' + str(self.config[var])
-
-
 

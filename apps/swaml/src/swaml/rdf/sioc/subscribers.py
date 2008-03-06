@@ -356,7 +356,7 @@ class Subscribers:
         Process subscribers to obtain more semantic information
         """
         
-        foafserv = FOAFS()
+        foafserv = FOAFS(config=self.config)
         
         self.foafEnriched = 0
         

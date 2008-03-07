@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 #
-# SWAML KML Exporter <http://swaml.berlios.de/>
+# SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
 # Copyright (C) 2005-2008 Sergio Fernández

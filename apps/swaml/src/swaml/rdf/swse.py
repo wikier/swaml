@@ -57,5 +57,5 @@ class SWSE:
                         one[key] = result[key]['value']
                     queryResults.append(one)
         
-	    return queryResults
+        return queryResults
 

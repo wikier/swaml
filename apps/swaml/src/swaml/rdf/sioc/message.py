@@ -22,7 +22,7 @@ import datetime, email, email.Errors
 from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
-from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCTERMS, MVCB, XSD
+from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCT, MVCB, XSD
 from swaml.common.charset import Charset
 from swaml.common.date import MailDate, FileDate
 import xml.dom.minidom
@@ -346,7 +346,7 @@ class Message:
         store.bind('foaf', FOAF)
         store.bind('rdfs', RDFS)
         store.bind('dc', DC)
-        store.bind('dcterms', DCTERMS)
+        store.bind('dct', DCT)
         
         #message node
         message = URIRef(self.getUri())
@@ -359,7 +359,7 @@ class Message:
             store.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
             store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
             store.add((message, DC['title'], Literal(self.getSubject()))) 
-            store.add((message, DCTERMS['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
+            store.add((message, DCT['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
             
             parent = self.getParent()
             if (parent != None):
@@ -402,7 +402,7 @@ class Message:
         root.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
         root.setAttribute('xmlns:sioc', str(SIOC))
         root.setAttribute('xmlns:dc', str(DC))
-        root.setAttribute('xmlns:dcterms', str(DCTERMS))
+        root.setAttribute('xmlns:dct', str(DCT))
         root.setAttribute('xmlns:mvcb', str(MVCB))
         root.setAttribute('xmlns:xsd', str(XSD))
         
@@ -470,7 +470,7 @@ class Message:
             p.appendChild(strong)
             strong.appendChild(doc.createTextNode('Date: '))
             span = doc.createElement('span')
-            span.setAttribute('property', 'dcterms:created')
+            span.setAttribute('property', 'dct:created')
             span.setAttribute('datatype', 'xsd:dateTime')
             span.appendChild(doc.createTextNode(self.getDate()))
             p.appendChild(span)
@@ -574,9 +574,4 @@ class Message:
         
         #id: hashcode of 'MessageId - Date + ID'
         self.swamlId = sha.new(self.messageId + '-' + self.date + '-swaml-' + str(self.id)).hexdigest()            
-        
 
-        
-
-
-        

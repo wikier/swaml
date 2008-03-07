@@ -131,21 +131,22 @@
           serialize to disk in 
           <acronym title="Resource Description Framework">RDF</acronym>/<acronym title="eXtensible Markup Language">XML</acronym>
           and <acronym title="eXtensible HyperText Markup Language">XHTML</acronym>+<acronym title="RDF attributes">RDFa</acronym>,
-          using <acronym title="Hypertext Transfer Protocol">HTTP</acronym> content negotiation
+          using (optional) <acronym title="Hypertext Transfer Protocol">HTTP</acronym> content negotiation
         </li>
      	<li>
-          reusability of <a href="wiki/index.php/Ontologies">ontologies</a> already extended, mainly 
+          reusability of ontologies already extended, mainly 
           <a href="http://sioc-project.org/"><acronym title="Semantically-Interlinked Online Communities ">SIOC</acronym></a>
         </li>
      	<li>
           enrichment with <a href="http://www.foaf-project.org/"><acronym title="Friend of a Friend">FOAF</acronym></a>
-          using <a href="http://sindice.com/">sindice</a> as source of information
+          using <a href="http://www.swse.org/"><abbr title="Semantic Web Search Engine">SWSE</abbr></a>/<a href="http://sindice.com/">Sindice</a>
+          as source of information
         </li>
      	<li>
           <a href="http://earth.google.com/kml/whatiskml.html"><acronym title="Keyhole Markup Language">KML</acronym></a> support
         </li>
      	<li>
-          <acronym title="GIMP Tool Kit">GTK</acronym> browser
+          <acronym title="GIMP Tool Kit">GTK</acronym> browser (Buxon)
         </li>
      	<li>
           free software under

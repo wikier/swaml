@@ -24,7 +24,8 @@ from rdflib.sparql.graphPattern import GraphPattern
 from rdflib.sparql import Query
 from rdflib import Namespace, Literal
 from swaml.rdf.namespaces import SIOC, RDF, RDFS, FOAF, GEO
-from email.rdf.sindice import Sindice
+from swaml.rdf.sindice import Sindice
+from swaml.rdf.swse import SWSE
 from email.Header import decode_header
 
 class FOAFS:

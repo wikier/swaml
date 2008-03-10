@@ -70,7 +70,11 @@ class Fetcher:
         graph.parse(uri)
         print 'OK, loaded', len(graph), 'triples'
 
-        self.uri = self.__getForums(graph)[0]
+        forums = self.__getForums(graph)
+        if forums.__len__() < 1:
+            return None
+        
+        self.uri = forums[0]
         print 'Using ' + self.uri + ' sioc:Forum'
 
         if (self.pb != None):
@@ -167,9 +171,12 @@ class Fetcher:
             self.bad = True
             return
 
-        self.loadAdditionalData()
-
-        #self.__listPosts()
+        if self.graph == None:
+            self.bad = True
+            print 'None sioc:Forum founded on', self.uri
+        else:
+            self.loadAdditionalData()
+            #self.__listPosts()
 
         if (self.pb != None):
             self.pb.destroy()

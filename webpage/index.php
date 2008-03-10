@@ -60,7 +60,9 @@
         for more details.
       </p>
 
-      <img src="images/swaml.png" width="400" height="336" alt="SWAML process description" id="process" />
+      <a href="http://swaml.berlios.de/">
+        <img src="images/swaml.png" width="400" height="336" alt="SWAML process description" id="process" />
+      </a>
 
       <p>
      	<acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym> reads a 
@@ -207,6 +209,12 @@
         <dt>
           Buxon:
         </dt>
+        <dd>
+          <a href="http://prdownload.berlios.de/swaml/buxon-0.0.4.tar.gz">buxon-0.0.4.tar.gz</a>
+          and
+          <a href="http://prdownload.berlios.de/swaml/buxon_0.0.4-1_all.deb">buxon_0.0.4-1_all.deb</a>
+          (05/03/2008)
+        </dd>
         <dd>
           <a href="http://prdownload.berlios.de/swaml/buxon-0.0.3.tar.gz">buxon-0.0.3.tar.gz</a>
           and

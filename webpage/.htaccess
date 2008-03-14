@@ -21,6 +21,7 @@ RewriteRule ^lists/spanish http://lists.berlios.de/mailman/listinfo/swaml-spanis
 RewriteRule ^lists http://developer.berlios.de/mail/?group_id=4806 [R]
 
 # Another services in BerliOS
+RewriteRule ^doap$ /doap.rdf [R=303]
 RewriteRule ^news/([0-9]+) http://developer.berlios.de/forum/forum.php?forum_id=$1 [R]
 RewriteRule ^news http://developer.berlios.de/news/?group_id=4806 [R]
 RewriteRule ^bugs http://developer.berlios.de/bugs/?group_id=4806 [R]

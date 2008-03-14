@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" charset="utf-8" href="style.css" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="SWAML RSS" href="/rss/news" />
-    <link rel="meta" title="DOAP" type="application/rdf+xml" href="doap.rdf#swaml" />
+    <link rel="meta" title="DOAP" type="application/rdf+xml" href="doap#swaml" />
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.wikier.org/foaf.rdf#wikier" />
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://berrueta.net/foaf.rdf#me" />
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.di.uniovi.es/~labra/labraFoaf.rdf" />
@@ -21,7 +21,7 @@
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://criptonita.com/~nacho/foaf.rdf" />
   </head>
 
-  <body instanceof="doap:Project" about="http://swaml.berlios.de/doap.rdf#swaml">
+  <body instanceof="doap:Project" about="http://swaml.berlios.de/doap#swaml">
 
     <div class="accessibility">
       <a href="#content" accesskey="c" title="Go to content">Go to content</a>
@@ -80,7 +80,7 @@
       <ul id="members">
      	<li>
      	  <a href="http://www.wikier.org/">Sergio Fernández</a> (maintainer),
-     	  <a href="http://www.wikier.org/foaf.rdf#wikier" rel="doap:maintainer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://www.wikier.org/foaf#wikier" rel="doap:maintainer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
      	  <a href="http://berrueta.net/">Diego Berrueta</a>,
@@ -362,7 +362,7 @@
 
     <div id="foot">
       <ul>
-        <li><a href="doap.rdf#swaml" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a></li>
+        <li><a href="doap#swaml" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a></li>
         <li><a href="http://validator.w3.org/check/referer"><img src="images/xhtml.png" alt="Valid XHTML" /></a></li>
         <li><a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/css.png" alt="Valid CSS" /></a></li>
         <li><a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" alt="BerliOS Developer Logo" /></a></li>

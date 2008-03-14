@@ -6,16 +6,17 @@
          xmlns:sioc="http://rdfs.org/sioc/ns#"
          xmlns:dc="http://purl.org/dc/elements/1.1/"
          xmlns:admin="http://webns.net/mvcb/"
-         xml:lang="en">
+         xml:lang="en"
+>
 
   <rdf:Description rdf:about="">
     <rdfs:label>SWAML's DOAP document</rdfs:label>
-    <foaf:maker rdf:resource="http://www.wikier.org/foaf.rdf#wikier"/>
-    <foaf:primaryTopic rdf:resource="http://swaml.berlios.de/doap.rdf#swaml"/>
-    <dc:date>2007-12-28</dc:date>
+    <foaf:maker rdf:resource="http://www.wikier.org/foaf#wikier"/>
+    <foaf:primaryTopic rdf:resource="http://swaml.berlios.de/doap#swaml"/>
+    <dc:date>2008-03-14</dc:date>
   </rdf:Description>
 
-  <doap:Project rdf:about="http://swaml.berlios.de/doap.rdf#swaml">
+  <doap:Project rdf:about="http://swaml.berlios.de/doap#swaml">
 
     <doap:name>Semantic Web Archive of Mailing Lists</doap:name>
     <doap:shortname>SWAML</doap:shortname>
@@ -74,6 +75,14 @@
     <doap:release>
       <doap:Version>
         <doap:name>Buxon</doap:name>
+        <doap:created>2008-03-05</doap:created>
+        <doap:revision>0.0.4</doap:revision>
+      </doap:Version>
+    </doap:release>
+
+    <doap:release>
+      <doap:Version>
+        <doap:name>Buxon</doap:name>
         <doap:created>2006-12-28</doap:created>
         <doap:revision>0.0.3</doap:revision>
       </doap:Version>
@@ -89,38 +98,35 @@
     <doap:download-mirror rdf:resource="http://swaml.berlios.de/files" />
 
     <doap:maintainer>
-      <foaf:Person>
+      <foaf:Person rdf:about="http://www.wikier.org/foaf#wikier">
         <foaf:name>Sergio Fernández</foaf:name>
         <foaf:nick>Wikier</foaf:nick>
         <foaf:mbox_sha1sum>d0fd987214f56f70b4c47fb96795f348691f93ab</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://www.wikier.org/foaf.rdf#wikier" />
         <foaf:homepage rdf:resource="http://www.wikier.org/" />
-        <foaf:depiction rdf:resource="http://www.wikier.org/images/polaroid.png" />
+        <rdfs:seeAlso rdf:resource="http://www.wikier.org/foaf.rdf" />
       </foaf:Person>
     </doap:maintainer>
 
     <doap:developer>
-      <foaf:Person>
+      <foaf:Person rdf:about="http://berrueta.net/foaf.rdf#me">
         <foaf:name>Diego Berrueta</foaf:name>
         <foaf:mbox_sha1sum>98a99390f2fe9395041bddc41e933f50e59a5ecb</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://berrueta.net/foaf.rdf#me" />
         <foaf:homepage rdf:resource="http://berrueta.net/" />
-        <foaf:depiction rdf:resource="http://berrueta.net/images/2.png" />
+        <rdfs:seeAlso rdf:resource="http://berrueta.net/foaf.rdf" />
       </foaf:Person>
     </doap:developer>
 
     <doap:developer>
-      <foaf:Person>
+      <foaf:Person rdf:about="http://www.di.uniovi.es/~labra/labraFoaf.rdf#me">
         <foaf:name>Jose E. Labra</foaf:name>
         <foaf:mbox_sha1sum>3d0a8f16ce3d560ca75e16d36f6ded63599c60a7</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://www.di.uniovi.es/~labra/labraFoaf.rdf" />
         <foaf:homepage rdf:resource="http://www.di.uniovi.es/~labra/" />
-        <foaf:depiction rdf:resource="http://www.di.uniovi.es/~labra/images/yoCara.jpg" />
+        <rdfs:seeAlso rdf:resource="http://www.di.uniovi.es/~labra/labraFoaf.rdf" />
       </foaf:Person>
     </doap:developer>
 
     <doap:helper>
-      <foaf:Person>
+      <foaf:Person rdf:about="http://frade.no-ip.info:2080/~ivan/foaf.rdf#me">
         <foaf:name>Iván Frade</foaf:name>
         <foaf:mbox_sha1sum>84d076726727b596b08198e26ef37e4817353e97</foaf:mbox_sha1sum>
         <rdfs:seeAlso rdf:resource="http://frade.no-ip.info:2080/~ivan/foaf.rdf" />
@@ -128,11 +134,11 @@
     </doap:helper>
 
     <doap:helper>
-      <foaf:Person>
+      <foaf:Person rdf:about="http://criptonita.com/~nacho/foaf.rdf#me">
         <foaf:name>Nacho Barrientos</foaf:name>
         <foaf:mbox_sha1sum>6b31c41e80d36cc08a489462c0c2c37d7de8d2e5</foaf:mbox_sha1sum>
-        <rdfs:seeAlso rdf:resource="http://criptonita.com/~nacho/foaf.rdf#me" />
         <foaf:homepage rdf:resource="http://criptonita.com/~nacho" />
+        <rdfs:seeAlso rdf:resource="http://criptonita.com/~nacho/foaf.rdf" />
       </foaf:Person>
     </doap:helper>
 
@@ -154,3 +160,4 @@
   </doap:Project>
 
 </rdf:RDF>
+

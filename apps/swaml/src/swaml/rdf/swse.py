@@ -21,7 +21,7 @@ A simple python wrapper for SWSE
 seeAlso: http://swse.deri.org/
 """
 
-from SPARQL import SPARQLWrapper, JSON
+from SPARQLWrapper import SPARQLWrapper, JSON
 
 class SWSE:
     

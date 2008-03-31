@@ -43,6 +43,7 @@ class SWSE:
         queryResults = []        
 
         sparql = SPARQLWrapper(self.service)
+        #sparql = SPARQLWrapper(self.service, agent="swaml (http://swaml.berlios.de/; sergio@wikier.org)")
         sparql.setQuery(query)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()

@@ -31,17 +31,17 @@ MVCB  = Namespace(u"http://webns.net/mvcb/")
 ICAL  = Namespace(u"http://www.w3.org/2002/12/cal/icaltzd#")
 XSD   = Namespace(u"http://www.w3.org/2001/XMLSchema#")
 
-bindings = {
-                u"http://www.w3.org/1999/02/22-rdf-syntax-ns#" : rdf,
-                u"http://www.w3.org/2000/01/rdf-schema#" : rdfs,
-                u"http://rdfs.org/sioc/ns#" : sioc,
-                u"http://rdfs.org/sioc/types#" : sioct,
-                u"http://purl.org/dc/elements/1.1/" : dc,
-                u"http://purl.org/dc/terms/" : dct,
-                u"http://xmlns.com/foaf/0.1/" : foaf,
-                u"http://www.w3.org/2003/01/geo/wgs84_pos#" : geo,
-                u"http://webns.net/mvcb/" : mvcb,
-                u"http://www.w3.org/2002/12/cal/icaltzd#" : ical,
-                u"http://www.w3.org/2001/XMLSchema#" : xsd
+NSbindings = {
+                u"http://www.w3.org/1999/02/22-rdf-syntax-ns#" : RDF,
+                u"http://www.w3.org/2000/01/rdf-schema#" : RDFS,
+                u"http://rdfs.org/sioc/ns#" : SIOC,
+                u"http://rdfs.org/sioc/types#" : SIOCT,
+                u"http://purl.org/dc/elements/1.1/" : DC,
+                u"http://purl.org/dc/terms/" : DCT,
+                u"http://xmlns.com/foaf/0.1/" : FOAF,
+                u"http://www.w3.org/2003/01/geo/wgs84_pos#" : GEO,
+                u"http://webns.net/mvcb/" : MVCB,
+                u"http://www.w3.org/2002/12/cal/icaltzd#" : ICAL,
+                u"http://www.w3.org/2001/XMLSchema#" : XSD
           }
 

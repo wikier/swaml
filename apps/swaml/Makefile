@@ -4,6 +4,7 @@ NAME=SWAML
 DESTDIR =
 ZIP=gzip
 DOCDIR=doc
+PYTHON=python
 
 install:
 	cp setup/swaml $(DESTDIR)/usr/bin/swaml
@@ -31,16 +32,11 @@ gendoc:
 pubdoc:	gendoc
 	scp -r $(DOCDIR)/* $(USER)@shell.berlios.de:/home/groups/swaml/htdocs/$(DOCDIR)/
 
-test:
-	echo $(NAME) test
-	echo **********\n
-	echo be pacient...\n
-	mkdir -p test
-	echo time test
-	echo ---------\n
-	time python swaml.py -d /tmp/swaml/ > test/time.txt
-	rm -rf /tmp/swaml
-	cat test/time.txt
+tests:
+	@echo $(NAME) unittests
+	@echo ---------------
+	#$(PYTHON) test/swaml/rdf/swse.py
+	#$(PYTHON) test/swaml/rdf/sindice.py
 
 clean:
 	rm -rf archive/

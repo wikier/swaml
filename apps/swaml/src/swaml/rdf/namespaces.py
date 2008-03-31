@@ -32,16 +32,16 @@ ICAL  = Namespace(u"http://www.w3.org/2002/12/cal/icaltzd#")
 XSD   = Namespace(u"http://www.w3.org/2001/XMLSchema#")
 
 NSbindings = {
-                u"http://www.w3.org/1999/02/22-rdf-syntax-ns#" : RDF,
-                u"http://www.w3.org/2000/01/rdf-schema#" : RDFS,
-                u"http://rdfs.org/sioc/ns#" : SIOC,
-                u"http://rdfs.org/sioc/types#" : SIOCT,
-                u"http://purl.org/dc/elements/1.1/" : DC,
-                u"http://purl.org/dc/terms/" : DCT,
-                u"http://xmlns.com/foaf/0.1/" : FOAF,
-                u"http://www.w3.org/2003/01/geo/wgs84_pos#" : GEO,
-                u"http://webns.net/mvcb/" : MVCB,
-                u"http://www.w3.org/2002/12/cal/icaltzd#" : ICAL,
-                u"http://www.w3.org/2001/XMLSchema#" : XSD
-          }
+    u"rdf"   : RDF,
+    u"rdfs"  : RDFS,
+    u"sioc"  : SIOC,
+    u"sioct" : SIOCT,
+    u"dc"    : DC,
+    u"dct"   : DCT,
+    u"foaf"  : FOAF,
+    u"geo"   : GEO,
+    u"mvcb"  : MVCB,
+    u"ical"  : ICAL,
+    u"xsd"   : XSD
+}
 

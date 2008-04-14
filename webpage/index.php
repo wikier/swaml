@@ -21,7 +21,7 @@
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://criptonita.com/~nacho/foaf.rdf" />
   </head>
 
-  <body instanceof="doap:Project" about="http://swaml.berlios.de/doap#swaml">
+  <body typeof="doap:Project" about="http://swaml.berlios.de/doap#swaml">
 
     <div class="accessibility">
       <a href="#content" accesskey="c" title="Go to content">Go to content</a>
@@ -271,6 +271,12 @@
       </p>
       <ul>
         <li>
+          Diego Berrueta, Sergio Fernández and Lian Shi.
+          <em>Bootstrapping the Semantic Web of Social Online Communities</em>.
+          WWW2008 Workshop on Social Web Search and Mining (SWSM2008), 
+          Beijing, China, April 22, 2008. (to appear).
+        </li>
+        <li>
           Sergio Fernández, Diego Berrueta and José E. Labra.
           <em>A semantic web approach to publish and consume mailing lists</em>.
           <abbr title="International Association for Development of the Information Society">IADIS</abbr>
@@ -293,12 +299,20 @@
       </p>
       <dl>
         <dt>
+          <a href="http://prdownload.berlios.de/swaml/20080409-talk-swaml-deri-galway.tar.gz">Bootstrapping 
+          the Semantic Web of Social Online Communities</a>:
+        </dt>
+        <dd>
+          April 9th of 2008 in DERI NUI Galway, Galway (Ireland)
+        </dd>
+
+        <dt>
           <a href="http://prdownload.berlios.de/swaml/20070511-swaml-concurso-software-libre.pdf"><acronym 
           title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
           Semantic Web Archive of Mailing Lists</a>:
         </dt>
         <dd>
-          11 of May of 2007 in Seville (Spain) on the final phase of the 
+          May 11th of 2007 in Seville (Spain) on the final phase of the 
           <a href="http://concurso-softwarelibre.us.es/"><span 
           xml:lang="es"><abbr title="primer">I</abbr> Concurso Universitario de Software 
           Libre</span></a>
@@ -308,7 +322,7 @@
           <a href="http://prdownload.berlios.de/swaml/SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf">Mailing Lists Meet The Semantic Web</a>:
         </dt>
         <dd>
-          27 of April of 2007 in Poznan (Poland) on the workshop of Social Aspects of 
+          April 27th of 2007 in Poznan (Poland) on the workshop of Social Aspects of 
           the Web (<a href="http://integror.net/saw"><abbr title="Social Aspects of the Web">SAW</abbr>2007</a>),
           in conjunction with <abbr title="tenth">10<sup>th</sup></abbr> International
           Conference on Business Information Systems 
@@ -324,7 +338,7 @@
           publicación de listas de correo en Web Semántica</span></a>:
         </dt>
         <dd>
-          20 of December of 2006 in Oviedo (Spain) for Sergio's degree dissertation
+          December 20th of 2006 in Oviedo (Spain) for Sergio's degree dissertation
         </dd>
       </dl>
 

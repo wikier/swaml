@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<title>Bootstrapping the Semantic Web of Social Online Communities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="" />
+<meta name="font-size-adjustment" content="-8" />
+<link rel="stylesheet" href="style.css" type="text/css" media="screen, projection, print" />
+<script type="text/javascript" src="slidy.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="thickbox.js"></script>
+<link rel="stylesheet" href="thickbox.css" type="text/css" media="screen" />
+</head>
+<body>
+<div class="background"></div>
+
+<div class="background slanty">
+</div>
+<div class="slide cover">
+<div>
+  <!-- hidden style graphics to ensure they are saved with other content -->
+  <img class="note" src="images/bullet.png" alt="" />
+  <img class="note" src="images/fold.gif" alt="" />
+  <img class="note" src="images/unfold.gif" alt="" />
+  <img class="note" src="images/fold-dim.gif" alt="" />
+  <img class="note" src="images/nofold-dim.gif" alt="" />
+  <img class="note" src="images/unfold-dim.gif" alt="" />
+  <img class="note" src="images/bullet-fold.gif" alt="" />
+  <img class="note" src="images/bullet-unfold.gif" alt="" />
+  <img class="note" src="images/bullet-fold-dim.gif" alt="" />
+  <img class="note" src="images/bullet-nofold-dim.gif" alt="" />
+  <img class="note" src="images/bullet-unfold-dim.gif" alt="" />
+
+<h1>Bootstrapping the Semantic Web<br/>of Social Online Communities</h1><br/><br/><br/>
+
+<ul>
+<li>
+<a href="http://berrueta.net/">Diego Berrueta</a>,
+<a href="http://www.wikier.org/">Sergio Fernández</a> and
+Lian Shi
+(<a href="http://www.fundacionctic.org/">Fundación CTIC</a>)</li>
+</ul>
+</div>
+
+</div>
+
+<div class="slide">
+<h1><span><span><span>Outline</span></span></span></h1>
+<ul class="incremental">
+	<li class="non-incremental">Social Online Communities with Semantics</li>
+	<li>Mining Online Communities: SWAML and other approaches</li>
+    <li>Experimentation</li>
+    <li>Common issues</li>
+	<li>On the future way...</li>
+	<li>Questions</li>
+</ul>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>Social Online Communities</span></span></span></h1>
+<img src="images/cloud.jpg" style="display: block; margin-left: auto; margin-right: auto;" />
+<a href="http://flickr.com/photos/gustavog/4557105/" style="font-size: 0.3em; float: right; margin-right: 1em;">Source: http://flickr.com/photos/gustavog/4557105/</a>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>Linked Online Communities</span></span></span></h1>
+<img src="images/lod-cloud.jpg" style="display: block; margin-left: auto; margin-right: auto;" />
+<a href="http://richard.cyganiak.de/2007/10/lod/" style="font-size: 0.3em; float: right; margin-right: 1em;">Source: http://richard.cyganiak.de/2007/10/lod/</a>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>Infrastructure for Interlink Online Communities using Semantics</span></span></span></h1>
+<a href="http://sioc-project.org/" style="font-size: 2em; float: right; margin-right: 1em;">SIOC</a>
+<a href="http://sioc-project.org/"><img src="images/sioc.png" style="display: block; margin-left: auto; margin-right: auto;" /></a>
+<a href="http://sioc-project.org/node/139" style="font-size: 0.3em; float: right; margin-right: 1em;">Source: http://sioc-project.org/node/139</a>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>Mining Online Communities</span></span></span></h1>
+<p>We considered two approaches:</p>
+<ul class="incremental">
+  <li>
+    Intrusive techniques
+    <ul class="incremental">
+      <li>
+        <a href="http://swaml.berlios.de/">SWAML</a>
+      </li>
+      <li>
+        others exporters 
+        (<a href="http://sioc.project.org/wordpress">WordPress</a>, 
+        <a href="http://sioc.project.org/drupal">Drupal</a>, etc.)</li>
+    </ul>
+  </li>
+  <li>
+   Unintrusive techniques
+    <ul class="incremental">
+      <li>HTML scraping with XSLT</li>
+      <li>RSS/Atom translation</li>
+    </ul>
+  </li>
+</ul>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>SWAML</span></span></span></h1>
+<p style="margin-bottom: 3em;">SWAML, mailing lists meet the Semantic Web</p>
+<ul id="secuencial" class="incremental">
+  <li class="secuencial"><img src="images/mbox.png" alt="mbox" /></li>
+  <li class="secuencial"><img src="images/swaml-arrow.png" alt="parse" /></li>
+  <li class="secuencial"><img src="images/enrich.png" alt="enrich" /></li>
+  <li class="secuencial"><img src="images/serialize.png" alt="serialize" /></li>
+</ul>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>Scraping</span></span></span></h1>
+<ul class="incremental">
+	<li>Web scraping is a well-known, non-intrusive and widely used technique</li>
+	<li>Many technologies, but we chose XSLT</li>
+    <li>We also use Tidy to clean the markup before parse it</li>
+    <li>
+       different outputs:
+       <ul>
+         <li>generate RDF/XML</li>
+          <li>generate XHTML+RDFa</li>
+       </ul>
+    </li>
+	<li>We could also directly decorate the current DOM tree with RDFa</li>
+</ul>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>Experiment</span></span></span></h1>
+<a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/"><img src="images/experiment.png" alt="Advogato+GNOME+Debian+Ubuntuforums=RDF" style="display:block; margin-left: auto; margin-right:auto; margin-top: 2em;" /></a>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>Common issues</span></span></span></h1>
+<ul class="incremental">
+	<li>Same person, multiple identities</li>
+	<li>Hashed e-mail addresses</li>
+	<li>Repeated primary keys</li>
+	<li>Flat threads</li>
+	<li>Pagination</li>
+</ul>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide">
+<h1><span><span><span>On the future way...</span></span></span></h1>
+<ul class="incremental">
+	<li>
+      Incorporate new technologies, such as 
+      <a href="http://berrueta.net/research/xsltsparql">XSLT+SPARQL</a> or
+      <a href="http://www.polleres.net/xsparql">XSPARQL</a>
+    </li>
+	<li>Improve smushing</li>
+	<li>Study complementary techonologies, such as <a href="http://smile.deri.ie/projects.html#semanticemail">Semantic Email</a></li>
+    <li>More...</li>
+</ul>
+<div class="handout">
+</div>
+</div>
+
+<div class="slide end">
+<div>
+<h1><span><span><span>Questions</span></span></span></h1>
+<p style="text-align: center; margin: 4em 0 3em 0;"><big><strong>Questions?</strong></big></p>
+<p style="text-align: center;">Diego Berrueta &lt;<a href="mailto:sergio.fernandez@fundacionctic.org">diego.berrueta@fundacionctic.org</a>&gt;</p>
+<p style="text-align: center;">Sergio Fernández &lt;<a href="mailto:sergio.fernandez@fundacionctic.org">sergio.fernandez@fundacionctic.org</a>&gt;</p>
+<p style="text-align: center;">Lian Shi &lt;<a href="mailto:sergio.fernandez@fundacionctic.org">lian.shi@fundacionctic.org</a>&gt;</p>
+</div>
+</div>
+
+</body>
+</html>

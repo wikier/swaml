@@ -18,7 +18,7 @@
    sodipodi:docbase="/home/sergio/projects/swaml/berlios/doc/talks/20080422-swsm2008/images"
    sodipodi:docname="experiment.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   inkscape:export-filename="/home/sergio/projects/swaml/berlios/doc/talks/20080409-deri-galway/images/experiment.png"
+   inkscape:export-filename="/home/sergio/projects/swaml/berlios/doc/talks/20080422-swsm2008/images/experiment.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -35,7 +35,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="593.77813"
-     inkscape:cy="415.78488"
+     inkscape:cy="629.49773"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="1052.3622px"
@@ -62,32 +62,32 @@
      inkscape:groupmode="layer"
      id="layer1">
     <image
-       y="113.80878"
-       x="37.142853"
+       y="5.8087769"
+       x="21.142853"
        id="image2218"
        height="151.4286"
        width="152.85713"
        sodipodi:absref="/home/sergio/projects/swaml/berlios/doc/talks/20080409-deri-galway/images/gnome.png"
        xlink:href="gnome.png" />
     <image
-       y="283.80878"
-       x="59.428562"
+       y="187.80878"
+       x="41.428562"
        id="image2269"
        height="121.42857"
        width="105.42857"
        sodipodi:absref="/home/sergio/projects/swaml/berlios/doc/talks/20080409-deri-galway/images/debian.png"
        xlink:href="debian.png" />
     <image
-       y="26.95159"
-       x="22.857107"
+       y="124.09448"
+       x="868"
        id="image2312"
        height="60"
        width="181.42857"
        sodipodi:absref="/home/sergio/projects/swaml/berlios/doc/talks/20080409-deri-galway/images/advogato.png"
        xlink:href="advogato.png" />
     <image
-       y="79.23735"
-       x="473.99994"
+       y="45.23735"
+       x="409.99994"
        id="image17059"
        height="240.85716"
        width="293.71429"
@@ -98,7 +98,7 @@
        image-rendering="optimizeQuality"
        text-rendering="geometricPrecision"
        shape-rendering="geometricPrecision"
-       transform="matrix(1,0,0,0.8878268,556.54877,90.8676)">
+       transform="matrix(1,0,0,0.8878268,492.54877,56.8676)">
       <path
          id="path2810"
          d="M 84.45,66.836 C 83.814,66.499 83.166,66.212 82.514,65.957 L 82.98,65.919 C 82.98,65.919 78.829,64.081 78.466,50.739 C 78.107,37.395 82.423,35.119 82.423,35.119 L 81.803,35.146 C 85.064,33.473 87.869,30.83 89.72,27.342 C 94.543,18.27 91.092,7.001 82.018,2.177 C 72.94,-2.641 61.674,0.802 56.854,9.883 C 54.872,13.608 54.309,17.7 54.935,21.566 L 54.723,21.24 C 54.723,21.24 55.816,26.082 44.465,33.128 C 33.116,40.178 27.996,36.668 27.996,36.668 L 28.322,37.148 C 27.997,36.947 27.686,36.742 27.347,36.565 C 18.269,31.741 7,35.188 2.178,44.266 C -2.642,53.343 0.806,64.607 9.881,69.433 C 16.647,73.024 24.625,72.023 30.246,67.519 L 30.124,67.755 C 30.124,67.755 34.256,64.356 46.164,70.749 C 55.564,75.793 56.96,80.737 57.139,82.595 C 56.893,89.488 60.486,96.249 66.986,99.702 C 76.061,104.527 87.33,101.077 92.15,92.001 C 96.974,82.926 93.528,71.656 84.45,66.836 z M 63.466,69.282 C 61.962,69.814 57.665,70.403 48.619,65.552 C 38.822,60.292 37.368,55.898 37.155,54.579 C 37.294,52.979 37.205,51.382 36.932,49.824 L 36.992,49.914 C 36.992,49.914 36.194,45.64 47.404,38.679 C 57.437,32.451 61.998,33.69 62.847,34.015 C 63.393,34.386 63.959,34.732 64.553,35.048 C 65.682,35.648 66.846,36.118 68.025,36.466 C 69.405,37.78 71.945,41.511 72.209,51.32 C 72.479,61.203 69.575,65.014 67.992,66.362 C 66.362,67.1 64.836,68.085 63.466,69.282 z "
@@ -134,13 +134,13 @@
       </g>
     </g>
     <path
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.36272192;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 230.09122,179.12352 L 429.87402,181.14212 C 429.87402,181.14212 430.65176,166.71574 430.05407,166.7083 C 429.45586,166.70083 486.47792,199.36074 486.47792,199.36074 L 435.83358,230.91456 C 435.83358,230.91456 434.21654,216.69484 434.21358,216.9315 C 434.21063,217.16815 229.63663,215.56295 230.23775,215.33376 L 230.09122,179.12352 z "
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.8056705;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 858.96444,139.73384 L 721.07193,139.10481 C 721.07193,139.10481 720.81652,124.54561 721.22908,124.54607 C 721.642,124.54652 681.65919,156.72306 681.65919,156.72306 L 715.98945,189.22021 C 715.98945,189.22021 717.38244,174.90137 717.37988,175.14007 C 717.37729,175.37877 858.56775,176.48862 858.15746,176.24947 L 858.96444,139.73384 z "
        id="path2855"
        sodipodi:nodetypes="cccccccc" />
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.36272192;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 221.89369,317.03528 L 419.57497,288.06352 C 419.57497,288.06352 418.10724,273.69095 417.51562,273.77622 C 416.92348,273.86157 478.31864,297.28848 478.31864,297.28848 L 433.17712,336.31073 C 433.17712,336.31073 429.3756,322.51351 429.40936,322.74776 C 429.44313,322.98201 227.09265,353.1048 227.65098,352.7852 L 221.89369,317.03528 z "
+       d="M 161.89369,209.03528 L 359.57497,180.06352 C 359.57497,180.06352 358.10724,165.69095 357.51562,165.77622 C 356.92348,165.86157 418.31864,189.28848 418.31864,189.28848 L 373.17712,228.31073 C 373.17712,228.31073 369.3756,214.51351 369.40936,214.74776 C 369.44313,214.98201 167.09265,245.1048 167.65098,244.7852 L 161.89369,209.03528 z "
        id="path2857"
        sodipodi:nodetypes="cccccccc"
        inkscape:transform-center-x="27.142857"
@@ -148,62 +148,62 @@
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="239.53828"
-       y="198.38042"
-       id="text2883"
-       transform="matrix(0.9998584,1.6826977e-2,-1.6826977e-2,0.9998584,0,0)"><tspan
-         sodipodi:role="line"
-         id="tspan2885"
-         x="239.53828"
-         y="198.38042">Crawler + SWAML</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="214.1826"
-       y="373.74957"
+       x="171.2766"
+       y="257.89163"
        id="text2891"
        transform="matrix(0.9884057,-0.1518362,0.1518362,0.9884057,0,0)"><tspan
          sodipodi:role="line"
          id="tspan2893"
-         x="214.1826"
-         y="373.74957">Tidy + XSLT</tspan></text>
+         x="171.2766"
+         y="257.89163">Tidy + XSLT</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="64.28569"
-       y="256.9516"
+       x="48.28569"
+       y="148.9516"
        id="text2921"><tspan
          sodipodi:role="line"
          id="tspan2923"
-         x="64.28569"
-         y="256.9516">mailing lists</tspan></text>
+         x="48.28569"
+         y="148.9516">mailing lists</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="65.112167"
-       y="422.50854"
+       x="47.112167"
+       y="326.50854"
        id="text2925"><tspan
          sodipodi:role="line"
          id="tspan2927"
-         x="65.112167"
-         y="422.50854">mailing lists</tspan></text>
+         x="47.112167"
+         y="326.50854">mailing lists</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="748.5152"
+       y="148.93213"
+       id="text2895"
+       transform="matrix(0.9998167,1.9147268e-2,-1.9147268e-2,0.9998167,0,0)"><tspan
+         sodipodi:role="line"
+         x="748.5152"
+         y="148.93213"
+         id="tspan2899">Crawler</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.36272192;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 221.89369,85.528289 L 419.57497,114.50005 C 419.57497,114.50005 418.10724,128.87262 417.51562,128.78735 C 416.92348,128.702 478.31864,105.27509 478.31864,105.27509 L 433.17712,66.252839 C 433.17712,66.252839 429.3756,80.050059 429.40936,79.815809 C 429.44313,79.581559 227.09265,49.458769 227.65098,49.778369 L 221.89369,85.528289 z "
-       id="path2188"
+       d="M 161.89369,101.52829 L 359.57497,130.50005 C 359.57497,130.50005 358.10724,144.87262 357.51562,144.78735 C 356.92348,144.702 418.31864,121.27509 418.31864,121.27509 L 373.17712,82.25284 C 373.17712,82.25284 369.3756,96.05006 369.40936,95.81581 C 369.44313,95.58156 167.09265,65.458769 167.65098,65.778369 L 161.89369,101.52829 z "
+       id="path2184"
        sodipodi:nodetypes="cccccccc"
        inkscape:transform-center-x="27.142857"
        inkscape:transform-center-y="-11.428568" />
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="291.28561"
-       y="42.47546"
-       id="text2895"
-       transform="matrix(0.9899847,0.1411749,-0.1411749,0.9899847,0,0)"><tspan
+       x="240.34895"
+       y="62.435135"
+       id="text2883"
+       transform="matrix(0.98707,0.1602896,-0.1602896,0.98707,0,0)"><tspan
          sodipodi:role="line"
-         x="291.28561"
-         y="42.47546"
-         id="tspan2899">Crawler</tspan></text>
+         id="tspan2885"
+         x="240.34895"
+         y="62.435135">SWAML</tspan></text>
   </g>
 </svg>

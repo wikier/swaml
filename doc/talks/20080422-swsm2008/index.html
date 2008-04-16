@@ -33,31 +33,18 @@
 
 <h1>Bootstrapping<br/>the Semantic Web of<br/>Social Online Communities</h1><br/><br/><br/>
 
-<ul>
-<li>
-<a href="http://berrueta.net/">Diego Berrueta</a>,
-<a href="http://www.wikier.org/">Sergio Fernández</a> and
-<a href="http://www.linkedin.com/in/lianshi">Lian Shi</a>
-(<a href="http://www.fundacionctic.org/">Fundación CTIC</a>)</li>
-</ul>
+<p>
+  <a href="http://berrueta.net/">Diego Berrueta</a>,
+  <a href="http://www.wikier.org/">Sergio Fernández</a> and
+  <a href="http://www.linkedin.com/in/lianshi">Lian Shi</a>
+  (<a href="http://www.fundacionctic.org/">Fundación CTIC</a>)</li>
+</p>
+<!--<p>(presenting Josema Alonso)</p>-->
+<p>
+  <a href="http://www2008.org/">WWW2008</a> Workshop on Social Web Search and
+  Mining (<a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/">SWSM2008</a>)
 </div>
 </div>
-
-<!--
-<div class="slide">
-<h1><span><span><span>Outline</span></span></span></h1>
-<ul class="incremental">
-	<li class="non-incremental">Social Online Communities with Semantics</li>
-	<li>Mining Online Communities: SWAML and other approaches</li>
-    <li>Experimentation</li>
-    <li>Common issues</li>
-	<li>On the future way...</li>
-	<li>Questions</li>
-</ul>
-<div class="handout">
-</div>
-</div>
--->
 
 <div class="slide">
 <h1><span><span><span>Motivation and Objectives</span></span></span></h1>
@@ -86,8 +73,8 @@
 
 <div class="slide">
 <h1><span><span><span>Social Online Communities with Semantics</span></span></span></h1>
-<a href="http://sioc-project.org/"><img src="images/sioc.png" style="float:left; margin-left:1em;" /></a>
-<p style="font-size: 0.7em;"><a href="http://sioc-project.org/" style="font-weight:blod">SIOC</a> (<em>Semantically Interlinked Online Communities</em>)
+<a href="http://sioc-project.org/"><img src="images/sioc.png" style="float:left; margin-left:1em; margin-right:2em;" /></a>
+<p><a href="http://sioc-project.org/" style="font-weight:blod">SIOC</a> (<em>Semantically Interlinked Online Communities</em>)
 provides the main concepts and properties required to describe information from online communities 
 (blogs, forums, mailing lists, wikis, etc.) on the Semantic Web.<p>
 <div class="handout">
@@ -123,11 +110,13 @@ provides the main concepts and properties required to describe information from 
 
 <div class="slide">
 <h1><span><span><span>SWAML, mailing lists meet the Semantic Web</span></span></span></h1>
-<p>SWAML is a Python script that transforms a mailbox into RDF data, using some external services to enrich the dataset, and serializing the information in RDF/XML and XHTML+RDFa.</p>
+<p><a href="http://swaml.berlios.de/">SWAML</a> is a Python script that parses a mailbox, 
+uses some external services (such as <a href="http://www.swse.org/">SWSE</a> or 
+<a href="http://sindice.com/">Sindice</a>) to enrich the dataset, and serializes 
+the information in RDF.</p>
 <ul id="secuencial" class="incremental" style="padding-top:1em;">
   <li class="secuencial"><img src="images/mbox.png" alt="mbox" /></li>
   <li class="secuencial"><img src="images/swaml-arrow.png" alt="parse" /></li>
-  <!--<li class="secuencial"><img src="images/enrich.png" alt="enrich" /></li>-->
   <li class="secuencial"><img src="images/serialize.png" alt="serialize" /></li>
 </ul>
 <div class="handout">
@@ -137,9 +126,9 @@ provides the main concepts and properties required to describe information from 
 <div class="slide">
 <h1><span><span><span>HTML Scraping</span></span></span></h1>
 <ul class="incremental">
-	<li>Web scraping is a well-known, non-intrusive and widely used technique</li>
-	<li>Many technologies, but for HTML we chose XSLT</li>
-    <li>We also use Tidy to clean the markup before parse it</li>
+	<li>many technologies to do Web scraping</li>
+	<li>for HTML we chose XSLT</li>
+    <li>Tidy to clean the markup</li>
     <li>
        different outputs:
        <ul>
@@ -147,7 +136,7 @@ provides the main concepts and properties required to describe information from 
           <li>generate XHTML+RDFa</li>
        </ul>
     </li>
-	<li>We could also directly decorate the current DOM tree with RDFa</li>
+	<!--<li>We could also directly decorate the current DOM tree with RDFa</li>-->
 </ul>
 <div class="handout">
 </div>
@@ -155,21 +144,9 @@ provides the main concepts and properties required to describe information from 
 
 <div class="slide">
 <h1><span><span><span>Experiment</span></span></span></h1>
-<ul id="secuencial" class="incremental">
-  <li><a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/"><img src="images/experiment.png" alt="Advogato+GNOME+Debian=RDF" style="display:block; margin-left: auto; margin-right:auto; margin-top: 2em; margin-bottom: 2em;" /></a></li>
-  <li class="secuencial">Advogato: more than 4.000 users in FOAF<br/>Subset GNOME mailing lists: 25 million RDF triples<br/>Subset Debian mailing lists: 3 million RDF triples</li>
-</ul>
-<!--
-FIXME: delete ubuntu, add numbers, and a sparql query
--->
-<div class="handout">
-</div>
-</div>
-
-<div class="slide">
-<h1><span><span><span>The objective: Linked Online Communities</span></span></span></h1>
-<img src="images/lod-cloud.jpg" style="display: block; margin-left: auto; margin-right: auto;" />
-<a href="http://richard.cyganiak.de/2007/10/lod/" style="font-size: 0.3em; float: right; margin-right: 1em;">Source: http://richard.cyganiak.de/2007/10/lod/</a>
+<p style="text-align:center; margin-bottom:1em;"><a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/"><img src="images/experiment.png" alt="Advogato+GNOME+Debian=RDF" /></a></p>
+<p style="text-align:center;">around 30 million of RDF triples from mailing lists</p>
+<p style="text-align:center;">crawling more than 4.000 FOAF profiles of users in Advogato</p>
 <div class="handout">
 </div>
 </div>
@@ -190,11 +167,7 @@ FIXME: delete ubuntu, add numbers, and a sparql query
 <div class="slide">
 <h1><span><span><span>On the future way...</span></span></span></h1>
 <ul class="incremental">
-	<li>
-      Incorporate new technologies, such as 
-      <a href="http://berrueta.net/research/xsltsparql">XSLT+SPARQL</a> or
-      <a href="http://www.polleres.net/xsparql">XSPARQL</a>
-    </li>
+	<li>Incorporate new technologies, such as <a href="http://www.polleres.net/xsparql">XSPARQL</a></li>
 	<li>Improve smushing</li>
 	<li>Study complementary techonologies, such as <a href="http://smile.deri.ie/projects.html#semanticemail">Semantic Email</a></li>
     <li>More...</li>

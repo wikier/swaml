@@ -37,12 +37,16 @@
   <a href="http://berrueta.net/">Diego Berrueta</a>,
   <a href="http://www.wikier.org/">Sergio Fernández</a> and
   <a href="http://www.linkedin.com/in/lianshi">Lian Shi</a>
-  (<a href="http://www.fundacionctic.org/">Fundación CTIC</a>)</li>
+  (<a href="http://www.fundacionctic.org/">Fundación CTIC</a>)
 </p>
 <!--<p>(presenting Josema Alonso)</p>-->
 <p>
   <a href="http://www2008.org/">WWW2008</a> Workshop on Social Web Search and
   Mining (<a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/">SWSM2008</a>)
+</p>
+<p>
+  April 22th 2008
+</p>
 </div>
 </div>
 
@@ -73,7 +77,7 @@
 
 <div class="slide">
 <h1><span><span><span>Social Online Communities with Semantics</span></span></span></h1>
-<a href="http://sioc-project.org/"><img src="images/sioc.png" style="float:left; margin-left:1em; margin-right:2em;" /></a>
+<a href="http://sioc-project.org/"><img src="images/sioc.png" style="float:left; margin-left:1em; margin-right:2em;" alt="main terms of sioc" /></a>
 <p><a href="http://sioc-project.org/" style="font-weight:blod">SIOC</a> (<em>Semantically Interlinked Online Communities</em>)
 provides the main concepts and properties required to describe information from online communities 
 (blogs, forums, mailing lists, wikis, etc.) on the Semantic Web.<p>
@@ -111,9 +115,8 @@ provides the main concepts and properties required to describe information from 
 <div class="slide">
 <h1><span><span><span>SWAML, mailing lists meet the Semantic Web</span></span></span></h1>
 <p><a href="http://swaml.berlios.de/">SWAML</a> is a Python script that parses a mailbox, 
-uses some external services (such as <a href="http://www.swse.org/">SWSE</a> or 
-<a href="http://sindice.com/">Sindice</a>) to enrich the dataset, and serializes 
-the information in RDF.</p>
+uses Web services (such as <a href="http://www.swse.org/">SWSE</a> or <a href="http://sindice.com/">Sindice</a>) 
+to locate FOAF profiles to enrich the dataset, and outputs the information in RDF.</p>
 <ul id="secuencial" class="incremental" style="padding-top:1em;">
   <li class="secuencial"><img src="images/mbox.png" alt="mbox" /></li>
   <li class="secuencial"><img src="images/swaml-arrow.png" alt="parse" /></li>
@@ -126,14 +129,19 @@ the information in RDF.</p>
 <div class="slide">
 <h1><span><span><span>HTML Scraping</span></span></span></h1>
 <ul class="incremental">
-	<li>many technologies to do Web scraping</li>
-	<li>for HTML we chose XSLT</li>
-    <li>Tidy to clean the markup</li>
-    <li>
+  <li>
+    a simple approach for HTML scraping:
+    <ul class="incremental">
+        <li>step #1: crawl the community Web site</li>
+        <li>step #2: tidy the markup</li>
+        <li>step #3: transform XHTML pages with XSLT</li>
+     </ul>
+  </li>
+  <li>
        different outputs:
        <ul>
-         <li>generate RDF/XML</li>
-          <li>generate XHTML+RDFa</li>
+         <li>RDF/XML</li>
+         <li>XHTML+RDFa</li>
        </ul>
     </li>
 	<!--<li>We could also directly decorate the current DOM tree with RDFa</li>-->
@@ -144,9 +152,10 @@ the information in RDF.</p>
 
 <div class="slide">
 <h1><span><span><span>Experiment</span></span></span></h1>
+<p>The two techniques have been tested on Free Software communities:</p>
 <p style="text-align:center; margin-bottom:1em;"><a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/"><img src="images/experiment.png" alt="Advogato+GNOME+Debian=RDF" /></a></p>
-<p style="text-align:center;">around 30 million of RDF triples from mailing lists</p>
-<p style="text-align:center;">crawling more than 4.000 FOAF profiles of users in Advogato</p>
+<p style="text-align:center;">Collected around of 30 million of RDF triples from mailing lists</p>
+<p style="text-align:center;">Linked to more than 4.000 FOAF profiles extracted from Advogato</p>
 <div class="handout">
 </div>
 </div>
@@ -165,12 +174,24 @@ the information in RDF.</p>
 </div>
 
 <div class="slide">
-<h1><span><span><span>On the future way...</span></span></span></h1>
+<h1><span><span><span>Conclusions and future work</span></span></span></h1>
 <ul class="incremental">
-	<li>Incorporate new technologies, such as <a href="http://www.polleres.net/xsparql">XSPARQL</a></li>
-	<li>Improve smushing</li>
-	<li>Study complementary techonologies, such as <a href="http://smile.deri.ie/projects.html#semanticemail">Semantic Email</a></li>
-    <li>More...</li>
+  <li>
+    Conclusions:
+    <ul>
+      <li>Existing ontologies, such as SIOC and FOAF, can describe online communities</li>
+      <li>Each scenario dictates diferent requisites and thus a different technique</li>
+    </ul>
+  </li>
+  <li>
+    Future work:
+    <ul>
+	  <li>Incorporate new transformation technologies, such as <a href="http://www.polleres.net/xsparql">XSPARQL</a></li>
+	  <li>Improve smushing (duplicated instances detection)</li>
+      <li>Balance information integration with privacy issues</li>
+	  <li>Study complementary techonologies, such as <a href="http://smile.deri.ie/projects.html#semanticemail">Semantic Email</a></li>
+    </ul>
+  </li>
 </ul>
 <div class="handout">
 </div>

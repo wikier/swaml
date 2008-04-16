@@ -178,7 +178,7 @@
 
       <h2 id="files">Files</h2>
       <p>
-        There are some <a href="/files">files</a> (and a <a href="/releases">mirror</a> of it) until the moment:
+        There are some <a href="/showfiles">files</a> (and a <a href="/files">mirror</a> of it) until the moment:
       </p>
       <dl>
         <dt>
@@ -272,7 +272,8 @@
       <ul>
         <li>
           Diego Berrueta, Sergio Fernández and Lian Shi.
-          <em>Bootstrapping the Semantic Web of Social Online Communities</em>.
+          <a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/short%20papers/swsm08_submission_14.pdf">Bootstrapping 
+          the Semantic Web of Social Online Communities</a>.
           WWW2008 Workshop on Social Web Search and Mining (SWSM2008), 
           Beijing, China, April 22, 2008. (to appear).
         </li>
@@ -298,6 +299,15 @@
         And we made some presentations about the project around the world:
       </p>
       <dl>
+        <dt>
+          <a href="http://swaml.berlios.de/files/doc/talks/20080422-swsm2008/">Bootstrapping 
+          the Semantic Web of Social Online Communities</a>:
+        </dt>
+        <dd>
+          April 22th of 2008, WWW2008 Workshop on Social Web Search and Mining (SWSM2008),
+          Beijing, China.
+        </dd>
+
         <dt>
           <a href="http://prdownload.berlios.de/swaml/20080409-talk-swaml-deri-galway.tar.gz">Bootstrapping 
           the Semantic Web of Social Online Communities</a>:

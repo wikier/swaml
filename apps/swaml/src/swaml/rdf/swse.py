@@ -42,21 +42,24 @@ class SWSE:
 
         queryResults = []        
 
-        sparql = SPARQLWrapper(self.service)
-        #sparql = SPARQLWrapper(self.service, agent="swaml (http://swaml.berlios.de/; sergio@wikier.org)")
-        sparql.setQuery(query)
-        sparql.setReturnFormat(JSON)
-        results = sparql.query().convert()
-        if results.has_key("results"):
-            results = results["results"]["bindings"] 
-            for result in results:
-                if (len(result.keys()) == 1):
-                    queryResults.append(result[result.keys()[0]]['value'])
-                else:
-                    one = {}
-                    for key in result.keys():
-                        one[key] = result[key]['value']
-                    queryResults.append(one)
+        try:
+            sparql = SPARQLWrapper(self.service)
+            #sparql = SPARQLWrapper(self.service, agent="swaml (http://swaml.berlios.de/; sergio@wikier.org)")
+            sparql.setQuery(query)
+            sparql.setReturnFormat(JSON)
+            results = sparql.query().convert()
+            if results.has_key("results"):
+                results = results["results"]["bindings"] 
+                for result in results:
+                    if (len(result.keys()) == 1):
+                        queryResults.append(result[result.keys()[0]]['value'])
+                    else:
+                        one = {}
+                        for key in result.keys():
+                            one[key] = result[key]['value']
+                        queryResults.append(one)
+        except Exception, e:
+            print "Exception calling SWSE:", str(e)
         
         return queryResults
 

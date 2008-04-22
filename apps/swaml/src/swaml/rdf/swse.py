@@ -58,8 +58,8 @@ class SWSE:
                         for key in result.keys():
                             one[key] = result[key]['value']
                         queryResults.append(one)
-        except Exception, e:
-            print "Exception calling SWSE:", str(e)
+        except Exception:
+            print "Exception calling SWSE" #FIXME
         
         return queryResults
 

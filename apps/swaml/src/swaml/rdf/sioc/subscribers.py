@@ -27,6 +27,7 @@ from swaml.rdf.namespaces import SIOC, RDF, RDFS, FOAF, GEO
 from swaml.rdf.sioc.message import Message
 from swaml.rdf.foaf import FOAFS
 from swaml.rdf.kml import KML
+from swaml.common.charset import fixCodification
 
 
 class Subscriber:
@@ -244,13 +245,14 @@ class Subscribers:
         @param msg: new message
         """
         
-        name = msg.getFromName()
+        name = fixCodification(msg.getFromName())
         mail = msg.getFromMail()
         
         if (not mail in self.subscribers):
             self.subscribers[mail] = Subscriber(name, mail, self.config)
             
         self.subscribers[mail].addMail(msg)
+        self.subscribers[mail].setName(name) #last name?
         
     def get(self, mail):
         """

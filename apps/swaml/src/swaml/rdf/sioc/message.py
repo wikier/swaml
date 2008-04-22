@@ -369,7 +369,7 @@ class Message:
         try:
                  
             store.add((message, SIOC['id'], Literal(self.getSwamlId())))
-            store.add((message, SIOC['link'], URIRef(self.getUri()+'.html')))  
+            store.add((message, SIOC['link'], URIRef(self.getXhtmlUrl())))  
             store.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
             store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
             store.add((message, DC['title'], Literal(self.getSubject()))) 
@@ -521,6 +521,24 @@ class Message:
             div.appendChild(pre)
             pre.setAttribute('property', 'sioc:content')
             pre.appendChild(doc.createTextNode(self.getBody())) #FIXME: parse URLs
+
+
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('URI: '))
+            a = doc.createElement('a')
+            a.setAttribute('href', self.getUri())
+            a.appendChild(doc.createTextNode(self.getUri()))
+            p.appendChild(a) 
+
+            p = doc.createElement('p')
+            div.appendChild(p)
+            p.appendChild(doc.createTextNode('Link: '))
+            a = doc.createElement('a')
+            a.setAttribute('rel', 'sioc:link')
+            a.setAttribute('href', self.getXhtmlUrl())
+            a.appendChild(doc.createTextNode(self.getXhtmlUrl()))
+            p.appendChild(a) 
             
             parent = self.getParent()
             if (parent != None):

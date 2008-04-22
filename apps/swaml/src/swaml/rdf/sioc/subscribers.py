@@ -288,6 +288,7 @@ class Subscribers:
             
             user = URIRef(subscriber.getUri())
             store.add((user, RDF.type, SIOC['User']))
+            store.add((user, SIOC['subscriber_of'], URIRef(self.config.get('base') + 'forum')))
             
             try:
                 name = subscriber.getName()

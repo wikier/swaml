@@ -91,15 +91,20 @@ class Charset:
         return orig
 
 def fixCodification(original):
-	parted = original.split('?')
-	if len(parted) >= 4:
-		codification = parted[1]
-		cad1 = parted[3]
-		cad2 = cad1.replace('=','%')
-		cad3 = cad2.replace('_',' ')
-		cad4 = unicode((cad3).decode(codification))
-		cad5 = urllib.unquote(cad4)
-		return cad5
-	else:
-		return original
+    fixed = ""
+    for word in original.split(" "):
+        if (len(fixed)>0):
+            fixed += " "
+        parted = word.split('?')
+        if len(parted) >= 4:
+            codification = parted[1]
+            cad1 = parted[3]
+            cad2 = cad1.replace('=','%')
+            cad3 = cad2.replace('_',' ')
+            cad4 = unicode((cad3).decode(codification))
+            cad5 = urllib.unquote(cad4)
+            fixed += cad5
+        else:
+            fixed += word
+    return fixed
 

@@ -50,6 +50,7 @@ class Subscriber:
         self.setName(name)
         self.setMail(mail)
         self.foaf = None
+        self.doc = None
         self.geo = [None, None]
         self.pic = None
         self.mails = []
@@ -86,10 +87,10 @@ class Subscriber:
         """
         Get subscriber's FOAF
         
-        @return: foaf url
+        @return: foaf uri
         """
         
-        return self.foaf    
+        return (self.doc, self.foaf)
     
     def getSentMails(self):
         """
@@ -174,11 +175,21 @@ class Subscriber:
         """
         Set subscriber's FOAF
         
-        @param foaf: foaf url
+        @param foaf: foaf uri
         """
         
-        self.foaf = foaf     
+        if foaf.startswith("http://"):
+            self.foaf = foaf     
         
+    def setDoc(self, doc):
+        """
+        Set subscriber's document
+        
+        @param foaf: doc url
+        """
+        
+        self.doc = doc 
+
     def addMail(self, new):
         """
         Add new sent mail
@@ -275,26 +286,29 @@ class Subscribers:
         for mail, subscriber in self.subscribers.items():
             count += 1
             
-            person = URIRef(self.baseUri + subscriber.getStringId())
-            store.add((person, RDF.type, SIOC['User']))
+            user = URIRef(self.baseUri + subscriber.getStringId())
+            store.add((user, RDF.type, SIOC['User']))
             
             try:
                 name = subscriber.getName()
                 if (len(name) > 0):
-                    store.add((person, SIOC['name'], Literal(name) ))            
-                store.add((person, SIOC['email_sha1'], Literal(subscriber.getShaMail())))
+                    store.add((user, SIOC['name'], Literal(name) ))            
+                store.add((user, SIOC['email_sha1'], Literal(subscriber.getShaMail())))
                 
                 if (self.config.get('foaf')):
-                    foafResource = subscriber.getFoaf()
-                    if (foafResource != None):
-                        store.add((person, RDFS['seeAlso'], URIRef(foafResource)))
+                    foafDoc, foafUri = subscriber.getFoaf()
+                    if (foafDoc != None):
+                        store.add((user, RDFS['seeAlso'], URIRef(foafDoc)))
+
+                    if (foafUri != None):
+                        store.add((user, SIOC['account_of'], URIRef(foafUri)))
                         
                         #coordinates
                         lat, lon = subscriber.getGeo()
                         if (lat != None and lon != None): 
                             store.bind('geo', GEO)                       
                             geo = BNode()
-                            store.add((person, FOAF['based_near'], geo))
+                            store.add((user, FOAF['based_near'], geo))
                             store.add((geo, RDF.type, GEO['Point']))		
                             store.add((geo, GEO['lat'], Literal(lat)))
                             store.add((geo, GEO['long'], Literal(lon)))
@@ -302,7 +316,7 @@ class Subscribers:
                         #depiction
                         pic = subscriber.getPic()
                         if (pic != None):
-                            store.add((person, SIOC['avatar'], URIRef(pic)))
+                            store.add((user, SIOC['avatar'], URIRef(pic)))
                         
             except UnicodeDecodeError, detail:
                 print 'Error proccesing subscriber ' + subscriber.getName() + ': ' + str(detail)
@@ -310,7 +324,7 @@ class Subscribers:
             sentMails = subscriber.getSentMails()
             if (len(sentMails)>0):
                 for uri in sentMails:
-                    store.add((person, SIOC['creator_of'], URIRef(uri)))
+                    store.add((user, SIOC['creator_of'], URIRef(uri)))
                     
         #and dump to disk
         try:
@@ -376,9 +390,10 @@ class Subscribers:
         """
         
         mail = subscriber.getMail()
-        foaf = foafserv.getFoaf(mail)
+        doc, foaf = foafserv.getFoaf(mail)
         if (foaf != None):
             subscriber.setFoaf(foaf)
+            subscriber.setDoc(doc)
             self.foafEnriched += 1
             
             #coordinates
@@ -431,3 +446,4 @@ class Subscribers:
                            
                                     
 del sys, string
+

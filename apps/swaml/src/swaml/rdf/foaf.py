@@ -22,8 +22,9 @@ from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.sparqlGraph import SPARQLGraph
 from rdflib.sparql.graphPattern import GraphPattern
 from rdflib.sparql import Query
+from rdflib.sparql.bison import Parse
 from rdflib import Namespace, Literal
-from swaml.rdf.namespaces import SIOC, RDF, RDFS, FOAF, GEO
+from swaml.rdf.namespaces import SIOC, RDF, RDFS, FOAF, GEO, NSbindings
 from swaml.rdf.sindice import Sindice
 from swaml.rdf.swse import SWSE
 from email.Header import decode_header
@@ -48,8 +49,8 @@ class FOAFS:
         
         @param mail: an email address
         @type mail: string
-        @return: the FOAF URI of this email owner
-        @rtype: string
+        @return: the FOAF file and his FOAF URI of this email owner
+        @rtype: tuple
         """
         
         mail_sha1sum = self.getShaMail(mail)
@@ -61,8 +62,8 @@ class FOAFS:
         
         @param mail_sha1sum: an email address sha1sum
         @type mail_sha1sum: string
-        @return: the FOAF URI of this email owner
-        @rtype: string
+        @return: the document and his FOAF URI of this coded email owner
+        @rtype: tuple
         """
 
         if (self.config != None and self.config.get('search').lower() == 'sindice'):
@@ -76,8 +77,8 @@ class FOAFS:
         
         @param mail_sha1sum: an email address sha1sum
         @type mail_sha1sum: string
-        @return: the FOAF URI of this email owner
-        @rtype: string
+        @return: the document and his FOAF URI of this coded email owner
+        @rtype: tuple
         """
 
         s = Sindice()
@@ -90,15 +91,14 @@ class FOAFS:
         
         @param mail_sha1sum: an email address sha1sum
         @type mail_sha1sum: string
-        @return: the FOAF URI of this email owner
-        @rtype: string
+        @return: the document and his FOAF URI of this coded email owner
+        @rtype: tuple
         """
         
         query = """
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-                    SELECT DISTINCT ?person
-                    WHERE {
+                    SELECT DISTINCT ?file ?person
                             ?file foaf:primaryTopic ?person .
                             ?person rdf:type foaf:Person . 
                             ?person foaf:mbox_sha1sum "%s"                                    
@@ -108,22 +108,24 @@ class FOAFS:
         swse = SWSE()
         results = swse.query(query % mail_sha1sum)
         if len(results) > 0:
-            return results[0]
+            return (results[0]['file'], results[0]['person'])
         else:
             query2 = """
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-                        SELECT DISTINCT ?person
-                        WHERE {
+                        SELECT DISTINCT ?file ?person
+                        WHERE { 
                                 ?person rdf:type foaf:Person . 
-                                ?person foaf:mbox_sha1sum "%s"                                    
+                                ?person foaf:mbox_sha1sum "%s" .
+                                ?person rdfs:seeAlso ?file                                  
                               }
                     """
             results2 = swse.query(query2 % mail_sha1sum)
             if len(results2) > 0:
-                return results2[0]
+                return (results2[0]['file'], results2[0]['person'])
             else:
-                return None
+                return (None, None)
     
     def __getBestURI(self, possibilities):
         """
@@ -135,10 +137,10 @@ class FOAFS:
         @rtype: string
         """
         for possibility in possibilities:
-            uri = possibility[0]
+            doc = possibility[0]
             try:
                 g = ConjunctiveGraph()
-                g.parse(uri)
+                g.parse(doc)
                 #query = Parse("""
                 #                SELECT ?person
                 #                WHERE {
@@ -146,22 +148,25 @@ class FOAFS:
                 #                        ?person rdf:type foaf:Person .  
                 #                        ?person foaf:mbox_sha1sum "%s"@en
                 #                      }
-                #              """ % (uri, mbox) )
+                #              """ % (doc, mbox) )
                 query = Parse("""
                                 SELECT ?person
                                 WHERE {
                                         <%s> foaf:primaryTopic ?person .
                                         ?person rdf:type foaf:Person .                                       
                                       }
-                             """ % uri )
-                queryResults = g.query(query, initNs=bindings).serialize('python')
+                             """ % doc )
+                queryResults = g.query(query, initNs=NSbindings).serialize('python')
                 if len(queryResults) > 0 :
-                    return queryResults[0]
+                    return (doc, queryResults[0])
 
             except Exception, details:
                 print details
 
-        return possibilities[0][0]
+        if (len(possibilities)>0):
+            return (possibilities[0][0], None)
+        else:
+            return (None, None)
         
     def __getGraph(self, foaf):
         """

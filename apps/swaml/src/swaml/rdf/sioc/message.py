@@ -451,7 +451,7 @@ class Message:
         a = doc.createElement('a')
         body.appendChild(a)
         a.setAttribute('href', self.getUri())
-        body.setAttribute('rel', 'foaf:primaryTopic')
+        a.setAttribute('rel', 'foaf:primaryTopic')
            
         #post div
         div = doc.createElement('div')

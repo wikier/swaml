@@ -113,7 +113,10 @@ class Message:
         @param body: content
         """
         
-        self.body = body #fixCodification(body)
+        try:
+            self.body = unicode(body) #fixCodification(body)
+        except:
+            self.body = ""
         
     def setSender(self, sender):
         """
@@ -388,7 +391,7 @@ class Message:
             if (next != None):
                 store.add((message, SIOC['next_by_date'], URIRef(next)))                
                         
-            store.add((message, SIOC['content'], Literal(self.getBody())))     
+            store.add((message, SIOC['content'], Literal(self.getBody())))
             
         except Exception, detail:
             print 'Error proccesing message ' + str(self.getId()) + ': ' + str(detail) 
@@ -513,7 +516,7 @@ class Message:
             pre = doc.createElement('pre')
             div.appendChild(pre)
             pre.setAttribute('property', 'sioc:content')
-            pre.appendChild(doc.createTextNode(self.getBody())) #FIXME: parse URLs        
+            pre.appendChild(doc.createTextNode(self.getBody())) #FIXME: parse URLs
             
             parent = self.getParent()
             if (parent != None):
@@ -585,6 +588,7 @@ class Message:
             except UnicodeDecodeError, detail:
                 xhtml_file.write("")
                 print 'Decode error saving message ' + str(self.getId()) + ': ' + str(detail)
+                xml.dom.ext.PrettyPrint(doc, sys.stdout)
             xhtml_file.flush()
             xhtml_file.close()
         except IOError, detail:

@@ -198,9 +198,15 @@ class Message:
     
     def getRdfPath(self):
         return self.config.get('dir') + self.path + '.rdf'
+
+    def getRdfUrl(self):
+        return self.getUri() + '.rdf'
         
     def getXhtmlPath(self):
-        return self.config.get('dir') + self.path + '.xhtml'
+        return self.config.get('dir') + self.path + '.html'
+
+    def getXhtmlUrl(self):
+        return self.getUri() + '.html'
     
     def getSender(self):
         """
@@ -347,15 +353,20 @@ class Message:
         store.bind('rdfs', RDFS)
         store.bind('dc', DC)
         store.bind('dct', DCT)
-        
+
         #message node
         message = URIRef(self.getUri())
         store.add((message, RDF.type, SIOC["Post"]))
+
+        #document node
+        doc = URIRef(self.getUri()+'.rdf')
+        store.add((doc, RDF.type, FOAF["Document"]))
+        store.add((doc, FOAF["primaryTopic"], message))
         
         try:
                  
             store.add((message, SIOC['id'], Literal(self.getSwamlId())))
-            store.add((message, SIOC['link'], URIRef(self.getUri())))  
+            store.add((message, SIOC['link'], URIRef(self.getUri()+'.html')))  
             store.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
             store.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
             store.add((message, DC['title'], Literal(self.getSubject()))) 
@@ -377,7 +388,7 @@ class Message:
             if (next != None):
                 store.add((message, SIOC['next_by_date'], URIRef(next)))                
                         
-            store.add((message, SIOC['content'], Literal(self.getBody())))      
+            store.add((message, SIOC['content'], Literal(self.getBody()))) #FIXME: parse URLs     
             
         except Exception, detail:
             print 'Error proccesing message ' + str(self.getId()) + ': ' + str(detail) 
@@ -401,6 +412,7 @@ class Message:
         root = doc.documentElement
         root.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
         root.setAttribute('xmlns:sioc', str(SIOC))
+        root.setAttribute('xmlns:foaf', str(FOAF))
         root.setAttribute('xmlns:dc', str(DC))
         root.setAttribute('xmlns:dct', str(DCT))
         root.setAttribute('xmlns:mvcb', str(MVCB))
@@ -414,6 +426,12 @@ class Message:
         link.setAttribute('href', 'http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl')
         head.appendChild(link)
         link = doc.createElement('link')
+        link.setAttribute('rel', 'meta')
+        link.setAttribute('type', 'application/rdf+xml')
+        link.setAttribute('title', 'SIOC')
+        link.setAttribute('href', self.getRdfUrl())
+        head.appendChild(link)
+        link = doc.createElement('link')
         link.setAttribute('rel', 'stylesheet')
         link.setAttribute('type', 'text/css')
         link.setAttribute('href', self.config.get('base')+'swaml.css')
@@ -422,13 +440,20 @@ class Message:
         title.appendChild(doc.createTextNode(self.getSubject()))
         head.appendChild(title)
         
+        #body
         body = doc.createElement('body')
         root.appendChild(body)
-        
+        body.setAttribute('typeof', 'foaf:Document')
+        body.setAttribute('about', self.getXhtmlUrl())
+        a = doc.createElement('a')
+        body.appendChild(a)
+        a.setAttribute('href', self.getUri())
+        body.setAttribute('rel', 'foaf:primaryTopic')
+           
         #post div
         div = doc.createElement('div')
         body.appendChild(div)
-        div.setAttribute('class', 'sioc:Post')
+        div.setAttribute('typeof', 'sioc:Post')
         div.setAttribute('about', self.getUri())
         
         #post fields

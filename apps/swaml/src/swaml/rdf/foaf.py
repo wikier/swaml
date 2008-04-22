@@ -201,13 +201,7 @@ class FOAFS:
         @return: coordinates      
         """
         
-        print doc, foaf, sha1mail
-        #graph = self.__getGraph(doc)
-        self.graph = None
-        self.__graph = ConjunctiveGraph()
-        self.__graph.parse(doc)
-        print "parseado", doc
-        graph = self.__graph
+        graph = self.__getGraph(doc)
         
         if (graph != None):
             query = """
@@ -239,7 +233,6 @@ class FOAFS:
                 if len(results2) > 0 :
                     return (results2[0]['lat'], results2[0]['lon'])
                 else:
-                    print "nada"
                     return (None, None)
         
         return (None, None)

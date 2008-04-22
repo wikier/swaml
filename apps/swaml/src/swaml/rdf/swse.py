@@ -59,7 +59,8 @@ class SWSE:
                             one[key] = result[key]['value']
                         queryResults.append(one)
         except Exception:
-            print "Exception calling SWSE" #FIXME
+            #print "Exception calling SWSE" #FIXME
+            pass
         
         return queryResults
 

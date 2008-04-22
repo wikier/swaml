@@ -201,10 +201,11 @@ class FOAFS:
         @return: coordinates      
         """
         
-        graph = self.__getGraph(doc)
+        if (doc != None):
+            graph = self.__getGraph(doc)
         
-        if (graph != None):
-            query = """
+            if (graph != None):
+                    query = """
                                 SELECT ?lat ?lon
                                 WHERE {
                                         <%s> rdf:type foaf:Person .
@@ -214,11 +215,11 @@ class FOAFS:
                                         ?point geo:long ?lon                                      
                                        }
                              """ % (foaf,foaf)
-            results = graph.query(Parse(query), initNs=NSbindings).serialize('python')
-            if len(results) > 0 :
-                return (results[0]['lat'], results[0]['lon'])
-            else:
-                query2 = """
+                    results = graph.query(Parse(query), initNs=NSbindings).serialize('python')
+                    if len(results) > 0 :
+                        return (results[0][0], results[0][1])
+                    else:
+                        query2 = """
                                     SELECT ?lat ?lon
                                     WHERE {
                                             ?person rdf:type foaf:Person .
@@ -228,12 +229,10 @@ class FOAFS:
                                             ?point geo:lat ?lat .
                                             ?point geo:long ?lon .                                      
                                           }
-                               """ % sha1mail
-                results2 = graph.query(Parse(query2), initNs=NSbindings).serialize('python')
-                if len(results2) > 0 :
-                    return (results2[0]['lat'], results2[0]['lon'])
-                else:
-                    return (None, None)
+                                """ % sha1mail
+                        results2 = graph.query(Parse(query2), initNs=NSbindings).serialize('python')
+                        if len(results2) > 0 :
+                            return (results2[0][0], results2[0][1])
         
         return (None, None)
     

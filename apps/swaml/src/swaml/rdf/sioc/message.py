@@ -23,7 +23,7 @@ from rdflib.Graph import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCT, MVCB, XSD
-from swaml.common.charset import Charset
+from swaml.common.charset import Charset, fixCodification
 from swaml.common.date import MailDate, FileDate
 import xml.dom.minidom
 from xml.dom.minidom import getDOMImplementation
@@ -113,7 +113,7 @@ class Message:
         @param body: content
         """
         
-        self.body = body
+        self.body = body #fixCodification(body)
         
     def setSender(self, sender):
         """
@@ -388,7 +388,7 @@ class Message:
             if (next != None):
                 store.add((message, SIOC['next_by_date'], URIRef(next)))                
                         
-            store.add((message, SIOC['content'], Literal(self.getBody()))) #FIXME: parse URLs     
+            store.add((message, SIOC['content'], Literal(self.getBody())))     
             
         except Exception, detail:
             print 'Error proccesing message ' + str(self.getId()) + ': ' + str(detail) 
@@ -513,7 +513,7 @@ class Message:
             pre = doc.createElement('pre')
             div.appendChild(pre)
             pre.setAttribute('property', 'sioc:content')
-            pre.appendChild(doc.createTextNode(self.getBody()))             
+            pre.appendChild(doc.createTextNode(self.getBody())) #FIXME: parse URLs        
             
             parent = self.getParent()
             if (parent != None):

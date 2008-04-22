@@ -397,7 +397,7 @@ class Subscribers:
             self.foafEnriched += 1
             
             #coordinates
-            lat, lon = foafserv.getGeoPosition(foaf, foafserv.getShaMail(mail))
+            lat, lon = foafserv.getGeoPosition(foaf, doc, foafserv.getShaMail(mail))
             if (lat != None and lon != None):
                 subscriber.setGeo(lat, lon)
                 

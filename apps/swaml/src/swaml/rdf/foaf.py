@@ -39,7 +39,7 @@ class FOAFS:
         FOAF services constructor
         """
         
-        self.__actualFoaf = None
+        self.__actualDoc = None
         self.__graph = None
         self.config = config
     
@@ -168,7 +168,7 @@ class FOAFS:
         else:
             return (None, None)
         
-    def __getGraph(self, foaf):
+    def __getGraph(self, doc):
         """
         A simple mechanism to cache foaf graph
         
@@ -181,44 +181,68 @@ class FOAFS:
         import socket
         socket.setdefaulttimeout(10) #timeout in seconds
         
-        if (self.__actualFoaf != foaf or self.__graph == None):
-            self.__actualFoaf = foaf
+        if (self.__actualDoc != doc or self.__graph == None):
+            self.__actualDoc = doc
             self.__graph = ConjunctiveGraph()
             try:
-                self.__graph.parse(foaf)
+                self.__graph.parse(doc)
             except:
                 self.__graph = None
         
         return self.__graph
         
-    def getGeoPosition(self, foaf, sha1mail):
+    def getGeoPosition(self, foaf, doc, sha1mail):
         """
         Obtain geography information from foaf
         
-        @param foaf: a foaf uri
+        @param foaf: person uri
+        @param doc: document that contains that person
         @param sha1mail: mail addess enconded
         @return: coordinates      
         """
         
-        graph = self.__getGraph(foaf)
+        print doc, foaf, sha1mail
+        #graph = self.__getGraph(doc)
+        self.graph = None
+        self.__graph = ConjunctiveGraph()
+        self.__graph.parse(doc)
+        print "parseado", doc
+        graph = self.__graph
         
         if (graph != None):
+            query = """
+                                SELECT ?lat ?lon
+                                WHERE {
+                                        <%s> rdf:type foaf:Person .
+                                        <%s> foaf:based_near ?point .
+                                        ?point rdf:type geo:Point .
+                                        ?point geo:lat ?lat .
+                                        ?point geo:long ?lon                                      
+                                       }
+                             """ % (foaf,foaf)
+            results = graph.query(Parse(query), initNs=NSbindings).serialize('python')
+            if len(results) > 0 :
+                return (results[0]['lat'], results[0]['lon'])
+            else:
+                query2 = """
+                                    SELECT ?lat ?lon
+                                    WHERE {
+                                            ?person rdf:type foaf:Person .
+                                            ?person foaf:mbox_sha1sum "%s"@en .
+                                            ?person foaf:based_near ?point .
+                                            ?point rdf:type geo:Point .
+                                            ?point geo:lat ?lat .
+                                            ?point geo:long ?lon .                                      
+                                          }
+                               """ % sha1mail
+                results2 = graph.query(Parse(query2), initNs=NSbindings).serialize('python')
+                if len(results2) > 0 :
+                    return (results2[0]['lat'], results2[0]['lon'])
+                else:
+                    print "nada"
+                    return (None, None)
         
-            sparqlGr = SPARQLGraph(graph)
-            select = ('?lat', '?long')
-            where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
-                                    ('?x', FOAF['mbox_sha1sum'], sha1mail),
-                                    ('?x', FOAF['based_near'], '?y'),
-                                    ('?y', GEO['lat'], '?lat'),
-                                    ('?y', GEO['long'], '?long')    
-                                  ])
-            
-            result = Query.query(sparqlGr, select, where)
-        
-            for one in result:
-                return [one[0], one[1]]
-        
-        return [None, None]
+        return (None, None)
     
     def getPic(self, foaf, sha1mail):
         """

@@ -12,7 +12,7 @@ RewriteRule ^forum$ forum.rdf [R=303]
 RewriteRule ^subscribers$ subscribers.rdf [R=303]
 
 # Rewrite rule to serve subscriber instance
-RewriteRule ^subscriber/(s[0-9]+)$ subscribers.rdf#$1 [R=303,NE]
+RewriteRule ^subscriber$ subscribers.rdf [R=303]
 
 # Rewrite rule to serve HTML content with a post intance
 RewriteCond %{HTTP_ACCEPT} text/html [OR]
@@ -23,3 +23,4 @@ RewriteRule ^{POSTURI}$ {POSTFILE}.xhtml [R=303]
 # Rewrite rule to serve RDF/XML content with a post intance
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^{POSTURI}$ {POSTFILE}.rdf [R=303]
+

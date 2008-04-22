@@ -26,7 +26,7 @@ from swaml.rdf.namespaces import SIOC, RDFS, FOAF, DC, DCT, MVCB, XSD
 from swaml.common.charset import Charset, fixCodification
 from swaml.common.date import MailDate, FileDate
 import xml.dom.minidom
-from xml.dom.minidom import getDOMImplementation
+from xml.dom.minidom import getDOMImplementation, DocumentType
 from xml.dom.ext import PrettyPrint
 
 class Message:
@@ -412,6 +412,10 @@ class Message:
         
         #root nodes
         doc = getDOMImplementation().createDocument(None, 'html', None)
+        doctype = DocumentType("html")
+        doctype.publicId = "-//W3C//DTD XHTML+RDFa 1.0//EN"
+        doctype.systemId = "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"
+        doc.doctype = doctype
         root = doc.documentElement
         root.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
         root.setAttribute('xmlns:sioc', str(SIOC))
@@ -445,14 +449,14 @@ class Message:
         
         #body
         body = doc.createElement('body')
-        root.appendChild(body)
         body.setAttribute('typeof', 'foaf:Document')
         body.setAttribute('about', self.getXhtmlUrl())
-        a = doc.createElement('a')
-        body.appendChild(a)
-        a.setAttribute('href', self.getUri())
-        a.setAttribute('rel', 'foaf:primaryTopic')
-           
+        root.appendChild(body)
+        span = doc.createElement('span')
+        span.setAttribute('rel', 'foaf:primaryTopic')
+        span.setAttribute('href', self.getUri())
+        body.appendChild(span)           
+
         #post div
         div = doc.createElement('div')
         body.appendChild(div)

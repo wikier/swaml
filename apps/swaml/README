@@ -23,30 +23,46 @@ Development happens on BerliOS Forge:
 REQUIREMENTS:
 -------------
 
-	- python >= 2.4.0
-	- python-rdflib >= 2.3.1
-	- python-xml >= 0.8.4
-	- python-urljr >= 1.0.1		        			
+    - python >= 2.4.0
+    - python-rdflib >= 2.4.0
+    - python-xml >= 0.8.4
+    - python-sparqlwrapper >= 1.1.0
+
+
+USAGE
+-----
+
+    1) Create a configuration file (directory "config" contains some examples)
+    2) Run SWAML:
+        a) if it is not installed:
+            $ python run.py youconfig.ini
+        b) if it is installe din your system:
+            $ swaml yourconfig.ini
+
+For the moment SWAML only supports mailbox format, so if you have a maildir 
+you will need to transform it:
+
+    $ find maildir/ -type f -print | while read f; do formail <$f; done > mbox
 
 
 FEATURES:
 ---------
-        
-	* platform independent (written in python)
-	* shell mode (to use manually or by cron script)
-	* compatible with RFC 4155
-	* serialize RDF to disk
-	* reusability of ontologies already extended, mainly SIOC
-	* enrichment using FOAF
-	* KML support
-	* free software (under GNU General Public License, GPL)
+     
+    * platform independent (written in python)
+    * shell mode (to use manually or by cron script)
+    * compatible with RFC 4155
+    * serialize to disk in RDF/XML and XHTML+RDFa, using (optional) HTTP content negotiation
+    * reusability of ontologies already extended, mainly SIOC
+    * enrichment with FOAF using SWSE/Sindice as source of information
+    * KML support
+    * GTK browser (Buxon)
+    * free software under GPLv2 or later)
 
 
 PLANNED FEATURES:
 -----------------
 
-	* RSS exportation of last messages
-	* (X)HTML output
-	* serialize to any RDFdb (sesame for example)
-	* incremental exportations
+    * RSS exportation of last messages
+    * serialize to any RDFdb (sesame for example)
+    * incremental exportations
 

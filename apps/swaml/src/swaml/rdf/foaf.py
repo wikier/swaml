@@ -109,7 +109,13 @@ class FOAFS:
         swse = SWSE()
         results = swse.query(query % mail_sha1sum)
         if len(results) > 0:
-            return (results[0]['file'], results[0]['person'])
+            i = 0
+            while ((i<len(results)) and (not results[i]['person'].startswith("http://"))):                 
+                i += 1
+            if (i<len(results)):
+                return (results[i]['file'], results[i]['person'])
+            else:
+                return (results[0]['file'], results[0]['person'])
         else:
             query2 = """
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

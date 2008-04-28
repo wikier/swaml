@@ -452,10 +452,12 @@ class Message:
         body.setAttribute('typeof', 'foaf:Document')
         body.setAttribute('about', self.getXhtmlUrl())
         root.appendChild(body)
+        p = doc.createElement('p')
         span = doc.createElement('span')
         span.setAttribute('rel', 'foaf:primaryTopic')
         span.setAttribute('href', self.getUri())
-        body.appendChild(span)           
+        body.appendChild(p)
+        p.appendChild(span)           
 
         #post div
         div = doc.createElement('div')

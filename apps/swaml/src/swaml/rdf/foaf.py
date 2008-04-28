@@ -124,7 +124,13 @@ class FOAFS:
                     """
             results2 = swse.query(query2 % mail_sha1sum)
             if len(results2) > 0:
-                return (results2[0]['file'], results2[0]['person'])
+                i = 0
+                while ((i<len(results2)) and (not results2[i]['person'].startswith("http://"))):                 
+                    i += 1
+                if (i<len(results2)):
+                    return (results2[i]['file'], results2[i]['person'])
+                else:
+                    return (results2[0]['file'], results2[0]['person'])
             else:
                 return (None, None)
     

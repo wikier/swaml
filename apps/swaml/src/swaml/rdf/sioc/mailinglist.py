@@ -26,7 +26,7 @@ from swaml.mail.mbox import Mbox
 from swaml.rdf.sioc.subscribers import Subscribers
 from swaml.rdf.sioc.message import Message
 from swaml.rdf.sioc.index import Index
-from swaml.rdf.namespaces import RDFS, SIOC, SIOCT, FOAF, DC, MVCB
+from swaml.rdf.namespaces import RDFS, SWAML, SIOC, SIOCT, FOAF, DC, MVCB
 from swaml.common.date import FileDate
 from shutil import copyfile
 
@@ -190,10 +190,11 @@ class MailingList:
         store = ConjunctiveGraph()
         
         #namespaces
+        store.bind('rdfs', RDFS)
+        store.bind('swaml', SWAML)
         store.bind('sioc', SIOC)
         store.bind('sioct', SIOCT)
         store.bind('foaf', FOAF)
-        store.bind('rdfs', RDFS)
         store.bind('dc', DC)
         store.bind('mvcb', MVCB)
 
@@ -219,6 +220,7 @@ class MailingList:
         if (len(host) > 0):
             store.add((list, SIOC['has_host'], URIRef(host)))
         
+        store.add((list, SWAML['address'], Literal(self.config.get('to'))))
         store.add((list, DC['date'], Literal(FileDate(self.config.get('mbox')).getStringFormat())))
         store.add((list, MVCB['generatorAgent'], URIRef(self.config.getAgent())))
         store.add((list, MVCB['errorReportsTo'], URIRef('http://swaml.berlios.de/bugs')))

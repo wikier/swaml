@@ -21,6 +21,7 @@ from rdflib import Namespace
 
 RDF   = Namespace(u"http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 RDFS  = Namespace(u"http://www.w3.org/2000/01/rdf-schema#")
+SWAML = Namespace(u"http://swaml.berlios.de/ns/0.3#")
 SIOC  = Namespace(u"http://rdfs.org/sioc/ns#")
 SIOCT = Namespace(u"http://rdfs.org/sioc/types#")
 DC    = Namespace(u"http://purl.org/dc/elements/1.1/")
@@ -34,6 +35,7 @@ XSD   = Namespace(u"http://www.w3.org/2001/XMLSchema#")
 NSbindings = {
     u"rdf"   : RDF,
     u"rdfs"  : RDFS,
+    u"swaml" : SWAML,
     u"sioc"  : SIOC,
     u"sioct" : SIOCT,
     u"dc"    : DC,

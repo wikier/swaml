@@ -80,7 +80,7 @@ class SWAML(ConsoleUI):
             elif arg == "-v" or arg == "--version":
                 self.version()
                 
-        self.config.setAgent('http://swaml.berlios.de/doap.rdf#swaml') #TODO: how __init__.__agent__?
+        self.config.setAgent('http://swaml.berlios.de/doap#swaml') #TODO: how __init__.__agent__?
         self.parseArgs(argv)
         self.list = MailingList(self.config)
         messages = self.list.publish()

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<rdf:RDF
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xml:base="http://swaml.berlios.de/ns/0.3"
+>
+
+  <owl:Ontology rdf:about="http://swaml.berlios.de/ns/0.3">
+    <rdfs:label>SWAML Ontology</rdfs:label>
+    <rdfs:comment>Semantic Web Archive of Mailing List Ontology</rdfs:comment>
+    <owl:versionInfo>0.3</owl:versionInfo>
+  </owl:Ontology>
+
+  <owl:ObjectProperty rdf:about="http://swaml.berlios.de/ns/0.3#address">
+    <rdfs:comment>Email address to send messages to a mailing list</rdfs:comment>
+    <rdfs:label>address</rdfs:label>
+    <rdf:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/mbox" />
+    <rdfs:domain rdf:resource="http://rdfs.org/sioc/types#MailingList" />
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal" />
+  </owl:ObjectProperty>
+
+</rdf:RDF>
+

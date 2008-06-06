@@ -15,11 +15,11 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
+import sys
+sys.path.append("./src")
 import unittest
 from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.bison import Parse
-import sys
-sys.path.append("./src")
 from swaml.rdf.sindice import Sindice
 from swaml.rdf.namespaces import RDF, FOAF, NSbindings
 
@@ -34,7 +34,7 @@ class TestSindice(unittest.TestCase):
         self.results = None
 
     def testFirst(self):
-        self.assertEquals(self.results[0][0], "http://www.wikier.org/foaf#me")
+        self.assertEquals(self.results[0][0], "http://www.wikier.org/foaf.rdf")
 
     def testQueryingMore(self):
         for result in self.results:

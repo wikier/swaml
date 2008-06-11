@@ -41,7 +41,7 @@ class Sindice:
         """
         
         headers = { 'User-Agent' : "swaml (http://swaml.berlios.de/; sergio@wikier.org)" }
-        request = urllib2.Request(uri)
+        request = urllib2.Request(uri, headers=headers)
         return urllib2.urlopen(request)
     
     def lookupURIs(self, uri):

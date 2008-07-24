@@ -1,0 +1,214 @@
+This is a file of things to do. If you have other ideas or needs send
+them to hypermail-dev@hypermail.org.
+
+===============
+General Things:
+===============
+
+- Need to use splint to clean up the code.
+
+- Need to clean up the code and remove old code that is commented/ifdefed out.
+
+- Update the doc files to assure all configuration file directives
+  are included appropriately in the documentation. Currently the
+  documentation does not completely list all options.
+
+- Update the pcre library to a much more recent version.
+
+- Modify configure to locate the appropriate htdocs directory locations
+  for installing the documentation and image files.
+
+- Add the msgid hash to the emailinfo structure to speed-up looking
+  of this value when we already know it.
+
+- Finish the libtool work on the fnv library so that we can link to
+  shared libraries _and_ install/uninstall them.
+
+- Need to lowercase HTML tags to support XHTML 1.0 in the future.
+
+- Need to add XHTML support - Configurable ?
+
+- Make the "New List Message" and "Reply To List" features available
+  when usetable == 0
+
+- system() should be replaced by fork()+execvp() (or maybe by s_popen())
+  in archive/ mbox2hypermail.c
+
+- HTML code should be escaped where appropriate.
+
+- Make it possible to insert the FONT to use in the tables.
+  <TH><FONT ...>string</FONT></TH>
+  Fonts are not be inherited correctly in many browsers.
+
+- Have configure look at the language selected and if it is not "en" 
+  set the EURODATE to 1.
+
+- Add date/subject/author filters for articles that are read in
+
+- Need to create a library of hypermail functions so that other utilities
+  can be generated without making things real ugly. (i.e. removal, other
+  indexing.)
+
+- Combine mbox2hypermail.c and msg2archive.c into a single program instead
+  of having the two do the same general job...
+
+- There is an irreversible aspect to piping messages into hypermail;
+  what gets written into HTML does not readily convert back to RFC822
+  form such that it could be re-archived (put in another archive, etc.)
+
+- Convert the doc files to a SGML system like linuxdoc, which will allow
+  generating html, text, and man pages from the same source.
+
+ - You currently look for text in messages of the form http://... and
+ turn them into hyperlinks. You also look for text in the form
+ foo@bar.com and turn that into a mailto: hyperlink.
+ I suggest you also look for text in for form of
+ mailto:foo@bar.com?subject=bat and turn the whole of it into a
+ mailto: link, with the correct subject line.
+
+=============
+Index Issues:
+=============
+
+- Make the formating of index pages use magic cookies for all parts of the
+  page.
+
+- It seems strange and undesireable to have the message date shown only in 
+  the subject and author indexes.  It seems *really* strange to not have it 
+  show up in the date index!  I wanted it "on" for our archives, and did 
+  that in my latest beta, which required changing the "reply" structure to 
+  include it (for the thread index).  I think ideally it would be configureable
+  on or off.  
+
+- Make it optional that a site generate index files with the listings
+  sorted by date in one file and reverse sorted in the other index. 
+  This pertains to all index types as well. For example:
+     one thread-index with the newest mails topmost
+     one thread-index with the oldest mails topmost
+     one author-index in alphabetical order
+     one author-index in reversed alphabetical or
+     etc.
+
+============
+Attachments:
+============
+
+o Make it configurable to get test/plain attachments to have a link 
+  created for them, instead of having them printed out beneath the 
+  original email.
+
+o If a filename is not known and the MIME type is known, the proper 
+  extension should be added to the randomly generated file name.
+
+o For security reasons, *all* binary attachments should be 
+  written to disk with file permissions of 444 or equivalent 
+  read-only access and should *never* allowed to be executable.
+
+o The user should be able to 1 indicate if attachments are stored to
+  be stored as separate files from the original message. 
+  (Turn it on or off.)
+
+o Specifying a list with 'preferred' content-types when 
+  receiving/decoding mixed/alternative attachments. Support is there 
+  in the config file but not in the code. Currently the "text" is always 
+  preferred.
+
+o It is doubtful that hypermail deals with all kinds of uuencoded 
+  attachments as defined with 'x-uue' in the current hypermail. Other 
+  MIME resources mention a whole set of different names for this kind 
+  of encoding, but are they in use?
+
+o Hypermail should be able to deal with Sun's (silly) mailtool 
+  attachments in a manner similar to how it deals with mime attachments. 
+  It would be really cool if the output would be identical and the 
+  differences hidden from the user(s).
+
+=================
+Configure issues
+=================
+
+Defines not used in config.h.in:
+HAVE_STRFTIME, HAVE_GETOPT, HAVE_GETPWUID, HAVE_LSTAT,
+HAVE_MKDIR, HAVE_STRCASECMP, HAVE_STRDUP, HAVE_STRSTR, HAVE_STRTOL,
+HAVE_ALLOCA_H, HAVE_ARPA_INET_H, HAVE_MALLOC_H, HAVE_NDIR_H ,
+HAVE_NETDB_H, HAVE_NETINET_IN_H, HAVE_STDARG_H, HAVE_STDIO_H,
+HAVE_SYS_DIR_H, HAVE_SYS_NDIR_H , HAVE_SYS_SOCKET_H, HAVE_TIME_H
+
+HAVE_BCOPY is only used in in pcre and not hypermail sources.
+
+Configure needs to support SunOS4x.
+
+Change prototype definitions for certain systems (FREBSD 4.6 for example)
+
+============
+Misc. Needs:
+============
+
+- EURODATE
+  Given that these two formats are ambiguous, and many companies have
+  people of both sorts, need an alternate, unambigous date format. 
+
+- Should recognize and parse indented HTML tags better
+
+- Don't ignore umask - HM_UMASK variable? 
+
+- A better icon for hypermail!
+
+- Ability to check for duplicate message IDs using cksum
+  to assure that duplicate message are infact truely duplicated
+  and not just a different message with the same msg-id header.
+
+- Ability to refer to articles via message ID as well
+
+- The ability to cap the archive to X most recent messages
+
+- Allow for multiple mailbox formats to be recognized, like news articles,
+  listproc, elm mailboxes, etc.
+
+- In parsing header fields, check for extra spaces, tabs, etc.
+
+- Check for zero-length headers
+
+- Search for "HTTP" and "http" when making links
+
+- Parse archives with only one or zero messages
+
+- Make sure "sort by..." groups all messages in same thread
+
+- Add sort by "in reply to" as well
+
+=============================
+Administrative Things to do:
+=============================
+
+o Get a good set of test files.  For now you can use your own...
+
+o Get to develop a complete regression test suite 
+
+===========================
+        :Requests:
+===========================
+
+* Do you know if there is any way to cutomize the index sort of Hypermail? 
+  I am using Solaris mailbox and the header field can be modified by user 
+  (i.e. add more headers if required). However, the default index sort of 
+  Hypermail only support Author, Thread and Subject. Is there any way to 
+  customize the index sort of Hypermail so that we can map the UNIX mail 
+  to HTML mail with cutomize headers.
+
+* Would like to see a reindex option. Would like to remove a message from
+  the mailbox and click on reindex to delete the message.
+
+* There should be an option I can set in the Hypermail command to cause it 
+  to write html files as a specified user.  Right now Hypermail is writing 
+  files as daemon and this is causing problems.  We'd prefer that it run as 
+  something/someone else.
+
+* One more: I still think that hypermail should also save the
+  full mail body part additionally, when there is an OpenPGP(PGP/MIME
+  rfc2015) signed Mail. If we do it first, maybe somebody enhances a
+  webbrowser to take advantage of it. Would be cool, if it could check
+  the signature then.
+
+* It would be nice to be able to throttle hypermail. Could we add a
+  config option that would allow hypermail to renice itself ?

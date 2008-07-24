@@ -1,0 +1,993 @@
+Common subdirectories: src.orig/CVS and src/CVS
+Only in src: Makefile
+Only in src: defaults.h
+Common subdirectories: src.orig/fnv and src/fnv
+diff -c src.orig/hypermail.c src/hypermail.c
+*** src.orig/hypermail.c	Fri Jun 24 10:00:56 2005
+--- src/hypermail.c	Wed Mar  1 22:26:16 2006
+***************
+*** 114,120 ****
+  
+  void version(void)
+  {
+!     printf("%s: %s: %s %s: %s\n", PROGNAME, lang[MSG_VERSION], VERSION, lang[MSG_PATCHLEVEL], PATCHLEVEL);
+      exit(0);
+  }
+  
+--- 114,120 ----
+  
+  void version(void)
+  {
+!     printf("%s: %s: %s+W3C-%s %s: %s\n", PROGNAME, lang[MSG_VERSION], VERSION, W3CVERSION, lang[MSG_PATCHLEVEL], PATCHLEVEL);
+      exit(0);
+  }
+  
+***************
+*** 164,170 ****
+  	lte++;
+      }
+      printf(")\n");
+!     printf("%s         : %s\n", lang[MSG_VERSION], VERSION);
+      printf("%s      : %s\n", lang[MSG_PATCHLEVEL], PATCHLEVEL);
+      printf("%s            : %s\n\n", lang[MSG_DOCS], HMURL);
+      exit(1);
+--- 164,170 ----
+  	lte++;
+      }
+      printf(")\n");
+!     printf("%s         : %s + W3C-%s\n", lang[MSG_VERSION], VERSION, W3CVERSION);
+      printf("%s      : %s\n", lang[MSG_PATCHLEVEL], PATCHLEVEL);
+      printf("%s            : %s\n\n", lang[MSG_DOCS], HMURL);
+      exit(1);
+diff -c src.orig/parse.c src/parse.c
+*** src.orig/parse.c	Tue Oct 25 15:19:25 2005
+--- src/parse.c	Tue Nov  8 22:09:41 2005
+***************
+*** 2629,2643 ****
+  					inlinecontent(type)) {
+  					/* if we know our browsers can show this type of context
+  					   as-is, we make a <img> tag instead of <a href>! */
+! 
+  					trio_snprintf(buffer, sizeof(buffer),
+  						 "<img src=\"%s%s%c%s\" alt=\"%s\" />\n",
+  						 subdir ? subdir->rel_path_to_top : "",
+  						 &att_dir[strlen(dir) + 1],
+  						 PATH_SEPARATOR, file,
+  						 desc);
+! 				    }
+! 				    else {
+  					char *created_link =
+  					    createlink(set_attachmentlink,
+  						       &att_dir[strlen(dir)
+--- 2629,2659 ----
+  					inlinecontent(type)) {
+  					/* if we know our browsers can show this type of context
+  					   as-is, we make a <img> tag instead of <a href>! */
+!  				      if(set_inline_addlink){
+!  					char *created_link =
+!  					    createlink(set_attachmentlink,
+!  						       &att_dir[strlen(dir)
+!  								+ 1],
+!  						       file, num, type);
+!  					trio_snprintf(buffer, sizeof(buffer),
+!  						 "<p><img src=\"%s%s%c%s\" alt=\"%s\" />\n<br />\n(%s %s: <a href=\"%s%s\">%s</a>)</p>\n",
+!  						 subdir ? subdir->rel_path_to_top : "",
+!  						 &att_dir[strlen(dir) + 1],
+!  						 PATH_SEPARATOR, file,
+!  						 desc, type,
+!  						 lang[MSG_ATTACHMENT],
+!  						 subdir ? subdir->rel_path_to_top : "",
+!  						 created_link, file);
+!  					free(created_link);
+!  				      }else{
+  					trio_snprintf(buffer, sizeof(buffer),
+  						 "<img src=\"%s%s%c%s\" alt=\"%s\" />\n",
+  						 subdir ? subdir->rel_path_to_top : "",
+  						 &att_dir[strlen(dir) + 1],
+  						 PATH_SEPARATOR, file,
+  						 desc);
+! 				      }
+! 				    } else {
+  					char *created_link =
+  					    createlink(set_attachmentlink,
+  						       &att_dir[strlen(dir)
+***************
+*** 3003,3009 ****
+  		else if (!strcasecmp(command, "name"))
+  		    name = getvalue(line);
+  		else if (!strcasecmp(command, "email"))
+! 		    email = getvalue(line);
+  		else if (!strcasecmp(command, "subject")) {
+  		    valp = getvalue(line);
+  		    {
+--- 3019,3025 ----
+  		else if (!strcasecmp(command, "name"))
+  		    name = getvalue(line);
+  		else if (!strcasecmp(command, "email"))
+! 		    email = unobfuscate_email_address(getvalue(line));
+  		else if (!strcasecmp(command, "subject")) {
+  		    valp = getvalue(line);
+  		    {
+Common subdirectories: src.orig/pcre and src/pcre
+diff -c src.orig/print.c src/print.c
+*** src.orig/print.c	Tue Nov  8 22:49:53 2005
+--- src/print.c	Tue Nov  8 22:09:41 2005
+***************
+*** 264,271 ****
+    char *tmpptr=i18n_convstring(email->subject,"UTF-8",email->charset,&tmplen);
+  #endif
+  
+!   /* well... always put this element here.. */
+!   fprintf(fp, "<ul class=\"links\">\n");
+  
+    if (set_mailcommand && set_hmail) {
+      fprintf(fp, "<li><a name=\"%s\" id=\"%s\"></a><dfn>%s</dfn>:", 
+--- 264,275 ----
+    char *tmpptr=i18n_convstring(email->subject,"UTF-8",email->charset,&tmplen);
+  #endif
+  
+!   if (!(set_show_msg_links && set_show_msg_links != loc_cmp)
+!       || (set_show_index_links && set_show_index_links != loc_cmp))
+!     {
+!       fprintf(fp, "<ul class=\"links\">\n");
+!     }
+!   
+  
+    if (set_mailcommand && set_hmail) {
+      fprintf(fp, "<li><a name=\"%s\" id=\"%s\"></a><dfn>%s</dfn>:", 
+***************
+*** 298,317 ****
+        fprintf (fp, "<a name=\"%s\" id=\"%s\"></a>",id,id);
+      fprintf(fp, "<dfn>%s</dfn>:", lang[MSG_CONTEMPORARY_MSGS_SORTED]);
+      if (show_index[dlev][DATE_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%d\" title=\"%s\">%s</a> ]", 
+! 	      index_name[dlev][DATE_INDEX], num, 
+  	      lang[MSG_LTITLE_BY_DATE], lang[MSG_BY_DATE]);
+      if (show_index[dlev][THREAD_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%d\" title=\"%s\">%s</a> ]", 
+! 	      index_name[dlev][THREAD_INDEX], num, 
+  	      lang[MSG_LTITLE_BY_THREAD], lang[MSG_BY_THREAD]);
+      if (show_index[dlev][SUBJECT_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%d\" title=\"%s\">%s</a> ]", 
+! 	      index_name[dlev][SUBJECT_INDEX], num, 
+  	      lang[MSG_LTITLE_BY_SUBJECT], lang[MSG_BY_SUBJECT]);
+      if (show_index[dlev][AUTHOR_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%d\" title=\"%s\">%s</a> ]", 
+! 	      index_name[dlev][AUTHOR_INDEX], num, 
+  	      lang[MSG_LTITLE_BY_AUTHOR], lang[MSG_BY_AUTHOR]);
+      if (show_index[dlev][ATTACHMENT_INDEX])
+        fprintf(fp, " [ <a href=\"%s\" title=\"%s\">%s</a> ]", 
+--- 302,321 ----
+        fprintf (fp, "<a name=\"%s\" id=\"%s\"></a>",id,id);
+      fprintf(fp, "<dfn>%s</dfn>:", lang[MSG_CONTEMPORARY_MSGS_SORTED]);
+      if (show_index[dlev][DATE_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%s%d\" title=\"%s\">%s</a> ]", 
+! 	      index_name[dlev][DATE_INDEX], set_fragment_prefix, num, 
+  	      lang[MSG_LTITLE_BY_DATE], lang[MSG_BY_DATE]);
+      if (show_index[dlev][THREAD_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%s%d\" title=\"%s\">%s</a> ]",
+! 	      index_name[dlev][THREAD_INDEX], set_fragment_prefix, num, 
+  	      lang[MSG_LTITLE_BY_THREAD], lang[MSG_BY_THREAD]);
+      if (show_index[dlev][SUBJECT_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%s%d\" title=\"%s\">%s</a> ]", 
+! 	      index_name[dlev][SUBJECT_INDEX], set_fragment_prefix, num, 
+  	      lang[MSG_LTITLE_BY_SUBJECT], lang[MSG_BY_SUBJECT]);
+      if (show_index[dlev][AUTHOR_INDEX])
+!       fprintf(fp, " [ <a href=\"%s#%s%d\" title=\"%s\">%s</a> ]", 
+! 	      index_name[dlev][AUTHOR_INDEX], set_fragment_prefix, num, 
+  	      lang[MSG_LTITLE_BY_AUTHOR], lang[MSG_BY_AUTHOR]);
+      if (show_index[dlev][ATTACHMENT_INDEX])
+        fprintf(fp, " [ <a href=\"%s\" title=\"%s\">%s</a> ]", 
+***************
+*** 325,332 ****
+    if (set_custom_archives && *set_custom_archives)
+      fprintf(fp, "<li><dfn>%s</dfn>: %s</li>\n", lang[MSG_OTHER_MAIL_ARCHIVES], set_custom_archives);
+  
+!   fprintf (fp,"</ul>\n");
+! 
+  #ifdef HAVE_ICONV
+    if(tmpptr)
+      free(tmpptr);
+--- 329,338 ----
+    if (set_custom_archives && *set_custom_archives)
+      fprintf(fp, "<li><dfn>%s</dfn>: %s</li>\n", lang[MSG_OTHER_MAIL_ARCHIVES], set_custom_archives);
+  
+!   if (!(set_show_msg_links && set_show_msg_links != loc_cmp)
+!       || (set_show_index_links && set_show_index_links != loc_cmp)){
+!     fprintf (fp,"</ul>\n");
+!   }
+  #ifdef HAVE_ICONV
+    if(tmpptr)
+      free(tmpptr);
+***************
+*** 804,812 ****
+  	subj_tag = "";
+  	subj_end_tag = "";
+        }
+!       fprintf(fp,"%s<a href=\"%s\">%s%s%s</a>%s<a name=\"%d\" id=\"%d\"><em>%s</em></a>%s%s%s\n",
+  	      startline, msg_href(em, subdir_email, FALSE), 
+! 	      subj_tag, subj, subj_end_tag, break_str, em->msgnum, em->msgnum, tmpptr=convchars(em->name,em->charset),
+  	      break_str, date_str, endline);
+        free(subj);
+        if(tmpptr)
+--- 810,818 ----
+  	subj_tag = "";
+  	subj_end_tag = "";
+        }
+!       fprintf(fp,"%s<a href=\"%s\">%s%s%s</a>%s<a name=\"%s%d\" id=\"%s%d\"><em>%s</em></a>%s%s%s\n",
+  	      startline, msg_href(em, subdir_email, FALSE), 
+! 	      subj_tag, subj, subj_end_tag, break_str, set_fragment_prefix, em->msgnum, set_fragment_prefix, em->msgnum, tmpptr=convchars(em->name,em->charset),
+  	      break_str, date_str, endline);
+        free(subj);
+        if(tmpptr)
+***************
+*** 846,858 ****
+  		/* consider that if there's an attachment directory, there are attachments */
+  		nb_attach++;
+  		if (set_indextable) {
+! 		  fprintf(fp, "<tr><td>%s%s</a></td><td><a name=\"%d\" id=\"%d\"><em>%s</em></a></td>" "<td>%s</td></tr>\n", msg_href(em, subdir_email, TRUE), subj, em->msgnum, em->msgnum, tmpptr=convchars(em->name,em->charset), getindexdatestr(em->date));
+  		}
+  		else {
+  		  fprintf(fp, "<li>%s%s<dfn>%s</dfn></a>&nbsp;" 
+! 			  "<a name=\"%d\" id=\"%d\"><em>%s</em></a>&nbsp;<em>(%s)</em>\n", 
+  			  (*is_first) ? first_attributes : "",
+! 			  msg_href(em, subdir_email, TRUE), subj, em->msgnum, em->msgnum, tmpptr=convchars(em->name,em->charset), 
+  			  getindexdatestr(em->date));
+  		  if (*is_first)
+  		    *is_first = FALSE;
+--- 852,864 ----
+  		/* consider that if there's an attachment directory, there are attachments */
+  		nb_attach++;
+  		if (set_indextable) {
+! 		  fprintf(fp, "<tr><td>%s%s</a></td><td><a name=\"%s%d\" id=\"%s%d\"><em>%s</em></a></td>" "<td>%s</td></tr>\n", msg_href(em, subdir_email, TRUE), subj, set_fragment_prefix, em->msgnum, set_fragment_prefix, em->msgnum, tmpptr=convchars(em->name,em->charset), getindexdatestr(em->date));
+  		}
+  		else {
+  		  fprintf(fp, "<li>%s%s<dfn>%s</dfn></a>&nbsp;" 
+! 			  "<a name=\"%s%d\" id=\"%s%d\"><em>%s</em></a>&nbsp;<em>(%s)</em>\n", 
+  			  (*is_first) ? first_attributes : "",
+! 			  msg_href(em, subdir_email, TRUE), subj, set_fragment_prefix, em->msgnum, set_fragment_prefix, em->msgnum, tmpptr=convchars(em->name,em->charset), 
+  			  getindexdatestr(em->date));
+  		  if (*is_first)
+  		    *is_first = FALSE;
+***************
+*** 1099,1105 ****
+        if (email->is_deleted == 4 || email->is_deleted == 8)
+  	d_index = MSG_FILTERED_OUT;
+        fprintf(fp, "<a name=\"start%d\" accesskey=\"j\" id=\"start%d\"></a>", email->msgnum,email->msgnum);
+!       fprintf(fp, "<p>%s</p>\n", lang[d_index]);  /* AUDIT biege: No more warnings about format-bug */
+        return;
+      }
+      
+--- 1105,1111 ----
+        if (email->is_deleted == 4 || email->is_deleted == 8)
+  	d_index = MSG_FILTERED_OUT;
+        fprintf(fp, "<a name=\"start%d\" accesskey=\"j\" id=\"start%d\"></a>", email->msgnum,email->msgnum);
+!       fprintf(fp, "<span id=\"deleted\">(%s)</span>\n", lang[d_index]);
+        return;
+      }
+      
+***************
+*** 1201,1208 ****
+  	d_index = MSG_EXPIRED;
+        if (email->is_deleted == 4 || email->is_deleted == 8)
+  	d_index = MSG_FILTERED_OUT;
+!       fprintf(fp, "<a name=\"start%d\" accesskey=\"j\" id=\"start%d\"></a>", email->msgnum,email->msgnum);
+!       fprintf(fp, "<p>%s</p>\n", lang[d_index]);	/* AUDIT biege: No more warnings about format-bug */
+        return;
+      }
+      
+--- 1207,1222 ----
+  	d_index = MSG_EXPIRED;
+        if (email->is_deleted == 4 || email->is_deleted == 8)
+  	d_index = MSG_FILTERED_OUT;
+!       switch(d_index){
+!       case MSG_DELETED:
+! 	if(set_htmlmessage_deleted){
+! 	  fprintf(fp,"%s\n",set_htmlmessage_deleted);
+! 	  break;
+! 	}
+!       default:
+! 	fprintf(fp, "<a name=\"start\" accesskey=\"j\" id=\"start\"></a>");
+! 	fprintf(fp, "<p>%s</p>\n", lang[d_index]);
+!       }
+        return;
+      }
+      
+***************
+*** 1434,1440 ****
+  				  email->msgid, email->subject);
+  #endif
+        fprintf(fp, "&lt;<a href=\"%s\">%s</a>&gt;", ptr ? ptr : "",
+! 	      tmpname);
+        if (ptr)
+  	free(ptr);
+      }
+--- 1448,1454 ----
+  				  email->msgid, email->subject);
+  #endif
+        fprintf(fp, "&lt;<a href=\"%s\">%s</a>&gt;", ptr ? ptr : "",
+! 	      obfuscate_email_address(email->emailaddr));
+        if (ptr)
+  	free(ptr);
+      }
+***************
+*** 1451,1457 ****
+  				    email->msgid, email->subject);
+  #endif
+  	fprintf(fp, "%s &lt;<a href=\"%s\">%s</a>&gt;", tmpname, ptr ? ptr : "",
+! 		email->emailaddr);
+        if (ptr)
+  	free(ptr);
+      }
+--- 1465,1471 ----
+  				    email->msgid, email->subject);
+  #endif
+  	fprintf(fp, "%s &lt;<a href=\"%s\">%s</a>&gt;", tmpname, ptr ? ptr : "",
+! 		obfuscate_email_address(email->emailaddr));
+        if (ptr)
+  	free(ptr);
+      }
+***************
+*** 2123,2132 ****
+  	 */
+  #ifdef HAVE_ICONV
+  	print_msg_header(fp, set_label, localsubject, set_dir, localname, email->emailaddr, 
+! 			 email->msgid, email->charset, email->date, filename);
+  #else
+  	print_msg_header(fp, set_label, email->subject, set_dir, email->name, email->emailaddr, 
+! 			 email->msgid, email->charset, email->date, filename);
+  #endif
+  	fprintf (fp, "<div class=\"head\">\n");
+  
+--- 2137,2146 ----
+  	 */
+  #ifdef HAVE_ICONV
+  	print_msg_header(fp, set_label, localsubject, set_dir, localname, email->emailaddr, 
+! 			 email->msgid, email->charset, email->date, filename, email->is_deleted);
+  #else
+  	print_msg_header(fp, set_label, email->subject, set_dir, email->name, email->emailaddr, 
+! 			 email->msgid, email->charset, email->date, filename, email->is_deleted);
+  #endif
+  	fprintf (fp, "<div class=\"head\">\n");
+  
+***************
+*** 2155,2161 ****
+  #else
+  	printcomment(fp, "name", email->name);
+  #endif
+! 	printcomment(fp, "email", email->emailaddr);
+  #ifdef HAVE_ICONV
+  	ptr = convcharsnospamprotect(localsubject, email->charset);
+  #else
+--- 2169,2175 ----
+  #else
+  	printcomment(fp, "name", email->name);
+  #endif
+! 	printcomment(fp, "email", obfuscate_email_address(email->emailaddr));
+  #ifdef HAVE_ICONV
+  	ptr = convcharsnospamprotect(localsubject, email->charset);
+  #else
+***************
+*** 2623,2631 ****
+  	    endline = "</li>";
+  	}
+  	fprintf(fp,
+! 		"%s%s%s</a>%s <a name=\"%d\" id=\"%d\">%s</a>%s\n", startline,
+  		msg_href(hp->data, subdir_email, TRUE), tmpptr=convchars(hp->data->name,hp->data->charset), break_str,
+! 		hp->data->msgnum, hp->data->msgnum, date_str, endline);
+  	*oldsubject = hp->data->unre_subject;
+        
+  	free(subj);
+--- 2637,2645 ----
+  	    endline = "</li>";
+  	}
+  	fprintf(fp,
+! 		"%s%s%s</a>%s <a name=\"%s%d\" id=\"%s%d\">%s</a>%s\n", startline,
+  		msg_href(hp->data, subdir_email, TRUE), tmpptr=convchars(hp->data->name,hp->data->charset), break_str,
+! 		set_fragment_prefix, hp->data->msgnum, set_fragment_prefix, hp->data->msgnum, date_str, endline);
+  	*oldsubject = hp->data->unre_subject;
+        
+  	free(subj);
+***************
+*** 2777,2785 ****
+  	sprintf(date_str, "<em>(%s)</em>", getindexdatestr(hp->data->date));
+  	endline = "</li>";
+        }
+!       fprintf(fp,"%s%s%s</a>%s<a name=\"%d\" id=\"%d\">%s</a>%s\n",
+  	      startline, msg_href(hp->data, subdir_email, TRUE), subj, break_str,
+! 	      hp->data->msgnum, hp->data->msgnum, date_str, endline);
+        if(subj)
+  	free(subj);
+        if(tmpname)
+--- 2791,2799 ----
+  	sprintf(date_str, "<em>(%s)</em>", getindexdatestr(hp->data->date));
+  	endline = "</li>";
+        }
+!       fprintf(fp,"%s%s%s</a>%s<a name=\"%s%d\" id=\"%s%d\">%s</a>%s\n",
+  	      startline, msg_href(hp->data, subdir_email, TRUE), subj, break_str,
+! 	      set_fragment_prefix, hp->data->msgnum, set_fragment_prefix, hp->data->msgnum, date_str, endline);
+        if(subj)
+  	free(subj);
+        if(tmpname)
+diff -c src.orig/printfile.c src/printfile.c
+*** src.orig/printfile.c	Tue Oct 25 15:21:37 2005
+--- src/printfile.c	Wed Mar  1 21:51:57 2006
+***************
+*** 82,94 ****
+  		    free(tmpptr);
+  		  fprintf(fp,
+  			"<meta name=\"Author\" content=\"%s (%s)\" />",
+! 			cp, email);
+  		  if (cp)
+  		    free(cp);
+  #else
+  		fprintf(fp,
+  			"<meta name=\"Author\" content=\"%s (%s)\" />",
+! 			name, email);
+  #endif
+  		}
+  		continue;
+--- 82,96 ----
+  		    free(tmpptr);
+  		  fprintf(fp,
+  			"<meta name=\"Author\" content=\"%s (%s)\" />",
+! 			cp, obfuscate_email_address(email));
+  		  if (cp)
+  		    free(cp);
+  #else
+  		fprintf(fp,
+  			"<meta name=\"Author\" content=\"%s (%s)\" />",
+! 			tmpptr=convchars(name,charset), obfuscate_email_address(email));
+! 		if (tmpptr)
+! 		  free(tmpptr);
+  #endif
+  		}
+  		continue;
+***************
+*** 220,226 ****
+  
+  void print_main_header(FILE *fp, bool index_header, char *label, char *name,
+  		       char *email, char *subject, char *charset,
+! 		       char *date, char *filename)
+  {
+      char *title;
+      char *rp;
+--- 222,228 ----
+  
+  void print_main_header(FILE *fp, bool index_header, char *label, char *name,
+  		       char *email, char *subject, char *charset,
+! 		       char *date, char *filename, int is_deleted)
+  {
+      char *title;
+      char *rp;
+***************
+*** 246,253 ****
+  	fprintf(fp, "<meta http-equiv=\"Content-Type\""
+  		" content=\"text/html; charset=%s\" />\n", charset);
+      }
+!     fprintf(fp, "<meta name=\"generator\" content=\"%s %s, see %s\" />\n",
+!                 PROGNAME, VERSION, HMURL);
+  
+      /* 
+       * Strip off any trailing whitespace in TITLE so weblint is happy. 
+--- 248,255 ----
+  	fprintf(fp, "<meta http-equiv=\"Content-Type\""
+  		" content=\"text/html; charset=%s\" />\n", charset);
+      }
+!     fprintf(fp, "<meta name=\"generator\" content=\"%s %s + W3C-%s patch, see %s and http://www.w3.org/2004/12/hypermail-w3c-patch/\" />\n",
+!                 PROGNAME, VERSION, W3CVERSION, HMURL);
+  
+      /* 
+       * Strip off any trailing whitespace in TITLE so weblint is happy. 
+***************
+*** 292,298 ****
+      free(title);
+  
+      if (name && email){
+!       fprintf(fp, "<meta name=\"Author\" content=\"%s (%s)\" />\n",convchars(name,charset),email);
+      }
+      fprintf(fp, "<meta name=\"Subject\" content=\"%s\" />\n", rp =
+  	    convchars(subject, charset));
+--- 294,300 ----
+      free(title);
+  
+      if (name && email){
+!       fprintf(fp, "<meta name=\"Author\" content=\"%s (%s)\" />\n",convchars(name,charset),obfuscate_email_address(email));
+      }
+      fprintf(fp, "<meta name=\"Subject\" content=\"%s\" />\n", rp =
+  	    convchars(subject, charset));
+***************
+*** 302,307 ****
+--- 304,314 ----
+      if (use_mailto)
+  	fprintf(fp, "<link rev=\"made\" href=\"mailto:%s\" />\n", set_mailto);
+  
++     /* to avoid bots */
++     if (is_deleted){
++       fprintf(fp,"<meta name=\"ROBOTS\" content=\"noindex\" />\n");
++     }
++ 
+      /* print the css url according to the type of header */
+      if (index_header && set_icss_url && *set_icss_url) {
+        fprintf(fp, "<link rel=\"stylesheet\" href=\"%s\" type=\"text/css\" />\n",
+***************
+*** 370,383 ****
+  
+  void print_msg_header(FILE *fp, char *label, char *subject,
+  		      char *dir, char *name, char *email, char *msgid,
+! 		      char *charset, time_t date, char *filename)
+  {
+      if (mhtmlheaderfile)
+  	printfile(fp, mhtmlheaderfile, set_label, subject, set_dir, name, 
+  		  email, msgid, charset, secs_to_iso_meta(date), filename);
+      else {
+  	print_main_header(fp, FALSE, set_label, name, email, subject,
+! 			  charset, secs_to_iso_meta(date), filename);
+      }
+  }
+  
+--- 377,390 ----
+  
+  void print_msg_header(FILE *fp, char *label, char *subject,
+  		      char *dir, char *name, char *email, char *msgid,
+! 		      char *charset, time_t date, char *filename,int is_deleted)
+  {
+      if (mhtmlheaderfile)
+  	printfile(fp, mhtmlheaderfile, set_label, subject, set_dir, name, 
+  		  email, msgid, charset, secs_to_iso_meta(date), filename);
+      else {
+  	print_main_header(fp, FALSE, set_label, name, email, subject,
+! 			  charset, secs_to_iso_meta(date), filename, is_deleted);
+      }
+  }
+  
+***************
+*** 405,416 ****
+  	/* print the navigation bar to upper levels */
+  #ifdef HAVE_ICONV
+        if (set_i18n){
+! 	print_main_header(fp, TRUE, label, NULL, NULL, subject, "UTF-8", NULL, NULL);
+        }else{
+! 		print_main_header(fp, TRUE, label, NULL, NULL, subject, NULL, NULL, NULL);
+        }
+  #else
+! 	print_main_header(fp, TRUE, label, NULL, NULL, subject, NULL, NULL, NULL);
+  #endif
+  	fprintf (fp, "<div class=\"head\">\n");
+  	if (ihtmlnavbar2upfile)
+--- 412,423 ----
+  	/* print the navigation bar to upper levels */
+  #ifdef HAVE_ICONV
+        if (set_i18n){
+! 	print_main_header(fp, TRUE, label, NULL, NULL, subject, "UTF-8", NULL, NULL, 0);
+        }else{
+! 		print_main_header(fp, TRUE, label, NULL, NULL, subject, NULL, NULL, NULL, 0);
+        }
+  #else
+! 	print_main_header(fp, TRUE, label, NULL, NULL, subject, NULL, NULL, NULL, 0);
+  #endif
+  	fprintf (fp, "<div class=\"head\">\n");
+  	if (ihtmlnavbar2upfile)
+***************
+*** 436,442 ****
+      else {
+  	fprintf(fp, "<p><small><em>\n");
+  	fprintf(fp, "%s ", lang[MSG_ARCHIVE_GENERATED_BY]);
+! 	fprintf(fp, "<a href=\"%s\">%s %s</a> \n", HMURL, PROGNAME, VERSION);
+  	fprintf(fp, ": %s\n", getlocaltime());
+  	fprintf(fp, "</em></small></p>\n");
+      }
+--- 443,449 ----
+      else {
+  	fprintf(fp, "<p><small><em>\n");
+  	fprintf(fp, "%s ", lang[MSG_ARCHIVE_GENERATED_BY]);
+! 	fprintf(fp, "<a href=\"%s\">%s %s</a>+<a href=\"http://www.w3.org/2004/12/hypermail-w3c-patch/\">W3C-%s</a>\n", HMURL, PROGNAME, VERSION, W3CVERSION);
+  	fprintf(fp, ": %s\n", getlocaltime());
+  	fprintf(fp, "</em></small></p>\n");
+      }
+diff -c src.orig/printfile.h src/printfile.h
+*** src.orig/printfile.h	Tue May 13 18:01:50 2003
+--- src/printfile.h	Tue Nov  8 22:07:26 2005
+***************
+*** 6,15 ****
+                char *, char *, char *, char *);
+  
+  void print_main_header(FILE *, bool, char *, char *, char *, char *, char *,
+! 		       char *, char *);
+  
+  void print_msg_header(FILE *, char *, char *, char *, char *, char *, 
+!                       char *, char *, time_t, char *);
+  
+  void print_index_header(FILE *, char *, char *, char *, char *);
+  
+--- 6,15 ----
+                char *, char *, char *, char *);
+  
+  void print_main_header(FILE *, bool, char *, char *, char *, char *, char *,
+! 		       char *, char *, int);
+  
+  void print_msg_header(FILE *, char *, char *, char *, char *, char *, 
+!                       char *, char *, time_t, char *, int);
+  
+  void print_index_header(FILE *, char *, char *, char *, char *);
+  
+diff -c src.orig/proto.h src/proto.h
+*** src.orig/proto.h	Tue Oct 25 15:22:09 2005
+--- src/proto.h	Tue Nov  8 22:09:41 2005
+***************
+*** 93,98 ****
+--- 93,102 ----
+  /*
+  ** string.c functions
+  */
++ 
++ char *obfuscate_email_address (char *);
++ char *unobfuscate_email_address (char *);
++ 
+  char *i18n_convstring(char *, char *, char *, int *);
+  char *i18n_utf2numref(char *, int);
+  char *i18n_numref2utf(char *);
+diff -c src.orig/setup.c src/setup.c
+*** src.orig/setup.c	Tue Oct 25 15:15:14 2005
+--- src/setup.c	Tue Nov  8 22:10:21 2005
+***************
+*** 15,21 ****
+--- 15,23 ----
+  #include "setup.h"
+  #include "print.h"
+  
++ char *set_fragment_prefix;
+  char *set_antispam_at;
++ char *set_htmlmessage_deleted;
+  char *set_language;
+  char *set_htmlsuffix;
+  char *set_mbox;
+***************
+*** 28,33 ****
+--- 30,36 ----
+  char *set_txtsuffix;
+  char *set_antispamdomain;
+  
++ bool set_email_address_obfuscation;
+  bool set_i18n;
+  bool set_i18n_body;
+  bool set_overwrite;
+***************
+*** 72,77 ****
+--- 75,81 ----
+  bool set_report_new_file;
+  bool set_report_new_folder;
+  bool set_use_sender_date;
++ bool set_inline_addlink;
+  
+  int set_showhtml;
+  int set_thrdlevels;
+***************
+*** 150,161 ****
+--- 154,173 ----
+  int set_delete_level;
+  
+  struct Config cfg[] = {
++     {"fragment_prefix", &set_fragment_prefix, "", CFG_STRING,
++      "# put this string before message number in each URI fragment.\n", FALSE},
++     {"email_address_obfuscation", &set_email_address_obfuscation, BFALSE, CFG_SWITCH,
++      "# set On to enable email address obfuscation using numeric character reference.\n",FALSE},
++ 
+      {"i18n", &set_i18n, BTRUE, CFG_SWITCH,
+       "# Enable I18N features, must linked with iconv().\n",FALSE},
+  
+      {"i18n_body", &set_i18n_body, BFALSE, CFG_SWITCH,
+       "# Translate message body into UTF-8. \"i18n\" must be enabled.\n",FALSE},
+  
++     {"htmlmessage_deleted",  &set_htmlmessage_deleted, NULL, CFG_STRING,
++      "# markuped message for deleted messages.\n",FALSE},
++ 
+      {"antispam_at", &set_antispam_at, ANTISPAM_AT, CFG_STRING,
+       "# replace any @ sign with this string, if spam flags enabled.\n", FALSE},
+       
+***************
+*** 446,451 ****
+--- 458,466 ----
+       "# This is the list of MIME types that you want <img> tags to as\n"
+       "# opposed to simply <a href> to from the message.\n", FALSE},
+  
++     {"inline_addlink", &set_inline_addlink, BTRUE, CFG_SWITCH,
++      "# Set this to On to add additional links also to inline attachments, requires 'inline_types'.\n", FALSE},
++ 
+      {"prefered_types", &set_prefered_types, NULL, CFG_LIST,
+       "# When mails using multipart/mixed types are scanned, this list of\n"
+       "# MIME types defines which part you want presented in the result.\n"
+***************
+*** 992,998 ****
+  int ConfigAddItem(char *cfg_line)
+  {
+      char keyword[256];
+!     char towhat[501];
+      char *keywp;
+      int i;
+      char *line = cfg_line;
+--- 1007,1013 ----
+  int ConfigAddItem(char *cfg_line)
+  {
+      char keyword[256];
+!     char towhat[1001]; /* increased due to htmlmessage_deleted */
+      char *keywp;
+      int i;
+      char *line = cfg_line;
+diff -c src.orig/setup.h src/setup.h
+*** src.orig/setup.h	Tue Oct 25 15:11:26 2005
+--- src/setup.h	Tue Nov  8 22:09:41 2005
+***************
+*** 35,40 ****
+--- 35,42 ----
+  void PostConfig(void);
+  
+  extern char *set_antispam_at;
++ extern char *set_htmlmessage_deleted;
++ extern char *set_fragment_prefix;
+  extern char *set_language;
+  extern char *set_htmlsuffix;
+  extern char *set_mbox;
+***************
+*** 46,51 ****
+--- 48,54 ----
+  extern char *set_default_top_index;
+  extern char *set_txtsuffix;
+  
++ extern bool set_email_address_obfuscation;
+  extern bool set_i18n;
+  extern bool set_i18n_body;
+  extern bool set_overwrite;
+***************
+*** 90,95 ****
+--- 93,99 ----
+  extern bool set_report_new_file;
+  extern bool set_report_new_folder;
+  extern bool set_use_sender_date;
++ extern bool set_inline_addlink;
+  
+  extern int set_showhtml;
+  extern int set_thrdlevels;
+diff -c src.orig/string.c src/string.c
+*** src.orig/string.c	Wed Nov  2 22:44:48 2005
+--- src/string.c	Tue Nov  8 22:09:41 2005
+***************
+*** 28,33 ****
+--- 28,169 ----
+  #include "parse.h"
+  #include "uconvert.h"
+  
++ 
++ /*
++ ** email address obfuscation
++ */
++ char *obfuscate_email_address(char *address)
++ {
++   char sbuf[10];
++   struct Push buf;
++   int at_mailbox=1;
++   char *sentinel;
++   
++   if (!set_email_address_obfuscation){
++     return address;
++   }
++   
++   sentinel=strlen(address)+address;
++   
++   INIT_PUSH(buf);
++   while (address<sentinel){
++     if (*address=='@'){
++       PushString(&buf,"&#x40;");
++       at_mailbox=0;
++     }else{
++       if(!at_mailbox){
++ 	sprintf(sbuf,"&#%04d;",*address);
++ 	PushString(&buf,sbuf);
++       }else{
++ 	sbuf[0]=*address;
++ 	sbuf[1]=0x0;
++ 	PushString(&buf,sbuf);
++       }
++     }
++     address++;
++   }
++   RETURN_PUSH(buf);
++ }
++ 
++ char *unobfuscate_email_address(char *address){
++ 
++ #define uea_sbufsize 6
++   int flag=0; /* 1==obfuscated string */
++   int on_error=0; /* 1==something was happen */
++   int on_hex=0; /* 1==base 16 */
++   int at_mailbox=1; /* 1==mailbox part */
++   char *sentinel;
++   
++   char sbuf[uea_sbufsize+1];
++   int scount=0;
++   struct Push buf;
++   long c;
++   
++   INIT_PUSH(buf);
++   
++   sentinel=strlen(address)+address;
++   
++   
++   while (address<sentinel){
++     switch (*address){
++     case '&':
++       if(strncmp(address,"&#x40;",6)==0){
++ 	PushByte(&buf, '@');
++ 	address+=5;
++ 	flag=0;
++ 	on_error=0;
++ 	on_hex=0;
++ 	at_mailbox=0;
++ 	break;
++       }
++       if (at_mailbox){
++ 	PushByte(&buf, '&');
++ 	break;
++       }
++       if (flag==0){
++ 	flag=1;
++       }else{
++ 	/* broken string */
++ 	on_error=1;
++       }
++       break;
++     case ';':
++       if (at_mailbox){
++ 	PushByte(&buf, ';');
++ 	break;
++       }
++       if (flag==1){
++ 	flag=0;
++ 	sbuf[scount]=0;
++ 	if(on_hex==1){
++ 	  c=strtol(sbuf,NULL,16);
++ 	}else{
++ 	  c=strtol(sbuf,NULL,10);
++ 	}
++ 	if (on_error==0){
++ 	  PushByte(&buf, (unsigned char)c); /* should be ASCII */
++ 	} /* simply discard error */
++ 	scount=0;
++ 	on_error=0;
++       }else{
++ 	/* broken string */
++ 	on_error=1;
++       }
++       break;
++     case '#':
++       if (at_mailbox){
++ 	PushByte(&buf, '#');
++ 	break;
++       }
++       if (flag==1){
++ 	if (*(address+1)=='x'){
++ 	  on_hex=1;
++ 	  address++;
++ 	}else{
++ 	  on_hex=0;
++ 	}
++ 	break;
++       }else{
++ 	PushByte(&buf, *address);
++       }
++       break;
++     default:
++       if (at_mailbox || flag==0){
++ 	PushByte(&buf, *address);
++       }else{
++ 	sbuf[scount++]=*address;
++ 	if (scount>=uea_sbufsize){
++ 	  /* broken string */
++ 	  scount=0;
++ 	  on_error=1;
++ 	}
++       }
++     }
++     address++;
++   }
++   RETURN_PUSH(buf);
++ }
++ 
+  /* I18N hack */
+  #ifdef HAVE_ICONV_H
+  #include <iconv.h>
+***************
+*** 1201,1207 ****
+    /* escape strings */
+    convsubj=translateurl(tmpsubject,0);
+    free(tmpsubject);
+!   convemail=translateurl(email,0);
+    convid=translateurl(id,0);
+     
+    /* escape mailcommand, with keeping some delimiters */
+--- 1337,1347 ----
+    /* escape strings */
+    convsubj=translateurl(tmpsubject,0);
+    free(tmpsubject);
+!   if(set_email_address_obfuscation){
+!     convemail=obfuscate_email_address(email);
+!   }else{
+!     convemail=translateurl(email,0);
+!   }
+    convid=translateurl(id,0);
+     
+    /* escape mailcommand, with keeping some delimiters */
+***************
+*** 1349,1356 ****
+  							mailaddr, mid,
+  							msubject);
+  			trio_snprintf(tempbuff, sizeof(tempbuff),
+! 				      "<a href=\"%s\">%.*s%s%s</a>", mailcmd,
+! 				      ptr - email, email, at, mailbuff);
+  
+  			free(mailcmd);
+  
+--- 1489,1496 ----
+  							mailaddr, mid,
+  							msubject);
+  			trio_snprintf(tempbuff, sizeof(tempbuff),
+! 				      "<a href=\"%s\">%s</a>", mailcmd,
+! 				      obfuscate_email_address(mailaddr));
+  
+  			free(mailcmd);
+  
+diff -c src.orig/threadprint.c src/threadprint.c
+*** src.orig/threadprint.c	Fri Nov  4 15:57:29 2005
+--- src/threadprint.c	Tue Nov  8 21:29:59 2005
+***************
+*** 279,288 ****
+      if (set_indextable) {
+  	fprintf(fp,
+  		"<tr><td>%s<a href=\"%s\"%s><strong>%s</strong></a></td>"
+! 		"<td nowrap><a name=\"%d\" id=\"%d\">%s</a></td>" "<td nowrap>%s</td></tr>\n",
+  		level > 1 ? "--&gt; " : "", 
+  		href, first_attributes,
+! 		subj, email->msgnum, email->msgnum, tmpname, getindexdatestr(email->date));
+      }
+      else {
+          if (num_open_li[level] != 0) {
+--- 279,288 ----
+      if (set_indextable) {
+  	fprintf(fp,
+  		"<tr><td>%s<a href=\"%s\"%s><strong>%s</strong></a></td>"
+! 		"<td nowrap><a name=\"%s%d\" id=\"%s%d\">%s</a></td>" "<td nowrap>%s</td></tr>\n",
+  		level > 1 ? "--&gt; " : "", 
+  		href, first_attributes,
+! 		subj, set_fragment_prefix, email->msgnum, set_fragment_prefix, email->msgnum, tmpname, getindexdatestr(email->date));
+      }
+      else {
+          if (num_open_li[level] != 0) {
+***************
+*** 290,298 ****
+  	  num_open_li[level]--;
+  	}
+  	fprintf(fp, "<li><a href=\"%s\"%s>%s</a>&nbsp;"
+! 		"<a name=\"%d\" id=\"%d\"><em>%s</em></a>&nbsp;<em>(%s)</em>\n", 
+  		href, first_attributes, 
+! 		subj, email->msgnum, email->msgnum, tmpname, getindexdatestr(email->date));
+      }
+      if (subj)
+        free(subj);
+--- 290,298 ----
+  	  num_open_li[level]--;
+  	}
+  	fprintf(fp, "<li><a href=\"%s\"%s>%s</a>&nbsp;"
+! 		"<a name=\"%s%d\" id=\"%s%d\"><em>%s</em></a>&nbsp;<em>(%s)</em>\n", 
+  		href, first_attributes, 
+! 		subj, set_fragment_prefix, email->msgnum, set_fragment_prefix, email->msgnum, tmpname, getindexdatestr(email->date));
+      }
+      if (subj)
+        free(subj);
+*** patchlevel.h.orig	Wed Mar  1 22:33:17 2006
+--- patchlevel.h	Wed Mar  1 22:32:59 2006
+***************
+*** 1,2 ****
+--- 1,3 ----
+  #define VERSION "2.2.0"
++ #define W3CVERSION "0.50"
+  #define PATCHLEVEL "1"

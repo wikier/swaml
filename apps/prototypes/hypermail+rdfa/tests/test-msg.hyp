@@ -1,0 +1,11 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<title>%l: %s</title>
+%A
+%S
+<link rev="made" href="mailto:%m">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+<h1 align="center">%s</h1>
+<p align="center"><img src="/images/bar.gif" width="400" height="4" alt="---------"></p>

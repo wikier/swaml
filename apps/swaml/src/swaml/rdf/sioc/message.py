@@ -102,8 +102,7 @@ class Message:
         self.uri = self.config.get('base') + self.path
         
         #body after indexing all messages
-        self.body = None
-        #self.body = msg.fp.read()
+        self.body = msg.fp.read()
         #[(self.body, enconding)] = decode_header(msg.fp.read())
         
     def setBody(self, body):
@@ -390,7 +389,7 @@ class Message:
             next = self.getNextByDate()
             if (next != None):
                 store.add((message, SIOC['next_by_date'], URIRef(next)))                
-                        
+            
             store.add((message, SIOC['content'], Literal(self.getBody())))
             
         except Exception, detail:

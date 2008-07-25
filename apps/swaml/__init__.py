@@ -21,5 +21,6 @@ __contributors__ = ['Diego Berrueta <http://www.berrueta.net/>',
 __copyright__    = 'Copyright 2005-2008, Sergio Fernández'
 __license__      = 'GNU General Public License'
 __version__      = '0.1.0'
+__date__         = "2008-07-25"
 __url__          = 'http://swaml.berlios.de/'
 __agent__        = 'http://swaml.berlios.de/doap#swaml'

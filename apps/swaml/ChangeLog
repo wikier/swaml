@@ -1,5 +1,5 @@
 
-XXXX-XX-XX 0.1.0    - Patched to work with latest versions of RDFLib
+2008-07-25  0.1.0   - Patched to work with latest versions of RDFLib
                     - Added XHTML+RDFa+GRDDL support
                     - Adopted new URIs scheme
                     - Added content negotiation using apache rules

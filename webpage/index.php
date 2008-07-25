@@ -185,6 +185,10 @@
           <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>:
         </dt>
         <dd>
+          <a href="http://prdownload.berlios.de/swaml/swaml-0.1.0.tar.gz">swaml-0.1.0.tar.gz</a>
+          (25/07/2008)
+        </dd>
+        <dd>
           <a href="http://prdownload.berlios.de/swaml/swaml-0.0.5.tar.gz">swaml-0.0.5.tar.gz</a>
           and
           <a href="http://prdownload.berlios.de/swaml/swaml_0.0.5-2_all.deb">swaml_0.0.5-2_all.deb</a>

@@ -21,6 +21,7 @@
 import sys
 
 SWAML_PATH = '/usr/share/swaml/'
+sys.path.append(SWAML_PATH + "src/")
 sys.path.append(SWAML_PATH)
 
 try:

@@ -57,7 +57,7 @@ class SWAML(ConsoleUI):
         Print program version
         """
         
-        print "SWAML 0.0.6", #TODO: __init__.__version__
+        print "SWAML 0.1.0", #TODO: __init__.__version__
         sys.exit()
 
     def __init__(self, argv, base=None):

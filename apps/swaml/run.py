@@ -82,7 +82,10 @@ class SWAML(ConsoleUI):
                 
         self.config.setAgent('http://swaml.berlios.de/doap#swaml') #TODO: how __init__.__agent__?
         self.parseArgs(argv)
-        self.list = MailingList(self.config)
+        if (base == None):
+            self.list = MailingList(self.config)
+        else:
+            self.list = MailingList(self.config, base)
         messages = self.list.publish()
         print str(messages), 'messages procesed'
 

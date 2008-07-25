@@ -35,7 +35,7 @@ class MailingList:
     Mailing List abstraction
     """
     
-    def __init__(self, config, lang=None):
+    def __init__(self, config, base="./", lang=None):
         """
         Constructor method
         
@@ -44,6 +44,7 @@ class MailingList:
         """
         
         self.config = config
+        self.base = base
         self.lang = lang
         self.subscribers = Subscribers(config)
         self.index = Index(self.config)
@@ -254,7 +255,7 @@ class MailingList:
         Copy necessary files
         """
         
-        copyfile('./includes/ui/web/swaml.css', self.config.get('dir')+'swaml.css')
+        copyfile(self.base + 'includes/ui/web/swaml.css', self.config.get('dir')+'swaml.css')
         
     def generateApacheConf(self):
         """
@@ -264,7 +265,7 @@ class MailingList:
         #read template
         data = ''
         try:
-            file = open('./includes/apache/htaccess-files.tpl')
+            file = open(self.base + '.includes/apache/htaccess-files.tpl')
             for line in file:
                 data += line
             file.close()

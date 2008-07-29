@@ -275,6 +275,33 @@ class FOAFS:
                 return one
         
         return None
+
+    def getHomepage(self, foaf, sha1mail):
+        """
+        Get homepage from FOAF
+        
+        @param foaf: a foaf uri
+        @param sha1mail: mail addess enconded
+        @return: homepage url        
+        """
+        
+        graph = self.__getGraph(foaf)
+        
+        if (graph != None):
+        
+            sparqlGr = SPARQLGraph(graph)
+            select = ('?homepage')
+            where  = GraphPattern([ ('?x', RDF['type'], FOAF['Person']),
+                                    ('?x', FOAF['mbox_sha1sum'], sha1mail),
+                                    ('?x', FOAF['homepage'], '?homepage')   
+                                  ])
+        
+            result = Query.query(sparqlGr, select, where)
+        
+            for one in result:
+                return one
+        
+        return None
         
 
         

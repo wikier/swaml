@@ -54,6 +54,7 @@ class Subscriber:
         self.doc = None
         self.geo = [None, None]
         self.pic = None
+        self.homepage = None
         self.mails = []
         self.config = config
         
@@ -123,6 +124,15 @@ class Subscriber:
         """
         
         return self.pic
+
+    def getHomepage(self):
+        """
+        Return his homepage
+        
+        @return: homepage url
+        """
+        
+        return self.homepage
     
     def getId(self):
         """
@@ -218,8 +228,16 @@ class Subscriber:
         """
         
         self.pic = uri
-                
+
+    def setHomepage(self, uri):
+        """
+        Set subscriber's homepage
         
+        @param uri: homepage url
+        """
+        
+        self.homepage = uri
+                       
 
 class Subscribers:
     """
@@ -320,6 +338,11 @@ class Subscribers:
                         pic = subscriber.getPic()
                         if (pic != None):
                             store.add((user, SIOC['avatar'], URIRef(pic)))
+
+                        #homepage
+                        homepage = subscriber.getHomepage()
+                        if (pic != None):
+                            store.add((user, FOAF['homepage'], URIRef(homepage)))
                         
             except UnicodeDecodeError, detail:
                 print 'Error proccesing subscriber ' + subscriber.getName() + ': ' + str(detail)
@@ -404,12 +427,16 @@ class Subscribers:
             if (lat != None and lon != None):
                 subscriber.setGeo(lat, lon)
                 
+            #picture
             pic = foafserv.getPic(foaf, foafserv.getShaMail(mail))
             if (pic != None):
                 subscriber.setPic(pic)
-                
-                
 
+            #homepage
+            homepage = foafserv.getHomepage(foaf, foafserv.getShaMail(mail))
+            if (homepage != None):
+                subscriber.setHomepage(homepage)
+                             
     def __compact(self, subscriber, foafserv):
         """
         Compact mailing list subscribers

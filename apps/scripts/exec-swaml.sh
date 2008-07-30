@@ -23,7 +23,7 @@ if [ $# -ne 1 ]; then
 fi
 
 DIR=$1
-SWAML="./run.py"
+SWAML="/usr/bin/swaml"
 
 #process each list
 for X in `find $DIR -name "*.ini"`

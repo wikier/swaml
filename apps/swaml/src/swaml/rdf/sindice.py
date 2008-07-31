@@ -111,7 +111,6 @@ class Sindice:
         """
 
         uri = self.service2 % (urllib.quote(query), qt)
-        print uri
         response = self.__request(uri)
         results = []
         json = simplejson.load(response)

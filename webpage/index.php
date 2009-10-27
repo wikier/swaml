@@ -271,9 +271,17 @@
 
       <h3 id="publications">Publications</h3>
       <p>
-        The research activity in the project produces some scientist publications:
+        The research activity on the project produced some scientist publications:
       </p>
       <ul>
+        <li>
+          Sergio Fernández, Diego Berrueta, Lian Shi, Jose E. Labra, Patricia Ordóñez de Pablos. 
+          Mailing Lists and Social Semantic Web. Chapter in 
+          <a href="http://www.igi-global.com/reference/details.asp?ID=33223&v=tableOfContents">Social Web Evolution: 
+          Integrating Semantic Applications and Web 2.0 Technologies</a>, Miltiadis D. Lytras, Patricia Ordonez de 
+          Pablos (eds.), part of the Advances in Semantic Web and Information Systems (ASWIS) book series. 
+          ISBN: 978-1-60566-272-5. 
+        </li>
         <li>
           Diego Berrueta, Sergio Fernández and Lian Shi.
           <a href="http://keg.cs.tsinghua.edu.cn/SWSM2008/short%20papers/swsm08_submission_14.pdf">Bootstrapping 

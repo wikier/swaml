@@ -277,7 +277,7 @@
         <li>
           Sergio Fernández, Diego Berrueta, Lian Shi, Jose E. Labra, Patricia Ordóñez de Pablos. 
           Mailing Lists and Social Semantic Web. Chapter in 
-          <a href="http://www.igi-global.com/reference/details.asp?ID=33223&v=tableOfContents">Social Web Evolution: 
+          <a href="http://www.igi-global.com/reference/details.asp?ID=33223&amp;v=tableOfContents">Social Web Evolution: 
           Integrating Semantic Applications and Web 2.0 Technologies</a>, Miltiadis D. Lytras, Patricia Ordonez de 
           Pablos (eds.), part of the Advances in Semantic Web and Information Systems (ASWIS) book series. 
           ISBN: 978-1-60566-272-5. 

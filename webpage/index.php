@@ -13,11 +13,11 @@
     <link rel="stylesheet" type="text/css" charset="utf-8" href="style.css" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="SWAML RSS" href="/rss/news" />
-    <link rel="meta" title="DOAP" type="application/rdf+xml" href="doap#swaml" />
-    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.wikier.org/foaf.rdf#wikier" />
-    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://berrueta.net/foaf.rdf#me" />
+    <link rel="meta" title="DOAP" type="application/rdf+xml" href="doap.rdf" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.wikier.org/foaf.rdf" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://berrueta.net/foaf.rdf" />
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.di.uniovi.es/~labra/labraFoaf.rdf" />
-    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://frade.no-ip.info:2080/~ivan/foaf.rdf" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://dz015.wordpress.com/foaf.rdf" />
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://criptonita.com/~nacho/foaf.rdf" />
   </head>
 
@@ -79,23 +79,23 @@
       </p>
       <ul id="members">
      	<li>
-     	  <a href="http://www.wikier.org/">Sergio Fernández</a> (maintainer),
+     	  <a href="http://www.wikier.org/">Sergio Fernández</a> (maintainer)
      	  <a href="http://www.wikier.org/foaf#wikier" rel="doap:maintainer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <a href="http://berrueta.net/">Diego Berrueta</a>,
+     	  <a href="http://berrueta.net/">Diego Berrueta</a>
      	  <a href="http://berrueta.net/foaf.rdf#me" rel="doap:developer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a>,
-     	  <a href="http://www.di.uniovi.es/~labra/labraFoaf.rdf" rel="doap:developer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://www.di.uniovi.es/~labra">Jose E. Labra</a>
+     	  <a href="http://www.di.uniovi.es/~labra/labraFoaf.rdf#me" rel="doap:developer"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <a href="http://www.ifrade.es/">Iván Frade</a>,
-     	  <a href="http://frade.no-ip.info:2080/~ivan/foaf.rdf" rel="doap:helper"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
+     	  <a href="http://dz015.wordpress.com/">Iván Frade</a>
+     	  <a href="http://dz015.wordpress.com/foaf.rdf#me" rel="doap:helper"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
      	<li>
-     	  <a href="http://criptonita.com/~nacho">Nacho Barrientos</a> (debian package),
+     	  <a href="http://criptonita.com/~nacho">Nacho Barrientos</a> (debian package)
      	  <a href="http://criptonita.com/~nacho/foaf.rdf#me" rel="doap:helper"><img src="images/foaf.gif" width="26" height="14" alt="foaf" /></a>
      	</li>
       </ul>

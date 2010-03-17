@@ -15,7 +15,7 @@ RewriteRule ^rss/wiki /wiki/index.php/RecentChanges?format=rss [R]
 #RewriteRule ^rss/svn http://svn.berlios.de/wsvn/swaml/?op=rss&rev=0&sc=0&isdir=1 [R]
 RewriteRule ^rss http://developer.berlios.de/export/rss_project.php?group_id=4806 [R]
 
-# Mail lists
+# Mailing lists
 RewriteRule ^lists/devel http://lists.berlios.de/mailman/listinfo/swaml-devel [R]
 RewriteRule ^lists/users http://lists.berlios.de/mailman/listinfo/swaml-users [R]
 RewriteRule ^lists/spanish http://lists.berlios.de/mailman/listinfo/swaml-spanish [R]

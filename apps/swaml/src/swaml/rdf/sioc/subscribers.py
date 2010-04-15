@@ -307,7 +307,7 @@ class Subscribers:
             count += 1
             
             user = URIRef(subscriber.getUri())
-            store.add((user, RDF.type, SIOC['User']))
+            store.add((user, RDF.type, SIOC['UserAccount']))
             store.add((user, SIOC['subscriber_of'], URIRef(self.config.get('base') + 'forum')))
             
             try:

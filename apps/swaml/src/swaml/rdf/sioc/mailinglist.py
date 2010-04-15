@@ -232,11 +232,16 @@ class MailingList:
         subscribers = self.subscribers.getSubscribersUris()
         for uri in subscribers:
             store.add((list, SIOC['has_subscriber'], URIRef(uri)))
+            store.add((URIRef(uri), RDF['type'], SIOC['UserAccount']))
                   
         #and all messages uris
         uris = self.index.getMessagesUri()                        
         for uri in uris:
             store.add((list, SIOC['container_of'], URIRef(uri)))
+            store.add((URIRef(uri), RDF['type'], SIOC['Post']))
+            parent = msg.getParent()
+            if (parent != None):
+                store.add((URIRef(uri), SIOC['reply_of'], URIRef[parent]))
                     
         #and dump to disk
         try:

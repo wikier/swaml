@@ -3,7 +3,7 @@
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2007 Sergio Fernández
+# Copyright (C) 2005-2010 Sergio Fernández
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -139,6 +139,8 @@ class MailingList:
                 #self.index.delete(id)
             except Exception, detail:
                 print 'Error processing message ' + str(messages) + ': ' + str(detail)
+                #import traceback
+                #traceback.print_exc(file=sys.stdout)
 
             message = mbox.nextMessage()
             

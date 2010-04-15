@@ -111,7 +111,7 @@ class KML:
                                  
         
         #and dump it in pretty xml format
-        xml.dom.minidom.Document.toprettyxml(doc, file)
+        file.write(doc.toprettyxml(encoding="utf-8"))
         
 
 class Place:

@@ -606,7 +606,7 @@ class Message:
         try:
             xhtml_file = open(self.getXhtmlPath(), 'w+') #FIXME
             try:
-                xml.dom.minidom.Document.toprettyxml(doc, xhtml_file)
+                xhtml_file.write(doc.toprettyxml(encoding="utf-8"))
             except UnicodeDecodeError, detail:
                 xhtml_file.write("")
                 print 'Decode error saving message ' + str(self.getId()) + ': ' + str(detail)

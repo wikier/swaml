@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+
 # SWAML <http://swaml.berlios.de/>
 # Semantic Web Archive of Mailing Lists
 #
-# Copyright (C) 2005-2008 Sergio Fernández
+# Copyright (C) 2005-2010 Sergio Fernández
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by the
@@ -13,14 +15,14 @@
 # or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 # for more details.
 
-__author__       = 'Sergio Fdez <http://www.wikier.org/>'
+__author__       = 'Sergio Fernández <http://www.wikier.org/>'
 __contributors__ = ['Diego Berrueta <http://www.berrueta.net/>',
                     'Jose Emilio Labra <http://www.di.uniovi.es/~labra/>',
                     'Iván Frade <http://blog.ifrade.es/>',
                     'Nacho Barrientos <http://criptonita.com/~nacho>']
 __copyright__    = 'Copyright 2005-2008, Sergio Fernández'
 __license__      = 'GNU General Public License'
-__version__      = '0.1.0'
-__date__         = "2008-07-25"
+__version__      = '0.1.1'
+__date__         = "2010-04-15"
 __url__          = 'http://swaml.berlios.de/'
 __agent__        = 'http://swaml.berlios.de/doap#swaml'

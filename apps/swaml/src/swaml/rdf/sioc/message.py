@@ -27,7 +27,6 @@ from swaml.common.charset import Charset, fixCodification
 from swaml.common.date import MailDate, FileDate
 import xml.dom.minidom
 from xml.dom.minidom import getDOMImplementation, DocumentType
-from xml.dom.ext import PrettyPrint
 
 class Message:
     """
@@ -607,11 +606,10 @@ class Message:
         try:
             xhtml_file = open(self.getXhtmlPath(), 'w+') #FIXME
             try:
-                xml.dom.ext.PrettyPrint(doc, xhtml_file)
+                xml.dom.minidom.Document.toprettyxml(doc, xhtml_file)
             except UnicodeDecodeError, detail:
                 xhtml_file.write("")
                 print 'Decode error saving message ' + str(self.getId()) + ': ' + str(detail)
-                xml.dom.ext.PrettyPrint(doc, sys.stdout)
             xhtml_file.flush()
             xhtml_file.close()
         except IOError, detail:

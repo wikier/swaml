@@ -20,7 +20,6 @@
 import sys, os, string
 import xml.dom.minidom
 from xml.dom.minidom import getDOMImplementation
-from xml.dom.ext import PrettyPrint
 
 class KML:
     """
@@ -112,9 +111,8 @@ class KML:
                                  
         
         #and dump it in pretty xml format
-        xml.dom.ext.PrettyPrint(doc, file)
+        xml.dom.minidom.Document.toprettyxml(doc, file)
         
-    
 
 class Place:
     """

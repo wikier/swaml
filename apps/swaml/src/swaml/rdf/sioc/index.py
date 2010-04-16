@@ -73,6 +73,17 @@ class Index:
             return self.items[n-1]
         else:
             return None
+
+    def getMessageByUri(self, uri):
+        """
+        Get a message by URI
+        
+        @param uri: message uri
+        """
+        for msg in self.items:
+            if (uri == msg.getUri()):
+                return msg
+        return None
         
     def __getTranslation(self, id):
         """

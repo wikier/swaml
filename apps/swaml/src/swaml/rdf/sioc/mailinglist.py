@@ -21,12 +21,12 @@ import sys, os
 import random
 import datetime
 from rdflib.Graph import ConjunctiveGraph
-from rdflib import URIRef, Literal, BNode, RDF
+from rdflib import URIRef, Literal, BNode
 from swaml.mail.mbox import Mbox
 from swaml.rdf.sioc.subscribers import Subscribers
 from swaml.rdf.sioc.message import Message
 from swaml.rdf.sioc.index import Index
-from swaml.rdf.namespaces import RDFS, SWAML, SIOC, SIOCT, FOAF, DC, MVCB
+from swaml.rdf.namespaces import RDF, RDFS, SWAML, SIOC, SIOCT, FOAF, DC, MVCB
 from swaml.common.date import FileDate
 from shutil import copyfile
 
@@ -234,16 +234,16 @@ class MailingList:
         subscribers = self.subscribers.getSubscribersUris()
         for uri in subscribers:
             store.add((list, SIOC['has_subscriber'], URIRef(uri)))
-            store.add((URIRef(uri), RDF['type'], SIOC['UserAccount']))
+            store.add((URIRef(uri), RDF.type, SIOC['UserAccount']))
                   
-        #and all messages uris
-        uris = self.index.getMessagesUri()                        
-        for uri in uris:
+        #and all messages
+        for msg in self.index.items:
+            uri = msg.getUri()
             store.add((list, SIOC['container_of'], URIRef(uri)))
-            store.add((URIRef(uri), RDF['type'], SIOC['Post']))
+            store.add((URIRef(uri), RDF.type, SIOC['Post']))
             parent = msg.getParent()
             if (parent != None):
-                store.add((URIRef(uri), SIOC['reply_of'], URIRef[parent]))
+                store.add((URIRef(uri), SIOC['reply_of'], URIRef(parent)))
                     
         #and dump to disk
         try:

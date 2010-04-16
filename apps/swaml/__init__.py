@@ -23,6 +23,7 @@ __contributors__ = ['Diego Berrueta <http://www.berrueta.net/>',
 __copyright__    = 'Copyright 2005-2008, Sergio Fernández'
 __license__      = 'GNU General Public License'
 __version__      = '0.1.1'
-__date__         = "2010-04-15"
+__date__         = "2010-04-16"
 __url__          = 'http://swaml.berlios.de/'
 __agent__        = 'http://swaml.berlios.de/doap#swaml'
+

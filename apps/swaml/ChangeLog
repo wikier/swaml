@@ -1,4 +1,8 @@
 
+2010-04-16  0.1.1   - Updated to sioc:UserAccount
+                    - Fixed problem importing XML module
+                    - Many other minor bugs fixed
+
 2008-07-25  0.1.0   - Patched to work with latest versions of RDFLib
                     - Added XHTML+RDFa+GRDDL support
                     - Adopted new URIs scheme

@@ -21,7 +21,7 @@
 
 
 """
-A simple python client for Mark Mail hacky API
+A simple python client for MarkMail hacky API
 
 Futher details at: http://pastebin.com/M5NnyEZ8
 """

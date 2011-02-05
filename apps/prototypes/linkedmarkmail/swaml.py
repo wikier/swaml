@@ -93,9 +93,13 @@ class Post(Resource):
         graph.bind('foaf', FOAF)
         graph.bind('rdfs', RDFS)
         graph.bind('dct', DCT)
+        graph.bind('mvcb', MVCB)
 
+        swaml = URIRef("http://swaml.berlios.de/doap#swaml")
         doc = URIRef(self.base)
         graph.add((doc, RDF.type, FOAF["Document"]))
+        graph.add((doc, RDFS.label, "RDF version of the message '%s' retrieved from MarkMail API" % self.id)) #FIXME: this should go out of this api
+        graph.add((doc, MVCB.generatorAgent, swaml))
         message = URIRef(self.get_uri())
         graph.add((message, RDF.type, SIOC["Post"]))
         graph.add((doc, FOAF["primaryTopic"], message))

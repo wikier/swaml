@@ -151,7 +151,7 @@ class Thread(Resource):
 
         graph.add((thread, SIOC.id, Literal(self.id)))
         graph.add((thread, SIOC.link, URIRef(self.homepage)))              
-        #graph.add((thread, DCT.title, Literal(self.title))) 
+        graph.add((thread, DCT.title, Literal(self.title))) 
         graph.add((thread, SIOC.num_item, Literal(len(self.messages), XSD.Integer))) 
         for message in self.messages:
             url = "%s/message/%s" % (self.base, message["id"])

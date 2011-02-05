@@ -28,7 +28,7 @@ Futher details at: http://pastebin.com/M5NnyEZ8
 
 import urllib
 import urllib2
-import json
+import simplejson as json
 from StringIO import StringIO
 import warnings
 

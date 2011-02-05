@@ -39,7 +39,7 @@ class LinkedMarkMail:
         return "" #FIXME
 
     def get_message(self, key):
-        message = self.api.get_message(key)["message"]
+        message = self.api.get_message(key)
         url = "%s/post/%s" % (self.base, key)
         post = Post(message["title"], message["content"], key, url)
         return post.get_data_n3()

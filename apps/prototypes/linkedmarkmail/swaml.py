@@ -32,6 +32,7 @@ except ImportError:
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from namespaces import SIOC, RDFS, FOAF, DC, DCT, MVCB, XSD
+import lxml.html
 
 class Resource:
     """
@@ -72,7 +73,7 @@ class Post(Resource):
 
     def __init__(self, title, content, id=None, url=None):
         self.title = title
-        self.content = content
+        self.content = lxml.html.fromstring(content).text_content()
         self.id = id
         self.url = url
         #FIXME: actually more stuff would be necessary, but this is the minimun

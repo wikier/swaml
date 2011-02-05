@@ -1,4 +1,4 @@
 RewriteEngine on
-RewriteRule ^post/?(.*)$ /service.py?type=post&id=$1 [L,QSA]
+RewriteRule ^message/?(.*)$ /service.py?type=message&id=$1 [L,QSA]
 RewriteRule ^thread/?(.*)$ /service.py?type=thread&id=$1 [L,QSA]
 

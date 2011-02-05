@@ -36,7 +36,7 @@ class MarkMail:
     def __init__(self, base="http://markmail.org"):
         self.base = base
 
-    def search(self, query, page=1 mode="json"):
+    def search(self, query, page=1, mode="json"):
         uri = "%s/results.xqy?q=%s&page=%d&mode=%s" % (base, query, page, mode)
         warnings.warn("This method is still unimplemented")
         return None #FIXME

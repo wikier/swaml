@@ -30,7 +30,7 @@ from swaml import Post, Thread
 
 class LinkedMarkMail:
 
-    def __init__(self, base="http://swaml.berlios.de/sandbox/linkedmarkmail"):
+    def __init__(self, base="http://linkedmarkmail.wikier.org"):
         self.base = base
         self.api = MarkMail("http://markmail.org")
 
@@ -59,8 +59,8 @@ class LinkedMarkMail:
 if __name__ == "__main__":
     lmm = LinkedMarkMail()
     #print lmm.get_message("5")
-    #print lmm.get_message("5wfms7w5opja4a2y")
-    print lmm.get_thread("5")
+    print lmm.get_message("5wfms7w5opja4a2y")
+    #print lmm.get_thread("5")
     print lmm.get_thread("dcue2bsyrsgbzsd5")
 
 

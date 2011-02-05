@@ -39,14 +39,16 @@ class MarkMail:
     def search(self, query, page=1, mode="json"):
         uri = "%s/results.xqy?q=%s&page=%d&mode=%s" % (base, query, page, mode)
         warnings.warn("This method is still unimplemented")
-        return None #FIXME
+        return self.__request(uri)
 
     def get_message(self, key, mode="json"):
         uri = "%s/message.xqy?id=%s&mode=%s" % (self.base, key, mode)
+        return self.__request(uri)
 
     def get_thread(self, key, mode="json"):
         uri = "%s/thread.xqy?id=%s&mode=%s" % (self.base, key, mode)
-
+        return self.__request(uri)
+        
     def __request(self, uri, accept="application/json"):
         """
         Generic HTTP request

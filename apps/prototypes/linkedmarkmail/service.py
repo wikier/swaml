@@ -39,7 +39,7 @@ def invalid_input_error():
     print "<title>Error calling the service</title>"
     print "</head>"
     print "<body>"
-    print "<h1>Error calling the service</h1>"
+    print "<h1>Error calling the service: 400 Invalid Input</h1>"
     print "Parameter '%s' required!" % e
     print "</body>"
     print "</html>"
@@ -51,7 +51,7 @@ def not_found_error(t, i):
     print
     print "<html>"
     print "<head>"
-    print "<title>Error calling the service</title>"
+    print "<title>Error calling the service: 404 Not Found</title>"
     print "</head>"
     print "<body>"
     print "<h1>Error calling the service</h1>"

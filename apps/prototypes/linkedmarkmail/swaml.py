@@ -48,9 +48,12 @@ class Resource:
         self.uri = uri
 
     def get_graph(self):
-        if (self.graph == None):
+        if (not hasattr(self, "graph") or self.graph == None):
             self.__build_graph()
         return self.graph
+
+    def set_graph(self, graph):
+        self.graph = graph
 
     def __build_graph(self):
         warnings.warn("This method MUST be overwritten by all subclasses!")
@@ -77,40 +80,31 @@ class Post(Resource):
     def get_uri(self):
         return "%s#post" % self.url #FIXME
 
+    def get_graph(self):
+        if (not hasattr(self, "graph") or self.graph == None):
+            self.__build_graph()
+        return self.graph
+
     def __build_graph(self):
-        self.g = ConjunctiveGraph()
-        self.g.bind('sioc', SIOC)
-        self.g.bind('foaf', FOAF)
-        self.g.bind('rdfs', RDFS)
-        self.g.bind('dct', DCT)
+        graph = ConjunctiveGraph()
+        graph.bind('sioc', SIOC)
+        graph.bind('foaf', FOAF)
+        graph.bind('rdfs', RDFS)
+        graph.bind('dct', DCT)
 
         doc = URIRef(self.url)
-        self.g.add((doc, RDF.type, FOAF["Document"]))
+        graph.add((doc, RDF.type, FOAF["Document"]))
         message = URIRef(self.get_uri())
-        self.g.add((message, RDF.type, SIOC["Post"]))
-        self.g.add((doc, FOAF["primaryTopic"], message))
+        graph.add((message, RDF.type, SIOC["Post"]))
+        graph.add((doc, FOAF["primaryTopic"], message))
 
-        self.g.add((message, SIOC['id'], Literal(self.id)))
-        #self.g.add((message, SIOC['link'], URIRef(self.url)))  
-        #self.g.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
-        #self.g.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
-        self.g.add((message, DCT['title'], Literal(self.title))) 
-        #self.g.add((message, DCT['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
-        self.g.add((message, SIOC['content'], Literal(self.content)))
-        
+        graph.add((message, SIOC['id'], Literal(self.id)))
+        #graph.add((message, SIOC['link'], URIRef(self.url)))  
+        #graph.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
+        #graph.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
+        graph.add((message, DCT['title'], Literal(self.title))) 
+        #graph.add((message, DCT['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
+        graph.add((message, SIOC['content'], Literal(self.content)))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        self.set_graph(graph)
 

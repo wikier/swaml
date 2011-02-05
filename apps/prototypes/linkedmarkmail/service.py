@@ -36,7 +36,7 @@ def invalid_input_error():
     print
     print "<html>"
     print "<head>"
-    print "<title>Error calling the service</title>"
+    print "<title>Error calling the service: 400 Invalid Input</title>"
     print "</head>"
     print "<body>"
     print "<h1>Error calling the service: 400 Invalid Input</h1>"
@@ -54,7 +54,7 @@ def not_found_error(t, i):
     print "<title>Error calling the service: 404 Not Found</title>"
     print "</head>"
     print "<body>"
-    print "<h1>Error calling the service</h1>"
+    print "<h1>Error calling the service: 404 Not Found</h1>"
     print "The %s '%s' has not found on MarkMail" % (t, i)
     print "</body>"
     print "</html>"

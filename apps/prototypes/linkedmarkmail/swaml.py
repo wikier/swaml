@@ -39,7 +39,8 @@ class Resource:
     Abstract RDF Resource
     """
 
-    def __init__(self):
+    def __init__(self, base):
+        self.base = base
         raise NotImplementedError
 
     def get_uri(self):
@@ -61,25 +62,25 @@ class Resource:
         return ConjunctiveGraph()
 
     def get_data_xml(self):
-        return self.get_graph().serialize(format="pretty-xml")
+        return self.get_graph().serialize(format="pretty-xml") #, base=self.base)
 
     def get_data_n3(self):
-        return self.get_graph().serialize(format="n3")
+        return self.get_graph().serialize(format="n3") #, base=self.base)
 
 class Post(Resource):
     """
     sioc:Post
     """
 
-    def __init__(self, title, content, id=None, url=None):
+    def __init__(self, base, id, title, content):
+        self.base = base
+        self.id = id
         self.title = title
         self.content = lxml.html.fromstring(content).text_content()
-        self.id = id
-        self.url = url
         #FIXME: actually more stuff would be necessary, but this is the minimun
 
     def get_uri(self):
-        return "%s#post" % self.url #FIXME
+        return "%s#post" % self.base #FIXME
 
     def get_graph(self):
         if (not hasattr(self, "graph") or self.graph == None):
@@ -93,14 +94,14 @@ class Post(Resource):
         graph.bind('rdfs', RDFS)
         graph.bind('dct', DCT)
 
-        doc = URIRef(self.url)
+        doc = URIRef(self.base)
         graph.add((doc, RDF.type, FOAF["Document"]))
         message = URIRef(self.get_uri())
         graph.add((message, RDF.type, SIOC["Post"]))
         graph.add((doc, FOAF["primaryTopic"], message))
 
         graph.add((message, SIOC['id'], Literal(self.id)))
-        #graph.add((message, SIOC['link'], URIRef(self.url)))  
+        #graph.add((message, SIOC['link'], URIRef(self.base)))  
         #graph.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
         #graph.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
         graph.add((message, DCT['title'], Literal(self.title))) 

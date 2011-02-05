@@ -41,8 +41,8 @@ class LinkedMarkMail:
     def get_message(self, key):
         message = self.api.get_message(key)
         url = "%s/post/%s" % (self.base, key)
-        post = Post(message["title"], message["content"], key, url)
-        return post.get_data_n3()
+        post = Post(url, key, message["title"], message["content"])
+        return post.get_data_xml()
 
     def get_thread(self, key):
         thread = self.api.get_thread(key)

@@ -28,7 +28,8 @@ Futher details at: http://pastebin.com/M5NnyEZ8
 
 import urllib
 import urllib2
-import simplejson
+import json
+from StringIO import StringIO
 import warnings
 
 class MarkMail:
@@ -43,7 +44,9 @@ class MarkMail:
 
     def get_message(self, key, mode="json"):
         uri = "%s/message.xqy?id=%s&mode=%s" % (self.base, key, mode)
-        return self.__request(uri)
+        response = self.__request(uri).read()
+        obj = json.load(StringIO(response))
+        return obj["message"]
 
     def get_thread(self, key, mode="json"):
         uri = "%s/thread.xqy?id=%s&mode=%s" % (self.base, key, mode)

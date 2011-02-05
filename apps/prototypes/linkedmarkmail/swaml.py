@@ -62,10 +62,10 @@ class Resource:
         return ConjunctiveGraph()
 
     def get_data_xml(self):
-        return self.get_graph().serialize(format="pretty-xml") #, base=self.base)
+        return self.get_graph().serialize(format="pretty-xml", encoding="utf8") #, base=self.base)
 
     def get_data_n3(self):
-        return self.get_graph().serialize(format="n3") #, base=self.base)
+        return self.get_graph().serialize(format="n3", encoding="utf8") #, base=self.base)
 
 class Post(Resource):
     """
@@ -101,16 +101,73 @@ class Post(Resource):
         graph.add((doc, RDFS.label, "RDF version of the message '%s' retrieved from MarkMail API" % self.id)) #FIXME: this should go out of this api
         graph.add((doc, MVCB.generatorAgent, swaml))
         message = URIRef(self.get_uri())
-        graph.add((message, RDF.type, SIOC["Post"]))
-        graph.add((doc, FOAF["primaryTopic"], message))
+        graph.add((message, RDF.type, SIOC.Post))
+        graph.add((doc, FOAF.primaryTopic, message))
 
-        graph.add((message, SIOC['id'], Literal(self.id)))
-        #graph.add((message, SIOC['link'], URIRef(self.base)))  
-        #graph.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
-        #graph.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
-        graph.add((message, DCT['title'], Literal(self.title))) 
-        #graph.add((message, DCT['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
-        graph.add((message, SIOC['content'], Literal(self.content)))
+        graph.add((message, SIOC.id, Literal(self.id)))
+        graph.add((message, SIOC.link, URIRef("http://markmail.org/message/%s" % self.id)))  
+        #graph.add((message, SIOC.has_container,URIRef(self.config.get('base')+'forum')))   
+        #graph.add((message, SIOC.has_creator, URIRef(self.getSender().getUri())))                    
+        graph.add((message, DCT.title, Literal(self.title))) 
+        #graph.add((message, DCT.created, Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
+        graph.add((message, SIOC.content, Literal(self.content)))
 
         self.set_graph(graph)
+
+class Thread(Resource):
+
+    def __init__(self, base, id, title, homepage, atom, messages=[]):
+        self.base = base
+        self.id = id
+        self.title = title
+        self.homepage = homepage
+        self.atom = atom
+        self.messages = messages
+
+    def get_uri(self):
+        return "%s#thread" % self.base #FIXME
+
+    def get_graph(self):
+        if (not hasattr(self, "graph") or self.graph == None):
+            self.__build_graph()
+        return self.graph
+
+    def __build_graph(self):
+        graph = ConjunctiveGraph()
+        graph.bind('sioc', SIOC)
+        graph.bind('foaf', FOAF)
+        graph.bind('rdfs', RDFS)
+        graph.bind('dct', DCT)
+        graph.bind('mvcb', MVCB)
+
+        swaml = URIRef("http://swaml.berlios.de/doap#swaml")
+        doc = URIRef("%s/thread/%s" % (self.base, self.id))
+        graph.add((doc, RDF.type, FOAF["Document"]))
+        graph.add((doc, RDFS.label, "RDF version of the thread '%s' retrieved from MarkMail API" % self.id)) #FIXME: this should go out of this api
+        graph.add((doc, MVCB.generatorAgent, swaml))
+        thread = URIRef("%s/thread/%s#thread" % (self.base, self.id))
+        graph.add((thread, RDF.type, SIOC["Thread"]))
+        graph.add((doc, FOAF["primaryTopic"], thread))
+
+        graph.add((thread, SIOC.id, Literal(self.id)))
+        graph.add((thread, SIOC.link, URIRef(self.homepage)))              
+        #graph.add((thread, DCT.title, Literal(self.title))) 
+        graph.add((thread, SIOC.num_item, Literal(len(self.messages), XSD.Integer))) 
+        for message in self.messages:
+            url = "%s/post/%s" % (self.base, message["id"])
+            post = URIRef("%s#post" % url)
+            graph.add((post, RDF.type, SIOC.Post))
+            graph.add((post, RDFS.seeAlso, URIRef(url)))
+            graph.add((thread, SIOC.container_of, post))
+            graph.add((post, SIOC.has_container, thread))
+            graph.add((post, SIOC.id, Literal(self.id)))
+            graph.add((post, SIOC.link, URIRef("http://markmail.org%s" % message["url"])))  
+            author = BNode()
+            graph.add((post, SIOC.has_creator, author))
+            graph.add((author, RDF.type, SIOC.UserAccount))
+            graph.add((author, SIOC.name, Literal(message["from"])))
+            graph.add((post, DCT.created, Literal(message["date"], datatype=XSD.dateTime)))
+
+        self.set_graph(graph)
+
 

@@ -39,22 +39,30 @@ class MarkMail:
 
     def search(self, query, page=1, mode="json"):
         uri = "%s/results.xqy?q=%s&page=%d&mode=%s" % (base, query, page, mode)
-        warnings.warn("This method is still unimplemented")
-        return self.__request(uri)
+        response = self.__request(uri).read()
+        obj = json.load(StringIO(response))
+        warnings.warn("This method is still fully unimplemented")
+        return obj #FIXME
 
     def get_message(self, key, mode="json"):
         uri = "%s/message.xqy?id=%s&mode=%s" % (self.base, key, mode)
         response = self.__request(uri).read()
         obj = json.load(StringIO(response))
         message = obj["message"]
-        if (message["subject"]=="null" or message["subject"]=="null"):
+        if (message["subject"]==None or message["subject"]==None):
             return None
         else:
             return message
 
     def get_thread(self, key, mode="json"):
         uri = "%s/thread.xqy?id=%s&mode=%s" % (self.base, key, mode)
-        return self.__request(uri)
+        response = self.__request(uri).read()
+        obj = json.load(StringIO(response))
+        thread = obj["thread"]
+        if (thread["subject"]==None or thread["list"]==None):
+            return None
+        else:
+            return thread
         
     def __request(self, uri, accept="application/json"):
         """

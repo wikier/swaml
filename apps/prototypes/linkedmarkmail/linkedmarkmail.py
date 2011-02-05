@@ -26,7 +26,7 @@ LinkedMarkMail, an RDFizer for Mark Mail
 """
 
 from markmail import MarkMail
-from swaml import Post
+from swaml import Post, Thread
 
 class LinkedMarkMail:
 
@@ -40,7 +40,7 @@ class LinkedMarkMail:
 
     def get_message(self, key):
         message = self.api.get_message(key)
-        if (message == None):
+        if (message != None):
             url = "%s/post/%s" % (self.base, key)
             post = Post(url, key, message["title"], message["content"])
             return post.get_data_xml()
@@ -49,12 +49,18 @@ class LinkedMarkMail:
 
     def get_thread(self, key):
         thread = self.api.get_thread(key)
-        return "" #FIXME
+        if (thread != None):
+            siocThread = Thread(self.base, key, thread["subject"], thread["permalink"], thread["atomlink"], thread["messages"]["message"])
+            return siocThread.get_data_xml()
+        else:
+            return None
 
 
 if __name__ == "__main__":
     lmm = LinkedMarkMail()
-    print lmm.get_message("5")
-    print lmm.get_message("5wfms7w5opja4a2y")
+    #print lmm.get_message("5")
+    #print lmm.get_message("5wfms7w5opja4a2y")
+    print lmm.get_thread("5")
+    print lmm.get_thread("dcue2bsyrsgbzsd5")
 
 

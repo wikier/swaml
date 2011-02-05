@@ -49,7 +49,7 @@ if __name__ == "__main__":
         print "</head>"
         print "<body>"
         print "<h1>Error calling the service</h1>"
-        print e
+        print "Parameter '%s' required!" % e
         print "</body>"
         print "</html>"
         sys.exit(1)

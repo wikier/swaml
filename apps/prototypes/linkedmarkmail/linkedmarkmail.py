@@ -41,7 +41,7 @@ class LinkedMarkMail:
     def get_message(self, key):
         message = self.api.get_message(key)
         if (message != None):
-            url = "%s/post/%s" % (self.base, key)
+            url = "%s/message/%s" % (self.base, key)
             post = Post(url, key, message["title"], message["content"])
             return post.get_data_xml()
         else:

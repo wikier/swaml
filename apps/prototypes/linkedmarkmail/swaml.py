@@ -80,7 +80,7 @@ class Post(Resource):
         #FIXME: actually more stuff would be necessary, but this is the minimun
 
     def get_uri(self):
-        return "%s#post" % self.base #FIXME
+        return "%s#message" % self.base #FIXME
 
     def get_graph(self):
         if (not hasattr(self, "graph") or self.graph == None):
@@ -154,8 +154,8 @@ class Thread(Resource):
         #graph.add((thread, DCT.title, Literal(self.title))) 
         graph.add((thread, SIOC.num_item, Literal(len(self.messages), XSD.Integer))) 
         for message in self.messages:
-            url = "%s/post/%s" % (self.base, message["id"])
-            post = URIRef("%s#post" % url)
+            url = "%s/message/%s" % (self.base, message["id"])
+            post = URIRef("%s#message" % url)
             graph.add((post, RDF.type, SIOC.Post))
             graph.add((post, RDFS.seeAlso, URIRef(url)))
             graph.add((thread, SIOC.container_of, post))

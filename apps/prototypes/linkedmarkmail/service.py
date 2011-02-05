@@ -28,7 +28,45 @@ import cgi
 import cgitb; cgitb.enable()
 from linkedmarkmail import LinkedMarkMail
 
-types = ["post", "thread"]
+types = ["message", "thread"]
+
+def invalid_input_error():
+    print "Content-type: text/html; charset=utf-8"
+    print "Status: 400 Invalid Input"
+    print
+    print "<html>"
+    print "<head>"
+    print "<title>Error calling the service</title>"
+    print "</head>"
+    print "<body>"
+    print "<h1>Error calling the service</h1>"
+    print "Parameter '%s' required!" % e
+    print "</body>"
+    print "</html>"
+    sys.exit(1)
+
+def not_found_error(t, i):
+    print "Content-type: text/html; charset=utf-8"
+    print "Status: 404 Not Found"
+    print
+    print "<html>"
+    print "<head>"
+    print "<title>Error calling the service</title>"
+    print "</head>"
+    print "<body>"
+    print "<h1>Error calling the service</h1>"
+    print "The %s '%s' has not found on MarkMail" % (t, i)
+    print "</body>"
+    print "</html>"
+    sys.exit(1)
+
+def generate_response(data):
+    print "Content-type: application/rdf+xml; charset=utf-8"
+    print "Cache-Control: max-age=600"
+    print "Status: 200 OK"
+    print
+    print data
+    print
 
 if __name__ == "__main__":
 
@@ -40,46 +78,19 @@ if __name__ == "__main__":
         i = form["id"].value
         t = form["type"].value
     except Exception, e:
-        print "Content-type: text/html; charset=utf-8"
-        print "Status: 400 Invalid Input"
-        print
-        print "<html>"
-        print "<head>"
-        print "<title>Error calling the service</title>"
-        print "</head>"
-        print "<body>"
-        print "<h1>Error calling the service</h1>"
-        print "Parameter '%s' required!" % e
-        print "</body>"
-        print "</html>"
-        sys.exit(1)
+        invalid_input_error()
 
     lmm = LinkedMarkMail()
     data = None
-    if (t == "post"):
+    if (t == "message"):
         data = lmm.get_message(i)
-    else:
+    elif (t == "thread")::
         lmm.get_thread(i)
+    else:
+        invalid_input_error()
 
     if (data == None):
-        print "Content-type: text/html; charset=utf-8"
-        print "Status: 404 Not Found"
-        print
-        print "<html>"
-        print "<head>"
-        print "<title>Error calling the service</title>"
-        print "</head>"
-        print "<body>"
-        print "<h1>Error calling the service</h1>"
-        print "The %s '%s' has not found on MarkMail" % (t, i)
-        print "</body>"
-        print "</html>"
-        sys.exit(1)
+        not_found_error(t, i)
 
-    print "Content-type: application/rdf+xml; charset=utf-8"
-    print "Cache-Control: max-age=600"
-    print "Status: 200 OK"
-    print
-    print data
-    print
+    generate_response(data)
 

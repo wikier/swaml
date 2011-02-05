@@ -29,6 +29,9 @@ try:
     from rdflib.graph import ConjunctiveGraph
 except ImportError:
     from rdflib import ConjunctiveGraph
+from rdflib import URIRef, Literal, BNode
+from rdflib import RDF
+from namespaces import SIOC, RDFS, FOAF, DC, DCT, MVCB, XSD
 
 class Resource:
     """
@@ -64,15 +67,36 @@ class Post(Resource):
     sioc:Post
     """
 
-    def __init__(self, title, content, id=None, uri=None, date=None):
+    def __init__(self, title, content, id=None, url=None):
         self.title = title
         self.content = content
         self.id = id
-        self.set_uri(uri)
-        self.date = date
+        self.url = url
+        #FIXME: actually more stuff would be necessary, but this is the minimun
+
+    def get_uri(self):
+        return "%s#post" % self.url #FIXME
 
     def __build_graph(self):
         self.g = ConjunctiveGraph()
+        self.g.bind('sioc', SIOC)
+        self.g.bind('foaf', FOAF)
+        self.g.bind('rdfs', RDFS)
+        self.g.bind('dct', DCT)
+
+        doc = URIRef(self.url)
+        self.g.add((doc, RDF.type, FOAF["Document"]))
+        message = URIRef(self.get_uri())
+        self.g.add((message, RDF.type, SIOC["Post"]))
+        self.g.add((doc, FOAF["primaryTopic"], message))
+
+        self.g.add((message, SIOC['id'], Literal(self.id)))
+        #self.g.add((message, SIOC['link'], URIRef(self.url)))  
+        #self.g.add((message, SIOC['has_container'],URIRef(self.config.get('base')+'forum')))   
+        #self.g.add((message, SIOC["has_creator"], URIRef(self.getSender().getUri())))                    
+        self.g.add((message, DCT['title'], Literal(self.title))) 
+        #self.g.add((message, DCT['created'], Literal(self.getDate(), datatype=XSD[u'dateTime'])))  
+        self.g.add((message, SIOC['content'], Literal(self.content)))
         
 
 

@@ -46,7 +46,11 @@ class MarkMail:
         uri = "%s/message.xqy?id=%s&mode=%s" % (self.base, key, mode)
         response = self.__request(uri).read()
         obj = json.load(StringIO(response))
-        return obj["message"]
+        message = obj["message"]
+        if (message["subject"]=="null" or message["subject"]=="null"):
+            return None
+        else:
+            return message
 
     def get_thread(self, key, mode="json"):
         uri = "%s/thread.xqy?id=%s&mode=%s" % (self.base, key, mode)

@@ -98,7 +98,7 @@ class Post(Resource):
         swaml = URIRef("http://swaml.berlios.de/doap#swaml")
         doc = URIRef(self.base)
         graph.add((doc, RDF.type, FOAF["Document"]))
-        graph.add((doc, RDFS.label, "RDF version of the message '%s' retrieved from MarkMail API" % self.id)) #FIXME: this should go out of this api
+        graph.add((doc, RDFS.label, Literal("RDF version of the message '%s' retrieved from MarkMail API" % self.id))) #FIXME: this should go out of this api
         graph.add((doc, MVCB.generatorAgent, swaml))
         message = URIRef(self.get_uri())
         graph.add((message, RDF.type, SIOC.Post))
@@ -143,7 +143,7 @@ class Thread(Resource):
         swaml = URIRef("http://swaml.berlios.de/doap#swaml")
         doc = URIRef("%s/thread/%s" % (self.base, self.id))
         graph.add((doc, RDF.type, FOAF["Document"]))
-        graph.add((doc, RDFS.label, "RDF version of the thread '%s' retrieved from MarkMail API" % self.id)) #FIXME: this should go out of this api
+        graph.add((doc, RDFS.label, Literal("RDF version of the thread '%s' retrieved from MarkMail API" % self.id))) #FIXME: this should go out of this api
         graph.add((doc, MVCB.generatorAgent, swaml))
         thread = URIRef("%s/thread/%s#thread" % (self.base, self.id))
         graph.add((thread, RDF.type, SIOC["Thread"]))

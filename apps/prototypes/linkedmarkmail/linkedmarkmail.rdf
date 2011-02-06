@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:doap="http://usefulinc.com/ns/doap#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:void="http://rdfs.org/ns/void#"
+  xmlns:pm="http://www.web-semantics.org/ns/pm#"
+  xml:lang="en"
+>
+
+  <void:Dataset rdf:about="http://swaml.berlios.de/doap#linkedmarkmail">
+     <doap:name>LinkedMarkMail</doap:name>
+     <rdf:type rdf:resource="http://usefulinc.com/ns/doap#Project" />
+     <pm:subProject rdf:resource="http://swaml.berlios.de/doap#swaml" />
+     <dct:subject rdf:resource="http://dbpedia.org/resource/Python"/>
+     <dct:subject rdf:resource="http://dbpedia.org/resource/Mailing_list"/>
+     <dct:subject rdf:resource="http://dbpedia.org/resource/Linked_Data"/>
+     <doap:developer rdf:resource="http://www.wikier.org/foaf#wikier"/>
+     <doap:programming-language>Python</doap:programming-language>
+     <doap:license rdf:resource="http://usefulinc.com/doap/licenses/gpl"/>
+     <doap:homepage rdf:resource="http://linkedmarkmail.wikier.org/"/>
+     <void:uriRegexPattern>^http://linkedmarkmail.wikier.org/(message|thread)/[a-z0-9]{16}$<void:uriRegexPattern>
+     <void:exampleResource rdf:resource="http://linkedmarkmail.wikier.org/message/5wfms7w5opja4a2y" />
+     <void:exampleResource rdf:resource="http://linkedmarkmail.wikier.org/thread/dcue2bsyrsgbzsd5" />
+     <rdfs:seeAlso rdf:resource="http://swaml.berlios.de/doap.rdf" />
+  </void:Dataset>
+
+</rdf:RDF>
+

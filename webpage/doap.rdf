@@ -6,6 +6,7 @@
          xmlns:sioc="http://rdfs.org/sioc/ns#"
          xmlns:dc="http://purl.org/dc/terms/"
          xmlns:admin="http://webns.net/mvcb/"
+         xmlns:pm="http://www.web-semantics.org/ns/pm#"
          xml:lang="en"
 >
 

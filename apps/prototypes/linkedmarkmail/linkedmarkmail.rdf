@@ -22,7 +22,7 @@
      <doap:programming-language>Python</doap:programming-language>
      <doap:license rdf:resource="http://usefulinc.com/doap/licenses/gpl"/>
      <doap:homepage rdf:resource="http://linkedmarkmail.wikier.org/"/>
-     <void:uriRegexPattern>^http://linkedmarkmail.wikier.org/(message|thread)/[a-z0-9]{16}$<void:uriRegexPattern>
+     <void:uriRegexPattern>^http://linkedmarkmail.wikier.org/(message|thread)/[a-z0-9]{16}$</void:uriRegexPattern>
      <void:exampleResource rdf:resource="http://linkedmarkmail.wikier.org/message/5wfms7w5opja4a2y" />
      <void:exampleResource rdf:resource="http://linkedmarkmail.wikier.org/thread/dcue2bsyrsgbzsd5" />
      <rdfs:seeAlso rdf:resource="http://swaml.berlios.de/doap.rdf" />

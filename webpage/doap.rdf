@@ -168,5 +168,15 @@
 
   </doap:Project>
 
+  <doap:Project rdf:about="http://swaml.berlios.de/doap#linkedmarkmail">
+    <doap:name>LinkedMarkMail</doap:name>
+    <pm:subProject rdf:resource="http://swaml.berlios.de/doap#swaml" />
+    <doap:developer rdf:resource="http://www.wikier.org/foaf#wikier"/>
+    <doap:programming-language>Python</doap:programming-language>
+    <doap:license rdf:resource="http://usefulinc.com/doap/licenses/gpl"/>
+    <doap:homepage rdf:resource="http://linkedmarkmail.wikier.org/"/>
+    <rdf:seeAlso rdf:resource="http://linkedmarkmail.wikier.org/linkedmarkmail.rdf" />
+  </doap:Project>
+
 </rdf:RDF>
 

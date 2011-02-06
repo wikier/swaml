@@ -1,1 +1,101 @@
-todo
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:doap="http://usefulinc.com/ns/doap#"
+      xmlns:rss="http://purl.org/rss/1.0/"
+	  xml:lang="en"
+>
+
+  <head>
+    <title>LinkedMarkMail - SWAML</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="SWAML, semantic web, mailing lists, python, sioc, markmail" />
+    <meta name="language" content="en" />
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="http://swaml.berlios.de/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <link rel="alternate" type="application/rss+xml" title="SWAML RSS" href="http://swaml.berlios.de/rss/news" />
+    <link rel="meta" title="DOAP" type="application/rdf+xml" href="http://swaml.berlios.de/doap.rdf" />
+    <link rel="meta" title="DOAP" type="application/rdf+xml" href="http://linkedmarkmail.wikier.org/linkedmarkmail.rdf" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://www.wikier.org/foaf.rdf" />
+    <link rel="meta" type="application/rdf+xml" title="FOAF" rel="foaf:maker" href="http://www.wikier.org/foaf#wikier" />
+  </head>
+
+  <body typeof="doap:Project" about="http://swaml.berlios.de/doap#linkedmarkmail">
+
+    <div class="accessibility">
+      <a href="#content" accesskey="c" title="Go to content">Go to content</a>
+    </div>
+
+    <h1 id="head">
+      <a href="http://developer.berlios.de/"><img src="http://swaml.berlios.de/images/berlios.png" width="132" height="50" alt="Project hosted by BerliOS" /></a>
+      <a href="http://swaml.berlios.de/"><acronym title="Semantic Web Archive of Mailing Lists" property="doap:name">swaml</acronym></a>
+
+    </h1>
+
+    <div id="content">
+
+      <h2>LinkedMarkMail</h2>
+      <p>
+        LinkedMarkMail is a simple Linked Data interface for accessing the 
+        <a href="http://markmail.org/">MarkMail</a> archives. Using 
+        <a href="http://pastebin.com/M5NnyEZ8">its hacky API</a>, the 
+        <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>
+        project offers a RDF version of that information using SIOC; therefore
+        fully compatible with other applications developed by the project.
+      </p>
+
+      <p>
+        The alpha services is available at: <a href="http://linkedmarkmail.wikier.org/">http://linkedmarkmail.wikier.org/</a>,
+        where you can check both messages and threads by ID (for instance 
+        <a href="http://linkedmarkmail.wikier.org/message/5wfms7w5opja4a2y">this</a> or
+        <a href="http://linkedmarkmail.wikier.org/thread/dcue2bsyrsgbzsd5">this</a>). Futher
+        at <a href="linkedmarkmail.rdf">its voID description</a>.
+      </p>
+
+      <p>
+        The service is provided without any warranty, due the source of information actually is
+        not a public API, but a internal API used by MarkMail for improving the user experience
+        with JavaScript. Therefore we may need to close the service at any time if we are required.
+      </p>
+
+      <p>
+        But remember that LinkedMarkMail is free software; so if you'd need it, you can check out its source code:
+      </p>
+
+      <p class="svn">
+        svn checkout 
+        <a href="http://svn.berlios.de/wsvn/swaml/trunk/apps/prototypes/linkedmarkmail/">http://svn.berlios.de/svnroot/repos/swaml/trunk/apps/prototypes/linkedmarkmail</a> 
+        linkedmarkmail
+      </p>
+
+
+      <h2 id="contact">Contact</h2>
+      <p>
+        You can contact with the <a href="/members-list">members of project</a> 
+        in the <a href="/lists/devel">developers mailing list</a>
+
+        (<a href="http://lists.berlios.de/pipermail/swaml-devel/">archives</a> are
+        public). Also, you can <a href="/bugs">report a bug</a> or send a 
+        <a href="/features">feature request</a> without you need to subscribe of 
+        any of <a href="/lists">project mailing lists</a>.
+      </p>
+
+    </div>
+
+    <div id="foot">
+      <ul>
+        <li><a href="doap#swaml" type="application/rdf+xml"><img src="http://swaml.berlios.de/images/rdfmeta.png" alt="RDF Meta" /></a></li>
+        <li><a href="http://validator.w3.org/check/referer"><img src="http://swaml.berlios.de/images/xhtml.png" alt="Valid XHTML" /></a></li>
+        <li><a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="http://swaml.berlios.de/images/css.png" alt="Valid CSS" /></a></li>
+        <li><a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" alt="BerliOS Developer Logo" /></a></li>
+      </ul>
+    </div>
+
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript">_uacct = "UA-599301-2";urchinTracker();</script>
+    <script type="text/javascript" src="http://embed.technorati.com/embed/4y8uh7tpy.js"></script>
+
+  </body>
+
+</html>
+

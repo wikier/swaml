@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:sc="http://sw.deri.org/2007/07/sitemapextension/scschema.xsd">
+  <sc:dataset>
+    <sc:datasetLabel>LinkedMarkMail</sc:datasetLabel>
+    <sc:datasetURI>http://swaml.berlios.de/doap#linkedmarkmail</sc:datasetURI>
+    <sc:linkedDataPrefix slicing="subject-object">http://linkedmarkmail.wikier.org/</sc:linkedDataPrefix>
+    <sc:sampleURI>http://linkedmarkmail.wikier.org/message/5wfms7w5opja4a2y</sc:sampleURI>
+  </sc:dataset>
+</urlset>
+

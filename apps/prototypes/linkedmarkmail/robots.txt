@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /cache/
+Disallow: /.svn/
+
+Sitemap: http://linkedmarkmail.wikier.org/sitemap.xml
+

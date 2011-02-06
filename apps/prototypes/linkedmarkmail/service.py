@@ -85,7 +85,7 @@ if __name__ == "__main__":
     if (t == "message"):
         data = lmm.get_message(i)
     elif (t == "thread"):
-        lmm.get_thread(i)
+        data = lmm.get_thread(i)
     else:
         invalid_input_error()
 

@@ -2,7 +2,8 @@
 LinkedMarkMail changelog:
 ------------------------
 
-2011-02-XX  0.2     - Improved RDF output for consumers not supporting RDFS/OWL entailment 
+2011-02-XX  0.2     - Added a cache system
+                    - Improved RDF output for consumers not supporting RDFS/OWL entailment 
 
 2011-02-01  0.1     - Alpha version of the service, with the basic features
 

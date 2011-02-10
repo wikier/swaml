@@ -34,9 +34,8 @@ from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from namespaces import SIOC, SIOCT, RDFS, FOAF, DC, DCT, MVCB, XSD
 import lxml.html
-from cache import CacheItem
 
-class Resource(CacheItem):
+class Resource:
     """
     Abstract RDF Resource
     """
@@ -53,6 +52,9 @@ class Resource(CacheItem):
 
     def set_uri(self, uri):
         self.uri = uri
+
+    def get_key(self):
+        return self.key
 
     def get_graph(self):
         if (not hasattr(self, "graph") or self.graph == None):
@@ -83,9 +85,6 @@ class Post(Resource):
         self.title = title
         self.content = lxml.html.fromstring(content).text_content()
         #FIXME: actually more stuff would be necessary, but this is the minimun
-
-    def get_cache_id(self):
-        return "message-%s.rdf" % self.key
 
     def get_uri(self):
         return "%s#message" % self.base #FIXME
@@ -130,9 +129,6 @@ class Thread(Resource):
         self.homepage = homepage
         self.atom = atom
         self.messages = messages
-
-    def get_cache_id(self):
-        return "thread-%s.rdf" % self.key
 
     def get_uri(self):
         return "%s#thread" % self.base #FIXME

@@ -37,6 +37,8 @@ class LinkedMarkMail:
         self.base = base
         self.api = MarkMail("http://markmail.org")
         self.cache = Cache()
+        self.cache.register(Post, "message-%s.rdf")
+        self.cache.register(Thread, "thread-%s.rdf")
         logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", filename=log)
         logging.info("Created a new instance of LinkedMarkMail at %s" % datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
@@ -45,19 +47,24 @@ class LinkedMarkMail:
         return "" #FIXME
 
     def get_message(self, key):
-        logging.info("Trying to get message %s" % key)
-        message = self.api.get_message(key)
-        if (message != None):
-            url = "%s/message/%s" % (self.base, key)
-            post = Post(url, key, message["title"], message["content"])
-            triples = len(post)
-            if (self.cache.update(post)):
-                logging.info("Updated cache of post %s (%d triples)" % (key, triples))
-            logging.info("Returning %d triples of post %s" % (triples, key))
-            return post.get_data_xml()
+        if (self.cache.has_key(key, Post)):
+            logging.info("Recovering message %s from cache..." % key)
+            return self.cache.read(key, Post)
         else:
-            logging.error("Post %s not found" % key)
-            return None
+            logging.info("Trying to get message %s from MarkMail..." % key)
+            message = self.api.get_message(key)
+            if (message != None):
+                url = "%s/message/%s" % (self.base, key)
+                post = Post(url, key, message["title"], message["content"])
+                triples = len(post)
+                #if (not self.cache.is_cached(post)):
+                #    self.cache.write(post)
+                #    logging.info("Updated cache of post %s (%d triples)" % (key, triples))
+                logging.info("Returning %d triples of post %s" % (triples, key))
+                return post.get_data_xml()
+            else:
+                logging.error("Post %s not found" % key)
+                return None
 
     def get_thread(self, key):
         logging.info("Trying to get thread %s" % key)
@@ -65,7 +72,8 @@ class LinkedMarkMail:
         if (thread != None):
             siocThread = Thread(self.base, key, thread["subject"], thread["permalink"], thread["atomlink"], thread["messages"]["message"])
             triples = len(siocThread)
-            if (self.cache.update(siocThread)):
+            if (self.cache.is_dirty(siocThread)):
+                self.cache.update(siocThread)
                 logging.info("Updated cache of thread %s (%d triples)" % (key, triples))
             logging.info("Returning %d triples of thread %s" % (triples, key))
             return siocThread.get_data_xml()
@@ -77,8 +85,8 @@ class LinkedMarkMail:
 if __name__ == "__main__":
     lmm = LinkedMarkMail()
     #print lmm.get_message("5")
-    print lmm.get_message("5wfms7w5opja4a2y")
+    lmm.get_message("5wfms7w5opja4a2y")
     #print lmm.get_thread("5")
-    #print lmm.get_thread("dcue2bsyrsgbzsd5")
+    lmm.get_thread("dcue2bsyrsgbzsd5")
 
 

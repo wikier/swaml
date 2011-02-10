@@ -21,7 +21,8 @@
 
 import sys
 import warnings
-from utils import serialize_graph_file, read_graph
+import logging
+from utils import serialize_graph_file, read_graph, exists
 
 class Cache:
     """
@@ -30,36 +31,63 @@ class Cache:
 
     def __init__(self, base="cache/"):
         self.base = base
+        self.__registry = {}
+        self.__last_read = {}
 
-    def read(self, item):
-        path = self.base + item.get_cache_id()
-        return read_graph(path)
+    def register(self, cls, tpl):
+        self.__registry[cls] = tpl
 
-    def write(self, item):
-        path = self.base + item.get_cache_id()
+    def __build_path(self, key, cls):
+        tpl = self.__registry[cls]
+        return self.base + tpl % key
+
+    def has_key(self, key, cls):
+        if (cls in self.__registry):
+            path = self.__build_path(key, cls)
+            return exists(path)
+        else:
+            return False
+
+    def is_cached(self, item):
+        path = self.__build_path(item.get_key(), item.__class__)
+        return exists(path)
+
+    def is_dirty(self, item):
         graph = item.get_graph()
-        serialize_graph_file(graph, path)
-
-    def update(self, item):
-        path = self.base + item.get_cache_id()
-        graph = item.get_graph()
-        cached = read_graph(path)
+        cached = self.read(item.get_key(), item.__class__)
         if (len(graph) > len(cached)):
-            serialize_graph_file(graph, path)
             return True
         else:
             return False
 
-class CacheItem:
-    """
-    Cache item pseudo interface
-    """
+    def read(self, key, cls):
+        if (cls in self.__registry):
+            id = self.__registry[cls] % key
+            if (id in self.__last_read):
+                logging.debug("Preventing reading of %s" % id)
+                return self.__last_read[id]
+            else:
+                path = self.__build_path(key, cls)
+                data = read_graph(path)
+                self.__last_read = {} #FIXME: current it has only one item, which can be the right length?
+                self.__last_read[id] = data
+                return data
+        else:
+            return ""
 
-    def get_cache_id(self):
-        warnings.warn("This method MUST be overwritten by cacheable items!")
-        raise NotImplementedError
+    def write(self, item):
+        path = self.__build_path(item.get_key(), item.__class__)
+        graph = item.get_graph()
+        serialize_graph_file(graph, path)
 
-    def get_graph(self):
-        warnings.warn("This method MUST be overwritten by cacheable items!")
-        raise NotImplementedError
+    def update(self, item, force=True):
+        if (force):
+            self.write(item)
+            return True
+        else:
+            if (self.is_dirty(item)):
+                self.write(item)
+                return True
+            else:
+                return False
 

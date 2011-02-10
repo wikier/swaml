@@ -25,34 +25,43 @@
 LinkedMarkMail, an RDFizer for Mark Mail 
 """
 
+import logging
 from markmail import MarkMail
 from swaml import Post, Thread
 
 class LinkedMarkMail:
 
-    def __init__(self, base="http://linkedmarkmail.wikier.org"):
+    def __init__(self, base="http://linkedmarkmail.wikier.org", log="linkedmarkmail.log"):
         self.base = base
         self.api = MarkMail("http://markmail.org")
+        logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", stream=open(log, "w+")
+        logging.info("Starting LinkedMarkMail" % directory)
 
     def search(self, query):
         search = self.api.search(query)
         return "" #FIXME
 
     def get_message(self, key):
+        logging.info("Trying to get message %s" % key)
         message = self.api.get_message(key)
         if (message != None):
             url = "%s/message/%s" % (self.base, key)
             post = Post(url, key, message["title"], message["content"])
+            logging.info("Returning %d triples of post %s" % (len(post.get_graph()), key))
             return post.get_data_xml()
         else:
+            logging.error("Post %s not found" % key)
             return None
 
     def get_thread(self, key):
+        logging.info("Trying to get thread %s" % key)
         thread = self.api.get_thread(key)
         if (thread != None):
             siocThread = Thread(self.base, key, thread["subject"], thread["permalink"], thread["atomlink"], thread["messages"]["message"])
+            logging.info("Returning %d triples of thread %s" % (len(siocThread.get_graph()), key))
             return siocThread.get_data_xml()
         else:
+            logging.error("Thread %s not found" % key)
             return None
 
 
@@ -61,6 +70,6 @@ if __name__ == "__main__":
     #print lmm.get_message("5")
     print lmm.get_message("5wfms7w5opja4a2y")
     #print lmm.get_thread("5")
-    print lmm.get_thread("dcue2bsyrsgbzsd5")
+    #print lmm.get_thread("dcue2bsyrsgbzsd5")
 
 

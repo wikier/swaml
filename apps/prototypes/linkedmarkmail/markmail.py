@@ -31,15 +31,11 @@ import urllib2
 import simplejson as json
 from StringIO import StringIO
 import warnings
-import logging
 
 class MarkMail:
 
-    def __init__(self, base="http://markmail.org", log="linkedmarkmail.log"):
+    def __init__(self, base="http://markmail.org"):
         self.base = base
-        logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s", stream=open(log, "w+")
-        logging.info("Starting LinkedMarkMail" % directory)
-
 
     def search(self, query, page=1, mode="json"):
         logging.info("Searching: q=%s, page=%d, mode=%s" % (query, page, mode))

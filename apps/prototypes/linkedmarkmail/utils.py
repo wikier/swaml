@@ -20,6 +20,7 @@
 # along with LinkedMarkMail. If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import logging
 from StringIO import StringIO
 try:
     from rdflib.graph import ConjunctiveGraph
@@ -31,19 +32,23 @@ def exists(path):
 
 def read_file(path):
     data = ""
-    f = open(path, "r")
-    while 1:
-        line = f.readline()
-        if not line:
-            break
-        data += line
-    f.close()
+    if (exists(path)):
+        f = open(path, "r")
+        while 1:
+            line = f.readline()
+            if not line:
+                break
+            data += line
+        f.close()
+    else:
+        logging.error("File '%s' doesn't exist" % path)
     return data
 
 def read_graph(path, base=None, format="xml"):
-    data = read_file(path)
     graph = ConjunctiveGraph()
-    graph.parse(StringIO(data), publicID=base, format=format)
+    data = read_file(path)
+    if (len(data)>0):
+        graph.parse(StringIO(data), publicID=base, format=format)
     return graph
 
 def serialize_graph_file(graph, path, format="pretty-xml", encoding="utf8"):

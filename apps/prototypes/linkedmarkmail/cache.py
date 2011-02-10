@@ -20,6 +20,7 @@
 # along with LinkedMarkMail. If not, see <http://www.gnu.org/licenses/>.
 
 import sys
+import warnings
 from utils import serialize_graph_file, read_graph
 
 class Cache:
@@ -45,9 +46,9 @@ class Cache:
         cached = read_graph(path)
         if (len(graph) > len(cached)):
             serialize_graph_file(graph, path)
-            return true
+            return True
         else:
-            return false
+            return False
 
 class CacheItem:
     """
@@ -56,9 +57,9 @@ class CacheItem:
 
     def get_cache_id(self):
         warnings.warn("This method MUST be overwritten by cacheable items!")
-        sys.exit()
+        raise NotImplementedError
 
     def get_graph(self):
         warnings.warn("This method MUST be overwritten by cacheable items!")
-        sys.exit()
+        raise NotImplementedError
 

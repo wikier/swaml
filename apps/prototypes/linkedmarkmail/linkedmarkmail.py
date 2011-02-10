@@ -29,12 +29,14 @@ import logging
 from datetime import datetime
 from markmail import MarkMail
 from swaml import Post, Thread
+from cache import Cache
 
 class LinkedMarkMail:
 
     def __init__(self, base="http://linkedmarkmail.wikier.org", log="linkedmarkmail.log"):
         self.base = base
         self.api = MarkMail("http://markmail.org")
+        self.cache = Cache()
         logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", filename=log)
         logging.info("Created a new instance of LinkedMarkMail at %s" % datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
@@ -48,7 +50,10 @@ class LinkedMarkMail:
         if (message != None):
             url = "%s/message/%s" % (self.base, key)
             post = Post(url, key, message["title"], message["content"])
-            logging.info("Returning %d triples of post %s" % (len(post.get_graph()), key))
+            triples = len(post)
+            if (self.cache.update(post)):
+                logging.info("Updated cache of post %s (%d triples)" % (key, triples))
+            logging.info("Returning %d triples of post %s" % (triples, key))
             return post.get_data_xml()
         else:
             logging.error("Post %s not found" % key)
@@ -59,7 +64,10 @@ class LinkedMarkMail:
         thread = self.api.get_thread(key)
         if (thread != None):
             siocThread = Thread(self.base, key, thread["subject"], thread["permalink"], thread["atomlink"], thread["messages"]["message"])
-            logging.info("Returning %d triples of thread %s" % (len(siocThread.get_graph()), key))
+            triples = len(siocThread)
+            if (self.cache.update(siocThread)):
+                logging.info("Updated cache of thread %s (%d triples)" % (key, triples))
+            logging.info("Returning %d triples of thread %s" % (triples, key))
             return siocThread.get_data_xml()
         else:
             logging.error("Thread %s not found" % key)

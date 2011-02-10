@@ -45,6 +45,9 @@ class Resource(CacheItem):
         self.base = base
         raise NotImplementedError
 
+    def __len__(self):
+        return len(self.get_graph())
+
     def get_uri(self):
         return self.uri
 
@@ -61,7 +64,7 @@ class Resource(CacheItem):
 
     def build_graph(self):
         warnings.warn("This method MUST be overwritten by all subclasses!")
-        sys.exit()
+        raise NotImplementedError
 
     def get_data_xml(self):
         return self.get_graph().serialize(format="pretty-xml", encoding="utf8") #, base=self.base)

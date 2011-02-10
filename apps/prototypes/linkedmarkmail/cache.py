@@ -40,7 +40,7 @@ class Cache:
         graph = item.get_graph()
         cached = read_graph(path)
         if (len(graph) > len(cached):
-            self.write(item)
+            serialize_graph_file(graph, path)
 
 class CacheItem:
     """

@@ -34,8 +34,9 @@ from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
 from namespaces import SIOC, SIOCT, RDFS, FOAF, DC, DCT, MVCB, XSD
 import lxml.html
+from cache import CacheItem
 
-class Resource:
+class Resource(CacheItem):
     """
     Abstract RDF Resource
     """
@@ -73,12 +74,15 @@ class Post(Resource):
     sioc:Post
     """
 
-    def __init__(self, base, id, title, content):
+    def __init__(self, base, key, title, content):
         self.base = base
-        self.id = id
+        self.key = key
         self.title = title
         self.content = lxml.html.fromstring(content).text_content()
         #FIXME: actually more stuff would be necessary, but this is the minimun
+
+    def get_cache_id(self):
+        return "message-%s.rdf" % self.key
 
     def get_uri(self):
         return "%s#message" % self.base #FIXME
@@ -94,15 +98,15 @@ class Post(Resource):
         swaml = URIRef("http://swaml.berlios.de/doap#swaml")
         doc = URIRef(self.base)
         graph.add((doc, RDF.type, FOAF["Document"]))
-        graph.add((doc, RDFS.label, Literal("RDF version of the message '%s' retrieved from MarkMail API" % self.id))) #FIXME: this should go out of this api
+        graph.add((doc, RDFS.label, Literal("RDF version of the message '%s' retrieved from MarkMail API" % self.key))) #FIXME: this should go out of this api
         graph.add((doc, MVCB.generatorAgent, swaml))
         message = URIRef(self.get_uri())
         graph.add((message, RDF.type, SIOC.Post))
         graph.add((message, RDF.type, SIOCT.MailMessage))
         graph.add((doc, FOAF.primaryTopic, message))
 
-        graph.add((message, SIOC.id, Literal(self.id)))
-        graph.add((message, SIOC.link, URIRef("http://markmail.org/message/%s" % self.id)))  
+        graph.add((message, SIOC.id, Literal(self.key)))
+        graph.add((message, SIOC.link, URIRef("http://markmail.org/message/%s" % self.key)))  
         #graph.add((message, SIOC.has_container,URIRef(self.config.get('base')+'forum')))   
         #graph.add((message, SIOC.has_creator, URIRef(self.getSender().getUri())))                    
         graph.add((message, DCT.title, Literal(self.title))) 
@@ -116,21 +120,19 @@ class Thread(Resource):
     sioc:Thread
     """
 
-    def __init__(self, base, id, title, homepage, atom, messages=[]):
+    def __init__(self, base, key, title, homepage, atom, messages=[]):
         self.base = base
-        self.id = id
+        self.key = key
         self.title = title
         self.homepage = homepage
         self.atom = atom
         self.messages = messages
 
+    def get_cache_id(self):
+        return "thread-%s.rdf" % self.key
+
     def get_uri(self):
         return "%s#thread" % self.base #FIXME
-
-    def get_graph(self):
-        if (not hasattr(self, "graph") or self.graph == None):
-            self.__build_graph()
-        return self.graph
 
     def build_graph(self):
         graph = ConjunctiveGraph()
@@ -141,15 +143,15 @@ class Thread(Resource):
         graph.bind('mvcb', MVCB)
 
         swaml = URIRef("http://swaml.berlios.de/doap#swaml")
-        doc = URIRef("%s/thread/%s" % (self.base, self.id))
+        doc = URIRef("%s/thread/%s" % (self.base, self.key))
         graph.add((doc, RDF.type, FOAF["Document"]))
-        graph.add((doc, RDFS.label, Literal("RDF version of the thread '%s' retrieved from MarkMail API" % self.id))) #FIXME: this should go out of this api
+        graph.add((doc, RDFS.label, Literal("RDF version of the thread '%s' retrieved from MarkMail API" % self.key))) #FIXME: this should go out of this api
         graph.add((doc, MVCB.generatorAgent, swaml))
-        thread = URIRef("%s/thread/%s#thread" % (self.base, self.id))
+        thread = URIRef("%s/thread/%s#thread" % (self.base, self.key))
         graph.add((thread, RDF.type, SIOC["Thread"]))
         graph.add((doc, FOAF["primaryTopic"], thread))
 
-        graph.add((thread, SIOC.id, Literal(self.id)))
+        graph.add((thread, SIOC.id, Literal(self.key)))
         graph.add((thread, SIOC.link, URIRef(self.homepage)))              
         graph.add((thread, DCT.title, Literal(self.title))) 
         graph.add((thread, SIOC.num_item, Literal(len(self.messages), XSD.Integer))) 
@@ -160,7 +162,7 @@ class Thread(Resource):
             graph.add((post, RDFS.seeAlso, URIRef(url)))
             graph.add((thread, SIOC.container_of, post))
             graph.add((post, SIOC.has_container, thread))
-            graph.add((post, SIOC.id, Literal(self.id)))
+            graph.add((post, SIOC.id, Literal(self.key)))
             graph.add((post, SIOC.link, URIRef("http://markmail.org%s" % message["url"])))  
             author = BNode()
             graph.add((post, SIOC.has_creator, author))

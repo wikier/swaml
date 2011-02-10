@@ -51,7 +51,7 @@ class CacheItem:
         warnings.warn("This method MUST be overwritten by cacheable items!")
         sys.exit()
 
-    def gget_graph(self):
+    def get_graph(self):
         warnings.warn("This method MUST be overwritten by cacheable items!")
         sys.exit()
 

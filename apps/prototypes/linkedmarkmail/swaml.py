@@ -31,7 +31,7 @@ except ImportError:
     from rdflib import ConjunctiveGraph
 from rdflib import URIRef, Literal, BNode
 from rdflib import RDF
-from namespaces import SIOC, RDFS, FOAF, DC, DCT, MVCB, XSD
+from namespaces import SIOC, SIOCT, RDFS, FOAF, DC, DCT, MVCB, XSD
 import lxml.html
 
 class Resource:
@@ -97,6 +97,7 @@ class Post(Resource):
         graph.add((doc, MVCB.generatorAgent, swaml))
         message = URIRef(self.get_uri())
         graph.add((message, RDF.type, SIOC.Post))
+        graph.add((message, RDF.type, SIOCT.MailMessage))
         graph.add((doc, FOAF.primaryTopic, message))
 
         graph.add((message, SIOC.id, Literal(self.id)))
@@ -110,6 +111,9 @@ class Post(Resource):
         self.set_graph(graph)
 
 class Thread(Resource):
+    """
+    sioc:Thread
+    """
 
     def __init__(self, base, id, title, homepage, atom, messages=[]):
         self.base = base

@@ -35,7 +35,7 @@ class LinkedMarkMail:
     def __init__(self, base="http://linkedmarkmail.wikier.org", log="linkedmarkmail.log"):
         self.base = base
         self.api = MarkMail("http://markmail.org")
-        logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", stream=open(log, "w+"))
+        logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", filename=log)
         logging.info("Created a new instance of LinkedMarkMail at %s" % datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
     def search(self, query):

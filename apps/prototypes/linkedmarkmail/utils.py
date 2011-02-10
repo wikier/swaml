@@ -31,7 +31,7 @@ def exists(path):
 
 def read_file(path):
     data = ""
-    f = open(path, "f")
+    f = open(path, "r")
     while 1:
         line = f.readline()
         if not line:

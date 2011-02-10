@@ -30,6 +30,10 @@ class Cache:
     def __init__(self, base="cache/"):
         self.base = base
 
+    def read(self, item):
+        path = self.base + item.get_cache_id()
+        return read_graph(path)
+
     def write(self, item):
         path = self.base + item.get_cache_id()
         graph = item.get_graph()
@@ -41,6 +45,9 @@ class Cache:
         cached = read_graph(path)
         if (len(graph) > len(cached):
             serialize_graph_file(graph, path)
+            return true
+        else:
+            return false
 
 class CacheItem:
     """

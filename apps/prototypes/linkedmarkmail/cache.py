@@ -43,7 +43,7 @@ class Cache:
         path = self.base + item.get_cache_id()
         graph = item.get_graph()
         cached = read_graph(path)
-        if (len(graph) > len(cached):
+        if (len(graph) > len(cached)):
             serialize_graph_file(graph, path)
             return true
         else:

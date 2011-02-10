@@ -26,6 +26,7 @@ LinkedMarkMail, an RDFizer for Mark Mail
 """
 
 import logging
+from datetime import datetime
 from markmail import MarkMail
 from swaml import Post, Thread
 
@@ -34,8 +35,8 @@ class LinkedMarkMail:
     def __init__(self, base="http://linkedmarkmail.wikier.org", log="linkedmarkmail.log"):
         self.base = base
         self.api = MarkMail("http://markmail.org")
-        logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", stream=open(log, "w+")
-        logging.info("Starting LinkedMarkMail" % directory)
+        logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", stream=open(log, "w+"))
+        logging.info("Created a new instance of LinkedMarkMail at %s" % datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
     def search(self, query):
         search = self.api.search(query)

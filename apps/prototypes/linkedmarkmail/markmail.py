@@ -38,7 +38,6 @@ class MarkMail:
         self.base = base
 
     def search(self, query, page=1, mode="json"):
-        logging.info("Searching: q=%s, page=%d, mode=%s" % (query, page, mode))
         uri = "%s/results.xqy?q=%s&page=%d&mode=%s" % (base, query, page, mode)
         response = self.__request(uri).read()
         obj = json.load(StringIO(response))
@@ -46,29 +45,23 @@ class MarkMail:
         return obj #FIXME
 
     def get_message(self, key, mode="json"):
-        logging.info("Getting message: key=%s, mode=%s" % (key, mode))
         uri = "%s/message.xqy?id=%s&mode=%s" % (self.base, key, mode)
         response = self.__request(uri).read()
         obj = json.load(StringIO(response))
         message = obj["message"]
-        if (message["subject"]==None or message["subject"]==None):
-            logging.error("Thread %s not found" % key)
+        if (message["subject"]==None or message["subject"]==None):            
             return None
         else:
-            logging.info("Thread %s found!" % key)
             return message
 
     def get_thread(self, key, mode="json"):
-        logging.info("Getting thread: key=%s, mode=%s" % (key, mode))
         uri = "%s/thread.xqy?id=%s&mode=%s" % (self.base, key, mode)
         response = self.__request(uri).read()
         obj = json.load(StringIO(response))
         thread = obj["thread"]
         if (thread["subject"]==None or thread["list"]==None):
-            logging.error("Thread %s not found" % key)
             return None
         else:
-            logging.info("Thread %s found!" % key)
             return thread
         
     def __request(self, uri, accept="application/json"):

@@ -41,16 +41,12 @@ class Cache:
         tpl = self.__registry[cls]
         return self.base + tpl % key
 
-    def has_key(self, key, cls):
+    def is_cached(self, key, cls):
         if (cls in self.__registry):
             path = self.__build_path(key, cls)
             return exists(path)
         else:
             return False
-
-    def is_cached(self, item):
-        path = self.__build_path(item.get_key(), item.__class__)
-        return exists(path)
 
     def is_dirty(self, item):
         graph = item.get_graph()

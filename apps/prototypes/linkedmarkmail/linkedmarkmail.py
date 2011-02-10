@@ -47,7 +47,7 @@ class LinkedMarkMail:
         return "" #FIXME
 
     def get_message(self, key):
-        if (self.cache.has_key(key, Post)):
+        if (self.cache.is_cached(key, Post)):
             logging.info("Recovering message %s from cache..." % key)
             return self.cache.read(key, Post)
         else:
@@ -57,7 +57,7 @@ class LinkedMarkMail:
                 url = "%s/message/%s" % (self.base, key)
                 post = Post(url, key, message["title"], message["content"])
                 triples = len(post)
-                #if (not self.cache.is_cached(post)):
+                #if (not self.cache.is_cached(post.get_key(), post.__class__)):
                 #    self.cache.write(post)
                 #    logging.info("Updated cache of post %s (%d triples)" % (key, triples))
                 logging.info("Returning %d triples of post %s" % (triples, key))

@@ -24,6 +24,7 @@
 The new SWAML API (alpha)
 """
 
+import sys
 import warnings
 try:
     from rdflib.graph import ConjunctiveGraph
@@ -59,7 +60,7 @@ class Resource:
 
     def build_graph(self):
         warnings.warn("This method MUST be overwritten by all subclasses!")
-        return ConjunctiveGraph()
+        sys.exit()
 
     def get_data_xml(self):
         return self.get_graph().serialize(format="pretty-xml", encoding="utf8") #, base=self.base)

@@ -52,7 +52,7 @@ def serialize_graph_file(graph, path, format="pretty-xml", encoding="utf8"):
     f.flush()
     f.close()
 
-def write_file(path, data, mode="w"):
+def write_file(data, path, mode="w"):
     f = open(path, mode)
     f.write(data)
     f.flush()

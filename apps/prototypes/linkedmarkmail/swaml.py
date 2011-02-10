@@ -51,13 +51,13 @@ class Resource:
 
     def get_graph(self):
         if (not hasattr(self, "graph") or self.graph == None):
-            self.__build_graph()
+            self.build_graph()
         return self.graph
 
     def set_graph(self, graph):
         self.graph = graph
 
-    def __build_graph(self):
+    def build_graph(self):
         warnings.warn("This method MUST be overwritten by all subclasses!")
         return ConjunctiveGraph()
 
@@ -82,12 +82,7 @@ class Post(Resource):
     def get_uri(self):
         return "%s#message" % self.base #FIXME
 
-    def get_graph(self):
-        if (not hasattr(self, "graph") or self.graph == None):
-            self.__build_graph()
-        return self.graph
-
-    def __build_graph(self):
+    def build_graph(self):
         graph = ConjunctiveGraph()
         graph.bind('sioc', SIOC)
         graph.bind('foaf', FOAF)
@@ -132,7 +127,7 @@ class Thread(Resource):
             self.__build_graph()
         return self.graph
 
-    def __build_graph(self):
+    def build_graph(self):
         graph = ConjunctiveGraph()
         graph.bind('sioc', SIOC)
         graph.bind('foaf', FOAF)

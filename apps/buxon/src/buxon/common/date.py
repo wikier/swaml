@@ -149,7 +149,7 @@ class MailDate(Date):
         self.date = email.Utils.parsedate(date)
 
 	if (self.date == None):
-		print 'Error parsing date: non valid format (' + date + ')'
+		print 'Error parsing none date, trying alternatives...'
 		#trying another format: dd.mm.yyyy
 		try:		
 			tmp = date.split('.')

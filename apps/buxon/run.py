@@ -86,13 +86,8 @@ class BuxonMain:
         """
 
         #configure buxon logger
-        self.logger = logging.getLogger('buxon')
-        self.logger.setLevel(logging.DEBUG)
-        _hdlr = logging.StreamHandler()
-        _hdlr.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s: %(message)s'))
-        self.logger.addHandler(_hdlr)
-
-        self.logger.info('Starting up Buxon')
+        logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s: %(message)s", stream=sys.stdout)
+        logging.info('Starting up Buxon main window')
 
         sys.path.append(base + 'src')
         
@@ -106,7 +101,7 @@ class BuxonMain:
             widgets = gtk.glade.XML(base + 'includes/ui/graphical/buxon.glade')
             callbacks = Callbacks()
             widgets.signal_autoconnect(Callbacks.__dict__)
-            self.logger.debug('GUI loaded')
+            logging.debug('GUI loaded')
 
             buxon = BuxonWindow(widgets, base)
 
@@ -119,7 +114,7 @@ class BuxonMain:
                 buxon.main()
 
         except KeyboardInterrupt:
-            self.logger.info('Received Ctrl+C or another break signal. Exiting...')
+            logging.info('Received Ctrl+C or another break signal. Exiting...')
             sys.exit()
 
 

@@ -19,6 +19,7 @@
 
 """a cache service for sioc:Forum"""
 
+import logging
 from rdflib import URIRef
 from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.sparqlGraph import SPARQLGraph
@@ -130,21 +131,17 @@ class Cache:
         @return: posts result
         """
 
-        try:
-            sparqlGr = SPARQLGraph(self.graph)
-            select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')
-            where  = GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
-                              ('?post',    DC['title'],            '?postTitle'),
-                              ('?post',    DCTERMS['created'],     '?date'),
-                              ('?post',    SIOC['content'],        '?content'),
-                              ('?post',    SIOC['has_creator'],    '?user'),
-                              ('?user',    SIOC['name'],           '?userName')])
-            opt    = GraphPattern([('?post',    SIOC['reply_of'],       '?parent')])
-            posts = Query.query(sparqlGr, select, where, opt)
-            return self.orderByDate(posts)
-        except Exception, details:
-            print 'parsing exception:', str(details)
-            return None
+        sparqlGr = SPARQLGraph(self.graph)
+        select = ('?post', '?postTitle', '?date', '?userName', '?content', '?parent')
+        where  = GraphPattern([('?post',    RDF['type'],            SIOC['Post']),
+                          ('?post',    DC['title'],            '?postTitle'),
+                          ('?post',    DCTERMS['created'],     '?date'),
+                          ('?post',    SIOC['content'],        '?content'),
+                          ('?post',    SIOC['has_creator'],    '?user'),
+                          ('?user',    SIOC['name'],           '?userName')])
+        opt    = GraphPattern([('?post',    SIOC['reply_of'],       '?parent')])
+        posts = Query.query(sparqlGr, select, where, opt)
+        return self.orderByDate(posts)
 
     def getPostAuthor(self, post):
         """

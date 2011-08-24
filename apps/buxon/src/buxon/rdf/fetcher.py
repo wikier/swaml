@@ -19,6 +19,7 @@
 
 """a cache service for sioc:Forum"""
 
+import logging
 from rdflib import URIRef
 from rdflib.Graph import ConjunctiveGraph
 from rdflib.sparql.sparqlGraph import SPARQLGraph
@@ -44,17 +45,16 @@ class Fetcher:
                               ('?post', DC['title'], '?title')])
             posts = Query.query(sparqlGr, select, where)
 
-            print len(posts), 'posts:'
+            logging.info(len(posts) + ' posts:')
 
             for post, title in posts:
-                print post,
                 try:
-                    print title
+                    logging.info(post + " " + title)
                 except:
-                    print '(bad formed title)'
+                    logging.info(post + ' (bad formed title)')
 
         except Exception, details:
-            print 'parsing exception:', str(details)
+            logging.error('parsing exception:' + str(details))
             return None
 
 
@@ -66,16 +66,16 @@ class Fetcher:
         """
 
         graph = ConjunctiveGraph()
-        print 'Getting mailing list data (', uri, ')...',
+        logging.debug('Getting mailing list data (' + uri + ')...')
         graph.parse(uri)
-        print 'OK, loaded', len(graph), 'triples'
+        logging.info('OK, loaded ' + str(len(graph)) + ' triples')
 
         forums = self.__getForums(graph)
         if forums.__len__() < 1:
             return None
         
         self.uri = forums[0]
-        print 'Using ' + self.uri + ' sioc:Forum'
+        logging.info('Using ' + self.uri + ' sioc:Forum')
 
         if (self.pb != None):
             self.pb.progress()
@@ -92,11 +92,11 @@ class Fetcher:
         @param uri: uri to load
         """
 
-        print 'Resolving reference to get additional data (', uri, ')...',
+        logging.debug('Resolving reference to get additional data (' + uri + ')...')
         try:
             self.graph.parse(uri)
         except:
-            print '\nAn exception ocurred parsing ' + uri
+            logging.error('An exception ocurred parsing ' + uri)
             return
 
         if (self.pb != None):
@@ -107,7 +107,7 @@ class Fetcher:
         if (self.ptsw != None):
             self.ptsw.ping(uri)
 
-        print 'OK, now', len(self.graph), 'triples'
+        logging.debug('OK, now ' + str(len(self.graph)) + ' triples')
 
     def __getForums(self, graph):
         """
@@ -167,13 +167,13 @@ class Fetcher:
         try:
             self.graph = self.loadMailingList(self.uri)
         except Exception, details:
-            print '\nAn exception ocurred parsing ' + self.uri + ': ' + str(details)
+            logging.error('An exception ocurred parsing ' + self.uri + ': ' + str(details))
             self.bad = True
             return
 
         if self.graph == None:
             self.bad = True
-            print 'None sioc:Forum founded on', self.uri
+            logging.error('None sioc:Forum founded on ' + self.uri)
         else:
             self.loadAdditionalData()
             #self.__listPosts()
@@ -182,12 +182,12 @@ class Fetcher:
             self.pb.destroy()
 
         if (self.ptsw != None):
-            print self.ptsw.stats()
+            logging.debug(self.ptsw.stats())
 
         if self.bad:
             return None
         else:
-            print 'Total triples loaded:', len(self.graph)
+            logging.info('Total triples loaded: ' + str(len(self.graph)))
             return self.graph
 
     def __init__(self, base, ping, pb=None):

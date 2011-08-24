@@ -20,7 +20,7 @@
 import sys, os, string
 import email.Utils
 import time
-
+import logging
 
 class Date:
     
@@ -149,7 +149,7 @@ class MailDate(Date):
         self.date = email.Utils.parsedate(date)
 
 	if (self.date == None):
-		print 'Error parsing none date, trying alternatives...'
+		logging.error('Error parsing none date, trying alternatives...')
 		#trying another format: dd.mm.yyyy
 		try:		
 			tmp = date.split('.')

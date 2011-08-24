@@ -23,9 +23,10 @@
 import sys
 import os
 import logging
+import gtk
+import gtk.glade
 import pygtk
 pygtk.require('2.0')
-from gazpacho.loader.loader import ObjectBuilder
 
 try:
     import rdflib
@@ -102,7 +103,7 @@ class BuxonMain:
             global callbacks
             global buxon
 
-            widgets = ObjectBuilder(base + 'includes/ui/graphical/buxon.glade')
+            widgets = gtk.glade.XML(base + 'includes/ui/graphical/buxon.glade')
             callbacks = Callbacks()
             widgets.signal_autoconnect(Callbacks.__dict__)
             self.logger.debug('GUI loaded')

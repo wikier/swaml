@@ -16,7 +16,6 @@ Dependencies:
     - rdflib >= 2.4.0
     - gtk+ >= 2.6.0
     - pygtk >= 2.6.0
-    - gazpacho >= 0.6.6
         
 As root user you may run:
 

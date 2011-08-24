@@ -1,4 +1,7 @@
 
+2011-08-24  0.0.5   - Removed unnecessary dependency on Gazpacho
+                    - Fixed some messages' printing
+
 2008-03-05  0.0.4   - PingTheSemanticWeb.com support added
                     - Updated to the latest version of RDFLib
                     - Deleted dependency on SWAML core

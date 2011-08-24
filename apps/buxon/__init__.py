@@ -18,9 +18,9 @@
 __author__       = 'Sergio Fernández <http://www.wikier.org/>'
 __contributors__ = ['Diego Berrueta <http://www.berrueta.net/>',
                     'Jose Emilio Labra <http://www.di.uniovi.es/~labra/>']
-__copyright__    = 'Copyright 2005-2008, Sergio Fernández'
+__copyright__    = 'Copyright 2005-2011, Sergio Fernández'
 __license__      = 'GNU General Public License'
-__version__      = '0.0.4'
+__version__      = '0.0.5'
 __url__          = 'http://swaml.berlios.de/'
 __agent__        = 'http://swaml.berlios.de/doap.rdf'
 

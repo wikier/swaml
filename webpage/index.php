@@ -243,12 +243,12 @@
       </p>
 
       <p>
-        If you would like to stay up to date with development you can check out the latest version via the 
-        <a href="http://subversion.tigris.org/">subversion</a> version control system:
+        If you would like to stay up to date with development you can check out the latest version 
+        using the source code repository:
       </p>
 
       <p class="svn">
-        svn checkout <a href="/wsvn">http://svn.berlios.de/svnroot/repos/swaml/trunk</a> swaml
+        hg clone <a href="https://bitbucket.org/wikier/swaml">https://bitbucket.org/wikier/swaml</a>
       </p>
 
       <h2 id="doc">Documentation</h2>

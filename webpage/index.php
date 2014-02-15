@@ -21,15 +21,14 @@
     <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://criptonita.com/~nacho/foaf.rdf" />
   </head>
 
-  <body typeof="doap:Project" about="http://swaml.berlios.de/doap#swaml">
+  <body typeof="doap:Project" about="http://swaml.wikier.org/doap#swaml">
 
     <div class="accessibility">
       <a href="#content" accesskey="c" title="Go to content">Go to content</a>
     </div>
 
     <h1 id="head">
-      <a href="http://developer.berlios.de/"><img src="images/berlios.png" width="132" height="50" alt="Project hosted by BerliOS" /></a>
-      <a href="http://swaml.berlios.de/"><acronym title="Semantic Web Archive of Mailing Lists" property="doap:name">swaml</acronym></a>
+      <a href="http://swaml.wikier.org/"><acronym title="Semantic Web Archive of Mailing Lists" property="doap:name">swaml</acronym></a>
     </h1>
 
     <div id="menu">
@@ -56,11 +55,11 @@
         title="Semantic Web Oviedo Research Group">WESO-RG</abbr></a>
         at <a href="http://www.euitio.uniovi.es/">University of Oviedo</a> (Spain). 
         You can visit the 
-        <a href="http://developer.berlios.de/projects/swaml/">project page at BerliOS</a> 
+        <a href="http://bitbucket.org/wikier/swaml/">project page at bibucket</a> 
         for more details.
       </p>
 
-      <a href="http://swaml.berlios.de/">
+      <a href="http://swaml.wikier.org/">
         <img src="images/swaml.png" width="400" height="336" alt="SWAML process description" id="process" />
       </a>
 
@@ -153,7 +152,7 @@
      	<li>
           free software under
           <a href="http://www.gnu.org/licenses/gpl.html"><acronym title="GNU General Public License">GPL</acronym></a><abbr title="version 2">v2</abbr>
-          or later)
+          (or later)
         </li>
       </ul>
 
@@ -185,48 +184,48 @@
           <acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>:
         </dt>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/swaml-0.1.1.tar.gz">swaml-0.1.1.tar.gz</a>
+          <a href="files/releases/swaml-0.1.1.tar.gz">swaml-0.1.1.tar.gz</a>
           (16/04/2010)
         </dd>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/swaml-0.1.0.tar.gz">swaml-0.1.0.tar.gz</a>
+          <a href="files/releases/swaml-0.1.0.tar.gz">swaml-0.1.0.tar.gz</a>
           (25/07/2008)
         </dd>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.5.tar.gz">swaml-0.0.5.tar.gz</a>
+          <a href="files/releases/swaml-0.0.5.tar.gz">swaml-0.0.5.tar.gz</a>
           and
-          <a href="http://prdownload.berlios.de/swaml/swaml_0.0.5-2_all.deb">swaml_0.0.5-2_all.deb</a>
+          <a href="files/releases/swaml_0.0.5-2_all.deb">swaml_0.0.5-2_all.deb</a>
           (28/12/2006)
         </dd>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.4.tar.gz">swaml-0.0.4.tar.gz</a>
+          <a href="files/releases/swaml-0.0.4.tar.gz">swaml-0.0.4.tar.gz</a>
           (21/11/2006)
         </dd>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.3.tar.gz">swaml-0.0.3.tar.gz</a>
+          <a href="files/releases/swaml-0.0.3.tar.gz">swaml-0.0.3.tar.gz</a>
           (01/11/2006)
         </dd>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.2.tar.gz">swaml-0.0.2.tar.gz</a>
+          <a href="files/releases/swaml-0.0.2.tar.gz">swaml-0.0.2.tar.gz</a>
           (13/10/2006)
         </dd>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
+          <a href="files/releases/swaml-0.0.1.tar.gz">swaml-0.0.1.tar.gz</a>
           (02/10/2006)
         </dd>
         <dt>
           Buxon:
         </dt>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/buxon-0.0.4.tar.gz">buxon-0.0.4.tar.gz</a>
+          <a href="files/releases/buxon-0.0.4.tar.gz">buxon-0.0.4.tar.gz</a>
           and
-          <a href="http://prdownload.berlios.de/swaml/buxon_0.0.4-1_all.deb">buxon_0.0.4-1_all.deb</a>
+          <a href="files/releases/buxon_0.0.4-1_all.deb">buxon_0.0.4-1_all.deb</a>
           (05/03/2008)
         </dd>
         <dd>
-          <a href="http://prdownload.berlios.de/swaml/buxon-0.0.3.tar.gz">buxon-0.0.3.tar.gz</a>
+          <a href="files/releasesbuxon-0.0.3.tar.gz">buxon-0.0.3.tar.gz</a>
           and
-          <a href="http://prdownload.berlios.de/swaml/buxon_0.0.3-2_all.deb">buxon_0.0.3-2_all.deb</a>
+          <a href="files/releases/buxon_0.0.3-2_all.deb">buxon_0.0.3-2_all.deb</a>
           (28/12/2006)
         </dd>
       </dl>
@@ -258,13 +257,13 @@
       </p>
 
       <dl>
-        <dt><a href="http://prdownload.berlios.de/swaml/propuesta.pdf">propuesta.pdf</a>:</dt>
+        <dt><a href="files/doc/propuesta.pdf">propuesta.pdf</a>:</dt>
         <dd>original document in spanish with the idea that motivated this project</dd>
 
-        <dt><a href="http://prdownload.berlios.de/swaml/proposal.pdf">proposal.pdf</a>:</dt>
+        <dt><a href="files/doc/proposal.pdf">proposal.pdf</a>:</dt>
         <dd>translation with the idea that motivated this project</dd>
 
-        <dt><a href="http://prdownload.berlios.de/swaml/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
+        <dt><a href="files/doc/swaml-pfc.pdf">swaml-pfc.pdf</a>:</dt>
         <dd>a book (in Spanish) about the SWAML project for Sergio's degree dissertation</dd>
       </dl>
 
@@ -316,7 +315,7 @@
       </p>
       <dl>
         <dt>
-          <a href="http://swaml.berlios.de/files/doc/talks/20080422-swsm2008/">Bootstrapping 
+          <a href="files/doc/talks/20080422-swsm2008/">Bootstrapping 
           the Semantic Web of Social Online Communities</a>:
         </dt>
         <dd>
@@ -325,7 +324,7 @@
         </dd>
 
         <dt>
-          <a href="http://prdownload.berlios.de/swaml/20080409-talk-swaml-deri-galway.tar.gz">Bootstrapping 
+          <a href="files/doc/talks/20080409-talk-swaml-deri-galway.tar.gz">Bootstrapping 
           the Semantic Web of Social Online Communities</a>:
         </dt>
         <dd>
@@ -333,7 +332,7 @@
         </dd>
 
         <dt>
-          <a href="http://prdownload.berlios.de/swaml/20070511-swaml-concurso-software-libre.pdf"><acronym 
+          <a href="files/doc/talks/20070511-swaml-concurso-software-libre.pdf"><acronym 
           title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
           Semantic Web Archive of Mailing Lists</a>:
         </dt>
@@ -345,7 +344,7 @@
         </dd>
  
         <dt>
-          <a href="http://prdownload.berlios.de/swaml/SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf">Mailing Lists Meet The Semantic Web</a>:
+          <a href="files/doc/talks//SAW2007-Mailing-Lists-Meet-The-Semantic-Web.pdf">Mailing Lists Meet The Semantic Web</a>:
         </dt>
         <dd>
           April 27th of 2007 in Poznan (Poland) on the workshop of Social Aspects of 
@@ -359,7 +358,7 @@
         </dd>
 
         <dt>
-          <a href="http://prdownload.berlios.de/swaml/20061220-pfc-swaml.pdf"><span
+          <a href="files/doc/swaml-pdf.pdf"><span
           xml:lang="es"><acronym title="Semantic Web Archive of Mailing Lists">SWAML</acronym>,
           publicación de listas de correo en Web Semántica</span></a>:
         </dt>
@@ -405,7 +404,6 @@
         <li><a href="doap#swaml" type="application/rdf+xml"><img src="images/rdfmeta.png" alt="RDF Meta" /></a></li>
         <li><a href="http://validator.w3.org/check/referer"><img src="images/xhtml.png" alt="Valid XHTML" /></a></li>
         <li><a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/css.png" alt="Valid CSS" /></a></li>
-        <li><a href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4806" width="62px" height="16px" alt="BerliOS Developer Logo" /></a></li>
       </ul>
     </div>
 

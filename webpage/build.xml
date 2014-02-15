@@ -3,12 +3,12 @@
 <project name="SWAML-Web" default="scp">
 
 	<property environment="env" />	
-	<property name="host" value="shell.berlios.de" />
-	<property name="path" value="/home/groups/swaml/htdocs/" />
+	<property name="host" value="wikier.org" />
+	<property name="path" value="swaml.wikier.org" />
 	<property name="user" value="wikier" />
 	
 	<target name="scp" description="upload web files" depends="clean">
-	   <exec executable="scp">
+	  <exec executable="scp">
 		<arg value="index.php" />
 		<arg value="functions.php" />
 		<arg value="style.css" />
